@@ -46,7 +46,44 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "02b5ab88317f0f0d",
+            "charmName": "Thumbnail Spider March",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1e0d1a47fc4d7bb3",
+            "charmName": "Jumping Spider Strike",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6cf4d8fbabb0751d",
+            "charmName": "Water Spider Bite",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "e7f5b8d7ec8008b5"
   },
   "folder": "1c3b8957c92799e4",

@@ -37,7 +37,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Even Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,56 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "894712183b11eddb",
+            "charmName": "Flashing Zephyr Speed Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c62a209193716abb",
+            "charmName": "Floating Nymph Grace Evasion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "92fb9550f7102612",
+            "charmName": "Gruesome Wood King Revelry Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7d9e01e36426ff93",
+            "charmName": "Stubborn Jokun Defensive Posture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "4bf0fa6ca4264fe4"
   },
   "folder": "6ac2f15fc6fdff1c",

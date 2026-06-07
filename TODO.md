@@ -313,7 +313,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] GM "Roll a Pool" dialog — ad-hoc dice roller that picks up the standard penalty machinery
 - [x] Keyword-effect registry for systematic status application (completed under Charm Keywords; duplicate entry)
 - [x] Effect-flag registry file documenting every `flags.exalted2e.*` semantic role
-- [ ] Migration pipeline for schema changes as system evolves
+- [x] Migration pipeline for schema changes as system evolves (module/migration/, semver-keyed forward-only, baseline 1.1.0)
 - [x] Language-drift linter (en.json ↔ es.json key parity)
 - [x] Multi-actor action helpers (Coordinate, Cooperative charms, mass Guard) — mass Guard added: GM HUD button guards all selected canvas tokens' combatants at once (`module/combat/mass-guard.mjs`), one combined card, skips non-combatants with a warning
 - [x] Personal/Peripheral commitment split — DialogV2 in `_preUpdate` lets players choose pool when both have motes; chosen pool stored in `flags.exalted2e.attunePool`; un-attune/delete refunds to same pool

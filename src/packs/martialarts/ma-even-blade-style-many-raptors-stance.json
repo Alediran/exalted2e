@@ -37,7 +37,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Even Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "9390701a5ea44932"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4bf0fa6ca4264fe4",
+            "charmName": "The Variant Discovered by Resolute Brigada Clutching Eagle Talon",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "9390701a5ea44932",
+    "grantsMastery": true
   },
   "folder": "6ac2f15fc6fdff1c",
   "sort": 0,

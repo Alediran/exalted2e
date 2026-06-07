@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Even Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,56 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "913a0eeedc847372",
+            "charmName": "Fiery Garda Force Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "894712183b11eddb",
+            "charmName": "Flashing Zephyr Speed Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c62a209193716abb",
+            "charmName": "Floating Nymph Grace Evasion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7d9e01e36426ff93",
+            "charmName": "Stubborn Jokun Defensive Posture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "078c444487193d6f"
   },
   "folder": "6ac2f15fc6fdff1c",

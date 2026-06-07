@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Crimson Pentacle Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,58 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "ff0c1bd9d13e81e6"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bf4da34e60c0a613",
+            "charmName": "Eastern Root Protocol",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9e5fbf31dd2bd509",
+            "charmName": "Sprinting Stag Defense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2a2370f798ec8836",
+            "charmName": "Blessing of Jeweled Vambraces and Mantle",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b492b29e8fd66718",
+            "charmName": "Call-to-the-blade-of-righteousness Mantra",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ff0c1bd9d13e81e6",
+    "grantsMastery": true
   },
   "folder": "dd43fd817c3c8fc1",
   "sort": 0,

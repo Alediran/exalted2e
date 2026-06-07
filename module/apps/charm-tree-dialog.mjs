@@ -66,10 +66,13 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       [game.i18n.localize('EX2E.ExaltMartialArts'), 'martialarts'],
     ];
 
-    // Group options based on selected exalt type — also [label, key] pairs
+    // Group options: [{ label: string|null, options: [[label,key],…] }]
+    // null label → flat <option> list; string label → <optgroup>
     const groupOptions = await this.#buildGroupOptions(EX2E);
 
-    if (!this.#groupKey && groupOptions.length) this.#groupKey = groupOptions[0][1];
+    if (!this.#groupKey && groupOptions.length) {
+      this.#groupKey = groupOptions[0].options[0]?.[1] ?? null;
+    }
 
     return {
       exaltTypes,
@@ -87,39 +90,60 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     if (!et) return [];
 
     if (et === 'infernal') {
-      // yoziPatrons values are i18n keys
-      return Object.entries(EX2E.yoziPatrons ?? {})
+      const opts = Object.entries(EX2E.yoziPatrons ?? {})
         .map(([k, v]) => [game.i18n.localize(v), k]);
+      return [{ label: null, options: opts }];
     }
     if (et === 'lunar' || et === 'alchemical') {
-      // attributes is a nested {physical:{strength:"i18n",...},...} — flatten it
       const flat = Object.values(EX2E.attributes ?? {})
         .flatMap(group => Object.entries(group));
-      return flat.map(([k, v]) => [game.i18n.localize(v), k]);
+      const opts = flat.map(([k, v]) => [game.i18n.localize(v), k]);
+      return [{ label: null, options: opts }];
     }
     if (et === 'martialarts') {
-      // Derive style names from martialArtsStyleName on charm items in the MA pack
-      const styleNames = new Set();
+      // Collect style name → tier; first entry wins (all charms in a style share the same tier)
+      const styleTier = new Map();
       const maPack = game.packs.get('exalted2e.martialarts');
       if (maPack) {
-        const index = await maPack.getIndex({ fields: ['system.martialArtsStyleName', 'type'] });
+        const index = await maPack.getIndex({
+          fields: ['system.martialArtsStyleName', 'system.martialArtsTier', 'type'],
+        });
         for (const entry of index) {
           if (entry.type === 'charm' && entry.system?.martialArtsStyleName) {
-            styleNames.add(entry.system.martialArtsStyleName);
+            const name = entry.system.martialArtsStyleName;
+            if (!styleTier.has(name)) styleTier.set(name, entry.system?.martialArtsTier ?? '');
           }
         }
       }
-      // Also pick up styles from world items and actor items
       for (const item of game.items) {
         if (item.type === 'charm' && item.system?.martialArtsStyleName) {
-          styleNames.add(item.system.martialArtsStyleName);
+          const name = item.system.martialArtsStyleName;
+          if (!styleTier.has(name)) styleTier.set(name, item.system?.martialArtsTier ?? '');
         }
       }
-      return Array.from(styleNames).sort().map(n => [n, n]);
+
+      const TIER_ORDER  = ['terrestrial', 'celestial', 'sidereal'];
+      const TIER_LABELS = { terrestrial: 'Terrestrial', celestial: 'Celestial', sidereal: 'Sidereal' };
+
+      const byTier = new Map(TIER_ORDER.map(t => [t, []]));
+      const other  = [];
+      for (const [name, tier] of styleTier) {
+        if (byTier.has(tier)) byTier.get(tier).push(name);
+        else other.push(name);
+      }
+
+      const groups = [];
+      for (const tier of TIER_ORDER) {
+        const styles = byTier.get(tier).sort();
+        if (styles.length) groups.push({ label: TIER_LABELS[tier], options: styles.map(n => [n, n]) });
+      }
+      if (other.length) groups.push({ label: 'Other', options: other.sort().map(n => [n, n]) });
+      return groups;
     }
-    // Solar, DB, Sidereal, Abyssal → abilities (EX2E.abilities is an array of keys)
-    return (EX2E.abilities ?? [])
+    // Solar, DB, Sidereal, Abyssal → abilities
+    const opts = (EX2E.abilities ?? [])
       .map(k => [game.i18n.localize(EX2E.abilityLabels?.[k] ?? k), k]);
+    return [{ label: null, options: opts }];
   }
 
   // ── render ────────────────────────────────────────────────────────────────

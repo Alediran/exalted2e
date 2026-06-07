@@ -1,5 +1,13 @@
 {
   "EX2E": {
+    "Migration": {
+      "BackupTitle": "Migración de datos del mundo",
+      "BackupBody": "Este mundo necesita una migración de datos para la nueva versión del sistema. Haz una copia de seguridad del mundo antes de continuar. ¿Continuar?",
+      "Running": "Migrando datos del mundo… no cierres el mundo.",
+      "Complete": "Migración de datos del mundo completada.",
+      "Issues": "La migración terminó con {count} problema(s) — revisa la consola; se reintentará al recargar.",
+      "Failed": "La migración de datos del mundo falló — revisa la consola; se reintentará al recargar."
+    },
     "ActorName": "Nombre del Personaje",
     "ExaltType": "Tipo de Exaltado",
     "SplatType": "Tipo de Splat",

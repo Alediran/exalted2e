@@ -34,7 +34,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Citrine Poxes of Contagion Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,7 +41,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "656723c09c144680",
+            "charmName": "Citrine Poxes of Contagion Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "4166a807b7e8272e"
   },
   "folder": "9eef66b2ef45a641",

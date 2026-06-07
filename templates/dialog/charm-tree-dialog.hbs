@@ -14,8 +14,18 @@
       <div class="charm-tree-header__field">
         <label>{{localize "EX2E.CharmTree.Group"}}</label>
         <select name="groupKey" data-action-select="changeGroupKey">
-          {{#each groupOptions as |pair|}}
-            <option value="{{pair.[1]}}" {{#if (eq pair.[1] selectedGroupKey)}}selected{{/if}}>{{pair.[0]}}</option>
+          {{#each groupOptions as |grp|}}
+            {{#if grp.label}}
+              <optgroup label="{{grp.label}}">
+                {{#each grp.options as |pair|}}
+                  <option value="{{pair.[1]}}" {{#if (eq pair.[1] ../../selectedGroupKey)}}selected{{/if}}>{{pair.[0]}}</option>
+                {{/each}}
+              </optgroup>
+            {{else}}
+              {{#each grp.options as |pair|}}
+                <option value="{{pair.[1]}}" {{#if (eq pair.[1] ../../selectedGroupKey)}}selected{{/if}}>{{pair.[0]}}</option>
+              {{/each}}
+            {{/if}}
           {{/each}}
         </select>
       </div>

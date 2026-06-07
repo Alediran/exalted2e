@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Even Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "59152d2d366a9e5e"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "078c444487193d6f",
+            "charmName": "The Variant of Master Zu Rat Te Stumbling Inconvenience Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "59152d2d366a9e5e",
+    "grantsMastery": true
   },
   "folder": "6ac2f15fc6fdff1c",
   "sort": 0,

@@ -37,7 +37,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Even Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,56 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "913a0eeedc847372",
+            "charmName": "Fiery Garda Force Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "894712183b11eddb",
+            "charmName": "Flashing Zephyr Speed Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c62a209193716abb",
+            "charmName": "Floating Nymph Grace Evasion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "92fb9550f7102612",
+            "charmName": "Gruesome Wood King Revelry Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "b6d885c69dbe6fba"
   },
   "folder": "6ac2f15fc6fdff1c",

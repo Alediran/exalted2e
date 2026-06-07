@@ -40,7 +40,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Citrine Poxes of Contagion Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -48,7 +47,44 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c16bd9d815494c9c",
+            "charmName": "Essence-disrupting Infectious Atemi",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "53dbb0c74a8c0e6e",
+            "charmName": "Inner Dragon Unbinding",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ba11ad933c904ed8",
+            "charmName": "Flare of Invulnerability Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "656723c09c144680"
   },
   "folder": "9eef66b2ef45a641",

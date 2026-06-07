@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Crimson Pentacle Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bf4da34e60c0a613",
+            "charmName": "Eastern Root Protocol",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d591b706f5c77846"
   },
   "folder": "dd43fd817c3c8fc1",
