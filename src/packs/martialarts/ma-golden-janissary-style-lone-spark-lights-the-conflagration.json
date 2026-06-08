@@ -38,7 +38,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Golden Janissary Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "f4734d8f9e6a2896"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c49606c1c95563d9",
+            "charmName": "Light-on-dark Shield",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "edf56e3a6cdcfe6a",
+            "charmName": "Paralyzing Combustion Imbuement",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "f4734d8f9e6a2896",
+    "grantsMastery": true
   },
   "folder": "308a6e755f91c2ff",
   "sort": 0,

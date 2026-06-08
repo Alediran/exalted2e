@@ -1,6 +1,6 @@
 {
-  "_id": "94addaf75104164c",
-  "_key": "!items!94addaf75104164c",
+  "_id": "cd4750677fd1f338",
+  "_key": "!items!cd4750677fd1f338",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "(element) Adept Gesture",
+  "name": "Mist Adept Gesture",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,21 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "94addaf75104164c"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b6dad44caac597f1",
+            "charmName": "Mist Apprentice Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "cd4750677fd1f338"
   },
   "folder": "30abfdbff9e8ecc7",
   "sort": 0,

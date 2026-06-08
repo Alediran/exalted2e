@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "a5c17c6980bd9517"
+    "charmUid": "a5c17c6980bd9517",
+    "grantsMastery": false
   },
   "folder": "5ce01017f4c92c09",
   "sort": 0,

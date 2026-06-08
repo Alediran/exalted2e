@@ -34,7 +34,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,8 +41,110 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "6e85cb15c969135e"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2c505cc513b72d0d",
+            "charmName": "Fivefold Shadow Hand Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "32fd8fb8d21cb1b8",
+            "charmName": "Nothing but the Wind",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "a8e0a83750ddd9c4",
+            "charmName": "White Breath in the Cold",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "b8e0f63703451ef3",
+            "charmName": "The Mysterious Death",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "e59df4f23f1af0bb",
+            "charmName": "The Cat Disguise",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "dd5c1794178b8f1d",
+            "charmName": "Foolish Inattentiveness",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "949b3d79e895ff89",
+            "charmName": "The Disappearing Assassin",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "ab1e0dee3c59a335",
+            "charmName": "The Fatal Kiss",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "e11d7aec61cd20f4",
+            "charmName": "The Unexpected Death",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "c45e276edd40ea01",
+            "charmName": "Laugh at the Enemy's Aim",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "8ff3db6c505914b4",
+            "charmName": "The Nameless Assassin",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "6e85cb15c969135e",
+    "grantsMastery": true
   },
   "folder": "30abfdbff9e8ecc7",
   "sort": 0,

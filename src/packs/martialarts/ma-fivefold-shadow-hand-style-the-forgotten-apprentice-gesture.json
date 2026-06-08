@@ -1,6 +1,6 @@
 {
-  "_id": "2f0af8b16033919d",
-  "_key": "!items!2f0af8b16033919d",
+  "_id": "bbb3262aa035ba44",
+  "_key": "!items!bbb3262aa035ba44",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "(element) Apprentice Gesture",
+  "name": "The Forgotten Apprentice Gesture",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,7 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "2f0af8b16033919d"
+    "charmUid": "bbb3262aa035ba44"
   },
   "folder": "30abfdbff9e8ecc7",
   "sort": 0,
