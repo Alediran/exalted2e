@@ -322,13 +322,6 @@
   background: var(--color-bg-option, rgba(0,0,0,0.05));
 }
 
-.exalted2e.item.charm .field-hint {
-  font-size: 0.75em;
-  font-style: italic;
-  color: var(--color-text-dark-secondary, #4b4a44);
-  margin-left: 2px;
-}
-
 
 /* ── Charm sheet: per-splat accent palette (dark mode) ─────────────────── */
 .exalted2e.item.charm[data-exalt-type="solar"]       { --ex2e-gold-bright: #ffe066; --ex2e-gold-main: #c9a227; --ex2e-gold-mid: #a07820; --ex2e-gold-dark: #5c4510; }
@@ -590,11 +583,6 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
   font-style: italic;
 }
 
-.charm-prereq-ok {
-  color: var(--ex2e-success, #27ae60);
-  margin-right: 4px;
-  font-size: 11px;
-}
 
 .charm-prereq-missing {
   color: var(--ex2e-dmg-lethal, #c0392b);

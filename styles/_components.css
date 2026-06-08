@@ -115,28 +115,7 @@
   justify-content: flex-end;
 }
 
-/* Legacy flat track — still used anywhere that calls the old helper
-   without per-level data; safe to leave alongside the row layout. */
-.health-track {
-  display:   flex;
-  gap:       4px;
-  flex-wrap: wrap;
-  padding:   var(--ex2e-gap-sm) 0;
-}
 
-/* Bonus health-level editor: label + three compact inputs laid out as a row. */
-.bonus-health-inputs {
-  display: flex;
-  gap:     8px;
-}
-.bonus-health-cell {
-  display:     inline-flex;
-  align-items: center;
-  gap:         4px;
-  font-size:   var(--ex2e-font-size-xs);
-  color:       var(--ex2e-text-secondary);
-}
-.bonus-health-cell input { width: 48px; }
 
 .health-box {
   width:  36px;
@@ -152,12 +131,6 @@
   transition: background var(--ex2e-transition-fast), border-color var(--ex2e-transition-fast);
 }
 
-.health-box .box-label {
-  font-family: var(--ex2e-font-ui);
-  font-size:   var(--ex2e-font-size-xs);
-  color:       var(--ex2e-text-muted);
-  line-height: 1;
-}
 
 .health-box .box-mark {
   font-size:  var(--ex2e-font-size-lg);

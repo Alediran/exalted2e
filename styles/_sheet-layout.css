@@ -139,22 +139,6 @@
   flex-wrap: nowrap;
 }
 
-.limit-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-  font-family: var(--ex2e-font-ui);
-  font-size:   var(--ex2e-font-size-xs);
-  color:       var(--ex2e-text-muted);
-}
-
-
-.wp-fraction {
-  font-family: var(--ex2e-font-ui);
-  font-size:   var(--ex2e-font-size-xs);
-  color:       var(--ex2e-text-muted);
-  margin-left: 4px;
-}
 
 /* ── TAB NAVIGATION (vertical, right side) ──────────────────────────────── */
 
@@ -319,7 +303,6 @@
   padding:               var(--ex2e-gap-sm) 0;
 }
 
-.submodule-config { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--ex2e-gap-sm); margin-bottom: 10px; }
 
 .charm-active { border-left: 3px solid var(--ex2e-gold-main); }
 .charm-meta   { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-muted); margin-left: 6px; }
@@ -567,12 +550,6 @@
 }
 
 /* ── ABILITIES ───────────────────────────────────────────────────────────── */
-.abilities-list {
-  display:               grid;
-  grid-template-columns: 1fr 1fr;
-  gap:                   2px var(--ex2e-gap-lg);
-}
-
 .ability-row {
   display:       flex;
   align-items:   center;
@@ -645,21 +622,7 @@
   gap:            2px;
 }
 
-/* Virtue Flaw slot: input-styled lookup/clear row */
-.virtue-flaw-row {
-  grid-column: 1 / -1;
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-  padding:     6px 0 3px;
-  border-top:  1px solid var(--ex2e-gold-shadow);
-  margin-top:  var(--ex2e-gap-sm);
-}
-.virtue-flaw-label {
-  font-family: var(--ex2e-font-body);
-  color:       var(--ex2e-text-primary);
-  flex:        0 0 auto;
-}
+
 .virtue-flaw-input-group {
   display:     flex;
   align-items: stretch;

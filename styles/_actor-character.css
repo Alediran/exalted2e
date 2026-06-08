@@ -481,24 +481,10 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   flex-shrink: 0;
 }
 
-/* Specialties inside columns */
-.specialty-list {
-  display:        flex;
-  flex-direction: column;
-  gap:            2px;
-  padding-left:   2px;
-}
-
 .specialty-row {
   display:     flex;
   align-items: center;
   gap:         var(--ex2e-gap-xs);
-}
-
-.specialty-text {
-  font-size:  var(--ex2e-font-size-xs);
-  font-style: italic;
-  color:      var(--ex2e-text-muted);
 }
 
 /* Add-specialty button inside columns */
@@ -591,11 +577,6 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   padding:     1px 0;
 }
 
-.specialty-column .specialty-text,
-.specialty-column-section .specialty-text {
-  font-size: var(--ex2e-font-size-sm);
-  color:     var(--ex2e-text-primary);
-}
 
 .specialty-column .specialty-name,
 .specialty-column-section .specialty-name {

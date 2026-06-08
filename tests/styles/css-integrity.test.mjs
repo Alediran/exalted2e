@@ -56,7 +56,7 @@ describe("css-integrity pure checks", () => {
 const STYLES_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../styles");
 const TEMPLATES_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../templates");
 const ORPHAN_ALLOWLIST = [];   // intentionally-reserved tokens (none after cleanup)
-const CSS_DUP_MAX = 77;        // baseline; lower as structural merges land, never raise
+const CSS_DUP_MAX = 76;        // baseline; lower as structural merges land, never raise
 const MIGRATED_ROW_SELECTORS = [   // leaf classes migrated to .ex2e-row (populated in Phase B)
   "charm-activation-row",
   "charm-group-header",

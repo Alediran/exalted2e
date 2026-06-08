@@ -673,17 +673,6 @@
   margin-left:  4px;
 }
 
-.exalted2e .artifact-crafting-dialog .exc-label,
-.exalted2e .crafting-roll-dialog .exc-label {
-  font-family:    var(--ex2e-font-ui);
-  font-size:      var(--ex2e-font-size-sm);
-  color:          var(--ex2e-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  flex-shrink:    0;
-  min-width:      0;
-}
-
 
 
 .ex2e-roll-dialog .exc-input {
@@ -720,12 +709,6 @@
 }
 
 /* ── Roll result card – Excellency extras ─────────────────────────────────── */
-
-.ex2e-roll-dialog .target-dv-detail {
-  font-size: 0.8em;
-  opacity:   0.65;
-  margin-top: 2px;
-}
 
 .ex2e-roll-card .exc-bonus-row {
   text-align:  center;
