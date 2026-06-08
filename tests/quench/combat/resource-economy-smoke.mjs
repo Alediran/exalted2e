@@ -1,4 +1,4 @@
-import { cleanupOnAfter, sweep } from "../_helpers/cleanup.mjs";
+import { sweep } from "../_helpers/cleanup.mjs";
 import { assertTestWorld } from "../_helpers/world.mjs";
 import { createTempCharacter } from "../_helpers/actors.mjs";
 import { createTempWeapon } from "../_helpers/weapons.mjs";

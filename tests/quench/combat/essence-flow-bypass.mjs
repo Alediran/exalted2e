@@ -3,7 +3,6 @@ import { assertTestWorld }         from "../_helpers/world.mjs";
 import { createTempCharacter }     from "../_helpers/actors.mjs";
 import { createTempCharm }         from "../_helpers/charms.mjs";
 import { stubPurchaseConfirm }     from "../_helpers/dialogs.mjs";
-import { register }               from "../_helpers/cleanup.mjs";
 
 // ── Essence Flow ──────────────────────────────────────────────────────────────
 

@@ -2,7 +2,6 @@ import { ExaltedRoll } from "./exalted-roll.mjs";
 import {
   computeChargePool,
   computeChargeDifficulty,
-  computeChangeFormationDifficulty,
   computeDisengagePool,
   computeDisengageDifficulty,
   computeSplitParentMagnitude,

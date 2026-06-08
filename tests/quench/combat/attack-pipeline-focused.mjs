@@ -1,5 +1,5 @@
 import { assertTestWorld, getTestScene } from "../_helpers/world.mjs";
-import { sweep, cleanupOnAfter }          from "../_helpers/cleanup.mjs";
+import { sweep }          from "../_helpers/cleanup.mjs";
 import { createTempCharacter }             from "../_helpers/actors.mjs";
 import { placeToken }                      from "../_helpers/scenes.mjs";
 import { startTempCombat, advanceToActor } from "../_helpers/combat.mjs";

@@ -1,4 +1,4 @@
-import { register, sweep, cleanupOnAfter } from "../_helpers/cleanup.mjs";
+import { register, sweep } from "../_helpers/cleanup.mjs";
 import { assertTestWorld, getTestScene }   from "../_helpers/world.mjs";
 import { createTempCharacter }              from "../_helpers/actors.mjs";
 import { placeToken }                      from "../_helpers/scenes.mjs";

@@ -4,7 +4,6 @@ import {
   computeMdvShiftFromApp,
   computeBaseMDV,
   checkNaturalCap,
-  computeWpToResist,
   aggregateAttackerCharms       // 3c-1
 } from "./social-attack-math.mjs";
 import { findCampaign } from "./motivation-break-math.mjs";
