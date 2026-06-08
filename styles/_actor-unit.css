@@ -223,11 +223,6 @@
   border-bottom:         1px solid var(--ex2e-border-color);
 }
 
-.sheet.unit .stat-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 .sheet.unit .stat-label {
   min-width:      72px;
@@ -484,12 +479,6 @@ body.ex2e-light-mode .mass-combat-result {
 }
 
 /* Health track */
-.sheet.unit .unit-health-row {
-  display: flex;
-  align-items: center;
-  gap: var(--ex2e-gap-sm);
-}
-
 .sheet.unit .unit-health-bar-wrap {
   flex: 1;
   height: 8px;
@@ -706,7 +695,8 @@ body.ex2e-light-mode .mass-combat-result {
   border-color: var(--ex2e-unit-accent);
 }
 
-.join-war-dialog .dialog-buttons {
+.join-war-dialog .dialog-buttons,
+.hero-mass-combat-dialog .dialog-buttons {
   display:         flex;
   gap:             var(--ex2e-gap-sm);
   justify-content: flex-end;
@@ -811,7 +801,8 @@ body.ex2e-light-mode .mass-combat-result {
   width:           100%;
 }
 
-.hero-mass-combat-dialog .hmc-action-row.selected {
+.hero-mass-combat-dialog .hmc-action-row.selected,
+.hero-mass-combat-dialog .hmc-weapon-row.selected {
   border-color: rgba(180, 140, 40, 0.7);
   background:   rgba(180, 140, 40, 0.10);
 }
@@ -833,12 +824,8 @@ body.ex2e-light-mode .mass-combat-result {
   margin-bottom:   2px;
 }
 
-.hero-mass-combat-dialog .hmc-weapon-row.selected {
-  border-color: rgba(180, 140, 40, 0.7);
-  background:   rgba(180, 140, 40, 0.10);
-}
-
-.hero-mass-combat-dialog .hmc-weapon-name {
+.hero-mass-combat-dialog .hmc-weapon-name,
+.hero-mass-combat-dialog .hmc-action-name {
   font-family: var(--ex2e-font-body);
   font-size:   var(--ex2e-font-size-sm);
   color:       var(--ex2e-text-primary);
@@ -849,20 +836,6 @@ body.ex2e-light-mode .mass-combat-result {
   font-size:      var(--ex2e-font-size-xs);
   color:          var(--ex2e-text-muted);
   letter-spacing: 0.04em;
-}
-
-.hero-mass-combat-dialog .hmc-action-name {
-  font-family: var(--ex2e-font-body);
-  font-size:   var(--ex2e-font-size-sm);
-  color:       var(--ex2e-text-primary);
-}
-
-.hero-mass-combat-dialog .dialog-buttons {
-  display:         flex;
-  gap:             var(--ex2e-gap-sm);
-  justify-content: flex-end;
-  padding-top:     var(--ex2e-gap-sm);
-  border-top:      1px solid var(--ex2e-border-color);
 }
 
 .hero-mass-combat-dialog .dialog-buttons button {

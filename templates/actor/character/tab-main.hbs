@@ -85,13 +85,13 @@
 
       {{!-- Column 1: Virtues 2x2 + Virtue Flaw below --}}
       <section class="virtues-column">
-        <div class="section-toolbar">
+        <div class="section-toolbar ex2e-row">
           <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Virtues"}}</h2>
         </div>
         <div class="virtues-section">
           {{#each (array "compassion" "temperance" "conviction" "valor") as |v|}}
           <div class="virtue-row">
-            <div class="virtue-label-group">
+            <div class="virtue-label-group ex2e-row">
               <button class="virtue-label" data-action="rollPool"
                       data-pool="{{lookup (lookup ../system.virtues v) 'value'}}"
                       data-flavor="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">{{localize (concat "EX2E.Virtue" (capitalize v))}}</button>
@@ -136,7 +136,7 @@
           {{#unless (eq system.exaltType "mortal")}}
           <div style="grid-column: 1 / -1; margin-top: var(--ex2e-gap-sm);">
             {{#if (eq system.exaltType "infernal")}}
-            <div class="section-toolbar">
+            <div class="section-toolbar ex2e-row">
               <h2 class="section-header" style="flex:1">{{limitLabel}}</h2>
               {{#if isGM}}
               <button type="button" class="section-header-btn" data-action="rollActOfVillainy"
@@ -146,7 +146,7 @@
               {{/if}}
             </div>
             {{else if (eq system.exaltType "abyssal")}}
-            <div class="section-toolbar">
+            <div class="section-toolbar ex2e-row">
               <h2 class="section-header" style="flex:1">{{limitLabel}}</h2>
               {{#if isEditable}}
               <button type="button" class="section-header-btn" data-action="ventResonance"
@@ -191,7 +191,7 @@
             </div>
             {{/if}}
             {{/if}}
-            <div class="trait-row dissonance-row">
+            <div class="trait-row dissonance-row ex2e-row">
               <label>{{localize "EX2E.Dissonance"}}</label>
               {{#if isEditable}}
               <button type="button" class="btn-sm" data-action="dissonanceDown" title="{{localize 'EX2E.DissonanceDown'}}">
@@ -272,7 +272,7 @@
           {{#if (eq system.exaltType "infernal")}}
           <div class="virtue-flaw-section" style="grid-column: 1 / -1;"
                {{#if urgeItem}}data-item-id="{{urgeItem.id}}"{{/if}}>
-            <div class="section-toolbar">
+            <div class="section-toolbar ex2e-row">
               <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.SplatUrge"}}</h2>
               {{#if urgeItem}}
               <img class="urge-item-icon" src="{{urgeItem.img}}"
@@ -317,7 +317,7 @@
 
       {{!-- Column 2: Health --}}
       <section class="health-column">
-        <div class="section-toolbar">
+        <div class="section-toolbar ex2e-row">
           <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.HealthLevels"}}</h2>
         </div>
         {{healthTrack health=system.health exaltType=system.exaltType}}
@@ -348,7 +348,7 @@
       {{!-- Column 3: Anima (hidden for mortals) --}}
       {{#unless (eq system.exaltType "mortal")}}
       <section class="anima-column">
-        <div class="section-toolbar">
+        <div class="section-toolbar ex2e-row">
           <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Anima"}}</h2>
           {{#each greaterSigns as |gs|}}
             <button type="button"
@@ -431,7 +431,7 @@
       {{!-- Crippling Injuries (full-width row below all three columns) --}}
       {{#if (or isEditable (gt system.cripplingInjuries.length 0))}}
       <section class="crippling-injuries-section">
-        <div class="section-toolbar">
+        <div class="section-toolbar ex2e-row">
           <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.CripplingInjuries"}}</h2>
           {{#if isEditable}}
           <button type="button" class="section-header-btn" data-action="addCripplingInjury"

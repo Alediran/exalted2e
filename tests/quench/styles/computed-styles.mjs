@@ -89,5 +89,24 @@ export function registerComputedStyles(context) {
           ["--ex2e-gold-bright", "--ex2e-text-primary", "--ex2e-border-color"], "roll-dialog");
       } finally { await dlg.close(); }
     });
+
+    // Characterization: pin computed layout of a MIGRATED flex-row element.
+    // .virtue-label-group is one of the 16 selectors Phase B migrates to .ex2e-row
+    // AND is rendered on the character sheet (tab-main), so if the migration breaks
+    // the row's layout, display/align-items here change and this fails. (getComputedStyle
+    // returns the element's own display even if its tab isn't the active/visible one.)
+    it("[STYLE] migrated flex-row (.virtue-label-group) computes flex+center (dark)", async () => {
+      setTheme(false);
+      const actor = await createTempCharacter({ name: "Q-STYLE-rowchar" });
+      await actor.sheet.render(true);
+      await waitFor(() => actor.sheet.rendered && !!actor.sheet.element);
+      try {
+        const row = actor.sheet.element.querySelector(".virtue-label-group");
+        assert.ok(row, "[STYLE] character sheet renders a .virtue-label-group element");
+        const cs = getComputedStyle(row);
+        assert.equal(cs.display, "flex", "[STYLE] .virtue-label-group is display:flex");
+        assert.equal(cs.alignItems, "center", "[STYLE] .virtue-label-group align-items:center");
+      } finally { await actor.sheet.close(); }
+    });
   });
 }

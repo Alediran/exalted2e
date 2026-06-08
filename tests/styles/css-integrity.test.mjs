@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   parseRules, collectTokens, findSelfRefDefs, findUndefinedVars,
   findOrphanTokens, checkBraceBalance, findDuplicateBlocks,
+  elementsHaveCompanionClass,
 } from "../../tools/ci/css-integrity.mjs";
 import fs from "node:fs";
 import path from "node:path";
@@ -40,15 +41,59 @@ describe("css-integrity pure checks", () => {
     expect(dups.length).toBe(1);
     expect(dups[0].count).toBe(2);
   });
+  it("elementsHaveCompanionClass finds elements missing the companion class", () => {
+    const hbs = '<div class="a stat-row">x</div><div class="stat-row ex2e-row">y</div>';
+    expect(elementsHaveCompanionClass(hbs, "stat-row", "ex2e-row")).toEqual(["a stat-row"]);
+  });
+  it("elementsHaveCompanionClass returns empty when all carry the companion", () => {
+    expect(elementsHaveCompanionClass('<i class="stat-row ex2e-row"></i>', "stat-row", "ex2e-row")).toEqual([]);
+  });
+  it("elementsHaveCompanionClass matches whole tokens only (no substring false-hits)", () => {
+    expect(elementsHaveCompanionClass('<div class="stat-row-header"></div>', "stat-row", "ex2e-row")).toEqual([]);
+  });
 });
 
 const STYLES_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../styles");
+const TEMPLATES_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../templates");
 const ORPHAN_ALLOWLIST = [];   // intentionally-reserved tokens (none after cleanup)
-const CSS_DUP_MAX = 89;        // baseline; lower as structural merges land, never raise
+const CSS_DUP_MAX = 77;        // baseline; lower as structural merges land, never raise
+const MIGRATED_ROW_SELECTORS = [   // leaf classes migrated to .ex2e-row (populated in Phase B)
+  "charm-activation-row",
+  "charm-group-header",
+  "hearthstone-slot-row",
+  "resplendent-endurance-row",
+  "resplendency-row",
+  // B.2b – dialog rows
+  "formula-input-row",
+  "exc-input-row",
+  "eruption-stepper",
+  "rparadox-trigger-row",
+  // B.2c – sheet / actor rows
+  "wp-row",
+  "virtue-label-group",
+  "dissonance-row",
+  "stat-row",
+  "unit-health-row",
+  // B.2d – section toolbars
+  "section-toolbar",
+];
 
 function readStyles() {
   const files = fs.readdirSync(STYLES_DIR).filter(f => f.endsWith(".css"));
   return files.map(f => ({ file: f, css: fs.readFileSync(path.join(STYLES_DIR, f), "utf8") }));
+}
+
+function readTemplates() {
+  const out = [];
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, e.name);
+      if (e.isDirectory()) walk(p);
+      else if (e.name.endsWith(".hbs")) out.push({ file: p, text: fs.readFileSync(p, "utf8") });
+    }
+  };
+  walk(TEMPLATES_DIR);
+  return out;
 }
 
 describe("css-integrity: live stylesheets", () => {
@@ -70,5 +115,23 @@ describe("css-integrity: live stylesheets", () => {
   it(`has no more than ${CSS_DUP_MAX} duplicate rule blocks`, () => {
     const dups = findDuplicateBlocks(parseRules(allCss), { minDecls: 3 });
     expect(dups.length).toBeLessThanOrEqual(CSS_DUP_MAX);
+  });
+  it(".ex2e-row is defined exactly once with the canonical declarations", () => {
+    const rows = parseRules(allCss).filter(r => r.selector.trim() === ".ex2e-row");
+    expect(rows.length).toBe(1);
+    const norm = rows[0].body.split(";").map(s => s.replace(/\s+/g, " ").trim().toLowerCase()).filter(Boolean).sort().join(";");
+    expect(norm).toBe("align-items: center;display: flex;gap: var(--ex2e-gap-sm)");
+  });
+  it("every migrated row element also carries ex2e-row", () => {
+    const templates = readTemplates();
+    const offenders = [];
+    for (const base of MIGRATED_ROW_SELECTORS) {
+      for (const t of templates) {
+        for (const bad of elementsHaveCompanionClass(t.text, base, "ex2e-row")) {
+          offenders.push(`${path.basename(t.file)}: class="${bad}" (has ${base}, missing ex2e-row)`);
+        }
+      }
+    }
+    expect(offenders).toEqual([]);
   });
 });

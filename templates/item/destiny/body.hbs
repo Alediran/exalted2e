@@ -147,7 +147,7 @@
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
 
-    <div class="destiny-trait-row resplendent-endurance-row">
+    <div class="destiny-trait-row resplendent-endurance-row ex2e-row">
       <label class="destiny-trait-label">{{localize "EX2E.ResplendentEndurance"}}</label>
       {{#if isEditable}}
       <button type="button" class="btn-sm" data-action="spendEndurance" title="{{localize 'EX2E.ResplendentSpendEndurance'}}">
@@ -167,7 +167,7 @@
     <div class="resplendency-list">
       <label class="destiny-trait-label">{{localize "EX2E.ResplendenciesHeader"}}</label>
       {{#each resplendencies as |r|}}
-      <div class="resplendency-row">
+      <div class="resplendency-row ex2e-row">
         <span class="resplendency-name">{{r.name}}</span>
         <span class="resplendency-cost">{{r.enduranceCost}} End{{#if r.paradoxDice}} · {{r.paradoxDice}} ◈{{/if}}{{#if r.keyword}} · {{r.keyword}}{{/if}}</span>
         {{#if @root.isEditable}}

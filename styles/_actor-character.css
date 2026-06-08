@@ -923,11 +923,6 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 }
 
 /* ── Alchemical Dissonance / Gremlin Syndrome ──────────────────────────── */
-.exalted2e .dissonance-row {
-  display: flex;
-  align-items: center;
-  gap: var(--ex2e-gap-sm);
-}
 .exalted2e .clarity-compassion-penalty {
   color: #d9a441;
 }

@@ -148,11 +148,6 @@
   color:       var(--ex2e-text-muted);
 }
 
-.wp-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 .wp-fraction {
   font-family: var(--ex2e-font-ui);
@@ -588,9 +583,6 @@
 }
 .ability-row:hover { background: var(--ex2e-bg-hover); }
 
-.caste-ability .ability-name  { color: var(--ex2e-gold-bright); font-weight: 600; }
-.favored-ability .ability-name{ color: var(--ex2e-gold-main); }
-
 .ability-name {
   min-width:   105px;
   font-family: var(--ex2e-font-body);
@@ -606,7 +598,6 @@
   margin-left:    auto;
 }
 
-.specialty-row    { display: flex; align-items: center; gap: 4px; }
 .specialty-name   { font-size: var(--ex2e-font-size-xs); width: 100px; }
 
 .btn-add-specialty, .btn-remove-specialty {
@@ -637,11 +628,6 @@
 
 .virtue-channel-label { display: none; }
 
-.virtue-label-group {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 .virtue-row .virtue-label {
   font-family: var(--ex2e-font-body);

@@ -2,7 +2,7 @@
   <div class="sheet-body">
 
     <!-- ═══════ WEAPONS ═══════ -->
-    <div class="section-toolbar">
+    <div class="section-toolbar ex2e-row">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Weapons"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="weapon">
@@ -34,7 +34,7 @@
       {{#if w.system.hearthstoneSlots}}
       <div class="hearthstone-socket-rows">
         {{#each (lookup ../artifactSlotMap w.id) as |slot|}}
-        <div class="hearthstone-slot-row">
+        <div class="hearthstone-slot-row ex2e-row">
           {{#if slot.filled}}
           <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
           {{else}}
@@ -48,7 +48,7 @@
     {{/each}}
 
     <!-- ═══════ ARMOR ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Armor"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="armor">
@@ -80,7 +80,7 @@
       {{#if a.system.hearthstoneSlots}}
       <div class="hearthstone-socket-rows">
         {{#each (lookup ../artifactSlotMap a.id) as |slot|}}
-        <div class="hearthstone-slot-row">
+        <div class="hearthstone-slot-row ex2e-row">
           {{#if slot.filled}}
           <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
           {{else}}
@@ -94,7 +94,7 @@
     {{/each}}
 
     <!-- ═══════ BACKGROUNDS ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Backgrounds"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="background">
@@ -116,7 +116,7 @@
     </div>
     {{/each}}
     <!-- ═══════ FAMILIARS ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Familiars"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="familiar">
@@ -147,7 +147,7 @@
     {{/each}}
     <!-- ═══════ VEHICLES / MOUNTS ═══════ -->
     {{#if linkedVehicles.length}}
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.VehiclesMounts"}}</h2>
     </div>
     {{#each linkedVehicles as |v|}}
@@ -178,7 +178,7 @@
     {{/each}}
     {{/if}}
     <!-- ═══════ CULTS ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Cults"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="cult">
@@ -208,7 +208,7 @@
     {{/each}}
 
     <!-- ═══════ MERITS / FLAWS ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.MeritsAndFlaws"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="meritflaw">
@@ -232,7 +232,7 @@
     {{/each}}
 
     <!-- ═══════ HEARTHSTONES ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Hearthstones"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="hearthstone">
@@ -255,7 +255,7 @@
     {{/each}}
 
     <!-- ═══════ MANSES ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Manses"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="manse">
@@ -277,7 +277,7 @@
     {{/each}}
 
     <!-- ═══════ EQUIPMENT ═══════ -->
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Equipment"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="equipment">
@@ -300,7 +300,7 @@
       {{#if eq.system.hearthstoneSlots}}
       <div class="hearthstone-socket-rows">
         {{#each (lookup ../artifactSlotMap eq.id) as |slot|}}
-        <div class="hearthstone-slot-row">
+        <div class="hearthstone-slot-row ex2e-row">
           {{#if slot.filled}}
           <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
           {{else}}

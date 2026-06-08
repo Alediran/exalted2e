@@ -1,5 +1,8 @@
 /* ── Shared UI Components ────────────────────────────────────────────────── */
 
+/* Generic layout primitive: horizontal row, centered, small gap. */
+.ex2e-row { display: flex; align-items: center; gap: var(--ex2e-gap-sm); }
+
 /* ── DOT RATING ──────────────────────────────────────────────────────────── */
 .dot-rating {
   display: inline-flex;
@@ -122,11 +125,6 @@
 }
 
 /* Bonus health-level editor: label + three compact inputs laid out as a row. */
-.bonus-health-grid {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 .bonus-health-inputs {
   display: flex;
   gap:     8px;
@@ -391,11 +389,6 @@
   box-shadow:  var(--ex2e-glow-gold);
 }
 
-.section-toolbar {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 /* ── ITEM ROWS ───────────────────────────────────────────────────────────── */
 .item-row {

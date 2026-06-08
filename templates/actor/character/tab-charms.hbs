@@ -30,7 +30,7 @@
     </div>
     {{/if}}
 
-    <div class="section-toolbar">
+    <div class="section-toolbar ex2e-row">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.TabCharms"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="charm"
@@ -44,7 +44,7 @@
     {{#if charms.length}}
     {{#each charmGroups as |group|}}
     <details class="charm-group" data-group-key="charm:{{group.key}}" open>
-    <summary class="charm-group-header">
+    <summary class="charm-group-header ex2e-row">
       {{group.label}}
       <button type="button" class="charm-tree-lookup-btn"
               data-action="openCharmTree"
@@ -190,7 +190,7 @@
     {{/each}}
     {{#with (lookup submodulesByParent "__orphan__") as |orphans|}}
     {{#if orphans.length}}
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.OrphanedSubmodules"}}</h2>
     </div>
     <div class="charms-list">
@@ -218,7 +218,7 @@
 
     {{!-- Sorcery / Necromancy section — shown per tradition. --}}
     {{#each spellSections as |section|}}
-    <div class="section-toolbar spell-section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar spell-section-toolbar ex2e-row" style="margin-top:16px">
       <div class="spell-section-title-group">
         <h2 class="section-header" style="margin:0">{{section.label}}</h2>
         <label class="spell-initiation-label">
@@ -238,7 +238,7 @@
     {{#if section.groups.length}}
     {{#each section.groups as |group|}}
     <details class="charm-group" data-group-key="spell:{{section.tradition}}:{{group.circle}}" open>
-    <summary class="charm-group-header">{{group.label}}</summary>
+    <summary class="charm-group-header ex2e-row">{{group.label}}</summary>
     <div class="charms-list">
       {{#each group.spells as |spell|}}
       <div class="charm-row item-row" data-item-id="{{spell.id}}">
@@ -284,7 +284,7 @@
 
     {{!-- Knacks section (Lunar only) --}}
     {{#if isLunar}}
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Knacks"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="knack"
@@ -328,7 +328,7 @@
     {{/if}}
 
     {{!-- Combos (errata edition) — saved charm packets. --}}
-    <div class="section-toolbar" style="margin-top:16px">
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Combos"}}</h2>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="combo"

@@ -79,3 +79,18 @@ export function findDuplicateBlocks(rules, { minDecls = 3 } = {}) {
   return [...byBody.entries()].filter(([, sels]) => sels.length >= 2)
     .map(([nb, sels]) => ({ count: sels.length, decls: nb.split(";").length, selectors: sels }));
 }
+
+/**
+ * Scan Handlebars/HTML text for elements whose `class` attribute contains
+ * `baseClass` as a whole token but not `companionClass`. Returns the offending
+ * class-attribute strings (empty = all good). Whole-token match avoids
+ * substring false-hits (e.g. "stat-row-header" != "stat-row").
+ */
+export function elementsHaveCompanionClass(hbsText, baseClass, companionClass) {
+  const offenders = [];
+  for (const m of hbsText.matchAll(/class\s*=\s*"([^"]*)"/g)) {
+    const tokens = m[1].split(/\s+/).filter(Boolean);
+    if (tokens.includes(baseClass) && !tokens.includes(companionClass)) offenders.push(m[1]);
+  }
+  return offenders;
+}

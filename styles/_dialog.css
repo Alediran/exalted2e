@@ -99,11 +99,7 @@
   color:  var(--ex2e-text-secondary);
   font-size: var(--ex2e-font-size-sm);
 }
-.formula-builder-dialog .formula-input-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
+
 .formula-builder-dialog .formula-input-row input[name="formula"] {
   flex: 1;
   font-family: var(--ex2e-font-ui);
@@ -622,7 +618,8 @@
 .flurry-dialog .flurry-preview strong { color: var(--ex2e-gold-bright); }
 
 
-.btn-roll {
+.btn-roll,
+.import-footer button {
   display:        inline-flex;
   align-items:    center;
   gap:            var(--ex2e-gap-sm);
@@ -639,7 +636,8 @@
   transition:     all var(--ex2e-transition-fast);
 }
 
-.btn-roll:hover {
+.btn-roll:hover,
+.destiny-roll-steps button:hover:not(:disabled) {
   background:  var(--ex2e-gold-dark);
   box-shadow:  var(--ex2e-glow-gold);
   transform:   translateY(-1px);
@@ -686,11 +684,7 @@
   min-width:      0;
 }
 
-.ex2e-roll-dialog .exc-input-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
+
 
 .ex2e-roll-dialog .exc-input {
   width: 64px;
@@ -812,7 +806,9 @@
   color:      var(--ex2e-text-primary);
 }
 
-.destiny-creation-form {
+.destiny-creation-form,
+.import-dialog-form,
+.countermagic-dialog {
   display:        flex;
   flex-direction: column;
   gap:            var(--ex2e-gap-md);
@@ -895,11 +891,7 @@
   transition:     all var(--ex2e-transition-fast);
 }
 
-.destiny-roll-steps button:hover:not(:disabled) {
-  background:  var(--ex2e-gold-dark);
-  box-shadow:  var(--ex2e-glow-gold);
-  transform:   translateY(-1px);
-}
+/* merged into .btn-roll:hover above */
 
 .destiny-roll-steps button:disabled {
   opacity: 0.4;
@@ -954,7 +946,11 @@
   transition:     all var(--ex2e-transition-fast);
 }
 
-.destiny-creation-form .form-footer button:hover:not(:disabled) {
+.destiny-creation-form .form-footer button:hover:not(:disabled),
+.eruption-confirm-btn:hover:not(:disabled),
+.import-footer button:hover,
+.ex2e-roll-dialog .form-footer .btn-confirm:hover,
+.countermagic-dialog .btn-confirm:hover {
   background: var(--ex2e-gold-dark);
   box-shadow: var(--ex2e-glow-gold);
   transform:  translateY(-1px);
@@ -1000,11 +996,7 @@
   color:       var(--ex2e-gold-bright);
 }
 
-.eruption-stepper {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
+
 
 .eruption-step-btn {
   width:           24px;
@@ -1098,11 +1090,7 @@
   transition:     all var(--ex2e-transition-fast);
 }
 
-.eruption-confirm-btn:hover:not(:disabled) {
-  background: var(--ex2e-gold-dark);
-  box-shadow: var(--ex2e-glow-gold);
-  transform:  translateY(-1px);
-}
+/* merged into .destiny-creation-form .form-footer button:hover:not(:disabled) group above */
 
 .eruption-confirm-btn:disabled {
   opacity:      0.4;
@@ -1199,12 +1187,7 @@
 
 /* ── Import Dialog ─────────────────────────────────────────────────────────── */
 
-.import-dialog-form {
-  display:        flex;
-  flex-direction: column;
-  gap:            var(--ex2e-gap-md);
-  padding:        var(--ex2e-gap-lg);
-}
+/* merged into .destiny-creation-form group above */
 
 .import-controls-grid {
   display:               grid;
@@ -1377,28 +1360,9 @@
   border-radius:   0 0 var(--ex2e-border-radius-sm) var(--ex2e-border-radius-sm);
 }
 
-.import-footer button {
-  display:        inline-flex;
-  align-items:    center;
-  gap:            var(--ex2e-gap-sm);
-  padding:        6px 24px;
-  border:         1px solid var(--ex2e-gold-main);
-  border-radius:  20px;
-  background:     linear-gradient(135deg, var(--ex2e-bg-panel) 0%, var(--ex2e-bg-medium) 100%);
-  color:          var(--ex2e-gold-bright);
-  font-family:    var(--ex2e-font-title);
-  font-size:      var(--ex2e-font-size-md);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor:         pointer;
-  transition:     all var(--ex2e-transition-fast);
-}
+/* merged into .btn-roll above */
 
-.import-footer button:hover {
-  background: var(--ex2e-gold-dark);
-  box-shadow: var(--ex2e-glow-gold);
-  transform:  translateY(-1px);
-}
+/* merged into .destiny-creation-form .form-footer button:hover:not(:disabled) group above */
 
 .import-footer button.create-btn {
   border-color: #5a9a5a;
@@ -1440,7 +1404,9 @@
 /* ── Shared form-footer action buttons (sorcery cast, etc.) ─────────────── */
 
 .ex2e-roll-dialog .form-footer .btn-confirm,
-.ex2e-roll-dialog .form-footer .btn-cancel {
+.ex2e-roll-dialog .form-footer .btn-cancel,
+.countermagic-dialog .btn-confirm,
+.countermagic-dialog .btn-cancel {
   display:        inline-flex;
   align-items:    center;
   gap:            var(--ex2e-gap-sm);
@@ -1460,11 +1426,7 @@
   color:      var(--ex2e-gold-bright);
 }
 
-.ex2e-roll-dialog .form-footer .btn-confirm:hover {
-  background: var(--ex2e-gold-dark);
-  box-shadow: var(--ex2e-glow-gold);
-  transform:  translateY(-1px);
-}
+/* merged into .destiny-creation-form .form-footer button:hover:not(:disabled) group above */
 
 .ex2e-roll-dialog .form-footer .btn-cancel {
   border:     1px solid var(--ex2e-gold-shadow);
@@ -1510,12 +1472,7 @@
 
 /* ── Countermagic Dialog ─────────────────────────────────────────────────── */
 
-.countermagic-dialog {
-  display:        flex;
-  flex-direction: column;
-  gap:            var(--ex2e-gap-md);
-  padding:        var(--ex2e-gap-lg);
-}
+/* merged into .destiny-creation-form group above */
 
 .countermagic-dialog .spell-info {
   display:        flex;
@@ -1572,20 +1529,7 @@
   border-top:      1px solid var(--ex2e-gold-dark);
 }
 
-.countermagic-dialog .btn-confirm,
-.countermagic-dialog .btn-cancel {
-  display:        inline-flex;
-  align-items:    center;
-  gap:            var(--ex2e-gap-sm);
-  padding:        6px 24px;
-  border-radius:  20px;
-  font-family:    var(--ex2e-font-title);
-  font-size:      var(--ex2e-font-size-md);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor:         pointer;
-  transition:     all var(--ex2e-transition-fast);
-}
+/* merged into .ex2e-roll-dialog .form-footer .btn-confirm / .btn-cancel above */
 
 .countermagic-dialog .btn-confirm {
   border:     1px solid var(--ex2e-gold-main);
@@ -1593,11 +1537,7 @@
   color:      var(--ex2e-gold-bright);
 }
 
-.countermagic-dialog .btn-confirm:hover {
-  background: var(--ex2e-gold-dark);
-  box-shadow: var(--ex2e-glow-gold);
-  transform:  translateY(-1px);
-}
+/* merged into .destiny-creation-form .form-footer button:hover:not(:disabled) group above */
 
 .countermagic-dialog .btn-cancel {
   border:     1px solid var(--ex2e-gold-shadow);
@@ -1612,7 +1552,6 @@
 
 /* ── Resplendent Paradox dialog ─────────────────────────────────────────── */
 .ex2e-resplendent-paradox-dialog .rparadox-trigger-list { display: flex; flex-direction: column; gap: 4px; }
-.ex2e-resplendent-paradox-dialog .rparadox-trigger-row { display: flex; align-items: center; gap: var(--ex2e-gap-sm); }
 .ex2e-resplendent-paradox-dialog .rparadox-trigger-label { flex: 1; }
 .ex2e-resplendent-paradox-dialog .rparadox-trigger-dice { white-space: nowrap; opacity: 0.8; }
 .ex2e-roll-card.resplendent-paradox-card .rparadox-triggers ul { margin: 2px 0 0; padding-left: 1.2em; }

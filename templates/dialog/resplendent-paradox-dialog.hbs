@@ -3,7 +3,7 @@
     <p class="hint">{{localize "EX2E.RParadoxDialogHint"}}</p>
     <div class="rparadox-trigger-list">
       {{#each triggers as |t|}}
-      <label class="rparadox-trigger-row">
+      <label class="rparadox-trigger-row ex2e-row">
         <input type="checkbox" name="{{t.key}}" {{#if t.checked}}checked{{/if}}>
         <span class="rparadox-trigger-label">{{localize t.labelKey}}</span>
         <span class="rparadox-trigger-dice">+{{t.dice}} ◈</span>

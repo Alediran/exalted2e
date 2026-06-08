@@ -432,11 +432,6 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
   padding:        var(--ex2e-gap-sm) 0;
 }
 
-.ex2e-combined-card .charm-activation-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 .ex2e-combined-card .charm-row-img {
   width:         22px;
@@ -641,11 +636,6 @@ details.charm-group > summary.charm-group-header {
 }
 
 /* ── MA STYLE GROUP HEADER ───────────────────────────────────────────────── */
-.ma-style-group > summary.charm-group-header {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 .ma-style-group > summary.charm-group-header .item-img {
   width:       24px;
@@ -916,11 +906,6 @@ details.charm-group > summary.charm-group-header {
   gap:            var(--ex2e-gap-xs);
 }
 
-.hearthstone-slot-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 /* Countermagic section on charm sheet */
 .btn-dispel-other {
@@ -1233,7 +1218,6 @@ details.charm-group > summary.charm-group-header {
 
 /* ── Resplendent Destiny ────────────────────────────────────────────────── */
 .exalted2e .resplendent-section { display: flex; flex-direction: column; gap: var(--ex2e-gap-sm); }
-.exalted2e .resplendent-endurance-row { display: flex; align-items: center; gap: var(--ex2e-gap-sm); }
 .exalted2e .resplendent-endurance-max { width: 4em; }
 .exalted2e .resplendent-status-row { display: flex; align-items: center; gap: 8px; }
 .exalted2e .resplendent-status-badge {
@@ -1250,7 +1234,6 @@ details.charm-group > summary.charm-group-header {
 
 /* ── Resplendencies ─────────────────────────────────────────────────────── */
 .exalted2e .resplendency-list { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
-.exalted2e .resplendency-row { display: flex; align-items: center; gap: var(--ex2e-gap-sm); }
 .exalted2e .resplendency-row .resplendency-name { flex: 1; }
 .exalted2e .resplendency-row .resplendency-cost {
   font-size: var(--ex2e-font-size-sm);

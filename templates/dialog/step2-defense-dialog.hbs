@@ -51,7 +51,7 @@
     {{#if excellency.first}}
     <div class="field-group excellency-section exc-first-section">
       <label>{{firstExcLabel}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
-      <div class="exc-input-row">
+      <div class="exc-input-row ex2e-row">
         <input type="number" name="firstExcDice" value="0" min="0" max="{{firstExcMax}}" class="exc-input">
         <span class="exc-limit">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
       </div>
@@ -61,7 +61,7 @@
     {{#if excellency.second}}
     <div class="field-group excellency-section exc-second-section">
       <label>{{secondExcLabel}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
-      <div class="exc-input-row">
+      <div class="exc-input-row ex2e-row">
         <input type="number" name="secondExcSucc" value="0" min="0" max="{{secondExcMax}}" class="exc-input">
         <span class="exc-limit">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
       </div>
