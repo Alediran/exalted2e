@@ -38,7 +38,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "48526e4b84e472af"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "93d9102c07c105c5",
+            "charmName": "Quicksilver Hand of Dreams Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "48526e4b84e472af",
+    "grantsMastery": false
   },
   "folder": "4f4566b64a919114",
   "sort": 0,

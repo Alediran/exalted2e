@@ -37,7 +37,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "fa2ad65aa494ccd0"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "80e5f2093c1824df",
+            "charmName": "Victory of the Cheat",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "09f9009f5063670f",
+            "charmName": "Singular Escape Stratagem",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "fa2ad65aa494ccd0",
+    "grantsMastery": false
   },
   "folder": "8d69b74ca0e132d3",
   "sort": 0,

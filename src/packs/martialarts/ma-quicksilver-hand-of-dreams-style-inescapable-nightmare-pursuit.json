@@ -52,13 +52,14 @@
             "charmUid": "6f4ea77de4c4deaf",
             "charmName": "Ephemeral Presence Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "charmUid": "e1f718bfb6eadc3c"
+    "charmUid": "e1f718bfb6eadc3c",
+    "grantsMastery": false
   },
   "folder": "4f4566b64a919114",
   "sort": 0,

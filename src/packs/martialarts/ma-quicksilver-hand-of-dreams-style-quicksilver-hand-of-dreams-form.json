@@ -38,7 +38,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "93d9102c07c105c5"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5f4ffeb05ad3126c",
+            "charmName": "Dreamwalker Kata",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e1f718bfb6eadc3c",
+            "charmName": "Inescapable Nightmare Pursuit",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "93d9102c07c105c5",
+    "grantsMastery": false
   },
   "folder": "4f4566b64a919114",
   "sort": 0,

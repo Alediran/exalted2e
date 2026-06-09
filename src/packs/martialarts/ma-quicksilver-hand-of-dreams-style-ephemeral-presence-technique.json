@@ -36,7 +36,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,46 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "6f4ea77de4c4deaf"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2a158fc91879363d",
+            "charmName": "Peaceful Repose Touch",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ebd9abf29174b54a",
+            "charmName": "Fervent Night Phantasm",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f4d76726fceeb68b",
+            "charmName": "Dream Ravager Hand",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "6f4ea77de4c4deaf",
+    "grantsMastery": false
   },
   "folder": "4f4566b64a919114",
   "sort": 0,

@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,10 +51,10 @@
           {
             "type": "charm",
             "charmUid": "c4d3d3b1c131cbf4",
-            "charmName": "Tiger-and-Bear Awareness",
+            "charmName": "Tiger-And-Bear Awareness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
