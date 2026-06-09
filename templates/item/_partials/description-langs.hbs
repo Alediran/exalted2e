@@ -11,12 +11,12 @@
 
   <div class="ex2e-desc-editor" data-lang="__default">
     <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
-                  value="{{system.description}}" collaborate="true" toggled="true"></prose-mirror>
+                  value="{{system.description}}" collaborate="true" toggled="true">{{{enrichedDescription}}}</prose-mirror>
   </div>
   {{#each (descLanguageList)}}
   <div class="ex2e-desc-editor" data-lang="{{this.lang}}" hidden>
     <prose-mirror name="system.descriptions.{{this.lang}}" data-document-uuid="{{@root.item.uuid}}"
-                  value="{{lookup @root.system.descriptions this.lang}}" collaborate="true" toggled="true"></prose-mirror>
+                  value="{{lookup @root.system.descriptions this.lang}}" collaborate="true" toggled="true">{{{lookup @root.system.descriptions this.lang}}}</prose-mirror>
   </div>
   {{/each}}
 </div>
