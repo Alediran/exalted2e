@@ -43,7 +43,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Crystal Chameleon Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -56,11 +55,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "deff432151d3d614",
-            "charmName": "Death from Nowhere Method",
+            "charmUid": "8bbd2f79084e5cac",
+            "charmName": "Death From Nowhere Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -68,17 +67,17 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "a6acb63512e9d8f8",
-            "charmName": "Shattered Prism Rebuke",
+            "charmUid": "d4fc157315ca364e",
+            "charmName": "Shattered Crystal Rebuke",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "8b1005ab91c56466",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "501985a79515f6f2",
   "sort": 0,

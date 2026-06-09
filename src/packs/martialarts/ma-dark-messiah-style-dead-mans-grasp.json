@@ -1,6 +1,6 @@
 {
-  "_id": "fa775967ad345ea8",
-  "_key": "!items!fa775967ad345ea8",
+  "_id": "281a32ea783ff4ea",
+  "_key": "!items!281a32ea783ff4ea",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,25 +9,24 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Lashing Tempest Palm",
+  "name": "Dead Man's Grasp",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 3,
-    "minAbility": 5,
-    "charmType": "reflexive",
-    "duration": "instant",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Mirror"
+      "Combo-OK"
     ],
     "cost": {
-      "motes": 3,
+      "motes": 2,
       "willpower": 0,
       "bashingHealth": 0,
       "lethalHealth": 0,
@@ -36,15 +35,14 @@
       "motesLabel": "",
       "resonance": 0,
       "limitTrigger": 0,
-      "formula": "3m"
+      "formula": "1m per action"
     },
-    "description": "<p>The deathknight releases an opponent from a clinch by striking her with a brutal open-handed blow, hurling her away with the force of a maelstrom.</p>",
+    "description": "<p>Abyssal warriors crush their foes with the unnatural strength of the risen dead. This Charm supplements a grapple attack. The contested roll to control the clinch plays out as normal… but the deathknight inflicts lethal damage. What’s more, the raw damage of his clinch increases by one for each subsequent action the character maintains control of the grapple, to a maximum of the character’s Martial Arts rating. The Charm ends and the damage bonus resets to +0 if the Abyssal stops spending Essence and squeezing to deal damage.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "Hungry Ghost Style",
+    "martialArtsStyleName": "Dark Messiah Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,25 +50,11 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "2895720300b257e8",
-            "charmName": "Dark Messiah Form",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
-    "charmUid": "fa775967ad345ea8",
-    "mirrorId": "738afe92fca4282c",
+    "prereqGroups": [],
+    "charmUid": "281a32ea783ff4ea",
     "grantsMastery": false
   },
-  "folder": "a204aba47ca9154b",
+  "folder": "a06a42dc7ec7fc33",
   "sort": 0,
   "ownership": {
     "default": 0

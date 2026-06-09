@@ -1,6 +1,6 @@
 {
-  "_id": "237b9fb439583f13",
-  "_key": "!items!237b9fb439583f13",
+  "_id": "fa775967ad345ea8",
+  "_key": "!items!fa775967ad345ea8",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,27 +9,25 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Flashing Leaves Evasion",
+  "name": "Lashing Tempest Palm",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 2,
+    "essence": 3,
     "minAbility": 5,
     "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      2
-    ],
+    "steps": [],
     "keywords": [
       "Combo-OK",
-      "Obvious"
+      "Mirror"
     ],
     "cost": {
-      "motes": 6,
+      "motes": 3,
       "willpower": 0,
       "bashingHealth": 0,
       "lethalHealth": 0,
@@ -38,13 +36,13 @@
       "motesLabel": "",
       "resonance": 0,
       "limitTrigger": 0,
-      "formula": "6m"
+      "formula": "3m"
     },
-    "description": "<p>Putting on a sudden burst of speed, the martial artist melts into a blur as an attack closes in on her, briefly disappearing and reappearing to evade the blow. This Charm sets an incoming attack's successes to 0 in Step Three after all other modifiers. This does mean that rerolls (which occur in Step Four) may allow an attack to bypass this form of defense. This weakness is considered to be a special flaw of invulnerability. Flashing Leaves Evasion does not function against attacks that are undodgeable or unexpected. This Charm is known in Autochthonia as Shadow Among Shadows.</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "description": "<p>The deathknight releases an opponent from a clinch by striking her with a brutal open-handed blow, hurling her away with the force of a maelstrom.</p>",
+    "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "Crystal Chameleon Style",
+    "martialArtsStyleName": "Dark Messiah Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -58,8 +56,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "e7f09debe47bb7a6",
-            "charmName": "Crystal Chameleon Form",
+            "charmUid": "2895720300b257e8",
+            "charmName": "Dark Messiah Form",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -67,10 +65,11 @@
         ]
       }
     ],
-    "charmUid": "237b9fb439583f13",
+    "charmUid": "fa775967ad345ea8",
+    "mirrorId": "738afe92fca4282c",
     "grantsMastery": false
   },
-  "folder": "501985a79515f6f2",
+  "folder": "a06a42dc7ec7fc33",
   "sort": 0,
   "ownership": {
     "default": 0

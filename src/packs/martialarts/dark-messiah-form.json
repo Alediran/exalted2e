@@ -43,7 +43,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dark Messiah Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,8 +58,8 @@
             "charmUid": "513364bf77cee8fe",
             "charmName": "Foe-Blinding Jab",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -71,8 +70,8 @@
             "charmUid": "fe2ee015fb3dc9dd",
             "charmName": "Inescapable Iron Grip",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -43,7 +43,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dark Messiah Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,8 +58,8 @@
             "charmUid": "b25587ac2592984c",
             "charmName": "Bone-Shattering Blow",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -71,8 +70,8 @@
             "charmUid": "6c9a15e266a89250",
             "charmName": "Illustrative Overkill Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -83,14 +82,14 @@
             "charmUid": "fa775967ad345ea8",
             "charmName": "Lashing Tempest Palm",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "5e2e6514bd8c058d",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "a06a42dc7ec7fc33",
   "sort": 0,

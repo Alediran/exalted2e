@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Crystal Chameleon Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -57,11 +56,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "272dd3c564a632a8",
+            "charmUid": "f6fcba99d07c204c",
             "charmName": "Just Another Branch Deceit",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -69,11 +68,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "e49c86270f862b72",
+            "charmUid": "ba5278a9e55a4cbc",
             "charmName": "Light-Treading Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

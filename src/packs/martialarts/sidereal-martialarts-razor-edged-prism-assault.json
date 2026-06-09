@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Crystal Chameleon Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -57,11 +56,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "c78c95720be57ae9",
+            "charmUid": "e7f09debe47bb7a6",
             "charmName": "Crystal Chameleon Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

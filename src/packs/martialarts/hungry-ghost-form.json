@@ -45,7 +45,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Hungry Ghost Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -58,11 +57,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "a98ff02f94cac17e",
+            "charmUid": "c57c456840b005ed",
             "charmName": "Leaping Horror Approach",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -73,8 +72,8 @@
             "charmUid": "4307b0f5ed019ee9",
             "charmName": "Lunging Phantom Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -85,8 +84,8 @@
             "charmUid": "6b279e6a7194d2dd",
             "charmName": "Shrouded Claw Attack",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
