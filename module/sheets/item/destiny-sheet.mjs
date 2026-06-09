@@ -1,6 +1,7 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { ExaltedRoll } from "../../rolls/exalted-roll.mjs";
 import { normalizeDestinyOption, clampParadox } from "../../combat/sidereal-destiny-math.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -87,7 +88,7 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       maidenLabel,
       providenceRequiresVirtue,
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-        sys.description, { secrets: item.isOwner, relativeTo: item }
+        itemDescription(item), { secrets: item.isOwner, relativeTo: item }
       ),
     };
   }

@@ -1,5 +1,6 @@
 import { EX2E } from "../../config.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -41,7 +42,7 @@ export class KnackSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       system:       sys,
       config:       EX2E,
       isEditable:   this.isEditable,
-      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(item), {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };

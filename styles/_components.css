@@ -356,6 +356,14 @@
   transition:  all var(--ex2e-transition-fast);
 }
 
+/* Description-tab language switcher: sits in the section header row, compact. */
+.ex2e-desc-lang-select {
+  flex-shrink: 0;
+  align-self:  center;
+  width:       auto;
+  font-size:   var(--ex2e-font-size-xs);
+}
+
 .section-header-btn:hover {
   background:  var(--ex2e-gold-dark);
   color:       var(--ex2e-gold-bright);

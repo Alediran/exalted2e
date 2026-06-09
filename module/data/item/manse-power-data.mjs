@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class MansePowerData extends foundry.abstract.TypeDataModel {
@@ -9,7 +11,8 @@ export class MansePowerData extends foundry.abstract.TypeDataModel {
       abilityReq:    new fields.StringField({ blank: true, initial: "" }),
       multiPurchase: new fields.BooleanField({ initial: false }),
       isMaterial:    new fields.BooleanField({ initial: false }),
-      description:   new fields.HTMLField({ blank: true, initial: "" })
+      description:   new fields.HTMLField({ blank: true, initial: "" }),
+      descriptions:  descriptionsField()
     };
   }
 }

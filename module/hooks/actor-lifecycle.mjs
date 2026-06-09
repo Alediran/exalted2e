@@ -7,6 +7,7 @@
  */
 
 import { EX2E }               from "../config.mjs";
+import { itemDescription }    from "../helpers/localize-description.mjs";
 import { unarmedWeaponData }  from "../migration/unarmed-weapon.mjs";
 import { _isInTheCircle }     from "../setup/seeders.mjs";
 import { checkHazardImmunity } from "../helpers/hazard-immunity.mjs";
@@ -63,7 +64,7 @@ async function _postLimitBreakCard(actor) {
   }
 
   const enrichedDescription = virtueFlaw
-    ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(virtueFlaw.system.description ?? "")
+    ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(virtueFlaw))
     : "";
 
   const content = await foundry.applications.handlebars.renderTemplate(

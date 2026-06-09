@@ -1,4 +1,5 @@
 import { editImageAction } from "../_edit-image.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -48,7 +49,7 @@ export class UrgeSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       isEditable:          this.isEditable,
       effects,
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-        sys.description, { secrets: item.isOwner, relativeTo: item }
+        itemDescription(item), { secrets: item.isOwner, relativeTo: item }
       ),
     };
   }

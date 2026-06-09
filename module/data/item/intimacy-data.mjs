@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class IntimacyData extends foundry.abstract.TypeDataModel {
@@ -6,6 +8,7 @@ export class IntimacyData extends foundry.abstract.TypeDataModel {
       intimacyType:    new fields.StringField({ initial: "tie",   choices: ["tie", "principle"] }),
       intensity:       new fields.StringField({ initial: "minor", choices: ["minor", "major", "defining"] }),
       description:     new fields.HTMLField({ initial: "" }),
+      descriptions:    descriptionsField(),
       subject:         new fields.StringField({ initial: "", blank: true }),
       positive:        new fields.BooleanField({ initial: true }),
       strength:        new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),

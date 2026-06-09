@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class DiseaseData extends foundry.abstract.TypeDataModel {
@@ -6,8 +8,9 @@ export class DiseaseData extends foundry.abstract.TypeDataModel {
       morbidity:   new fields.NumberField({ initial: 1, min: 0, max: 10, integer: true }),
       trauma:      new fields.StringField({ initial: "", blank: true }),
       duration:    new fields.StringField({ initial: "", blank: true }),
-      vector:      new fields.StringField({ initial: "", blank: true }),
-      description: new fields.HTMLField({ initial: "" })
+      vector:       new fields.StringField({ initial: "", blank: true }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField()
     };
   }
 }

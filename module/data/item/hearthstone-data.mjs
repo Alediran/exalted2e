@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class HearthstoneData extends foundry.abstract.TypeDataModel {
@@ -5,7 +7,8 @@ export class HearthstoneData extends foundry.abstract.TypeDataModel {
     return {
       hearthstoneType: new fields.StringField({ initial: "", blank: true }),
       rating:          new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-      description:     new fields.HTMLField({ initial: "" })
+      description:     new fields.HTMLField({ initial: "" }),
+      descriptions:    descriptionsField()
     };
   }
 }

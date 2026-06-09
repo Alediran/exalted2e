@@ -1,5 +1,6 @@
 import { EX2E } from "../../config.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
 import { buildSocketedSlots } from "../../helpers/equip-slots.mjs";
 
@@ -47,7 +48,7 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         label: game.i18n.localize(v)
       })),
       isEditable: this.isEditable,
-      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(this.document), {
         secrets: this.document.isOwner, relativeTo: this.document
       }),
       socketedSlots: buildSocketedSlots(this.document)

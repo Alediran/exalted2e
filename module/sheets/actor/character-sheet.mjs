@@ -1,4 +1,5 @@
 import { EX2E }          from "../../config.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { evaluateCharmFormula } from "../../documents/item.mjs";
@@ -1835,7 +1836,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const item = this.actor.items.get(target.dataset.itemId);
     if (!item) return;
     const content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      item.system.description, { secrets: item.isOwner, relativeTo: item }
+      itemDescription(item), { secrets: item.isOwner, relativeTo: item }
     );
     await foundry.applications.api.DialogV2.prompt({
       window: { title: item.name },

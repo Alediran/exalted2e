@@ -1,5 +1,6 @@
 import { EX2E } from "../../config.mjs";
 import { computeWielderPenalty } from "./weapon-math.mjs";
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
 
 const fields = foundry.data.fields;
 
@@ -48,7 +49,8 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
       hearthstones:     new fields.ArrayField(new fields.StringField({ blank: true })),
 
       // ── Description / Equipped ───────────────────────────────────────────
-      description: new fields.HTMLField({ initial: "" }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
       equipped:    new fields.BooleanField({ initial: false }),
       slot:        new fields.StringField({ initial: "hands", blank: false, choices: ["hands","feet","armor","head","none"] }),
       martialArtsStyles: new fields.ArrayField(new fields.StringField({ blank: false }))

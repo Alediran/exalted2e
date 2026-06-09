@@ -4,6 +4,7 @@ import { editImageAction } from "../_edit-image.mjs";
 import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
 import { evaluateCharmFormula } from "../../documents/item.mjs";
 import { buildCharmCostPreview, buildCharmOptions, buildTraitOptions, buildStatBoostPaths } from "../../helpers/charm-sheet-helpers.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -175,7 +176,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         value: k, label: game.i18n.localize(v)
       })),
       resolvedMaxPurchases: Math.max(1, evaluateCharmFormula(sys.maxPurchases ?? "1", item.actor?.getRollData?.() ?? {}, 1)),
-      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(this.document), {
         secrets: this.document.isOwner, relativeTo: this.document
       }),
       perfectDefenseOptions: [

@@ -2,6 +2,7 @@ import { EX2E } from "../../config.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { circleChoicesFor } from "../../helpers/spell-helpers.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -99,7 +100,7 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         changesCount: (e.changes ?? []).length,
       })),
       isEditable:  this.isEditable,
-      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(this.document), {
         secrets: this.document.isOwner, relativeTo: this.document
       }),
       castButton

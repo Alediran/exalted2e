@@ -4,6 +4,7 @@
  */
 
 import { EX2E }             from "../config.mjs";
+import { itemDescription }  from "../helpers/localize-description.mjs";
 import { evaluateCharmFormula } from "../documents/item.mjs";
 import { ex2eCan }          from "../helpers/permissions.mjs";
 import { resolveUserActor } from "../helpers/targeting.mjs";
@@ -54,7 +55,7 @@ export async function _resolveLimitBreak(message, choice) {
 
   const virtueFlaw = actor.items.get(lb.virtueFlawId) ?? null;
   const enrichedDescription = virtueFlaw
-    ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(virtueFlaw.system.description ?? "")
+    ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(virtueFlaw))
     : "";
   const localizedVirtue = virtueFlaw
     ? game.i18n.localize(EX2E.virtues[virtueFlaw.system.baseVirtue] ?? "")

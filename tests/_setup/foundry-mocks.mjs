@@ -37,7 +37,9 @@ globalThis.foundry = {
       NumberField:  _MockScalarField,
       BooleanField: _MockScalarField,
       ArrayField:   _MockDataField,
-      HTMLField:    _MockScalarField
+      HTMLField:    _MockScalarField,
+      ObjectField:      _MockDataField,
+      TypedObjectField: class extends _MockDataField { constructor(element, config = {}) { super(config); this.element = element; } }
     }
   },
   utils: {

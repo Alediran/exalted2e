@@ -42,6 +42,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/item/armor/body.hbs",
     "systems/exalted2e/templates/item/generic/header.hbs",
     "systems/exalted2e/templates/item/generic/body.hbs",
+    "systems/exalted2e/templates/item/_partials/description-langs.hbs",
     "systems/exalted2e/templates/item/knack/header.hbs",
     "systems/exalted2e/templates/item/knack/body.hbs",
     "systems/exalted2e/templates/item/virtueflaw/header.hbs",

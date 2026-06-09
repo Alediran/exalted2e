@@ -25,6 +25,7 @@ import { registerUiButtonHooks } from "./hooks/ui-buttons.mjs";
 import { registerRegionHooks } from "./hooks/regions.mjs";
 import { registerCombatFlowHooks } from "./hooks/combat-flow.mjs";
 import { registerCombatTrackerHooks, wireCombatHud } from "./hooks/combat-hud.mjs";
+import { wireDescriptionLangToggle } from "./ui/description-lang-toggle.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -59,6 +60,7 @@ registerItemLifecycleHooks();
 Hooks.once("ready", async function () {
   console.log("Exalted 2e | System ready.");
   _applyUiTheme(game.settings.get("exalted2e", "uiTheme"));
+  wireDescriptionLangToggle();
 
   wireCombatHud();
 

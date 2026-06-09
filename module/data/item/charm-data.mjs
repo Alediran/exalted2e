@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class CharmData extends foundry.abstract.TypeDataModel {
@@ -97,8 +99,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       })),
 
       // ── Description / Source ─────────────────────────────────────────────
-      description: new fields.HTMLField({ initial: "" }),
-      source:      new fields.StringField({ initial: "", blank: true }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
+      source:       new fields.StringField({ initial: "", blank: true }),
 
       // ── Excellency ───────────────────────────────────────────────────────
       // "" = not an Excellency, "first" | "second" | "third" = which tier
