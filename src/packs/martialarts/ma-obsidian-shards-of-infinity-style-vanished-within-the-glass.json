@@ -37,7 +37,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Obsidian Shards of Infinity Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "e705f8bb8e47f4e5"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "43601fe5fea28395",
+            "charmName": "The Mirror Does Not Lie",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "e705f8bb8e47f4e5",
+    "grantsMastery": false
   },
   "folder": "87a660847a455039",
   "sort": 0,

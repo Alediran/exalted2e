@@ -37,7 +37,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "74c0f25c0788226d"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "078a20a1ee5948f5",
+            "charmName": "Demesne Emulation Practice (kao)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "74c0f25c0788226d",
+    "grantsMastery": false
   },
   "folder": "33c138eb339f4538",
   "sort": 0,

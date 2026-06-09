@@ -38,7 +38,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Obsidian Shards of Infinity Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "4e126dc377952194"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6fd312d386bd4511",
+            "charmName": "Draw Forth One Shard",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4e126dc377952194",
+    "grantsMastery": false
   },
   "folder": "87a660847a455039",
   "sort": 0,

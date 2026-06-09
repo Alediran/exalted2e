@@ -36,7 +36,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,58 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "a460b18eaaffaa60"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f6f746bf63417601",
+            "charmName": "Four Magical Materials Form (hou Tui)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "17fb0a0d29cde27f",
+            "charmName": "Soul Fire Shaper Form (qian Jing)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ce63d8ffe8bcdbc9",
+            "charmName": "Games of Divinity Form (wu Ji)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "74c0f25c0788226d",
+            "charmName": "Demesne and Manse Form (chung Ting)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "a460b18eaaffaa60",
+    "grantsMastery": true
   },
   "folder": "33c138eb339f4538",
   "sort": 0,

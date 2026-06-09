@@ -38,7 +38,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Obsidian Shards of Infinity Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "cdfb7e80f12b7f3e"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "55a9a8c998398b8e",
+            "charmName": "Echoes of Infinity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "cdfb7e80f12b7f3e",
+    "grantsMastery": true
   },
   "folder": "87a660847a455039",
   "sort": 0,

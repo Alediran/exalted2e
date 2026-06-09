@@ -38,7 +38,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "ce63d8ffe8bcdbc9"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1e9d9de6599941b8",
+            "charmName": "God Ways (zuo Gu)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2d771a44597adfea",
+            "charmName": "(type) Exalt Ways (you Pan)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ce63d8ffe8bcdbc9",
+    "grantsMastery": false
   },
   "folder": "33c138eb339f4538",
   "sort": 0,

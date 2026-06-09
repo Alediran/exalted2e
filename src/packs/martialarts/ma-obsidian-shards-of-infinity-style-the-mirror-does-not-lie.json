@@ -36,7 +36,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Obsidian Shards of Infinity Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "43601fe5fea28395"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "65d09ce478c910d0",
+            "charmName": "Obsidian Shards of Infinity Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "43601fe5fea28395",
+    "grantsMastery": false
   },
   "folder": "87a660847a455039",
   "sort": 0,

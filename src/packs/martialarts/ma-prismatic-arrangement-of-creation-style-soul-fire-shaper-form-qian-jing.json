@@ -37,7 +37,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,46 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "17fb0a0d29cde27f"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "055d3071f3168cd0",
+            "charmName": "Sequential Charm Disruption (cai)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "156f0f1fe463eb9b",
+            "charmName": "Spell-shattering Palm (li)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "091d4b729524cb5b",
+            "charmName": "Astrology Interruption Method (hua Ji)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "17fb0a0d29cde27f",
+    "grantsMastery": false
   },
   "folder": "33c138eb339f4538",
   "sort": 0,

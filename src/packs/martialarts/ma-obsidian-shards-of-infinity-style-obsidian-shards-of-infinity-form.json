@@ -37,7 +37,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Obsidian Shards of Infinity Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "65d09ce478c910d0"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dc33856ccffbe831",
+            "charmName": "Shattering the Balance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "65d09ce478c910d0",
+    "grantsMastery": false
   },
   "folder": "87a660847a455039",
   "sort": 0,
