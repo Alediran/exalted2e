@@ -1,6 +1,6 @@
 {
-  "_id": "71f2d652cc403549",
-  "_key": "!items!71f2d652cc403549",
+  "_id": "7576033eb515cdc3",
+  "_key": "!items!7576033eb515cdc3",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,24 +9,22 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Impenetrable White Shroud",
+  "name": "Eyes Toward an Ending",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 2,
+    "essence": 4,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "oneScene",
+    "duration": "oneAction",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      2
-    ],
+    "steps": [],
     "keywords": [
       "Combo-OK",
-      "Obvious"
+      "Native"
     ],
     "cost": {
       "motes": 5,
@@ -40,11 +38,11 @@
       "limitTrigger": 0,
       "formula": "5m"
     },
-    "description": "<p>Taking a deep, measured breath, the martial artist draws the flickering aura of power around her tight against her skin. This ablative Essence barrier adds [3 + (current halos x 2)] in armored lethal and bashing soak. This value is not static, but fluctuates as the character gains and spends halos throughout the scene.</p>",
-    "source": "Glories of the Most High: Luna",
+    "description": "<p>Solars of the Dawn Caste are the greatest of all warriors, capable of feeling the truth of a foe's conviction in the spirit of his attacks. A hand that lies has no strength over the Lawgiver, and only the truest salvos may strike the Solar Hero. A character activating this Charm modifies his opponent's attacks. For one action, all attacks against the Exalt suffer an internal penalty equal to the difference between the Ability being used and the lowest of the attacker's Archery, Martial Arts, Melee and Thrown ratings. Daunting the False Savior must be activated while the character is using a Form-type Charm and may expressly enhance any Form-type Charm the character knows. The Sidereal Exalted employ an identical Charm called Eyes Toward an Ending, whose prerequisite is Throne Shadow Form.</p>",
+    "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "White Reaper Style",
+    "martialArtsStyleName": "Throne Shadow Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -58,8 +56,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "5a80132751c84a72",
-            "charmName": "Bleeding Crescent Strike",
+            "charmUid": "01165ee757be9897",
+            "charmName": "Throne Shadow Form",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -67,10 +65,10 @@
         ]
       }
     ],
-    "charmUid": "71f2d652cc403549",
+    "charmUid": "7576033eb515cdc3",
     "grantsMastery": false
   },
-  "folder": "43ff6bd7e0e2d9c2",
+  "folder": "0489c660869ce271",
   "sort": 0,
   "ownership": {
     "default": 0

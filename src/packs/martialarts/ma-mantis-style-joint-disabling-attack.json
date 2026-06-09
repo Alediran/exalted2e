@@ -38,7 +38,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Mantis Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "0d82ecca9e7e35ea"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "582ede3a0b1bf45c",
+            "charmName": "Joint-locking Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "0d82ecca9e7e35ea",
+    "grantsMastery": false
   },
   "folder": "026302498ba6c9dc",
   "sort": 0,

@@ -37,7 +37,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Silver-voiced Nightingale Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "c7faa89918f8fd5e"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b7febd62b9f5f0b3",
+            "charmName": "Terrifying Battle Shriek",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "c7faa89918f8fd5e",
+    "grantsMastery": false
   },
   "folder": "f8d2ffb92c6967bb",
   "sort": 0,

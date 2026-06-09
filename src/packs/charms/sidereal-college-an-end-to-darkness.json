@@ -1,6 +1,6 @@
 {
-  "_id": "963d58ef31c5ea5a",
-  "_key": "!items!963d58ef31c5ea5a",
+  "_id": "1906c3de47e9371d",
+  "_key": "!items!1906c3de47e9371d",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "college",
-    "essence": 5,
-    "minAbility": 5,
+    "essence": 1,
+    "minAbility": 1,
     "charmType": "simple",
     "duration": "oneWeek",
     "speed": 6,
@@ -34,21 +34,20 @@
       "limitTrigger": 0
     },
     "description": "<p>Laying a hand upon a consenting demon, the Sidereal transforms that spirit into a god. The demon is immediately removed from its governing Yozi's soul hierarchy as though slain with Ghost-Eating Technique, and no longer retains any metaphysical link to the titan of which it was once a part. Although subjected to many alterations, including shifts in personality, Charms, and other traits (all at the Storyteller's discretion, as the Sidereal has no say in these changes), the new god retains its previous Essence rating and memories, and often many traces of its former nature. The more powerful a demon is, the less it is likely to be changed by transformation into a god. Demons of the Second Circle or higher must be made subject to fate before this Charm will function on them.</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "source": "Glories of the Most High: The Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "963d58ef31c5ea5a"
+    "charmUid": "1906c3de47e9371d"
   },
   "folder": "84b20a7805198847",
   "sort": 0,

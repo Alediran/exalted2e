@@ -1,6 +1,6 @@
 {
-  "_id": "7de62f96b2c7193d",
-  "_key": "!items!7de62f96b2c7193d",
+  "_id": "206a1d9b8aca0174",
+  "_key": "!items!206a1d9b8aca0174",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "college",
-    "essence": 4,
-    "minAbility": 3,
+    "essence": 1,
+    "minAbility": 1,
     "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
@@ -32,21 +32,20 @@
       "limitTrigger": 0
     },
     "description": "<p>Mastery of destiny cannot avert death, but it can at least ensure a dignified passing. While this Charm is in effect, the Sidereal does not lose consciousness if his Incapacitated health level fills with bashing or lethal damage, nor does lethal damage proceed into his Dying health levels. Instead, once his Incapacitated health level has filled with lethal damage, subsequent damage converts existing lethal damage to aggravated. If the Sidereal's Incapacitated health level fills with aggravated damage, he is mortally wounded and begins dying as normal. If slain, this Charm ensures that the Vizier's corpse remains relatively intact and dignified enough to allow for an opencasket funeral.</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "source": "Glories of the Most High: The Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "7de62f96b2c7193d"
+    "charmUid": "206a1d9b8aca0174"
   },
   "folder": "84b20a7805198847",
   "sort": 0,

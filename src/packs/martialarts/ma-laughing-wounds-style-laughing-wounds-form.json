@@ -37,7 +37,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Laughing Wounds Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "fb64e7a0c5c23cf3"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3f5ccb5e2c23259b",
+            "charmName": "Kiss of the Whip",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "fb64e7a0c5c23cf3",
+    "grantsMastery": false
   },
   "folder": "33b132b15f3f6d2e",
   "sort": 0,

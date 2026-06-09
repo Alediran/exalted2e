@@ -34,8 +34,8 @@
     "description": "<p>There is no deadlier weapon than truth, which Sidereals may unleash on destiny's behalf. Should an unarmed attack supplemented by this Charm strike its target, they are poisoned with a toxin with the following traits: (Special/one hour, 5, --/--, -1). Rather than doing damage, this toxin infects the victim's chakras and her mind, rendering her incapable of lying or dissembling. Should she speak, she may only speak the truth as best she knows it.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -44,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "7139313103e79631"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c5b31a5e5d4c331b",
+            "charmName": "Pneuma-sealing Strike",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "7139313103e79631",
+    "grantsMastery": false
   },
   "folder": "0489c660869ce271",
   "sort": 0,

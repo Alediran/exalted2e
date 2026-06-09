@@ -44,7 +44,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Sapphire Veil of Passion Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,7 +51,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "542faf8bbd998bc6",
+            "charmName": "Joy in Ownership",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "232e6d65ea1aaec8",
     "grantsMastery": false
   },

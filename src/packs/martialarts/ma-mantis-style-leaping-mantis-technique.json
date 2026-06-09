@@ -37,7 +37,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Mantis Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,7 +45,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "6f912536f1c63625"
+    "charmUid": "6f912536f1c63625",
+    "grantsMastery": false
   },
   "folder": "026302498ba6c9dc",
   "sort": 0,

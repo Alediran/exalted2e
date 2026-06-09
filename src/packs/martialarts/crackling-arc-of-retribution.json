@@ -59,8 +59,8 @@
             "charmUid": "c75a32231dbcddd1",
             "charmName": "Conductive Principle Of Authority",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -71,14 +71,14 @@
             "charmUid": "6f8426697e1a712b",
             "charmName": "Unassailable Lightning Dance",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "f506172839405b6c",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "0237080ec222c1fd",
   "sort": 0,

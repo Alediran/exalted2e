@@ -46,7 +46,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Sapphire Veil of Passion Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -62,8 +61,8 @@
             "charmUid": "a3ce2b31b6849444",
             "charmName": "Black Dragon Coils",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -74,20 +73,8 @@
             "charmUid": "378b26f406e4db53",
             "charmName": "Satisfying Idle Fantasy",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "1aaaa74638c4618d",
-            "charmName": "One complete Celestial martial art",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

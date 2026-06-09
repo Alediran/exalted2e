@@ -1,6 +1,6 @@
 {
-  "_id": "d64a6426b86105ed",
-  "_key": "!items!d64a6426b86105ed",
+  "_id": "1f6415a77dff73c2",
+  "_key": "!items!1f6415a77dff73c2",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,14 +9,14 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Well-Schooled Pedant Defense",
+  "name": "Well-schooled Pedant Defense",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "sidereal",
     "ability": "college",
-    "essence": 4,
-    "minAbility": 3,
+    "essence": 1,
+    "minAbility": 1,
     "charmType": "simple",
     "duration": "oneDay",
     "speed": 6,
@@ -33,21 +33,20 @@
       "limitTrigger": 0
     },
     "description": "<p>Wise stewards of an ungrateful cosmos have no need to trouble themselves with the interjections of the ignorant and unlettered. While this Charm is in effect, the Sidereal is immune to natural mental influence from any character whose Lore or Intelligence is lower than her own. She also reduces the cost to resist unnatural mental influ- ence from such sources by one Willpower point (to a minimum of zero).</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "source": "Glories of the Most High: The Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "d64a6426b86105ed"
+    "charmUid": "1f6415a77dff73c2"
   },
   "folder": "84b20a7805198847",
   "sort": 0,

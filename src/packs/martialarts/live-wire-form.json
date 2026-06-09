@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Live Wire Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,8 +59,8 @@
             "charmUid": "452da639101bb73b",
             "charmName": "Lightning Supremacy Reversal",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -72,8 +71,8 @@
             "charmUid": "53708c4be9f2f5cd",
             "charmName": "Tangled Weaver's Trap",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -34,8 +34,8 @@
     "description": "<p>Sidereals deceive the world, presenting themselves as less than what they are; much of their power to act upon the world proceeds from this fact. The Sidereal cloaks herself in the humble and unassuming air of the neophyte student, the civil servant, or the hanger-on in the company of legends. She seems unthreatening, imposing a -3 external penalty on all attempts to gauge her nature and the level of her skill. This unassuming mien also makes it difficult to view the Sidereal as a serious threat; all attempts to re-establish surprise enjoy a bonus of (Sidereal's Essence) dice. This Charm constitutes a form of unnatural mental influence costing two Willpower to resist for one scene.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -45,7 +45,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "c18fbbbbbb87af95"
+    "charmUid": "c18fbbbbbb87af95",
+    "grantsMastery": false
   },
   "folder": "0489c660869ce271",
   "sort": 0,

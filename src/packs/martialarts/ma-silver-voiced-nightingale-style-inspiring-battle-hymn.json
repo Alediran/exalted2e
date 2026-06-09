@@ -38,7 +38,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Silver-voiced Nightingale Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "20e9454fcb14b12b"
+    "charmUid": "20e9454fcb14b12b",
+    "grantsMastery": false
   },
   "folder": "f8d2ffb92c6967bb",
   "sort": 0,

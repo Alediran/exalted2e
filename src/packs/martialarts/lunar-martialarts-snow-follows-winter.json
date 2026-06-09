@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "White Reaper Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -57,11 +56,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "a9aff6574450fc42",
+            "charmUid": "f4eec491588e3924",
             "charmName": "Enemies Like Grass",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -69,17 +68,17 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "ebf01a231308a1de",
+            "charmUid": "c042f9a17b5a5694",
             "charmName": "Flickering Corona Barrier",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "fcffce849080a703",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "43ff6bd7e0e2d9c2",
   "sort": 0,

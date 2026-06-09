@@ -43,7 +43,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Sapphire Veil of Passion Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,8 +58,8 @@
             "charmUid": "232e6d65ea1aaec8",
             "charmName": "Memories of Intimacy",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -71,14 +70,14 @@
             "charmUid": "fd553162bbc750b9",
             "charmName": "Sapphire Binding Pattern",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "3e13e73ceaa54fbb",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "05f82ed74914c6c2",
   "sort": 0,

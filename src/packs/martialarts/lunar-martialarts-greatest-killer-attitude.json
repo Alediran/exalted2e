@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "White Reaper Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -57,11 +56,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "9e848115f0e20558",
+            "charmUid": "5a80132751c84a72",
             "charmName": "Bleeding Crescent Strike",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

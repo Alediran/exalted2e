@@ -34,8 +34,8 @@
     "description": "<p>The Sidereals are destiny's guardians and the eyes of the Exalted. Their vision must not be clouded, and those who would attempt such stratagems must be punished. While this Charm is active, the Sidereal may launch an unarmed Martial Arts counterattack in step nine against any individual who attempts to inflict unnatural mental influence on him. If this influence is ongoing, the counterattack triggers the first time the Sidereal is exposed to it after activating Clear Eyes Defense. If the character is a Sidereal Exalt with Essence 3+, then a counterattack which successfully strikes its target also perfectly negates the unnatural mental influence which triggered it.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -44,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "ae3e085e94228890"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "01165ee757be9897",
+            "charmName": "Throne Shadow Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ae3e085e94228890",
+    "grantsMastery": false
   },
   "folder": "0489c660869ce271",
   "sort": 0,
