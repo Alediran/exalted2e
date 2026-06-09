@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7372b08559265e8b",
+            "charmName": "Phantom Arrow Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "8357b9fbb564f845",
     "mirrorId": "4b4d7f23c9b4e503"
   },

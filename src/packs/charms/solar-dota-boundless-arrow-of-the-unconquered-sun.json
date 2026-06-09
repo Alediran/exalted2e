@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7470c9903a4e8dc3",
+            "charmName": "Accuracy Without Distance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "8e032c6c533c6ff1",
     "mirrorId": "12280e29280a2ff1"
   },

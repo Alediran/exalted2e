@@ -1,5 +1,5 @@
 import { matchesFilter, deduplicateCharms, buildTree, splitIntoBranches, getCharmState, getPipData, getVirtualNodeState } from '../helpers/charm-tree-builder.mjs';
-import { renderTree, drawConnectors, alignRowsToParents } from '../helpers/charm-tree-renderer.mjs';
+import { renderTree, drawConnectors } from '../helpers/charm-tree-renderer.mjs';
 
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
@@ -266,16 +266,16 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     this.#resizeObserver = null;
 
     const EX2E = game.exalted2e.EX2E;
-    this.#nodeEls = renderTree(body, branch, this.#exaltType, EX2E.splatPipColor, EX2E.splatLightColor);
+    const { nodeEls, canvas } = renderTree(body, branch, this.#exaltType, EX2E.splatPipColor, EX2E.splatLightColor);
+    this.#nodeEls = nodeEls;
 
     const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svgEl.setAttribute('class', 'charm-tree-svg');
-    body.appendChild(svgEl);
+    canvas.appendChild(svgEl);
     this.#svgEl = svgEl;
 
     const redrawConnectors = () => {
-      alignRowsToParents(body, branch.edges, this.#nodeEls);
-      drawConnectors(svgEl, body, branch.edges, this.#nodeEls);
+      drawConnectors(svgEl, canvas, branch.edges, this.#nodeEls);
     };
     requestAnimationFrame(redrawConnectors);
     this.#resizeObserver = new ResizeObserver(() => requestAnimationFrame(redrawConnectors));

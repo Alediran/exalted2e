@@ -202,6 +202,13 @@
   margin-top: 40px;
 }
 
+/* Content-sized canvas centred in the variable-width body; the positioned
+   ancestor for absolutely placed cards + the SVG overlay. */
+.charm-tree-canvas {
+  position: relative;
+  margin: 0 auto;
+}
+
 /* SVG overlay */
 .charm-tree-svg {
   position: absolute;
@@ -212,45 +219,20 @@
   z-index: 0;
 }
 
-/* Tier rows sit above the SVG */
-.charm-tree-tier-row {
-  position: relative;
-  z-index: 1;
-}
-
-/* Tier rows */
-.charm-tree-tier-row {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 28px 0;
-}
-
-.charm-tree-virtual-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--ex2e-gap-lg);
-}
-
-.charm-tree-cards-row {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: var(--ex2e-gap-lg);
-  min-height: 80px;
-}
-
 /* Virtual node */
 .charm-tree-virtual-node {
+  width: 110px;
+  z-index: 1;          /* paint above the SVG connector layer */
+  box-sizing: border-box;
   background: #2a2a1a;
   border: 2px dashed #555;
   border-radius: 6px;
-  padding: 6px 18px;
+  padding: 6px 8px;
   color: #888;
   font-size: 11px;
   font-style: italic;
-  white-space: nowrap;
+  text-align: center;
+  word-break: break-word;
 }
 
 .charm-tree-virtual-node--owned {
@@ -270,6 +252,7 @@
 /* Charm cards */
 .charm-tree-card {
   width: 110px;
+  z-index: 1;          /* paint cards above the SVG connector layer */
   border: 1px solid #555;
   border-radius: 6px;
   padding: 6px 8px;

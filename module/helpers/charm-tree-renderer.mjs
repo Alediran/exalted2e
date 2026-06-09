@@ -1,14 +1,23 @@
+import { assignCoordinates, CARD_WIDTH, ROW_HEIGHT } from "./charm-tree-layout.mjs";
+
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
 /**
- * Render tier rows + charm cards into containerEl.
- * Returns a Map<nodeId, HTMLElement> for connector measurement.
+ * Render charm cards into a content-sized canvas inside the scroll viewport.
  *
- * @param {HTMLElement} containerEl  — scrollable tree container (position:relative)
+ * The canvas is sized to the tree's content and centred horizontally (CSS
+ * `margin: 0 auto`) so the tree never pins to the left edge of a wider dialog;
+ * when the tree is wider than the viewport the viewport simply scrolls. Nodes
+ * are absolutely positioned within the canvas from the coordinate map.
+ *
+ * @param {HTMLElement} containerEl  — scroll viewport (.charm-tree-body, fills the dialog)
  * @param {{ tierMap: Map, maxTier: number }} treeData
  * @param {string} exaltType — used for CSS colour class
  * @param {Object} splatPipColor — EX2E.splatPipColor map
  * @param {Object} splatLightColor — EX2E.splatLightColor map
+ * @returns {{ nodeEls: Map<string,HTMLElement>, canvas: HTMLElement }}
+ *   nodeEls for connector measurement; canvas is the positioned content box the
+ *   SVG overlay must be appended to and passed to drawConnectors.
  */
 export function renderTree(containerEl, { nodes, edges, tierMap, maxTier }, exaltType, splatPipColor, splatLightColor) {
   containerEl.innerHTML = '';
@@ -16,122 +25,37 @@ export function renderTree(containerEl, { nodes, edges, tierMap, maxTier }, exal
   const pipColor   = splatPipColor?.[exaltType]   ?? '#888';
   const lightColor = splatLightColor?.[exaltType] ?? 'transparent';
 
+  const xMap = assignCoordinates({ edges, tierMap, maxTier }, {});
+
+  // Content-sized, centred canvas — the positioned ancestor for the cards + SVG.
+  const canvas = document.createElement('div');
+  canvas.className = 'charm-tree-canvas';
+
+  let maxX = 0;
   for (let tier = 0; tier <= maxTier; tier++) {
-    const tierNodes = tierMap.get(tier) ?? [];
-    if (!tierNodes.length) continue;
-
-    const rowEl = document.createElement('div');
-    rowEl.className = 'charm-tree-tier-row';
-    rowEl.dataset.tier = String(tier);
-
-    const vRowNodes  = tierNodes.filter(n => n.isVirtual || n.isQuasiExcellency);
-    const charmNodes = tierNodes.filter(n => !n.isVirtual && !n.isQuasiExcellency);
-
-    if (vRowNodes.length) {
-      // Flank virtual nodes with quasi-Excellencies: [left-quasis] [virtuals] [right-quasis]
-      const virtuals  = vRowNodes.filter(n => n.isVirtual);
-      const quasis    = vRowNodes.filter(n => n.isQuasiExcellency);
-      const leftCount = Math.floor(quasis.length / 2);
-      const sorted    = [...quasis.slice(0, leftCount), ...virtuals, ...quasis.slice(leftCount)];
-
-      const vRow = document.createElement('div');
-      vRow.className = 'charm-tree-virtual-row';
-      for (const node of sorted) {
-        const el = node.isVirtual
-          ? _makeVirtualNode(node, pipColor, lightColor)
-          : _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
-        el.dataset.nodeId = node.id;
-        vRow.appendChild(el);
-        nodeEls.set(node.id, el);
-      }
-      rowEl.appendChild(vRow);
-    }
-
-    if (charmNodes.length) {
-      const cRow = document.createElement('div');
-      cRow.className = 'charm-tree-cards-row';
-      // The builder's barycenter heuristic already minimises edge crossings —
-      // use its order directly rather than re-sorting here.
-      for (const node of charmNodes) {
-        const el = _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
-        el.dataset.nodeId = node.id;
-        cRow.appendChild(el);
-        nodeEls.set(node.id, el);
-      }
-      rowEl.appendChild(cRow);
-    }
-
-    containerEl.appendChild(rowEl);
-  }
-
-  return nodeEls;
-}
-
-/**
- * After DOM layout, shift each charm cards row so it is horizontally centred
- * on the centroid of its nodes' parent elements.
- * Must be called inside a requestAnimationFrame (after layout is complete).
- *
- * @param {HTMLElement} containerEl
- * @param {Array<{fromId,toId}>} edges
- * @param {Map<string,HTMLElement>} nodeEls
- */
-export function alignRowsToParents(containerEl, edges, nodeEls) {
-  const parentsOf = new Map();
-  for (const { fromId, toId } of edges) {
-    if (!parentsOf.has(toId)) parentsOf.set(toId, []);
-    parentsOf.get(toId).push(fromId);
-  }
-
-  const ctr        = containerEl.getBoundingClientRect();
-  const scrollLeft = containerEl.scrollLeft;
-
-  for (const cRow of containerEl.querySelectorAll('.charm-tree-cards-row')) {
-    // Collapse to natural content width before measuring (avoids stretched scrollWidth).
-    cRow.style.alignSelf      = 'flex-start';
-    cRow.style.marginLeft     = '';
-    cRow.style.width          = '';
-    cRow.style.justifyContent = '';
-
-    const rowWidth = cRow.scrollWidth;
-    const childIds = [...cRow.querySelectorAll('[data-node-id]')].map(el => el.dataset.nodeId);
-    if (!childIds.length) continue;
-
-    const parentXs = [];
-    for (const nodeId of childIds) {
-      for (const parentId of (parentsOf.get(nodeId) ?? [])) {
-        const parentEl = nodeEls.get(parentId);
-        if (!parentEl) continue;
-        const r = parentEl.getBoundingClientRect();
-        parentXs.push(r.left + r.width / 2 - ctr.left + scrollLeft);
-      }
-    }
-
-    if (!parentXs.length) {
-      // No parents (e.g. Excellencies at tier 0): center in the tier row.
-      cRow.style.alignSelf = 'center';
-      continue;
-    }
-
-    const minX = Math.min(...parentXs);
-    const maxX = Math.max(...parentXs);
-    // Minimum width to place the first card centred on minX and last card on maxX.
-    const parentSpanWidth = maxX - minX + 110;
-
-    if (parentSpanWidth > rowWidth) {
-      // Parents are farther apart than the cards: anchor leftmost card at minX,
-      // rightmost at maxX, space remaining cards in between.
-      // Builder's barycenter order ensures left→right card order tracks parent order.
-      cRow.style.marginLeft    = `${Math.max(0, minX - 55)}px`;
-      cRow.style.width         = `${parentSpanWidth}px`;
-      cRow.style.justifyContent = 'space-between';
-    } else {
-      // Cards are wider than the parent span: shift the whole row so its centre
-      // lands on the parent centroid without stretching card spacing.
-      const centroid = parentXs.reduce((a, b) => a + b, 0) / parentXs.length;
-      cRow.style.marginLeft = `${Math.max(0, centroid - rowWidth / 2)}px`;
+    for (const node of (tierMap.get(tier) ?? [])) {
+      const el = node.isVirtual
+        ? _makeVirtualNode(node, pipColor, lightColor)
+        : _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
+      el.dataset.nodeId = node.id;
+      const x = xMap.get(node.id) ?? 0;
+      el.style.position = 'absolute';
+      el.style.left = `${x}px`;
+      // Centre every node on its row's midline so variable-height cards in a
+      // tier share one centreline — keeps same-tier connectors horizontal and
+      // cross-tier vertical gaps uniform.
+      el.style.top = `${tier * ROW_HEIGHT + ROW_HEIGHT / 2}px`;
+      el.style.transform = 'translateY(-50%)';
+      canvas.appendChild(el);
+      nodeEls.set(node.id, el);
+      if (x > maxX) maxX = x;
     }
   }
+
+  canvas.style.width  = `${maxX + CARD_WIDTH}px`;
+  canvas.style.height = `${(maxTier + 1) * ROW_HEIGHT}px`;
+  containerEl.appendChild(canvas);
+  return { nodeEls, canvas };
 }
 
 /**
