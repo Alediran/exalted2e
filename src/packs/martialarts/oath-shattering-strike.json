@@ -46,7 +46,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -62,14 +61,14 @@
             "charmUid": "cbc688b8df411955",
             "charmName": "One Hand Fury",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "f6d4dbcd5634e2a0",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "ae5a8ed470f7303b",
   "sort": 0,

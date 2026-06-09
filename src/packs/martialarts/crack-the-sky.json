@@ -45,7 +45,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,16 +58,16 @@
           {
             "type": "charm",
             "charmUid": "4587092a71ae1d45",
-            "charmName": "Fists of the Old Ones",
+            "charmName": "Fists Of The Old Ones",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "954fa8d7f27b13f1",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "ae5a8ed470f7303b",
   "sort": 0,

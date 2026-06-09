@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,8 +59,8 @@
             "charmUid": "77978587bd55a6a4",
             "charmName": "Infernal Monster Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

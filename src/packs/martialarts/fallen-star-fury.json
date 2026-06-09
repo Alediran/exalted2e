@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "martialarts",
     "ability": "martialarts",
     "essence": 3,
     "minAbility": 5,
@@ -61,7 +61,7 @@
             "charmUid": "77978587bd55a6a4",
             "charmName": "Infernal Monster Form",
             "abilityKey": "",
-            "virtueKey": "valor",
+            "virtueKey": "",
             "virtueMin": 1
           }
         ]
