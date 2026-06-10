@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d872984a1182bd4f",
+            "charmName": "Butterfly Eyes Fist",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "20c7f07a48800905",
+            "charmName": "One Of The Herd",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "6465c88dacec49f7"
   },
   "folder": "7e56afbcd2643f32",

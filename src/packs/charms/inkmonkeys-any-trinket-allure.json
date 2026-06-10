@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -50,11 +49,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "4d39bf31ab9096c7",
+            "charmUid": "fcf8d17bbe923f96",
             "charmName": "Treasure as Trash Misdirection",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

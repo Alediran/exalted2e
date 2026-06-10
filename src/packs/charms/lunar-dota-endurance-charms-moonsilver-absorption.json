@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Endurance Charms Moonsilver Absorption",
+  "name": "Moonsilver Absorption",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7d22fa43641bc95c",
+            "charmName": "Unstoppable Juggernaut Incarnation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "c06c1800ae4e24b6"
   },
   "folder": "956290ccde1dea72",

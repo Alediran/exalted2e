@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "stamina",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "maxPurchases": "@essence",
     "charmUid": "c3d5ac61b7d4edcd"
   },

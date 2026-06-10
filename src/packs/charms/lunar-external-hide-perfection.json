@@ -34,7 +34,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -47,11 +46,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "",
-            "charmName": "Any (Directional) Mastery Technique",
+            "charmUid": "a296a300975895d5",
+            "charmName": "(Directional) Mastery Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

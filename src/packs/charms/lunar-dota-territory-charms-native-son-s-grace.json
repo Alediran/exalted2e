@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Territory Charms Native Son's Grace",
+  "name": "Native Son's Grace",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "stamina",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "96b6c2e089526192",
+            "charmName": "Frenzied Bear Fortification",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d59389486f348479"
   },
   "folder": "956290ccde1dea72",

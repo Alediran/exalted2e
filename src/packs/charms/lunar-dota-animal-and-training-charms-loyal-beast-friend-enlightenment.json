@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Animal and Training Charms Loyal Beast-friend Enlightenment",
+  "name": "Loyal Beast-friend Enlightenment",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6ecfdfad8baea7c9",
+            "charmName": "Nature-Reinforcing Allocation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "20afa158b85518e9"
   },
   "folder": "4e63ba1bd67a09e3",
