@@ -40,7 +40,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -56,8 +55,8 @@
             "charmUid": "6147e7686d786516",
             "charmName": "Face-Drinking Bite",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -68,8 +67,8 @@
             "charmUid": "e08d5be3f3e668fb",
             "charmName": "Unjust Appropriation Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -91,6 +91,29 @@ describe("assignCoordinates", () => {
     expect(x.get("e2")).toBeCloseTo(x.get("V"), 5);                       // middle Excellency over V
     expect((x.get("e1") + x.get("e3")) / 2).toBeCloseTo(x.get("V"), 5);   // Excellencies symmetric about V
   });
+  it("renders a childless leaf to the side so a through-node keeps the central slot", () => {
+    // Mid-tier T and P are through-nodes (parent + children); D is a childless
+    // leaf sharing parent S with P. D should yield to the side (right, toward S)
+    // so P sits over its own parent/children instead of being shoved out by D.
+    const x = assignCoordinates(tree({
+      tiers: [["L", "S"], ["T", "D", "P"], ["U", "E"]],
+      edges: [["L", "T"], ["S", "D"], ["S", "P"], ["T", "U"], ["P", "U"], ["P", "E"]],
+    }), {});
+    expect(x.get("D")).toBeGreaterThan(x.get("P"));   // leaf moved aside (right)
+    expect(x.get("D")).toBeGreaterThan(x.get("T"));   // leaf is outermost on its side
+    expect(x.get("P")).toBeLessThan(x.get("D"));      // through-node kept the inner slot
+  });
+  it("reorders a tier to remove an avoidable parent/child edge crossing", () => {
+    // Seed order [L,F,S] over [G,T,...]: L→T and F→G cross (L is left of F but
+    // its child T is right of F's child G). Crossing reduction should reorder
+    // the parent tier (swap L and F) so the edges no longer cross.
+    const x = assignCoordinates(tree({
+      tiers: [["L", "F", "S"], ["G", "T", "P", "D"], ["c"]],
+      edges: [["L", "T"], ["F", "G"], ["S", "T"], ["S", "P"], ["S", "D"], ["T", "c"]],
+    }), {});
+    // No crossing ⇔ L vs F sit on the same side as their children T vs G.
+    expect(Math.sign(x.get("L") - x.get("F"))).toBe(Math.sign(x.get("T") - x.get("G")));
+  });
   it("normalizes so the minimum x is 0", () => {
     const x = assignCoordinates(tree({ tiers: [["p"], ["a","b"]], edges: [["p","a"],["p","b"]] }), {});
     expect(Math.min(...x.values())).toBeCloseTo(0, 5);

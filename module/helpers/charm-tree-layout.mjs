@@ -80,18 +80,72 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
   const orderIndex = new Map();
   for (let t = 0; t <= maxTier; t++) (tierMap.get(t) ?? []).forEach((n, i) => orderIndex.set(n.id, i));
 
-  // Isolated standalone nodes (no edges of any kind) are kept out of the
-  // positioning + overlap passes so they can't drag anchored nodes off-centre
-  // (a standalone in the Excellency row must not shift the Excellencies). They
-  // are placed last, flanking their tier's anchored content.
-  const isIsolated = (id) =>
-    !(parentsOf.get(id)?.length) && !(childrenOf.get(id)?.length) && !(sameTierPeers.get(id)?.size);
+  // Crossing reduction (Sugiyama transpose): reorder each tier via adjacent
+  // swaps that reduce edge crossings with the neighbouring tiers, using
+  // order-index as the position proxy. Runs before coordinate assignment so the
+  // passes position the improved order. Same-tier-band nodes (the Excellency
+  // row) are not reordered. Works on local copies — tierMap is not mutated.
+  const tierOrder = new Map();
+  for (let t = 0; t <= maxTier; t++) tierOrder.set(t, [...(tierMap.get(t) ?? [])]);
+  const idxOf = (id) => orderIndex.get(id) ?? 0;
+  for (let iter = 0; iter < 4; iter++) {
+    let improved = false;
+    for (let t = 0; t <= maxTier; t++) {
+      const tn = tierOrder.get(t);
+      for (let i = 0; i + 1 < tn.length; i++) {
+        const u = tn[i].id;
+        const w = tn[i + 1].id;
+        if (sameTierPeers.get(u)?.size || sameTierPeers.get(w)?.size) continue;
+        let curr = 0;
+        let swap = 0;
+        for (const adj of [parentsOf, childrenOf]) {
+          const un = (adj.get(u) ?? []).map(idxOf);
+          const wn = (adj.get(w) ?? []).map(idxOf);
+          for (const a of un) for (const b of wn) {
+            if (a > b) curr++; else if (a < b) swap++;
+          }
+        }
+        if (swap < curr) {
+          [tn[i], tn[i + 1]] = [tn[i + 1], tn[i]];
+          orderIndex.set(u, i + 1);
+          orderIndex.set(w, i);
+          improved = true;
+        }
+      }
+    }
+    if (!improved) break;
+  }
+  // Re-seed x and normalise order-index to the transposed order.
+  for (let t = 0; t <= maxTier; t++) {
+    tierOrder.get(t).forEach((n, i) => { orderIndex.set(n.id, i); x.set(n.id, i * step); });
+  }
+
+  // Childless nodes (no children, no same-tier peers) are held out of the
+  // positioning + overlap passes so they can't drag the through-node "spine"
+  // off-centre, then placed last. Two flavours:
+  //   • isolated — no parents either (standalone charms): flank their tier.
+  //   • leaf     — has parents (terminal charms): placed beside their tier's
+  //                through-nodes on the side nearest their parent, so the
+  //                through-nodes keep the central, well-connected slots.
+  const isChildless = (id) => !(childrenOf.get(id)?.length) && !(sameTierPeers.get(id)?.size);
   const isolatedSet = new Set();
-  for (const id of x.keys()) if (isIsolated(id)) isolatedSet.add(id);
+  const leafSet = new Set();
+  for (const id of x.keys()) {
+    if (!isChildless(id)) continue;
+    (parentsOf.get(id)?.length ? leafSet : isolatedSet).add(id);
+  }
 
   const resolve = (t) => resolveSymmetric(tierMap.get(t) ?? [], x, step, orderIndex);
-  const resolveAnchored = (t) =>
-    resolveSymmetric((tierMap.get(t) ?? []).filter(n => !isolatedSet.has(n.id)), x, step, orderIndex);
+  // Resolve overlaps among the tier's "anchored" nodes. Isolated nodes are
+  // always held out; leaves yield only when the tier has a through-node spine
+  // (a leaf-only tier still needs its members spaced normally).
+  const resolveAnchored = (t) => {
+    const tn = tierMap.get(t) ?? [];
+    const hasThrough = tn.some(n => childrenOf.get(n.id)?.length);
+    const filtered = tn.filter(n =>
+      !isolatedSet.has(n.id) && !(hasThrough && leafSet.has(n.id)));
+    resolveSymmetric(filtered, x, step, orderIndex);
+  };
 
   // Iterative refinement: alternate top-down and bottom-up sweeps.
   for (let p = 0; p < passes; p++) {
@@ -157,6 +211,31 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
       touchedTiers.add(tierOf.get(hub));
     }
     for (const t of touchedTiers) resolveAnchored(t);
+  }
+
+  // Leaf placement: childless leaves (held out of the passes above) are set
+  // just outside their tier's through-node span, on the side nearest their
+  // parent, stacking outward. The through-nodes are left untouched so they keep
+  // the central slots aligned with both their parents and their children.
+  for (let t = 0; t <= maxTier; t++) {
+    const tn = tierMap.get(t) ?? [];
+    const through = tn.filter(n => childrenOf.get(n.id)?.length);
+    const leaves  = tn.filter(n => leafSet.has(n.id));
+    if (!through.length || !leaves.length) continue;
+    const minT = Math.min(...through.map(n => x.get(n.id) ?? 0));
+    const maxT = Math.max(...through.map(n => x.get(n.id) ?? 0));
+    const centre = (minT + maxT) / 2;
+    const left = [];
+    const right = [];
+    for (const n of leaves) {
+      const pm = median((parentsOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null));
+      ((pm ?? centre) <= centre ? left : right).push(n);
+    }
+    const byOrder = (a, b) => (orderIndex.get(a.id) ?? 0) - (orderIndex.get(b.id) ?? 0);
+    left.sort(byOrder);
+    right.sort(byOrder);
+    left.forEach((n, i)  => x.set(n.id, minT - step * (left.length - i)));
+    right.forEach((n, i) => x.set(n.id, maxT + step * (i + 1)));
   }
 
   // Isolated standalone nodes (held out of the passes above) split evenly on
