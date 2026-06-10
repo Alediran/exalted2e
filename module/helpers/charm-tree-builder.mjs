@@ -147,8 +147,12 @@ export function buildTree(charms, groupKey = '') {
   const hasVirtualNodes = virtualNodes.size > 0;
   const tierOf = new Map();
   for (const [id, node] of nodes) {
-    const hasPrereqs = (parentsOf.get(id) ?? []).length > 0;
-    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs)
+    const hasPrereqs  = (parentsOf.get(id) ?? []).length > 0;
+    const hasChildren = (childrenOf.get(id) ?? []).length > 0;
+    // Standalone charms (no parents AND no children) share the Excellency row;
+    // only subtree roots (no parents but with children) stay floored below it.
+    const isStandalone = !hasPrereqs && !hasChildren;
+    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs || isStandalone)
       ? 0
       : hasVirtualNodes
         ? Math.max(node.charm?.system?.essence ?? 1, 2)

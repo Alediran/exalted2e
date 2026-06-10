@@ -62,6 +62,35 @@ describe("assignCoordinates", () => {
     expect(right).toBe(2);
     expect(x.get("V")).toBeCloseTo((x.get("c1") + x.get("c2")) / 2, 5); // band centred over subtree
   });
+  it("splits isolated standalone nodes evenly on both sides of the anchored content", () => {
+    // V is anchored (centred over its children c1/c2). s1..s4 are isolated
+    // standalone nodes with no edges — they must split two-per-side around the
+    // anchored band, not clump at one end from their seed order.
+    // V sorts FIRST, so all standalones seed to its right — they must still end
+    // up two-per-side, proving the split (not the seed order) does the balancing.
+    const x = assignCoordinates(tree({
+      tiers: [["V", "s1", "s2", "s3", "s4"], ["c1", "c2"]],
+      edges: [["V", "c1"], ["V", "c2"]],
+    }), {});
+    const vx = x.get("V");
+    const standalones = ["s1", "s2", "s3", "s4"];
+    const left  = standalones.filter(s => x.get(s) < vx).length;
+    const right = standalones.filter(s => x.get(s) > vx).length;
+    expect(left).toBe(2);
+    expect(right).toBe(2);
+  });
+  it("keeps anchored nodes centred over their child regardless of standalone count", () => {
+    // e1/e2/e3 (Excellencies) all feed the virtual node V; V centres over its
+    // children. A standalone `s` shares the row but must NOT drag the
+    // Excellencies off-centre — they stay centred over V like the no-standalone
+    // case (image 2), the standalone just flanks the row.
+    const x = assignCoordinates(tree({
+      tiers: [["e1", "e2", "e3", "s"], ["V"], ["c1", "c2"]],
+      edges: [["e1", "V"], ["e2", "V"], ["e3", "V"], ["V", "c1"], ["V", "c2"]],
+    }), {});
+    expect(x.get("e2")).toBeCloseTo(x.get("V"), 5);                       // middle Excellency over V
+    expect((x.get("e1") + x.get("e3")) / 2).toBeCloseTo(x.get("V"), 5);   // Excellencies symmetric about V
+  });
   it("normalizes so the minimum x is 0", () => {
     const x = assignCoordinates(tree({ tiers: [["p"], ["a","b"]], edges: [["p","a"],["p","b"]] }), {});
     expect(Math.min(...x.values())).toBeCloseTo(0, 5);

@@ -80,7 +80,18 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
   const orderIndex = new Map();
   for (let t = 0; t <= maxTier; t++) (tierMap.get(t) ?? []).forEach((n, i) => orderIndex.set(n.id, i));
 
+  // Isolated standalone nodes (no edges of any kind) are kept out of the
+  // positioning + overlap passes so they can't drag anchored nodes off-centre
+  // (a standalone in the Excellency row must not shift the Excellencies). They
+  // are placed last, flanking their tier's anchored content.
+  const isIsolated = (id) =>
+    !(parentsOf.get(id)?.length) && !(childrenOf.get(id)?.length) && !(sameTierPeers.get(id)?.size);
+  const isolatedSet = new Set();
+  for (const id of x.keys()) if (isIsolated(id)) isolatedSet.add(id);
+
   const resolve = (t) => resolveSymmetric(tierMap.get(t) ?? [], x, step, orderIndex);
+  const resolveAnchored = (t) =>
+    resolveSymmetric((tierMap.get(t) ?? []).filter(n => !isolatedSet.has(n.id)), x, step, orderIndex);
 
   // Iterative refinement: alternate top-down and bottom-up sweeps.
   for (let p = 0; p < passes; p++) {
@@ -91,7 +102,7 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
           const m = median((parentsOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null));
           if (m != null) x.set(n.id, m);
         }
-        resolve(t);
+        resolveAnchored(t);
       }
     } else {
       // Bottom-up: centre each parent at the median of its children's positions.
@@ -100,7 +111,7 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
           const m = median((childrenOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null));
           if (m != null) x.set(n.id, m);
         }
-        resolve(t);
+        resolveAnchored(t);
       }
     }
   }
@@ -145,8 +156,29 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
       ordered.forEach((id, i) => x.set(id, hubX + (i - hubPos) * step));
       touchedTiers.add(tierOf.get(hub));
     }
-    for (const t of touchedTiers) resolve(t);
+    for (const t of touchedTiers) resolveAnchored(t);
   }
+
+  // Isolated standalone nodes (held out of the passes above) split evenly on
+  // both sides of their tier's anchored content instead of clumping at one end
+  // from their seed order — and without having shifted the anchored nodes.
+  const isolatedTiers = new Set();
+  for (let t = 0; t <= maxTier; t++) {
+    const tn = tierMap.get(t) ?? [];
+    const isolated = tn.filter(n => isolatedSet.has(n.id));
+    const anchored = tn.filter(n => !isolatedSet.has(n.id));
+    if (!isolated.length || !anchored.length) continue;
+    isolated.sort((a, b) => (orderIndex.get(a.id) ?? 0) - (orderIndex.get(b.id) ?? 0));
+    const minX = Math.min(...anchored.map(n => x.get(n.id) ?? 0));
+    const maxX = Math.max(...anchored.map(n => x.get(n.id) ?? 0));
+    const leftCount = Math.floor(isolated.length / 2);
+    const left  = isolated.slice(0, leftCount);
+    const right = isolated.slice(leftCount);
+    left.forEach((n, i)  => x.set(n.id, minX - step * (left.length - i)));
+    right.forEach((n, i) => x.set(n.id, maxX + step * (i + 1)));
+    isolatedTiers.add(t);
+  }
+  for (const t of isolatedTiers) resolve(t);
 
   const min = Math.min(...x.values());
   if (Number.isFinite(min)) for (const k of x.keys()) x.set(k, x.get(k) - min);

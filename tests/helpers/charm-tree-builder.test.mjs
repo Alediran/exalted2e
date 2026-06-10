@@ -178,6 +178,37 @@ describe('buildTree', () => {
     expect(virtual.virtualLabel).toMatch(/excellency/i);
   });
 
+  it('places standalone charms (no parents, no children) in the Excellency row (tier 0)', () => {
+    // A charm depending on anyExcellency synthesises a virtual node → an
+    // Excellency row exists. A standalone charm (no prereqs, nothing depends on
+    // it) would otherwise be floored to Math.max(essence, 2); it should instead
+    // share tier 0 with the Excellencies.
+    const dep = makeCharm({
+      id: 'd', charmUid: 'solar.melee.dep', essence: 3,
+      prereqGroups: [{ alternatives: [{ type: 'anyExcellency', abilityKey: 'melee' }] }],
+    });
+    const lone = makeCharm({ id: 'l', charmUid: 'solar.melee.lone', essence: 4, prereqGroups: [] });
+    const { tierMap } = buildTree([dep, lone]);
+    const tier0 = tierMap.get(0) ?? [];
+    expect(tier0.some(n => n.charm?.system?.charmUid === 'solar.melee.lone')).toBe(true);
+  });
+
+  it('keeps a subtree root (no parents but has children) below the Excellency row', () => {
+    // A root with its own children must NOT be pulled up to tier 0 just because
+    // it lacks prerequisites — only truly isolated charms join the Excellency row.
+    const dep = makeCharm({
+      id: 'd', charmUid: 'solar.melee.dep', essence: 3,
+      prereqGroups: [{ alternatives: [{ type: 'anyExcellency', abilityKey: 'melee' }] }],
+    });
+    const root = makeCharm({ id: 'r', charmUid: 'solar.melee.root', essence: 4, prereqGroups: [] });
+    const child = makeCharm({
+      id: 'ch', charmUid: 'solar.melee.child', essence: 4,
+      prereqGroups: [{ alternatives: [{ type: 'charm', charmUid: 'solar.melee.root' }] }],
+    });
+    const { nodes } = buildTree([dep, root, child]);
+    expect(nodes.get('solar.melee.root').tier).toBeGreaterThan(0);
+  });
+
   it('edges flag cross-tier skips correctly', () => {
     // a (tier 0) → c (tier 2) via skip; b (tier 0) → c via b→c (normal)
     const a = makeCharm({ id: 'a', charmUid: 'uid.a', prereqGroups: [] });
