@@ -34,7 +34,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -46,12 +45,13 @@
       {
         "alternatives": [
           {
-            "type": "charm",
+            "type": "anyExcellency",
             "charmUid": "",
-            "charmName": "Any two Intelligence Excellencies",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "charmName": "",
+            "abilityKey": "intelligence",
+            "virtueKey": "",
+            "virtueMin": 0,
+            "minCount": 2
           }
         ]
       }

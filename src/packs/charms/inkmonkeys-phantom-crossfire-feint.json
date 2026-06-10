@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -49,11 +48,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "c16209f48b5ad619",
+            "charmUid": "b53e433a85be8095",
             "charmName": "Celestial Circle Sorcery",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
