@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
-    "ability": "survival",
+    "exaltType": "lunar",
+    "ability": "perception",
     "essence": 1,
     "minAbility": 2,
     "charmType": "reflexive",
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -45,10 +44,23 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "perception",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f8ac53aeecab441a"
   },
-  "folder": "82dbbb60bb2b2c18",
+  "folder": "fa2edda343cdd2b0",
   "sort": 0,
   "ownership": {
     "default": 0

@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4c8eb8c4c57043f5",
+            "charmName": "Cascade Of Cutting Terror",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f8040a1de88c6110",
     "mirrorId": "4b4d7f23c9b4e506"
   },

@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "193e2b599e7729cf",
+            "charmName": "Elegant Dance Of Bow And Blade",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "8df93feb0db6b035",
     "mirrorId": "c1d2e3f4a5b60003"
   },

@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "war",
     "essence": 4,
     "minAbility": 5,
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -53,15 +52,15 @@
             "charmUid": "aa03afc17d6c2284",
             "charmName": "Arise And Slaughter",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "3c80cb771e17bdf4"
   },
-  "folder": "d517bd826bc73b9e",
+  "folder": "b0b1b2b3b4b5f04b",
   "sort": 0,
   "ownership": {
     "default": 0

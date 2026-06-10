@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "stealth",
     "essence": 3,
     "minAbility": 4,
@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,15 +51,15 @@
             "charmUid": "9082deea539b3616",
             "charmName": "Shadow Cloak Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "bfb885975c93022a"
   },
-  "folder": "07815dca7bd3d3d3",
+  "folder": "b0b1b2b3b4b5f048",
   "sort": 0,
   "ownership": {
     "default": 0

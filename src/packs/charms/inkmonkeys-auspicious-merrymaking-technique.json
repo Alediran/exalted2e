@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "terrestrial",
     "ability": "socialize",
     "essence": 2,
     "minAbility": 3,
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -53,15 +52,15 @@
             "charmUid": "5c566c4328093eb4",
             "charmName": "Sweeten-The-Tap Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "a1594bd8ad3ce112"
   },
-  "folder": "5da24482e38ff9ae",
+  "folder": "b0b1b2b3b4b5f02e",
   "sort": 0,
   "ownership": {
     "default": 0

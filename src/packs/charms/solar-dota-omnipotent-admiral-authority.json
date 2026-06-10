@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "68677c274f7ae125",
+            "charmName": "Storm-Weathering Essence Infusion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0cc997b4c5564d56",
     "mirrorId": "4b4d7f23c9b4e508"
   },

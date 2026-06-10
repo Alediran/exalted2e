@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "socialize",
     "essence": 3,
     "minAbility": 4,
@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,15 +51,15 @@
             "charmUid": "c5b7193825de317b",
             "charmName": "Scribing The Old Laws",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "226a9acbf8b55f17"
   },
-  "folder": "5da24482e38ff9ae",
+  "folder": "b0b1b2b3b4b5f047",
   "sort": 0,
   "ownership": {
     "default": 0

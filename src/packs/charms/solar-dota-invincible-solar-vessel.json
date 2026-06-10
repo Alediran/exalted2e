@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0a5a9deadca71310",
+            "charmName": "Hull-Preserving Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "7c0b5b178eb1e92e",
     "mirrorId": "4b4d7f23c9b4e504"
   },

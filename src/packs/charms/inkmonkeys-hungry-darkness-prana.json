@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "presence",
     "essence": 3,
     "minAbility": 5,
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -53,15 +52,15 @@
             "charmUid": "9e2b04746f22956e",
             "charmName": "Dread Lord's Demeanor",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "8f7f296d822e050b"
   },
-  "folder": "e6b3f42bab7e5717",
+  "folder": "b0b1b2b3b4b5f03f",
   "sort": 0,
   "ownership": {
     "default": 0
