@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -49,11 +48,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "4bb28c7b04be50dd",
+            "charmUid": "d5e16791cdf13b3e",
             "charmName": "Graceful Crane Stance",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

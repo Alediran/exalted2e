@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "martialarts",
-    "ability": "martialarts",
+    "exaltType": "lunar",
+    "ability": "dexterity",
     "essence": 2,
     "minAbility": 4,
     "charmType": "reflexive",
@@ -46,7 +46,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Lunar Hero Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

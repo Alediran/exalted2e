@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
-    "ability": "dexterity",
+    "ability": "stamina",
     "essence": 1,
     "minAbility": 1,
     "charmType": "supplemental",
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a7690a4ff3ce649e",
+            "charmName": "Mother Grizzly Attitude",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "390b054515eb711c",
     "moteRecovery": {
       "enabled": true,
@@ -60,7 +72,7 @@
       "modeExclusive": false
     }
   },
-  "folder": "6d3aed86fa48b120",
+  "folder": "956290ccde1dea72",
   "sort": 0,
   "ownership": {
     "default": 0

@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -49,18 +48,18 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "7b801d8ebb78cda6",
+            "charmUid": "970aadfc849fe6e8",
             "charmName": "Den Mother Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "798ba15228f1ca49"
   },
-  "folder": "6d3aed86fa48b120",
+  "folder": "a80aa95faaf8766a",
   "sort": 0,
   "ownership": {
     "default": 0
