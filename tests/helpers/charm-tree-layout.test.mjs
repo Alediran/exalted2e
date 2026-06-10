@@ -91,17 +91,17 @@ describe("assignCoordinates", () => {
     expect(x.get("e2")).toBeCloseTo(x.get("V"), 5);                       // middle Excellency over V
     expect((x.get("e1") + x.get("e3")) / 2).toBeCloseTo(x.get("V"), 5);   // Excellencies symmetric about V
   });
-  it("renders a childless leaf to the side so a through-node keeps the central slot", () => {
-    // Mid-tier T and P are through-nodes (parent + children); D is a childless
-    // leaf sharing parent S with P. D should yield to the side (right, toward S)
-    // so P sits over its own parent/children instead of being shoved out by D.
+  it("places a childless leaf near its parent without displacing through-nodes", () => {
+    // t0/t2 are through-nodes (each over its own child); L1 is a childless leaf
+    // whose parent p1 sits in the middle. L1 must end up near p1's column — not
+    // banished to a tier edge — and the through-nodes stay over their children.
     const x = assignCoordinates(tree({
-      tiers: [["L", "S"], ["T", "D", "P"], ["U", "E"]],
-      edges: [["L", "T"], ["S", "D"], ["S", "P"], ["T", "U"], ["P", "U"], ["P", "E"]],
+      tiers: [["p0", "p1", "p2"], ["t0", "L1", "t2"], ["g0", "g2"]],
+      edges: [["p0", "t0"], ["p1", "L1"], ["p2", "t2"], ["t0", "g0"], ["t2", "g2"]],
     }), {});
-    expect(x.get("D")).toBeGreaterThan(x.get("P"));   // leaf moved aside (right)
-    expect(x.get("D")).toBeGreaterThan(x.get("T"));   // leaf is outermost on its side
-    expect(x.get("P")).toBeLessThan(x.get("D"));      // through-node kept the inner slot
+    expect(Math.abs(x.get("L1") - x.get("p1"))).toBeLessThanOrEqual(STEP + 1); // leaf near its parent
+    expect(x.get("t0")).toBeCloseTo(x.get("g0"), 5);  // through-node over its child
+    expect(x.get("t2")).toBeCloseTo(x.get("g2"), 5);
   });
   it("reorders a tier to remove an avoidable parent/child edge crossing", () => {
     // Seed order [L,F,S] over [G,T,...]: L→T and F→G cross (L is left of F but

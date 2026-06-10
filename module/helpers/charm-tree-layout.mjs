@@ -11,6 +11,22 @@ function median(arr) {
 }
 
 /**
+ * Nearest x to `desired` that is at least `step` from every occupied position.
+ * Used to drop a leaf beside its parent's column, displaced only as far as the
+ * through-node spine forces it (rather than to the tier edge).
+ */
+function nearestFreeSlot(desired, occupied, step) {
+  const free = (c) => occupied.every(o => Math.abs(c - o) >= step - 1e-6);
+  if (free(desired)) return desired;
+  const cands = [];
+  for (const o of occupied) cands.push(o + step, o - step);
+  const valid = cands.filter(free);
+  if (!valid.length) return Math.max(...occupied) + step;
+  valid.sort((a, b) => Math.abs(a - desired) - Math.abs(b - desired));
+  return valid[0];
+}
+
+/**
  * Spread nodes in a tier so they are at least `step` apart, preserving their
  * centroid (centre of mass). Nodes are shifted symmetrically outward so that
  * a parent positioned at the group centroid remains centred after resolve.
@@ -240,29 +256,28 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
     for (const t of touchedTiers) resolveAnchored(t);
   }
 
-  // Leaf placement: childless leaves (held out of the passes above) are set
-  // just outside their tier's through-node span, on the side nearest their
-  // parent, stacking outward. The through-nodes are left untouched so they keep
-  // the central slots aligned with both their parents and their children.
+  // Leaf placement: childless leaves (held out of the passes above) are dropped
+  // next to their parent's column, displaced just enough to clear the through-
+  // node spine and each other (nearest free slot to the parent median). The
+  // through-nodes are left untouched, so they keep the slots aligned with both
+  // their parents and their children, while leaves stay near their parents.
   for (let t = 0; t <= maxTier; t++) {
     const tn = tierMap.get(t) ?? [];
     const through = tn.filter(n => childrenOf.get(n.id)?.length);
     const leaves  = tn.filter(n => leafSet.has(n.id));
     if (!through.length || !leaves.length) continue;
-    const minT = Math.min(...through.map(n => x.get(n.id) ?? 0));
-    const maxT = Math.max(...through.map(n => x.get(n.id) ?? 0));
-    const centre = (minT + maxT) / 2;
-    const left = [];
-    const right = [];
-    for (const n of leaves) {
-      const pm = median((parentsOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null));
-      ((pm ?? centre) <= centre ? left : right).push(n);
+    const occupied = through.map(n => x.get(n.id) ?? 0);
+    const fallback = (Math.min(...occupied) + Math.max(...occupied)) / 2;
+    const want = leaves.map(n => ({
+      n,
+      d: median((parentsOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null)) ?? fallback,
+    }));
+    want.sort((a, b) => a.d - b.d);
+    for (const { n, d } of want) {
+      const pos = nearestFreeSlot(d, occupied, step);
+      x.set(n.id, pos);
+      occupied.push(pos);
     }
-    const byOrder = (a, b) => (orderIndex.get(a.id) ?? 0) - (orderIndex.get(b.id) ?? 0);
-    left.sort(byOrder);
-    right.sort(byOrder);
-    left.forEach((n, i)  => x.set(n.id, minT - step * (left.length - i)));
-    right.forEach((n, i) => x.set(n.id, maxT + step * (i + 1)));
   }
 
   // Isolated standalone nodes (held out of the passes above) split evenly on
