@@ -43,7 +43,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6edf06154a70a229",
+            "charmName": "Instinctive Wits Unity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "725cb776d5d0b68c",
+            "charmName": "Flawless Wits Focus",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d0e1f2a3b4c50009"
   },
   "folder": "03a1efbef258d84f",

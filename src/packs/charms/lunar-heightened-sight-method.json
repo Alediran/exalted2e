@@ -1,6 +1,6 @@
 {
-  "_id": "d0e1f2a3b4c50007",
-  "_key": "!items!d0e1f2a3b4c50007",
+  "_id": "6b7505a17150c55c",
+  "_key": "!items!6b7505a17150c55c",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,36 +9,36 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Impossible Perception Improvement",
+  "name": "Heightened Sight Method",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
     "ability": "perception",
-    "essence": 5,
-    "minAbility": 5,
-    "charmType": "permanent",
-    "duration": "permanent",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "None"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Stewards hone their strengths. This Charm permanently increases the maximum rating of the chosen Attribute by one. Raising the Attribute to that level requires the normal expenditure of experience.</p>",
-    "source": "Dreams of the First Age",
+    "description": "<p>The Lunar Exalted are nearly impossible to fool. Heightened (Sense) Method is actually three Charms, covering the same three sets of senses as Keen (Sense) Technique. Activating this Charm doubles any successes the Lunar earns on appropriate Perception rolls before applying external penalties, to a maximum of (Perception) additional successes. Characters in the form of an animal renowned for one of its senses (a bloodhound for scent, an eagle for vision, etc.) double the successes without limit for that sense.</p>",
+    "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -48,20 +48,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "1672cbc88f6b5357",
-            "charmName": "Instinctive Perception Unity",
-            "abilityKey": "",
-            "virtueKey": "",
-            "virtueMin": 0
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "f6d30dcd91edeba1",
-            "charmName": "Flawless Perception Focus",
+            "charmUid": "1f10bab47d46ffe3",
+            "charmName": "Keen Sight Technique",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -69,7 +57,8 @@
         ]
       }
     ],
-    "charmUid": "d0e1f2a3b4c50007"
+    "charmUid": "6b7505a17150c55c",
+    "mergedIds": []
   },
   "folder": "fa2edda343cdd2b0",
   "sort": 0,

@@ -43,7 +43,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2b72383e1db336d4",
+            "charmName": "Instinctive Strength Unity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "92009242c1763cc9",
+            "charmName": "Flawless Strength Focus",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d0e1f2a3b4c50001"
   },
   "folder": "aba1efe8ad0bef8a",

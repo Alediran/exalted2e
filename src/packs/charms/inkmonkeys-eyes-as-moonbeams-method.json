@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -50,11 +49,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "6fdb8f35c1204bbd",
-            "charmName": "Eyes of the Cat",
+            "charmUid": "57bc85bc99e07f74",
+            "charmName": "Eye Of The Cat",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -62,11 +61,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "8ad7840da0d4ecd8",
+            "charmUid": "1f10bab47d46ffe3",
             "charmName": "Keen Sight Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

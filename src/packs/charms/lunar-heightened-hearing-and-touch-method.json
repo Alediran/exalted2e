@@ -1,6 +1,6 @@
 {
-  "_id": "520d5e0b417ffbf7",
-  "_key": "!items!520d5e0b417ffbf7",
+  "_id": "48a2e0d2b3b41a32",
+  "_key": "!items!48a2e0d2b3b41a32",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Heightened (Sense) Method",
+  "name": "Heightened Hearing and Touch Method",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -49,16 +48,17 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "",
-            "charmName": "Appropriate Keen (Sense) Technique",
+            "charmUid": "70c94427cb306b24",
+            "charmName": "Keen Hearing and Touch Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "charmUid": "520d5e0b417ffbf7"
+    "charmUid": "48a2e0d2b3b41a32",
+    "mergedIds": []
   },
   "folder": "fa2edda343cdd2b0",
   "sort": 0,

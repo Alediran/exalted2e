@@ -43,7 +43,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c39f2a02e7f5b835",
+            "charmName": "Instinctive Appearance Unity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ab3da5e725a9a83a",
+            "charmName": "Flawless Appearance Focus",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d0e1f2a3b4c50006"
   },
   "folder": "8313b495b23ed35c",

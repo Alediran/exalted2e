@@ -43,7 +43,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a37ac7f71df77b53",
+            "charmName": "Instinctive Manipulation Unity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "324dbd19ffb0fbbe",
+            "charmName": "Flawless Manipulation Focus",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d0e1f2a3b4c50005"
   },
   "folder": "7e56afbcd2643f32",

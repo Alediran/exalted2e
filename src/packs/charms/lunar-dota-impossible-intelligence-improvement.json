@@ -43,7 +43,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "eac69b91f3b50e72",
+            "charmName": "Instinctive Intelligence Unity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0dc9d088f5b650d9",
+            "charmName": "Flawless Intelligence Focus",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d0e1f2a3b4c50008"
   },
   "folder": "8b05ba7cc3e236b8",

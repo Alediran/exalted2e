@@ -1,6 +1,6 @@
 {
-  "_id": "b4a2df4f30ee6cd0",
-  "_key": "!items!b4a2df4f30ee6cd0",
+  "_id": "70c94427cb306b24",
+  "_key": "!items!70c94427cb306b24",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Keen (Sense) Technique",
+  "name": "Keen Hearing and Touch Technique",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -44,21 +43,9 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
-    "charmUid": "b4a2df4f30ee6cd0"
+    "prereqGroups": [],
+    "charmUid": "70c94427cb306b24",
+    "mergedIds": []
   },
   "folder": "fa2edda343cdd2b0",
   "sort": 0,
