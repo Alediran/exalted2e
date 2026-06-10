@@ -45,7 +45,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7bfca893721a349e",
+            "charmName": "Stone-Carving Fingers Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "aef8e4384df3aa5f",
+            "charmName": "Charm Of Greater Unmaking",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "66438a42446af4fd"
   },
   "folder": "b0b1b2b3b4b5f01e",

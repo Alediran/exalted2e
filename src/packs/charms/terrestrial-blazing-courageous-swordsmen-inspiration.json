@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bb47b6a6a779bd8d",
+            "charmName": "Phantom-Warrior Horde",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2ab3c9cb26c3fdbf"
   },
   "folder": "b0b1b2b3b4b5f032",

@@ -52,12 +52,13 @@
       {
         "alternatives": [
           {
-            "type": "charm",
+            "type": "anyExcellency",
             "charmUid": "",
-            "charmName": "Any two Socialize Excellencies",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "charmName": "",
+            "abilityKey": "socialize",
+            "virtueKey": "",
+            "virtueMin": 0,
+            "minCount": 2
           }
         ]
       }

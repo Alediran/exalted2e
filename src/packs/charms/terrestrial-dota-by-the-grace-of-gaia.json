@@ -46,7 +46,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "faa2fa0bf8ee2ab0",
+            "charmName": "Five-Dragon Horseman Prana",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3bd28e3ecb9c62a7",
+            "charmName": "Dance Of The Jade Bridle",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f395112918199995"
   },
   "folder": "b0b1b2b3b4b5f02c",

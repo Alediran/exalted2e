@@ -48,12 +48,12 @@
       {
         "alternatives": [
           {
-            "type": "charm",
+            "type": "anyExcellency",
             "charmUid": "",
-            "charmName": "Any Survival Excellency plus any Medicine Charm",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "charmName": "",
+            "abilityKey": "survival",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

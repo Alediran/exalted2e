@@ -46,7 +46,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d63aa4f11e5af4ad",
+            "charmName": "Grievous Wound Alteration Energy",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f3b75a693c34abfb",
+            "charmName": "Purity Of Mind Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "185770732d23fd46"
   },
   "folder": "b0b1b2b3b4b5f026",

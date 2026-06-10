@@ -48,7 +48,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e2ad71603a128e7a",
+            "charmName": "Enfolded In The Dragon's Wings",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "bb47b6a6a779bd8d"
   },
   "folder": "b0b1b2b3b4b5f032",

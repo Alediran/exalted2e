@@ -47,7 +47,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d8a6379b0c687844",
+            "charmName": "Dragon Vortex Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "42de81c8778d5953"
   },
   "folder": "b0b1b2b3b4b5f032",
