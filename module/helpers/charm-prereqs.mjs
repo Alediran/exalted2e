@@ -189,7 +189,7 @@ export function areCharmPrereqsMet(charm, actor) {
  */
 export function describeGroup(group, actor = null) {
   const alts = group?.alternatives ?? [];
-  const parts = alts.map(a => _altLabel(a, actor)).filter(Boolean);
+  const parts = [...new Set(alts.map(a => _altLabel(a, actor)).filter(Boolean))];
   if (parts.length === 0) return "";
   if (parts.length === 1) return parts[0];
   return parts.join(` ${game.i18n.localize("EX2E.PrereqOr")} `);
@@ -203,10 +203,8 @@ export function describeAllPrereqs(charm, actor = null) {
   const groups = charm.system?.prereqGroups ?? [];
   const labels = [];
   for (const g of groups) {
-    for (const a of (g.alternatives ?? [])) {
-      const label = _altLabel(a, actor ?? charm.actor ?? null);
-      if (label) labels.push(label);
-    }
+    const label = describeGroup(g, actor ?? charm.actor ?? null);
+    if (label) labels.push(label);
   }
   return labels.join(", ");
 }

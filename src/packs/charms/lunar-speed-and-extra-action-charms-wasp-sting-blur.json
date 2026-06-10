@@ -24,20 +24,20 @@
     "steps": [],
     "keywords": [
       "Combo-OK",
-      "Fury-OK"
+      "Fury-OK",
+      "Merged"
     ],
     "cost": {
       "formula": "2m per tick",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm is identical to the Dexterity Charm of the same name, on page 154.</p>",
+    "description": "<p>With the blinding speed of a striking insect, the Lunar lashes out and almost immediately recovers. This Charm reduces the Speed of a Lunar's action by one for every two motes spent, after persistent effects, to a minimum of 3. Used with Relentless Lunar Fury, this Charm reduces the Speed of all attacks by one (minimum three) for the duration.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,6 +59,12 @@
         ]
       }
     ],
+    "speedModifier": {
+      "enabled": true,
+      "delta": -1,
+      "minimum": 3,
+      "perMotes": 2
+    },
     "charmUid": "1314998f9ee7f379",
     "mergedIds": [
       "cdf7be0187f1713a"
