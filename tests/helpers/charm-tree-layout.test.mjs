@@ -114,6 +114,35 @@ describe("assignCoordinates", () => {
     // No crossing ⇔ L vs F sit on the same side as their children T vs G.
     expect(Math.sign(x.get("L") - x.get("F"))).toBe(Math.sign(x.get("T") - x.get("G")));
   });
+  it("places two virtual hubs together in the centre with semi-excellencies outside", () => {
+    // Two virtual anyExcellency nodes (V1/V2) share a tier with four quasi peers
+    // via same-tier edges, and each anchors its own subtree. The virtuals should
+    // end up adjacent in the centre, the quasi split evenly outside them.
+    const tier0 = [
+      { id: "q0", tier: 0 }, { id: "q1", tier: 0 },
+      { id: "V1", tier: 0, isVirtual: true }, { id: "V2", tier: 0, isVirtual: true },
+      { id: "q2", tier: 0 }, { id: "q3", tier: 0 },
+    ];
+    // V1's children sit on the left, V2's on the right, so without core-grouping
+    // the two virtuals would drift far apart (V2 floating between the quasi).
+    const tier1 = [{ id: "a1", tier: 1 }, { id: "a2", tier: 1 }, { id: "d1", tier: 1 }, { id: "d2", tier: 1 }];
+    const tierMap = new Map([[0, tier0], [1, tier1]]);
+    const nodes = new Map([...tier0, ...tier1].map(n => [n.id, n]));
+    // All quasi belong to V1 (same-tier). V2 has NO same-tier peers — only
+    // cross-tier children — exactly like "(Any Two Lore Excellencies)".
+    const edges = [
+      { fromId: "V1", toId: "q0" }, { fromId: "V1", toId: "q1" },   // same-tier
+      { fromId: "V1", toId: "q2" }, { fromId: "V1", toId: "q3" },   // same-tier
+      { fromId: "V1", toId: "a1" }, { fromId: "V1", toId: "a2" },   // V1 children (left)
+      { fromId: "V2", toId: "d1" }, { fromId: "V2", toId: "d2" },   // V2 children (right)
+    ];
+    const x = assignCoordinates({ nodes, edges, tierMap, maxTier: 1 }, {});
+    expect(Math.abs(x.get("V1") - x.get("V2"))).toBeCloseTo(STEP, 5); // virtuals adjacent
+    const lo = Math.min(x.get("V1"), x.get("V2"));
+    const hi = Math.max(x.get("V1"), x.get("V2"));
+    expect(["q0", "q1", "q2", "q3"].filter(q => x.get(q) < lo).length).toBe(2);
+    expect(["q0", "q1", "q2", "q3"].filter(q => x.get(q) > hi).length).toBe(2);
+  });
   it("normalizes so the minimum x is 0", () => {
     const x = assignCoordinates(tree({ tiers: [["p"], ["a","b"]], edges: [["p","a"],["p","b"]] }), {});
     expect(Math.min(...x.values())).toBeCloseTo(0, 5);

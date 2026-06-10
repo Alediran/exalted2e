@@ -170,16 +170,42 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
     }
   }
 
-  // Same-tier clustering: pack each same-tier component (the Excellency row)
-  // into a tight horizontal band centred on its hub — the member with the most
-  // cross-tier connections, i.e. the virtual anyExcellency node, which the
-  // median passes already centred over the whole subtree. The hub sits in the
-  // middle of the band with its peers split half on each side (preserving their
-  // left→right tier order), each one step apart, giving short straight
-  // horizontal connectors instead of letting peers drift over their own subtrees.
+  // Same-tier clustering: pack the Excellency row into a tight horizontal band.
+  // The hubs are the virtual anyExcellency node(s) — which the median passes
+  // already centred over their subtrees — and the semi-Excellencies split
+  // evenly on both sides, each one step apart, giving short straight horizontal
+  // connectors instead of letting peers drift over their own subtrees.
   if (sameTierPeers.size) {
-    const seen = new Set();
+    const byOrder = (a, b) => (orderIndex.get(a) ?? 0) - (orderIndex.get(b) ?? 0);
+    const virtualSet = new Set();
+    for (let t = 0; t <= maxTier; t++) for (const n of (tierMap.get(t) ?? [])) if (n.isVirtual) virtualSet.add(n.id);
     const touchedTiers = new Set();
+    const tiersWithVirtualBand = new Set();
+
+    // 1) Tiers with virtual hubs: ALL virtual nodes in the tier sit together in
+    //    the centre (the rare two-anyExcellency case keeps both centred even when
+    //    one has no same-tier quasi of its own), semi-Excellencies split evenly
+    //    outside them. Centred on the median of the hubs' subtree centres.
+    for (let t = 0; t <= maxTier; t++) {
+      const tierIds = (tierMap.get(t) ?? []).map(n => n.id);
+      const cores = tierIds.filter(id => virtualSet.has(id));
+      if (!cores.length) continue;
+      tiersWithVirtualBand.add(t);
+      const sats = tierIds.filter(id => !virtualSet.has(id) && sameTierPeers.get(id)?.size);
+      if (cores.length + sats.length < 2) continue;
+      cores.sort(byOrder);
+      sats.sort(byOrder);
+      const leftCount = Math.floor(sats.length / 2);
+      const ordered = [...sats.slice(0, leftCount), ...cores, ...sats.slice(leftCount)];
+      const coreCentre = leftCount + (cores.length - 1) / 2;
+      const anchorX = median(cores.map(id => x.get(id)).filter(v => v != null)) ?? 0;
+      ordered.forEach((id, i) => x.set(id, anchorX + (i - coreCentre) * step));
+      touchedTiers.add(t);
+    }
+
+    // 2) Same-tier components without a virtual hub: centre on the highest-degree
+    //    member, peers split evenly either side.
+    const seen = new Set();
     const degree = (id) => (childrenOf.get(id)?.length ?? 0) + (parentsOf.get(id)?.length ?? 0);
     for (const startId of sameTierPeers.keys()) {
       if (seen.has(startId)) continue;
@@ -194,14 +220,14 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
         }
       }
       if (cluster.length < 2) continue;
-      cluster.sort((a, b) => (orderIndex.get(a) ?? 0) - (orderIndex.get(b) ?? 0));
+      if (tiersWithVirtualBand.has(tierOf.get(cluster[0]))) continue; // handled in pass 1
+      cluster.sort(byOrder);
       let hub = cluster[0];
       for (const id of cluster) {
         const better = degree(id) > degree(hub)
           || (degree(id) === degree(hub) && (orderIndex.get(id) ?? 0) < (orderIndex.get(hub) ?? 0));
         if (better) hub = id;
       }
-      // Split peers evenly: first half left of the hub, second half right.
       const peers = cluster.filter(id => id !== hub);
       const leftCount = Math.floor(peers.length / 2);
       const ordered = [...peers.slice(0, leftCount), hub, ...peers.slice(leftCount)];
@@ -210,6 +236,7 @@ export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CAR
       ordered.forEach((id, i) => x.set(id, hubX + (i - hubPos) * step));
       touchedTiers.add(tierOf.get(hub));
     }
+
     for (const t of touchedTiers) resolveAnchored(t);
   }
 
