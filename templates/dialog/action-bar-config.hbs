@@ -1,12 +1,26 @@
 <div class="ex2e-action-bar-config-form">
   <p class="hint">{{localize "EX2E.ActionBarPinnedIntro"}}</p>
+  <p class="hint ex2e-reorder-hint">{{localize "EX2E.ActionBarReorderHint"}}</p>
   <div class="ex2e-action-bar-config-body">
     {{#each rows as |row|}}
-    <label class="form-group ex2e-pin-row">
-      <input type="checkbox" name="{{row.key}}" {{#if row.checked}}checked{{/if}}>
-      <i class="{{row.icon}}"></i>
-      <span>{{localize row.labelKey}}</span>
-    </label>
+    <div class="form-group ex2e-pin-row" data-action-key="{{row.key}}">
+      <i class="fa-solid fa-grip-vertical ex2e-drag-handle"></i>
+      <input type="checkbox" id="ex2e-pin-{{row.key}}" name="{{row.key}}" {{#if row.checked}}checked{{/if}}>
+      <label class="ex2e-pin-main" for="ex2e-pin-{{row.key}}">
+        <i class="{{row.icon}} ex2e-pin-icon"></i>
+        <span class="ex2e-pin-label">{{localize row.labelKey}}</span>
+      </label>
+      <span class="ex2e-pin-arrows">
+        <button type="button" class="ex2e-pin-arrow" data-action="moveUp"
+          data-tooltip="{{localize 'EX2E.ActionBarMoveUp'}}" aria-label="{{localize 'EX2E.ActionBarMoveUp'}}">
+          <i class="fa-solid fa-chevron-up"></i>
+        </button>
+        <button type="button" class="ex2e-pin-arrow" data-action="moveDown"
+          data-tooltip="{{localize 'EX2E.ActionBarMoveDown'}}" aria-label="{{localize 'EX2E.ActionBarMoveDown'}}">
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </span>
+    </div>
     {{/each}}
   </div>
   <footer class="form-footer">

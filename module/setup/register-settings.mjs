@@ -152,4 +152,33 @@ export function registerSettings() {
     type:       ActionBarConfig,
     restricted: false,
   });
+
+  // Foundry renders registerMenu buttons in a block separate from the regular
+  // settings, so the "Pinned Actions" menu lands away from its Combat Action
+  // Bar Style dropdown. Relocate it to sit directly under the style dropdown,
+  // and grey it out under the Dock style (pinned actions only affect Radial).
+  // Null-guarded so it no-ops if Foundry's settings DOM ever changes.
+  Hooks.on("renderSettingsConfig", (app, html) => {
+    const root = html instanceof HTMLElement ? html : (html?.[0] ?? html);
+    if (!root?.querySelector) return;
+
+    const styleCtl = root.querySelector('[name="exalted2e.actionBarStyle"]');
+    const menuBtn  = root.querySelector(
+      '[data-key="exalted2e.actionBarPinnedMenu"], button[data-key$="actionBarPinnedMenu"]'
+    );
+    const styleGroup = styleCtl?.closest(".form-group");
+    const menuGroup  = menuBtn?.closest(".form-group");
+    if (!styleGroup || !menuGroup) return;
+
+    styleGroup.after(menuGroup);
+    menuGroup.classList.add("ex2e-bar-pinned-menu-group");
+
+    const sync = () => {
+      const isDock = (styleCtl.value ?? "dock") === "dock";
+      menuGroup.classList.toggle("ex2e-disabled", isDock);
+      if (menuBtn) menuBtn.disabled = isDock;
+    };
+    sync();
+    styleCtl.addEventListener("change", sync);
+  });
 }

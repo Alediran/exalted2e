@@ -52,18 +52,30 @@ const QB_ALWAYS_BAR = new Set(["attack", "finish", "abort"]);
 /**
  * Split descriptors into the always-visible bar and the radial overflow.
  * Attack, Finish, and Abort are always in the bar; a descriptor is in the bar
- * if its key is in `pinnedKeys`, otherwise in the radial. Order is preserved.
+ * if its key is in `pinnedKeys`, otherwise in the radial.
+ *
+ * Bar order: Attack first → the pinned keys in `pinnedKeys` order (so the user
+ * can rearrange them) → any remaining always-bar controls (Finish, Abort) in
+ * descriptor order. Radial keeps descriptor order.
  * @param {Array<{key:string}>} descriptors
  * @param {string[]} pinnedKeys
  * @returns {{bar:Array, radial:Array}}
  */
 export function partitionForRadial(descriptors, pinnedKeys) {
-  const pinned = new Set(pinnedKeys ?? []);
+  const pinnedOrder = pinnedKeys ?? [];
+  const pinnedSet = new Set(pinnedOrder);
+  const byKey = new Map(descriptors.map(d => [d.key, d]));
+
+  const radial = descriptors.filter(d => !(QB_ALWAYS_BAR.has(d.key) || pinnedSet.has(d.key)));
+
   const bar = [];
-  const radial = [];
-  for (const dsc of descriptors) {
-    if (QB_ALWAYS_BAR.has(dsc.key) || pinned.has(dsc.key)) bar.push(dsc);
-    else radial.push(dsc);
+  const used = new Set();
+  const push = (d) => { if (d && !used.has(d.key)) { bar.push(d); used.add(d.key); } };
+
+  push(byKey.get("attack"));                 // Attack always leads.
+  for (const key of pinnedOrder) push(byKey.get(key)); // pinned, in saved order.
+  for (const d of descriptors) {             // remaining always-bar (Finish, Abort).
+    if (QB_ALWAYS_BAR.has(d.key)) push(d);
   }
   return { bar, radial };
 }

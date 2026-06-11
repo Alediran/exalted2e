@@ -228,6 +228,9 @@ export class ActionQuickbar {
 
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
       if (cfg.clinchOnly) continue;  // handled via _clinchControlSection
+      // Shapeshift is Lunar-only — hide it for every other splat (and when
+      // there's no actor to read a splat from).
+      if (key === "shapeshift" && actor?.system?.exaltType !== "lunar") continue;
       pieces.push(this._actionButton(key, cfg));
       // Cast Spell slots in right after the Simple Charm action — it
       // occupies an equivalent conceptual spot (another Simple-shape
@@ -582,6 +585,8 @@ export class ActionQuickbar {
     pieces.push(this._attackButton(actor));
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
       if (cfg.clinchOnly) continue;
+      // Shapeshift is Lunar-only (see _render).
+      if (key === "shapeshift" && actor?.system?.exaltType !== "lunar") continue;
       pieces.push(this._actionButton(key, cfg));
       if (key === "simpleCharm") pieces.push(this._castSpellButton(actor));
     }

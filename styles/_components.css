@@ -899,3 +899,106 @@
 .ex2e-permissions-config .form-footer button.ex2e-danger:hover {
   background: rgba(180, 40, 40, 0.3);
 }
+
+/* ── Action Bar Config Dialog ──────────────────────────────────────── */
+.ex2e-action-bar-config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  min-height: 0;
+}
+.ex2e-action-bar-config-form .hint {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  color: var(--ex2e-text-muted);
+}
+.ex2e-action-bar-config-body {
+  flex: 1 1 auto;
+  min-height: 0;            /* let the flex child shrink so the list scrolls */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 4px;
+}
+.ex2e-action-bar-config-body .ex2e-pin-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  background: var(--ex2e-bg-medium);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+.ex2e-action-bar-config-body .ex2e-pin-row:hover {
+  background: var(--ex2e-bg-panel);
+  border-color: var(--ex2e-gold-main);
+}
+.ex2e-action-bar-config-body .ex2e-pin-row.ex2e-dragging {
+  opacity: 0.5;
+  border-color: var(--ex2e-gold-main);
+}
+.ex2e-action-bar-config-body .ex2e-pin-row input[type="checkbox"] {
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: var(--ex2e-gold-main);
+}
+.ex2e-action-bar-config-body .ex2e-drag-handle {
+  flex: 0 0 auto;
+  color: var(--ex2e-text-muted);
+  cursor: grab;
+}
+.ex2e-action-bar-config-body .ex2e-pin-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  margin: 0;
+  cursor: pointer;
+}
+.ex2e-action-bar-config-body .ex2e-pin-icon {
+  flex: 0 0 auto;
+  width: 18px;
+  text-align: center;
+  color: var(--ex2e-gold-bright);
+}
+.ex2e-action-bar-config-body .ex2e-pin-label {
+  font-size: 0.9rem;
+  color: var(--ex2e-text-primary);
+}
+.ex2e-action-bar-config-body .ex2e-pin-arrows {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+.ex2e-action-bar-config-body .ex2e-pin-arrow {
+  width: 20px;
+  height: 13px;
+  padding: 0;
+  line-height: 1;
+  font-size: 9px;
+  background: transparent;
+  border: none;
+  color: var(--ex2e-text-muted);
+  cursor: pointer;
+}
+.ex2e-action-bar-config-body .ex2e-pin-arrow:hover { color: var(--ex2e-gold-bright); }
+.ex2e-action-bar-config .form-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  flex: 0 0 auto;
+}
+.ex2e-action-bar-config .form-footer button[type="submit"] {
+  color: var(--ex2e-gold-bright);
+  border-color: var(--ex2e-gold-mid);
+}
+
+/* Pinned-actions menu relocated directly under the Combat Action Bar Style
+   dropdown in the Settings form; dimmed while the Dock style is active. */
+.ex2e-bar-pinned-menu-group.ex2e-disabled { opacity: 0.5; }
+.ex2e-bar-pinned-menu-group.ex2e-disabled button { cursor: not-allowed; }

@@ -49,6 +49,12 @@ describe("partitionForRadial", () => {
     expect(bar.map(i => i.key)).toEqual(["attack", "guard", "move", "finish"]);
     expect(radial.map(i => i.key)).toEqual(["aim", "dash"]);
   });
+  it("orders the bar by the pinned array, not build order", () => {
+    // Build order has guard before move; the pinned array reverses them.
+    const { bar } = partitionForRadial(
+      [d("attack"), d("guard"), d("move"), d("finish")], ["move", "guard"]);
+    expect(bar.map(i => i.key)).toEqual(["attack", "move", "guard", "finish"]);
+  });
   it("always keeps abort in the bar (one-click abort affordance)", () => {
     const { bar, radial } = partitionForRadial([d("abort"), d("aim")], []);
     expect(bar.map(i => i.key)).toContain("abort");
