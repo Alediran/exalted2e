@@ -46,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "11a0fae7b7f2e5ee",
+            "charmName": "Excellent Implementation Of Objectives",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f31bac8e01188f0d"
   },
   "folder": "b0b1b2b3b4b5f005",

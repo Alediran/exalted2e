@@ -51,33 +51,37 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "performance",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
       {
         "alternatives": [
           {
-            "type": "charm",
+            "type": "anyExcellency",
             "charmUid": "",
-            "charmName": "Any Bureaucracy",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
+            "charmName": "",
+            "abilityKey": "bureaucracy",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
           {
-            "type": "charm",
+            "type": "anyExcellency",
             "charmUid": "",
-            "charmName": "Presence",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "charmName": "",
+            "abilityKey": "presence",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "socialize",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
