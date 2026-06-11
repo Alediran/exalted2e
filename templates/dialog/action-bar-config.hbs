@@ -1,0 +1,15 @@
+<div class="ex2e-action-bar-config-form">
+  <p class="hint">{{localize "EX2E.ActionBarPinnedIntro"}}</p>
+  <div class="ex2e-action-bar-config-body">
+    {{#each rows as |row|}}
+    <label class="form-group ex2e-pin-row">
+      <input type="checkbox" name="{{row.key}}" {{#if row.checked}}checked{{/if}}>
+      <i class="{{row.icon}}"></i>
+      <span>{{localize row.labelKey}}</span>
+    </label>
+    {{/each}}
+  </div>
+  <footer class="form-footer">
+    <button type="submit"><i class="fa-solid fa-save"></i> {{localize "EX2E.Save"}}</button>
+  </footer>
+</div>

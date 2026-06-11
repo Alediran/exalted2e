@@ -2577,7 +2577,23 @@
     "GremlinSyndromeAlertHeader": "Gremlin Syndrome",
     "GremlinSyndromeAlertBody": "{name} has succumbed to Gremlin Syndrome.",
     "GremlinConvertButton": "Convert to Antagonist",
-    "GremlinConverted": "{name} is now a Gremlin — token disposition set to hostile."
+    "GremlinConverted": "{name} is now a Gremlin — token disposition set to hostile.",
+    "SettingActionBarStyle": "Combat Action Bar Style",
+    "SettingActionBarStyleHint": "Choose how the in-combat action bar is laid out. Per-user; does not affect other players.",
+    "SettingActionBarStyleDock": "Icon Dock (compact icons)",
+    "SettingActionBarStyleRadial": "Bar + Radial (pinned actions + overflow wheel)",
+    "ActionBarPinnedMenuName": "Combat Action Bar — Pinned Actions",
+    "ActionBarPinnedMenuLabel": "Configure…",
+    "ActionBarPinnedMenuHint": "Pick which actions stay on the bar in the Bar + Radial style. The rest open from the radial overflow. Attack and Finish Turn are always shown.",
+    "ActionBarPinnedTitle": "Pinned Combat Actions",
+    "ActionBarPinnedIntro": "Checked actions stay on the visible bar in the Bar + Radial style; unchecked actions move into the radial overflow. Attack and Finish Turn are always present.",
+    "ActionBarMore": "More",
+    "ActionBarSaved": "Action bar settings saved.",
+    "QbGroupOffense": "Offense",
+    "QbGroupMovement": "Movement",
+    "QbGroupMagic": "Magic",
+    "QbGroupUtility": "Utility",
+    "QbGroupTurn": "Turn"
   },
   "TYPES": {
     "Actor": {

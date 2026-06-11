@@ -1,5 +1,7 @@
 import { XpCostsConfigDialog } from "../dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "../dialogs/permissions-config-dialog.mjs";
+import { ActionBarConfig } from "../apps/action-bar-config.mjs";
+import { ActionQuickbar } from "../ui/action-quickbar.mjs";
 
 export function _applyUiTheme(theme) {
   document.body.classList.toggle("ex2e-light-mode", theme === "light");
@@ -118,5 +120,36 @@ export function registerSettings() {
     },
     default:  "dark",
     onChange: value => _applyUiTheme(value),
+  });
+
+  game.settings.register("exalted2e", "actionBarStyle", {
+    name:    "EX2E.SettingActionBarStyle",
+    hint:    "EX2E.SettingActionBarStyleHint",
+    scope:   "client",
+    config:  true,
+    type:    String,
+    choices: {
+      dock:   "EX2E.SettingActionBarStyleDock",
+      radial: "EX2E.SettingActionBarStyleRadial",
+    },
+    default: "dock",
+    onChange: () => ActionQuickbar.instance.refresh(),
+  });
+
+  game.settings.register("exalted2e", "actionBarPinned", {
+    scope:   "client",
+    config:  false,
+    type:    Array,
+    default: ["attack", "guard", "move"],
+    onChange: () => ActionQuickbar.instance.refresh(),
+  });
+
+  game.settings.registerMenu("exalted2e", "actionBarPinnedMenu", {
+    name:       "EX2E.ActionBarPinnedMenuName",
+    label:      "EX2E.ActionBarPinnedMenuLabel",
+    hint:       "EX2E.ActionBarPinnedMenuHint",
+    icon:       "fa-solid fa-grip",
+    type:       ActionBarConfig,
+    restricted: false,
   });
 }

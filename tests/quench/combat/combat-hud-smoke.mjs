@@ -99,5 +99,35 @@ export function registerCombatHudSmoke(context) {
       assert.equal(panel.querySelector(".jb-roll-all"), null,
         "Roll All button removed after transition");
     });
+
+    it("[117] action quickbar honours the actionBarStyle setting (dock vs radial)", async () => {
+      const a = await createTempCharacter({ name: "Q-Bar-A" });
+      const b = await createTempCharacter({ name: "Q-Bar-B" });
+      await placeToken(a, getTestScene());
+      await placeToken(b, getTestScene());
+      await startTempCombat([a, b], { rollJoinBattle: true });
+
+      const bar = document.querySelector("#ex2e-action-quickbar");
+      assert.ok(bar, "#ex2e-action-quickbar exists");
+
+      const prev = game.settings.get("exalted2e", "actionBarStyle");
+      try {
+        await game.settings.set("exalted2e", "actionBarStyle", "dock");
+        // onChange refreshes the bar; assert the dock shape.
+        await waitFor(() => bar.classList.contains("qb-style-dock"));
+        await waitFor(() => bar.querySelector(".qb-seg"));
+        assert.ok(bar.querySelector(".qb-seg"), "dock renders grouped segments");
+
+        await game.settings.set("exalted2e", "actionBarStyle", "radial");
+        await waitFor(() => bar.classList.contains("qb-style-radial"));
+        // Default pinned set (attack/guard/move) leaves several actions to
+        // overflow, so the radial "More" toggle must render.
+        await waitFor(() => bar.querySelector(".qb-more"));
+        assert.ok(bar.querySelector(".qb-more"), "radial renders the overflow More toggle");
+        assert.ok(bar.querySelector(".qb-finish"), "radial keeps Finish in the bar");
+      } finally {
+        await game.settings.set("exalted2e", "actionBarStyle", prev);
+      }
+    });
   });
 }

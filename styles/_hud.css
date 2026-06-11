@@ -394,3 +394,103 @@
   border-radius: var(--ex2e-border-radius-lg);
   vertical-align: middle;
 }
+
+/* ── Action quickbar — Dock style (icon-only, grouped) ─────────────────── */
+.ex2e-action-quickbar.qb-style-dock { gap: 6px; }
+.ex2e-action-quickbar.qb-style-dock .qb-seg {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+.ex2e-action-quickbar.qb-style-dock .qb-seg-label {
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ex2e-text-muted);
+  align-self: center;
+  margin-right: 2px;
+}
+.ex2e-action-quickbar.qb-style-dock .qb-div {
+  width: 1px;
+  align-self: stretch;
+  background: var(--ex2e-border-color);
+  margin: 2px 2px;
+}
+.ex2e-action-quickbar.qb-style-dock .qb-btn {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  justify-content: center;
+  padding: 0;
+}
+.ex2e-action-quickbar.qb-style-dock .qb-label { display: none; }
+.ex2e-action-quickbar.qb-style-dock .qb-caret {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: 8px;
+  opacity: 0.7;
+}
+.ex2e-action-quickbar.qb-style-dock .qb-speed {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  font-size: 8px;
+  line-height: 1;
+  padding: 0 3px;
+  border-radius: 8px;
+  background: var(--ex2e-bg-dark, #0e0e14);
+  border: 1px solid var(--ex2e-border-color);
+  color: var(--ex2e-text-muted);
+}
+
+/* ── Action quickbar — Bar + Radial style ──────────────────────────────── */
+.ex2e-action-quickbar.qb-style-radial { overflow: visible; position: relative; }
+.ex2e-action-quickbar.qb-style-radial .qb-finish { order: 99; }
+.ex2e-action-radial {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  margin-bottom: 8px;
+  pointer-events: none;
+}
+.ex2e-action-radial.open { pointer-events: auto; }
+.ex2e-action-radial .qb-btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  /* Icon-only nodes (like the chosen Design B wheel) so they never bunch up;
+     the name + Speed/DV live in the button's tooltip. */
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  justify-content: center;
+  transform-origin: center;
+  transform: rotate(var(--qb-radial-angle, -90deg)) translate(var(--qb-radial-radius, 96px)) rotate(calc(-1 * var(--qb-radial-angle, -90deg))) scale(0);
+  opacity: 0;
+  transition: transform 0.14s ease, opacity 0.14s ease;
+}
+.ex2e-action-radial .qb-btn .qb-label { display: none; }
+.ex2e-action-radial .qb-btn .qb-speed {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  font-size: 8px;
+  line-height: 1;
+  padding: 0 3px;
+  border-radius: 8px;
+  background: var(--ex2e-bg-dark, #050505);
+  border: 1px solid var(--ex2e-border-color);
+  color: var(--ex2e-text-muted);
+}
+/* Keep an opaque background on hover — the popover floats over the canvas, so
+   the near-transparent --ex2e-bg-hover tint would otherwise show the grid. */
+.ex2e-action-quickbar.qb-style-radial .ex2e-action-radial .qb-btn:hover:not(:disabled) {
+  background: var(--ex2e-bg-panel);
+}
+.ex2e-action-radial.open .qb-btn {
+  transform: rotate(var(--qb-radial-angle, -90deg)) translate(var(--qb-radial-radius, 96px)) rotate(calc(-1 * var(--qb-radial-angle, -90deg))) scale(1);
+  opacity: 1;
+}

@@ -2577,7 +2577,23 @@
     "GremlinSyndromeAlertHeader": "Síndrome Gremlin",
     "GremlinSyndromeAlertBody": "{name} ha sucumbido al Síndrome Gremlin.",
     "GremlinConvertButton": "Convertir en Antagonista",
-    "GremlinConverted": "{name} ahora es un Gremlin — disposición del token establecida como hostil."
+    "GremlinConverted": "{name} ahora es un Gremlin — disposición del token establecida como hostil.",
+    "SettingActionBarStyle": "Estilo de la barra de acciones de combate",
+    "SettingActionBarStyleHint": "Elige cómo se distribuye la barra de acciones en combate. Por usuario; no afecta a otros jugadores.",
+    "SettingActionBarStyleDock": "Dársena de iconos (iconos compactos)",
+    "SettingActionBarStyleRadial": "Barra + Radial (acciones fijadas + rueda de desbordamiento)",
+    "ActionBarPinnedMenuName": "Barra de acciones de combate — Acciones fijadas",
+    "ActionBarPinnedMenuLabel": "Configurar…",
+    "ActionBarPinnedMenuHint": "Elige qué acciones permanecen en la barra en el estilo Barra + Radial. El resto se abren desde el desbordamiento radial. Ataque y Terminar turno siempre se muestran.",
+    "ActionBarPinnedTitle": "Acciones de combate fijadas",
+    "ActionBarPinnedIntro": "Las acciones marcadas permanecen en la barra visible en el estilo Barra + Radial; las no marcadas pasan al desbordamiento radial. Ataque y Terminar turno siempre están presentes.",
+    "ActionBarMore": "Más",
+    "ActionBarSaved": "Ajustes de la barra de acciones guardados.",
+    "QbGroupOffense": "Ofensiva",
+    "QbGroupMovement": "Movimiento",
+    "QbGroupMagic": "Magia",
+    "QbGroupUtility": "Utilidad",
+    "QbGroupTurn": "Turno"
   },
   "TYPES": {
     "Actor": {
