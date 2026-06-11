@@ -42,7 +42,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "834ffba1870a82bc",
+            "charmName": "Earth-Forsaking Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0795fd8a744b62db"
   },
   "folder": "b0b1b2b3b4b5f034",

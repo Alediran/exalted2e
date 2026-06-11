@@ -46,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "564cb9b612baac61",
+            "charmName": "Shadow Races the Light",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "7125a1addfc58cc3"
   },
   "folder": "b0b1b2b3b4b5f034",

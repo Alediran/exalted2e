@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "abyssal",
-    "ability": "awareness",
+    "ability": "sail",
     "essence": 1,
     "minAbility": 2,
     "charmType": "reflexive",
@@ -44,7 +44,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "008d7af14645e8e1",
+            "charmName": "Deck-Striding Phantom",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "sail",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "c330cd333015de72"
   },
   "folder": "b0b1b2b3b4b5f035",

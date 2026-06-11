@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5ca209e542e1aad2",
+            "charmName": "Flawless Archer Discipline",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "12280e29280a2ff1",
     "mirrorId": "8e032c6c533c6ff1"
   },

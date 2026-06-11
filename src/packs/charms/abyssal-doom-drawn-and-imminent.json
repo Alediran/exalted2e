@@ -46,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "300237f0e80c2dd4",
+            "charmName": "Withering Feathered Maelstrom",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2df689c7f91c7e8f",
     "mirrorId": "17507b92d6572f24"
   },
