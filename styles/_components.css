@@ -427,22 +427,36 @@
 
 /* ── ALCHEMICAL MODULES ─────────────────────────────────────────────────────── */
 .module-slots {
+  display:               grid;
+  grid-template-columns: 160px 1fr 160px;
+  align-items:           center;
+  gap:                   var(--ex2e-gap-md);
+  padding:               6px 10px;
+  margin-bottom:         var(--ex2e-gap-sm);
+  background:            var(--ex2e-bg-panel);
+  border:                1px solid var(--ex2e-border-color);
+  border-radius:         var(--ex2e-border-radius);
+}
+.module-slots__pips {
+  display:   flex;
+  flex-direction: column;
+  gap:       2px;
+}
+.module-slots__pips--right {
+  text-align: right;
+  align-items: flex-end;
+}
+.module-slots__actions {
   display:         flex;
   align-items:     center;
-  justify-content: space-between;
+  justify-content: center;
   gap:             var(--ex2e-gap-md);
-  padding:         6px 10px;
-  margin-bottom:   var(--ex2e-gap-sm);
-  background:      var(--ex2e-bg-panel);
-  border:          1px solid var(--ex2e-border-color);
-  border-radius:   var(--ex2e-border-radius);
 }
 .module-slots label {
   font-family: var(--ex2e-font-ui);
   font-size:   var(--ex2e-font-size-sm);
   color:       var(--ex2e-text-secondary);
   white-space: nowrap;
-  flex-shrink: 0;
 }
 .module-slots button {
   font-family:   var(--ex2e-font-ui);

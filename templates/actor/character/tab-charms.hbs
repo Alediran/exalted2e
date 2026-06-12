@@ -4,34 +4,40 @@
 
     {{#if (eq system.exaltType "alchemical")}}
     <div class="module-slots">
-      <div>
+      <div class="module-slots__pips">
         <label>{{localize "EX2E.SlotDedicated"}}</label>
         {{dotRating name="" value=system.dedicatedSlotsUsed max=system.splat.alchemical.dedicatedSlots min=0}}
       </div>
-      {{#if isEditable}}
-      <button type="button" data-action="addDedicatedSlot"
-              title="{{localize 'EX2E.SlotAddDedicated'}}">
-        {{localize "EX2E.SlotAddDedicated"}}
-      </button>
-      <button type="button" data-action="upgradeSlot"
-              {{#unless (gt system.splat.alchemical.dedicatedSlots 0)}}disabled{{/unless}}
-              title="{{localize 'EX2E.SlotUpgrade'}}">
-        {{localize "EX2E.SlotUpgrade"}}
-      </button>
-      <button type="button" data-action="addGeneralSlot"
-              title="{{localize 'EX2E.SlotAddGeneral'}}">
-        {{localize "EX2E.SlotAddGeneral"}}
-      </button>
-      {{/if}}
-      <div>
+      <div class="module-slots__actions">
+        {{#if isEditable}}
+        <button type="button" data-action="addDedicatedSlot"
+                title="{{localize 'EX2E.SlotAddDedicated'}}">
+          {{localize "EX2E.SlotAddDedicated"}}
+        </button>
+        <button type="button" data-action="upgradeSlot"
+                {{#unless (gt system.splat.alchemical.dedicatedSlots 0)}}disabled{{/unless}}
+                title="{{localize 'EX2E.SlotUpgrade'}}">
+          {{localize "EX2E.SlotUpgrade"}}
+        </button>
+        <button type="button" data-action="addGeneralSlot"
+                title="{{localize 'EX2E.SlotAddGeneral'}}">
+          {{localize "EX2E.SlotAddGeneral"}}
+        </button>
+        {{/if}}
+      </div>
+      <div class="module-slots__pips module-slots__pips--right">
         <label>{{localize "EX2E.SlotGeneral"}}</label>
-        {{dotRating name="" value=system.generalSlotsUsed max=system.splat.alchemical.generalSlots min=0}}        
+        {{dotRating name="" value=system.generalSlotsUsed max=system.splat.alchemical.generalSlots min=0}}
       </div>
     </div>
     {{/if}}
 
     <div class="section-toolbar ex2e-row">
       <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.TabCharms"}}</h2>
+      <button type="button" class="btn-add-item" data-action="openCharmTree"
+              title="{{localize 'EX2E.CharmTree.OpenTree'}}">
+        <i class="fa-solid fa-sitemap"></i> {{localize "EX2E.CharmTree.Title"}}
+      </button>
       {{#if isEditable}}
       <button class="btn-add-item" data-action="createItem" data-type="charm"
               data-exalt-type="{{system.exaltType}}"
