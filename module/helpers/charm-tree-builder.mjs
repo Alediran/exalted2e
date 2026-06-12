@@ -482,11 +482,12 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
           changed = true;
         }
       }
-      // Forward: quasi-Excellency children of virtual nodes now in the branch
+      // Forward: quasi-Excellency children of virtual or quasi-Excellency nodes now in the branch
+      // (handles chains like virtual → Instinctive Strength Unity → Impossible Strength Improvement)
       for (const { fromId, toId } of edges) {
         const fromNode = nodes.get(fromId);
         const toNode   = nodes.get(toId);
-        if (allIds.has(fromId) && !allIds.has(toId) && fromNode?.isVirtual && toNode?.isQuasiExcellency) {
+        if (allIds.has(fromId) && !allIds.has(toId) && (fromNode?.isVirtual || fromNode?.isQuasiExcellency) && toNode?.isQuasiExcellency) {
           allIds.add(toId);
           changed = true;
         }
@@ -525,10 +526,12 @@ function _isTierZeroExcellency(charm) {
 
 function _isQuasiExcellency(charm, groupKey) {
   if (!groupKey || _isTierZeroExcellency(charm)) return false;
-  // Require the ability word to lead the name ("Ride Essence Flow"), follow "Infinite"
-  // ("Infinite Ride Mastery"), or follow "of" ("Supreme Perfection of Ride",
-  // "Apocalyptic Evolution of Ride"). Mid-name occurrences like "Last Ride Glory" are excluded.
-  return new RegExp(`(^|\\bInfinite\\s+|\\bof\\s+)${groupKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
+  // Require the ability/attribute word to appear in a known quasi-excellency slot:
+  // leading ("Ride Essence Flow"), after "Infinite" ("Infinite Ride Mastery"),
+  // after "of" ("Supreme Perfection of Ride"), after "Instinctive" ("Instinctive Strength Unity"),
+  // after "Flawless" ("Flawless Dexterity Focus"), or after "Impossible" ("Impossible Strength Improvement").
+  // Mid-name occurrences like "Last Ride Glory" are excluded.
+  return new RegExp(`(^|\\bInfinite\\s+|\\bof\\s+|\\bInstinctive\\s+|\\bFlawless\\s+|\\bImpossible\\s+)${groupKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
 }
 
 function _capitalizeKey(key) {
