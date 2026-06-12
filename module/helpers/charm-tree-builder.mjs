@@ -180,8 +180,12 @@ export function buildTree(charms, groupKey = '') {
   while (queue.length > 0) {
     const id = queue.shift();
     const myTier = tierOf.get(id) ?? 0;
+    const currentNode = nodes.get(id);
     for (const childId of (childrenOf.get(id) ?? [])) {
-      const candidate = myTier + 1;
+      const childNode = nodes.get(childId);
+      // virtual→quasi edge: quasi-Excellencies sit in the same row as the virtual node
+      const increment = (currentNode?.isVirtual && childNode?.isQuasiExcellency) ? 0 : 1;
+      const candidate = myTier + increment;
       if (candidate > (tierOf.get(childId) ?? 0)) {
         tierOf.set(childId, candidate);
       }
@@ -549,7 +553,7 @@ function _isTierZeroExcellency(charm) {
 // Yozi groupKeys are camelCase (e.g. "theEbonDragon") but charm names use natural language.
 // Map camelCase keys that need translation to the name fragment used in charm names.
 const _YOZI_NAME_FRAGMENTS = {
-  theEbonDragon:      'The Ebon Dragon',
+  ebonDragon:           'The Ebon Dragon',
   sheWhoLivesInHerName: 'She Who Lives In Her Name',
 };
 
