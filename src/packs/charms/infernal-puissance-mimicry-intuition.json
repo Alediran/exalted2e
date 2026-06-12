@@ -45,6 +45,7 @@
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
+    "maxPurchases": "3",
     "active": false,
     "prereqGroups": [
       {
@@ -54,8 +55,8 @@
             "charmUid": "3884fa940b8e7af4",
             "charmName": "Nemesis Self Imagined Anew",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

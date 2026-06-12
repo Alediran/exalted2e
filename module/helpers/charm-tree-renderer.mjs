@@ -80,7 +80,7 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls) {
   const scrollLeft = containerEl.scrollLeft;
   const scrollTop  = containerEl.scrollTop;
 
-  for (const { fromId, toId, skip, sameTier } of edges) {
+  for (const { fromId, toId, skip, sameTier, minPurchases } of edges) {
     const fromEl = nodeEls.get(fromId);
     const toEl   = nodeEls.get(toId);
     if (!fromEl || !toEl) continue;
@@ -119,6 +119,17 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls) {
     if (skip) attrs['stroke-dasharray'] = '5,3';
 
     svgEl.appendChild(_svgEl('line', attrs));
+
+    if ((minPurchases ?? 1) > 1) {
+      const mx = (x1 + x2) / 2;
+      const my = (y1 + y2) / 2;
+      const label = svgEl.appendChild(_svgEl('text', {
+        x: String(Math.round(mx + 3)), y: String(Math.round(my - 3)),
+        fill: '#c48', 'font-size': '10', 'font-weight': 'bold',
+        'font-family': 'sans-serif',
+      }));
+      label.textContent = `×${minPurchases}`;
+    }
   }
 }
 

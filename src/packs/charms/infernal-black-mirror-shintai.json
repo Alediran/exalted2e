@@ -45,7 +45,57 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8e517b7ab3a5fdf4",
+            "charmName": "Shadow Spite Curse",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d14d594e43fbe7f7",
+            "charmName": "Seeing Is Blindness",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0e538a4cadae0789",
+            "charmName": "Soul Crack Exploitation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8bf74c50eb40d354",
+            "charmName": "Puissance Mimicry Intuition",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0,
+            "minPurchases": 3
+          }
+        ]
+      }
+    ],
     "charmUid": "95070fd8c31b0441"
   },
   "folder": "7c2ec8d4b84c1156",

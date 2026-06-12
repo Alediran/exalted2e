@@ -42,7 +42,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "91ec1377c36c6a34",
+            "charmName": "Penitents Like Scattered Grains",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2702f11aec72f44c"
   },
   "folder": "d852ccb3960d271d",

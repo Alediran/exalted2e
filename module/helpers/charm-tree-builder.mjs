@@ -50,6 +50,8 @@ export function deduplicateCharms(entries) {
 export function buildTree(charms, groupKey = '') {
   const nodes = new Map();
   const edges = [];
+  // Tracks minPurchases per directed edge key "fromId:toId" for type:"charm" prereqs.
+  const prereqMeta = new Map();
 
   // Index charms by charmUid for prereq resolution
   // Use charmUid as the node id when available so edges carry readable uid-based ids.
@@ -135,6 +137,9 @@ export function buildTree(charms, groupKey = '') {
         childrenOf.get(fromId).push(node.id);
         if (!parentsOf.has(node.id)) parentsOf.set(node.id, []);
         parentsOf.get(node.id).push(fromId);
+        if (alt.type === 'charm' && (alt.minPurchases ?? 1) > 1) {
+          prereqMeta.set(`${fromId}:${node.id}`, alt.minPurchases);
+        }
       }
     }
   }
@@ -207,7 +212,7 @@ export function buildTree(charms, groupKey = '') {
     for (const toId of children) {
       const toTier  = nodes.get(toId)?.tier ?? 0;
       const diff    = toTier - fromTier;
-      edges.push({ fromId, toId, skip: diff > 1, sameTier: diff === 0 });
+      edges.push({ fromId, toId, skip: diff > 1, sameTier: diff === 0, minPurchases: prereqMeta.get(`${fromId}:${toId}`) ?? 1 });
     }
   }
 
@@ -469,6 +474,12 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
     //   3. Regular charm prerequisites that were split into a different component
     //      (e.g. when the only path between two charms passes through a virtual node)
     const allIds = new Set(charmIds);
+    // Seed every tier-zero Excellency in the tree — they anchor every branch.
+    // This matters for Yozi trees where ALL anyExcellency charms are quasi-excellencies,
+    // leaving no regular charm to pull the Excellency in via the backward pass.
+    for (const [id, node] of nodes) {
+      if (_isTierZeroExcellency(node?.charm)) allIds.add(id);
+    }
     let changed = true;
     while (changed) {
       changed = false;
@@ -479,6 +490,17 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
         // Special parent, quasi-Excellency forward-link, or regular prerequisite charm
         if (_special(fromNode) || (!_special(toNode) && !_special(fromNode))) {
           allIds.add(fromId);
+          changed = true;
+        }
+      }
+      // Forward: virtual children of tier-zero Excellencies already in the branch.
+      // Required when all children of a virtual node are quasi-excellencies (the backward
+      // pass can never pull the virtual node in from a regular charm child in that case).
+      for (const { fromId, toId } of edges) {
+        const fromNode = nodes.get(fromId);
+        const toNode   = nodes.get(toId);
+        if (allIds.has(fromId) && !allIds.has(toId) && _isTierZeroExcellency(fromNode?.charm) && toNode?.isVirtual) {
+          allIds.add(toId);
           changed = true;
         }
       }
@@ -524,14 +546,27 @@ function _isTierZeroExcellency(charm) {
   return exc === 'first' || exc === 'second' || exc === 'third';
 }
 
+// Yozi groupKeys are camelCase (e.g. "theEbonDragon") but charm names use natural language.
+// Map camelCase keys that need translation to the name fragment used in charm names.
+const _YOZI_NAME_FRAGMENTS = {
+  theEbonDragon:      'The Ebon Dragon',
+  sheWhoLivesInHerName: 'She Who Lives In Her Name',
+};
+
 function _isQuasiExcellency(charm, groupKey) {
   if (!groupKey || _isTierZeroExcellency(charm)) return false;
-  // Require the ability/attribute word to appear in a known quasi-excellency slot:
-  // leading ("Ride Essence Flow"), after "Infinite" ("Infinite Ride Mastery"),
+  // Require the ability/attribute/yozi word to appear in a known quasi-excellency slot:
+  // leading ("Ride Essence Flow", "Malfeas Inevitability Technique"),
+  // after "Infinite" ("Infinite Ride Mastery"),
   // after "of" ("Supreme Perfection of Ride"), after "Instinctive" ("Instinctive Strength Unity"),
-  // after "Flawless" ("Flawless Dexterity Focus"), or after "Impossible" ("Impossible Strength Improvement").
+  // after "Flawless" ("Flawless Dexterity Focus"), after "Impossible" ("Impossible Strength Improvement"),
+  // after "Effortless" ("Effortless Malfeas Dominance"), after "So Speaks" ("So Speaks Malfeas"),
+  // after "Terrestrial" ("Terrestrial Melee Reinforcement"), after "Fateful" ("Fateful Archery Excellency"),
+  // or after "Propitious" ("Propitious Archery Alignment").
   // Mid-name occurrences like "Last Ride Glory" are excluded.
-  return new RegExp(`(^|\\bInfinite\\s+|\\bof\\s+|\\bInstinctive\\s+|\\bFlawless\\s+|\\bImpossible\\s+)${groupKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
+  // Multi-word Yozi keys are translated via _YOZI_NAME_FRAGMENTS; spaces become \s+.
+  const nameKey = (_YOZI_NAME_FRAGMENTS[groupKey] ?? groupKey).replace(/\s+/g, '\\s+');
+  return new RegExp(`(^|\\bInfinite\\s+|\\bof\\s+|\\bInstinctive\\s+|\\bFlawless\\s+|\\bImpossible\\s+|\\bEffortless\\s+|\\bSo\\s+Speaks\\s+|\\bTerrestrial\\s+|\\bFateful\\s+|\\bPropitious\\s+)${nameKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
 }
 
 function _capitalizeKey(key) {

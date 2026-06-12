@@ -42,7 +42,33 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "be514f40d547686e",
+            "charmName": "Adorjan Wind-Born Stride",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0,
+            "minPurchases": 3
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "64f20f3dbde6b4d6",
+            "charmName": "Unimpeded Perfection Of Exertion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "a2b17057a1ca1b02"
   },
   "folder": "e1c045f50a834f12",

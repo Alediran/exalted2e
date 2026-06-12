@@ -50,12 +50,12 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
+            "type": "charm",
+            "charmUid": "a8130662ac2d97d1",
+            "charmName": "First Cecelyne Excellency-- Essence Overwhelming",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -66,8 +66,8 @@
             "charmUid": "a537f55416f54a17",
             "charmName": "Sand-Slip Trick",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
