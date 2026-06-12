@@ -380,25 +380,36 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     const externalUids = new Map();
 
-    const collectFrom = (docs) => {
-      for (const doc of docs) {
-        if (doc.type !== 'charm') continue;
-        if (doc.system?.exaltType !== 'alchemical') continue;
-        const uid = doc.system?.charmUid;
-        if (!uid || currentUidSet.has(uid)) continue;
-        externalUids.set(uid, {
-          name:    doc.name ?? "",
-          ability: doc.system?.ability ?? "",
-        });
-      }
-    };
-
     if (this.#sources.systemPack) {
       const pack = game.packs.get('exalted2e.charms');
-      if (pack) collectFrom(await pack.getDocuments({ type: 'charm' }));
+      if (pack) {
+        const index = await pack.getIndex({
+          fields: ['type', 'system.charmUid', 'system.ability', 'system.exaltType'],
+        });
+        for (const entry of index) {
+          if (entry.type !== 'charm') continue;
+          if (entry.system?.exaltType !== 'alchemical') continue;
+          const uid = entry.system?.charmUid;
+          if (!uid || currentUidSet.has(uid)) continue;
+          externalUids.set(uid, {
+            name:    entry.name ?? '',
+            ability: entry.system?.ability ?? '',
+          });
+        }
+      }
     }
+
     if (this.#sources.worldItems) {
-      collectFrom([...game.items]);
+      for (const item of game.items) {
+        if (item.type !== 'charm') continue;
+        if (item.system?.exaltType !== 'alchemical') continue;
+        const uid = item.system?.charmUid;
+        if (!uid || currentUidSet.has(uid)) continue;
+        externalUids.set(uid, {
+          name:    item.name ?? '',
+          ability: item.system?.ability ?? '',
+        });
+      }
     }
 
     return externalUids.size > 0 ? externalUids : null;
