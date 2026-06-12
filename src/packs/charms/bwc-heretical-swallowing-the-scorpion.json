@@ -1,0 +1,110 @@
+{
+  "_id": "d1e2f3a4b5c60005",
+  "_key": "!items!d1e2f3a4b5c60005",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Swallowing the Scorpion",
+  "type": "charm",
+  "img": "icons/magic/death/skull-horns-black.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 6,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Blasphemy",
+      "Heretical"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This complex trick requires an understanding of defiance and escape culled from not one, but two of the Reclamation conspirators. For those who would develop this heretical technique, its extravagant cost is a small concern. The act of learning this Charm is a Blasphemy.</p><p>In addition to causing the usual chaos in Heaven, the Yozis are immediately alerted that something is wrong by Lillun's agonized howl. Concentrating his Exaltation into a savage, cutting edge, the Infernal severs the metaphysical umbilicus connecting it to the phylactery-womb of the Yozis. In the process, the indestructible Essence core of the Exaltation reconfigures itself for independent survival. Upon the Green Sun Prince's death, his Exaltation will fly away rather than returning to Malfeas, seeking out a free, unbound First Circle demon somewhere in Creation. Embedding itself in the unsuspecting creature, the Exaltation overrides the demon's mind as an irresistible Total Control effect. The demon is forced to carry the Exaltation to a properly heroic host, where it carries out the usual bargain; acceptance triggers the beginning of the Chrysalis Grotesque, as normal. The only difference between this and standard Infernal Exaltation is that the Yozis are incapable of observing or influencing the process, or even of exercising their normal prerogative to possess the hijacked demon. The task of locating and recapturing the Exaltation and re-attaching its umbilicus is left as an exercise in ingenuity for the enraged lords of Hell.</p><p>The warlock also enjoys a +1 MDV bonus against Yozi and demon Charms, which does not count as a bonus added by a Charm.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "heretical",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a70d",
+            "charmName": "All Things Betray",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "56eb93448fc102a7",
+            "charmName": "Cracked Cell Circumvention",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "10bac2ad89f6ca61",
+            "charmName": "Freedom Lets Go",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "45f6834b6fd532d7",
+            "charmName": "Solipsistic Rejection of Impossibilities",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "6e2984144400b1c4",
+            "charmName": "Sublimation of Ordained Purpose",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "0badaf4398bcdcd1",
+            "charmName": "Will Crushing Force",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "d1e2f3a4b5c60005"
+  },
+  "folder": "d1e2f3a4b5c60000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

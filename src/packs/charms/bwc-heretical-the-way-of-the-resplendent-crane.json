@@ -1,0 +1,69 @@
+{
+  "_id": "d1e2f3a4b5c6000c",
+  "_key": "!items!d1e2f3a4b5c6000c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Way of the Resplendent Crane",
+  "type": "charm",
+  "img": "icons/magic/air/wind-swirl-white-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 9,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Heretical"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Having forged external souls from her cosmic power and enlightenment, the Infernal sends them into the world. But the warlock knows that a crane is just as beautiful when land-bound by a broken wing, and so she ensures that her new devas may not stray too far.</p><p>This Charm allows the Infernal to possess her souls (or demons descended from them) and to telepathically communicate with them across all distance and realms of existence (information exchange only; no social attacks). She may also pay one point of Willpower to issue a mandate of subordination against her souls.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "heretical",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d1e2f3a4b5c6000b",
+            "charmName": "The Path of a Thousand Whispers",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "d1e2f3a4b5c6000c"
+  },
+  "folder": "d1e2f3a4b5c60000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

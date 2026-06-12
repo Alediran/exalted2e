@@ -1,0 +1,56 @@
+{
+  "_id": "d1e2f3a4b5c60004",
+  "_key": "!items!d1e2f3a4b5c60004",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Triumphant Howl of the Devil-Tiger",
+  "type": "charm",
+  "img": "icons/magic/fire/flame-burning-orange.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 6,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Heretical"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Proving that he is more than merely a gestalt of insane, defeated Primordials, the Infernal sweeps together the broken shards of enlightenment from several Reclamation conspirators and forges them into a new legend all his own. The shinma shudder as a new titan is born: The Infernal is immortal, and needs no longer fear death from age. In declaring his own legend, he may never learn (Yozi) Cosmic Principle.</p><p>This Charm conveys one final benefit: The Infernal's player and Storyteller may work together to design a personal analog to First (Yozi) Excellency suited to the personality, themes and obsessions of the character, using the Excellencies of the Yozis as a guideline, as well as a personalized suite of the General Charms found in The Manual of Exalted Power—The Infernals and this book, which are all purchased as Favored Charms.</p><p>This Charm's prerequisites must come from at least two different Yozis. Upon learning this Charm, the Infernal may choose to cannibalize any General Yozi Charms he already knows, converting them into experience which he may spend to instantly replace them with equivalents created through Triumphant Howl of the Devil-Tiger. Charms requiring lost Excellencies as prerequisites (save for this Charm) are also converted into experience.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "heretical",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d1e2f3a4b5c60004"
+  },
+  "folder": "d1e2f3a4b5c60000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

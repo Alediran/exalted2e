@@ -1,0 +1,69 @@
+{
+  "_id": "d1e2f3a4b5c6000a",
+  "_key": "!items!d1e2f3a4b5c6000a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Dance of the Thrashing Dragon",
+  "type": "charm",
+  "img": "icons/magic/symbols/cog-glowing-green.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 6,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Heretical"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is the nature of nascent titans to indulge themselves. The warlock's player designs a type of custom Act of Villainy called a Precipitous Fiat. These Fiats are unique to the transcendent Infernal who invents them, but are otherwise identical to Acts, and must substantially endanger or inconvenience the character. When the Infernal loses Limit through this Fiat, she is able to inflict one point of Limit on a Yozi of her choice whose Charms are open to her.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "heretical",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d1e2f3a4b5c60008",
+            "charmName": "The Face of the Titans",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "d1e2f3a4b5c6000a"
+  },
+  "folder": "d1e2f3a4b5c60000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
