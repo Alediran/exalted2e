@@ -1,0 +1,81 @@
+{
+  "_id": "c1a2b3d4e5f6a70c",
+  "_key": "!items!c1a2b3d4e5f6a70c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rising Tide Ascension",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The motion of her own tides assures Kimbery of her unassailability. The Infernal gains a 10 mote Peripheral Essence pool which regains one mote per hour spent in proximity to a sea.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a70b",
+            "charmName": "Intolerable Burning Truths",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a701",
+            "charmName": "Mother Sea Mastery",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "c1a2b3d4e5f6a70c"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

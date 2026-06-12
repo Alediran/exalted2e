@@ -1,0 +1,70 @@
+{
+  "_id": "c1a2b3d4e5f6a707",
+  "_key": "!items!c1a2b3d4e5f6a707",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sea Dissolves Herself",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [2, 10],
+    "keywords": [
+      "Combo-OK",
+      "Desecration"
+    ],
+    "cost": {
+      "formula": "5m or 3wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Kimbery alone devours Kimbery, for none else is worthy. This Charm may be activated in one of three ways:</p><p>• By paying five motes in step 2, the Infernal can reject any unwanted Shaping effect. This causes her to gain a mutation of her player's choice as a permanent Desecration (emulating the biology of aquatic life). With Essence 4+, she can also block Crippling effects by gaining a mutation, paying only three motes if the mutation connects to the averted injury (like a severed hand staying attached via sinewy tentacle). This use is an innate power rather than Charm activation.</p><p>• By paying three Willpower while submerged in a sea, the Infernal can dissolve any mutation she possesses, provided it is not a prerequisite for other traits she possesses. Until Essence 4+, she can only dissolve mutations she gave herself.</p><p>• With Essence 3+, the warlock can pay three Willpower to enhance a physical attack that hit a living target with mutations in step 10. The attack inflicts an extra level of lethal damage as it painfully dissolves a mutation of the Infernal's choice.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a706",
+            "charmName": "Tidal Renewal Discipline",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "c1a2b3d4e5f6a707"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

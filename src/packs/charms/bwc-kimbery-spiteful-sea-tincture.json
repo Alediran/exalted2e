@@ -1,0 +1,74 @@
+{
+  "_id": "c1a2b3d4e5f6a702",
+  "_key": "!items!c1a2b3d4e5f6a702",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spiteful Sea Tincture",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Poison",
+      "Stackable",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is not the cold of Kimbery's depths that her enemies fear, but the colorful stains upon her surface. Slow death is the way of The Sea That Marched Against the Flame. Activating this Charm requires the Infernal to touch a beloved object, anointing it with spidery glyphs and patterns in garish hues (Essence 3+ warlocks can paint these designs with their gaze alone). Multiple activations can stack additional markings onto the same object. Whenever the enchanted object is used as a weapon to hit a non-beloved character or such a target touches it with bare flesh, all imbued stains spray into the point of contact as doses of poison like the surface of Kimbery. The Infernal can also paint herself to strike a poisonous blow.</p><p>Repurchase at Essence 3+ allows activation as a Sorcerous effect with duration one month and makes the poison akin to Kimbery's depths (upgrades in parentheses). An object so marked discharges a dose of venom whenever the circumstances previously described occur, though direct contact only inflicts one dose per action. With Essence 5+, even beloved structures may be enchanted.</p><p>Poison Lacquer: Damage 5L (7L)/action, Toxicity 3 (4), Tolerance None, Penalty -3 (-4)</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a701",
+            "charmName": "Mother Sea Mastery",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "maxPurchases": "2",
+    "charmUid": "c1a2b3d4e5f6a702"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

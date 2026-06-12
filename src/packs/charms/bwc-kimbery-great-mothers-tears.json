@@ -1,0 +1,68 @@
+{
+  "_id": "c1a2b3d4e5f6a704",
+  "_key": "!items!c1a2b3d4e5f6a704",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Great Mother's Tears",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Kimbery is all poisons, but not all poisons are alike to her. Some formulations are so pleasing to her aesthetics that she has made them part of herself. Each time this Charm is purchased, the Infernal gains one of the following:</p><p>• Once all her -0 and -1 health levels are filled with damage, she becomes immune to damage from Poison effects. The total penalty from all Poison effects afflicting her can't rise above (5 – Essence).</p><p>• Whenever she would create a lethal or aggravated poison with a Kimbery Charm, she can choose to have it inflict bashing damage. This doubles the total damage for the dose and ensures that none of the damage it causes can spill past Incapacitated to convert into lethal. The worst it can do is render victims unconscious—the better to torture them later. Furthermore, she can forgo the penalties for her Kimbery poisons to make subtle toxins victims can't feel ravaging them (though their players still know).</p><p>• Whenever the Infernal would create a damaging poison with a Kimbery Charm, she may instead create a soul-twisting toxin. Each time the poison would inflict a level of damage, the victim can pay one Willpower point to resist the unnatural Emotion effect. If he doesn't, his player chooses one of his positive Intimacies and converts it to a negative Intimacy with an emotional context of his choosing.</p><p>• Whenever the Infernal would create a damaging poison with a Kimbery Charm, she may instead create a mutagenic Desecration toxin. Her player selects a mutation emulating aquatic biology. Each time the mutagenic poison would inflict a level of damage, it accumulates a mutation point. Once it accumulates mutation points equal to the selected mutation's cost (positive or negative), the victim gains that trait. If the Infernal afflicts a victim with multiple doses, she must also choose the order that the different mutations appear.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a702",
+            "charmName": "Spiteful Sea Tincture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "maxPurchases": "4",
+    "charmUid": "c1a2b3d4e5f6a704"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

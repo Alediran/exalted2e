@@ -1,0 +1,71 @@
+{
+  "_id": "c1a2b3d4e5f6a70a",
+  "_key": "!items!c1a2b3d4e5f6a70a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Acrid Slipstream Assist",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Sea",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It amuses Kimbery when her children build boats to keep her out, as it amuses mothers when their children hide behind pillow fortresses. In her infinite love, The Sea That Marched Against the Flame plays along with such games. To use this Charm, the Infernal touches a beloved aquatic mount, a beloved aquatic vehicle or any beloved object long and flat enough to surf upon as an alternative to swimming (like a daiklave). Her power flows through the target, oozing into the hungry sea beyond and demanding obeisance. Even absent other propulsion, the enchanted conveyance can propel itself along a current of ichor at twice the warlock's swimming speed (as improved by Mother Sea Mastery). Alternately, this current can quicken sailing or other means of propulsion, doubling the target's usual speed. The Charm ends prematurely if the warlock travels more than (Essence x 100) yards from the beneficiary.</p><p>With Essence 3+, the Charm's duration extends to Indefinite. With Essence 5+, the cost drops to a single mote. Repurchase at Essence 3+ allows the Charm to bless beloved characters other than mounts and enables alternate activation as a spherical blessing upon all beloved characters within (Essence x 100) yards while active.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a701",
+            "charmName": "Mother Sea Mastery",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "maxPurchases": "2",
+    "charmUid": "c1a2b3d4e5f6a70a"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
