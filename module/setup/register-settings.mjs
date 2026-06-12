@@ -2,6 +2,7 @@ import { XpCostsConfigDialog } from "../dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "../dialogs/permissions-config-dialog.mjs";
 import { ActionBarConfig } from "../apps/action-bar-config.mjs";
 import { ActionQuickbar } from "../ui/action-quickbar.mjs";
+import { NativeMaStylesConfig } from "../apps/native-ma-styles-config.mjs";
 
 export function _applyUiTheme(theme) {
   document.body.classList.toggle("ex2e-light-mode", theme === "light");
@@ -90,6 +91,18 @@ export function registerSettings() {
     default: {}
   });
 
+  // ── Native Martial Arts Styles ────────────────────────────────────────
+  // World-level map of { exaltType: string[] } listing which MA styles
+  // are native to each Exalt type. Configured via the menu below.
+  game.settings.register("exalted2e", "nativeMartialArtsStyles", {
+    name:    "EX2E.NativeMaStylesConfigName",
+    hint:    "EX2E.NativeMaStylesConfigHint",
+    scope:   "world",
+    config:  false,
+    type:    Object,
+    default: {}
+  });
+
   game.settings.registerMenu("exalted2e", "xpCostsMenu", {
     name:       "EX2E.XpCostsConfigTitle",
     label:      "EX2E.XpCostsConfigButton",
@@ -106,6 +119,15 @@ export function registerSettings() {
     icon:       "fa-solid fa-user-shield",
     type:       PermissionsConfigDialog,
     restricted: true   // GM-only
+  });
+
+  game.settings.registerMenu("exalted2e", "nativeMaStylesMenu", {
+    name:       "EX2E.NativeMaStylesConfigName",
+    label:      "EX2E.NativeMaStylesConfigLabel",
+    hint:       "EX2E.NativeMaStylesConfigHint",
+    icon:       "fa-solid fa-person-walking",
+    type:       NativeMaStylesConfig,
+    restricted: true,
   });
 
   game.settings.register("exalted2e", "uiTheme", {

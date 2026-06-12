@@ -72,7 +72,8 @@
       "onFail": "applyCrippling"
     },
     "charmUid": "8abfb509c26697ce",
-    "grantsMastery": true
+    "grantsMastery": true,
+    "nativeOnly": true
   },
   "folder": "ae5a8ed470f7303b",
   "sort": 0,

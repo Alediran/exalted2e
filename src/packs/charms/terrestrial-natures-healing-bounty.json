@@ -56,6 +56,18 @@
             "virtueMin": 0
           }
         ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "anyCharmOfAbility",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "medicine",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
       }
     ],
     "charmUid": "6ae49aa49341f5c9"

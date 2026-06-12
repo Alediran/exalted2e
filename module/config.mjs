@@ -163,6 +163,7 @@ EX2E.durations = {
   oneSeason:        "EX2E.DurationOneSeason",
   indefinite:       "EX2E.DurationIndefinite",
   untilCalibration: "EX2E.DurationUntilCalibration",
+  untilReleased:    "EX2E.DurationUntilReleased",
   formula:          "EX2E.DurationFormula",
   permanent:        "EX2E.DurationPermanent"
 };

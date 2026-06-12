@@ -81,7 +81,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         alternatives: new fields.ArrayField(new fields.SchemaField({
           type: new fields.StringField({
             initial: "charm",
-            choices: ["charm", "anyExcellency", "virtue"]
+            choices: ["charm", "anyExcellency", "virtue", "anyCharmOfAbility"]
           }),
           // Canonical reference: the target charm's `system.charmUid`.
           // `charmName` is kept as a display label and as a name-based
@@ -99,6 +99,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
           minPurchases: new fields.NumberField({ initial: 1, min: 1, integer: true })
         }))
       })),
+      incompatibleCharms: new fields.ArrayField(
+        new fields.StringField({ initial: "", blank: true })
+      ),
+      nativeOnly: new fields.BooleanField({ initial: false }),
 
       // ── Description / Source ─────────────────────────────────────────────
       description:  new fields.HTMLField({ initial: "" }),

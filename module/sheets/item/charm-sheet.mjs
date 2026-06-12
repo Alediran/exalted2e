@@ -147,6 +147,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       prereqAltTypes: [
         { value: "charm",         label: game.i18n.localize("EX2E.PrereqTypeCharm") },
         { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") },
+        { value: "anyCharmOfAbility", label: game.i18n.localize("EX2E.PrereqTypeAnyCharmOfAbility") },
         { value: "virtue",        label: game.i18n.localize("EX2E.PrereqTypeVirtue") }
       ],
       mirrorCharmDisplayName: charmByUid.get(sys.mirrorId ?? "") ?? "",

@@ -194,6 +194,37 @@ describe("CharmData — multi-purchase fields exist", () => {
   });
 });
 
+describe("incompatibleCharms guard", () => {
+  function makeCharmItem({ id = "charm1", charmUid = "uid-a", incompatibleCharms = [] } = {}) {
+    return {
+      id,
+      type: "charm",
+      name: "Test Charm",
+      system: {
+        incompatibleCharms,
+        charmUid,
+        duration: "instant",
+        active: false,
+        keywords: [],
+        cost: { formula: "" },
+        prereqGroups: [],
+        isSubmodule: false,
+        effectivelyActive: false,
+        martialArtsStyleName: "",
+        nativeOnly: false,
+        excellency: "",
+      },
+      actor: null,
+    };
+  }
+
+  it("incompatibleCharms field defaults to empty array", () => {
+    const charm = makeCharmItem();
+    expect(Array.isArray(charm.system.incompatibleCharms)).toBe(true);
+    expect(charm.system.incompatibleCharms).toHaveLength(0);
+  });
+});
+
 describe("incrementPurchaseLevel guard logic", () => {
   function canIncrement(purchaseLevel, maxPurchases, essenceGates, actorEssence) {
     if (purchaseLevel >= maxPurchases) return { ok: false, reason: "maxReached" };

@@ -252,6 +252,33 @@ export class ExaltedItem extends Item {
       }
     }
 
+    // ── Incompatible charms gate ───────────────────────────────────────────
+    if (!turningOff && (this.system.incompatibleCharms ?? []).length > 0) {
+      const conflict = actor.items.find(i =>
+        i.type === "charm" &&
+        this.system.incompatibleCharms.some(uid => i.system?.charmUid === uid)
+      );
+      if (conflict) {
+        ui.notifications.error(
+          game.i18n.format("EX2E.IncompatibleCharmOwned", { name: conflict.name })
+        );
+        return false;
+      }
+    }
+
+    // ── Native-only MA style gate ──────────────────────────────────────────
+    if (!turningOff && this.system.nativeOnly) {
+      const allNativeStyles = game.settings.get("exalted2e", "nativeMartialArtsStyles") ?? {};
+      const nativeStyles    = allNativeStyles[actor.system?.exaltType ?? ""] ?? [];
+      const charmStyle   = this.system.martialArtsStyleName ?? "";
+      if (!charmStyle || !nativeStyles.includes(charmStyle)) {
+        ui.notifications.error(
+          game.i18n.format("EX2E.NativeCharmForbidden", { name: this.name })
+        );
+        return false;
+      }
+    }
+
     // ── Form-type charm: one-at-a-time enforcement ────────────────────────
     // For toggle-on: enforce one-Form-at-a-time; deactivate any existing Form
     //   first, then fall through to the normal path (costs, weapon artifacts,

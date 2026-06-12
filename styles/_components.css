@@ -1002,3 +1002,69 @@
    dropdown in the Settings form; dimmed while the Dock style is active. */
 .ex2e-bar-pinned-menu-group.ex2e-disabled { opacity: 0.5; }
 .ex2e-bar-pinned-menu-group.ex2e-disabled button { cursor: not-allowed; }
+
+/* ── Native Martial Arts Styles Config ─────────────────────────────────── */
+.ex2e-native-ma-styles-config {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-lg);
+}
+.ex2e-native-ma-styles-config > .hint {
+  margin:     0;
+  font-size:  var(--ex2e-font-size-sm);
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+.ex2e-native-ma-styles-config-body {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--ex2e-gap-md);
+}
+.ex2e-native-ma-styles-config-body .form-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            4px;
+  background:     rgba(255, 255, 255, 0.04);
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius, 4px);
+  padding:        var(--ex2e-gap-sm) var(--ex2e-gap-md);
+}
+.ex2e-native-ma-styles-config-body .form-group label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  font-weight:    bold;
+  color:          var(--ex2e-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ex2e-native-ma-styles-config-body .form-group textarea {
+  width:         100%;
+  box-sizing:    border-box;
+  resize:        vertical;
+  min-height:    4.5em;
+  background:    rgba(0, 0, 0, 0.25);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius, 4px);
+  color:         var(--ex2e-text-primary);
+  font-size:     var(--ex2e-font-size-sm);
+  font-family:   var(--ex2e-font-body);
+  padding:       4px 6px;
+  line-height:   1.5;
+}
+.ex2e-native-ma-styles-config-body .form-group textarea:focus {
+  border-color: var(--ex2e-gold-mid);
+  outline:      none;
+  box-shadow:   var(--ex2e-glow-gold);
+}
+.ex2e-native-ma-styles-config .form-footer {
+  display:         flex;
+  justify-content: flex-end;
+  padding-top:     var(--ex2e-gap-sm);
+  border-top:      1px solid var(--ex2e-gold-dark);
+  flex:            0 0 auto;
+}
+.ex2e-native-ma-styles-config .form-footer button[type="submit"] {
+  color:        var(--ex2e-gold-bright);
+  border-color: var(--ex2e-gold-mid);
+}

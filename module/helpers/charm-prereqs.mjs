@@ -78,6 +78,11 @@ function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
     ).length;
     return count >= (alt.minCount ?? 1);
   }
+  if (alt.type === "anyCharmOfAbility") {
+    const key = _norm(alt.abilityKey ?? "");
+    if (!key) return false;
+    return ownedCharms.some(c => _norm(c.system?.ability ?? "") === key);
+  }
   if (alt.type === "virtue") {
     const key = String(alt.virtueKey ?? "").trim().toLowerCase();
     if (!key) return false;
@@ -211,12 +216,20 @@ export function describeAllPrereqs(charm, actor = null) {
 
 function _altLabel(alt, actor = null) {
   if (alt?.type === "anyExcellency") {
-    const n = alt.minCount ?? 1;
+    const n       = alt.minCount ?? 1;
+    const ability = String(alt.abilityKey ?? "").trim();
     if (n > 1) {
-      const ability = String(alt.abilityKey ?? "").trim();
       return game.i18n.format("EX2E.PrereqAnyNExcellencies", { count: n, ability });
     }
+    if (ability) {
+      return game.i18n.format("EX2E.PrereqAnyAbilityExcellency", { ability });
+    }
     return game.i18n.localize("EX2E.PrereqAnyExcellency");
+  }
+  if (alt?.type === "anyCharmOfAbility") {
+    const key = String(alt.abilityKey ?? "").trim();
+    if (!key) return "";
+    return game.i18n.format("EX2E.PrereqAnyCharmOfAbility", { ability: key });
   }
   if (alt?.type === "virtue") {
     const key = String(alt.virtueKey ?? "").trim();
