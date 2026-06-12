@@ -13,15 +13,15 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
+    "exaltType": "infernal",
     "ability": "resistance",
-    "essence": 3,
-    "minAbility": 3,
+    "essence": 2,
+    "minAbility": 1,
     "charmType": "reflexive",
     "duration": "instant",
     "speed": 3,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [2, 7],
     "keywords": [
       "Combo-OK"
     ],
@@ -30,8 +30,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's hatred is an inexhaustible resource, and she has learned to draw upon it when life itself fails her. Activating this charm reflexively after suffering damage that would Incapacitate or kill her, the Exalted converts all damage that would exceed Incapacitated to non-damage — she remains standing at -4, sustained by spite and bitterness alone. Additionally, all wound penalties the Abyssal currently suffers are negated for the remainder of the tick, as her rage overrides the body's complaint.</p><p>The charm functions because the Abyssal's hatred genuinely sustains her beyond physical limits, meaning she must have at least one active Intimacy of hatred, grudge, or desire for revenge to activate it. If all such Intimacies are removed, the charm cannot function. This charm is the prerequisite for The Tide Turns, which escalates this spite-fueled endurance into a terrifying reversal of fortune.</p>",
-    "source": "Ink Monkeys",
+    "description": "<p>Hate shelters The Sea That Marched Against the Flame from the wretched and vile universe that wants to hurt her. Used as a step 2 defense, this Charm adds a bonus of (total number of negative Intimacies) to the warlock's dodge DV or dodge MDV against a single attack. The bonus may explicitly break the usual cap on DV bonuses from Charms.</p><p>Alternately, Bitter Heart Unbleeding may be used as a step 7 defense, adding the same bonus to the Infernal's soak against a single instance of damage. To onlookers, it appears that the injuries luckily missed vital areas or that the warlock evaded at the last moment to suffer only grazing wounds.</p><p>An Essence 3+ repurchase grants additional powers. First, the soak boost mode adds equivalent natural Hardness while in proximity to a sea. Second, the Infernal can pay an extra mote to dissolve the injurious power of an attack outright (reducing raw and final damage to zero). Denying damage this way carries the Imperfection of The Sea That Marched Against the Flame, causing tongues of hissing green fog to rise from the wounds that never were.</p>",
+    "source": "Broken Winged Crane",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -44,10 +44,23 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Intolerable Burning Truths",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "80b19b6d23635466"
   },
-  "folder": "b0b1b2b3b4b5f044",
+  "folder": "62f1b1afdfe8fbd5",
   "sort": 0,
   "ownership": {
     "default": 0

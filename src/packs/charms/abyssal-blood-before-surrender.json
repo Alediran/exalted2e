@@ -42,8 +42,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "36be27eaaa2b8ac5"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "integrity",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "36be27eaaa2b8ac5",
+    "mirrorId": "ab46565f8ef531b2"
   },
   "folder": "b0b1b2b3b4b5f039",
   "sort": 0,

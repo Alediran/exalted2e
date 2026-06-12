@@ -32,7 +32,20 @@
     "essenceFlow": true,
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [{"alternatives": [{"type": "anyExcellency", "charmUid": "", "charmName": "", "abilityKey": "", "virtueKey": "valor", "virtueMin": 1}]}],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "integrity",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "4b2d7f23c9b4e507"
   },
   "folder": "b0b1b2b3b4b5f039",

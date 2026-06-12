@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
-    "ability": "martialArts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 5,
     "minAbility": 5,
     "charmType": "permanent",
@@ -34,7 +34,7 @@
     "description": "<p>Each hit produces a stackable -2 wound penalty that lingers until the Abyssal's DV refreshes. It is otherwise identical to its Solar counterpart.</p>",
     "source": "DotFA",
     "yoziPatron": "",
-    "martialArtsTier": "",
+    "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dark Messiah Style",
     "maidenAffiliation": "",
     "durationFormula": "",
@@ -59,9 +59,10 @@
         ]
       }
     ],
-    "charmUid": "4b4d7f23c9b4e50a"
+    "charmUid": "4b4d7f23c9b4e50a",
+    "grantsMastery": false
   },
-  "folder": "b0b1b2b3b4b5f03e",
+  "folder": "a06a42dc7ec7fc33",
   "sort": 0,
   "ownership": {
     "default": 0

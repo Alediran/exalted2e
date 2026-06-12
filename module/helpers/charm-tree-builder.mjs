@@ -525,9 +525,10 @@ function _isTierZeroExcellency(charm) {
 
 function _isQuasiExcellency(charm, groupKey) {
   if (!groupKey || _isTierZeroExcellency(charm)) return false;
-  // Reject matches where the ability name is hyphen-prefixed to the next word
-  // (e.g. "Integrity-Protecting Prana" must not match groupKey "integrity").
-  return new RegExp(`\\b${groupKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
+  // Require the ability word to lead the name ("Ride Essence Flow"), follow "Infinite"
+  // ("Infinite Ride Mastery"), or follow "of" ("Supreme Perfection of Ride",
+  // "Apocalyptic Evolution of Ride"). Mid-name occurrences like "Last Ride Glory" are excluded.
+  return new RegExp(`(^|\\bInfinite\\s+|\\bof\\s+)${groupKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
 }
 
 function _capitalizeKey(key) {
