@@ -90,6 +90,29 @@ export function buildTree(charms, groupKey = '') {
     }
   }
 
+  // Alchemical "Any X Augmentation" prereqs (type:"charm", charmUid:"") function exactly
+  // like anyExcellency prereqs. Create their virtual nodes here so the edge-builder can use them.
+  for (const charm of charms) {
+    if (charm.system?.exaltType !== 'alchemical') continue;
+    for (const group of (charm.system?.prereqGroups ?? [])) {
+      for (const alt of (group.alternatives ?? [])) {
+        if (alt.type !== 'charm' || alt.charmUid) continue;
+        const m = (alt.charmName ?? '').match(/^Any\s+(\w+)\s+Augmentation\b/i);
+        if (!m) continue;
+        const attrKey = m[1].toLowerCase();
+        const vKey    = `${attrKey}:1`;
+        if (!virtualNodes.has(vKey)) {
+          const vId = `virtual:anyExcellency:${attrKey}`;
+          nodes.set(vId, {
+            id: vId, charm: null, tier: 0, isVirtual: true,
+            virtualLabel: `(Any ${m[1]} Augmentation)`, abilityKey: attrKey, minCount: 1,
+          });
+          virtualNodes.set(vKey, vId);
+        }
+      }
+    }
+  }
+
   // Build adjacency: fromId → toId
   const childrenOf = new Map();
   const parentsOf  = new Map();
@@ -122,6 +145,13 @@ export function buildTree(charms, groupKey = '') {
           const prereq = byUid.get(alt.charmUid);
           if (prereq) {
             fromId = prereq.system?.charmUid || prereq.id;
+          } else if (!alt.charmUid && charm.system?.exaltType === 'alchemical') {
+            // "Any X Augmentation" with empty charmUid → connect to the virtual augmentation node
+            const m = (alt.charmName ?? '').match(/^Any\s+(\w+)\s+Augmentation\b/i);
+            if (m) {
+              const vId = `virtual:anyExcellency:${m[1].toLowerCase()}`;
+              if (nodes.has(vId)) fromId = vId;
+            }
           }
         } else if (alt.type === 'anyExcellency') {
           // Excellency charms feed INTO the virtual node — skip the reverse edge to break cycles
@@ -547,7 +577,11 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
 
 function _isTierZeroExcellency(charm) {
   const exc = charm?.system?.excellency;
-  return exc === 'first' || exc === 'second' || exc === 'third';
+  if (exc === 'first' || exc === 'second' || exc === 'third') return true;
+  // Alchemical Fourth/Fifth/Sixth Augmentations have no excellency marker but belong at tier 0.
+  // Detected by name since adding excellency fields to 27 source files would be large churn.
+  return charm?.system?.exaltType === 'alchemical'
+    && /^(fourth|fifth|sixth)\s+\w+\s+augmentation\b/i.test(charm?.name ?? '');
 }
 
 // Yozi groupKeys are camelCase (e.g. "theEbonDragon") but charm names use natural language.
