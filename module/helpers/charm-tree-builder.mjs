@@ -47,7 +47,7 @@ export function deduplicateCharms(entries) {
  * TreeNode: { id, charm, tier, isVirtual, virtualLabel }
  * Edge:     { fromId, toId, skip: boolean }
  */
-export function buildTree(charms, groupKey = '') {
+export function buildTree(charms, groupKey = '', { externalUids = null } = {}) {
   const nodes = new Map();
   const edges = [];
   // Tracks minPurchases per directed edge key "fromId:toId" for type:"charm" prereqs.
@@ -130,7 +130,7 @@ export function buildTree(charms, groupKey = '') {
   const parentsOf  = new Map();
 
   for (const node of nodes.values()) {
-    if (node.isVirtual) continue;
+    if (node.isVirtual || node.isGhost) continue;
     const charm = node.charm;
 
     // Excellency charms feed INTO their virtual anyExcellency node
@@ -157,6 +157,24 @@ export function buildTree(charms, groupKey = '') {
           const prereq = byUid.get(alt.charmUid);
           if (prereq) {
             fromId = prereq.system?.charmUid || prereq.id;
+          } else if (alt.charmUid && externalUids?.has(alt.charmUid)) {
+            // Cross-tree prereq: create a ghost node to anchor the dependent charm
+            const ghostId = `ghost:${alt.charmUid}`;
+            if (!nodes.has(ghostId)) {
+              const ext = externalUids.get(alt.charmUid);
+              nodes.set(ghostId, {
+                id: ghostId,
+                charm: null,
+                tier: 0,
+                isVirtual: false,
+                isGhost: true,
+                virtualLabel: `↱ ${ext.name}`,
+                ghostUid: alt.charmUid,
+                ghostName: ext.name,
+                ghostAbility: ext.ability,
+              });
+            }
+            fromId = ghostId;
           } else if (!alt.charmUid) {
             if (charm.system?.exaltType === 'alchemical' && /\bAugmentation\b/i.test(alt.charmName ?? '')) {
               // "Any … Augmentation" (single-attr or attr-group) → charm's own attribute virtual node
@@ -201,7 +219,7 @@ export function buildTree(charms, groupKey = '') {
     // Standalone charms (no parents AND no children) share the Excellency row;
     // only subtree roots (no parents but with children) stay floored below it.
     const isStandalone = !hasPrereqs && !hasChildren;
-    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs || isStandalone)
+    const floor = (node.isVirtual || node.isGhost || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs || isStandalone)
       ? 0
       : hasVirtualNodes
         ? Math.max(node.charm?.system?.essence ?? 1, 2)
@@ -427,7 +445,7 @@ export function getVirtualNodeState(node, actor) {
  */
 export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
   const _special = (node) =>
-    node.isVirtual || node.isQuasiExcellency || _isTierZeroExcellency(node?.charm);
+    node.isVirtual || node.isGhost || node.isQuasiExcellency || _isTierZeroExcellency(node?.charm);
 
   // Undirected adjacency over non-special nodes only
   const adj = new Map();

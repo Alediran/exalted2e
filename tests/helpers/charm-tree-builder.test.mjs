@@ -3,6 +3,7 @@ import {
   matchesFilter,
   deduplicateCharms,
   buildTree,
+  splitIntoBranches,
   getCharmState,
   getPipData,
 } from '../../module/helpers/charm-tree-builder.mjs';
@@ -318,5 +319,125 @@ describe('getPipData', () => {
   it('returns pip data with 0 current when not yet owned', () => {
     const c = makeCharm({ maxPurchases: '3' });
     expect(getPipData(c, null)).toEqual({ current: 0, max: 3 });
+  });
+});
+
+// ─── buildTree — ghost nodes for cross-tree prereqs ─────────────────────────
+
+function makeGhostCharm({ id, name, uid, ability = 'dexterity', essence = 1, prereqGroups = [], exaltType = 'alchemical' } = {}) {
+  return {
+    id,
+    name,
+    type: 'charm',
+    system: { charmUid: uid, ability, essence, prereqGroups, exaltType, excellency: '', keywords: [], martialArtsStyleName: '' }
+  };
+}
+
+function makePrereqGroup(charmUid, charmName = '') {
+  return { alternatives: [{ type: 'charm', charmUid, charmName, abilityKey: '', virtueKey: '', virtueMin: 0 }] };
+}
+
+describe('buildTree — ghost nodes for cross-tree prereqs', () => {
+  it('orphans a charm when cross-tree prereq UID absent and no externalUids provided', () => {
+    const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main',
+      prereqGroups: [makePrereqGroup('uid-ext')] });
+    const { nodes } = buildTree([main], 'dexterity');
+    expect(nodes.has('uid-main')).toBe(true);
+    // No ghost node — uid-ext is simply missing from the tree
+    expect([...nodes.values()].some(n => n.isGhost)).toBe(false);
+  });
+
+  it('creates a ghost node when externalUids contains the missing prereq UID', () => {
+    const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main',
+      prereqGroups: [makePrereqGroup('uid-ext', 'Ext Charm')] });
+    const externalUids = new Map([
+      ['uid-ext', { name: 'Aim-Calibrating Sensors', ability: 'perception' }]
+    ]);
+    const { nodes } = buildTree([main], 'dexterity', { externalUids });
+    const ghost = [...nodes.values()].find(n => n.isGhost);
+    expect(ghost).toBeDefined();
+    expect(ghost.ghostUid).toBe('uid-ext');
+    expect(ghost.ghostAbility).toBe('perception');
+    expect(ghost.virtualLabel).toBe('↱ Aim-Calibrating Sensors');
+  });
+
+  it('dependent charm is wired to the ghost node (parentsOf edge)', () => {
+    const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main',
+      prereqGroups: [makePrereqGroup('uid-ext')] });
+    const externalUids = new Map([['uid-ext', { name: 'Ext', ability: 'perception' }]]);
+    const { edges } = buildTree([main], 'dexterity', { externalUids });
+    const ghostId = 'ghost:uid-ext';
+    const edge = edges.find(e => e.fromId === ghostId && e.toId === 'uid-main');
+    expect(edge).toBeDefined();
+  });
+
+  it('ghost node is placed at tier 0 and the dependent charm at tier 1', () => {
+    const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main', essence: 1,
+      prereqGroups: [makePrereqGroup('uid-ext')] });
+    const externalUids = new Map([['uid-ext', { name: 'Ext', ability: 'perception' }]]);
+    const { nodes } = buildTree([main], 'dexterity', { externalUids });
+    const ghost = [...nodes.values()].find(n => n.isGhost);
+    expect(ghost.tier).toBe(0);
+    expect(nodes.get('uid-main').tier).toBe(1);
+  });
+
+  it('deduplicates ghost nodes — two charms depending on the same external prereq share one ghost', () => {
+    const a = makeGhostCharm({ id: 'a', name: 'A', uid: 'uid-a', prereqGroups: [makePrereqGroup('uid-ext')] });
+    const b = makeGhostCharm({ id: 'b', name: 'B', uid: 'uid-b', prereqGroups: [makePrereqGroup('uid-ext')] });
+    const externalUids = new Map([['uid-ext', { name: 'Ext', ability: 'perception' }]]);
+    const { nodes } = buildTree([a, b], 'dexterity', { externalUids });
+    const ghosts = [...nodes.values()].filter(n => n.isGhost);
+    expect(ghosts).toHaveLength(1);
+  });
+
+  it('does not create a ghost when the prereq UID is already in the current tree', () => {
+    const ext = makeGhostCharm({ id: 'e1', name: 'Ext', uid: 'uid-ext', ability: 'perception' });
+    const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main',
+      prereqGroups: [makePrereqGroup('uid-ext')] });
+    const externalUids = new Map([['uid-ext', { name: 'Ext', ability: 'perception' }]]);
+    // uid-ext is in the tree AND in externalUids — in-tree lookup wins, no ghost
+    const { nodes } = buildTree([ext, main], 'dexterity', { externalUids });
+    expect([...nodes.values()].some(n => n.isGhost)).toBe(false);
+  });
+
+  it('does not create a ghost when externalUids is provided but UID is absent from it', () => {
+    const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main',
+      prereqGroups: [makePrereqGroup('uid-other')] });
+    const externalUids = new Map([['uid-unrelated', { name: 'Unrelated', ability: 'strength' }]]);
+    const { nodes } = buildTree([main], 'dexterity', { externalUids });
+    expect([...nodes.values()].some(n => n.isGhost)).toBe(false);
+  });
+});
+
+// ─── splitIntoBranches — ghost nodes do not merge branches ──────────────────
+
+describe("splitIntoBranches — ghost nodes do not merge branches", () => {
+  it("two subtrees sharing only a ghost prereq remain separate branches", () => {
+    // Design: two internally-connected groups (A and B), each with 6 charms,
+    // connected to each other only via a shared ghost node.
+    // - Group A: a0 (root, needs ghost) + a1..a5 (all need a0) → 6 nodes, width-at-tier-1 = 5
+    // - Group B: b0 (root, needs ghost) + b1..b5 (all need b0) → 6 nodes, width-at-tier-1 = 5
+    // - Combined width at tier 1: 10 > 7 → width guard does NOT short-circuit
+    // - Without fix: ghost in adj graph → bridges A+B → 1 component → 1 branch
+    // - With fix: ghost is _special → excluded from adj → A and B disconnected →
+    //   2 components of size 6 each (≥ 6 → not merged by <6 merge rule) → 2 branches
+    const makeGroup = (prefix, ghostUid) => {
+      const root = makeGhostCharm({ id: `${prefix}0`, name: `${prefix}Root`, uid: `uid-${prefix}0`,
+        prereqGroups: [makePrereqGroup(ghostUid)] });
+      const children = [1,2,3,4,5].map(i =>
+        makeGhostCharm({ id: `${prefix}${i}`, name: `${prefix}${i}`, uid: `uid-${prefix}${i}`,
+          prereqGroups: [makePrereqGroup(`uid-${prefix}0`)] })
+      );
+      return [root, ...children];
+    };
+
+    const groupA = makeGroup("a", "uid-ghost");
+    const groupB = makeGroup("b", "uid-ghost");
+    const externalUids = new Map([["uid-ghost", { name: "External Ghost", ability: "perception" }]]);
+    const treeData = buildTree([...groupA, ...groupB], "dexterity", { externalUids });
+    const branches = splitIntoBranches(treeData);
+    // With the ghost fix: ghost excluded from adjacency → A and B disconnected →
+    // 2 components of 6 each → neither < 6 → not merged → 2 branches.
+    expect(branches.length).toBe(2);
   });
 });

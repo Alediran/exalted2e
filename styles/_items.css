@@ -925,7 +925,8 @@ details.charm-group > summary.charm-group-header {
   margin-top:  2px;
 }
 
-.exalted2e.item.generic .manse-header-label {
+.exalted2e.item.generic .manse-header-label,
+.exalted2e.item.generic .cult-stat-label {
   font-family:    var(--ex2e-font-ui);
   font-size:      var(--ex2e-font-size-xs);
   text-transform: uppercase;
@@ -1012,14 +1013,6 @@ details.charm-group > summary.charm-group-header {
   display:        flex;
   flex-direction: column;
   gap:            2px;
-}
-
-.exalted2e.item.generic .cult-stat-label {
-  font-family:    var(--ex2e-font-ui);
-  font-size:      var(--ex2e-font-size-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color:          var(--ex2e-text-muted);
 }
 
 .exalted2e.item.generic .cult-stat-value {

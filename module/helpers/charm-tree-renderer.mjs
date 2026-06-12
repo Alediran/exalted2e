@@ -34,9 +34,11 @@ export function renderTree(containerEl, { nodes, edges, tierMap, maxTier }, exal
   let maxX = 0;
   for (let tier = 0; tier <= maxTier; tier++) {
     for (const node of (tierMap.get(tier) ?? [])) {
-      const el = node.isVirtual
-        ? _makeVirtualNode(node, pipColor, lightColor)
-        : _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
+      const el = node.isGhost
+        ? _makeGhostNode(node)
+        : node.isVirtual
+          ? _makeVirtualNode(node, pipColor, lightColor)
+          : _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
       el.dataset.nodeId = node.id;
       const x = xMap.get(node.id) ?? 0;
       el.style.position = 'absolute';
@@ -145,6 +147,17 @@ function _makeVirtualNode(node, pipColor, lightColor) {
     el.style.backgroundColor = lightColor ?? 'transparent';
   }
   el.textContent = node.virtualLabel ?? '';
+  return el;
+}
+
+function _makeGhostNode(node) {
+  const el = document.createElement('div');
+  el.className = 'charm-tree-card charm-tree-card--ghost';
+  el.title = `${node.ghostName} (${node.ghostAbility} tree — cross-tree prerequisite)`;
+  const label = document.createElement('span');
+  label.className = 'charm-tree-card__ghost-label';
+  label.textContent = node.virtualLabel ?? '';
+  el.appendChild(label);
   return el;
 }
 

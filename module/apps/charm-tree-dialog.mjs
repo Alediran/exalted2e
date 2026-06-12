@@ -202,7 +202,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const card = ev.target.closest('.charm-tree-card');
       if (!card) return;
       const node = this.#treeData?.nodes?.get(card.dataset.nodeId);
-      if (!node || node.isVirtual) return;
+      if (!node || node.isVirtual || node.isGhost) return;
       this.#onCardClick(node);
     });
 
@@ -231,7 +231,9 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       return;
     }
 
-    const treeData = buildTree(charms, this.#groupKey);
+    const externalUids = await this.#loadExternalUids(charms);
+    if (gen !== this.#renderGeneration) return;
+    const treeData = buildTree(charms, this.#groupKey, { externalUids });
 
     // Attach cardState + pipData to every node before splitting into branches
     for (const node of treeData.nodes.values()) {
@@ -239,6 +241,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         node.cardState = getVirtualNodeState(node, this.#actor);
         continue;
       }
+      if (node.isGhost) continue;
       const charm = node.charm;
       node.cardState = getCharmState(charm, this.#actor);
       const uid = charm.system?.charmUid;
@@ -366,6 +369,39 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     return deduplicateCharms(entries);
+  }
+
+  async #loadExternalUids(currentCharms) {
+    if (this.#exaltType !== 'alchemical') return null;
+
+    const currentUidSet = new Set(
+      currentCharms.map(c => c.system?.charmUid).filter(Boolean)
+    );
+
+    const externalUids = new Map();
+
+    const collectFrom = (docs) => {
+      for (const doc of docs) {
+        if (doc.type !== 'charm') continue;
+        if (doc.system?.exaltType !== 'alchemical') continue;
+        const uid = doc.system?.charmUid;
+        if (!uid || currentUidSet.has(uid)) continue;
+        externalUids.set(uid, {
+          name:    doc.name ?? "",
+          ability: doc.system?.ability ?? "",
+        });
+      }
+    };
+
+    if (this.#sources.systemPack) {
+      const pack = game.packs.get('exalted2e.charms');
+      if (pack) collectFrom(await pack.getDocuments({ type: 'charm' }));
+    }
+    if (this.#sources.worldItems) {
+      collectFrom([...game.items]);
+    }
+
+    return externalUids.size > 0 ? externalUids : null;
   }
 
   // ── card interaction ──────────────────────────────────────────────────────

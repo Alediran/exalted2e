@@ -312,3 +312,28 @@
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: 2px;
 }
+
+/* Ghost nodes — cross-tree prerequisite indicators */
+.charm-tree-card--ghost {
+  opacity: 0.7;
+  font-style: italic;
+  background: transparent;
+  border: 1px dashed #888;
+  pointer-events: none;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 4px 6px;
+}
+
+.charm-tree-card__ghost-label {
+  font-size: 8px;
+  color: #bbb;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-align: center;
+  line-height: 1.3;
+}
