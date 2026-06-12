@@ -48,7 +48,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Charisma Augmentation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "cb19cd611accb6ae"
   },
   "folder": "b0b1b2b3b4b5f04d",

@@ -47,7 +47,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b309c62cb3d7b3a3",
+            "charmName": "Dynamic Reaction Enhancement System",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "a7c53ee942dd89f0"
   },
   "folder": "b0b1b2b3b4b5f04e",

@@ -42,7 +42,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "71ccc8719d3190de",
+            "charmName": "Rogue Cell Isolation Protocols",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "877ad8fdd08f05ec"
   },
   "folder": "b0b1b2b3b4b5f050",

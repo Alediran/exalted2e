@@ -42,7 +42,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "86acd363233ea0ae",
+            "charmName": "Tunnel-Fighting Tactical Omnibus Implant",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f6f8fd80ea62a0d0"
   },
   "folder": "b0b1b2b3b4b5f04d",

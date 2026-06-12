@@ -90,27 +90,39 @@ export function buildTree(charms, groupKey = '') {
     }
   }
 
-  // Alchemical "Any X Augmentation" prereqs (type:"charm", charmUid:"") function exactly
-  // like anyExcellency prereqs. Create their virtual nodes here so the edge-builder can use them.
+  // Alchemical "Any … Augmentation" prereqs (type:"charm", charmUid:"") function exactly
+  // like anyExcellency prereqs.  The pattern covers both single-attribute ("Any Strength
+  // Augmentation") and attribute-group forms ("Any Physical Attribute Augmentation") — in
+  // either case the charm is already scoped to its attribute by matchesFilter, so we create
+  // the virtual node keyed to the charm's own ability rather than parsing the prereq text.
   for (const charm of charms) {
     if (charm.system?.exaltType !== 'alchemical') continue;
+    const abilityKey = charm.system?.ability || '';
+    if (!abilityKey) continue;
     for (const group of (charm.system?.prereqGroups ?? [])) {
       for (const alt of (group.alternatives ?? [])) {
         if (alt.type !== 'charm' || alt.charmUid) continue;
-        const m = (alt.charmName ?? '').match(/^Any\s+(\w+)\s+Augmentation\b/i);
-        if (!m) continue;
-        const attrKey = m[1].toLowerCase();
-        const vKey    = `${attrKey}:1`;
+        if (!/\bAugmentation\b/i.test(alt.charmName ?? '')) continue;
+        const vKey = `${abilityKey}:1`;
         if (!virtualNodes.has(vKey)) {
-          const vId = `virtual:anyExcellency:${attrKey}`;
+          const vId = `virtual:anyExcellency:${abilityKey}`;
           nodes.set(vId, {
             id: vId, charm: null, tier: 0, isVirtual: true,
-            virtualLabel: `(Any ${m[1]} Augmentation)`, abilityKey: attrKey, minCount: 1,
+            virtualLabel: `(Any ${_capitalizeKey(abilityKey)} Augmentation)`,
+            abilityKey, minCount: 1,
           });
           virtualNodes.set(vKey, vId);
         }
       }
     }
+  }
+
+  // Name → nodeId fallback for prereqs with empty charmUid but a charmName set.
+  // Covers specific named refs (e.g. "Personal Gravity Manipulation Apparatus") and
+  // Alchemical charms that reference siblings by name rather than by UID.
+  const byName = new Map();
+  for (const [nodeId, node] of nodes) {
+    if (!node.isVirtual && node.charm?.name) byName.set(node.charm.name, nodeId);
   }
 
   // Build adjacency: fromId → toId
@@ -145,12 +157,14 @@ export function buildTree(charms, groupKey = '') {
           const prereq = byUid.get(alt.charmUid);
           if (prereq) {
             fromId = prereq.system?.charmUid || prereq.id;
-          } else if (!alt.charmUid && charm.system?.exaltType === 'alchemical') {
-            // "Any X Augmentation" with empty charmUid → connect to the virtual augmentation node
-            const m = (alt.charmName ?? '').match(/^Any\s+(\w+)\s+Augmentation\b/i);
-            if (m) {
-              const vId = `virtual:anyExcellency:${m[1].toLowerCase()}`;
+          } else if (!alt.charmUid) {
+            if (charm.system?.exaltType === 'alchemical' && /\bAugmentation\b/i.test(alt.charmName ?? '')) {
+              // "Any … Augmentation" (single-attr or attr-group) → charm's own attribute virtual node
+              const vId = `virtual:anyExcellency:${charm.system?.ability || ''}`;
               if (nodes.has(vId)) fromId = vId;
+            } else if (alt.charmName) {
+              // Name-based fallback for broken charmUid refs (e.g. specific charm names without a UID)
+              fromId = byName.get(alt.charmName) ?? null;
             }
           }
         } else if (alt.type === 'anyExcellency') {

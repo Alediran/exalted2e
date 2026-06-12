@@ -42,7 +42,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b4a5b6be92a79c7f",
+            "charmName": "Identity Recalibration Signal",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "227043ab89d8ca99"
   },
   "folder": "b0b1b2b3b4b5f050",

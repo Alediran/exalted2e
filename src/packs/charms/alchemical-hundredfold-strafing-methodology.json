@@ -46,7 +46,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Dexterity Augmentation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "82ce511ce4f6421e",
+            "charmName": "Aim-Calibrating Sensors",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f8801a4b032ae278"
   },
   "folder": "b0b1b2b3b4b5f04e",
