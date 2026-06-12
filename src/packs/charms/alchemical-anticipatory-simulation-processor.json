@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "alchemical",
-    "ability": "wits",
+    "ability": "perception",
     "essence": 1,
     "minAbility": 1,
     "charmType": "supplemental",
@@ -45,10 +45,23 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Perception or Wits Augmentation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "b8d551f61ad6bf8b"
   },
-  "folder": "b0b1b2b3b4b5f055",
+  "folder": "b0b1b2b3b4b5f052",
   "sort": 0,
   "ownership": {
     "default": 0

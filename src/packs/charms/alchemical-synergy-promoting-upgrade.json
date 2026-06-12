@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Social or Mental Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "a4f45b6f9cf80362"
   },
   "folder": "b0b1b2b3b4b5f04f",
