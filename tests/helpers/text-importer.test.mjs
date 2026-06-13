@@ -297,17 +297,17 @@ Speed: 5  Accuracy: +3  Damage: +4L  Defense: +1  Rate: 2`;
   });
 
   it("sets artifact true when Artifact Rating present", () => {
-    const text = `Reaper Daiklave\nSpeed: 4  Accuracy: +4  Damage: +5L  Defense: +2  Rate: 4\nArtifact: 3\nAttunement: 6`;
+    const text = `Reaper Daiklave\nSpeed: 4  Accuracy: +4  Damage: +5L  Defense: +2  Rate: 4\nArtifact Rating: 3\nAttunement: 6`;
     expect(parseWeaponBlock(text).artifact).toBe(true);
   });
 
   it("extracts artifactRating", () => {
-    const text = `Reaper Daiklave\nSpeed: 4  Accuracy: +4  Damage: +5L  Defense: +2  Rate: 4\nArtifact: 3\nAttunement: 6`;
+    const text = `Reaper Daiklave\nSpeed: 4  Accuracy: +4  Damage: +5L  Defense: +2  Rate: 4\nArtifact Rating: 3\nAttunement: 6`;
     expect(parseWeaponBlock(text).artifactRating).toBe(3);
   });
 
   it("extracts attunementCost", () => {
-    const text = `Reaper Daiklave\nSpeed: 4  Accuracy: +4  Damage: +5L  Defense: +2  Rate: 4\nArtifact: 3\nAttunement: 6`;
+    const text = `Reaper Daiklave\nSpeed: 4  Accuracy: +4  Damage: +5L  Defense: +2  Rate: 4\nArtifact Rating: 3\nAttunement: 6`;
     expect(parseWeaponBlock(text).attunementCost).toBe(6);
   });
 
