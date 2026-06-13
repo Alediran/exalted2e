@@ -17,11 +17,13 @@
     "ability": "integrity",
     "essence": 1,
     "minAbility": 1,
-    "charmType": "supplemental",
+    "charmType": "reflexive",
     "duration": "oneDay",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      2
+    ],
     "keywords": [
       "Mirror",
       "Combo-OK"

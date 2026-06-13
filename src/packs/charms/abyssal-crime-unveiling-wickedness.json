@@ -16,7 +16,7 @@
     "exaltType": "abyssal",
     "ability": "investigation",
     "essence": 2,
-    "minAbility": 2,
+    "minAbility": 3,
     "charmType": "simple",
     "duration": "instant",
     "speed": 5,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The dead cannot lie and the Abyssal's gaze cuts through the comfortable fictions the living tell themselves. Fixing a target with the cold scrutiny of the grave, the Exalted reads the hidden record of sins, crimes, and moral failures written in the target's essence and bearing. The Abyssal rolls (Perception + Investigation) against the target's Guile; success reveals the most significant crimes, betrayals, and wicked acts in the target's history, as though reading them from an accurate written record.</p><p>Even targets who have never been caught, confessed, or confronted with their sins cannot conceal them from this charm. The knowledge gained is accurate but non-specific — the Abyssal learns the nature and rough scale of crimes, not precise details. This charm serves as a prerequisite for the Corpse Questioning Technique, providing the investigative foundation for interrogating the dead about the crimes of the living.</p>",
+    "description": "<p>Abyssals wreak so much havoc that they easily intuit the misdeeds of others. Unlike its Solar Mirror, use of this Charm reduces the difficulty of the Investigation roll by one to study evidence left by anyone's actions that resulted in harm and adds one to the difficulty otherwise.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",

@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "abyssal",
     "ability": "archery",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -25,15 +25,14 @@
     "keywords": [
       "Mirror",
       "Combo-Basic",
-      "Emotion",
-      "Martial-ready"
+      "Emotion"
     ],
     "cost": {
-      "formula": "3m Mins: Archery 3, Essence 2",
+      "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>When an Abyssal archer draws his weapon, panic ensues. Death is coming, its cold fist tight on the hearts of those who might be prey. Activating this Charm instantly draws and loads an Archery weapon the deathknight has available, either on his person or banished Elsewhere via Banished Bow Arsenal (see p. 124). More importantly, if this Charm is used during a Join Battle action, all other combatants who beat the Abyssal's player's roll feel overwhelming dread at the thought of initiating hostilities against the suddenly armed deathknight. As a result, they suffer an internal penalty equal to the Abyssal's Archery rating on all attacks directed against the deathknight until he takes his first action. Any attacker willing to reflexively spend three Willpower can end the Charm's unnatural mental influence over her (gaining Limit or Resonance if appropriate), allowing her to attack the Abyssal without penalty. Some Abyssal Charms have special effects when used on creatures of the Wyld, smothering the potentiality of their inchoate Essence with the iron certainty of entropy. Creatures of the Wyld are defined as any entities native to the chaos outside Creation, including raksha, Fae-Blooded, behemoths of appropriate origin, un-Exalted Wyld mutants and anything else the Storyteller includes. Other Abyssal Charms have special effects on creatures of Death, reflecting their place as the lords of that realm. This list includes ghosts, ghostblooded, walking dead, Abyssal Exalted, Deathlords, hekatonkhires and all the other miscellaneous beings native to the Underworld or the Labyrinth.</p>",
+    "description": "<p>When an Abyssal archer draws his weapon, panic ensues. Death is coming, its cold fist tight on the hearts of those who might be prey. Activating this Charm instantly draws and loads an Archery weapon the deathknight has available, either on his person or banished Elsewhere via Banished Bow Arsenal (see p. 124). More importantly, if this Charm is used during a Join Battle action, all other combatants who beat the Abyssal's player's roll feel overwhelming dread at the thought of initiating hostilities against the suddenly armed deathknight. As a result, they suffer an internal penalty equal to the Abyssal's Archery rating on all attacks directed against the deathknight until he takes his first action. Any attacker willing to reflexively spend three Willpower can end the Charm's unnatural mental influence over her (gaining Limit or Resonance if appropriate), allowing her to attack the Abyssal without penalty.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",

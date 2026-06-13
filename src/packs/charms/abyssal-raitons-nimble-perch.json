@@ -15,22 +15,23 @@
   "system": {
     "exaltType": "abyssal",
     "ability": "athletics",
-    "essence": 1,
-    "minAbility": 2,
+    "essence": 2,
+    "minAbility": 1,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "oneScene",
     "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-OK"
     ],
     "cost": {
-      "formula": "2m",
+      "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The raiton perches on crumbling ledges and frost-slicked branches without concern, its claws finding purchase where no natural creature should be able to stand. The Abyssal emulates this carrion bird's supernatural surety, her essence-infused body finding balance in impossible conditions. This charm may be activated reflexively to avoid any fall or stumble, automatically succeed on Balance and Acrobatics rolls to maintain footing on treacherous surfaces, or cling to vertical or even inverted surfaces for a single tick without rolling.</p><p>While the charm is active the Abyssal's posture carries an unsettling stillness, her body perfectly motionless except for deliberately chosen movements. This charm is prerequisite to Crouching Gargoyle Stance, Effortless Unnatural Grace, and Mist Over Ice, providing the fundamental body-control mastery those more advanced techniques require.</p>",
+    "description": "<p>Deathknights move like the ghosts they lord over, stepping lighter than a bird over all obstacles.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",

@@ -16,23 +16,22 @@
     "exaltType": "abyssal",
     "ability": "awareness",
     "essence": 2,
-    "minAbility": 3,
-    "charmType": "simple",
-    "duration": "one scene",
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Combo-OK",
-      "Obvious"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's sense of smell becomes as precise and unerring as death itself, and her taste carries the cold analytical certainty of entropy. She can identify every individual within a wide radius by scent, detect any poison or disease instantaneously, and follow tracks by scent even across water or through crowds. The Obvious quality manifests as a faint sweet-rot smell that clings to the Abyssal while this Charm is active. She adds her Essence in bonus dice to all Awareness rolls involving smell or taste.</p>",
+    "description": "<p>There is little beauty left for those enlightened to the myriad ways in which the world decays moment by moment. The Abyssal can smell the hint of rot in a freshly cut flower and feel the wrinkles waiting to emerge on a nubile courtesan's skin.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
