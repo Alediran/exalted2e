@@ -230,6 +230,7 @@ class _MockApplicationV2 {
   static DEFAULT_OPTIONS = {};
   render() { return Promise.resolve(); }
   close() { return Promise.resolve(); }
+  async _prepareContext() { return {}; }
 }
 
 foundry.applications.api.ApplicationV2 = _MockApplicationV2;
