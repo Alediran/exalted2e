@@ -30,6 +30,14 @@ import {
   _applyFluxDamage,
 } from "./actor-lifecycle.mjs";
 import { buildLimitBreakEffectData } from "../combat/limit-break-effect.mjs";
+import {
+  computeExcellencyKey,
+  computeStep2MoteCost,
+  buildStep2FlagUpdates,
+  isActorSentient,
+  computeMoteRecoveryAmount,
+  scaleTargetEffectByDamage,
+} from "./_chat-card-helpers.mjs";
 
 // ── Limit Break resolution ─────────────────────────────────────────────────
 export async function _resolveLimitBreak(message, choice) {
@@ -123,12 +131,7 @@ async function _applyPerDamageLevelEffects(message, targetActor, rawDamage) {
     const charm = attackerActor.items.find(i => i.name === name);
     const te = charm?.system?.targetEffect;
     if (!te?.enabled || !te.perDamageLevel || te.trigger !== "onHit") continue;
-    const scaledAmount = (te.internalPenalty?.amount ?? -1) * rawDamage;
-    const scaledTe = {
-      ...te,
-      internalPenalty: { ...te.internalPenalty, amount: scaledAmount },
-    };
-    await targetActor.applyCharmTargetEffect(scaledTe);
+    await targetActor.applyCharmTargetEffect(scaleTargetEffectByDamage(te, rawDamage));
   }
 }
 
@@ -147,15 +150,10 @@ async function _applyDamageDealtMoteRecovery(message, targetActor, rawDamage) {
 
   for (const charm of charms) {
     const mr = charm.system.moteRecovery;
-    if (mr.sentientOnly) {
-      const isSentient = targetActor.type === 'character' ||
-        (targetActor.type === 'npc' && targetActor.system?.npcType !== 'beast');
-      if (!isSentient) continue;
-    }
+    if (mr.sentientOnly && !isActorSentient(targetActor.type, targetActor.system?.npcType)) continue;
     const rollData = attackerActor.getRollData() ?? {};
     const base = evaluateCharmFormula(mr.formula, rollData, 0);
-    const amount = mr.perDamageLevel ? base * rawDamage : base;
-    const capped = Math.min(amount, mr.maxRecovery ?? 20);
+    const capped = computeMoteRecoveryAmount(mr, base, rawDamage);
     if (capped <= 0) continue;
     if (mr.action === 'gainOverdrive') {
       await attackerActor.addOverdriveMotes(capped);
@@ -221,12 +219,9 @@ async function _resolveSocialAttackStep2(message) {
   });
 
   // Excellency wiring: same pattern as the attacker AttackDialog.
-  const exaltType   = defender.system?.exaltType ?? "";
-  const isAttrBased = exaltType === "lunar" || exaltType === "alchemical";
-  const allCharms   = defender.items.filter(i => i.type === "charm");
-  const excKey      = isAttrBased
-    ? (record.intent === "erode" ? "manipulation" : "stamina")
-    : (record.intent === "erode" ? "presence"     : "integrity");
+  const exaltType = defender.system?.exaltType ?? "";
+  const excKey    = computeExcellencyKey(exaltType, record.intent);
+  const allCharms = defender.items.filter(i => i.type === "charm");
   const firstExc    = allCharms.find(c => c.system.excellency === "first"  && c.system.ability === excKey);
   const secondExc   = allCharms.find(c => c.system.excellency === "second" && c.system.ability === excKey);
 
@@ -263,7 +258,7 @@ async function _resolveSocialAttackStep2(message) {
   // Spend defender Excellency motes. firstExcDice = 1m each, secondExcSucc
   // = 2m each. Use defender.spendMotes for the per-pool breakdown so the
   // Reverse handler can refund accurately.
-  const totalMoteCost = (dialogResult.firstExcDice ?? 0) + (dialogResult.secondExcSucc ?? 0) * 2;
+  const totalMoteCost = computeStep2MoteCost(dialogResult.firstExcDice, dialogResult.secondExcSucc);
   let defenderMoteSpend = null;
   if (totalMoteCost > 0) {
     defenderMoteSpend = await defender.spendMotes(totalMoteCost, dialogResult.moteType);
@@ -285,48 +280,11 @@ async function _resolveSocialAttackStep2(message) {
     umiCostSum:              record.umiCostSum ?? 0
   });
 
-  // Auto-stamp resolution for perfect-defense and motes-resist outcomes.
-  let resolution = null;
-  if (resolved.perfectDefense) {
-    resolution = {
-      outcome:                       "perfect-defended",
-      wpSpentByDefender:             0,
-      erodedIntimacyId:              null,
-      erodedIntimacyStrengthBefore:  null,
-      erodedIntimacyStrengthAfter:   null,
-      erodedIntimacyName:            null
-    };
-  } else if (resolved.motesResistApplied && resolved.hit) {
-    resolution = {
-      outcome:                       "resisted-via-motes",
-      wpSpentByDefender:             0,
-      erodedIntimacyId:              null,
-      erodedIntimacyStrengthBefore:  null,
-      erodedIntimacyStrengthAfter:   null,
-      erodedIntimacyName:            null
-    };
-  }
-
   // Update the chat-card flags in one atomic write. `reversed: false`
   // is included so re-defending after a Reverse correctly clears the
   // "reversed" indicator from the prior outcome (Task 8 sets reversed
   // to true on Reverse — this resets it to a fresh state).
-  const updates = {
-    "flags.exalted2e.socialAttack.reversed":           false,
-    "flags.exalted2e.socialAttack.step2Resolved":      true,
-    "flags.exalted2e.socialAttack.step2Result":        dialogResult,
-    "flags.exalted2e.socialAttack.defenderCharmIds":   activatedCharmIds,
-    "flags.exalted2e.socialAttack.defenderMoteSpend":  defenderMoteSpend,
-    "flags.exalted2e.socialAttack.effectiveMDV":       resolved.effectiveMDV,
-    "flags.exalted2e.socialAttack.hit":                resolved.hit,
-    "flags.exalted2e.socialAttack.wpToResist":         resolved.wpToResist,
-    "flags.exalted2e.socialAttack.perfectDefense":     resolved.perfectDefense,
-    "flags.exalted2e.socialAttack.motesResistApplied": resolved.motesResistApplied
-  };
-  if (resolution) {
-    updates["flags.exalted2e.socialAttack.resolution"] = resolution;
-  }
-  await message.update(updates);
+  await message.update(buildStep2FlagUpdates(record, dialogResult, resolved, activatedCharmIds, defenderMoteSpend));
   await _rerenderSocialAttackCard(message);
 }
 
