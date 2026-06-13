@@ -2,18 +2,7 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 import { EX2E } from "../config.mjs";
-
-/** Action keys that can be pinned (Attack + Finish are always shown, so omitted). */
-function pinnableActions() {
-  const rows = [
-    { key: "cast", labelKey: "EX2E.ActionCast", icon: "fa-solid fa-hat-wizard" },
-  ];
-  for (const [key, cfg] of Object.entries(EX2E.actions)) {
-    if (cfg.clinchOnly) continue;
-    rows.push({ key, labelKey: cfg.labelKey, icon: cfg.icon ?? "fa-solid fa-circle" });
-  }
-  return rows;
-}
+import { buildPinnableRows, orderActionRows } from "./_action-bar-helpers.mjs";
 
 /**
  * ActionBarConfig — per-player editor for the `exalted2e.actionBarPinned`
@@ -46,19 +35,9 @@ export class ActionBarConfig extends HandlebarsApplicationMixin(ApplicationV2) {
   };
 
   async _prepareContext(options) {
-    const ctx     = await super._prepareContext(options);
-    const pinned  = game.settings.get("exalted2e", "actionBarPinned") ?? [];
-    const byKey   = new Map(pinnableActions().map(r => [r.key, r]));
-    const rows    = [];
-    // Pinned actions first, in their saved order…
-    for (const key of pinned) {
-      const r = byKey.get(key);
-      if (r) { rows.push({ ...r, checked: true }); byKey.delete(key); }
-    }
-    // …then the rest (unpinned), in the default pinnable order.
-    for (const r of pinnableActions()) {
-      if (byKey.has(r.key)) rows.push({ ...r, checked: false });
-    }
+    const ctx    = await super._prepareContext(options);
+    const pinned = game.settings.get("exalted2e", "actionBarPinned") ?? [];
+    const rows   = orderActionRows(pinned, buildPinnableRows(EX2E.actions));
     return { ...ctx, rows };
   }
 

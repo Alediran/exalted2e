@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "solar",
     "ability": "awareness",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -30,13 +30,13 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Essence enhances the Solar's smell and taste. Gives two bonus successes on Awareness actions using smell or taste and allows perception normally too faint for human senses. The character can recognize others and hints of their recent activities by smell, track by scent (gaining one bonus success), identify spices and poisons by taste, and with a legendary success detect a few drops of tasteless poison in wine by noticing dilution.</p>",
+    "description": "<p>Essence enhances the Solar's senses. This Charm gives two bonus successes on Awareness actions that use smell or taste. It also allows the character to clearly perceive sensory impressions that are normally too faint for human senses to validly observe at all. The character can recognize others and hints of their recent activities by smell. He can track by scent, gaining one bonus success when tracking someone who has a scent. The character can identify spices and poisons by taste. With a legendary success, he can detect but not identify a few drops of tasteless poison in a wine--as its presence serves to dilute the wine.</p>",
     "source": "Core Rules",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,

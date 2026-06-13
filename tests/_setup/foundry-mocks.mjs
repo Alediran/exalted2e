@@ -92,7 +92,8 @@ globalThis.foundry = {
     },
     api: {
       DialogV2: {
-        confirm: vi.fn().mockResolvedValue(true)
+        confirm: vi.fn().mockResolvedValue(true),
+        prompt:  vi.fn().mockResolvedValue(null),
       }
     }
   }

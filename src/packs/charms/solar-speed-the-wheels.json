@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Lawgivers bring order and destroy corruption. The Solar speeds the process of a bureaucracy. Normally, an organization must first take a Begin Project dramatic action--ranging from minutes to months in its duration, depending on the organization's structure--before it can start actual work on a project. The Solar communicates his desire for speedy resolution to the organization, and his player rolls ([Intelligence or Charisma] + Bureaucracy), adding the Solar's Essence in automatic successes. The difficulty of this roll is 1. If the person responsible for this project deliberately engages in delays, subtract an external penalty of ([that person's Intelligence + Bureaucracy] � 2) from the successes on the Bureaucracy roll. The Solar is aware of such delaying tactics, however. If the Solar succeeds, this Charm divides the time needed to begin the project by (the Solar's Essence + 1), with a maximum possible time of one season. For example, for an Essence 5 Solar, if it would normally take six months to authorize naval repairs or obtain an audience with the local king, this Charm reduces that time to a single month. If it normally takes a century to obtain necessary paperwork from a Fair Folk freehold, the Solar resolves the matter in a single season.</p>",
+    "description": "<p>The Lawgivers bring order and destroy corruption. The Solar speeds the process of a bureaucracy. Normally, an organization must first take a Begin Project dramatic action--ranging from minutes to months in its duration, depending on the organization's structure--before it can start actual work on a project. The Solar communicates his desire for speedy resolution to the organization, and his player rolls ([Intelligence or Charisma] + Bureaucracy), adding the Solar's Essence in automatic successes. The difficulty of this roll is 1. If the person responsible for this project deliberately engages in delays, subtract an external penalty of ([that person's Intelligence + Bureaucracy] ÷ 2) from the successes on the Bureaucracy roll. The Solar is aware of such delaying tactics, however. If the Solar succeeds, this Charm divides the time needed to begin the project by (the Solar's Essence + 1), with a maximum possible time of one season. For example, for an Essence 5 Solar, if it would normally take six months to authorize naval repairs or obtain an audience with the local king, this Charm reduces that time to a single month. If it normally takes a century to obtain necessary paperwork from a Fair Folk freehold, the Solar resolves the matter in a single season.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

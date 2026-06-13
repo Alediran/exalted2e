@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "solar",
     "ability": "awareness",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -30,13 +30,13 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Essence enhances the Solar's hearing and touch. Gives two bonus successes on Awareness actions using hearing or touch and allows perception of impressions normally too faint for human senses. The character can gauge fabric quality by touch, reduces the external penalty to target unseen characters to -1 and blindness penalty to -2, can hear conversations through thick stone walls, and with a legendary success can read by touch.</p>",
+    "description": "<p>Essence enhances the Solar's senses. This Charm gives two bonus successes on Awareness actions that use hearing or touch. It also allows the character to clearly perceive sensory impressions that are normally too faint for human senses to validly observe at all. The character can gauge the quality of fabric with a touch. He reduces the external penalty to target unseen characters to -1 and the internal penalty from blindness to -2. He can hear conversations normally through thick stone walls. With a legendary success, he can read by touch.</p>",
     "source": "Core Rules",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,

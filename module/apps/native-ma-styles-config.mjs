@@ -2,6 +2,7 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 import { EX2E } from "../config.mjs";
+import { buildSplatList, parseNativeMaFormData } from "./_native-ma-helpers.mjs";
 
 /**
  * NativeMaStylesConfig — GM-only editor for the `exalted2e.nativeMartialArtsStyles`
@@ -26,29 +27,22 @@ export class NativeMaStylesConfig extends HandlebarsApplicationMixin(Application
     form: { template: "systems/exalted2e/templates/apps/native-ma-styles-config.hbs" },
   };
 
+  static #EXCLUDED = new Set(["mortal", "spirit", "martialarts"]);
+
   async _prepareContext(options) {
-    const ctx    = await super._prepareContext(options);
-    const saved  = game.settings.get("exalted2e", "nativeMartialArtsStyles") ?? {};
-    const EXCLUDED = new Set(["mortal", "spirit", "martialarts"]);
-    const splats = Object.entries(EX2E.splatTypes)
-      .filter(([key]) => !EXCLUDED.has(key))
-      .map(([key, labelKey]) => ({
-        key,
-        label:  game.i18n.localize(labelKey),
-        styles: (saved[key] ?? []).join("\n"),
-      }));
+    const ctx   = await super._prepareContext(options);
+    const saved = game.settings.get("exalted2e", "nativeMartialArtsStyles") ?? {};
+    const splats = buildSplatList(
+      EX2E.splatTypes,
+      saved,
+      NativeMaStylesConfig.#EXCLUDED,
+      game.i18n.localize.bind(game.i18n)
+    );
     return { ...ctx, splats };
   }
 
   static async #onSubmit(event, form, formData) {
-    const raw    = formData.object;
-    const result = {};
-    for (const [key, value] of Object.entries(raw)) {
-      if (key.startsWith("styles.")) {
-        const splat   = key.slice(7);
-        result[splat] = String(value ?? "").split("\n").map(s => s.trim()).filter(Boolean);
-      }
-    }
+    const result = parseNativeMaFormData(formData.object);
     await game.settings.set("exalted2e", "nativeMartialArtsStyles", result);
   }
 }

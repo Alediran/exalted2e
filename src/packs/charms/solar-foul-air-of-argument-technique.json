@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Those who oppose the Lawgivers often break down under the burden of their own failings. This Charm supplements a deliberate attempt by the Solar to sabotage an organization's operation. Her player rolls ([Intelligence or Charisma] + Bureaucracy), adding the Solar's Essence in automatic successes. Subtract an external penalty of ([the organization's leader's Intelligence + Bureaucracy] � 2) from the successes on the Bureaucracy roll. If the character succeeds, then the organization suffers a permanent increase in corruption and inefficiency that imposes a -2 internal penalty on all of its actions. This Charm can be applied repeatedly to a single bureaucracy, but no combination of Charms including Foul Air of Argument Technique can impose a greater internal inefficiency and corruption penalty on an organization than (the Solar's Intelligence + Bureaucracy).</p>",
+    "description": "<p>Those who oppose the Lawgivers often break down under the burden of their own failings. This Charm supplements a deliberate attempt by the Solar to sabotage an organization's operation. Her player rolls ([Intelligence or Charisma] + Bureaucracy), adding the Solar's Essence in automatic successes. Subtract an external penalty of ([the organization's leader's Intelligence + Bureaucracy] ÷ 2) from the successes on the Bureaucracy roll. If the character succeeds, then the organization suffers a permanent increase in corruption and inefficiency that imposes a -2 internal penalty on all of its actions. This Charm can be applied repeatedly to a single bureaucracy, but no combination of Charms including Foul Air of Argument Technique can impose a greater internal inefficiency and corruption penalty on an organization than (the Solar's Intelligence + Bureaucracy).</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
