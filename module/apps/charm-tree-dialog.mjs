@@ -248,7 +248,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const ownedItem = uid && this.#actor
         ? this.#actor.items.find(i => i.type === 'charm' && i.system?.charmUid === uid)
         : null;
-      node.pipData = getPipData(charm, ownedItem ?? null);
+      node.pipData = getPipData(charm, ownedItem ?? null, this.#actor);
     }
 
     this.#branches = splitIntoBranches(treeData);

@@ -11,12 +11,12 @@ function makeCharm({ id = "host", name = "Host Charm", ability = "melee", prereq
   };
 }
 
-function makeOwnedCharm({ id, name, ability = "", excellency = "", charmUid = "" } = {}) {
+function makeOwnedCharm({ id, name, ability = "", excellency = "", charmUid = "", exaltType = "" } = {}) {
   return {
     id,
     name,
     type: "charm",
-    system: { ability, excellency, charmUid }
+    system: { ability, excellency, charmUid, exaltType }
   };
 }
 
@@ -396,6 +396,54 @@ describe("anyExcellency minCount", () => {
     const actor = makeActor([makeOwnedCharm({ id: "e1", name: "First Lore Exc", ability: "lore", excellency: "first" })]);
     const report = evaluateCharmPrereqs(charm, actor);
     expect(report[0].satisfied).toBe(true);
+  });
+});
+
+describe("Alchemical 'Any X Augmentation' sentinel prereq", () => {
+  function makeAlchemicalHost({ ability = "strength" } = {}) {
+    return makeCharm({
+      ability,
+      system: { exaltType: "alchemical" },
+      prereqGroups: [{ alternatives: [{ type: "charm", charmUid: "", charmName: "Any Strength Augmentation" }] }]
+    });
+  }
+
+  it("satisfied when actor owns First Augmentation (excellency: first) for same attribute", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "aug1", name: "Essence Optimized (First Strength Augmentation)", ability: "strength", excellency: "first", exaltType: "alchemical" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(true);
+  });
+
+  it("satisfied when actor owns Fourth Augmentation (name-pattern, no excellency field)", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "aug4", name: "Fourth Strength Augmentation--Essence Integrated", ability: "strength", excellency: "", exaltType: "alchemical" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(true);
+  });
+
+  it("not satisfied when actor owns Augmentation of a different attribute", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "aug1", name: "Essence Optimized (First Dexterity Augmentation)", ability: "dexterity", excellency: "first", exaltType: "alchemical" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(false);
+  });
+
+  it("not satisfied when actor owns no Alchemical charms at all", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(false);
+  });
+
+  it("not satisfied when owned charm is same ability but non-Alchemical", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "x", name: "Strength Charm", ability: "strength", excellency: "first", exaltType: "solar" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(false);
   });
 });
 

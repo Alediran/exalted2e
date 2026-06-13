@@ -1,5 +1,18 @@
 import { areCharmPrereqsMet, meetsMinAbility } from './charm-prereqs.mjs';
 
+// Resolves integer or @token formula strings without importing Foundry's Roll class.
+export function evalMaxPurchases(raw, actor) {
+  const n = parseInt(raw, 10);
+  if (!isNaN(n)) return Math.max(1, n);
+  const rollData = actor?.getRollData?.() ?? {};
+  const substituted = String(raw).replace(/@(\w+)/g, (_, key) => {
+    const val = rollData[key];
+    return (val !== undefined && val !== null && typeof val !== 'object') ? String(val) : '0';
+  });
+  const result = parseInt(substituted, 10);
+  return Math.max(1, isNaN(result) ? 1 : result);
+}
+
 /**
  * Returns true if charm belongs to the given exaltType + groupKey combination.
  * groupKey is an ability key (solar/db/etc), attribute key (lunar/alchemical),
@@ -219,11 +232,17 @@ export function buildTree(charms, groupKey = '', { externalUids = null } = {}) {
     // Standalone charms (no parents AND no children) share the Excellency row;
     // only subtree roots (no parents but with children) stay floored below it.
     const isStandalone = !hasPrereqs && !hasChildren;
-    const floor = (node.isVirtual || node.isGhost || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs || isStandalone)
-      ? 0
-      : hasVirtualNodes
-        ? Math.max(node.charm?.system?.essence ?? 1, 2)
-        : 0;
+    // Ghost nodes sit one level below Excellencies (tier 1) when there are
+    // virtual nodes, so they don't crowd the top row.  In trees without virtual
+    // nodes they stay at tier 0 (no Excellency row to separate them from).
+    let floor;
+    if (node.isGhost) {
+      floor = hasVirtualNodes ? 1 : 0;
+    } else if (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs || isStandalone) {
+      floor = 0;
+    } else {
+      floor = hasVirtualNodes ? Math.max(node.charm?.system?.essence ?? 1, 2) : 0;
+    }
     tierOf.set(id, floor);
   }
 
@@ -384,13 +403,14 @@ export function getCharmState(charm, actor) {
   if (!actor) return 'neutral';
 
   const uid = charm.system?.charmUid;
-  const ownedItem = uid
-    ? actor.items.filter(i => i.type === 'charm' && i.system?.charmUid === uid)[0] ?? null
-    : null;
-  const maxPurch = parseInt(charm.system?.maxPurchases ?? '1', 10) || 1;
-  const ownedLevel = ownedItem?.system?.purchaseLevel ?? 0;
+  const ownedItems = uid
+    ? actor.items.filter(i => i.type === 'charm' && i.system?.charmUid === uid)
+    : [];
+  const ownedItem = ownedItems[0] ?? null;
+  const maxPurch = evalMaxPurchases(charm.system?.maxPurchases ?? '1', actor);
+  const ownedCount = maxPurch > 1 ? ownedItems.length : (ownedItem?.system?.purchaseLevel ?? 0);
 
-  if (ownedItem && ownedLevel >= maxPurch) return 'owned';
+  if (ownedItem && ownedCount >= maxPurch) return 'owned';
 
   // Check essence
   const essenceVal = actor.system?.essence?.value ?? 0;
@@ -410,10 +430,13 @@ export function getCharmState(charm, actor) {
  * Returns { current, max } for multi-purchase charms, or null for single-purchase.
  * ownedItem may be null (charm not yet owned).
  */
-export function getPipData(charm, ownedItem) {
-  const max = parseInt(charm.system?.maxPurchases ?? '1', 10) || 1;
+export function getPipData(charm, ownedItem, actor) {
+  const max = evalMaxPurchases(charm.system?.maxPurchases ?? '1', actor);
   if (max <= 1) return null;
-  const current = ownedItem?.system?.purchaseLevel ?? 0;
+  const uid = charm.system?.charmUid;
+  const current = (actor && uid)
+    ? actor.items.filter(i => i.type === 'charm' && i.system?.charmUid === uid).length
+    : (ownedItem?.system?.purchaseLevel ?? 0);
   return { current, max };
 }
 

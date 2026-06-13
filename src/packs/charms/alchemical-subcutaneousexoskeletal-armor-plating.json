@@ -44,6 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
+    "maxPurchases": "@ess",
     "prereqGroups": [
       {
         "alternatives": [
@@ -60,11 +61,19 @@
     ],
     "soakBonus": {
       "enabled": true,
-      "bashing": 4,
-      "lethal": 3,
+      "bashing": 0,
+      "lethal": 0,
       "aggravated": 0,
-      "hardnessAdd": 2,
-      "hardnessSetTo": 0
+      "hardnessAdd": 0,
+      "hardnessSetTo": 0,
+      "bashingFormula": "",
+      "lethalFormula": "",
+      "aggravatedFormula": "",
+      "selectedOption": 0,
+      "options": [
+        { "label": "Subcutaneous", "bashing": 3, "lethal": 2, "aggravated": 0, "hardnessAdd": 1 },
+        { "label": "Exoskeletal",  "bashing": 4, "lethal": 3, "aggravated": 0, "hardnessAdd": 2 }
+      ]
     },
     "charmUid": "48b0c3b989ce22ed"
   },

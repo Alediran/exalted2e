@@ -397,7 +397,8 @@
   color:       var(--ex2e-text-primary);
 }
 
-.item-stat {
+.item-stat,
+.module-slots label {
   font-family: var(--ex2e-font-ui);
   font-size:   var(--ex2e-font-size-sm);
   color:       var(--ex2e-text-secondary);
@@ -451,12 +452,6 @@
   align-items:     center;
   justify-content: center;
   gap:             var(--ex2e-gap-md);
-}
-.module-slots label {
-  font-family: var(--ex2e-font-ui);
-  font-size:   var(--ex2e-font-size-sm);
-  color:       var(--ex2e-text-secondary);
-  white-space: nowrap;
 }
 .module-slots button {
   font-family:   var(--ex2e-font-ui);

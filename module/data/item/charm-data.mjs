@@ -221,7 +221,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         hardnessSetTo:     new fields.NumberField({ initial: 0, min: 0, integer: true }),
         bashingFormula:    new fields.StringField({ initial: "", blank: true }),
         lethalFormula:     new fields.StringField({ initial: "", blank: true }),
-        aggravatedFormula: new fields.StringField({ initial: "", blank: true })
+        aggravatedFormula: new fields.StringField({ initial: "", blank: true }),
+        selectedOption:    new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        options: new fields.ArrayField(new fields.SchemaField({
+          label:       new fields.StringField({ initial: "", blank: true }),
+          bashing:     new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          lethal:      new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          aggravated:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          hardnessAdd: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        })),
       }),
 
       // M3 — Wound penalty reduction / negation

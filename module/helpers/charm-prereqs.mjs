@@ -64,6 +64,19 @@ function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
         (c.system?.mergedIds ?? []).includes(wantUid)
       );
     }
+    // Alchemical "Any X Augmentation" sentinel: no charmUid, charmName contains "Augmentation".
+    // Satisfied by owning any Alchemical Augmentation charm for the same attribute.
+    if (!wantUid && /\bAugmentation\b/i.test(alt.charmName ?? "")) {
+      const hostAbility = _norm(hostCharm.system?.ability);
+      if (!hostAbility) return false;
+      return ownedCharms.some(c => {
+        if (c.system?.exaltType !== "alchemical") return false;
+        if (_norm(c.system?.ability) !== hostAbility) return false;
+        const exc = c.system?.excellency ?? "";
+        if (EXCELLENCY_TIERS.has(exc)) return true;
+        return /^(fourth|fifth|sixth)\s+\w+\s+augmentation\b/i.test(c.name ?? "");
+      });
+    }
     const want = _norm(alt.charmName);
     if (!want) return false;
     return ownedCharms.some(c => _norm(c.name) === want);

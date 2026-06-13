@@ -15,8 +15,22 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
   const extraFlags = {};
 
   if (sys.soakBonus?.enabled) {
-    const { bashing = 0, lethal = 0, aggravated = 0, hardnessAdd = 0,
-            bashingFormula, lethalFormula, aggravatedFormula } = sys.soakBonus;
+    const sb = sys.soakBonus;
+    let bashing     = sb.bashing     ?? 0;
+    let lethal      = sb.lethal      ?? 0;
+    let aggravated  = sb.aggravated  ?? 0;
+    let hardnessAdd = sb.hardnessAdd ?? 0;
+    const { bashingFormula, lethalFormula, aggravatedFormula } = sb;
+
+    if ((sb.options?.length ?? 0) > 0) {
+      const idx = Math.min(Math.max(0, sb.selectedOption ?? 0), sb.options.length - 1);
+      const opt = sb.options[idx] ?? {};
+      bashing     = opt.bashing     ?? 0;
+      lethal      = opt.lethal      ?? 0;
+      aggravated  = opt.aggravated  ?? 0;
+      hardnessAdd = opt.hardnessAdd ?? 0;
+    }
+
     const ev = (formula, fallback) =>
       formula ? (evaluateCharmFormula(formula, rollData, fallback) ?? fallback) : fallback;
     const b = ev(bashingFormula,    bashing);

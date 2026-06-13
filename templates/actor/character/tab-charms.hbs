@@ -69,6 +69,119 @@
       {{/if}}{{/if}}
     </summary>
     <div class="charms-list">
+      {{! Multi-purchase grouped charms (e.g. Armor Plating, Ox-Body) }}
+      {{#each group.multiPurchaseGroups as |mpg|}}
+      <div class="charm-multi-purchase-group {{#if mpg.isExpanded}}is-expanded{{/if}}"
+           data-charm-uid="{{mpg.charmUid}}">
+        <div class="charm-row item-row ex2e-row">
+          <img class="item-img" src="{{mpg.img}}" alt="{{mpg.name}}">
+          <span class="item-name charm-name">
+            {{mpg.name}}
+            {{#if mpg.summary}}<span class="charm-meta">{{mpg.summary}}</span>{{/if}}
+          </span>
+          <div class="item-controls">
+            <button type="button" data-action="toggleMultiPurchaseGroup"
+                    data-charm-uid="{{mpg.charmUid}}"
+                    title="{{localize 'EX2E.ExpandInstallations'}}">
+              <i class="fa-solid {{#if mpg.isExpanded}}fa-chevron-up{{else}}fa-chevron-down{{/if}}"></i>
+            </button>
+          </div>
+        </div>
+        {{#if mpg.isExpanded}}
+        <div class="multi-purchase-instances">
+          {{#each mpg.instances as |inst|}}
+          <div class="charm-row item-row multi-purchase-instance {{#if inst.item.system.active}}charm-active{{/if}}"
+               data-item-id="{{inst.item.id}}">
+            <img class="item-img" src="{{inst.item.img}}" alt="{{inst.item.name}}">
+            <span class="item-name charm-name">
+              {{#with (lookup @root.charmPrereqs inst.item.id) as |p|}}
+                {{#if p.has}}{{#unless p.met}}
+                <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"
+                   title="{{p.missing}}"></i>
+                {{/unless}}{{/if}}
+              {{/with}}
+              {{inst.item.name}}{{#if inst.variantLabel}} <em class="charm-variant-label">({{inst.variantLabel}})</em>{{/if}}
+              <span class="charm-meta">
+                {{moteCostString inst.item.system.cost}}
+                · {{inst.item.system.duration}}
+                {{#if (eq @root.system.exaltType "alchemical")}}
+                  {{#if inst.item.system.installed}}
+                    {{#if inst.item.system.essenceCommitment}}
+                    <span class="charm-commit">[{{inst.item.system.essenceCommitment}}m]</span>
+                    {{/if}}
+                  {{/if}}
+                {{/if}}
+              </span>
+            </span>
+            <div class="item-controls">
+              {{#if (eq @root.system.exaltType "alchemical")}}
+                {{#if inst.item.system.installed}}
+                <button type="button" data-action="uninstallCharm" data-charm-id="{{inst.item.id}}"
+                        title="{{localize 'EX2E.Uninstall'}}">⊖</button>
+                {{else}}
+                <button type="button" data-action="installCharm" data-charm-id="{{inst.item.id}}"
+                        title="{{localize 'EX2E.Install'}} ({{inst.item.system.essenceCommitment}}m)">⊕</button>
+                {{/if}}
+                {{#if inst.item.system.installed}}
+                {{#if @root.isEditable}}
+                <button type="button" data-action="createSubmodule" data-charm-id="{{inst.item.id}}"
+                        title="{{localize 'EX2E.AddSubmodule'}}">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                {{/if}}
+                {{/if}}
+              {{/if}}
+              <button type="button" data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
+              <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
+              {{#if @root.isEditable}}
+              <button data-action="editItem"   title="Edit">✏️</button>
+              <button data-action="deleteItem" title="Delete">🗑</button>
+              {{/if}}
+            </div>
+          </div>
+          {{! Submodule rows for this specific installation instance }}
+          {{#with (lookup @root.submodulesByParent inst.item.id) as |subs|}}
+          {{#if subs.length}}
+          <div class="submodule-list">
+            {{#each subs as |sub|}}
+            <div class="submodule-row {{#unless sub.system.effectivelyActive}}submodule-inactive{{/unless}}"
+                 data-item-id="{{sub.id}}">
+              <span class="submodule-name">
+                {{#unless sub.system.requirementsMet}}
+                <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"
+                   title="{{localize 'EX2E.SubmoduleReqNotMet'}}"></i>
+                {{/unless}}
+                {{#unless sub.system.parentInstalled}}
+                <i class="fa-solid fa-circle-minus charm-prereq-missing"
+                   title="{{localize 'EX2E.SubmoduleParentNotInstalled'}}"></i>
+                {{/unless}}
+                {{sub.name}}
+                {{#if sub.system.cost.formula}}
+                <span class="charm-meta">{{moteCostString sub.system.cost}}</span>
+                {{/if}}
+              </span>
+              <div class="item-controls">
+                {{#unless (eq sub.system.charmType "permanent")}}
+                <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}"
+                        {{#unless sub.system.effectivelyActive}}disabled{{/unless}}>⚡</button>
+                {{/unless}}
+                <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
+                {{#if @root.isEditable}}
+                <button data-action="editItem"   title="Edit">✏️</button>
+                <button data-action="deleteItem" title="Delete">🗑</button>
+                {{/if}}
+              </div>
+            </div>
+            {{/each}}
+          </div>
+          {{/if}}
+          {{/with}}
+          {{/each}}
+        </div>
+        {{/if}}
+      </div>
+      {{/each}}
+      {{! Regular individual charms }}
       {{#each group.charms as |charm|}}
       <div class="charm-row item-row {{#if charm.system.active}}charm-active{{/if}}"
            data-item-id="{{charm.id}}">

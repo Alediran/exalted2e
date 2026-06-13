@@ -50,6 +50,45 @@ export function registerItemLifecycleHooks() {
     await item.update({ "system.healthGrant.selectedOption": chosen });
   });
 
+  // When a soak-option charm with multiple configurations is dropped onto an actor,
+  // immediately prompt the player to pick which configuration applies to this instance.
+  Hooks.on("createItem", async (item, _options, userId) => {
+    if (userId !== game.user.id) return;
+    if (item.type !== "charm") return;
+    if (!(item.parent instanceof Actor)) return;
+    const sb = item.system?.soakBonus;
+    if (!sb?.enabled || (sb.options?.length ?? 0) <= 1) return;
+
+    const rows = sb.options.map((opt, i) => {
+      const parts = [
+        opt.bashing     ? `+${opt.bashing}B soak`      : "",
+        opt.lethal      ? `+${opt.lethal}L soak`        : "",
+        opt.aggravated  ? `+${opt.aggravated}A soak`    : "",
+        opt.hardnessAdd ? `+${opt.hardnessAdd} Hardness` : "",
+      ].filter(Boolean).join(", ");
+      const label = opt.label ? `<strong>${opt.label}</strong> — ${parts}` : parts;
+      return `<label style="display:block;margin:4px 0;cursor:pointer">
+      <input type="radio" name="sbChoice" value="${i}" ${i === 0 ? "checked" : ""}> ${label}
+    </label>`;
+    }).join("");
+
+    const chosen = await foundry.applications.api.DialogV2.wait({
+      window:      { title: game.i18n.format("EX2E.SoakOptionPickTitle", { name: item.name }) },
+      content:     `<div style="padding:8px"><p>${game.i18n.localize("EX2E.SoakOptionPickPrompt")}</p>${rows}</div>`,
+      buttons:     [{
+        action:    "confirm",
+        label:     game.i18n.localize("EX2E.Confirm"),
+        default:   true,
+        callback:  (_ev, _btn, dialog) =>
+          parseInt(dialog.element.querySelector("input[name=sbChoice]:checked")?.value ?? "0")
+      }],
+      rejectClose: false
+    });
+
+    if (chosen == null) return;
+    await item.update({ "system.soakBonus.selectedOption": chosen });
+  });
+
   // Gate the deletion of effects flagged `gmOnlyRemoval`. Flaws seeded
   // from the effects compendium (Creature of Darkness and friends) cannot
   // be shaken off by the player on whose sheet they live — only the GM

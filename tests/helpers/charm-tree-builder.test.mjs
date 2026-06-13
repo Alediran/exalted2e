@@ -33,13 +33,15 @@ function makeCharm({
 function makeActor({
   essence = 3, purchaseLocked = false, abilities = {}, items = [],
 } = {}) {
+  const sys = { essence: { value: essence }, purchaseLocked, abilities };
   return {
-    system: {
-      essence: { value: essence },
-      purchaseLocked,
-      abilities,
+    system: sys,
+    items: items,
+    getRollData() {
+      const d = { ess: sys.essence.value, essence: sys.essence.value };
+      for (const [k, ab] of Object.entries(sys.abilities)) d[k] = ab?.value ?? 0;
+      return d;
     },
-    items: { filter: (fn) => items.filter(fn) },
   };
 }
 
@@ -248,17 +250,21 @@ describe('getCharmState', () => {
     expect(getCharmState(c, actor)).toBe('owned');
   });
 
-  it('returns owned for multi-purchase when purchaseLevel >= maxPurchases', () => {
+  it('returns owned for multi-purchase when item count >= maxPurchases', () => {
     const c = makeCharm({ charmUid: 'uid.2', maxPurchases: '3', essence: 2, minAbility: 0 });
-    const ownedItem = { type: 'charm', system: { charmUid: 'uid.2', purchaseLevel: 3 } };
-    const actor = makeActor({ essence: 5, items: [ownedItem] });
+    const instances = Array.from({ length: 3 }, () =>
+      ({ type: 'charm', system: { charmUid: 'uid.2', purchaseLevel: 1 } })
+    );
+    const actor = makeActor({ essence: 5, items: instances });
     expect(getCharmState(c, actor)).toBe('owned');
   });
 
-  it('returns purchasable (not owned) for multi-purchase at partial level', () => {
+  it('returns purchasable (not owned) for multi-purchase at partial item count', () => {
     const c = makeCharm({ charmUid: 'uid.3', maxPurchases: '3', essence: 2, minAbility: 0 });
-    const ownedItem = { type: 'charm', system: { charmUid: 'uid.3', purchaseLevel: 2 } };
-    const actor = makeActor({ essence: 5, purchaseLocked: true, items: [ownedItem] });
+    const instances = Array.from({ length: 2 }, () =>
+      ({ type: 'charm', system: { charmUid: 'uid.3', purchaseLevel: 1 } })
+    );
+    const actor = makeActor({ essence: 5, purchaseLocked: true, items: instances });
     expect(getCharmState(c, actor)).toBe('purchasable');
   });
 
@@ -322,6 +328,59 @@ describe('getPipData', () => {
   });
 });
 
+describe('getCharmState — formula maxPurchases (@ess)', () => {
+  it('returns owned when item count equals resolved @ess', () => {
+    const c = makeCharm({ charmUid: 'uid.ess1', maxPurchases: '@ess', essence: 1, minAbility: 0 });
+    const instances = Array.from({ length: 3 }, () =>
+      ({ type: 'charm', system: { charmUid: 'uid.ess1', purchaseLevel: 1 } })
+    );
+    const actor = makeActor({ essence: 3, items: instances });
+    expect(getCharmState(c, actor)).toBe('owned');
+  });
+
+  it('returns available when item count is below resolved @ess', () => {
+    const c = makeCharm({ charmUid: 'uid.ess2', maxPurchases: '@ess', essence: 1, minAbility: 0 });
+    const instances = Array.from({ length: 2 }, () =>
+      ({ type: 'charm', system: { charmUid: 'uid.ess2', purchaseLevel: 1 } })
+    );
+    const actor = makeActor({ essence: 4, items: instances });
+    expect(getCharmState(c, actor)).toBe('available');
+  });
+});
+
+describe('getPipData — formula maxPurchases and actor item count', () => {
+  it('returns null for single-purchase charm regardless of actor', () => {
+    const c = makeCharm({ charmUid: 'uid.sp', maxPurchases: '1' });
+    const actor = makeActor({ essence: 3, items: [] });
+    expect(getPipData(c, null, actor)).toBeNull();
+  });
+
+  it('returns item-count current when actor provided', () => {
+    const c = makeCharm({ charmUid: 'uid.pp', maxPurchases: '3' });
+    const instances = [
+      { type: 'charm', system: { charmUid: 'uid.pp', purchaseLevel: 1 } },
+      { type: 'charm', system: { charmUid: 'uid.pp', purchaseLevel: 1 } },
+    ];
+    const actor = makeActor({ essence: 5, items: instances });
+    expect(getPipData(c, instances[0], actor)).toEqual({ current: 2, max: 3 });
+  });
+
+  it('resolves @ess formula against actor for max', () => {
+    const c = makeCharm({ charmUid: 'uid.ef', maxPurchases: '@ess' });
+    const instances = [
+      { type: 'charm', system: { charmUid: 'uid.ef', purchaseLevel: 1 } },
+    ];
+    const actor = makeActor({ essence: 4, items: instances });
+    expect(getPipData(c, instances[0], actor)).toEqual({ current: 1, max: 4 });
+  });
+
+  it('falls back to purchaseLevel when no actor', () => {
+    const c = makeCharm({ charmUid: 'uid.fb', maxPurchases: '3' });
+    const ownedItem = { system: { charmUid: 'uid.fb', purchaseLevel: 2 } };
+    expect(getPipData(c, ownedItem, null)).toEqual({ current: 2, max: 3 });
+  });
+});
+
 // ─── buildTree — ghost nodes for cross-tree prereqs ─────────────────────────
 
 function makeGhostCharm({ id, name, uid, ability = 'dexterity', essence = 1, prereqGroups = [], exaltType = 'alchemical' } = {}) {
@@ -371,7 +430,7 @@ describe('buildTree — ghost nodes for cross-tree prereqs', () => {
     expect(edge).toBeDefined();
   });
 
-  it('ghost node is placed at tier 0 and the dependent charm at tier 1', () => {
+  it('ghost node is placed at tier 0 and the dependent charm at tier 1 (no virtual nodes)', () => {
     const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main', essence: 1,
       prereqGroups: [makePrereqGroup('uid-ext')] });
     const externalUids = new Map([['uid-ext', { name: 'Ext', ability: 'perception' }]]);
@@ -379,6 +438,21 @@ describe('buildTree — ghost nodes for cross-tree prereqs', () => {
     const ghost = [...nodes.values()].find(n => n.isGhost);
     expect(ghost.tier).toBe(0);
     expect(nodes.get('uid-main').tier).toBe(1);
+  });
+
+  it('ghost node is placed at tier 1 (below Excellencies) when virtual nodes exist', () => {
+    // dep has anyExcellency prereq → synthesises a virtual node → hasVirtualNodes = true
+    const dep = makeCharm({
+      id: 'dep', charmUid: 'uid-dep', exaltType: 'alchemical', ability: 'dexterity',
+      prereqGroups: [{ alternatives: [{ type: 'anyExcellency', abilityKey: 'dexterity' }] }],
+    });
+    const main = makeGhostCharm({ id: 'm1', name: 'Main', uid: 'uid-main', essence: 1,
+      prereqGroups: [makePrereqGroup('uid-ext')] });
+    const externalUids = new Map([['uid-ext', { name: 'Ext', ability: 'perception' }]]);
+    const { nodes } = buildTree([dep, main], 'dexterity', { externalUids });
+    const ghost = [...nodes.values()].find(n => n.isGhost);
+    expect(ghost.tier).toBe(1);
+    expect(nodes.get('uid-main').tier).toBe(2);
   });
 
   it('deduplicates ghost nodes — two charms depending on the same external prereq share one ghost', () => {
