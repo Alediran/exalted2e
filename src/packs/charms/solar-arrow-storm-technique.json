@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "solar",
     "ability": "archery",
-    "essence": 1,
-    "minAbility": 1,
+    "essence": 2,
+    "minAbility": 5,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Enhances an Archery-based attack, applying it (with only one roll) against (permanent Essence x 3) valid targets. Cannot apply the attack to a single person or human-sized object more than once but can apply it repeatedly against the same military unit or larger object. Requires separate ammunition for each target. Can be used even with weapons such as firewands that would normally require a reloading action between shots.</p>",
+    "description": "<p>Against a single Solar, the armies of the unrighteous fall. This Charm enhances an Archery-based attack. The Solar can apply this attack (for which he rolls only once) against (his permanent Essence x 3) valid targets. He cannot apply this attack to a single person or human-sized object more than once, but he can apply it repeatedly against the same military unit or larger object. This Charm requires that the character have separate ammunition for each target. The character can use this Charm even with weapons such as firewands that would normally require a reloading action between shots.</p>",
     "source": "Core Rules",
     "yoziPatron": "",
     "martialArtsTier": "",
