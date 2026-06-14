@@ -18,17 +18,15 @@
     "essence": 5,
     "minAbility": 5,
     "charmType": "permanent",
-    "duration": "oneScene",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Mirror",
-      "Combo-OK",
-      "Obvious"
+      "Mirror"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },

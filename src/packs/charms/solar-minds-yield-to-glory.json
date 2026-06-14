@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 5,
     "charmType": "permanent",
-    "duration": "n/a",
+    "duration": "permanent",
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
@@ -26,7 +26,7 @@
       "Mirror"
     ],
     "cost": {
-      "formula": "",
+      "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },

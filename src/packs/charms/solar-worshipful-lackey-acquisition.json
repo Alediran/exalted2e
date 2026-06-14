@@ -33,14 +33,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar Exalted surround themselves with the faithful. This Charm is a Presence-based social attack that inspires someone to recognize the Solar's greatness. The target chosen must be a valid target for persuasion attempts. The Solar's player rolls ([Charisma or Manipulation] + Presence), subtracting the target's MDV from the successes as an external penalty. If the Solar succeeds, this Charm exerts unnatural mental influence and creates a Servitude effect. It compels the target to serve the Solar loyally. This effect costs one Willpower per day to resist. This Charm creates an instant commitment (see p. 201) to the Solar. The target cannot begin breaking faith (see p. 201) with that commitment until the Charm's effects end. The mental influence lasts until the target has fully shaken off this loyalty.</p>",
+    "description": "<p>The Solar Exalted surround themselves with the faithful. This Charm is a Presence-based social attack that inspires someone to recognize the Solar's greatness. The target chosen must be a valid target for persuasion attempts. The Solar's player rolls ([Charisma or Manipulation] + Presence), subtracting the target's MDV from the successes as an external penalty. If the Solar succeeds, this Charm exerts unnatural mental influence and creates a Servitude effect. It compels the target to serve the Solar loyally. This effect costs one Willpower per day to resist.</p><p>This Charm creates an instant commitment (see p. 201) to the Solar. The target cannot begin breaking faith (see p. 201) with that commitment until the Charm's effects end. The mental influence lasts until the target has fully shaken off this loyalty.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Solar's Charisma in days",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,

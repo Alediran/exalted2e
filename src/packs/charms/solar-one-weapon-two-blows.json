@@ -18,7 +18,7 @@
     "essence": 1,
     "minAbility": 2,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "untilNextAction",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -29,7 +29,7 @@
       "Martial"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "1m",
       "resonance": 0,
       "limitTrigger": 0
     },
