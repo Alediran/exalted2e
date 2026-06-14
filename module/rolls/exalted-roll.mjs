@@ -18,7 +18,7 @@ import {
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
-import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount } from "./charm-passive-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, aggregateAbilityDiceBonusFromCharms } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 import { getTerrainBonuses } from "../helpers/terrain.mjs";
 
@@ -459,8 +459,14 @@ export class ExaltedRoll {
     const finalAttr = dialogResult.attribute ?? defaultAttr;
     const externalSuccessPenalty = physicalKeys.has(finalAttr) ? externalPhysicalPenalty : 0;
 
+    // Passive ability dice bonus: charms that add dice to all rolls for a
+    // specific ability (e.g. Dreaming Pearl Courtesan Form adds Martial Arts
+    // rating in dice to all Presence and Socialize rolls). Aggregated across
+    // all passively-active charms with matching abilityDiceBonus entries.
+    const abilityDiceBonus = aggregateAbilityDiceBonusFromCharms(actor, ability);
+
     const exRoll = new ExaltedRoll({
-      pool:               Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty),
+      pool:               Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty + abilityDiceBonus),
       flavor:             dialogResult.flavor,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
@@ -1113,9 +1119,15 @@ export class ExaltedRoll {
     // rawSuccesses, so a Prone attacker can still botch even when their
     // display successes would otherwise be non-negative.
     const effectiveExternalPenalty = charmAttackBonus.ignorePenalties ? 0 : externalPenalty;
-    const displaySuccesses = Math.max(0,
-      (result.successes ?? 0) - effectiveExternalPenalty + charmAttackBonus.extraAccuracySuccesses
-    );
+    // Attack success multiplier (Step 3): some charms (e.g. Cascade of Cutting Terror)
+    // double the attacker's successes before comparing to defense. The multiplier
+    // applies to the full pre-penalty success tally so the doubled result is what
+    // faces the DV, consistent with the RAW description ("doubles successes on the
+    // attack roll before comparing to defense").
+    const successMultiplier = getAttackSuccessMultiplier(actor);
+    // extraAccuracySuccesses is included in the multiplicand: all successes contributing to the Step 3 comparison are doubled
+    const rawDisplaySuccesses = (result.successes ?? 0) - effectiveExternalPenalty + charmAttackBonus.extraAccuracySuccesses;
+    const displaySuccesses = Math.max(0, rawDisplaySuccesses * successMultiplier);
     const attack = {
       actorId:             actor.id,
       actorName:           actor.name,
@@ -1134,6 +1146,9 @@ export class ExaltedRoll {
       attackerExcKey:      excKey,
       weaponDamage:        mode.effectiveDamage + charmAttackBonus.extraDamageDice,
       postSoakDamageDice:  charmAttackBonus.extraPostSoakDamageDice || 0,
+      minimumDamage:       getMinimumDamageFromCharms(actor),
+      rawDamageBonus:      aggregateRawDamageBonusFromCharms(actor),
+      essenceDrain:        getEssenceDrainFromCharms(actor),
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the

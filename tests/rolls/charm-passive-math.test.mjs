@@ -6,6 +6,13 @@ import {
   aggregateSpeedModifierFromAEs,
   getMasteryDiscount,
   aggregateMoveBonusFromCharms,
+  aggregateDVBonusFromCharms,
+  aggregateRateBonusFromCharms,
+  getAttackSuccessMultiplier,
+  getMinimumDamageFromCharms,
+  aggregateRawDamageBonusFromCharms,
+  getEssenceDrainFromCharms,
+  aggregateAbilityDiceBonusFromCharms,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 // ── computeWoundReduction ────────────────────────────────────────────
@@ -237,5 +244,463 @@ describe("aggregateMoveBonusFromCharms", () => {
       { type: "weapon", system: { moveBonus: { enabled: true, dashAdd: "10", flight: true, waterWalking: true } } }
     ]);
     expect(aggregateMoveBonusFromCharms(actor).dashBonus).toBe(0);
+  });
+});
+
+describe("aggregateDVBonusFromCharms", () => {
+  it("returns zeros when actor has no charms", () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(aggregateDVBonusFromCharms(actor)).toEqual({ dodgeBonus: 0, parryBonus: 0 });
+  });
+
+  it("sums flat dodge and parry bonuses across active charms", () => {
+    const actor = {
+      items: [
+        { type: "charm", system: { active: true, dvBonus: { enabled: true, dodgeBonus: 2, parryBonus: 1, dodgeBonusFormula: "", parryBonusFormula: "" } } },
+        { type: "charm", system: { active: true, dvBonus: { enabled: true, dodgeBonus: 1, parryBonus: 0, dodgeBonusFormula: "", parryBonusFormula: "" } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateDVBonusFromCharms(actor)).toEqual({ dodgeBonus: 3, parryBonus: 1 });
+  });
+
+  it("ignores inactive charms", () => {
+    const actor = {
+      items: [
+        { type: "charm", system: { active: false, dvBonus: { enabled: true, dodgeBonus: 3, parryBonus: 2, dodgeBonusFormula: "", parryBonusFormula: "" } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateDVBonusFromCharms(actor)).toEqual({ dodgeBonus: 0, parryBonus: 0 });
+  });
+
+  it("evaluates formula tokens", () => {
+    const actor = {
+      items: [
+        { type: "charm", system: { active: true, dvBonus: { enabled: true, dodgeBonus: 0, parryBonus: 0, dodgeBonusFormula: "@ess", parryBonusFormula: "" } } },
+      ],
+      getRollData: () => ({ ess: 3 }),
+    };
+    expect(aggregateDVBonusFromCharms(actor).dodgeBonus).toBe(3);
+  });
+});
+
+describe("aggregateRateBonusFromCharms", () => {
+  it("returns 0 with no charms", () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(aggregateRateBonusFromCharms(actor)).toBe(0);
+  });
+
+  it("sums rate bonus formulas from active charms", () => {
+    const actor = {
+      items: [
+        { type: "charm", system: { active: true, rateBonus: { enabled: true, formula: "1" } } },
+        { type: "charm", system: { active: true, rateBonus: { enabled: true, formula: "2" } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRateBonusFromCharms(actor)).toBe(3);
+  });
+
+  it("ignores disabled rateBonus", () => {
+    const actor = {
+      items: [
+        { type: "charm", system: { active: true, rateBonus: { enabled: false, formula: "1" } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRateBonusFromCharms(actor)).toBe(0);
+  });
+
+  it("ignores inactive charms", () => {
+    const actor = {
+      items: [
+        { type: "charm", system: { active: false, rateBonus: { enabled: true, formula: "3" } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRateBonusFromCharms(actor)).toBe(0);
+  });
+
+  it("permanent charms always contribute regardless of active flag", () => {
+    const actor = {
+      items: [
+        { type: "charm", system: { duration: "permanent", active: false, rateBonus: { enabled: true, formula: "2" } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRateBonusFromCharms(actor)).toBe(2);
+  });
+
+  it("skips non-charm items", () => {
+    const actor = {
+      items: [
+        { type: "weapon", system: { active: true, rateBonus: { enabled: true, formula: "5" } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRateBonusFromCharms(actor)).toBe(0);
+  });
+});
+
+describe('getAttackSuccessMultiplier', () => {
+  it('returns 1 with no active charms', () => {
+    const actor = { items: [] };
+    expect(getAttackSuccessMultiplier(actor)).toBe(1);
+  });
+
+  it('returns highest multiplier across active charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, attackSuccessMultiplier: 2 } },
+        { type: 'charm', system: { active: true, attackSuccessMultiplier: 3 } },
+      ],
+    };
+    expect(getAttackSuccessMultiplier(actor)).toBe(3);
+  });
+
+  it('returns 1 when all charms have default value of 1', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, attackSuccessMultiplier: 1 } },
+      ],
+    };
+    expect(getAttackSuccessMultiplier(actor)).toBe(1);
+  });
+
+  it('ignores inactive charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: false, attackSuccessMultiplier: 5 } },
+      ],
+    };
+    expect(getAttackSuccessMultiplier(actor)).toBe(1);
+  });
+
+  it('returns 1 when charm has no attackSuccessMultiplier field', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true } },
+      ],
+    };
+    expect(getAttackSuccessMultiplier(actor)).toBe(1);
+  });
+
+  it('permanent charm contributes regardless of active flag', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: false, duration: 'permanent', attackSuccessMultiplier: 3 } },
+      ],
+    };
+    expect(getAttackSuccessMultiplier(actor)).toBe(3);
+  });
+});
+
+describe('getMinimumDamageFromCharms', () => {
+  it('returns 0 with no active charms', () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(getMinimumDamageFromCharms(actor)).toBe(0);
+  });
+
+  it('returns the highest minimum across active charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, minimumDamage: { enabled: true, formula: '3' } } },
+        { type: 'charm', system: { active: true, minimumDamage: { enabled: true, formula: '5' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getMinimumDamageFromCharms(actor)).toBe(5);
+  });
+
+  it('ignores disabled minimumDamage', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, minimumDamage: { enabled: false, formula: '10' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getMinimumDamageFromCharms(actor)).toBe(0);
+  });
+
+  it('ignores inactive charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: false, minimumDamage: { enabled: true, formula: '8' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getMinimumDamageFromCharms(actor)).toBe(0);
+  });
+
+  it('evaluates formula tokens', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, minimumDamage: { enabled: true, formula: '@ess' } } },
+      ],
+      getRollData: () => ({ ess: 4 }),
+    };
+    expect(getMinimumDamageFromCharms(actor)).toBe(4);
+  });
+
+  it('permanent charm contributes regardless of active flag', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { duration: 'permanent', active: false, minimumDamage: { enabled: true, formula: '3' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getMinimumDamageFromCharms(actor)).toBe(3);
+  });
+
+  it('returns 0 when enabled but formula is empty', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, minimumDamage: { enabled: true, formula: '' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getMinimumDamageFromCharms(actor)).toBe(0);
+  });
+});
+
+describe('aggregateRawDamageBonusFromCharms', () => {
+  it('returns 0 with no active charms', () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(0);
+  });
+
+  it('sums bonus across active charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, rawDamageBonus: { enabled: true, formula: '3' } } },
+        { type: 'charm', system: { active: true, rawDamageBonus: { enabled: true, formula: '2' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(5);
+  });
+
+  it('ignores disabled rawDamageBonus', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, rawDamageBonus: { enabled: false, formula: '10' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(0);
+  });
+
+  it('ignores inactive charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: false, rawDamageBonus: { enabled: true, formula: '8' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(0);
+  });
+
+  it('evaluates formula tokens', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, rawDamageBonus: { enabled: true, formula: '@ess' } } },
+      ],
+      getRollData: () => ({ ess: 3 }),
+    };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(3);
+  });
+
+  it('permanent charm contributes regardless of active flag', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { duration: 'permanent', active: false, rawDamageBonus: { enabled: true, formula: '4' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(4);
+  });
+
+  it('returns 0 when enabled but formula is empty', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, rawDamageBonus: { enabled: true, formula: '' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(0);
+  });
+
+  it('skips non-charm items', () => {
+    const actor = {
+      items: [
+        { type: 'weapon', system: { active: true, rawDamageBonus: { enabled: true, formula: '5' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateRawDamageBonusFromCharms(actor)).toBe(0);
+  });
+});
+
+describe('getEssenceDrainFromCharms', () => {
+  it('returns null with no active charms', () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(getEssenceDrainFromCharms(actor)).toBeNull();
+  });
+
+  it('returns drain config from an active charm', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, essenceDrain: { enabled: true, formula: '@ess', pool: 'peripheral' } } },
+      ],
+      getRollData: () => ({ ess: 3 }),
+    };
+    const result = getEssenceDrainFromCharms(actor);
+    expect(result).not.toBeNull();
+    expect(result.amount).toBe(3);
+    expect(result.pool).toBe('peripheral');
+  });
+
+  it('ignores disabled essenceDrain', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, essenceDrain: { enabled: false, formula: '5', pool: 'peripheral' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getEssenceDrainFromCharms(actor)).toBeNull();
+  });
+
+  it('ignores inactive charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: false, essenceDrain: { enabled: true, formula: '3', pool: 'peripheral' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getEssenceDrainFromCharms(actor)).toBeNull();
+  });
+
+  it('returns first active drain found', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, essenceDrain: { enabled: true, formula: '2', pool: 'peripheral' } } },
+        { type: 'charm', system: { active: true, essenceDrain: { enabled: true, formula: '4', pool: 'personal' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    const result = getEssenceDrainFromCharms(actor);
+    expect(result).not.toBeNull();
+    expect(result.amount).toBe(2);
+  });
+
+  it('skips non-charm items', () => {
+    const actor = {
+      items: [
+        { type: 'weapon', system: { active: true, essenceDrain: { enabled: true, formula: '5', pool: 'peripheral' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getEssenceDrainFromCharms(actor)).toBeNull();
+  });
+
+  it('returns null when formula evaluates to zero or less', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, essenceDrain: { enabled: true, formula: '0', pool: 'peripheral' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(getEssenceDrainFromCharms(actor)).toBeNull();
+  });
+
+  it('permanent charm contributes regardless of active flag', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { duration: 'permanent', active: false, essenceDrain: { enabled: true, formula: '2', pool: 'personal' } } },
+      ],
+      getRollData: () => ({}),
+    };
+    const result = getEssenceDrainFromCharms(actor);
+    expect(result).not.toBeNull();
+    expect(result.amount).toBe(2);
+    expect(result.pool).toBe('personal');
+  });
+});
+
+describe('aggregateAbilityDiceBonusFromCharms', () => {
+  it('returns 0 for an ability with no active charms', () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(0);
+  });
+
+  it('sums bonus for the matching ability', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, abilityDiceBonus: [{ ability: 'presence', formula: '3' }] } },
+        { type: 'charm', system: { active: true, abilityDiceBonus: [{ ability: 'presence', formula: '2' }] } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(5);
+  });
+
+  it('ignores bonus for a different ability', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, abilityDiceBonus: [{ ability: 'socialize', formula: '4' }] } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(0);
+  });
+
+  it('ignores inactive charms', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: false, abilityDiceBonus: [{ ability: 'presence', formula: '5' }] } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(0);
+  });
+
+  it('evaluates formula tokens', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { active: true, abilityDiceBonus: [{ ability: 'presence', formula: '@ess' }] } },
+      ],
+      getRollData: () => ({ ess: 3 }),
+    };
+    expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(3);
+  });
+
+  it('sums multiple ability entries on one charm', () => {
+    const actor = {
+      items: [
+        {
+          type: 'charm',
+          system: {
+            active: true,
+            abilityDiceBonus: [
+              { ability: 'presence', formula: '2' },
+              { ability: 'presence', formula: '1' },
+            ],
+          },
+        },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(3);
+  });
+
+  it('permanent charm contributes regardless of active flag', () => {
+    const actor = {
+      items: [
+        { type: 'charm', system: { duration: 'permanent', active: false, abilityDiceBonus: [{ ability: 'presence', formula: '4' }] } },
+      ],
+      getRollData: () => ({}),
+    };
+    expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(4);
   });
 });

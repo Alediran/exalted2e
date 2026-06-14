@@ -61,6 +61,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removeTierHealthGrantOption:   CharmSheet.#onRemoveTierHealthGrantOption,
       addTierDVIgnorePenaltyType:    CharmSheet.#onAddTierDVIgnorePenaltyType,
       removeTierDVIgnorePenaltyType: CharmSheet.#onRemoveTierDVIgnorePenaltyType,
+      addAbilityDiceBonus:           CharmSheet.#onAddAbilityDiceBonus,
+      removeAbilityDiceBonus:        CharmSheet.#onRemoveAbilityDiceBonus,
     }
   };
 
@@ -127,6 +129,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       // `abilities` is the charm-key dropdown — its contents swap between
       // ability and attribute lists based on `usesAttribute`.
       abilities:    usesAttribute ? attributeOptions : abilityOptions,
+      // `allAbilities` always contains ability keys regardless of exalt type;
+      // used by abilityDiceBonus which matches against ability keys only.
+      allAbilities: abilityOptions,
       abilityFieldLabel:    game.i18n.localize(usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability"),
       minAbilityFieldLabel: game.i18n.localize(usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility"),
       excellencies: [
@@ -243,9 +248,10 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "applyPoison",    label: game.i18n.localize("EX2E.SAOnFailPoison")    }
       ],
       willpowerRecoveryEventChoices: [
-        { value: "onDamageReceived", label: game.i18n.localize("EX2E.WillpowerEventOnDamage") },
-        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.WillpowerEventOnHit")    },
-        { value: "onKill",           label: game.i18n.localize("EX2E.WillpowerEventOnKill")   }
+        { value: "onDamageReceived", label: game.i18n.localize("EX2E.WillpowerEventOnDamage")  },
+        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.WillpowerEventOnHit")     },
+        { value: "onKill",           label: game.i18n.localize("EX2E.WillpowerEventOnKill")    },
+        { value: "onDefend",         label: game.i18n.localize("EX2E.WillpowerEventOnDefend")  }
       ],
       statBoostPaths: buildStatBoostPaths(EX2E, k => game.i18n.localize(k))
     };
@@ -554,6 +560,20 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     if (!tier) return;
     tier.dvBonus.ignorePenaltyTypes.splice(idx, 1);
     await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onAddAbilityDiceBonus(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.abilityDiceBonus ?? []);
+    current.push({ ability: "", formula: "" });
+    await this.document.update({ "system.abilityDiceBonus": current });
+  }
+
+  static async #onRemoveAbilityDiceBonus(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.abilityDiceBonus ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.abilityDiceBonus": current });
   }
 
   static async #onIncrementPurchaseLevel(event, _target) {

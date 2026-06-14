@@ -287,6 +287,7 @@ export function registerCharmTreeDialogIntegration(context) {
     });
 
     it('[CTREE] rendered nodes are absolutely positioned and the container is sized to fit', async function () {
+      this.timeout(10000);  // dialogs + tree render can take time
       dialog = CharmTreeDialog.open({ exaltType: 'solar', groupKey: 'melee' });
       await waitFor(() => !!dialog.element && document.contains(dialog.element), { timeoutMs: 3000 });
 

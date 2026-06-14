@@ -79,6 +79,144 @@ export function getMasteryDiscount(actor, ability) {
  * @param {object} actor
  * @returns {{ dashBonus: number, hasFlight: boolean, hasWaterWalking: boolean }}
  */
+/**
+ * Aggregate DV bonuses from all passively-active charms with dvBonus enabled.
+ * @param {object} actor
+ * @returns {{ dodgeBonus: number, parryBonus: number }}
+ */
+export function aggregateDVBonusFromCharms(actor) {
+  const charms   = (actor.items ?? []).filter(i => i.type === "charm" && isCharmPassivelyActive(i));
+  const rollData = actor.getRollData?.() ?? {};
+  let dodgeBonus = 0, parryBonus = 0;
+  for (const c of charms) {
+    const dvb = c.system?.dvBonus;
+    if (!dvb?.enabled) continue;
+    dodgeBonus += dvb.dodgeBonus ?? 0;
+    parryBonus += dvb.parryBonus ?? 0;
+    if (dvb.dodgeBonusFormula) {
+      dodgeBonus += (evaluateCharmFormula(dvb.dodgeBonusFormula, rollData, 0) | 0);
+    }
+    if (dvb.parryBonusFormula) {
+      parryBonus += (evaluateCharmFormula(dvb.parryBonusFormula, rollData, 0) | 0);
+    }
+  }
+  return { dodgeBonus, parryBonus };
+}
+
+/**
+ * Sum the Rate bonus from all passively-active charms with rateBonus enabled.
+ * NOTE: In the live system, rateBonus is accumulated into system.bonuses.rateBonus
+ * by buildCharmSynthAEs (form-charms.mjs) via ADD active-effect changes, so this
+ * helper is NOT called from rollAttack. It is provided as a pure utility for
+ * headless tests and any future context that needs to aggregate rateBonus without AEs.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregateRateBonusFromCharms(actor) {
+  const charms   = (actor.items ?? []).filter(i => i.type === "charm" && isCharmPassivelyActive(i));
+  const rollData = actor.getRollData?.() ?? {};
+  let total = 0;
+  for (const c of charms) {
+    const rb = c.system?.rateBonus;
+    if (!rb?.enabled || !rb.formula) continue;
+    total += (evaluateCharmFormula(rb.formula, rollData, 0) | 0);
+  }
+  return total;
+}
+
+/**
+ * Return the highest attackSuccessMultiplier across all passively-active charms.
+ * Returns 1 if no charm has a multiplier > 1.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function getAttackSuccessMultiplier(actor) {
+  let max = 1;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const m = c.system?.attackSuccessMultiplier ?? 1;
+    if (m > max) max = m;
+  }
+  return max;
+}
+
+/**
+ * Return the highest minimumDamage across all passively-active charms.
+ * The minimum applies to the post-soak damage pool (after soak subtraction,
+ * before adding post-soak dice). Returns 0 if no charm enforces a minimum.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function getMinimumDamageFromCharms(actor) {
+  const rollData = actor.getRollData?.() ?? {};
+  let max = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const md = c.system?.minimumDamage;
+    if (!md?.enabled || !md.formula) continue;
+    const val = (evaluateCharmFormula(md.formula, rollData, 0) | 0);
+    if (val > max) max = val;
+  }
+  return max;
+}
+
+/**
+ * Sum rawDamageBonus across all passively-active charms.
+ * Returns 0 if no charm contributes.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregateRawDamageBonusFromCharms(actor) {
+  const rollData = actor.getRollData?.() ?? {};
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const rb = c.system?.rawDamageBonus;
+    if (!rb?.enabled || !rb.formula) continue;
+    total += (evaluateCharmFormula(rb.formula, rollData, 0) | 0);
+  }
+  return total;
+}
+
+/**
+ * Return the first essenceDrain config from a passively-active charm, or null if none.
+ * Drains motes from the target on a confirmed hit.
+ * @param {object} actor
+ * @returns {{ amount: number, pool: string }|null}
+ */
+export function getEssenceDrainFromCharms(actor) {
+  const rollData = actor.getRollData?.() ?? {};
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const ed = c.system?.essenceDrain;
+    if (!ed?.enabled || !ed.formula) continue;
+    const amount = (evaluateCharmFormula(ed.formula, rollData, 0) | 0);
+    if (amount <= 0) continue;
+    return { amount, pool: ed.pool ?? "peripheral" };
+  }
+  return null;
+}
+
+/**
+ * Sum abilityDiceBonus entries matching the given ability across all passively-active charms.
+ * @param {object} actor
+ * @param {string} abilityKey
+ * @returns {number}
+ */
+export function aggregateAbilityDiceBonusFromCharms(actor, abilityKey) {
+  const rollData = actor.getRollData?.() ?? {};
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const bonuses = c.system?.abilityDiceBonus ?? [];
+    for (const entry of bonuses) {
+      if (entry.ability !== abilityKey || !entry.formula) continue;
+      total += (evaluateCharmFormula(entry.formula, rollData, 0) | 0);
+    }
+  }
+  return total;
+}
+
 export function aggregateMoveBonusFromCharms(actor) {
   const charms   = (actor.items ?? []).filter(i => i.type === "charm" && isCharmPassivelyActive(i));
   const rollData = actor.getRollData?.() ?? {};

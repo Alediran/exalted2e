@@ -365,6 +365,16 @@
     {{/if}}
   </div>
 
+  {{!-- M12b Attack Success Multiplier ─────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackSuccessMultiplier"}}</label>
+      <input type="number" name="system.attackSuccessMultiplier"
+             value="{{system.attackSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M11 Penalty to Target ──────────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-section-header-row">
@@ -943,6 +953,68 @@
     {{/if}}
   </div>
 
+  {{!-- M3b Minimum Damage ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.minimumDamage.enabled"
+             {{#if system.minimumDamage.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectMinimumDamage"}}</span>
+    </label>
+    {{#if system.minimumDamage.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.MDFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.minimumDamage.formula"
+                 value="{{system.minimumDamage.formula}}"
+                 placeholder="e.g. @martialArts"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.minimumDamage.formula"
+                  data-label="{{localize 'EX2E.MDFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M3c Raw Damage Bonus (pre-soak) ────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.rawDamageBonus.enabled"
+             {{#if system.rawDamageBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectRawDamageBonus"}}</span>
+    </label>
+    {{#if system.rawDamageBonus.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.RDBFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.rawDamageBonus.formula"
+                 value="{{system.rawDamageBonus.formula}}"
+                 placeholder="e.g. @ess"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.rawDamageBonus.formula"
+                  data-label="{{localize 'EX2E.RDBFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
   {{!-- M1 Health Level Grant ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-section-header-row">
@@ -1270,6 +1342,19 @@
     {{/if}}
   </div>
 
+  {{!-- M6b Healing Rate Multiplier ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.HealingRateMultiplier"}}</label>
+      <input type="number" name="system.healingRateMultiplier"
+             value="{{system.healingRateMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{#if (gt system.healingRateMultiplier 1)}}
+    <p class="hint">{{localize "EX2E.HealingRateMultiplierHint"}}</p>
+    {{/if}}
+  </div>
+
   {{!-- M7 Status Application ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -1429,6 +1514,37 @@
   </div>
   {{/if}}
 
+  {{!-- M22 Ability Dice Bonus ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AbilityDiceBonus"}}</label>
+      {{#if isEditable}}
+      <button type="button" data-action="addAbilityDiceBonus" class="btn-sm">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each system.abilityDiceBonus as |entry idx|}}
+    <div class="field-group ability-dice-bonus-row" data-index="{{idx}}">
+      <select name="system.abilityDiceBonus.{{idx}}.ability"
+              {{#unless @root.isEditable}}disabled{{/unless}}>
+        <option value="">—</option>
+        {{#each @root.allAbilities}}
+        <option value="{{this.value}}" {{#if (eq this.value ../entry.ability)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+      <input type="text" name="system.abilityDiceBonus.{{idx}}.formula"
+             value="{{entry.formula}}" placeholder="{{localize 'EX2E.Formula'}}"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      {{#if @root.isEditable}}
+      <button type="button" data-action="removeAbilityDiceBonus" data-index="{{idx}}" class="btn-sm btn-danger">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -1539,6 +1655,45 @@
              {{#unless isEditable}}disabled{{/unless}}>
       <span>{{localize "EX2E.EffectWordsAsWorkshop"}}</span>
     </label>
+  </div>
+
+  {{!-- M21 Essence Drain (on hit) ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.essenceDrain.enabled"
+             {{checked system.essenceDrain.enabled}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EssenceDrain"}}</span>
+    </label>
+    {{#if system.essenceDrain.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.Formula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.essenceDrain.formula"
+                 value="{{system.essenceDrain.formula}}"
+                 placeholder="e.g. @ess"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.essenceDrain.formula"
+                  data-label="{{localize 'EX2E.Formula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.Pool"}}</label>
+        <select name="system.essenceDrain.pool" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="peripheral" {{#if (eq system.essenceDrain.pool "peripheral")}}selected{{/if}}>{{localize "EX2E.Peripheral"}}</option>
+          <option value="personal"   {{#if (eq system.essenceDrain.pool "personal")}}selected{{/if}}>{{localize "EX2E.Personal"}}</option>
+          <option value="any"        {{#if (eq system.essenceDrain.pool "any")}}selected{{/if}}>{{localize "EX2E.Any"}}</option>
+        </select>
+      </div>
+    </div>
+    {{/if}}
   </div>
 
   {{!-- ── UPGRADE TIERS ────────────────────────────────────────────────────────── --}}

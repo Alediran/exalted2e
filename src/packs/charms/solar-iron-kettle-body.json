@@ -56,7 +56,18 @@
       }
     ],
     "charmUid": "197e16215731d1ab",
-    "mirrorId": "4b5d7f23c9b4e50b"
+    "mirrorId": "4b5d7f23c9b4e50b",
+    "soakBonus": {
+      "enabled": true,
+      "bashing": 8,
+      "lethal": 8,
+      "aggravated": 4,
+      "hardnessAdd": 0,
+      "hardnessSetTo": 0,
+      "bashingFormula": "",
+      "lethalFormula": "",
+      "aggravatedFormula": ""
+    }
   },
   "folder": "f05b544008eaceb0",
   "sort": 0,

@@ -1205,18 +1205,26 @@ export function registerChatCardHooks() {
     // "Roll Damage" button on attack result cards
     el.querySelector?.(".btn-roll-damage")?.addEventListener("click", async (event) => {
       const card       = event.currentTarget.closest(".ex2e-attack-card");
-      const damagePool   = parseInt(card?.dataset.damagePool)   || 0;
-      const damageType   = card?.dataset.damageType || "lethal";
-      const overwhelming = parseInt(card?.dataset.overwhelming) || 0;
-      const postSoakDice = parseInt(card?.dataset.postSoakDice) || 0;
-      const soakEl       = card?.querySelector(".soak-input");
-      const soak         = parseInt(soakEl?.value ?? soakEl?.textContent) || 0;
-      const targetId     = card?.dataset.targetId || null;
+      let damagePool      = parseInt(card?.dataset.damagePool)    || 0;
+      const damageType    = card?.dataset.damageType || "lethal";
+      const overwhelming  = parseInt(card?.dataset.overwhelming)  || 0;
+      const postSoakDice  = parseInt(card?.dataset.postSoakDice)  || 0;
+      const minimumDamage = parseInt(card?.dataset.minimumDamage) || 0;
+      const rawDamageBonus = parseInt(card?.dataset.rawDamageBonus) || 0;
+      const soakEl        = card?.querySelector(".soak-input");
+      const soak          = parseInt(soakEl?.value ?? soakEl?.textContent) || 0;
+      const targetId      = card?.dataset.targetId || null;
+
+      // rawDamageBonus adds dice to the pre-soak pool before soak is subtracted.
+      damagePool += rawDamageBonus;
 
       if (damagePool <= 0 && postSoakDice <= 0) return;
 
-      // Roll the damage pool — post-soak dice bypass soak entirely
-      const effectivePool = Math.max(damagePool - soak, overwhelming) + postSoakDice;
+      // Roll the damage pool — post-soak dice bypass soak entirely.
+      // minimumDamage (from charms like Violet Bier of Sorrows Form) floors
+      // the post-soak pool before adding post-soak bonus dice.
+      const postSoakPool  = Math.max(damagePool - soak, overwhelming, minimumDamage);
+      const effectivePool = postSoakPool + postSoakDice;
       const formula = `${effectivePool}d10`;
       const roll    = new Roll(formula);
       await roll.evaluate();
@@ -1260,7 +1268,7 @@ export function registerChatCardHooks() {
       // renderAttackCardContent (e.g. knockback _persistAndRerender) preserve it.
       const damageResult = {
         diceDetails, rawDamage, effectivePool,
-        damagePool, soak, postSoakDice,
+        damagePool, soak, postSoakDice, minimumDamage,
         damageTypeLabel, damageType, targetId,
         showApplyBtn,
       };
@@ -2173,6 +2181,15 @@ export function wireAttackSuccess() {
         && !c.system.targetEffect?.perDamageLevel);
       for (const c of teCharms) {
         await targetActor.applyCharmTargetEffect(c.system.targetEffect);
+      }
+
+      // Essence drain (e.g. Essence-Igniting Nerve Strike): drain motes from
+      // target after a confirmed hit. Drains peripheral first, then personal
+      // if peripheral is insufficient (spendMotes handles the overflow).
+      if (attack.essenceDrain) {
+        const { amount, pool } = attack.essenceDrain;
+        const resolvedPool = pool === "any" ? "peripheral" : pool;
+        await targetActor.spendMotes(amount, resolvedPool);
       }
     }
   });

@@ -238,6 +238,18 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         formula: new fields.StringField({ initial: "", blank: true })
       }),
 
+      // M3b — Minimum post-soak damage dice (Violet Bier of Sorrows Form family)
+      minimumDamage: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+      }),
+
+      // M3c — Raw (pre-soak) damage bonus dice (Martial Arts Form charms)
+      rawDamageBonus: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+      }),
+
       // M4 — Scene-long attribute / ability boost
       statBoost: new fields.SchemaField({
         modeExclusive: new fields.BooleanField({ initial: false }),
@@ -378,6 +390,13 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         perMotes:     new fields.NumberField({ initial: 0, min: 0, integer: true })
       }),
 
+      // M12b — Attack success multiplier (e.g. Cascade of Cutting Terror doubles successes before DV comparison)
+      attackSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+
+      // M6b — Healing rate multiplier (e.g. Body-Mending Meditation speeds healing × 10).
+      // Data-storage only — no automatic tick engine exists; GM must track manually.
+      healingRateMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+
       // M14 — Rate bonus (extra attacks in a flurry)
       rateBonus: new fields.SchemaField({
         modeExclusive: new fields.BooleanField({ initial: false }),
@@ -437,6 +456,26 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // Words-as-Workshop Method — treat any location as at least a Master's
       // Workshop (floors the workshop dice modifier at 0 for the crafter).
       wordsAsWorkshop: new fields.BooleanField({ initial: false }),
+
+      // M21 — Essence Drain (on hit): drain motes from target on a confirmed hit.
+      // amount is resolved from formula using attacker's rollData.
+      essenceDrain: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+        pool:    new fields.StringField({ required: false, nullable: false, initial: "peripheral", choices: ["peripheral", "personal", "any"] }),
+      }),
+
+      // M22 — Ability Dice Bonus: adds bonus dice to non-attack rolls for a
+      // specific ability (e.g. Dreaming Pearl Courtesan Form adds Martial Arts
+      // rating to all Presence and Socialize rolls). Evaluated in
+      // rollAttributeAbility via aggregateAbilityDiceBonusFromCharms.
+      abilityDiceBonus: new fields.ArrayField(
+        new fields.SchemaField({
+          ability: new fields.StringField({ required: false, nullable: false, initial: "" }),
+          formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+        }),
+        { required: false, nullable: false, initial: [] }
+      ),
 
       // ── Multi-Purchase Fields ───────────────────────────────────────────
       // Maximum number of times this charm can be purchased.
