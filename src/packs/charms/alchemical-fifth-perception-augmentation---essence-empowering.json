@@ -46,6 +46,15 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
+    "statBoost": {
+      "enabled": true,
+      "changes": [
+        {
+          "path": "system.attributes.perception.value",
+          "value": "1"
+        }
+      ]
+    },
     "charmUid": "3f23376e804315e0"
   },
   "folder": "b0b1b2b3b4b5f052",

@@ -59,6 +59,10 @@
         ]
       }
     ],
+    "rawDamageBonus": {
+      "enabled": true,
+      "formula": "@ess"
+    },
     "charmUid": "d8191c0116ed8674",
     "mirrorId": "4b5d7f23c9b4e506"
   },

@@ -63,8 +63,8 @@
     "soakBonus": {
       "enabled": true,
       "bashing": 15,
-      "lethal": 0,
-      "aggravated": 0,
+      "lethal": 15,
+      "aggravated": 15,
       "hardnessAdd": 0,
       "hardnessSetTo": 0
     },
