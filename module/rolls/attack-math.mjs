@@ -134,9 +134,13 @@ export function computeAttackOutcome(attack) {
   data.perfectDefense = perfectDefense;
   data.perfectSoak    = perfectSoak;
   data.targetDV       = attack.defense.dv;
+  const extraMult = attack.extraSuccessMultiplier ?? 1;
   data.rawDamagePool  = (hit && !perfectSoak)
-    ? threshold + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
+    ? Math.floor(threshold * extraMult) + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
     : 0;
+  if ((attack.rawDamageMultiplier ?? 1) > 1) {
+    data.rawDamagePool = Math.floor(data.rawDamagePool * attack.rawDamageMultiplier);
+  }
   data.hardnessStops = hit && !perfectSoak && (attack.targetHardness ?? 0) > data.rawDamagePool;
   data.defenseLabelKey = {
     dodge:  "EX2E.DodgeDV",

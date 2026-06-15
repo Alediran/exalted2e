@@ -3,7 +3,7 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { isCharmPassivelyActive, aggregateMoveBonusFromCharms } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregateMoveBonusFromCharms, aggregateDVBonusFormulaFromCharms, aggregateAbilityMaxOverridesFromCharms } from "../rolls/charm-passive-math.mjs";
 import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
@@ -467,8 +467,9 @@ export class ExaltedActor extends Actor {
         aeParry += legacyDv.parry ?? 0;
       }
     }
+    const { dodgeBonus: formulaDodge, parryBonus: formulaParry } = aggregateDVBonusFormulaFromCharms(this);
     systemData.dvBonusIgnore = { all: ignoreAll, types: [...ignoreTypes] };
-    systemData.statusDVBonus = { dodgeBonus: aeDodge, parryBonus: aeParry };
+    systemData.statusDVBonus = { dodgeBonus: aeDodge + formulaDodge, parryBonus: aeParry + formulaParry };
   }
 
   /**
@@ -491,6 +492,7 @@ export class ExaltedActor extends Actor {
     const installed = this.items.filter(i => i.type === "charm" && i.system.installed);
     systemData.dedicatedSlotsUsed = installed.filter(i => i.system.installedSlotType === "dedicated").length;
     systemData.generalSlotsUsed   = installed.filter(i => i.system.installedSlotType === "general").length;
+    systemData.abilityMaxOverrides = aggregateAbilityMaxOverridesFromCharms(this);
 
     for (const item of this.items) {
       if (item.type !== "charm" || !item.system.isSubmodule) continue;

@@ -1,5 +1,7 @@
 import { evaluateCharmFormula } from "../documents/item.mjs";
 
+const SOCIAL_ABILITIES = new Set(["presence", "performance", "bureaucracy", "investigation"]);
+
 /**
  * Returns true if the charm should contribute passive effects.
  * Permanent charms always contribute; other durations only contribute when
@@ -104,6 +106,30 @@ export function aggregateDVBonusFromCharms(actor) {
 }
 
 /**
+ * Aggregate ONLY the formula-based DV bonuses from passively-active charms.
+ * Does NOT include dvBonus.dodgeBonus / dvBonus.parryBonus integer fields —
+ * those arrive via AEs and are already counted in _aggregateDVBonuses.
+ * @param {object} actor
+ * @returns {{ dodgeBonus: number, parryBonus: number }}
+ */
+export function aggregateDVBonusFormulaFromCharms(actor) {
+  const rollData = actor.getRollData?.() ?? {};
+  let dodgeBonus = 0, parryBonus = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const dvb = c.system?.dvBonus;
+    if (!dvb?.enabled) continue;
+    if (dvb.dodgeBonusFormula) {
+      dodgeBonus += (evaluateCharmFormula(dvb.dodgeBonusFormula, rollData, 0) | 0);
+    }
+    if (dvb.parryBonusFormula) {
+      parryBonus += (evaluateCharmFormula(dvb.parryBonusFormula, rollData, 0) | 0);
+    }
+  }
+  return { dodgeBonus, parryBonus };
+}
+
+/**
  * Sum the Rate bonus from all passively-active charms with rateBonus enabled.
  * NOTE: In the live system, rateBonus is accumulated into system.bonuses.rateBonus
  * by buildCharmSynthAEs (form-charms.mjs) via ADD active-effect changes, so this
@@ -138,6 +164,39 @@ export function getAttackSuccessMultiplier(actor) {
     if (m > max) max = m;
   }
   return max;
+}
+
+/**
+ * Return the highest extraSuccessMultiplier across all passively-active charms.
+ * Multiplies only threshold successes (above DV) before adding to rawDamagePool (Step 7),
+ * NOT total Step 3 successes.
+ * Returns 1 if no charm has a multiplier > 1.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function getExtraSuccessMultiplierFromCharms(actor) {
+  let max = 1;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const m = c.system?.extraSuccessMultiplier ?? 1;
+    if (m > max) max = m;
+  }
+  return max;
+}
+
+/**
+ * Sum flat attack success bonuses from all passively-active charms.
+ * Guaranteed successes added to the Step 3 tally before DV comparison.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function getAttackSuccessBonusFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.attackSuccessBonus ?? 0;
+  }
+  return total;
 }
 
 /**
@@ -182,7 +241,7 @@ export function aggregateRawDamageBonusFromCharms(actor) {
  * Return the first essenceDrain config from a passively-active charm, or null if none.
  * Drains motes from the target on a confirmed hit.
  * @param {object} actor
- * @returns {{ amount: number, pool: string }|null}
+ * @returns {{ amount: number, pool: string, targetTypeFilter: string }|null}
  */
 export function getEssenceDrainFromCharms(actor) {
   const rollData = actor.getRollData?.() ?? {};
@@ -192,9 +251,25 @@ export function getEssenceDrainFromCharms(actor) {
     if (!ed?.enabled || !ed.formula) continue;
     const amount = (evaluateCharmFormula(ed.formula, rollData, 0) | 0);
     if (amount <= 0) continue;
-    return { amount, pool: ed.pool ?? "peripheral" };
+    return { amount, pool: ed.pool ?? "peripheral", targetTypeFilter: ed.targetTypeFilter ?? "" };
   }
   return null;
+}
+
+/**
+ * Return combined targetWillpowerDrain from all passively-active charms, or null if none enabled.
+ * On a confirmed hit, reduce target's WP by the summed amount.
+ */
+export function getTargetWillpowerDrainFromCharms(actor) {
+  const rollData = actor.getRollData?.() ?? {};
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const wd = c.system?.targetWillpowerDrain;
+    if (!wd?.enabled || !wd.formula) continue;
+    total += (evaluateCharmFormula(wd.formula, rollData, 0) | 0);
+  }
+  return total > 0 ? { amount: total } : null;
 }
 
 /**
@@ -217,6 +292,44 @@ export function aggregateAbilityDiceBonusFromCharms(actor, abilityKey) {
   return total;
 }
 
+export function getRawDamageMultiplierFromCharms(actor) {
+  let max = 1;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const m = c.system?.rawDamageMultiplier ?? 1;
+    if (m > max) max = m;
+  }
+  return max;
+}
+
+export function getPostSoakDamageMultiplierFromCharms(actor) {
+  let max = 1;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const m = c.system?.postSoakDamageMultiplier ?? 1;
+    if (m > max) max = m;
+  }
+  return max;
+}
+
+export function getDamageSuccessMultiplierFromCharms(actor) {
+  let max = 1;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const m = c.system?.damageSuccessMultiplier ?? 1;
+    if (m > max) max = m;
+  }
+  return max;
+}
+
+export function getIgnoreSoakFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.ignoreSoak === true) return true;
+  }
+  return false;
+}
+
 export function aggregateMoveBonusFromCharms(actor) {
   const charms   = (actor.items ?? []).filter(i => i.type === "charm" && isCharmPassivelyActive(i));
   const rollData = actor.getRollData?.() ?? {};
@@ -232,4 +345,87 @@ export function aggregateMoveBonusFromCharms(actor) {
     if (mb.waterWalking) hasWaterWalking = true;
   }
   return { dashBonus, hasFlight, hasWaterWalking };
+}
+
+export function aggregateSocialSuccessBonusFromCharms(actor, abilityKey) {
+  if (!SOCIAL_ABILITIES.has(abilityKey)) return 0;
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.socialSuccessBonus ?? 0;
+  }
+  return total;
+}
+
+export function aggregateSocialSuccessMultiplierFromCharms(actor, abilityKey) {
+  if (!SOCIAL_ABILITIES.has(abilityKey)) return 1;
+  let max = 1;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const m = c.system?.socialSuccessMultiplier ?? 1;
+    if (m > max) max = m;
+  }
+  return max;
+}
+
+/**
+ * Returns true if an active charm has the clockworkAutoSuccessConversion flag.
+ * When true, the rolled dice pool becomes automatic successes (no dice rolled).
+ * @param {object} actor
+ * @returns {boolean}
+ */
+export function getClockworkAutoSuccessFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.clockworkAutoSuccessConversion === true) return true;
+  }
+  return false;
+}
+
+/**
+ * Build a map of ability/attribute key → override max for all passively-active charms
+ * with abilityMaxOverride > 0. The charm's `ability` field identifies the target.
+ * Takes the highest override for any given key.
+ * @param {object} actor
+ * @returns {object} map of { [abilityKey]: maxValue }
+ */
+export function aggregateAbilityMaxOverridesFromCharms(actor) {
+  const overrides = {};
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const override = c.system?.abilityMaxOverride ?? 0;
+    if (override <= 0) continue;
+    const key = c.system?.ability;
+    if (!key) continue;
+    overrides[key] = Math.max(overrides[key] ?? 0, override);
+  }
+  return overrides;
+}
+
+/**
+ * Returns true if any passively-active charm has harmImmaterial set.
+ * Covers permanent/scene-duration charms (e.g. Lunar God-Cutting Essence).
+ * Supplemental charms are checked separately via activatedCharmItems in rollAttack.
+ * @param {object} actor
+ * @returns {boolean}
+ */
+export function getHarmImmaterialFromCharms(actor) {
+  return (actor.items ?? []).some(
+    c => c.type === "charm" && isCharmPassivelyActive(c) && c.system?.harmImmaterial === true
+  );
+}
+
+/**
+ * Sum postSoakDamageReduction from all passively-active charms on the defender.
+ * Applied by the Roll Damage handler to reduce the attacker's post-soak pool.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregatePostSoakDamageReductionFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.postSoakDamageReduction ?? 0;
+  }
+  return total;
 }

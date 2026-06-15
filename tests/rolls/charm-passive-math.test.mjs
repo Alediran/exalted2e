@@ -7,12 +7,26 @@ import {
   getMasteryDiscount,
   aggregateMoveBonusFromCharms,
   aggregateDVBonusFromCharms,
+  aggregateDVBonusFormulaFromCharms,
   aggregateRateBonusFromCharms,
   getAttackSuccessMultiplier,
+  getExtraSuccessMultiplierFromCharms,
+  getAttackSuccessBonusFromCharms,
   getMinimumDamageFromCharms,
   aggregateRawDamageBonusFromCharms,
   getEssenceDrainFromCharms,
+  getTargetWillpowerDrainFromCharms,
   aggregateAbilityDiceBonusFromCharms,
+  getRawDamageMultiplierFromCharms,
+  getPostSoakDamageMultiplierFromCharms,
+  getDamageSuccessMultiplierFromCharms,
+  getIgnoreSoakFromCharms,
+  aggregateSocialSuccessBonusFromCharms,
+  aggregateSocialSuccessMultiplierFromCharms,
+  getClockworkAutoSuccessFromCharms,
+  aggregateAbilityMaxOverridesFromCharms,
+  getHarmImmaterialFromCharms,
+  aggregatePostSoakDamageReductionFromCharms,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 // ── computeWoundReduction ────────────────────────────────────────────
@@ -626,6 +640,21 @@ describe('getEssenceDrainFromCharms', () => {
     expect(result.amount).toBe(2);
     expect(result.pool).toBe('personal');
   });
+
+  it('includes targetTypeFilter in return value', () => {
+    const actor = {
+      items: [{
+        type: 'charm',
+        system: {
+          duration: 'permanent',
+          essenceDrain: { enabled: true, formula: '3', pool: 'peripheral', targetTypeFilter: 'fairfolk' }
+        }
+      }],
+      getRollData: () => ({})
+    };
+    const result = getEssenceDrainFromCharms(actor);
+    expect(result?.targetTypeFilter).toBe('fairfolk');
+  });
 });
 
 describe('aggregateAbilityDiceBonusFromCharms', () => {
@@ -702,5 +731,323 @@ describe('aggregateAbilityDiceBonusFromCharms', () => {
       getRollData: () => ({}),
     };
     expect(aggregateAbilityDiceBonusFromCharms(actor, 'presence')).toBe(4);
+  });
+});
+
+describe("getExtraSuccessMultiplierFromCharms", () => {
+  it("returns 1 when no charms", () => {
+    expect(getExtraSuccessMultiplierFromCharms({ items: [] })).toBe(1);
+  });
+  it("returns 1 when charm has default value", () => {
+    const actor = { items: [{ type: "charm", system: { duration: "permanent", extraSuccessMultiplier: 1 } }] };
+    expect(getExtraSuccessMultiplierFromCharms(actor)).toBe(1);
+  });
+  it("returns the highest multiplier across active charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", extraSuccessMultiplier: 2 } },
+      { type: "charm", system: { duration: "permanent", extraSuccessMultiplier: 3 } },
+    ]};
+    expect(getExtraSuccessMultiplierFromCharms(actor)).toBe(3);
+  });
+  it("ignores non-passive charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "scene", active: false, extraSuccessMultiplier: 5 } },
+    ]};
+    expect(getExtraSuccessMultiplierFromCharms(actor)).toBe(1);
+  });
+  it("ignores non-charm items", () => {
+    const actor = { items: [
+      { type: "weapon", system: { duration: "permanent", extraSuccessMultiplier: 5 } },
+    ]};
+    expect(getExtraSuccessMultiplierFromCharms(actor)).toBe(1);
+  });
+});
+
+describe("getAttackSuccessBonusFromCharms", () => {
+  it("returns 0 when no charms", () => {
+    expect(getAttackSuccessBonusFromCharms({ items: [] })).toBe(0);
+  });
+  it("sums bonuses across active charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", attackSuccessBonus: 1 } },
+      { type: "charm", system: { duration: "permanent", attackSuccessBonus: 2 } },
+    ]};
+    expect(getAttackSuccessBonusFromCharms(actor)).toBe(3);
+  });
+  it("ignores non-passive charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "scene", active: false, attackSuccessBonus: 5 } },
+    ]};
+    expect(getAttackSuccessBonusFromCharms(actor)).toBe(0);
+  });
+});
+
+describe("getRawDamageMultiplierFromCharms", () => {
+  it("returns 1 with no charms", () => {
+    expect(getRawDamageMultiplierFromCharms({ items: [] })).toBe(1);
+  });
+  it("returns the highest multiplier", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", rawDamageMultiplier: 2 } }
+    ]};
+    expect(getRawDamageMultiplierFromCharms(actor)).toBe(2);
+  });
+  it("ignores non-passive charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "scene", active: false, rawDamageMultiplier: 3 } }
+    ]};
+    expect(getRawDamageMultiplierFromCharms(actor)).toBe(1);
+  });
+});
+
+describe("getPostSoakDamageMultiplierFromCharms", () => {
+  it("returns 1 with no charms", () => {
+    expect(getPostSoakDamageMultiplierFromCharms({ items: [] })).toBe(1);
+  });
+  it("returns the highest multiplier across active charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", postSoakDamageMultiplier: 1.5 } },
+      { type: "charm", system: { duration: "permanent", postSoakDamageMultiplier: 2 } }
+    ]};
+    expect(getPostSoakDamageMultiplierFromCharms(actor)).toBe(2);
+  });
+});
+
+describe("getDamageSuccessMultiplierFromCharms", () => {
+  it("returns 1 with no charms", () => {
+    expect(getDamageSuccessMultiplierFromCharms({ items: [] })).toBe(1);
+  });
+  it("returns highest value", () => {
+    const actor = { items: [
+      { type: "charm", system: { active: true, damageSuccessMultiplier: 2 } }
+    ]};
+    expect(getDamageSuccessMultiplierFromCharms(actor)).toBe(2);
+  });
+});
+
+describe("getIgnoreSoakFromCharms", () => {
+  it("returns false with no charms", () => {
+    expect(getIgnoreSoakFromCharms({ items: [] })).toBe(false);
+  });
+  it("returns true when a permanent charm has ignoreSoak", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", ignoreSoak: true } }
+    ]};
+    expect(getIgnoreSoakFromCharms(actor)).toBe(true);
+  });
+  it("returns false when charm is not passively active", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "scene", active: false, ignoreSoak: true } }
+    ]};
+    expect(getIgnoreSoakFromCharms(actor)).toBe(false);
+  });
+});
+
+describe("aggregateDVBonusFormulaFromCharms", () => {
+  it("returns zeros with no charms", () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(aggregateDVBonusFormulaFromCharms(actor)).toEqual({ dodgeBonus: 0, parryBonus: 0 });
+  });
+  it("evaluates dodgeBonusFormula but ignores integer dodgeBonus", () => {
+    const actor = {
+      getRollData: () => ({ performance: 3 }),
+      items: [{
+        type: "charm",
+        system: {
+          duration: "permanent",
+          dvBonus: { enabled: true, dodgeBonus: 2, parryBonus: 0, dodgeBonusFormula: "@performance", parryBonusFormula: "" }
+        }
+      }]
+    };
+    // dodgeBonus integer (2) must NOT be included — it goes via AEs
+    expect(aggregateDVBonusFormulaFromCharms(actor)).toEqual({ dodgeBonus: 3, parryBonus: 0 });
+  });
+  it("ignores charms that are not passively active", () => {
+    const actor = {
+      getRollData: () => ({}),
+      items: [{
+        type: "charm",
+        system: { duration: "scene", active: false, dvBonus: { enabled: true, dodgeBonusFormula: "2", parryBonusFormula: "" } }
+      }]
+    };
+    expect(aggregateDVBonusFormulaFromCharms(actor)).toEqual({ dodgeBonus: 0, parryBonus: 0 });
+  });
+  it("skips charms with dvBonus.enabled = false", () => {
+    const actor = {
+      getRollData: () => ({}),
+      items: [{
+        type: "charm",
+        system: { duration: "permanent", dvBonus: { enabled: false, dodgeBonusFormula: "3", parryBonusFormula: "1" } }
+      }]
+    };
+    expect(aggregateDVBonusFormulaFromCharms(actor)).toEqual({ dodgeBonus: 0, parryBonus: 0 });
+  });
+});
+
+describe("getTargetWillpowerDrainFromCharms", () => {
+  it("returns null with no charms", () => {
+    const actor = { items: [], getRollData: () => ({}) };
+    expect(getTargetWillpowerDrainFromCharms(actor)).toBeNull();
+  });
+  it("returns amount when charm is passively active with enabled drain", () => {
+    const actor = {
+      getRollData: () => ({}),
+      items: [{ type: "charm", system: { duration: "permanent", targetWillpowerDrain: { enabled: true, formula: "1" } } }]
+    };
+    expect(getTargetWillpowerDrainFromCharms(actor)).toEqual({ amount: 1 });
+  });
+  it("returns null when charm is not passively active", () => {
+    const actor = {
+      getRollData: () => ({}),
+      items: [{ type: "charm", system: { duration: "scene", active: false, targetWillpowerDrain: { enabled: true, formula: "1" } } }]
+    };
+    expect(getTargetWillpowerDrainFromCharms(actor)).toBeNull();
+  });
+  it("sums amounts from multiple active charms", () => {
+    const actor = {
+      getRollData: () => ({}),
+      items: [
+        { type: "charm", system: { duration: "permanent", targetWillpowerDrain: { enabled: true, formula: "1" } } },
+        { type: "charm", system: { duration: "permanent", targetWillpowerDrain: { enabled: true, formula: "1" } } },
+      ]
+    };
+    expect(getTargetWillpowerDrainFromCharms(actor)).toEqual({ amount: 2 });
+  });
+});
+
+describe("aggregateSocialSuccessBonusFromCharms", () => {
+  it("returns 0 with no charms", () => {
+    expect(aggregateSocialSuccessBonusFromCharms({ items: [] }, "presence")).toBe(0);
+  });
+  it("sums bonuses for social abilities", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", socialSuccessBonus: 2 } }
+    ]};
+    expect(aggregateSocialSuccessBonusFromCharms(actor, "presence")).toBe(2);
+  });
+  it("returns 0 for non-social ability", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", socialSuccessBonus: 2 } }
+    ]};
+    expect(aggregateSocialSuccessBonusFromCharms(actor, "melee")).toBe(0);
+  });
+  it("returns 0 for socialize (not a social attack ability)", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", socialSuccessBonus: 2 } }
+    ]};
+    expect(aggregateSocialSuccessBonusFromCharms(actor, "socialize")).toBe(0);
+  });
+});
+
+describe("aggregateSocialSuccessMultiplierFromCharms", () => {
+  it("returns 1 with no charms", () => {
+    expect(aggregateSocialSuccessMultiplierFromCharms({ items: [] }, "presence")).toBe(1);
+  });
+  it("returns highest multiplier for social abilities", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", socialSuccessMultiplier: 2 } }
+    ]};
+    expect(aggregateSocialSuccessMultiplierFromCharms(actor, "performance")).toBe(2);
+  });
+  it("returns 1 for non-social ability", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", socialSuccessMultiplier: 3 } }
+    ]};
+    expect(aggregateSocialSuccessMultiplierFromCharms(actor, "melee")).toBe(1);
+  });
+});
+
+describe("getClockworkAutoSuccessFromCharms", () => {
+  it("returns false with no charms", () => {
+    expect(getClockworkAutoSuccessFromCharms({ items: [] })).toBe(false);
+  });
+  it("returns true when a permanent charm has the flag", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", clockworkAutoSuccessConversion: true } }
+    ]};
+    expect(getClockworkAutoSuccessFromCharms(actor)).toBe(true);
+  });
+  it("returns false when charm is not passively active", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "scene", active: false, clockworkAutoSuccessConversion: true } }
+    ]};
+    expect(getClockworkAutoSuccessFromCharms(actor)).toBe(false);
+  });
+});
+
+describe("aggregateAbilityMaxOverridesFromCharms", () => {
+  it("returns empty object when no charms have override", () => {
+    expect(aggregateAbilityMaxOverridesFromCharms({ items: [] })).toEqual({});
+  });
+  it("returns the override for the charm's ability when active", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", ability: "wits", abilityMaxOverride: 6 } }
+    ]};
+    expect(aggregateAbilityMaxOverridesFromCharms(actor)).toEqual({ wits: 6 });
+  });
+  it("takes the highest override for a given ability", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", ability: "wits", abilityMaxOverride: 6 } },
+      { type: "charm", system: { duration: "permanent", ability: "wits", abilityMaxOverride: 7 } }
+    ]};
+    expect(aggregateAbilityMaxOverridesFromCharms(actor)).toEqual({ wits: 7 });
+  });
+  it("ignores non-passive charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "scene", active: false, ability: "wits", abilityMaxOverride: 6 } }
+    ]};
+    expect(aggregateAbilityMaxOverridesFromCharms(actor)).toEqual({});
+  });
+  it("ignores charms with abilityMaxOverride of 0", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", ability: "wits", abilityMaxOverride: 0 } }
+    ]};
+    expect(aggregateAbilityMaxOverridesFromCharms(actor)).toEqual({});
+  });
+});
+
+describe("getHarmImmaterialFromCharms", () => {
+  it("returns false when no charms have harmImmaterial", () => {
+    expect(getHarmImmaterialFromCharms({ items: [] })).toBe(false);
+  });
+  it("returns true for a permanent charm with harmImmaterial", () => {
+    expect(getHarmImmaterialFromCharms({ items: [
+      { type: "charm", system: { duration: "permanent", harmImmaterial: true } }
+    ]})).toBe(true);
+  });
+  it("returns false for a non-passive charm with harmImmaterial", () => {
+    expect(getHarmImmaterialFromCharms({ items: [
+      { type: "charm", system: { duration: "scene", active: false, harmImmaterial: true } }
+    ]})).toBe(false);
+  });
+  it("returns false when harmImmaterial is false on a permanent charm", () => {
+    expect(getHarmImmaterialFromCharms({ items: [
+      { type: "charm", system: { duration: "permanent", harmImmaterial: false } }
+    ]})).toBe(false);
+  });
+});
+
+describe("aggregatePostSoakDamageReductionFromCharms", () => {
+  it("returns 0 when no charms have reduction", () => {
+    expect(aggregatePostSoakDamageReductionFromCharms({ items: [] })).toBe(0);
+  });
+  it("sums reduction from all passively-active charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", postSoakDamageReduction: 2 } },
+      { type: "charm", system: { duration: "permanent", postSoakDamageReduction: 1 } }
+    ]};
+    expect(aggregatePostSoakDamageReductionFromCharms(actor)).toBe(3);
+  });
+  it("ignores non-passive charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "scene", active: false, postSoakDamageReduction: 2 } }
+    ]};
+    expect(aggregatePostSoakDamageReductionFromCharms(actor)).toBe(0);
+  });
+  it("ignores items with 0 reduction", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", postSoakDamageReduction: 0 } }
+    ]};
+    expect(aggregatePostSoakDamageReductionFromCharms(actor)).toBe(0);
   });
 });

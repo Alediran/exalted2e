@@ -375,6 +375,26 @@
     </div>
   </div>
 
+  {{!-- M12c Extra Success Multiplier ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.ExtraSuccessMultiplier"}}</label>
+      <input type="number" name="system.extraSuccessMultiplier"
+             value="{{system.extraSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M12d Attack Success Bonus ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackSuccessBonus"}}</label>
+      <input type="number" name="system.attackSuccessBonus"
+             value="{{system.attackSuccessBonus}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M11 Penalty to Target ──────────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-section-header-row">
@@ -1015,6 +1035,46 @@
     {{/if}}
   </div>
 
+  {{!-- M25a Raw Damage Multiplier ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.RawDamageMultiplier"}}</label>
+      <input type="number" name="system.rawDamageMultiplier"
+             value="{{system.rawDamageMultiplier}}"
+             min="1" step="0.1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M25b Post-Soak Damage Multiplier ──────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.PostSoakDamageMultiplier"}}</label>
+      <input type="number" name="system.postSoakDamageMultiplier"
+             value="{{system.postSoakDamageMultiplier}}"
+             min="1" step="0.1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M25c Damage Success Multiplier ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DamageSuccessMultiplier"}}</label>
+      <input type="number" name="system.damageSuccessMultiplier"
+             value="{{system.damageSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M25d Ignore Soak ───────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.ignoreSoak"
+             {{#if system.ignoreSoak}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.IgnoreSoak"}}
+    </label>
+  </div>
+
   {{!-- M1 Health Level Grant ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-section-header-row">
@@ -1545,6 +1605,26 @@
     {{/each}}
   </div>
 
+  {{!-- M26a Social Success Bonus ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.SocialSuccessBonus"}}</label>
+      <input type="number" name="system.socialSuccessBonus"
+             value="{{system.socialSuccessBonus}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M26b Social Success Multiplier ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.SocialSuccessMultiplier"}}</label>
+      <input type="number" name="system.socialSuccessMultiplier"
+             value="{{system.socialSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -1694,6 +1774,87 @@
       </div>
     </div>
     {{/if}}
+  </div>
+
+  {{!-- M22b Target Willpower Drain ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.targetWillpowerDrain.enabled"
+             {{checked system.targetWillpowerDrain.enabled}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.TargetWillpowerDrain"}}</span>
+    </label>
+    {{#if system.targetWillpowerDrain.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.Formula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.targetWillpowerDrain.formula"
+                 value="{{system.targetWillpowerDrain.formula}}"
+                 placeholder="e.g. 1, @ess"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.targetWillpowerDrain.formula"
+                  data-label="{{localize 'EX2E.TargetWillpowerDrain'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M28a Harm Immaterial ──────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.harmImmaterial"
+             {{#if system.harmImmaterial}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.HarmImmaterial"}}
+    </label>
+  </div>
+
+  {{!-- M28b Spirit Aggravated Damage ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.spiritAggravatedDamage"
+             {{#if system.spiritAggravatedDamage}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.SpiritAggravatedDamage"}}
+    </label>
+  </div>
+
+  {{!-- M29 Post-Soak Damage Reduction ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.PostSoakDamageReduction"}}</label>
+      <input type="number" name="system.postSoakDamageReduction"
+             value="{{system.postSoakDamageReduction}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M27 Clockwork Auto-Success Conversion ─────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.clockworkAutoSuccessConversion"
+             {{#if system.clockworkAutoSuccessConversion}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.ClockworkAutoSuccessConversion"}}
+    </label>
+  </div>
+
+  {{!-- M30 Ability Max Override ──────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AbilityMaxOverride"}}</label>
+      <input type="number" name="system.abilityMaxOverride"
+             value="{{system.abilityMaxOverride}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
   </div>
 
   {{!-- ── UPGRADE TIERS ────────────────────────────────────────────────────────── --}}

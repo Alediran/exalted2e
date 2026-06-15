@@ -61,7 +61,11 @@
       }
     ],
     "charmUid": "fccabddc690de95e",
-    "mirrorId": "45d7c78fc64a2391"
+    "mirrorId": "45d7c78fc64a2391",
+    "targetWillpowerDrain": {
+      "enabled": true,
+      "formula": "1"
+    }
   },
   "folder": "b0b1b2b3b4b5f040",
   "sort": 0,

@@ -34,7 +34,13 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "dodgeBonusFormula": "@performance",
+      "parryBonusFormula": ""
+    },
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

@@ -60,7 +60,11 @@
         ]
       }
     ],
-    "charmUid": "717bd34e429768db"
+    "charmUid": "717bd34e429768db",
+    "targetWillpowerDrain": {
+      "enabled": true,
+      "formula": "1"
+    }
   },
   "folder": "b0b1b2b3b4b5f023",
   "sort": 0,

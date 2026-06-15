@@ -60,6 +60,17 @@
         ]
       }
     ],
+    "moteRecovery": {
+      "enabled": false,
+      "event": "onDamageDealt",
+      "action": "recoverPeripheral",
+      "formula": "1",
+      "source": "self",
+      "perDamageLevel": false,
+      "maxRecovery": 0,
+      "sentientOnly": true,
+      "modeExclusive": false
+    },
     "charmUid": "3fc3b66c63841644"
   },
   "folder": "b0b1b2b3b4b5f019",

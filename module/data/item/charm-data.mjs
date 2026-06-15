@@ -392,6 +392,18 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M12b — Attack success multiplier (e.g. Cascade of Cutting Terror doubles successes before DV comparison)
       attackSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M12c — Extra-success multiplier: multiplies threshold successes (above DV) added to raw damage pool (Step 7). Leave at 1 for no effect.
+      extraSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M12d — Flat guaranteed successes added to attack roll (Step 3) before DV comparison.
+      attackSuccessBonus: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+      // M12e — Raw damage pool multiplier (applied before soak, Step 7)
+      rawDamageMultiplier: new fields.NumberField({ required: false, nullable: false, integer: false, min: 1, initial: 1 }),
+      // M12f — Post-soak damage multiplier (applied after soak, before damage roll)
+      postSoakDamageMultiplier: new fields.NumberField({ required: false, nullable: false, integer: false, min: 1, initial: 1 }),
+      // M12g — Damage success multiplier (each die success counted N times in Step 8)
+      damageSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M12h — Bypass soak entirely (damage pool = threshold + weapon, soak skipped)
+      ignoreSoak: new fields.BooleanField({ required: false, nullable: false, initial: false }),
 
       // M6b — Healing rate multiplier (e.g. Body-Mending Meditation speeds healing × 10).
       // Data-storage only — no automatic tick engine exists; GM must track manually.
@@ -463,6 +475,13 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
         formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
         pool:    new fields.StringField({ required: false, nullable: false, initial: "peripheral", choices: ["peripheral", "personal", "any"] }),
+        targetTypeFilter: new fields.StringField({ required: false, nullable: false, initial: "", blank: true }),
+      }),
+
+      // M22b — Target Willpower Drain: reduce target's WP on a confirmed hit.
+      targetWillpowerDrain: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
       }),
 
       // M22 — Ability Dice Bonus: adds bonus dice to non-attack rolls for a
@@ -476,6 +495,31 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         }),
         { required: false, nullable: false, initial: [] }
       ),
+
+      // M23 — Social roll success bonus (flat successes on social ability rolls: Presence, Performance, Bureaucracy, Investigation)
+      socialSuccessBonus: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+      // M24 — Social roll success multiplier (multiplies successes on social ability rolls)
+      socialSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M25 — Clockwork Auto-Success Conversion (Alchemical Clockwork Perfection Nodes)
+      // When active, the rolled dice pool converts to automatic successes (no dice rolled).
+      clockworkAutoSuccessConversion: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M26 — Ability/Attribute max override: when > 0, the target attribute/ability cap is raised
+      // to this value (e.g. Alchemical Sixth Augmentation allows an attribute to reach 6).
+      abilityMaxOverride: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+
+      // Supplemental keyword injection: keywords forced onto the attack when this
+      // supplemental charm activates (e.g. "Unblockable", "Undodgeable"). These
+      // are added to activatedKeywords during rollAttack supplemental activation.
+      supplementalKeywordInjection: new fields.ArrayField(
+        new fields.StringField({ required: true, blank: false })
+      ),
+
+      // M28a — Harm Immaterial: attack can affect dematerialized spirits
+      harmImmaterial: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M28b — Spirit Aggravated Damage: damage dealt to spirits is Aggravated (materialized or not)
+      spiritAggravatedDamage: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M29 — Post-soak damage reduction (defensive): reduces post-soak pool when this actor is targeted
+      postSoakDamageReduction: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
 
       // ── Multi-Purchase Fields ───────────────────────────────────────────
       // Maximum number of times this charm can be purchased.

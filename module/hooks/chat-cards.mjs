@@ -11,6 +11,7 @@ import { resolveUserActor } from "../helpers/targeting.mjs";
 import { computeAttackOutcome } from "../rolls/attack-math.mjs";
 import { planLedgerRefund } from "../rolls/activation-ledger.mjs";
 import { countSuccesses }   from "../rolls/dice-math.mjs";
+import { aggregatePostSoakDamageReductionFromCharms } from "../rolls/charm-passive-math.mjs";
 import {
   applySocialInfluenceEffects,
   clearSocialInfluenceEffects
@@ -1211,6 +1212,10 @@ export function registerChatCardHooks() {
       const postSoakDice  = parseInt(card?.dataset.postSoakDice)  || 0;
       const minimumDamage = parseInt(card?.dataset.minimumDamage) || 0;
       const rawDamageBonus = parseInt(card?.dataset.rawDamageBonus) || 0;
+      const postSoakDamageMultiplier = parseFloat(card?.dataset.postSoakDamageMultiplier) || 1;
+      const damageSuccessMultiplier  = parseInt(card?.dataset.damageSuccessMultiplier)     || 1;
+      const ignoreSoak               = card?.dataset.ignoreSoak === "true";
+      const spiritAggravatedDamage   = card?.dataset.spiritAggravatedDamage === "true";
       const soakEl        = card?.querySelector(".soak-input");
       const soak          = parseInt(soakEl?.value ?? soakEl?.textContent) || 0;
       const targetId      = card?.dataset.targetId || null;
@@ -1218,13 +1223,28 @@ export function registerChatCardHooks() {
       // rawDamageBonus adds dice to the pre-soak pool before soak is subtracted.
       damagePool += rawDamageBonus;
 
+      // Spirit-Cutting Attack pattern: upgrade to Aggravated when target is a spirit.
+      const SPIRIT_NPC_TYPES = new Set(["spirit", "demon"]);
+      const targetActor = game.actors.get(targetId);
+      const targetIsSpirit = targetActor?.type === "npc"
+        && SPIRIT_NPC_TYPES.has(targetActor.system?.npcType ?? "");
+      const effectiveDamageType = (spiritAggravatedDamage && targetIsSpirit) ? "aggravated" : damageType;
+
+      // Post-soak damage reduction (defensive): read from target's passively-active charms
+      const defenderPostSoakReduction = targetActor
+        ? aggregatePostSoakDamageReductionFromCharms(targetActor)
+        : 0;
+
       if (damagePool <= 0 && postSoakDice <= 0) return;
 
       // Roll the damage pool — post-soak dice bypass soak entirely.
       // minimumDamage (from charms like Violet Bier of Sorrows Form) floors
       // the post-soak pool before adding post-soak bonus dice.
-      const postSoakPool  = Math.max(damagePool - soak, overwhelming, minimumDamage);
-      const effectivePool = postSoakPool + postSoakDice;
+      const postSoakPool  = ignoreSoak
+        ? Math.max(damagePool, overwhelming, minimumDamage)
+        : Math.max(damagePool - soak, overwhelming, minimumDamage);
+      const scaledPostSoakPool = Math.max(0, Math.floor(postSoakPool * postSoakDamageMultiplier) - defenderPostSoakReduction);
+      const effectivePool = scaledPostSoakPool + postSoakDice;
       const formula = `${effectivePool}d10`;
       const roll    = new Roll(formula);
       await roll.evaluate();
@@ -1252,14 +1272,14 @@ export function registerChatCardHooks() {
       for (const face of dice) {
         let succs = 0;
         let cls   = "";
-        if (face === 10)       { succs = 2; cls = "double-success"; rawDamage += 2; }
-        else if (face >= 7)    { succs = 1; cls = "success";        rawDamage += 1; }
+        if (face === 10)       { succs = 2 * damageSuccessMultiplier; cls = "double-success"; rawDamage += succs; }
+        else if (face >= 7)    { succs = 1 * damageSuccessMultiplier; cls = "success";        rawDamage += succs; }
         else if (face === 1)   { cls = "one"; }
         else                   { cls = "miss"; }
         diceDetails.push({ face, succs, cls });
       }
 
-      const damageTypeLabel = damageType === "lethal" ? "L" : damageType === "aggravated" ? "A" : "B";
+      const damageTypeLabel = effectiveDamageType === "lethal" ? "L" : effectiveDamageType === "aggravated" ? "A" : "B";
 
       const autoApply    = game.settings.get("exalted2e", "autoApplyDamage");
       const showApplyBtn = rawDamage > 0 && !!targetId && !autoApply;
@@ -1269,7 +1289,7 @@ export function registerChatCardHooks() {
       const damageResult = {
         diceDetails, rawDamage, effectivePool,
         damagePool, soak, postSoakDice, minimumDamage,
-        damageTypeLabel, damageType, targetId,
+        damageTypeLabel, damageType: effectiveDamageType, targetId,
         showApplyBtn,
       };
       const attack = message.flags?.exalted2e?.attack ?? {};
@@ -1280,9 +1300,8 @@ export function registerChatCardHooks() {
 
       // Auto-apply damage to target if setting enabled
       if (rawDamage > 0 && targetId && autoApply) {
-        const targetActor = game.actors.get(targetId);
         if (targetActor) {
-          await targetActor.applyDamage(rawDamage, damageType);
+          await targetActor.applyDamage(rawDamage, effectiveDamageType);
           await _applyPerDamageLevelEffects(message, targetActor, rawDamage);
           await _applyDamageDealtMoteRecovery(message, targetActor, rawDamage);
         }
@@ -1292,7 +1311,6 @@ export function registerChatCardHooks() {
       // _persistAndRerender reads attack from flags — which now includes
       // damageResult — so the damage dice survive the re-render.
       if (rawDamage > 0 && targetId && autoApply) {
-        const targetActor = game.actors.get(targetId);
         if (targetActor) {
           await resolveKnockbackChain(message, { effectivePool, rawDamage }).catch(err =>
             console.error("exalted2e | knockback chain failed", err)
@@ -2187,9 +2205,20 @@ export function wireAttackSuccess() {
       // target after a confirmed hit. Drains peripheral first, then personal
       // if peripheral is insufficient (spendMotes handles the overflow).
       if (attack.essenceDrain) {
-        const { amount, pool } = attack.essenceDrain;
-        const resolvedPool = pool === "any" ? "peripheral" : pool;
-        await targetActor.spendMotes(amount, resolvedPool);
+        const { amount, pool, targetTypeFilter } = attack.essenceDrain;
+        const typeMatch = !targetTypeFilter
+          || targetActor.type === targetTypeFilter
+          || targetActor.system?.npcType === targetTypeFilter;
+        if (typeMatch) {
+          const resolvedPool = pool === "any" ? "peripheral" : pool;
+          await targetActor.spendMotes(amount, resolvedPool);
+        }
+      }
+      // Target willpower drain: reduce target's WP on a confirmed hit.
+      if (attack.targetWillpowerDrain) {
+        const { amount } = attack.targetWillpowerDrain;
+        const currentWP = targetActor.system.willpower?.value ?? 0;
+        await targetActor.update({ "system.willpower.value": Math.max(0, currentWP - amount) });
       }
     }
   });

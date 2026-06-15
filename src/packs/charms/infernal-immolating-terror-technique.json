@@ -58,7 +58,11 @@
         ]
       }
     ],
-    "charmUid": "7a800fd59f277769"
+    "charmUid": "7a800fd59f277769",
+    "targetWillpowerDrain": {
+      "enabled": true,
+      "formula": "1"
+    }
   },
   "folder": "1945ba1655ca5f6f",
   "sort": 0,

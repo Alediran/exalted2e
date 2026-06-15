@@ -2,7 +2,12 @@
      data-actor-id="{{actorId}}" data-target-id="{{targetId}}"
      data-damage-pool="{{rawDamagePool}}" data-damage-type="{{damageType}}"
      data-overwhelming="{{overwhelming}}" data-post-soak-dice="{{postSoakDamageDice}}"
-     data-minimum-damage="{{minimumDamage}}" data-raw-damage-bonus="{{rawDamageBonus}}">
+     data-minimum-damage="{{minimumDamage}}" data-raw-damage-bonus="{{rawDamageBonus}}"
+     data-post-soak-damage-multiplier="{{postSoakDamageMultiplier}}"
+     data-damage-success-multiplier="{{damageSuccessMultiplier}}"
+     data-ignore-soak="{{ignoreSoak}}"
+     data-harm-immaterial="{{harmImmaterial}}"
+     data-spirit-aggravated-damage="{{spiritAggravatedDamage}}">
   <div class="card-header">
     {{#if actorName}}<span class="roll-actor">{{actorName}}</span>{{/if}}
     <span class="roll-flavor">{{weaponName}} — {{localize "EX2E.AttackRoll"}}</span>
@@ -71,6 +76,17 @@
   <div class="holy-upgrade-note">
     <i class="fa-solid fa-gears"></i>
     {{localize "EX2E.AxiomaticUpgradeNote"}}
+  </div>
+  {{/if}}
+
+  {{#if harmImmaterial}}
+  <div class="attack-tag-row">
+    <span class="attack-tag">{{localize "EX2E.HarmImmaterial"}}</span>
+  </div>
+  {{/if}}
+  {{#if spiritAggravatedDamage}}
+  <div class="attack-tag-row">
+    <span class="attack-tag">{{localize "EX2E.SpiritAggravatedDamage"}}</span>
   </div>
   {{/if}}
 

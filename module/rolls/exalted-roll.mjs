@@ -18,7 +18,7 @@ import {
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
-import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, aggregateAbilityDiceBonusFromCharms } from "./charm-passive-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 import { getTerrainBonuses } from "../helpers/terrain.mjs";
 
@@ -465,15 +465,20 @@ export class ExaltedRoll {
     // all passively-active charms with matching abilityDiceBonus entries.
     const abilityDiceBonus = aggregateAbilityDiceBonusFromCharms(actor, ability);
 
+    const socialBonus      = aggregateSocialSuccessBonusFromCharms(actor, ability);
+    const socialMultiplier = aggregateSocialSuccessMultiplierFromCharms(actor, ability);
+    const clockworkConvert = getClockworkAutoSuccessFromCharms(actor);
+
+    const basePool = Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty + abilityDiceBonus);
     const exRoll = new ExaltedRoll({
-      pool:               Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty + abilityDiceBonus),
+      pool:               clockworkConvert ? 0 : basePool,
       flavor:             dialogResult.flavor,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice:       firstExcDice,
-      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses,
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses + socialBonus + (clockworkConvert ? basePool : 0),
       useThirdExcellency: useThirdExcellency,
       specialty:          dialogResult.specialty ?? "",
       externalPenalty:    externalSuccessPenalty
@@ -485,6 +490,9 @@ export class ExaltedRoll {
     // itself never carries the successes — the tally lives on the
     // ExaltedRollResult returned by evaluate().
     const result = await exRoll.evaluate();
+    if (socialMultiplier > 1) {
+      result.successes = Math.floor(result.successes * socialMultiplier);
+    }
     const message = await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
     await bankStuntReward(actor, {
       stunt:              dialogResult.stunt,
@@ -923,6 +931,7 @@ export class ExaltedRoll {
       if (!ok) continue;
       activatedCharms.push({ id: c.id, name: c.name });
       for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
+      for (const kw of (c.system.supplementalKeywordInjection ?? [])) activatedKeywords.add(kw);
     }
     if (activationBucket.length === 1) {
       const soleCharm = actor.items.get(activationBucket[0].charmId);
@@ -1126,7 +1135,8 @@ export class ExaltedRoll {
     // attack roll before comparing to defense").
     const successMultiplier = getAttackSuccessMultiplier(actor);
     // extraAccuracySuccesses is included in the multiplicand: all successes contributing to the Step 3 comparison are doubled
-    const rawDisplaySuccesses = (result.successes ?? 0) - effectiveExternalPenalty + charmAttackBonus.extraAccuracySuccesses;
+    const attackSuccessBonus  = getAttackSuccessBonusFromCharms(actor);
+    const rawDisplaySuccesses = (result.successes ?? 0) - effectiveExternalPenalty + charmAttackBonus.extraAccuracySuccesses + attackSuccessBonus;
     const displaySuccesses = Math.max(0, rawDisplaySuccesses * successMultiplier);
     const attack = {
       actorId:             actor.id,
@@ -1149,6 +1159,15 @@ export class ExaltedRoll {
       minimumDamage:       getMinimumDamageFromCharms(actor),
       rawDamageBonus:      aggregateRawDamageBonusFromCharms(actor),
       essenceDrain:        getEssenceDrainFromCharms(actor),
+      targetWillpowerDrain: getTargetWillpowerDrainFromCharms(actor),
+      extraSuccessMultiplier: getExtraSuccessMultiplierFromCharms(actor),
+      rawDamageMultiplier:      getRawDamageMultiplierFromCharms(actor),
+      postSoakDamageMultiplier: getPostSoakDamageMultiplierFromCharms(actor),
+      damageSuccessMultiplier:  getDamageSuccessMultiplierFromCharms(actor),
+      ignoreSoak:               getIgnoreSoakFromCharms(actor),
+      harmImmaterial:        getHarmImmaterialFromCharms(actor)
+        || activatedCharmItems.some(c => c.system?.harmImmaterial === true),
+      spiritAggravatedDamage: activatedCharmItems.some(c => c.system?.spiritAggravatedDamage === true),
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the
