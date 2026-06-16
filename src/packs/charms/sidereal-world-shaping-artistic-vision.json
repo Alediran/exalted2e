@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "craft",
-    "essence": 2,
-    "minAbility": 2,
+    "essence": 3,
+    "minAbility": 4,
     "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character develops an enviable knack for manipulating fate in a particular circumstance, environment or condition personal to her. This condition could be \"In Cities,\" \"On the Water\" or defined by other similar parameters. It should have the same breadth as a specialty. When that specialty condition applies, the target number for Craft (Fate) rolls and all rolls for Sidereal astrology automatically decrease by one. The Sidereal doesn't pay for this reduction; it exists as a permanent enhancement of her capabilities. A character can buy this Charm up to three times, either for the same condition or a selection of two or three conditions.</p>",
+    "description": "<p>The Sidereal's long experience in crafting destinies and fate-scenarios begets an enviable knack for manipulating circumstances in her own personal style. Upon purchasing this Charm, the Sidereal chooses a circumstantial condition roughly equivalent in breadth to a specialty, such as \"Seduction,\" \"Swords,\" or \"At Sea.\" Whenever she is awarded stunt dice while the chosen condition is met, she may exchange dice to lower the target number of her roll on a one-for-one basis.</p><p>At the Storyteller's discretion, the Sidereal may change the condition for her World-Shaping Artistic Vision whenever she faces major changes in her life, selecting a new condition that makes sense for the upheaval in her life. Changing Motivation is always sufficient ground for choosing a new condition for this Charm.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
