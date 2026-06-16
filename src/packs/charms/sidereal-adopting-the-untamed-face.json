@@ -17,7 +17,7 @@
     "ability": "survival",
     "essence": 2,
     "minAbility": 2,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A Sidereal braids her own fate with that of the animal she can see and its totemic god. This Charm not only enables the character to communicate with a single animal and engage in normal social actions with it, but she can also bind it to serve her goals. Simple communication works automatically. If the successes on a ([Charisma or Manipulation] + Survival) roll equal or exceed the animal's Control Rating (see Exalted, p. 154), the Vizier can impose an unnatural mental influence on the animal. The character can make an animal hostile or friendly to another creature, protect or shun a location or otherwise gain attitudes that would count as an Intimacy in a human being. Any suggestion that goes beyond an animal's normal understanding, however, becomes an unacceptable order. Later experience may break the magical Intimacy--for instance, if a \"new friend\" attacks the animal.</p>",
+    "description": "<p>A Sidereal braids her own fate with that of the animal she can see and its totemic god. This Charm not only enables the character to communicate with a single animal and engage in normal social actions with it, but she can also bind it to serve her goals. Simple communication works automatically. If the successes on a ([Charisma or Manipulation] + Survival) roll equal or exceed the animal's Control Rating (see Exalted, p. 154), the Vizier can impose an unnatural mental influence on the animal. The character can make an animal hostile or friendly to another creature, protect or shun a location or otherwise gain attitudes that would count as an Intimacy in a human being. Any suggestion that goes beyond an animal's normal understanding, however, becomes an unacceptable order. Later experience may break the magical Intimacy--for instance, if a \"new friend\" attacks the animal.</p><p>While this Charm is in effect, the Sidereal may make social attacks against beings of animal intelligence normally, limited only by the targets' understanding. Compelling behavior in a target becomes an unnatural Compulsion costing 2wp to resist. The target's Control Rating does not matter, and this Charm does not create Intimacies as a matter of course.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
