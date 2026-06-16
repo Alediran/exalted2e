@@ -19,7 +19,7 @@
     "minAbility": 3,
     "charmType": "simple",
     "duration": "instant",
-    "speed": 6,
+    "speed": 4,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>By singing to a god or elemental in the sacred language of the Old Realm, the Sidereal can remove any stress of confusion or fear, putting the spirit into a calm, cooperative frame of mind. To instill this agreeable demeanor, the Sidereal's player rolls (Manipulation + Performance) against the spirit's Dodge Mental Defense Value while the Vizier sings to the spirit. If the roll succeeds, the spirit becomes an ally of the Sidereal, per the Background, and gains an Intimacy to that effect. This alliance lasts until the end of the current story, at which point the spirit resumes its normal feelings for the Sidereal. If the Sidereal treats the spirit especially well during the story and the alliance worked out especially well for the spirit, the alliance could become permanent.</p>",
+    "description": "<p>By singing to a god or elemental in the sacred language of the Old Realm, the Sidereal can remove any stress of confusion or fear, putting the spirit into a calm, cooperative frame of mind. To instill this agreeable demeanor, the Sidereal's player rolls (Manipulation + Performance) against the spirit's Dodge Mental Defense Value while the Vizier sings to the spirit. If the roll succeeds, the spirit becomes an ally of the Sidereal, per the Background, and gains an Intimacy to that effect. This alliance lasts until the end of the current story, at which point the spirit resumes its normal feelings for the Sidereal. If the Sidereal treats the spirit especially well during the story and the alliance worked out especially well for the spirit, the alliance could become permanent.</p><p>The spirit gains a sorcerous positive Intimacy regarding the Sidereal. It must spend 1wp per scene to act against it, and the Intimacy reasserts itself every 25 hours until the story ends.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
