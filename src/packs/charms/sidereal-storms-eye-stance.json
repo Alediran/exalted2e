@@ -18,11 +18,12 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "scene",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Combo-Basic",
       "Obvious",
       "Prayer Strip"
     ],
@@ -31,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal activates this Charm with a prayer strip that bears the Scripture of the Eternal Maiden. As he infuses the prayer strip with Essence, the prayer strip hovers beside him. The air immediately around the character darkens, but the prayer strip glows with bright yellow light. When any effect inflicts harm on the Sidereal, the Sidereal can reflexively grab the destinies of as many visible targets as he chooses (one per three motes he spends against an attack) and tangle them with his own. This reflexive entanglement occurs in Step 8 of attack resolution after damage or deleterious effects have been rolled, but before they have been applied. With their destinies wound together thus, all of the chosen targets suffer the same damage or other effects the attack inflicted on the Sidereal. Powers that let a character dodge even undodgeable attacks, parry unblockable attacks or prevent all damage from attacks protect against this damage transference. Although the Charm itself lasts for the scene, the character must entangle his targets' destinies anew (and spend the motes to do so) with each new damage effect that affects him.</p>",
+    "description": "<p>The Sidereal activates this Charm with a prayer strip that bears the Scripture of the Eternal Maiden. As he infuses the prayer strip with Essence, the prayer strip hovers beside him. The air immediately around the character darkens, but the prayer strip glows with bright yellow light. When any effect inflicts harm on the Sidereal, the Sidereal can reflexively grab the destinies of as many visible targets as he chooses (one per three motes he spends against an attack) and tangle them with his own. This reflexive entanglement occurs in Step 8 of attack resolution after damage or deleterious effects have been rolled, but before they have been applied. With their destinies wound together thus, all of the chosen targets suffer the same damage or other effects the attack inflicted on the Sidereal. Powers that let a character dodge even undodgeable attacks, parry unblockable attacks or prevent all damage from attacks protect against this damage transference. Although the Charm itself lasts for the scene, the character must entangle his targets' destinies anew (and spend the motes to do so) with each new damage effect that affects him.</p><p>On the tick she activates this Charm and every action tick thereafter, the Sidereal may commit 3m per target to ensnare others' fates until her next action tick. She may not ensnare more than (Essence) targets at once. Thereafter, attacks targeting the Sidereal are treated as simultaneously targeting the Exalt's chosen victims normally, even if the attack cannot usually strike more than one target. This occurs in Step 1 of attack resolution. The distributed attack is not made unblockable, undodgeable or unsoakable by this Charm, and any given target's defense against the attack does not save other targets. Targets must be within (Sidereal's Essence x 5) yards of the Exalt to suffer distributed attacks.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

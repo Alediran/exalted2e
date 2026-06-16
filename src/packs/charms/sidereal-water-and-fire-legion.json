@@ -17,7 +17,7 @@
     "ability": "resistance",
     "essence": 3,
     "minAbility": 4,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>By sacrificing a bit of her flesh and Essence, a Vizier can bind an elemental to protect a location and its people, potentially for almost a year. The Sidereal needs a powerful manifestation of the chosen element, such as a burning house, a rushing stream, a gale, the depths of a cave or an old-growth forest. The Sidereal's player rolls (Charisma + Resistance) with a difficulty equal to the sum of the Essence of the elemental he wants to bind and the Magnitude of the dominion he wants protected (as defined in the Mandate of Heaven system; see the Exalted Storyteller's Companion). Sidereals have a +2 bonus when dealing with spirits of the element associated with their Maiden, and this does not count toward dice gained from Charms.</p>",
+    "description": "<p>Sacrifice in Creation is a trade of pain and love. Should the Sidereal invoke Water and Fire Treaty by touching a living elemental, the spirit is spurred to become a guardian of something the Exalt holds dear. The Exalt rolls (Charisma + Resistance) against the target's Dodge MDV, and if successful binds them per the spell Summon Elemental (Exalted, p. 254), except that the Sidereal can only bind the elemental to protect the subject of one of the Exalt's Intimacies. The chosen subject must be a discrete thing, including an object, a group of objects, a structure, a character, or a social group. Exalts using this Charm to bind elementals of the kind associated with their Maiden and Caste gain two automatic successes on their social attack roll.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

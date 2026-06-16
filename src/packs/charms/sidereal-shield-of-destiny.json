@@ -15,24 +15,25 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "resistance",
-    "essence": 3,
+    "essence": 2,
     "minAbility": 3,
     "charmType": "reflexive",
     "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
-      8
+      7
     ],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Counterattack"
     ],
     "cost": {
       "formula": "3m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal snares his opponents' fates in combat and uses them to safeguard his own. If an attack should damage the Sidereal while he is thus defended, that damage transfers to one of the opponents whose fate the Sidereal has ensnared. The Sidereal's player may activate this Charm after damage for a successful attack is rolled, but before it is applied. The player rolls (Dexterity + Resistance). For every two successes this roll garners--up to a maximum equal to the levels of damage the attack actually inflicted--the player subtracts one health level from the damage the Sidereal should take and inflicts it instead on his attacker or one of his attacker's present allies. This transferred damage cannot be dodged, parried or soaked except by powers that let a character dodge even undodgeable attacks, parry unblockable attacks or prevent all damage from attacks. If the target does so, neither the Sidereal nor the target suffers the damage. The Sidereal can transfer damage to only one target per attack. He transfers bashing damage as bashing damage, and lethal or aggravated damage as lethal damage.</p>",
+    "description": "<p>The Sidereal reaches out to grasp the fate of an attack headed her way, carrying it off like a banner to bestow upon someone else. Calling upon the Shield of Destiny, the Sidereal rolls (Dexterity + Resistance) in Step 7 of an attack against her. Every success on this activation roll subtracts a single die from the post-soak damage of the attack (to a minimum of one die remaining).</p><p>Damage prevented by this Charm remains caught in the weave of the Sidereal's destiny, vibrating like a trapped fly. Whenever the Sidereal is attacked, she may release this thrumming tension as an unblockable and undodgeable counterattack that hits automatically in Step 9. The counterattack has damage equal to the amount of dice initially negated by Shield of Destiny, and bypasses both soak and Hardness.</p><p>A Sidereal may maintain up to (Essence) activations of this Charm. She may release these without making a counterattack if she wishes to, dissipating the tangle of violence throughout the whole of the Loom of Fate.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
