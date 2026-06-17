@@ -17,10 +17,10 @@
     "ability": "athletics",
     "essence": 2,
     "minAbility": 2,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
-    "speed": 5,
-    "dvPenalty": -2,
+    "speed": 6,
+    "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Virtue (Conviction)"
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal folds a strand of his destiny over itself, shortening his overall lifespan by a few days in return for a brief boost of physical power. When the character does so, his player rolls (Essence + Athletics). For every success this roll garners, the player may add one dot to the character's Strength, Dexterity or Stamina for the rest of the scene. (Each point added thus costs three motes of Essence.) These dice count against the maximum number of bonus dice a character can receive from Charms.</p>",
+    "description": "<p>Despite aphorisms to the contrary, the Exalted burn both long and bright, their insatiable heroism overwhelming all the obstacles in their way as they blaze through history towards their end. When performing feats of strength, the Exalt doubles his Strength rating and converts bonus dice from stunts into extra successes (adding double their rating to relevant unrolled pools). This Charm also allows the Sidereal to channel his Conviction on all such rolls, and on Stamina-based rolls to resist environmental hazards and poisons.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
