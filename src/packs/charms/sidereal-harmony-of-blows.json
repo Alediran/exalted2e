@@ -16,7 +16,7 @@
     "exaltType": "sidereal",
     "ability": "melee",
     "essence": 2,
-    "minAbility": 2,
+    "minAbility": 3,
     "charmType": "extraaction",
     "duration": "instant",
     "speed": 6,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Uncertain fates may offer several equally attractive options in parallel. A Seer with this Charm need not choose one option over the others. Instead, he takes every available option. When the character activates this Charm, he can take two extra attack actions using Archery, Martial Arts, Melee or Thrown, ignoring multiple-action penalties and his attacks' listed Rate.</p><p>This Charm may be in Combos with Charms of other combat Abilities. Each attack used in the magical flurry must use the same Ability and weapon, though.</p>",
+    "description": "<p>Uncertain fates may offer several equally attractive options in parallel. A Seer with this Charm need not choose one option over the others. Instead, he takes every available option. When the character activates this Charm, he can take two extra attack actions using Archery, Martial Arts, Melee or Thrown, ignoring multiple-action penalties and his attacks' listed Rate.</p><p>This Charm may be in Combos with Charms of other combat Abilities. Each attack used in the magical flurry must use the same Ability and weapon, though.</p><p>Harmony of Blows allows the Sidereal to take up to (Dexterity) attacks as part of the magical flurry it creates. If the character is only using Melee attacks, the total cost is a flat 5m rather than 2m per attack. No two attacks in the flurry may target the same enemy unless the Sidereal pays a 1wp surcharge when activating the Charm.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -48,7 +48,7 @@
     "prereqGroups": [],
     "extraActions": {
       "enabled": true,
-      "maxFormula": "2",
+      "maxFormula": "@dex",
       "costPerAction": 0
     },
     "charmUid": "4c3917971480040f"

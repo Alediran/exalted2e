@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "melee",
-    "essence": 1,
-    "minAbility": 2,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With a flick of his wrist, the Sidereal uses his weapon to separate the conjoined strands of fate that allow others to attack him. His weapon trails streamers of red stardust that are visible only to creatures that can see dematerialized spirits, and that dust parts the offending strands of fate. When that happens, the character instantaneously reduces the number of successes on an incoming attack to zero, provided that attack has a physical component and is not unblockable. Keep in mind that some Charm-supplemented attacks can hit even with zero successes (such as Accuracy Without Distance, on p. 187 of Exalted). Also, keep in mind that while the character invokes the Charm on Step 2 of combat, the Charm's effects take place in Step 3 and Step 4.</p>",
+    "description": "<p>The Sidereal's manifest will swirls around her as a whirlwind of red stardust, drawing in her own assured triumph while blowing misfortune on her enemies. Impeding the Flow cancels up to (Melee) points of penalties to the Sidereal's Parry DV, and imposes a -3 external penalty on an attack against her. A character who fails their attack roll against a Sidereal using Impeding the Flow suffers a cumulative -1 external penalty on all attacks against her for the rest of the tick.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -47,6 +47,10 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
+    "targetPenalty": {
+      "enabled": true,
+      "penalty": -3
+    },
     "prereqGroups": [],
     "charmUid": "dc4b91bc6c8ea958"
   },
