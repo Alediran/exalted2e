@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A Sidereal can invoke his Maiden's authority to facilitate polite dealings with elementals and gods. Any spirit whose Essence does not surpass the Sidereal's must remain calm, reasonable and peaceful in the Vizier's presence. The spirit must spend two Willpower points to initiate violence against the Seer, and any Charm the spirit uses against the character costs one additional Willpower. (This includes Charms that normally do not cost Willpower at all.) The effect ends automatically if the Sidereal opens hostilities himself.</p>",
+    "description": "<p>A Sidereal can invoke his Maiden's authority to facilitate polite dealings with elementals and gods. Any spirit whose Essence does not surpass the Sidereal's must remain calm, reasonable and peaceful in the Vizier's presence. The spirit must spend two Willpower points to initiate violence against the Seer, and any Charm the spirit uses against the character costs one additional Willpower. (This includes Charms that normally do not cost Willpower at all.) The effect ends automatically if the Sidereal opens hostilities himself.</p><p><em>Scroll of Errata:</em> This Charm applies to all spirits of any type officially employed by Heaven, up to Essence 8, regardless of how the Sidereal's Essence compares to theirs.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -46,11 +46,6 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
-    },
     "charmUid": "5cca10d19f2fbacd"
   },
   "folder": "b0b1b2b3b4b5f00f",

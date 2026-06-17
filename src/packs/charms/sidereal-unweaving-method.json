@@ -19,7 +19,7 @@
     "minAbility": 4,
     "charmType": "simple",
     "duration": "instant",
-    "speed": 6,
+    "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal tugs on the weave of a victim's fate and part of the victim's very pattern unravels. The victim (be it a creature or object) need only be in the Sidereal's line of sight when he activates the Charm. The Charm inflicts a number of dice of aggravated damage equal to the Sidereal's Essence, and the damage cannot be blocked or soaked. Only Charms or other effects that protect a character from Shaping effects can defend against this Charm. Unfortunately, a bit of the Sidereal's own fatepattern unweaves as well.</p>",
+    "description": "<p>Lending a sense of imminent doom to her own destiny, the Sidereal lashes out with the threads of her fate like a whip, ensnaring a target with tragedy and corruption.</p><p><em>Scroll of Errata:</em> This Charm creates a (Dexterity + Occult) attack: Accuracy +0, Damage 4A/2, Rate 1, Range (Essence × 10) yards, Obvious. The attack cannot be blocked or dodged, and it cannot target creatures of death such as Abyssal Exalted, ghosts, or ghost-blooded characters.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
