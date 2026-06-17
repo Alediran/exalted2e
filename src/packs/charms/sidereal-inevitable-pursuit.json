@@ -17,7 +17,7 @@
     "ability": "awareness",
     "essence": 2,
     "minAbility": 5,
-    "charmType": "simple",
+    "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A Sidereal with this Charm can follow his prey through the scrubbed-crystal streets of Chiaroscuro, across the windblown tundra of the North or even across the endless oceans themselves. The Sidereal notes his prey's path not by physical traces but by evidence the character leaves on the Tapestry itself. As the quarry's fate weaves its way across Creation, the fate affects all other fates with which the quarry's fate interacts. The Sidereal can even follow creatures outside fate by using this Charm to follow the disturbances in the Tapestry such creatures leave behind them. If the area is largely uninhabited, the Sidereal can follow a trail of this kind that is no older than (character's Essence) days. If the Sidereal tracks his prey thus through a more populous region, such as a city or a heavily traveled road, the chaos of interweaving destinies becomes harder to read. He can follow trails no older than (character's Essence) hours. In instances when this Charm conflicts with Charms that make a creature harder to track, use the normal Charm versus Charm rules (see Exalted, p. 179), using (Essence + Awareness) for the Sidereal's side of the contest.</p>",
+    "description": "<p>A Sidereal with this Charm can follow his prey through the scrubbed-crystal streets of Chiaroscuro, across the windblown tundra of the North or even across the endless oceans themselves. The Sidereal notes his prey's path not by physical traces but by evidence the character leaves on the Tapestry itself. As the quarry's fate weaves its way across Creation, the fate affects all other fates with which the quarry's fate interacts. The Sidereal can even follow creatures outside fate by using this Charm to follow the disturbances in the Tapestry such creatures leave behind them. If the area is largely uninhabited, the Sidereal can follow a trail of this kind that is no older than (character's Essence) days. If the Sidereal tracks his prey thus through a more populous region, such as a city or a heavily traveled road, the chaos of interweaving destinies becomes harder to read. He can follow trails no older than (character's Essence) hours. In instances when this Charm conflicts with Charms that make a creature harder to track, use the normal Charm versus Charm rules (see Exalted, p. 179), using (Essence + Awareness) for the Sidereal's side of the contest.</p><p>In addition to the listed effects of this Charm, the supernatural tracking of Inevitable Pursuit adds a five-die equipment bonus to the Sidereal's roll and allows her to track by night. The time limits on tracking characters by destiny are relevant only if they have left no physical trail to be tracked by; otherwise, this Charm can be used to follow their spoor regardless of how old it is.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -38,6 +38,9 @@
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
+    "abilityDiceBonus": [
+      { "ability": "awareness", "formula": "5" }
+    ],
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
