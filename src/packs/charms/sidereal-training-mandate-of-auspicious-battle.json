@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 2,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "oneMonth",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>When the Sidereal oversees the training of a mass combat unit, he weaves the soldiers' destinies together. On the field, each soldier's confidence in his training shores up that of his fellow soldiers, making the entire unit stronger for their interwoven resolve. Choose one of the House of Battles Abilities (Archery, Athletics, Melee, Presence, War) per dot of the Sidereal's Essence. While the Charm is active, mass combat rolls involving these Abilities have their target number reduced by 1, and each soldier in the unit counts as two for the purpose of enacting Battle Pattern Charms. The unit's Magnitude, however, cannot exceed the Sidereal's War rating.</p>",
+    "description": "<p>When the Sidereal oversees the training of a mass combat unit, he weaves the soldiers' destinies together. On the field, each soldier's confidence in his training shores up that of his fellow soldiers, making the entire unit stronger for their interwoven resolve. Choose one of the House of Battles Abilities (Archery, Athletics, Melee, Presence, War) per dot of the Sidereal's Essence. While the Charm is active, mass combat rolls involving these Abilities have their target number reduced by 1, and each soldier in the unit counts as two for the purpose of enacting Battle Pattern Charms. The unit's Magnitude, however, cannot exceed the Sidereal's War rating.</p><p>This Charm is a week-long dramatic training session with a specific mass combat unit, its effect lasting for up to one month. Significant changes in the unit's composition, apart from simple attrition, cause the Charm to lapse early.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
