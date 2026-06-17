@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "larceny",
-    "essence": 3,
-    "minAbility": 4,
-    "charmType": "simple",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
     "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,14 +31,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal cloaks herself in Essence infused with tints from outside Creation. This makes her seem like a native of a realm beyond fate: a ghost, a raksha or a demon. The Charm does not let the character impersonate a particular entity, or indeed look radically unlike herself; rather, she looks like herself if she were some sort of human-like demon (such as a neomah), a ghost or one of the Fair Folk. The disguise is good enough to fool a casual view. If the character comes under close, prolonged or Essence-enhanced perceptions, however, her player rolls (Wits + Larceny) against the observer's (Perception + [Awareness, Investigation or Occult]) to find out if the disguise stands. The basic purchase of this Charm enables a Vizier to disguise herself as one sort of creature outside of fate. Each additional class of entities costs an additional two experience points or one bonus point.</p>",
+    "description": "<p>The Sidereal cloaks herself in Essence infused with tints from outside Creation. This makes her seem like a native of a realm beyond fate: a ghost, a raksha or a demon. The Charm does not let the character impersonate a particular entity, or indeed look radically unlike herself; rather, she looks like herself if she were some sort of human-like demon (such as a neomah), a ghost or one of the Fair Folk. The disguise is good enough to fool a casual view. If the character comes under close, prolonged or Essence-enhanced perceptions, however, her player rolls (Wits + Larceny) against the observer's (Perception + [Awareness, Investigation or Occult]) to find out if the disguise stands. The basic purchase of this Charm enables a Vizier to disguise herself as one sort of creature outside of fate. Each additional class of entities costs an additional two experience points or one bonus point.</p><p>The Scroll of Errata revises this Charm: the Sidereal may appear as any roughly human-sized creature from outside fate—ghosts, Fair Folk, demons, and similar beings—without purchasing separate versions for each creature type. Mundane scrutiny automatically fails to pierce the disguise. Enhanced perception and Essence sight face an additional +2 difficulty. When the disguise is contested through a roll-off, the Sidereal adds her Essence in automatic successes to her roll.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One disguise",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -49,21 +49,9 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
             "type": "charm",
-            "charmUid": "a42a6b17d7d9454d",
-            "charmName": "Dream Confiscation Approach",
+            "charmUid": "08734bcd3e453821",
+            "charmName": "Avoiding the Truth Technique",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1
