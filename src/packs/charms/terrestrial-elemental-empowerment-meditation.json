@@ -17,7 +17,7 @@
     "ability": "lore",
     "essence": 3,
     "minAbility": 4,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The blessings of Terrestrial Exaltation allow the Princes of the Earth to draw energy directly from elemental sources, restoring their depleted Essence reserves in times of crisis. The Dragon-Blood can draw Essence directly from his aspected element, regaining a number of motes equal to his Lore Ability for every Willpower point spent. If the Dragon-Blood spends more Willpower points in a day than his Essence, each additional use of Willpower for this Charm will also inflict one level of unsoakable bashing damage. The character must be able to physically touch the element with which he is aligned in order to draw Essence from it. ELEMENTAL SUCCOR METHOD Cost: 5m and 1wp per lhl; 2 motes per hl; Mins: Lore 5, Essence 3; Type: Simple Keywords: Combo-Basic, Elemental Duration: Instant Prerequisite Charms: Elemental Empowerment Meditation While Elemental Empowerment Meditation allows the DragonBlood to replenish her lost Essence, this Charm allows her to restore her own body, using the power of the elements to heal her injuries. The character must immerse herself in her favored element as much as possible (standing in a burning fire, submerging herself in water, etc.) and must spend five motes and one Willpower for every lethal health level healed or two motes per bashing level healed. This Charm cannot be used to heal aggravated damage, nor can it be used to restore lost limbs or heal other such mutilations. An Eclipse or Moonshadow Caste Exalt who learns this Charm can use the Charm with only the element associated with the teacher of the Charm. That is, if an Eclipse learns Elemental Succor Method from a Fire Aspect, he cannot heal himself by immersion in any other element.</p>",
+    "description": "<p>The blessings of the Terrestrial Exaltation allow the Dragon-Blooded to draw upon the might of their progenitors, the Elemental Dragons, evoking their power from the land itself. A Dragon-Blood may activate his anima effect for zero motes while he is in direct contact with some potent expression of his Aspect element—a windstorm, a bonfire, the ocean, and so on. In addition, the Dragon-Blood multiplies the rate at which he naturally recovers motes by his (Essence) while resting or meditating in a landscape that is associated with his Aspect's element.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,25 +40,12 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "90c6fe233c9d2c14",
-            "charmName": "Elemental Concentration Trance",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "89b32e8d6f1f2771"
   },
   "folder": "b0b1b2b3b4b5f024",

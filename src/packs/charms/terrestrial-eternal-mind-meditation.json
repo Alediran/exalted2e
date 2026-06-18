@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Given the vast ages to which most of the Dragon-Blooded will survive, it's not surprising that their minds can become somewhat cluttered. This Charm allows the Exalt to attain perfect recall of any event he has experienced or anything he has ever read or heard. After spending the required Essence and Willpower, the Exalt must spend a moment in quiet contemplation. The Dragon-Blood's player then rolls (Intelligence + Lore), with the difficulty determined by how far back into the character's memories he wishes to delve. One success is sufficient to recall a hurried conversation from a few years back, while five permits the Exalt to recall events even from early childhood with perfect clarity. Some Dragon-Blooded savants even claim to recall memories of time spent in the womb through the use of this Charm. Eternal Mind Meditation does not impair the character in any way. He experiences the events of his past as memories, rather than as an immersive experience that might adversely affect his DV or his awareness of his surroundings.</p>",
+    "description": "<p>Given the vast ages to which most of the Dragon-Blooded will survive, it's not surprising that their minds can become somewhat cluttered. This Charm allows the Exalt to attain perfect recall of any event he has experienced or anything he has ever read or heard. After spending the required Essence and Willpower, the Exalt must spend a moment in quiet contemplation. The Dragon-Blood's player then rolls (Intelligence + Lore), with the difficulty determined by how far back into the character's memories he wishes to delve. One success is sufficient to recall a hurried conversation from a few years back, while five permits the Exalt to recall events even from early childhood with perfect clarity. Some Dragon-Blooded savants even claim to recall memories of time spent in the womb through the use of this Charm. Eternal Mind Meditation does not impair the character in any way. He experiences the events of his past as memories, rather than as an immersive experience that might adversely affect his DV or his awareness of his surroundings.</p><p>The Exalt can contest the effects of any Charm that altered the character's memories using a standard roll-off, though the character must first think to check the altered recollection. He can also focus on memories associated with an Intimacy (which reasserts it) or his Motivation, doubling the MDV bonuses or penalties that trait provides in Social Combat for the scene as long as he is not already focusing on it.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

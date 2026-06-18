@@ -13,11 +13,11 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "dragonblooded",
+    "exaltType": "terrestrial",
     "ability": "lore",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -27,7 +27,7 @@
       "Elemental"
     ],
     "cost": {
-      "formula": "5m and 1wp per lhl",
+      "formula": "5m, 1wp per lhl; 2m per bashing",
       "resonance": 0,
       "limitTrigger": 0
     },
@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "89b32e8d6f1f2771",
+            "charmName": "Elemental Empowerment Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "732e929c7ea20198"
   },
   "folder": "b0b1b2b3b4b5f024",
