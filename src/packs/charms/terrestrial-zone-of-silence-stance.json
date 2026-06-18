@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm improves on the effects of Soundless Action Prana by totally suppressing all sound within (permanent Essence x 2) yards of the Exalt. Each extra mote spent increases the range by one yard, up to the maximum of the Dragon-Blood's permanent Essence. This zone of silence is centered on the character who invokes it, and it moves with him.</p>",
+    "description": "<p>This Charm improves on the effects of Soundless Action Prana by totally suppressing all sound within (permanent Essence x 2) yards of the Exalt. Each extra mote spent increases the range by one yard, up to the maximum of the Dragon-Blood's permanent Essence. This zone of silence is centered on the character who invokes it, and it moves with him.</p><p>See Soundless Action Prana above. Obviously, this Charm suppresses spoken social attacks. If magic is used inside the zone that functions via sound rather than producing sound as an incidental effect, a standard roll-off determines whether it ignores the zone or fails to work (in which case no costs are paid, though an action may be wasted, depending on the magic).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
