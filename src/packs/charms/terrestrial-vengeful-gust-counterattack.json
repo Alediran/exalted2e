@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A refinement of Whirlwind Shield Form, this Charm allows the Exalt to not only deflect incoming attacks, but to reflect them back on the attacker. If the Dragon-Blood is the target of a ranged attack, her player can opt to roll (Dexterity + Thrown) in place of relying on her normal DV. Each success on this roll subtracts from the attacker's successes, and if her successes exceed the attacker's, the projectile reverses course, attacking her opponent with a number of attack dice equal to her net successes. At a cost of four motes, the Dragon-Blood can also use this Charm in defense of an ally within a number of yards equal to her Essence. This is a reflexive Charm that can be used freely without the need for a Combo. It can be used on any tick on which the Dragon-Blood or an ally is the target of an attack.</p>",
+    "description": "<p>A refinement of Whirlwind Shield Form, this Charm allows the Exalt to not only deflect incoming attacks, but to reflect them back on the attacker. If the Dragon-Blood is the target of a ranged attack, her player can opt to roll (Dexterity + Thrown) in place of relying on her normal DV. Each success on this roll subtracts from the attacker's successes, and if her successes exceed the attacker's, the projectile reverses course, attacking her opponent with a number of attack dice equal to her net successes. At a cost of four motes, the Dragon-Blood can also use this Charm in defense of an ally within a number of yards equal to her Essence. This is a reflexive Charm that can be used freely without the need for a Combo. It can be used on any tick on which the Dragon-Blood or an ally is the target of an attack.</p><p>The Charm's rolled parry is applied in lieu of the character's Parry DV. If this generates enough successes to throw the projectile back, only then is a counterattack in Step 9 that applies the appropriate number of successes in place of an attack roll, with a base damage equal to the weapon's base damage in its original trajectory. With Essence 4+, the Charm can protect any vehicle on which the Exalt is a special character.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

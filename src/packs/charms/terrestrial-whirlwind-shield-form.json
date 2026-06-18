@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The flawless skill of the Dragon-Blooded can even allow them to knock arrows and daggers from the air with a well-placed throw. The Exalt using this Charm can deflect ranged attacks aimed at himself or at allies at a cost of three motes plus one mote per each ally protected. While the Charm is in effect, the Dragon-Blood's Essence is automatically subtracted from any ranged attack dice pools rolled against him or his allies, in addition to the normal effects of DV. The Essence spent is committed for the duration of the Charm. This Charm does not require any actual weapons. Instead, the Whirlwind Shield is formed from the air itself, and any allies who are to be protected must be within (the Exalt's Essence) yards in order for the Dragon-Blood to shield them.</p>",
+    "description": "<p>The flawless skill of the Dragon-Blooded can even allow them to knock arrows and daggers from the air with a well-placed throw. The Exalt using this Charm can deflect ranged attacks aimed at himself or at allies at a cost of three motes plus one mote per each ally protected. While the Charm is in effect, the Dragon-Blood's Essence is automatically subtracted from any ranged attack dice pools rolled against him or his allies, in addition to the normal effects of DV. The Essence spent is committed for the duration of the Charm. This Charm does not require any actual weapons. Instead, the Whirlwind Shield is formed from the air itself, and any allies who are to be protected must be within (the Exalt's Essence) yards in order for the Dragon-Blood to shield them.</p><p>Gusts of force apply an external penalty of half the Exalt's Essence rating against all ranged attacks made against him or protected allies within range. The Leader use of this Charm shields dots of Magnitude as though individuals, to a maximum of (Essence −1) dots; all dots must be protected for any benefit to apply.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
