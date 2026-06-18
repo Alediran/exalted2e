@@ -31,16 +31,16 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Fate decrees that attacks cause wounds, but the Loom of Fate records a creature's previous condition. The Sidereal carefully twists the weave of fate to remove a creature's wounds--but they are only held in a side-loop of fate, and inevitably return in a few hours. Each use of this Charm pushes one level of damage (Wits + Medicine) hours into the future, when the target's flesh re-opens and he suffers normal wound penalties. (The Charm also, incidentally, defers poisons and environmental damage.) If the target has suffered additional wounds since then, the consequences may be unfortunate.</p>",
+    "description": "<p>Fate decrees that attacks cause wounds, but the Loom of Fate records a creature's previous condition. The Sidereal carefully twists the weave of fate to remove a creature's wounds--but they are only held in a side-loop of fate, and inevitably return in a few hours. Each use of this Charm pushes one level of damage (Wits + Medicine) hours into the future, when the target's flesh re-opens and he suffers normal wound penalties. (The Charm also, incidentally, defers poisons and environmental damage.) If the target has suffered additional wounds since then, the consequences may be unfortunate.</p><p>An activation of this Charm can suspend up to (Essence) levels of damage or a single Poison effect. It costs one mote per level of bashing damage suspended, or two motes per level of lethal damage. Aggravated damage cannot be deferred. Using this Charm to suspend an ongoing Poison costs a number of motes equal to the remaining Damage of that toxin. The removed harm remains suspended for the duration of this Charm and for five minutes thereafter, after which it reappears.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

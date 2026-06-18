@@ -15,16 +15,17 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "medicine",
-    "essence": 4,
-    "minAbility": 3,
+    "essence": 3,
+    "minAbility": 4,
     "charmType": "simple",
     "duration": "instant",
     "speed": 4,
-    "dvPenalty": -1,
+    "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Combo-OK",
       "Obvious",
-      "Compulsion",
+      "Shaping",
       "Virtue (Valor)"
     ],
     "cost": {
@@ -32,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Exalted did not need to fight ghosts at the start of the Primordial War, because the Underworld did not yet exist. Later, the Maidens saw the need for Charms to affect the restless dead. A bright flash of violet light radiates from the Sidereal to fill an area (character's Essence x 10) yards in radius. He brings a Smooth Transition to all valid targets in that area. Zombies collapse, and ghosts might vanish to the Underworld. The Sidereal's player makes a single (Charisma + Medicine) roll for all targets.</p>",
+    "description": "<p>Creation is wounded by the taint of death, falling into rot and ruin where the nightlands encroach upon its boundaries. Activating this Charm, the Sidereal rolls (Charisma + Medicine). Violet radiance flashes forth from his hands and eyes, dealing a single level of aggravated damage to all creatures of death within (Essence × 10) yards who have an Essence rating lower than the rolled successes. Undead extras are destroyed automatically as described in Smooth Transition.</p><p>In addition, the Sidereal may choose to commit the mote cost of this Charm indefinitely, evoking an aura of violet Essence that radiates out to (Essence × 10) yards. Within this Shaping aura, shadowlands behave as though they were a natural part of Creation.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -50,24 +51,12 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
             "type": "charm",
             "charmUid": "4f6b51e333d8166a",
             "charmName": "Smooth Transition",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -19,7 +19,7 @@
     "minAbility": 2,
     "charmType": "simple",
     "duration": "oneScene",
-    "speed": 6,
+    "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With a touch, the Sidereal can instantly and painlessly kill a living creature that consciously and freely wants to die. No drug, Charm or unnatural mental influence can create such willingness where one doesn't already exist: the death wish must be the target's own. (Admittedly, the Sidereal or his agents can make the target's life such a living hell that death seems preferable.) The higher soul of the deceased is drawn off into the cycle of reincarnation. The Charm's target cannot rise again as a ghost or zombie.</p>",
+    "description": "<p>Calling upon the mercy that the Maiden of Endings shows for those in her somber dominion, the Sidereal may take away the suffering that accompanies death. As she touches a character, she brings an ending to the pain they might feel, negating any wound penalties they would suffer for the duration of this Charm. Characters who die under the effects of Peaceable Conclusion feel no pain as they pass, and their souls pass into Lethe without regret. The corpses of characters who die such a death can never be raised as undead.</p><p>Peaceable Conclusion has the opposite effect when used on a creature of death, suffusing them with the stillness of the grave. Such characters suffer a −3 internal penalty on all non-reflexive actions as a Crippling effect for the duration of this Charm.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
