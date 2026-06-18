@@ -16,22 +16,22 @@
     "exaltType": "terrestrial",
     "ability": "resistance",
     "essence": 1,
-    "minAbility": 1,
-    "charmType": "reflexive",
-    "duration": "instant",
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Combo-OK",
-      "Elemental"
+      "Touch"
     ],
     "cost": {
       "formula": "2m per person",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood draws on elemental earth essence to harden her body against blows, shrugging off impacts that would stagger a mortal. Activated in Step 7 of the attack sequence, this Charm adds the character's Stamina to her natural soak against a single attack. Earth Aspects may choose instead to add one to their Hardness against the triggering attack. This Charm's soak bonus does not stack with other Charms that add directly to soak dice.</p>",
+    "description": "<p>Like the element they emulate, the Children of Pasiap are pillars of strength and endurance. The Dragon-Blood must meditate for a moment while holding and contemplating some piece of earth as small as a pebble. Thereafter, he can add one dot each to his Strength and Stamina for the remainder of the scene. He can also grant one dot in Strength and Stamina to a number of additional people equal to his Essence, at a cost of two additional motes per person. To do so, all persons affected must hold hands with a pebble clasped in each pair of hands. An individual can benefit from this Charm only once per scene.</p><p>Dots conferred by this Charm count against Charm bonus dice limits.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -59,12 +59,7 @@
         ]
       }
     ],
-    "charmUid": "a393f478550058c8",
-    "soakBonus": {
-      "enabled": true,
-      "bashingFormula": "@sta",
-      "lethalFormula": "@sta"
-    }
+    "charmUid": "a393f478550058c8"
   },
   "folder": "b0b1b2b3b4b5f02b",
   "sort": 0,

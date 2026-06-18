@@ -17,23 +17,22 @@
     "ability": "resistance",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "simple",
-    "duration": "scene",
+    "charmType": "reflexive",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Combo-OK",
       "Elemental",
-      "Obvious",
-      "Stackable"
+      "Obvious"
     ],
     "cost": {
       "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This is actually a cluster of five separate Charms. When this Charm is in effect, the Dragon-Blood's skin changes color to match that of whatever form of jade is associated with the element invoked. The character gets a bonus to his lethal and bashing soak equal to his Essence against elemental damage and attacks and an equal bonus to his (Stamina + Resistance) pool when resisting damaging environmental effects, provided that the character has purchased and activated the appropriate Charm for that element. Air improves the Exalt's soak versus both Archery and Thrown attacks, attacks by any blue jade weapons and Air-based elemental attacks. Also, the Dragon-Blood's Essence is added to his (Stamina + Resistance) pool when resisting extremes of cold. Earth grants a soak bonus against Melee and Martial Arts attacks using metal weapons or any attacks with white jade weapons, as well as Earth-based elemental attacks. This soak bonus also applies to indirect damage from stone and dirt such as rockslides or simply falling to the ground from a great height, and the Exalt adds his Essence to his (Stamina + Resistance) pool to resist asphyxiation if he is buried alive. Fire improves the Exalt's soak versus firewands and other fire-based attacks, as well as red jade weapons. The Dragon-Blood adds his Essence to his (Stamina + Resistance) pool when resisting extremes of heat. Water improves the Exalt's soak versus Water-based elemental attacks and any black jade weapons, as well as all attacks directed against him when he is fully immersed in water. If the Dragon-Blood cannot breathe underwater, this Charm will allow him to add his Essence to any (Stamina + Resistance) roll to hold his breath. Finally, Wood grants a soak bonus against Melee and Martial Arts attacks that use wooden weapons, any attacks using green jade weapons, \"natural\" attacks such as fists, kicks and teeth, and Wood-based elemental attacks. The Dragon-Blood can also add his Essence to his (Stamina + Resistance) when exposed to any poison or disease that might affect him. The soak bonus granted by this Charm does not apply to attacks enhanced by Charms or sorcery of Celestial level or higher, but it is applicable to elementally aspected Charms such as Elemental Bolt Attack. Also, the soak benefits do not apply against artifact weapons made from magical materials other than whatever form of jade is associated with the element used in the Charm deployed. Normally, the Essence cost is three motes, but when an Exalt is using the version associated with the element of his own Aspect, the cost is only two motes. Stacking multiple versions of this Charm will not increase the soak bonus or the (Stamina + Resistance) bonus, but it will make certain the bonus applies to multiple hazards. This Charm does stack with Impervious Skin of Stone Meditation and is compatible with armor. Unlike many elemental Charms, a Dragon-Blood can purchase more than one version of this Charm, and he is not required to purchase the version for the element to which he is aligned first. Indeed, most Dragon-Blooded do not, since they already gain some of these benefits through their elemental animas. Regardless of the specific elemental version learned, each Charm is always considered to be an Earth-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies.</p>",
+    "description": "<p>Elemental Essence surges across the Dragon-Blood's skin, hardening his flesh into living jade. (Element) Protection Form is actually a cluster of Charms, one per element. A Dragon-Blood must learn the version appropriate to his aspect before learning others. Activating any version of this Charm adds (Essence + Resistance + Breeding) to the Dragon-Blood's bashing and lethal soak against a single attack. Against attacks and environmental hazards that resonate with the chosen element, it also subtracts one die from their post-soak damage, to a minimum of one die.</p><p>Air: Air Protection Form protects against ranged attacks, or any attack or hazard that uses wind, cold, or electricity. Earth: Earth Protection Form protects against attacks made with metal or stone weapons (including jade, but not any of the other magical materials), or any attack or hazard that uses stone or dirt, such as a landslide. Fire: Fire Protection Form protects against attacks and hazards that use fire or extremes of heat, such as an inferno or firewand. Water: Water Protection Form protects against any attack made against the Dragon-Blood while he is submerged in water, or against any attack or hazard that uses water. Wood: Wood Protection Form protects against any attack made with a wooden weapon or natural attack, or against any attack or hazard that uses plant or animal life, such as a magically conjured swarm of bees.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -64,8 +63,8 @@
     "charmUid": "24c0aff61d3e5ea3",
     "soakBonus": {
       "enabled": true,
-      "bashingFormula": "@ess",
-      "lethalFormula": "@ess"
+      "bashingFormula": "@ess + @resistance",
+      "lethalFormula": "@ess + @resistance"
     }
   },
   "folder": "b0b1b2b3b4b5f02b",
