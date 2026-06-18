@@ -17,10 +17,10 @@
     "ability": "martialarts",
     "essence": 4,
     "minAbility": 5,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
-    "dvPenalty": -2,
+    "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Prayer Strip"
@@ -37,7 +37,7 @@
       "limitTrigger": 0,
       "formula": "--(+10m, 1lhl)"
     },
-    "description": "<p>When a Sidereal uses this Charm, she gains strength of purpose whenever her successful attacks bring her opponent closer to his inevitable ending. Whenever a successful Martial Arts attack inflicts damage on an opponent, the Sidereal regains a point of spent Willpower. Using this Charm also helps speed a target to his life's conclusion by tripling his wound penalties as they relate to the Sidereal using the Charm. (That is, while the victim's wound penalties would be normal in an attack against a different person, attacks made against the Sidereal using this Charm suffer the tripled penalty.) Using a prayer strip is not necessary with this Charm, since it represents the culmination of a Celestial martial art, but a Sidereal who knows this Charm can augment it with a prayer strip (hence the use of the keyword). The character uses a strip on which is written the Scripture of the Expectant Maiden, infusing the strip with Essence when he activates the Charm and affixing the prayer strip to his weapon. The strip glows burgundy and conforms to the shape of the surface to which the strip is attached. While the prayer strip survives, successful attacks made with that weapon (or with the character's fist if he wraps the strip around it) subtract one Willpower point from the target. Also, the weapon cannot be destroyed. If the target exists outside fate or has been reduced to zero Willpower points, using a prayer strip thus with this Charm subtracts 10 motes of Essence on a successful attack instead. If the target does not have 10 motes of Essence to lose, all of the attacker's unsoaked damage dice are inflicted as levels of damage instead. Note: The prayer strip aspect of this Charm can only be used by Sidereals, or by Eclipse of Moonshadow Castes who learn Conclusion-Pursuing Approach as a Sidereal Charm rather than as a supernatural martial arts Charm. This is part of the Sidereal Exaltation, not the training in Martial Arts and Essence control that underlies the other Charms of the style.</p>",
+    "description": "<p>At the pinnacle of the Violet Bier of Sorrows, the martial artist learns to draw strength from the pain of others. As her enemies falter before her blows, her resolve only increases. This Charm upgrades Violet Bier of Sorrows Form. As the character invokes it, she may pay a surcharge of ten motes and one point of Willpower to add the following effects to the form:</p><p>The martial artist's unarmed attacks deal aggravated damage to creatures outside of fate and consume their motes as though they were spirits. Wound penalties are tripled by the unnatural mental influence of Violet Bier of Sorrows Form instead of just doubled; the cost to resist rises to five Willpower.</p><p>A Sidereal may affix a prayer strip marked with the Scripture of the Expectant Maiden to her weapon with her own blood as she invokes this Charm, causing the blade to glow with a radiant burgundy light. Doing so grants additional benefits as a Prayer Strip effect: Whenever the Sidereal damages a character with an unarmed attack, they lose a point of Willpower. Characters without remaining Willpower instead lose ten motes, and can be shaped dead as per Life-Severing Blow if they have no motes remaining.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -46,7 +46,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 5,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

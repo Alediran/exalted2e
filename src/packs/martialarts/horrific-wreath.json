@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "supplemental",
-    "duration": "oneScene",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -37,7 +37,7 @@
       "motesLabel": "",
       "resonance": 0,
       "limitTrigger": 0,
-      "formula": "4m"
+      "formula": "2m, 1wp"
     },
     "description": "<p>Violet energy surrounds the character's hands, feet or weapon for a moment. Creatures of darkness (see Exalted, p. 192) suffer aggravated damage from Martial Arts attacks supplemented by this Charm.</p>",
     "source": "MoEP: Sidereals",
@@ -48,7 +48,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

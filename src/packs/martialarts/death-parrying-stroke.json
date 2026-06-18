@@ -15,14 +15,14 @@
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 2,
+    "essence": 3,
     "minAbility": 4,
     "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
-      8
+      7
     ],
     "keywords": [
       "Combo-OK",
@@ -40,7 +40,7 @@
       "limitTrigger": 0,
       "formula": "4m"
     },
-    "description": "<p>The weave of the character's fate becomes less rigid in combat, allowing the strands to spread out and absorb what would normally be a lethal stroke. This uncertainty of fate will not save a character's life from a mortal wound but does give her an extra instant in which to turn aside an attack that penetrated her defenses. If the Sidereal's Defense Value fails to save her from an opponent's attack and that attack's damage roll scores successes in Step 8 of attack resolution, the Sidereal may reflexively activate this Charm. When she does so, she reduces the damage the attack inflicts on her by one health level per two motes of Essence spent. Witnesses to this effect don't see wounds open and heal before their eyes. Instead, they see the attack come incredibly close to dealing the Sidereal a serious wound before the Sidereal's weapon knocks the attack safely aside, trailing a swath of purple Essence behind the weapon.</p>",
+    "description": "<p>The Sidereal's blade becomes a blur of violet Essence, catching fatal blows a split-second before they can touch her. These defensive maneuvers subtract the martial artist's Parry DV from the raw damage of an attack, and reduces its minimum damage by one die (minimum one). Death-Parrying Stroke offers no defense against unblockable or unexpected attacks.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -49,7 +49,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

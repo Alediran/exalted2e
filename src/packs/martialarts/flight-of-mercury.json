@@ -15,15 +15,13 @@
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 1,
-    "minAbility": 2,
-    "charmType": "reflexive",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      1
-    ],
+    "steps": [],
     "keywords": [
       "Combo-OK"
     ],
@@ -39,7 +37,7 @@
       "limitTrigger": 0,
       "formula": "2m"
     },
-    "description": "<p>The Vizier gives her attack the speed of the Maiden of Journeys. This Charm reduces the Speed of Martial Arts attacks by 1, to a minimum of 3. Each mote spent confers this benefit for one action, but the character cannot spend more motes than her Martial Arts rating.</p>",
+    "description": "<p>Moving with the swift precision of one who knows her destiny, the Sidereal strikes without hesitation or remorse. An unarmed attack supplemented by this Charm reduces its Speed by one point. The martial artist can also move up to (Essence) yards before making the attack if needed to close range with her opponent.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -48,7 +46,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

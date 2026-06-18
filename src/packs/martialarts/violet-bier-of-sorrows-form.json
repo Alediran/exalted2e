@@ -15,7 +15,7 @@
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 2,
+    "essence": 3,
     "minAbility": 4,
     "charmType": "simple",
     "duration": "oneScene",
@@ -40,7 +40,7 @@
       "limitTrigger": 0,
       "formula": "6m"
     },
-    "description": "<p>With grim detachment, the character takes a stance emulating that of Saturn herself when she makes her Sign over someone whose time has passed. While he uses this Charm, the character's minimum damage becomes equal to his Martial Arts score if that number exceeds his Essence or a value provided by his weapon. While the Sidereal uses this Form, successful Martial Arts attacks that inflict damage also strip away a target's</p><p>Virtue dots. The Sidereal's player chooses which Virtue to affect, and the target loses one dot of that Virtue as he suffers damage (to a minimum of 1 in the affected Virtue's rating). Against Exalted targets, this effect cannot reduce a Virtue low enough to invalidate the Great Curse. Stripped-away Virtue dots return at a rate of one point per day.</p>",
+    "description": "<p>The martial artist takes on the same cold detachment with which Saturn makes her Sign against those things whose time has passed. She is reckoning and destruction, a peerless bringer of endings, and all the princes and kingdoms of the world tremble before her. While Violet Bier of Sorrows Form is active, the martial artist gains the following benefits:</p><p>All enemies see their own end in her, doubling any wound penalties they take on actions to oppose her in combat. Resisting this unnatural Emotion for one scene costs two Willpower.</p><p>Any unarmed attack she makes against a spirit consumes one of the spirit's motes for every level of damage dealt.</p><p>The character's unarmed martial arts attacks gain an Overwhelming value of (the lower of her Essence or Martial Arts rating).</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -49,7 +49,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 2,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
