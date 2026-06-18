@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Diplomacy is not the only purpose to which words can be directed, and the Children of Mela often make excellent cryptographers as well. With this Charm, an Exalt can hide sensitive material from prying eyes within a supernaturally complex code. The Dragon-Blood must fashion the document herself, and it can be no longer than a number of pages equal to her Essence. The player rolls (Intelligence + Linguistics), with the successes determining the number of successes needed for someone else to decipher the document. Additionally, each deciphering roll requires an (Intelligence + Linguistics) roll with a base difficulty equal to the permanent Essence of the character who fashioned the Cipher Missive (Each deciphering roll also represents a number of days equal to the Charm-user's permanent Essence.) The character who uses this Charm may identify a number of individuals equal to twice his Essence who can read the document without difficulty. Alternatively, he can identify a single class of individuals, which must be limited and specific, who can freely read the document. For example, such classes might include \"only magistrates\" or \"only members of House Iselsi.\"</p>",
+    "description": "<p>Diplomacy is not the only purpose to which words can be directed, and the Children of Mela often make excellent cryptographers as well. With this Charm, an Exalt can hide sensitive material from prying eyes within a supernaturally complex code. The Dragon-Blood must fashion the document herself, and it can be no longer than a number of pages equal to her Essence. The player rolls (Intelligence + Linguistics), with the successes determining the number of successes needed for someone else to decipher the document. Additionally, each deciphering roll requires an (Intelligence + Linguistics) roll with a base difficulty equal to the permanent Essence of the character who fashioned the Cipher Missive (Each deciphering roll also represents a number of days equal to the Charm-user's permanent Essence.) The character who uses this Charm may identify a number of individuals equal to twice his Essence who can read the document without difficulty. Alternatively, he can identify a single class of individuals, which must be limited and specific, who can freely read the document. For example, such classes might include \"only magistrates\" or \"only members of House Iselsi.\"</p><p>Deciphering a document created with this Charm is an extended action with a difficulty of (Exalt's Essence rating), cumulative difficulty equal to the successes the Dragon-Blood rolled and a roll interval of (Exalt's Essence rating) days.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

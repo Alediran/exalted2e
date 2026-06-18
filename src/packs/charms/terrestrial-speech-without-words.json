@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With this Charm, a Terrestrial Exalt and a number of her allies can communicate complex information silently through the use of hand gestures and signals. The Exalt can enable silent communication between only herself and a maximum number of allies equal to her (Wits + Linguistics). Although the communication is silent, all participants must be able to see each other, and it is obvious to any onlookers that the participants are communicating with each other. Therefore, this Charm is of limited utility in a social setting, as opposed to a combat or stealth situation. Also, at the Storyteller's discretion, extremely complex or abstract ideas might require a (Wits + Linguistics) roll on the part of both the person sending the message and all who wish to comprehend it. \"You take the guy on the left, and I'll take the two on the right\"</p><p>should not require a roll, but the recitation of lyric poetry through hand gestures probably would.</p>",
+    "description": "<p>With this Charm, a Terrestrial Exalt and a number of her allies can communicate complex information silently through the use of hand gestures and signals. The Exalt can enable silent communication between only herself and a maximum number of allies equal to her (Wits + Linguistics). Although the communication is silent, all participants must be able to see each other, and it is obvious to any onlookers that the participants are communicating with each other. Therefore, this Charm is of limited utility in a social setting, as opposed to a combat or stealth situation. Also, at the Storyteller's discretion, extremely complex or abstract ideas might require a (Wits + Linguistics) roll on the part of both the person sending the message and all who wish to comprehend it. \"You take the guy on the left, and I'll take the two on the right\" should not require a roll, but the recitation of lyric poetry through hand gestures probably would.</p><p>The Exalt must be able to see all participants at the time of activation and can't change them without reactivation. The roll to transmit or understand complex messages is reflexive and mandatory, with a difficulty of 1-5 set by the Storyteller. Social attacks may be conveyed through gestures, but may also require a transmission roll for complex statements and automatically fail to affect targets who do not make a required understanding roll. A second purchase at Linguistics 5+ removes the need for transmission/understanding rolls and allows participants to gesture subtly enough that onlookers fail to recognize them as communication without a (Perception + Awareness) roll at a difficulty of the Exalt's Essence.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
