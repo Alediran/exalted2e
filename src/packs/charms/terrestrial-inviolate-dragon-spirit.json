@@ -17,7 +17,7 @@
     "ability": "integrity",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood using this Charm can instantly overcome the effects of any natural or unnatural compulsion. Most commonly used to instantly break the hold of narcotic or similar addictions without going through a lengthy withdrawal, the Charm can also act as a perfect parry against any social attack, including those that incorporate unnatural mental influence. This Charm, however, has no effect against unnatural mental influence Charms used by beings whose Essence is higher than the Dragon-Blood's. The Willpower point spent on this Charm does not count toward the two-point maximum on Willpower points that must be spent within a scene in resisting natural mental influence. CHAOS-WARDING PRANA Cost: 5m, 1wp; Mins: Integrity 3, Essence 3; Type: Simple Keywords: None Duration: One scene</p><p>Prerequisite Charms: Inviolate Dragon Spirit Since the Usurpation, the Fair Folk and the other creatures of the Wyld have been the most persistent adversaries of the DragonBlooded. As the avatars of stability, it has fallen to the Earth Aspects to develop the means to counter the corrosive effects of Wyld energies. For the remainder of the scene after invoking this Charm, the Dragon-Blood can ignore Shaping effects, such as the mutational effects of the Wyld or the glamour sorcery of the Fair Folk. Both the Dragon-Blood's person and gear are protected and cannot be changed by such Wyld effects. The Charm does not protect against any Shaping effects brought to bear by Celestial Exalted, however, including Sidereal astrology. This effect can be extended to any number of other people by touching them and paying the full cost of the Charm for each of them.</p>",
+    "description": "<p>The Dragon-Blood using this Charm can instantly overcome the effects of any natural or unnatural compulsion. Most commonly used to instantly break the hold of narcotic or similar addictions without going through a lengthy withdrawal, the Charm can also act as a perfect parry against any social attack, including those that incorporate unnatural mental influence. This Charm, however, has no effect against unnatural mental influence Charms used by beings whose Essence is higher than the Dragon-Blood's. The Willpower point spent on this Charm does not count toward the two-point maximum on Willpower points that must be spent within a scene in resisting natural mental influence.</p><p>This Charm empowers a curt retort to parry any mental influence, even unblockable attacks. It also rids the Exalt of all Compulsion effects currently affecting her, including all addiction. The Leader use can only parry attempts to sway the unit (such as Performance-based social attacks) and doesn't rid unit members of Compulsions.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -48,10 +48,10 @@
       {
         "alternatives": [
           {
-            "type": "charm",
-            "charmUid": "63c308702144227d",
-            "charmName": "Ten-Thousand Dragons Fight as One",
-            "abilityKey": "",
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "integrity",
             "virtueKey": "valor",
             "virtueMin": 1
           }

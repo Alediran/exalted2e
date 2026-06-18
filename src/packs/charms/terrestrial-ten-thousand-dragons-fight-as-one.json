@@ -16,7 +16,7 @@
     "exaltType": "terrestrial",
     "ability": "integrity",
     "essence": 2,
-    "minAbility": 3,
+    "minAbility": 2,
     "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>For the duration of a scene, a Dragon-Blood can instantly dedicate herself to a new Intimacy--loyalty to another DragonBlood in her immediate vicinity. By doing so, the Dragon-Blood treats the loyalty as an additional Intimacy, with all the benefits and drawbacks thereof, even if this temporarily exceeds the maximum number of Intimacies the character can normally have. There need be no particular form of connection between the DragonBlood and her new Intimacy--indeed, she might not even know his name--but the fact that he is a fellow Terrestrial is a source of comfort and strength to her. A Dragon-Blood may forge a number of new Intimacies equal to her Conviction during a given scene. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any regular tick or on any long tick during social combat.</p>",
+    "description": "<p>For the duration of a scene, a Dragon-Blood can instantly dedicate herself to a new Intimacy--loyalty to another DragonBlood in her immediate vicinity. By doing so, the Dragon-Blood treats the loyalty as an additional Intimacy, with all the benefits and drawbacks thereof, even if this temporarily exceeds the maximum number of Intimacies the character can normally have. There need be no particular form of connection between the DragonBlood and her new Intimacy--indeed, she might not even know his name--but the fact that he is a fellow Terrestrial is a source of comfort and strength to her. A Dragon-Blood may forge a number of new Intimacies equal to her Conviction during a given scene. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any regular tick or on any long tick during social combat.</p><p>Use of this Charm instantly creates an Intimacy toward another Exalt that may have any emotional context the user wishes, positive or negative. It may also reassert an Intimacy to a Terrestrial or change the context of an existing intimacy. Intimacies created by this Charm are normal Intimacies apart from the speed at which they form and fall away if the character has too many.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,25 +40,12 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "81d501c1a0fc90ff",
-            "charmName": "Oath of the Ten-Thousand Dragons",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "63c308702144227d"
   },
   "folder": "b0b1b2b3b4b5f020",
