@@ -17,20 +17,18 @@
     "ability": "craft",
     "essence": 4,
     "minAbility": 5,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [
-      "Combo-Basic"
-    ],
+    "keywords": [],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm functions in a manner similar to the Charm of Lesser Unmaking, but its effects are more dramatic. Instead of simply disassembling an item into its component parts, items affected are reduced into their original raw materials. A heavy wooden door bound in steel bands will be reduced to a pile of uncut logs and hunks of raw iron. Fine jewelry is reduced to uncut gems and unprocessed gold ore. Fine pottery melts into clay. The Exalt's player must roll (Craft + Essence). The difficulty is 1 for most items, 3 for exceptionally crafted or constructed things and 5 for artifacts, including anything forged from the magical materials. The Exalt cannot, however, disassemble an artifact with a rating above that of her Essence. The Exalt must remain in contact with the item for a number of actions equal to the difficulty, and the maximum size of material that can be affected is a number of cubic yards equal to the Exalt's Essence.</p>",
+    "description": "<p>This Charm functions in a manner similar to the Charm of Lesser Unmaking, but its effects are more dramatic. Instead of simply disassembling an item into its component parts, items affected are reduced into their original raw materials. A heavy wooden door bound in steel bands will be reduced to a pile of uncut logs and hunks of raw iron. Fine jewelry is reduced to uncut gems and unprocessed gold ore. Fine pottery melts into clay. The Exalt's player must roll (Craft + Essence). The difficulty is 1 for most items, 3 for exceptionally crafted or constructed things and 5 for artifacts, including anything forged from the magical materials. The Exalt cannot, however, disassemble an artifact with a rating above that of her Essence. The Exalt must remain in contact with the item for a number of actions equal to the difficulty, and the maximum size of material that can be affected is a number of cubic yards equal to the Exalt's Essence.</p><p>Errata: This Charm does not function at all as written. Instead, it upgrades Charm of Lesser Unmaking by allowing it to be placed in a Combo with Charms of other Abilities, adding the option to tear something into original raw materials and letting a single activation destroy any non-magical object.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +37,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

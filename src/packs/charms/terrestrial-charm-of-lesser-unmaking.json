@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Charm of Lesser Unmaking permits the Dragon-Blood to reduce any crafted item to its component parts, all arranged neatly in a pile as if ready for initial construction. Used on a heavy wooden door bound in steel bands, the result would be a stack of precut timbers, some hammered steel bands and a small pile of rivets and nails. Ropes bound in the tightest of knots are rearranged into neat coils, and a sword blade is separated from its hilt, guard and pommel. However, items that consist of a single component, such as a cup, are unaffected. Enchanted items are neutralized while their component parts are separated, but the enchantments themselves remain intact, and if the item is reassembled, the magic is restored.</p><p>The player of the character using this Charm must roll (Craft + Essence). The difficulty is 1 for simple items (crude stone hatchets, huts lashed together with vines), 3 for sturdily or competently made items (a well-made sword, chain links, a banded door) or 5 for intricate or masterfully created items (finely crafted jewelry, clockwork mechanisms, artifacts). If the object is enchanted or has an Artifact rating of 1, the difficulty increases by one, meaning that most enchanted items are difficulty 6 to disassemble. Artifacts with a rating of 2 increase the difficulty by two, and this Charm cannot be used to unmake an artifact with a rating of 3 or higher, nor can it be used against any artifacts made entirely of the magical materials, such as most weapons or armor. The maximum volume that can be affected with this Charm is equal to the Exalt's Essence in cubic yards. Using this Charm requires the Exalt to handle or remain in contact with the item for a number of actions equal to the difficulty of the roll. This Charm cannot be used as part of a combat maneuver.</p>",
+    "description": "<p>The Charm of Lesser Unmaking permits the Dragon-Blood to reduce any crafted item to its component parts, all arranged neatly in a pile as if ready for initial construction. Used on a heavy wooden door bound in steel bands, the result would be a stack of precut timbers, some hammered steel bands and a small pile of rivets and nails. Ropes bound in the tightest of knots are rearranged into neat coils, and a sword blade is separated from its hilt, guard and pommel. However, items that consist of a single component, such as a cup, are unaffected. Enchanted items are neutralized while their component parts are separated, but the enchantments themselves remain intact, and if the item is reassembled, the magic is restored.</p><p>The activation roll uses the character's highest Craft Ability. This Charm must be successively activated a number of times equal to the difficulty to disassemble the target, but all activations after the first cost 0m. This Charm can only disassemble inanimate artifacts that are inherently fragile, such as those made with the Art of Enchantment.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
