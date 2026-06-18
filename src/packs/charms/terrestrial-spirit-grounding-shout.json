@@ -27,11 +27,11 @@
       "Shaping"
     ],
     "cost": {
-      "formula": "5 motes",
+      "formula": "5m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Since the Usurpation, the Dragon-Blooded have accepted the role of defender of humanity against exploitation by spirits and ghosts run amok. This Charm has greatly aided the Dragon-Blooded in that role. When the character utters the Spirit-Grounding Shout, a reflexive opposed Essence roll is made for both her and the target spirit. If the Exalt wins, the spirit is forced to materialize and remain corporeal for a minimum of the character's permanent Essence in minutes. The Essence cost of the spirit's materialization is first paid for from the spirits' reserves. If the spirit does not have the Essence to materialize, then the balance is paid from the character's Essence pool. If the Dragon-Blooded and the target spirit do not have sufficient Essence between them to pay for the materialization cost, the Charm automatically fails, and the five motes spent by the character is lost. (Any motes that would have been spent by the spirit or the Dragon-Blood to pay for materialization remain unspent, though.) The Charm likewise fails if the Dragon-Blood's player fails to get more successes on the opposed Essence roll than the target spirit does, and the Charm never affects spirit whose permanent Essence is higher than the Dragon-Blood's.</p>",
+    "description": "<p>Since the Usurpation, the Dragon-Blooded have accepted the role of defender of humanity against exploitation by spirits and ghosts run amok. This Charm has greatly aided the Dragon-Blooded in that role. When the character utters the Spirit-Grounding Shout, a reflexive opposed Essence roll is made for both her and the target spirit. If the Exalt wins, the spirit is forced to materialize and remain corporeal for a minimum of the character's permanent Essence in minutes. The Essence cost of the spirit's materialization is first paid for from the spirits' reserves. If the spirit does not have the Essence to materialize, then the balance is paid from the character's Essence pool. If the Dragon-Blooded and the target spirit do not have sufficient Essence between them to pay for the materialization cost, the Charm automatically fails, and the five motes spent by the character is lost. (Any motes that would have been spent by the spirit or the Dragon-Blood to pay for materialization remain unspent, though.) The Charm likewise fails if the Dragon-Blood's player fails to get more successes on the opposed Essence roll than the target spirit does, and the Charm never affects spirit whose permanent Essence is higher than the Dragon-Blood's.</p><p>A spirit forced to materialize must still possess the Materialize Charm to do so, but accomplishes forced materialization reflexively. If the spirit lacks sufficient motes to accomplish this, the Terrestrial knows how many motes are still required and may pay them. If he does not, the spirit also spends no motes and the Charm does nothing.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

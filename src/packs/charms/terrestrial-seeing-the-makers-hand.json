@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm is especially favored by the savants and engineers of Lookshy, who must often contend with relics of the First Age</p><p>discovered in the barrens of the Scavenger Lands. When confronted by an unidentified artifact, the character must handle the item in question as if he were attempting to attune it before spending the required Essence. The Exalt's player then rolls (Perception + Occult) for the character, with a difficulty rating equal to the item's Artifact rating. (Some artifacts are specially designed to conceal their functions, and analyzing such items carry a higher difficulty.) Success on this roll immediately gives the character a rough idea of the item's power level, as indicated by its Artifact rating, with additional successes giving greater insights into the item's capabilities. Large, powerful or exceptionally complex artifacts might require multiple uses of this Charm in order to fully understand their workings. This Charm is ineffective on artifacts that are already attuned to other people.</p>",
+    "description": "<p>This Charm is especially favored by the savants and engineers of Lookshy, who must often contend with relics of the First Age discovered in the barrens of the Scavenger Lands. When confronted by an unidentified artifact, the character must handle the item in question as if he were attempting to attune it before spending the required Essence. The Exalt's player then rolls (Perception + Occult) for the character, with a difficulty rating equal to the item's Artifact rating. (Some artifacts are specially designed to conceal their functions, and analyzing such items carry a higher difficulty.) Success on this roll immediately gives the character a rough idea of the item's power level, as indicated by its Artifact rating, with additional successes giving greater insights into the item's capabilities. Large, powerful or exceptionally complex artifacts might require multiple uses of this Charm in order to fully understand their workings. This Charm is ineffective on artifacts that are already attuned to other people.</p><p>This Charm never discerns the functions of artifacts rated N/A. Artifacts created through exotic crafting disciplines, such as Magitech or Genesis, require the Exalt to possess at least one dot in the relevant Craft specialty to analyze them. Particularly large, powerful, or complex artifacts may require two or more activations to fully understand up to warstrider scale; artifacts larger than a warstrider require three or more activations, with one additional activation required for artifacts that are not straightforwardly constructed. An Exalt with Occult 5 may use this Charm to analyze artifacts that are already attuned to others.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +37,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
