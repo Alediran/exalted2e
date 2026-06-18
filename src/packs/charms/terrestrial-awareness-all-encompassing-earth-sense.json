@@ -22,13 +22,15 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Leader"
+    ],
     "cost": {
       "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Earth whispers to its children and warns them of the footsteps of those who approach with hostile intent. While the Charm is in effect, the Dragon-Blood cannot be surprised by any means. The Charm draws upon the intimate connection between the Earth Aspect and the ground beneath his feet, making them as one. Consequently, in order to use this Charm, the Exalt's feet must rest on the ground. \"The ground\" includes earth, grass or the lowest floor of a building, but if the Dragon-Blood is at sea, up in a tree, on an upper level of a building or simply resting with his feet propped up on a table, the Charm confers no benefits. The Dragon-Blood may extend this benefit to companions at a cost of two extra motes per person, affecting a maximum number of people equal to his Essence. FEELING THE DRAGON'S BONES Cost: 2m; Mins: Awareness 3, Essence 2; Type: Simple Keywords: Combo-OK Duration: Instant</p><p>Prerequisite Charms: All-Encompassing Earth Sense With this Charm, the whispers of the Earth grow louder and more informative. As long as she is touching the ground (or in a building doing so), the Dragon-Blood can sense anything else resting on the ground in a radius of (Awareness x 25) feet. The Exalt's player must roll (Intelligence + Awareness), with the character gaining more information with more successes.</p>",
+    "description": "<p>The Earth whispers to its children and warns them of the footsteps of those who approach with hostile intent. While the Charm is in effect, the Dragon-Blood cannot be surprised by any means. The Charm draws upon the intimate connection between the Earth Aspect and the ground beneath his feet, making them as one. Consequently, in order to use this Charm, the Exalt's feet must rest on the ground. \"The ground\" includes earth, grass or the lowest floor of a building, but if the Dragon-Blood is at sea, up in a tree, on an upper level of a building or simply resting with his feet propped up on a table, the Charm confers no benefits. The Dragon-Blood may extend this benefit to companions at a cost of two extra motes per person, affecting a maximum number of people equal to his Essence.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

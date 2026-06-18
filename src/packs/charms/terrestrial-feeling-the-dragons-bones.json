@@ -15,23 +15,22 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "awareness",
-    "essence": 1,
+    "essence": 2,
     "minAbility": 3,
     "charmType": "simple",
-    "duration": "one scene",
+    "duration": "instant",
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Elemental"
+      "Combo-OK"
     ],
     "cost": {
       "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood extends her earth-sense through the ground beneath her feet, feeling the pulse of elemental earth essence running through Creation's bedrock. This Charm allows the character to sense seismic activity, underground voids and tunnels, buried structures, and the presence of other beings in contact with the ground within a radius of (Perception + Awareness) x 5 yards. Earth Aspects who use this Charm can also detect ley lines and demesnes within this range. The information comes as an intuitive sense rather than precise vision.</p>",
+    "description": "<p>With this Charm, the whispers of the Earth grow louder and more informative. As long as she is touching the ground (or in a building doing so), the Dragon-Blood can sense anything else resting on the ground in a radius of (Awareness x 25) feet. The Exalt's player must roll (Intelligence + Awareness), with the character gaining more information with more successes.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

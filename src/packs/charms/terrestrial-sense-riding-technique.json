@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Using this Charm, a Dragon-Blood can ride the senses of another being. The subject must be within the Exalt's line-of-sight when the Charm is activated. Thereafter, the Exalt can see, hear, touch, smell and even taste whatever the subject experiences, provided that the subject remains within a number of miles equal to the Exalt's Essence. When the Charm is activated, the Terrestrial's player and that of the subject make opposed (Awareness + Essence) rolls. The Exalt's player must get at least one net success to enact the link. If the two tie, there is no effect. If the Exalt loses and the intended subject is also an Exalt, the subject's player gets a reflexive Awareness roll at difficulty 3 for the subject to know that someone was attempting to ride his senses. Mortal characters have no chance of knowing what the Exalt attempted. The Terrestrial must maintain concentration for the duration of the Charm, and even riding on a slow-moving horse or sitting in a sedan chair can cause her to miss important details. Any actions more complicated than that are completely impossible. Furthermore, the Exalt is at a -3 penalty to remain aware of events happening around her own person. The Dragon-Blood cannot use any Charms or spells \"through\" the person she is riding, nor can she understand any languages she doesn't know even if the subject does know them. The Exalt can, however, gain the benefits of any supernatural improvements the subject makes to his own Awareness. SENSE-DESTROYING METHOD Cost: 4 motes, 1wp; Mins: Awareness 4, Essence 3; Type: Supplemental Keywords: Combo-OK, Crippling</p><p>Duration: One action per point of permanent Essence Prerequisite Charms: Sense-Riding Technique Having mastered the capability of riding another's senses, the Earth Aspect can now close off those senses, denying his subject their use. The target must be within direct line of sight. The DragonBlood's player rolls (Awareness + Essence), with a difficulty equal to the target's Perception. Each net success subtracts one die from the target's Awareness rolls pertaining to a single sense, and if the net successes exceed the target's Perception, the sense affected is totally shut down for the duration of this Charm. The Charm must be applied separately for each of the five senses. The Charm lasts for one action for every dot of permanent Essence the Dragon-Blood has. While this Charm is most commonly used to disable an enemy by taking away their sight, neutralizing a target's sense of touch also allows him to ignore wound penalties (one level of wound penalties per success or all wound penalties if the successes exceed the target's Perception). Thus, Dragon-Blooded officers sometimes neutralize their subordinates' capacity to feel pain before sending them into battle. An Exalt cannot use this Charm on himself.</p>",
+    "description": "<p>Using this Charm, a Dragon-Blood can ride the senses of another being. The subject must be within the Exalt's line-of-sight when the Charm is activated. Thereafter, the Exalt can see, hear, touch, smell and even taste whatever the subject experiences, provided that the subject remains within a number of miles equal to the Exalt's Essence. When the Charm is activated, the Terrestrial's player and that of the subject make opposed (Awareness + Essence) rolls. The Exalt's player must get at least one net success to enact the link. If the two tie, there is no effect. If the Exalt loses and the intended subject is also an Exalt, the subject's player gets a reflexive Awareness roll at difficulty 3 for the subject to know that someone was attempting to ride his senses. Mortal characters have no chance of knowing what the Exalt attempted. The Terrestrial must maintain concentration for the duration of the Charm, and even riding on a slow-moving horse or sitting in a sedan chair can cause her to miss important details. Any actions more complicated than that are completely impossible. Furthermore, the Exalt is at a -3 penalty to remain aware of events happening around her own person. The Dragon-Blood cannot use any Charms or spells \"through\" the person she is riding, nor can she understand any languages she doesn't know even if the subject does know them. The Exalt can, however, gain the benefits of any supernatural improvements the subject makes to his own Awareness.</p><p>The dice pool to notice an attempt to ride senses is (Wits + Awareness). Tagging someone is an unblockable, undodgeable Shaping attack. Wards against scrying block this Charm.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -59,10 +59,6 @@
         ]
       }
     ],
-    "woundReduction": {
-      "enabled": true,
-      "formula": ""
-    },
     "charmUid": "9221a90409c30c59"
   },
   "folder": "b0b1b2b3b4b5f01c",
