@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Cunning Dragon-Blooded often use this Charm to draw their enemies into traps or simply to lure them away from overmatched allies. The target of this Charm becomes fixated on engaging the Dragon-Blood in hand-to-hand combat. The Exalt's player must roll (Manipulation + Presence), comparing successes to the target's Dodge MDV. Parry MDV is not applicable to this Charm. The Dragon-Blood must be within 10 yards of the target, who must have a lower Essence than the Exalt. Once the Charm is activated, the target can take no action other than to approach the Exalt at her normal Speed and attack him if she is able to do so. The target cannot be compelled to approach through obviously suicidal means (attempting to run through flowing lava to get at the Exalt, for example), but she is willing to cross dangerous hazards such as fires or raging rivers to reach the object of her ire.</p>",
+    "description": "<p>Cunning Dragon-Blooded often use this Charm to draw their enemies into traps or simply to lure them away from overmatched allies. The target of this Charm becomes fixated on engaging the Dragon-Blood in hand-to-hand combat. The Exalt's player must roll (Manipulation + Presence), comparing successes to the target's Dodge MDV. Parry MDV is not applicable to this Charm. The Dragon-Blood must be within 10 yards of the target, who must have a lower Essence than the Exalt. Once the Charm is activated, the target can take no action other than to approach the Exalt at her normal Speed and attack him if she is able to do so. The target cannot be compelled to approach through obviously suicidal means (attempting to run through flowing lava to get at the Exalt, for example), but she is willing to cross dangerous hazards such as fires or raging rivers to reach the object of her ire.</p><p>Resisting each use of this unnatural influence costs 2wp, and this may be done at any point to terminate its effect. Complementary units are valid targets of this Charm. Supporting special characters cannot be compelled to leave their unit, but if affected, take no action of their own for the duration. With (Presence 5+, Essence 3+), the compulsion lasts one scene and range increases to (Essence × 100) yards. Essence 5+ removes the Essence rating limit on valid targets.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
