@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As anyone can see, it is in the nature of flames to rise. With this Charm, a Dragon-Blood propels himself away from the ground with a burst of fiery energy. The Dragon-Blood instantly rises from a prone position or adds two dots to his Athletics rating for the purposes of calculating jumping distance. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick.</p>",
+    "description": "<p>As anyone can see, it is in the nature of flames to rise. With this Charm, a Dragon-Blood propels himself away from the ground with a burst of fiery energy. The Dragon-Blood instantly rises from a prone position or adds two dots to his Athletics rating for the purposes of calculating jumping distance. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick.</p><p>Using the Charm as a Leader effect also adds the Action-Only keyword.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

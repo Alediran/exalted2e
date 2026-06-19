@@ -15,10 +15,10 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "athletics",
-    "essence": 1,
-    "minAbility": 2,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Fire Aspects breathe in essence like a bellows feeds flame, propelling themselves forward with explosive bursts of speed. This Charm may be activated reflexively when the character moves. She adds (Essence) yards to her movement for the action and may move through difficult terrain without penalty for this single movement. Fire Aspects and other elemental-aspected characters who activate this Charm while sprinting may add their Essence in yards to any jump distance they achieve this action.</p>",
+    "description": "<p>For a scene, the Dragon-Blood can double his movement rate on all Move and Dash actions. While the Charm is in use, the Dragon-Blood leaves a trail of fiery footprints behind him, which have the potential to start fires if he runs through dry brush. This Charm does not affect the Speed of any of the Exalt's actions, just his movement rate. If the Exalt has an Athletics rating of 4, an Essence of 3 and the Terrestrial Athletics Reinforcement Charm, he can extend the effects of this Charm to others at a cost of two motes per person. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated only on a tick when the Dragon-Blooded initiates an action, though. It cannot be used on the ticks between actions.</p><p>Fires created by the Charm are treated as a one-time bonfire with only 1L damage that fills a trail one yard across, tracing the path of the Exalt's tread since his last action.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
