@@ -1,0 +1,73 @@
+{
+  "_id": "c3a4b5d6e7f8a9b0",
+  "_key": "!items!c3a4b5d6e7f8a9b0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tempest From Blue Skies Ambush",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "stealth",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      3
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Dragon-Blood who is currently engaged in a performance or other convincing activity can initiate a surprise attack on a target while disguising it as simply another part of what she is doing. The player of the target can attempt a reflexive (Wits + Awareness) roll to anticipate the sneak attack, but the difficulty is equal to the Exalt's Essence. If that roll is unsuccessful, the target's DV is reduced to zero for the Dragon-Blood's surprise attack. Any target will realize that he has been attacked after he has taken any damage, but if an attack misses, the target might not even notice that it took place unless at least one success is rolled for him on a (Wits + Awareness) roll. Also, if the damage to a target is sufficient to kill the target with a single blow, bystanders might not even notice that an attack took place until the victim's body is discovered. This Charm cannot be used after combat has begun.</p><p>(Errata) This Charm is identical to Blossom Hides Thorns (Performance), except it uses the Stealth Ability instead of Performance. Use of this Charm enhances the (Dexterity + Stealth) roll needed to launch a surprise attack from plain sight, removing the usual +2 difficulty and instead adding a number of bonus successes equal to the Exalt's Essence rating. A single activation also adds a like number of successes to the Terrestrial's Join Battle roll. If the opening attack misses, the Charm exerts an unnatural Illusion forcing all witnesses to ignore that an attack was made (and thus not Join Battle), though anyone can pay 2wp to ignore all instances of this Illusion for a scene.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9da8ad2d83707ae8",
+            "charmName": "Wind-Walking Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "c3a4b5d6e7f8a9b0"
+  },
+  "folder": "b0b1b2b3b4b5f02f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

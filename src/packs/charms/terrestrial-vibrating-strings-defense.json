@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Dragon-Blooded musicians rarely tolerate their performances being interrupted by anything so gauche as an attack by armed men. This potent Charm allows a Dragon-Blood to parry any attack with the music he creates through his instrument. Those foolish enough to attack the musician find their mightiest melee and ranged attacks turned aside by a particularly loud thrum of a sanxian's strings or a single mighty strike of a drum or gong. For the duration of the scene, the Dragon-Blood can replace his normal parry Ability with his Performance for purposes of calculating Parry DV. Any dots the Dragon-Blood has in an applicable Performance specialty also applies to calculating Parry DV. Finally, any Performance Excellencies the Dragon-Blood has can be used to further improve Parry DV for the duration of the scene, exactly as if they were Melee or Martial Arts Excellencies. In addition to a minimum of Performance 4, the Dragon-Blood must also have a specialty in some kind of musical instrument or else activate the Talented Improvisation Charm prior to beginning her performance. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p>",
+    "description": "<p>Dragon-Blooded musicians rarely tolerate their performances being interrupted by anything so gauche as an attack by armed men. This potent Charm allows a Dragon-Blood to parry any attack with the music he creates through his instrument. Those foolish enough to attack the musician find their mightiest melee and ranged attacks turned aside by a particularly loud thrum of a sanxian's strings or a single mighty strike of a drum or gong. For the duration of the scene, the Dragon-Blood can replace his normal parry Ability with his Performance for purposes of calculating Parry DV. Any dots the Dragon-Blood has in an applicable Performance specialty also applies to calculating Parry DV. Finally, any Performance Excellencies the Dragon-Blood has can be used to further improve Parry DV for the duration of the scene, exactly as if they were Melee or Martial Arts Excellencies. In addition to a minimum of Performance 4, the Dragon-Blood must also have a specialty in some kind of musical instrument or else activate the Talented Improvisation Charm prior to beginning her performance.</p><p>(Errata) Music is not the only medium for this Charm's power. Any mode of artistic expression that falls under Performance may serve as a focus for a parry. Eloquent prayers turn aside blows, while a dancer's gyrations drum staccato rhythms on enemy weapons mid-swing. No specialty is required to use this Charm, though applicable specialties improve its effectiveness.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -43,7 +43,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -56,8 +56,8 @@
             "charmUid": "4e3bf2072fd68d7a",
             "charmName": "Invisible Street Performer Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

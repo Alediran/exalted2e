@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Most Dragon-Blooded favor stringed instruments, and virtually all Dynasts are taught to play the sanxian as children. Essentially a three-stringed banjo, the sanxian normally requires either false fingernails or some sort of pick to play, and even the best musicians can develop pain in their fingers through extensive playing. With this Charm, the Dragon-Blood can play as long as she wishes without pain, exhaustion or even hunger as long as she can continue to pay the daily Essence requirement. Furthermore, she no longer requires any equipment to pluck the strings of her instrument, as her fingernails lengthen and harden into suitable picks. Finally, as an added bonus, the Dragon-Blooded can further improve the strength and sharpness of her fingernails to aid in hand-to-hand attacks. By reflexively spending one mote while the Charm is active, the Dragon-Blooded can cause a single attack made with her bare hands to inflict lethal damage.</p>",
+    "description": "<p>Most Dragon-Blooded favor stringed instruments, and virtually all Dynasts are taught to play the sanxian as children. Essentially a three-stringed banjo, the sanxian normally requires either false fingernails or some sort of pick to play, and even the best musicians can develop pain in their fingers through extensive playing. With this Charm, the Dragon-Blood can play as long as she wishes without pain, exhaustion or even hunger as long as she can continue to pay the daily Essence requirement. Furthermore, she no longer requires any equipment to pluck the strings of her instrument, as her fingernails lengthen and harden into suitable picks. Finally, as an added bonus, the Dragon-Blooded can further improve the strength and sharpness of her fingernails to aid in hand-to-hand attacks. By reflexively spending one mote while the Charm is active, the Dragon-Blooded can cause a single attack made with her bare hands to inflict lethal damage.</p><p>(Errata) While this Charm is active, the character accumulates no fatigue from any Performance actions and ignores all internal penalties for such rolls except multiple action penalties. She can dance for a day while grievously wounded or spend a night in the embrace of her lover without breaking a sweat. The sharp beauty of well-manicured nails fittingly accompanies all art forms and therefore always applies; paying a mote to make an unarmed attack lethal does not count as a Charm activation. Time spent performing while using this Charm also counts as sleep for all purposes if the performance is at the direct request or command of a Celestial Exalt.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,8 +52,8 @@
             "charmUid": "4e3bf2072fd68d7a",
             "charmName": "Invisible Street Performer Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

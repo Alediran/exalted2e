@@ -32,16 +32,16 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm was apparently created to allow Dragon-Blooded performers to interfere with their fellows who were attempting to improperly manipulate audience members with Soul-Stirring Performance Method. The effect of the Charm combined with the artistry of the Dragon-Blood's performance enacts a potent defensive magic on the entire audience. For the duration of the performance, the difficulty to affect any member of the audience with mind-controlling Charms increases by an amount equal to the Exalt's Essence. Additionally, after the performance ends, the difficulty to use unnatural mental influence to turn any audience member against the Dragon-Blood who used the Charm increases by two. This secondary effect lasts for a number of hours equal to the Exalt's permanent Essence.</p>",
+    "description": "<p>This Charm was apparently created to allow Dragon-Blooded performers to interfere with their fellows who were attempting to improperly manipulate audience members with Soul-Stirring Performance Method. The effect of the Charm combined with the artistry of the Dragon-Blood's performance enacts a potent defensive magic on the entire audience. For the duration of the performance, the difficulty to affect any member of the audience with mind-controlling Charms increases by an amount equal to the Exalt's Essence. Additionally, after the performance ends, the difficulty to use unnatural mental influence to turn any audience member against the Dragon-Blood who used the Charm increases by two. This secondary effect lasts for a number of hours equal to the Exalt's permanent Essence.</p><p>(Errata) This Charm provides a Dodge MDV bonus equal to the Exalt's Essence rating against all unnatural mental influence from anyone other than the Terrestrial, followed by a +2 Dodge MDV bonus against unnatural influence specifically attempting to turn audience members against the Dragon-Blood who performed. Characters may pay 1wp to become immune to all use of this Charm for a day, as it is a specialized unnatural Compulsion unto itself. The Leader use of this Charm turns the act of command into an artistic performance, protecting the unit itself and all members as individuals (except the leader).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until performance ends, plus Essence in hours",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -54,8 +54,8 @@
             "charmUid": "6e517a451f3d56a2",
             "charmName": "Soul-Stirring Performance Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
