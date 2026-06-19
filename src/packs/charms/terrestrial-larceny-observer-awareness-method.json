@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Officially, this Charm's sole utility is to uncover spies and aid in preventing eavesdropping. Even the mere suggestion that this Charm is often used by Dragon-Blooded thieves, spies and assassins is a blasphemy to some Immaculate monks. With just one success on a (Perception + Larceny) check, the Dragon-Blood instantly knows if he is being watched. Additional successes will pinpoint the specific location of observers.</p><p>This is a reflexive Charm that can be used freely without the need for a Combo. It can be used on any tick.</p>",
+    "description": "<p>Officially, this Charm's sole utility is to uncover spies and aid in preventing eavesdropping. Even the mere suggestion that this Charm is often used by Dragon-Blooded thieves, spies and assassins is a blasphemy to some Immaculate monks. With just one success on a (Perception + Larceny) check, the Dragon-Blood instantly knows if he is being watched. Additional successes will pinpoint the specific location of observers.</p><p>This is a reflexive Charm that can be used freely without the need for a Combo. It can be used on any tick.</p><p>The (total number of successes x 10) determines the radius in yards in which the Charm pinpoints the location of observers, but it can't pinpoint observers who are supernaturally concealed (just note their presence).</p><p>The Charm has to be consciously activated by the Dragon-Blood.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

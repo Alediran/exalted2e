@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This simple Charm allows a Dragon-Blood observing some kind of game or competition to instantly know if someone is cheating and how the cheating is being accomplished. The Dragon-Blood can observe only one game or competition at a time, but the Charm can be used on any such event, from footraces to duels to any type of dice or card game.</p>",
+    "description": "<p>This simple Charm allows a Dragon-Blood observing some kind of game or competition to instantly know if someone is cheating and how the cheating is being accomplished. The Dragon-Blood can observe only one game or competition at a time, but the Charm can be used on any such event, from footraces to duels to any type of dice or card game.</p><p>If observed cheating attempt is accomplished or hidden via Charms, standard roll-off determines whether Waters of Honesty Method functions (with a +5 success bonus given to the opposing magic).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
