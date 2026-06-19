@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Even a person who survives brutal injuries can still suffer and die from the deadly infections that accompany such injuries unless he is protected by the blessings of the Elemental Dragons. The Dragon-Blood can instantly cure any existing infection with a touch and the expenditure of a single mote of Essence. Furthermore, wounded persons treated with this Charm will not become infected in the future as a result of any wounds they had when the Charm was used. This Charm does not heal the wounds that initially led to the infection, nor does it protect the patient from infections springing from future wounds.</p>",
+    "description": "<p>Even a person who survives brutal injuries can still suffer and die from the deadly infections that accompany such injuries unless he is protected by the blessings of the Elemental Dragons. The Dragon-Blood can instantly cure any existing infection with a touch and the expenditure of a single mote of Essence. Furthermore, wounded persons treated with this Charm will not become infected in the future as a result of any wounds they had when the Charm was used. This Charm does not heal the wounds that initially led to the infection, nor does it protect the patient from infections springing from future wounds.</p><p>(Errata) At Essence 4+, this Charm can treat magically-sourced infections, provided the Dragon-Blood's Medicine rating and permanent Essence both exceed the Essence of the creature or being that caused the infection.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

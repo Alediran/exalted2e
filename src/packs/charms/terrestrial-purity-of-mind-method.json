@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With a simple kiss to the patient's forehead, the Dragon-Blood can exert mastery over the illness that plagues the patient's mind. This Charm can instantly remove any normally acquired derangement from the patient. The Dragon-Blood must first have used Madness-Analyzing Stare to isolate the root cause of the patient's mental problems, and the Charm must be used multiple times if the patient has multiple maladies. In addition to normal derangements, the Charm will instantly end the effects of any Charms exerting unnatural mental influence over the patient except for Servitude effects. The Dragon-Blood must spend 10 motes instead of five in order to defeat a mental influence Charm used by a Celestial Exalt. This Charm can counteract mental influences caused by sorcery, but only if the spell's effect was instant. Ongoing effects can only be countered by Emerald Countermagic or similar spells. This Charm has no power in the face of the Great Curse.</p>",
+    "description": "<p>With a simple kiss to the patient's forehead, the Dragon-Blood can exert mastery over the illness that plagues the patient's mind. This Charm can instantly remove any normally acquired derangement from the patient. The Dragon-Blood must first have used Madness-Analyzing Stare to isolate the root cause of the patient's mental problems, and the Charm must be used multiple times if the patient has multiple maladies. In addition to normal derangements, the Charm will instantly end the effects of any Charms exerting unnatural mental influence over the patient except for Servitude effects. The Dragon-Blood must spend 10 motes instead of five in order to defeat a mental influence Charm used by a Celestial Exalt. This Charm can counteract mental influences caused by sorcery, but only if the spell's effect was instant. Ongoing effects can only be countered by Emerald Countermagic or similar spells. This Charm has no power in the face of the Great Curse.</p><p>(Errata) This Charm cannot overcome the influence of Adamant or Obsidian Circle sorcery. Countering mental influence from Sapphire or Onyx Circle spells costs 10 motes instead of five. If the mental illness being cured is a derangement mutation that the patient originally paid experience points to acquire, the patient must repay that experience cost as a Training effect before the cure takes hold.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,8 +53,8 @@
             "charmUid": "97ec2aadaa8383ce",
             "charmName": "Wound-Closing Touch",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -65,8 +65,8 @@
             "charmUid": "58a3dc9eff479bb2",
             "charmName": "Madness-Analyzing Stare",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

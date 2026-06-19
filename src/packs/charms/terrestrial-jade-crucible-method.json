@@ -15,11 +15,11 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "medicine",
-    "essence": 3,
-    "minAbility": 4,
-    "charmType": "simple",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
     "duration": "instant",
-    "speed": 5,
+    "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood uses jade as a focus for channeling elemental essence into the body of a patient, purifying toxins and accelerating natural healing. The healer must possess a piece of jade worth at least one Resources dot. The player rolls (Intelligence + Medicine) and for each success, one level of bashing damage is converted to no damage, or one level of lethal damage is converted to bashing. Additionally, the character may neutralize any poison or disease in the patient's body with a Medicine roll against a difficulty equal to the affliction's potency. Jade used in this way does not lose its properties.</p>",
+    "description": "<p>This Charm defends against Sickness. When the Dragon-Blood or a patient is exposed to a disease or suffers its effects, she may roll (Intelligence + Medicine + Breeding) against a difficulty equal to the Sickness's Virulence. On a success, the illness is purged or prevented entirely. Sicknesses that do not have a listed Virulence rating cannot be negated with this Charm.</p><p>(Errata) A second purchase of this Charm allows it to be used against Poison as well, substituting the Poison's Toxicity for the Virulence difficulty.</p><p>(Errata) The Solar and Abyssal equivalent of this Charm is called Purifying Blood Ascendancy, which uses (Stamina + Resistance + Breeding) in place of (Intelligence + Medicine + Breeding).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -51,20 +51,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "d63aa4f11e5af4ad",
-            "charmName": "Grievous Wound Alteration Energy",
-            "abilityKey": "",
-            "virtueKey": "",
-            "virtueMin": 0
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "f3b75a693c34abfb",
-            "charmName": "Purity Of Mind Method",
+            "charmUid": "9324112c88a5d4d6",
+            "charmName": "Infection-Banishing Prana",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
