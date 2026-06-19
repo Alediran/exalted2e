@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Being one with the ocean also attunes the Dragon-Blood to what lies beneath it. For the duration of a scene, the Dragon-Blood intuitively knows of any submerged hazards within five miles of her current location (assuming she is at sea, of course), effectively adding three dice to any Sail rolls that involve navigating through such hazards. The Charm does not automatically protect the ship from harm. A bad roll by the player might still cause the ship to be ripped asunder. Also, the Charm only gives an awareness of submerged static hazards. It gives no insight into the actions of the band of pirates preparing an ambush, the oncoming Resplendent Dolphin Undersea Courier full of Anathema or the hungry aquatic behemoth approaching from the depths. This Charm is a reflexive one that can be used freely without the need for a Combo. If used during combat, it can only be activated on a tick upon which the Dragon-Blood acts but not on any of the intervening ticks that come between them. In mass combat, it can be used on any long tick.</p>",
+    "description": "<p>Being one with the ocean also attunes the Dragon-Blood to what lies beneath it. For the duration of a scene, the Dragon-Blood intuitively knows of any submerged hazards within five miles of her current location (assuming she is at sea, of course), effectively adding three dice to any Sail rolls that involve navigating through such hazards. The Charm does not automatically protect the ship from harm. A bad roll by the player might still cause the ship to be ripped asunder. Also, the Charm only gives an awareness of submerged static hazards. It gives no insight into the actions of the band of pirates preparing an ambush, the oncoming Resplendent Dolphin Undersea Courier full of Anathema or the hungry aquatic behemoth approaching from the depths. This Charm is a reflexive one that can be used freely without the need for a Combo. If used during combat, it can only be activated on a tick upon which the Dragon-Blood acts but not on any of the intervening ticks that come between them. In mass combat, it can be used on any long tick.</p><p>With Essence 3+, this Charm adapts itself to map the terrain hazards appropriate to a Sail vehicle the Exalt is aboard (so a skyship crewmember could sense turbulence and topographical features that rise high enough to pose a crash risk, etc.).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,8 +52,8 @@
             "charmUid": "bab6a8766b520d8b",
             "charmName": "Hurricane-Predicting Glance",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

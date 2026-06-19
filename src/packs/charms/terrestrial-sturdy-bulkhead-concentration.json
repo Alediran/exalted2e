@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>While Fine Passage Negotiating Style can warn an attentive Dragon-Blood of approaching hazards capable of tearing the ship asunder, such hazards are not always avoidable. At such times, Dragon-Blooded at sea are grateful for this Charm, which can augment the integrity of a ship's hull without reducing the ship's speed. When a character uses this Charm on a ship, its hull gains three additional health levels and two additional soak. The Charm lasts for a scene or until the Dragon-Blood leaves the vessel.</p>",
+    "description": "<p>While Fine Passage Negotiating Style can warn an attentive Dragon-Blood of approaching hazards capable of tearing the ship asunder, such hazards are not always avoidable. At such times, Dragon-Blooded at sea are grateful for this Charm, which can augment the integrity of a ship's hull without reducing the ship's speed. When a character uses this Charm on a ship, its hull gains three additional health levels and two additional soak. The Charm lasts for a scene or until the Dragon-Blood leaves the vessel.</p><p>This Charm adds Undamaged health levels. When these levels are gained or vanish with the Charm's deactivation, reapply the vehicle's current damage to its new health track. The soak bonus adds directly to bashing and lethal armor. Use of this Charm by separate Dragon-Blooded to enhance the same vehicle is permissible, but a character cannot use the Charm if the total number of extant activations exceeds his Sail rating. Any Sail vehicle is a valid target of this Charm.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,8 +52,8 @@
             "charmUid": "efbdfccf845e41e2",
             "charmName": "Fine Passage Negotiating Style",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -28,16 +28,16 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As per Harmonious Wind-Luring Song on page 134. The Dragon-Blood must be at sea to use this Charm.</p>",
+    "description": "<p>As per Harmonious Wind-Luring Song on page 134. The Dragon-Blood must be at sea to use this Charm.</p><p>This Charm functions on or above any body of water at least a mile across, but deactivates if the Exalt goes ashore. With Essence 3+, it works in any terrain.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+
+    "durationFormula": "One hour",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -50,8 +50,8 @@
             "charmUid": "bab6a8766b520d8b",
             "charmName": "Hurricane-Predicting Glance",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
