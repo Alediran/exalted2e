@@ -17,8 +17,8 @@
     "ability": "survival",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "reflexive",
-    "duration": "instant",
+    "charmType": "permanent",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Wood-aspected Dragon-Bloods are known for both their innate skill as physicians and for their natural communion with nature. This Charm represents the intersection of these two skill sets, as the Dragon-Blood's knowledge of plant life and herbal remedies can now be combined with his skill as a healer. The Dragon-Blood can improve his Medicine dice pools by two dice per mote spent, although he cannot spend more dice than his Survival Ability rating (plus any applicable specialty). This Charm can stack with the First Medicine Excellency and is an exception to the normal limits on adding dice. Therefore, if both Charms are activated, the Dragon-Blood's Medicine dice pool can be increased by a total of ([his Medicine + specialty] + [his Survival + specialty]). In order to use this Charm, the Dragon-Blood must have access to plants and herbs capable of fulfilling his medicinal needs.</p><p>MARTIAL ARTS</p><p>Studying the martial arts means many things to many people. For some, it is a flowering of understanding, an expansion of one's perceptions to include the more esoteric and practically philosophical aspects of Creation. For others, it is a religious practice, a method for passing beyond one's body and communing with the various gods or ideals. Yet others consider the power of martial arts a testament to the strength of humanity, evidence that every one of them has an inner strength. And some simply enjoy kicking ass. Whatever their intents, many Dragon-Blooded choose to pursue the supernatural martial arts. Schools for various styles exist in all of the five directions, attracting mortals who wish to practice the style and Dragon-Blooded with the desire to learn the style at an enlightened level (i.e., with Charms). The schools of each direction tend to focus on a style elementally aspected with the direction, but there are always exceptions. Southern schools teach a preponderance of Water- and Wood-emulating martial arts, because of the value ascribed to each of those elements in the hot South. Northern schools often practice Fire or Wood styles, as if to call those boons to themselves. Independent schools are rarest on the Blessed Isle. With the fame of the Glorious Dragon</p><p>Styles concentrated there, few want to settle for studying lesser techniques. Those schools that do exist usually teach Five-Dragon Style, and Dynasts learn their other styles in person or through the military. Ancient texts classify supernatural martial arts according to a number of manners. The \"low styles,\" \"direct techniques,\" \"foundations\" and \"revelatory practices\" were all terms once used to refer to Terrestrial styles, the weaker supernatural martial arts. Today, only the latter two remain in use (and use of the former two was weeded out by the Realm long ago). Some references to the \"root of the perfected lotus\" still remain in the literature. Other texts once mentioned the \"high styles,\" \"primordial masteries\" and \"spiritually excellent practices.\" They referred to the Celestial styles, more powerful and varied in effect than the Terrestrial styles. All these manuals and treatises have been destroyed by the Scarlet Empire over the last millennium or, at the very least, concealed in the most secret libraries and suppressed. The only references to the styles that continue to exist mention the \"bulb of the perfected lotus.\" Biased experts interpret these as the perfected styles bestowed upon the Immaculate Order by the Exemplars of the Elemental Dragons--the Fivefold Dragon Paths.</p><p>TERRESTRIAL STYLES Created for use of the weaker Terrestrial Exalted by their more powerful Celestial companions, the Terrestrial supernatural martial arts should not be discounted. While their techniques are more basic that those of the Celestial styles, a master can still use them to great effect. Water Aspects have an affinity with the Martial Arts Ability, and it is they who are best able to manipulate their Essence in a manner that properly utilizes a style's techniques. As a general rule, Terrestrial Martial Arts Charms are Water-aspected, and any Dragon-Blooded of another aspect who wishes to use them must pay a one-mote elemental surcharge for any action in which they invoke such Charms. It is common, however, for Terrestrial martial arts styles to emulate one of the five elements. In this case, the Charms of that style incur no elemental surcharge on Dragon-Blooded of that aspect or aspected to Water. If this is the case, the style will note it. Dragon-Blooded who wish to do so may learn how to properly focus their Essence into the various elemental patterns, if only for the purpose of supernatural martial arts.</p><p>FIVE-DRAGON STYLE There is only one Terrestrial-level martial art officially endorsed and taught by the Immaculate Order: Five-Dragon Style. Created by the same Immaculate masters who developed the Five Glorious Dragon Styles, Five-Dragon Style represents all the elemental aspects. It carries with it some of the power of each of the Elemental Dragons, though it dilutes the strength and religious import of each. One of the most favored styles among non-Immaculate Dynasts and on the Blessed Isle in general, monks and other Dragon-Blooded who walk the Fivefold Dragon Paths consider Five-Dragon Style something of a lesser cousin. Practitioners of Five-Dragon Style consider the straight sword and the spear, and their artifact equivalents (the daiklave and the dire lance), to be form weapons for their style. They can use these weapons to supplement their Martial Arts attacks in lieu of more traditional martial arts weapons. Five-Dragon Style Charms treat attacks and defenses with these weapons as unarmed, and the style is compatible with armor.</p><p>(ELEMENTAL)</p><p>STYLE</p><p>FORMULATION Cost: --; Mins: Martial Arts 3, Essence 2; Type: Permanent Keywords: Obvious Prerequisite Charms: Mastery of one Terrestrial style Once a Dragon-Blood has completely mastered a Terrestrial style, she may shape her Essence skillfully enough to mimic the elemental nature of that style's elemental aspect. When using Terrestrial martial arts Charms with that affinity, she pays no elemental surcharge. Water-aspected Dragon-Blooded retain the unique ability to pay no surcharge on any Terrestrial styles. Using this Charm to emulate water Essence does not eliminate the need to pay surcharge on any styles, though--only on Terrestrial styles that are specifically Water-aspected (such as Terrestrial Hero Style). Note that this technique for overcoming elemental boundaries is inferior to that of studying the Glorious Dragon Styles, which can provide one with a far more complete mastery of one such element.</p>",
+    "description": "<p>Wood-aspected Dragon-Bloods are known for both their innate skill as physicians and for their natural communion with nature. This Charm represents the intersection of these two skill sets, as the Dragon-Blood's knowledge of plant life and herbal remedies can now be combined with his skill as a healer. The Dragon-Blood can improve his Medicine dice pools by two dice per mote spent, although he cannot spend more dice than his Survival Ability rating (plus any applicable specialty). This Charm can stack with the First Medicine Excellency and is an exception to the normal limits on adding dice. Therefore, if both Charms are activated, the Dragon-Blood's Medicine dice pool can be increased by a total of ([his Medicine + specialty] + [his Survival + specialty]). In order to use this Charm, the Dragon-Blood must have access to plants and herbs capable of fulfilling his medicinal needs.</p><p>(Errata) A Terrestrial with this Charm can use Survival Excellencies to benefit Medicine actions as though they were Medicine Excellencies, provided she has access to medicinal plants. Enough plants for a single treatment can be foraged as per a day's worth of food or purchased at a Resource cost equal to the difficulty to forage in the local terrain. She may apply any combination of relevant Medicine and/or Survival specialties to the action, but remains capped at a +3 bonus.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,18 +52,6 @@
             "charmUid": "",
             "charmName": "",
             "abilityKey": "survival",
-            "virtueKey": "",
-            "virtueMin": 0
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "anyCharmOfAbility",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "medicine",
             "virtueKey": "",
             "virtueMin": 0
           }

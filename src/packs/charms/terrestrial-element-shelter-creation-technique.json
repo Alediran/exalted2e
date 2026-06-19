@@ -18,20 +18,21 @@
     "essence": 3,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "one day",
+    "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Elemental",
-      "Obvious"
+      "Obvious",
+      "Shaping"
     ],
     "cost": {
       "formula": "5m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm allows a Dragon-Blood to reach out with her elemental anima to fashion a crude structure out of whatever elemental material is handy. Each different Charm is primarily useful in a particular environmental setting. Air is only useful in extremely cold, snowy climes and causes ice crystals to form out of the air itself into a simple igloo that retains heat remarkably well. Earth is most useful in open fields or on mountaintops and causes rocky slabs to slowly rise up out of the earth to form a lean-to. Fire is primarily used in the desert and causes sand to temporarily form into jagged silicate slabs that form a sheltered outcropping. The sandstone does not transfer heat to those taking shelter beneath it, and the outcropping is ideally situated to let wind flow through while keeping out sand. Water is primarily used on the ocean, although it can be used on other large bodies of water. The Charm causes seaweed, sunken debris and other material found within and beneath the waters to rise up to the surface and cling together, forming a remarkably buoyant life raft that can stay afloat in all but the most treacherous of weather. Wood can be used in any forest area, causing saplings to sprout from the forest floor to form a crude hut. The hut is camouflaged against observers, who must get more successes on a (Perception + Survival) roll than the Dragon-Blood's Essence in order to detect it. All versions of this Charm are warded against intrusion by mundane animals. Such animals will not attempt to enter the shelter absent some type of magical compulsion. Once the Charm is activated, it takes about 30 minutes for the protective structure to form. The structure lasts for about a day, although the Dragon-Blood can extend the effect by committing the Essence indefinitely. The shelter is capable of protecting the Exalt herself and up to six other human-sized beings. If the Exalt wishes the shelter to hold more, she must spend an additional mote of Essence per extra person, although she cannot spend more extra motes than her Essence. Therefore, the maximum number of people who can fit in the same shelter consists of the Dragon-Blood herself, plus (Essence + 6) other people.</p><p>This Charm is actually a cluster of Charms, one for each of the five elements. A Dragon-Blood can learn multiple versions of this Charm, but he must learn the one associated with his affinity element first. Regardless of which version is used, the Charm is always considered a Wood-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies.</p>",
+    "description": "<p>This Charm allows a Dragon-Blood to reach out with her elemental anima to fashion a crude structure out of whatever elemental material is handy. Each different Charm is primarily useful in a particular environmental setting. Air is only useful in extremely cold, snowy climes and causes ice crystals to form out of the air itself into a simple igloo that retains heat remarkably well. Earth is most useful in open fields or on mountaintops and causes rocky slabs to slowly rise up out of the earth to form a lean-to. Fire is primarily used in the desert and causes sand to temporarily form into jagged silicate slabs that form a sheltered outcropping. The sandstone does not transfer heat to those taking shelter beneath it, and the outcropping is ideally situated to let wind flow through while keeping out sand. Water is primarily used on the ocean, although it can be used on other large bodies of water. The Charm causes seaweed, sunken debris and other material found within and beneath the waters to rise up to the surface and cling together, forming a remarkably buoyant life raft that can stay afloat in all but the most treacherous of weather. Wood can be used in any forest area, causing saplings to sprout from the forest floor to form a crude hut. The hut is camouflaged against observers, who must get more successes on a (Perception + Survival) roll than the Dragon-Blood's Essence in order to detect it. All versions of this Charm are warded against intrusion by mundane animals. Such animals will not attempt to enter the shelter absent some type of magical compulsion. Once the Charm is activated, it takes about 30 minutes for the protective structure to form. The structure lasts for about a day, although the Dragon-Blood can extend the effect by committing the Essence indefinitely. The shelter is capable of protecting the Exalt herself and up to six other human-sized beings. If the Exalt wishes the shelter to hold more, she must spend an additional mote of Essence per extra person, although she cannot spend more extra motes than her Essence. Therefore, the maximum number of people who can fit in the same shelter consists of the Dragon-Blood herself, plus (Essence + 6) other people.</p><p>This Charm is actually a cluster of Charms, one for each of the five elements. A Dragon-Blood can learn multiple versions of this Charm, but he must learn the one associated with his affinity element first. Regardless of which version is used, the Charm is always considered a Wood-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies.</p><p>(Errata) The structure fills a radius in yards no larger than (intended number of occupants x 2). It has a soak of 5L/10B and crumbles apart once it suffers 10 levels of damage. With Essence 4+, the structure forms instantly. A second purchase of this Charm makes the shelter extremely restful, converting all dice to automatic successes when a character rolls to regain Willpower after a night's rest.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,8 +54,8 @@
             "charmUid": "87754baeb9c39096",
             "charmName": "Hostile Environment Preparation Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

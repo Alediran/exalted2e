@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Children of Sextes Jylis are master woodsmen and trackers. With this Charm, a Dragon-Blood can track any quarry whose trail is less than a week old, regardless of terrain or weather conditions. Animal tracks and spoor literally glow to the Exalt's eyes, while broken twigs and other signs of a human's passage are equally as obvious. The tracker's player needs only a single success on a (Perception + Survival) roll for the tracker to successfully track any quarry not protected by supernatural stealth or evasion. Supernatural effects that hide a quarry's tracks are canceled by this Charm, allowing the Dragon-Blood to find his prey with a follow-up normal Survival roll.</p>",
+    "description": "<p>The Children of Sextes Jylis are master woodsmen and trackers. With this Charm, a Dragon-Blood can track any quarry whose trail is less than a week old, regardless of terrain or weather conditions. Animal tracks and spoor literally glow to the Exalt's eyes, while broken twigs and other signs of a human's passage are equally as obvious. The tracker's player needs only a single success on a (Perception + Survival) roll for the tracker to successfully track any quarry not protected by supernatural stealth or evasion. Supernatural effects that hide a quarry's tracks are canceled by this Charm, allowing the Dragon-Blood to find his prey with a follow-up normal Survival roll. If contested by another Charm, standard roll-off rules determine which wins.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -51,9 +51,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "survival",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
