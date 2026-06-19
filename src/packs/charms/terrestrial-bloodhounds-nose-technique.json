@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "simple",
-    "duration": "scene",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood must first spend 10 minutes investigating the scene of a crime (or any other event he wishes to investigate). The Dragon-Blood's player makes a normal Investigation roll for the Exalt to find ordinary pieces of evidence, although this roll can be augmented with other Charms. After spending the Essence and Willpower to activate this Charm, the player can then roll (Intelligence + Investigation), with even one success leading the Dragon-Blood in the general direction of the person who left the incriminating evidence. With three or more successes, the DragonBlood also receives a brief glimpse of the culprit at the scene of the crime. If the culprit uses some type of supernatural effect to protect her identity, this Charm fails automatically unless the Dragon-Blood has a higher Essence than the culprit. The Charm will always fail when confronted with a culprit using Trackless Walk Style (see p. 167).</p>",
+    "description": "<p>The Dragon-Blood must first spend 10 minutes investigating the scene of a crime (or any other event he wishes to investigate). The Dragon-Blood's player makes a normal Investigation roll for the Exalt to find ordinary pieces of evidence, although this roll can be augmented with other Charms. After spending the Essence and Willpower to activate this Charm, the player can then roll (Intelligence + Investigation), with even one success leading the Dragon-Blood in the general direction of the person who left the incriminating evidence. With three or more successes, the DragonBlood also receives a brief glimpse of the culprit at the scene of the crime. If the culprit uses some type of supernatural effect to protect her identity, this Charm fails automatically unless the Dragon-Blood has a higher Essence than the culprit. The Charm will always fail when confronted with a culprit using Trackless Walk Style (see p. 167).</p><p>This Charm does not function as printed. Instead, it allows the character to make a standard Investigation roll in a matter of seconds to find clues that would normally take ten minutes of careful searching. If the roll yields any successes, the Exalt also receives a brief murky glimpse of whatever individual the investigation is trying to locate (usually the criminal responsible for a crime). This glimpse is not enough to make an identification, but always contains clues that are relevant and useful in solving the mystery. The Charm automatically loses all roll-offs with other Charms that conceal evidence or otherwise contest its effects.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

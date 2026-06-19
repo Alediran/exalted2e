@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A character using this Charm can instantly tell if any object has been tampered with and how the tampering was done. This includes both successful and unsuccessful attempts to pick a lock, open a safe, search a desk, forge a signature or alter a document. Only a single object can be studied at once per use of the Charm, but every change made within the past year is revealed. The Charm does not reveal who made the changes or why, and it gives only general information about when the tampering occurred.</p>",
+    "description": "<p>A character using this Charm can instantly tell if any object has been tampered with and how the tampering was done. This includes both successful and unsuccessful attempts to pick a lock, open a safe, search a desk, forge a signature or alter a document. Only a single object can be studied at once per use of the Charm, but every change made within the past year is revealed. The Charm does not reveal who made the changes or why, and it gives only general information about when the tampering occurred.</p><p>The use of any Charm to enhance an action that qualifies as tampering forces a roll-off to determine if the Terrestrial discerns that action, even if that Charm is merely an Excellency.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +37,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -49,7 +49,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "investigation",
             "virtueKey": "valor",
             "virtueMin": 1
           }
