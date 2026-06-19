@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood can focus his attention on a single target, and his player rolls the character's unmodified Melee Ability (no Attribute is added). Each success allows the Dragon-Blood to make one extra Melee attack against that target as part of a flurry, up to the maximum of his Melee Ability. Each attack in the flurry is made with the character's full dice pool. No flurry penalties apply.</p>",
+    "description": "<p>The Dragon-Blood can focus his attention on a single target, and his player rolls the character's unmodified Melee Ability (no Attribute is added). Each success allows the Dragon-Blood to make one extra Melee attack against that target as part of a flurry, up to the maximum of his Melee Ability. Each attack in the flurry is made with the character's full dice pool. No flurry penalties apply.</p><p>The Charm provides a magical flurry of (activation roll successes + 1, maximum of Melee rating + 1) Melee attacks against a single target that ignore rate, do not suffer multiple action penalties and collectively impose a −1 DV penalty. The activation roll may be boosted with Melee Excellencies.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

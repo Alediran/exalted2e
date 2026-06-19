@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A Dragon-Blood who knows this Charm is never truly unarmed. The character must spend three ticks in concentration before spending three motes and one Willpower. Then, she can fashion a sword or other melee weapon out of thin air from the element to which she is aspected. The weapon has the traits of a normal weapon of its type, as well as the benefits conferred by the Dragon-Graced Weapon Charm (see p. 155) appropriate to the Dragon-Blood's aspect and is also considered Holy against creatures of darkness. The conjured weapon lasts for the entire battle or for one scene, whichever ends first. At the conclusion of the Charm's duration, the weapon dissipates harmlessly into a puff of Essence.</p>",
+    "description": "<p>A Dragon-Blood who knows this Charm is never truly unarmed. The character must spend three ticks in concentration before spending three motes and one Willpower. Then, she can fashion a sword or other melee weapon out of thin air from the element to which she is aspected. The weapon has the traits of a normal weapon of its type, as well as the benefits conferred by the Dragon-Graced Weapon Charm (see p. 155) appropriate to the Dragon-Blood's aspect and is also considered Holy against creatures of darkness. The conjured weapon lasts for the entire battle or for one scene, whichever ends first. At the conclusion of the Charm's duration, the weapon dissipates harmlessly into a puff of Essence.</p><p>The created weapon inflicts aggravated damage to creatures of darkness and benefits from all Elemental effects for elements the Exalt has integrated via purchases of Dragon-Graced Weapon.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
