@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Those Exalted trained in mounted combat enjoy a great advantage on the battlefield due to their mounts' superior height and mobility. With this Charm, a Dragon-Blood becomes more efficient at employing the advantages of mounted combat. After his player successfully makes a reflexive (Dexterity + Ride) roll, the DragonBlood can add his Ride Ability to his damage dice in hand-to-hand attacks made while mounted. This Charm can explicitly be included in Combos with Charms of other Abilities.</p>",
+    "description": "<p>Those Exalted trained in mounted combat enjoy a great advantage on the battlefield due to their mounts' superior height and mobility. With this Charm, a Dragon-Blood becomes more efficient at employing the advantages of mounted combat. After his player successfully makes a reflexive (Dexterity + Ride) roll, the Dragon-Blood can add his Ride Ability to his damage dice in hand-to-hand attacks made while mounted. This Charm can explicitly be included in Combos with Charms of other Abilities.</p><p>(Errata) If this Charm is used to enhance an attack using a lance or other weapon with the L tag, the damage bonus increases to (Ride x 2). With Essence 3+, no activation roll is required.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,8 +53,8 @@
             "charmUid": "d7169ec856c49f1b",
             "charmName": "Heaven-Graced Riding Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
