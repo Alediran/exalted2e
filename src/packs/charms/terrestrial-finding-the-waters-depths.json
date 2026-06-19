@@ -15,22 +15,24 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "bureaucracy",
-    "essence": 1,
+    "essence": 2,
     "minAbility": 3,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "oneScene",
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Dynasty",
+      "Compulsion"
     ],
     "cost": {
       "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As water finds the lowest point in any landscape, the Dragon-Blood's instinct guides her to the source of power in any organization. With this Charm, the character instantly perceives the true lines of authority and influence in a bureaucratic structure she observes. She understands who holds real power (as opposed to nominal authority), where the flow of resources moves, and what the most effective points of leverage are. The player rolls (Intelligence + Bureaucracy) and may ask the Storyteller one question about the organization's structure per success.</p>",
+    "description": "<p>Sometimes, even the Princes of the Earth are forced to haggle over the sale or purchase of goods or over the fine details of a contract. On such occasions, this Charm is invaluable, as it lets the Exalt peer deep into the heart of the person with whom she is bargaining to determine how much the person is willing to pay or what he is willing to concede to allow the deal to be made. The Exalt's player must roll (Wits + Bureaucracy). With one success, the character knows whether the current offer on the table is half or more of the target's minimum or maximum offer. With two successes, the Exalt can identify the other party's limit within 10 percent. Three or more successes allow the Exalt to know exactly how much the other party is willing to pay or what is the lowest sum he will accept.</p><p>Add a number of successes to the activation roll equal to the Exalt's Essence rating (or twice that number if targeting a descendant). The number of successes remaining after applying the target's Dodge MDV (the attack is unblockable) determines what the Terrestrial learns. If the Exalt pays a price that he learns is acceptable before the Charm ends, the target must accept the deal unless she pays 2wp to resist the Charm's unnatural influence (which prematurely ends it).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
