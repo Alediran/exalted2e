@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Children of Sextes Jylis rarely want for anything in the forests they love, least of all ammunition. When the Dragon-Blood requires arrows, he can approach any plant, from a common oak tree to exotic plants such as desert cacti or marsh reeds. Then, once he spends the requisite Essence, the plant will instantly \"sprout\" into a number of arrows equal to the Dragon-Blood's permanent Essence. The Dragon-Blood can summon any conventional type of arrow into existence, and the arrows are perfectly normal, if somewhat strange-looking. The arrows can be shared with any of the Dragon-Blood's fellow archers.</p>",
+    "description": "<p>The Children of Sextes Jylis rarely want for anything in the forests they love, least of all ammunition. When the Dragon-Blood requires arrows, he can approach any plant, from a common oak tree to exotic plants such as desert cacti or marsh reeds. Then, once he spends the requisite Essence, the plant will instantly \"sprout\" into a number of arrows equal to the Dragon-Blood's permanent Essence. The Dragon-Blood can summon any conventional type of arrow into existence, and the arrows are perfectly normal, if somewhat strange-looking. The arrows can be shared with any of the Dragon-Blood's fellow archers.</p><p>With Essence 4+, this Charm may be used to harvest other non-artifact Archery weapon ammunition from appropriate concentrations of elemental Essence, such as collecting handfuls of firedust that spark out of a bonfire and fall to the earth. Collecting ammunition for immediate use requires a standard draw weapon action.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -51,9 +51,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "archery",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
