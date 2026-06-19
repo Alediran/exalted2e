@@ -1,0 +1,72 @@
+{
+  "_id": "ca1b2c3d4e5f0008",
+  "_key": "!items!ca1b2c3d4e5f0008",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wrath-Directing Gesture",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Purity 3",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood channels the elemental wrath of her aspect into a sweeping gesture, visibly reshaping the battlefield with Shaping power. This Charm may be used reflexively when a unit the Exalt commands successfully attacks an enemy unit. The anima of the Exalt blazes forth (Obvious) and shapes the terrain or elemental conditions in a zone up to (Essence × 25) yards across in any direction the Exalt gestures. The shaped zone imposes a −2 internal penalty on all actions by enemies who must enter or pass through it until the end of the current scene. Dragon-Blooded allies of the Exalt's aspect are immune to this penalty.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "db1b7bb09df7ece9",
+            "charmName": "Dragon-Seared Battlefield",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0008"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

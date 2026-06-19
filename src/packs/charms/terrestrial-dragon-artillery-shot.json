@@ -1,0 +1,70 @@
+{
+  "_id": "ca1b2c3d4e5f001e",
+  "_key": "!items!ca1b2c3d4e5f001e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon Artillery Shot",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "archery",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "—",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood's arrows fly with the devastation of a siege weapon. This Charm permanently allows the Exalt to use her personal ranged attacks as artillery in mass combat. When acting as a special character in a mass combat unit, she may attack enemy units directly with her archery as if she were a siege weapon with a Damage rating equal to her (Archery + Essence) ÷ 2 (round up). Her attack roll is (Perception + Archery) against the unit's Dodge DV. Each such attack is Obvious and requires two ticks to execute. Her anima flares to at least the 8–10 mote level when she uses this ability.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6a6bb04b4c12093d",
+            "charmName": "Dragon-Graced Arrow",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f001e"
+  },
+  "folder": "b0b1b2b3b4b5f01a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

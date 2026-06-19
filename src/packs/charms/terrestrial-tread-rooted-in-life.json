@@ -1,0 +1,69 @@
+{
+  "_id": "ca1b2c3d4e5f0021",
+  "_key": "!items!ca1b2c3d4e5f0021",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tread Rooted in Life",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood extends her own Essence to sustain her mount beyond mortal endurance. While this Charm is active, the Exalt's mount does not tire, does not feel pain from non-lethal injuries, and ignores wound penalties from bashing damage. Any poison or disease affecting the mount immediately halts its progress (though it does not purge it). The mount also gains a soak bonus equal to the Exalt's Ride rating against all sources of harm. If the mount would be reduced to Incapacitated, it instead collapses when the Charm expires; the Exalt feels a jolt through the bond and may reflexively end the Charm to prevent the collapse for one additional tick.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "One hour",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5eac2206876cf42e",
+            "charmName": "Great Heart Companion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0021"
+  },
+  "folder": "b0b1b2b3b4b5f02c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,69 @@
+{
+  "_id": "ca1b2c3d4e5f001d",
+  "_key": "!items!ca1b2c3d4e5f001d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon Crew Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "sail",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Cooperative"
+    ],
+    "cost": {
+      "formula": "5m 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood leads her crew in a meditative ritual that attunes every sailor aboard to each other and to the vessel itself. This Charm may be activated while aboard a ship with a full crew. Each willing crew member who participates in the 15-minute ritual ceremony bonds to the ship's Essence for the duration of the voyage. While the meditation holds, the crew operates as a single coordinated entity: all crew coordination rolls gain (Exalt's Sail rating) bonus dice, crew members cannot be separated from the ship's functioning by fear or confusion effects with a difficulty less than the Exalt's Essence, and any Sail roll to repair or maintain the vessel reduces its timeframe by half. The Charm ends when the Exalt or the majority of the bonded crew disembarks. A second Dragon-Blood with this Charm and the Cooperative keyword may reduce the activation cost to 3m.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "Until disembarking",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "efbdfccf845e41e2",
+            "charmName": "Fine Passage Negotiating Style",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f001d"
+  },
+  "folder": "b0b1b2b3b4b5f02d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

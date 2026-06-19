@@ -1,0 +1,70 @@
+{
+  "_id": "ca1b2c3d4e5f0060",
+  "_key": "!items!ca1b2c3d4e5f0060",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Excellence of the Dutiful Sorcerer",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm channels the Dragon-Blood's arcane excellence directly into the performance of a sorcerer or occultist acting as a special character in support of a military unit. When the Exalt supplements any Occult action or sorcerous working she undertakes while acting as a special character in mass combat, the successes from that action are doubled for the purpose of determining its contribution to the unit's overall performance that tick — but not for the purpose of inflicting direct damage or winning a contested Occult roll. A sorcerer who summons an elemental spirit to aid the battle with doubled successes inspires her unit, but those doubled successes don't determine the spirit's power. See also Excellence of the Dutiful Hero for the equivalent effect when performing martial actions in mass combat.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0002",
+            "charmName": "Army-to-Mob Assault",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0060"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

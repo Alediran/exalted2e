@@ -1,0 +1,71 @@
+{
+  "_id": "ca1b2c3d4e5f0009",
+  "_key": "!items!ca1b2c3d4e5f0009",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tactics Mean Everything",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Stackable",
+      "War"
+    ],
+    "cost": {
+      "formula": "1+m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The master tactician sees every shift in the engagement as opportunity. For each mote spent over the minimum, add one die to all War-based rolls for the scene. This Charm may be activated multiple times in a scene (Stackable); each activation adds a fresh set of dice without affecting previous activations. These dice apply to any War action the Exalt undertakes, including the support she lends to her unit's actions.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "Any War Excellency",
+            "abilityKey": "war",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0009"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

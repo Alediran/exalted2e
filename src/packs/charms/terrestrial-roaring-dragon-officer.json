@@ -1,0 +1,72 @@
+{
+  "_id": "ca1b2c3d4e5f0003",
+  "_key": "!items!ca1b2c3d4e5f0003",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Roaring Dragon Officer",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Cooperative",
+      "Dynasty",
+      "War"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood's roar of command cuts through the chaos of battle with supernatural clarity. While this Charm is active, the Exalt's voice carries to all units and special characters within (Essence × 100) yards regardless of ambient noise, acting as a relay for all of them simultaneously without requiring close proximity to each. Any unit that can hear her voice gains +1 Morale (maximum 5) while this Charm is active. Dragon-Blooded special characters who can hear her voice (Dynasty keyword) also add one die to all War rolls. Multiple Dragon-Blooded with this Charm active in the same battle can use the Cooperative keyword to extend the voice range to the farthest of their individual ranges, with their Morale and dice bonuses stacking up to a maximum of +2 each.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0001",
+            "charmName": "Leading from Below",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0003"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

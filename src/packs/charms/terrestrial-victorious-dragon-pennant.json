@@ -1,0 +1,71 @@
+{
+  "_id": "ca1b2c3d4e5f0010",
+  "_key": "!items!ca1b2c3d4e5f0010",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Victorious Dragon Pennant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch",
+      "War"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood's Essence paints a complex glyph approximately a foot square in size on any sufficiently large object she is touching, most commonly a flag affixed to armor or a long weapon such as a spear. During the First Age, such glyphs often adorned the chest plates of warstriders. This symbol glows in the colors of its creator's anima while empowered by the commitment of her Essence and loses all power when this commitment ends. Repeated use of this Charm can empower as many pennants as the Exalt wishes to sustain.</p><p>When carried into battle by any special character in a complementary unit, an object enchanted with this Charm allows that character to count as an additional relay to prevent communication failure and adds one to the unit's Morale (maximum Morale 5). These benefits are cumulative with each special character carrying such an item; they lapse whenever a standard-bearer perishes. A replacement capable of raising it may be ordered to do so as a diceless miscellaneous action.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4d0a7a3a8ff1f422",
+            "charmName": "Craft Icon",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0010"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

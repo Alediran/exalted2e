@@ -1,0 +1,69 @@
+{
+  "_id": "ca1b2c3d4e5f0020",
+  "_key": "!items!ca1b2c3d4e5f0020",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Battlefield Triage Infusion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "medicine",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "— (1m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>War demands healers who can work under fire and with minimal resources. This Charm permanently upgrades the Exalt's ability to perform medical care in combat situations. The Exalt may perform first aid and treat wounds as a miscellaneous action (Speed 3, DV −0) instead of requiring a full action. Whenever she stabilizes a patient in this way, she may spend 1 mote (Obvious) to immediately restore one level of bashing damage or convert one level of lethal damage to bashing. Furthermore, she never suffers penalties from battlefield conditions (noise, movement, injury to self) of less than −3 when performing Medicine rolls.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "97ec2aadaa8383ce",
+            "charmName": "Wound-Closing Touch",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0020"
+  },
+  "folder": "b0b1b2b3b4b5f026",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

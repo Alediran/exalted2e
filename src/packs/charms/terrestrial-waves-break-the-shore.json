@@ -1,0 +1,70 @@
+{
+  "_id": "ca1b2c3d4e5f001c",
+  "_key": "!items!ca1b2c3d4e5f001c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Waves Break the Shore",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "martialArts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 2,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Native"
+    ],
+    "cost": {
+      "formula": "3m 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like the ocean waves that never cease breaking against the shore, the Terrestrial Hero Style practitioner launches a relentless series of blows. This Charm grants a flurry of two additional attacks against the same or different opponents, resolved as normal. Each attack uses the character's full pool without penalty for the flurry's multiple-action dice reduction. The DV penalty of −2 applies after all attacks are resolved.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrestrial Hero Style",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Pounding Surf Style",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f001c"
+  },
+  "folder": "a1b2c3d4e5f60104",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

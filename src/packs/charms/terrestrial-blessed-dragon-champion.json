@@ -1,0 +1,70 @@
+{
+  "_id": "ca1b2c3d4e5f0007",
+  "_key": "!items!ca1b2c3d4e5f0007",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blessed Dragon Champion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Dynasty"
+    ],
+    "cost": {
+      "formula": "8m 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood designates herself or a Dragon-Blooded ally as her champion, and the blessing of the Elemental Dragons flows through that warrior for the duration of a formal duel or single combat engagement. This Charm may be activated when the Dragon-Blood or an ally is formally challenged to, or formally initiates, a duel. The champion gains a number of bonus dice equal to the Exalt's War rating on all combat rolls for the duration of the duel, and is immune to fear effects and wound penalties. If the champion wins the duel, the Exalt's unit gains +2 Morale (maximum 5) and one automatic success on all attack and defense rolls for the remainder of the scene. The Charm expires when the duel concludes by any means — victory, defeat, or abandonment.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "One Duel",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0006",
+            "charmName": "Excellence of the Dutiful Hero",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0007"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

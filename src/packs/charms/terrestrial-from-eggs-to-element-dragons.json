@@ -1,0 +1,72 @@
+{
+  "_id": "ca1b2c3d4e5f0005",
+  "_key": "!items!ca1b2c3d4e5f0005",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "From Eggs to (Element) Dragons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Dynasty",
+      "Elemental",
+      "Training"
+    ],
+    "cost": {
+      "formula": "15m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood transforms raw recruits into soldiers worthy of the Realm's armies. Activating this Charm at the beginning of a two-week training regimen, the Exalt infuses her unit with elemental discipline matching her aspect. At the end of the two weeks, a rabble (Magnitude 0 or unformed group) becomes a proper military unit with Drill 3, Might 1, and Morale 3. An existing unit with lower ratings has each rating raised by 1 (to a maximum of 3/1/3). Dragon-Blooded soldiers (Dynasty) who train under this Charm raise their individual Drill to 4 and gain one point of Might. All affected soldiers' bodies are subtly marked by elemental Essence for the rest of their lives; Dragon-Blooded can detect them as products of this training with a successful (Perception + Occult) roll.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "Two weeks",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0003",
+            "charmName": "Roaring Dragon Officer",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0005"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

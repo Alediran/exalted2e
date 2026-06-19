@@ -1,0 +1,33 @@
+{
+  "_id": "5a0000000000000f",
+  "_key": "!items!5a0000000000000f",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Surging Occult Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "occult",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Combo-OK"],
+    "cost": { "formula": "6m 0+wp", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>Surging with inner Essence, the Dragon-Blood pushes her Occult to its peak. For every 2 motes above the 6m base, convert one die from a Occult Excellency pool applied to this action into an automatic success. Spend 1 Willpower to convert one additional die.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "", "martialArtsTier": "", "martialArtsStyleName": "", "maidenAffiliation": "",
+    "durationFormula": "", "stackCount": 0, "umiCost": 0, "cooperationBonusDice": 0,
+    "excellency": "", "perfectDefenseType": "", "active": false,
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "403d57a72607dd1d", "charmName": "First Occult Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }, { "type": "charm", "charmUid": "013d341c656565bf", "charmName": "Third Occult Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "charmUid": "5a0000000000000f"
+  },
+  "folder": "b0b1b2b3b4b5f028",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

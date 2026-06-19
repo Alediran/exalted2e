@@ -1,0 +1,73 @@
+{
+  "_id": "ca1b2c3d4e5f001b",
+  "_key": "!items!ca1b2c3d4e5f001b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood Cries for Blood",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "socialize",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Dynasty",
+      "Obvious",
+      "Servitude",
+      "War"
+    ],
+    "cost": {
+      "formula": "6m 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood calls upon the bonds of blood and oath that tie her Dynasty together. As an immediate reflexive action triggered by witnessing a Dragon-Blood ally being struck down (reduced to Incapacitated or killed), she may invoke this Charm. Her anima blazes with obvious supernatural light as she invokes the dynasty's obligation of vengeance. All Dragon-Blood allies within (Essence × 50) yards who can perceive this activation must make a Valor check (difficulty 1) or be compelled by Servitude to immediately move toward and attack the enemy responsible for the fallen ally's condition, to the exclusion of all other actions until that enemy is defeated or until the scene ends. Those who succeed their Valor check may act freely but receive two bonus dice on all attacks against the responsible enemy for the rest of the scene.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a62cae28f79a6dac",
+            "charmName": "Wary Yellow Dog Attitude",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f001b"
+  },
+  "folder": "b0b1b2b3b4b5f02e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

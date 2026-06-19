@@ -1,0 +1,72 @@
+{
+  "_id": "ca1b2c3d4e5f0004",
+  "_key": "!items!ca1b2c3d4e5f0004",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glorious Five Dragon Army",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Cooperative",
+      "Elemental",
+      "War"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood calls upon the legacy of the Shogunate's legendary five-aspect armies, suffusing her unit with elemental power. When this Charm is activated, the Exalt's anima blazes at maximum (Elemental) and her unit is imbued with elemental Essence appropriate to her aspect for the rest of the scene. The unit gains the following benefits: +2 to all attack rolls, +2 Soak against weapons of the opposing element (if any), and all rout checks gain two automatic successes. Furthermore, the unit's attacks count as elemental for the purpose of bypassing resistances. If five Dragon-Blooded of five different aspects each activate this Charm (Cooperative) for units they command in the same battle, all five units gain an additional +1 to all stats and the Exalt's units cannot be routed by non-magical fear effects for the remainder of the scene.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0003",
+            "charmName": "Roaring Dragon Officer",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0004"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

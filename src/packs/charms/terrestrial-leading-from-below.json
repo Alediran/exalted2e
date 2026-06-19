@@ -1,0 +1,58 @@
+{
+  "_id": "ca1b2c3d4e5f0001",
+  "_key": "!items!ca1b2c3d4e5f0001",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Leading from Below",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Cooperative",
+      "War"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood does not merely command from behind — she fights at the fore and directs battle from the heart of it. While this Charm is active, the Exalt acts as a relay for communication within her unit even when engaged in close combat, preventing the unit's Magnitude from ever falling below the Exalt's War rating due to communication failure alone. Furthermore, any special characters under her command who themselves lack a relay benefit from her presence as if she were a relay for their purposes. A second Dragon-Blood with this Charm can maintain an overlapping relay network using the Cooperative keyword, allowing each to count as a relay for the other's unit.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ca1b2c3d4e5f0001"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

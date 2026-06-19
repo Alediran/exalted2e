@@ -1,0 +1,69 @@
+{
+  "_id": "ca1b2c3d4e5f0015",
+  "_key": "!items!ca1b2c3d4e5f0015",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Distant March Intuition",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "awareness",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "War"
+    ],
+    "cost": {
+      "formula": "—",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In contact with the ground, the Exalt feels for hostile vibrations of sound and Essence. This Charm improves its prerequisite, allowing it to scan out to (Essence rating) miles. When using this extended range, however, it detects only the Magnitude rating, location and vector of ground-based military units with Magnitude 3+, as well as ground-based vehicles transporting such units. This understanding is conveyed without need for a roll, but if any Charm conceals a unit from detection in the slightest, even an Excellency, resolve detection using standard roll-off rules. The Charm has no way to differentiate friend from foe, but it identifies military units without noticing non-violent crowds.</p><p>Provided the Exalt is able to use it, Feeling the Dragon's Bones self-activates to detect units whenever a valid unit in range fully resolves an attack the Terrestrial can't otherwise perceive. Because the attack must resolve, this does not help avoid ambushes. The Exalt may reflexively suppress this warning intuition for a scene to conserve motes.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "08d17c9aac031003",
+            "charmName": "Feeling the Dragon's Bones",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0015"
+  },
+  "folder": "b0b1b2b3b4b5f01c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

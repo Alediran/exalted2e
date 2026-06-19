@@ -1,0 +1,33 @@
+{
+  "_id": "5a00000000000005",
+  "_key": "!items!5a00000000000005",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Surging Craft Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "craft",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Combo-OK"],
+    "cost": { "formula": "6m 0+wp", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>Surging with inner Essence, the Dragon-Blood pushes her Craft to its peak. For every 2 motes above the 6m base, convert one die from a Craft Excellency pool applied to this action into an automatic success. Spend 1 Willpower to convert one additional die.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "", "martialArtsTier": "", "martialArtsStyleName": "", "maidenAffiliation": "",
+    "durationFormula": "", "stackCount": 0, "umiCost": 0, "cooperationBonusDice": 0,
+    "excellency": "", "perfectDefenseType": "", "active": false,
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "1d327f4dfb8cf8fb", "charmName": "First Craft Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }, { "type": "charm", "charmUid": "06242739d57bdb49", "charmName": "Third Craft Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "charmUid": "5a00000000000005"
+  },
+  "folder": "b0b1b2b3b4b5f01e",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}
