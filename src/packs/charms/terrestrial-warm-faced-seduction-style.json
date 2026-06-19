@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The fire that burns at the heart of every Child of Hesiesh can inflame the passions of members of the opposite sex (and, often, members of the same sex). When this Charm is activated, Essence pulses through the Dragon-Blood's veins in sympathy with the heartbeat of someone he seeks to seduce. This Charm can be used only during a seduction attempt, but in such situations, the Dragon-Blood can increase her Socialize Ability by five or double its normal rating, whichever is less. Targets whose sexual orientation would not normally permit them to feel attraction to the Dragon-Blood gain a +2 bonus to MDV.</p>",
+    "description": "<p>The fire that burns at the heart of every Child of Hesiesh can inflame the passions of members of the opposite sex (and, often, members of the same sex). When this Charm is activated, Essence pulses through the Dragon-Blood's veins in sympathy with the heartbeat of someone he seeks to seduce. This Charm can be used only during a seduction attempt, but in such situations, the Dragon-Blood can increase her Socialize Ability by five or double its normal rating, whichever is less. Targets whose sexual orientation would not normally permit them to feel attraction to the Dragon-Blood gain a +2 bonus to MDV.</p><p>This Charm can enhance seduction-based social attacks using any Ability and may be put in a Combo with Charms of other Abilities. It boosts the Ability used as indicated, with each dot added counted as a bonus die from Charms. The attack also becomes unnatural mental influence costing 1wp to resist.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,7 +53,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "socialize",
             "virtueKey": "valor",
             "virtueMin": 1
           }
