@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "reflexive",
-    "duration": "formula",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -57,8 +57,8 @@
             "charmUid": "b6e16f077e878cf3",
             "charmName": "Heart Of Darkness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
