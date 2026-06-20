@@ -46,9 +46,9 @@
     "active": false,
     "prereqGroups": [],
     "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
+      "enabled": false,
+      "event": "",
+      "formula": ""
     },
     "charmUid": "1a8998a6de110104",
     "mirrorId": "a1b2c3d4e5f60008"
