@@ -1,6 +1,6 @@
 {
-  "_id": "5747abb90340dd5a",
-  "_key": "!items!5747abb90340dd5a",
+  "_id": "ec36e05b89b93957",
+  "_key": "!items!ec36e05b89b93957",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,36 +9,36 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Essence Engorgement Technique",
+  "name": "Dream-Slaying Defense",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "abyssal",
     "ability": "lore",
     "essence": 3,
-    "minAbility": 5,
-    "charmType": "permanent",
-    "duration": "indefinite",
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Combo-OK",
       "Mirror",
-      "Native",
       "Obvious"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "8m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Abyssals bloat themselves with stolen motes to sustain them on extended forays into Creation, feeding on the terror and death they cause. The secondary pool of Peripheral Essence can be filled using the Abyssal's innate bite attack or by terrorizing and harming a town, army, organization or other social or military unit. Every hour actively spent ravaging the populace--from murders in the night to burning the crops or shaking down peasants for taxes they cannot pay--enables the Abyssal to recover motes equal to the unit's Magnitude.</p>",
+    "description": "<p></p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "One hour",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -46,8 +46,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "5747abb90340dd5a",
-    "mirrorId": "84931bf90a7a307d"
+    "charmUid": "ec36e05b89b93957",
+    "mirrorId": "32417381d3792bb5"
   },
   "folder": "b0b1b2b3b4b5f03d",
   "sort": 0,

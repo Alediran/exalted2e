@@ -55,8 +55,8 @@
             "charmName": "",
             "abilityKey": "lore",
             "minCount": 2,
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -67,8 +67,8 @@
             "charmUid": "ec36e05b89b93957",
             "charmName": "Dream-Slaying Defense",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

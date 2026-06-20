@@ -54,16 +54,16 @@
             "charmUid": "ec36e05b89b93957",
             "charmName": "Dream-Slaying Defense",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
+      "enabled": false,
+      "event": "",
+      "formula": ""
     },
     "charmUid": "c298defeb108834d"
   },
