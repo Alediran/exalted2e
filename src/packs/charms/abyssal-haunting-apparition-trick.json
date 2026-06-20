@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 3,
     "charmType": "permanent",
-    "duration": "formula",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Strange and unnatural phenomena manifest to accentuate an Abyssal's arts. Examples include chill winds, blood dripping down walls, moving shadows and tongues of foxfire luminescence that burn without source.</p>",
+    "description": "<p>Strange and unnatural phenomena manifest to accentuate an Abyssal's arts. Examples include chill winds, blood dripping down walls, moving shadows and tongues of foxfire luminescence that burn without source.</p><p>At Performance and Essence 4+ an Abyssal with this Charm may personalize the expressions of his iconic anima displays, changing its appearance each time it flares up.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,9 +51,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "performance",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
