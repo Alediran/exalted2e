@@ -54,7 +54,7 @@
       "accuracy": "0",
       "damage": "@ess * 2",
       "damageType": "lethal",
-      "overwhelming": "1",
+      "overwhelming": "2",
       "defense": "0",
       "rate": "2",
       "range": "@thrown * 10",
@@ -71,8 +71,8 @@
             "charmUid": "dbd6040efc5d15fe",
             "charmName": "Improvised Assassin's Trick",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

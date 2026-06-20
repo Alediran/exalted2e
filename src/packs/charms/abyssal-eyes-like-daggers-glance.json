@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm taps into the limitless necrotic Essence of the Neverborn's malevolence, adding the Abyssal's Whispers rating to the Accuracy and Damage of blasts from her Crypt Bolt Attack. These attacks also inflict aggravated damage to any target the Abyssal individually hates as an Intimacy. As a final benefit, the deathknight can ignite her eyes in addition to or in place of her hands, allowing her to wield other weapons. Abyssals throw murderous stares with Manipulation instead of Dexterity, but the attacks otherwise use the same rules. New Solar Charm: Fiery Solar Chakram (Prerequisites: Spirit Weapons; Exalted, p. 197). This Charm improves weapons created with Spirit Weapons, basing the bonus on the character's primary Virtue rather than Whispers. Holy replaces the Avatar keyword, so the Fiery Solar Chakram inflicts aggravated damage to creatures of darkness instead of hated enemies. Although Lawgivers do not gain the unnatural power to throw attacks from their eyes, this Charm lets them substitute Charisma for Dexterity when attacking with Spirit Weapons.</p>",
+    "description": "<p>This Charm taps into the limitless necrotic Essence of the Neverborn's malevolence, adding the Abyssal's Whispers rating to the Accuracy and Damage of blasts from her Crypt Bolt Attack. These attacks also inflict aggravated damage to any target the Abyssal individually hates as an Intimacy. As a final benefit, the deathknight can ignite her eyes in addition to or in place of her hands, allowing her to wield other weapons. Abyssals throw murderous stares with Manipulation instead of Dexterity, but the attacks otherwise use the same rules.</p><p>Invoking the benefits of this Charm costs an additional point of Willpower upon activating Crypt Bolt Attack. Doing so grants the Abyssal's crypt bolts the magical material benefits of soulsteel, and adds +2 Accuracy, +2 Damage. It also raises the minimum damage of the Crypt Bolts to 3.</p><p>New Solar Charm: Fiery Solar Chakram (Prerequisites: Spirit Weapons; Exalted, p. 197). This Charm improves weapons created with Spirit Weapons, basing the bonus on the character's primary Virtue rather than Whispers. Holy replaces the Avatar keyword, so the Fiery Solar Chakram inflicts aggravated damage to creatures of darkness instead of hated enemies. Although Lawgivers do not gain the unnatural power to throw attacks from their eyes, this Charm lets them substitute Charisma for Dexterity when attacking with Spirit Weapons.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,8 +52,8 @@
             "charmUid": "0151b1a3e8e308b0",
             "charmName": "Crypt Bolt Attack",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

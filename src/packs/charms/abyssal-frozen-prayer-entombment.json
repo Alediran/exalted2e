@@ -38,7 +38,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until broken",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -53,8 +53,8 @@
             "charmUid": "c0607e6595e7d04a",
             "charmName": "Wicked Darts Of Suffering",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

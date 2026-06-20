@@ -54,9 +54,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "thrown",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -67,8 +67,8 @@
             "charmUid": "dbd6040efc5d15fe",
             "charmName": "Improvised Assassin's Trick",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

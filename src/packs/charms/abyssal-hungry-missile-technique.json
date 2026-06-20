@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The weapons of the Abyssals are as bloodthirsty as their masters, eager to fly back to waiting hands in anticipation of burying themselves in another victim.</p>",
+    "description": "<p>The weapons of the Abyssals are as bloodthirsty as their masters, eager to fly back to waiting hands in anticipation of burying themselves in another victim. All errata on the Melee version also applies to this Charm. Merged: Blade-Summoning Gesture (Melee).</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -55,8 +55,8 @@
             "charmUid": "dbd6040efc5d15fe",
             "charmName": "Improvised Assassin's Trick",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
