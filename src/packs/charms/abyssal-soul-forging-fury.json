@@ -39,7 +39,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until the ghost is forged into soulsteel or the Charm is interrupted",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,8 +54,8 @@
             "charmUid": "2d77570036c32dee",
             "charmName": "Frenzied Forge Within",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

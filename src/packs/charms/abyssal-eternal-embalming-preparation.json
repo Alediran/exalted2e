@@ -38,7 +38,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Permanent for inanimate objects; five maintenance cycles for animated dead",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -53,8 +53,8 @@
             "charmUid": "541776aee0f95fcb",
             "charmName": "Fault-Finding Scrutiny",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
