@@ -53,18 +53,18 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "presence",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
-      "status": "Poisoned",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyPoison"
+      "enabled": false,
+      "status": "",
+      "resistPool": "",
+      "onFail": ""
     },
     "charmUid": "91225f5c4e048a0b"
   },
