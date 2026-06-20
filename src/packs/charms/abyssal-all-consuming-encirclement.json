@@ -39,7 +39,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until disengaged",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,8 +54,8 @@
             "charmUid": "769386cc94d37fc0",
             "charmName": "Hive-Mind Horror Tactics",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -66,8 +66,8 @@
             "charmUid": "290bf01402094912",
             "charmName": "Hardened Killer Training Style",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
