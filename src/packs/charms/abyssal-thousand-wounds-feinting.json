@@ -18,7 +18,7 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "permanent",
-    "duration": "formula",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal learns to strike with impossible speed, fulfilling the Charm's name with blurs of violence that leave bewildered victims covered in countless shallow cuts or bruises. Only a handful of blows have any real force to them, but these are usually sufficient. In addition, a character who uses this Charm with a successful flurry may incidentally arrange the wounds inflicted into artful designs or calligraphy to add literal insult to injury. At the Storyteller's option, Solars can do the same with Invincible Fury of the Dawn. If the player can think of something particularly witty or obnoxious for the character to inscribe in blood, the Storyteller might consider granting a stunt bonus.</p>",
+    "description": "<p>The Abyssal learns to strike with impossible speed, fulfilling the Charm's name with blurs of violence that leave bewildered victims covered in countless shallow cuts or bruises. Only a handful of blows have any real force to them, but these are usually sufficient. In addition, a character who uses this Charm with a successful flurry may incidentally arrange the wounds inflicted into artful designs or calligraphy to add literal insult to injury. At the Storyteller's option, Solars can do the same with Invincible Fury of the Dawn. If the player can think of something particularly witty or obnoxious for the character to inscribe in blood, the Storyteller might consider granting a stunt bonus.</p><p>This Charm no longer modifies Unfurling Iron Lotus in any way. It modifies Time-Scything Technique by granting it two additional attacks, as well as two additional maximum attacks (for a total of Dexterity + 3 attacks).</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,8 +51,8 @@
             "charmUid": "1398dfdcb115ac9e",
             "charmName": "Time-Scything Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

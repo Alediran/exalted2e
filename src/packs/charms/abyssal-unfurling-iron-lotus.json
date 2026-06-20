@@ -17,10 +17,10 @@
     "ability": "melee",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "extraaction",
+    "charmType": "simple",
     "duration": "instant",
-    "speed": 6,
-    "dvPenalty": 0,
+    "speed": 5,
+    "dvPenalty": 1,
     "steps": [],
     "keywords": [
       "Mirror",
@@ -28,11 +28,11 @@
       "Obvious"
     ],
     "cost": {
-      "formula": "2m per attack",
+      "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal spins and thrusts in a cascade of blows, trailing wispy afterimages that fleetingly resemble the petals of a blooming flower before the victim's screams break the serenity of the display.</p>",
+    "description": "<p>The Deathknight moves as smoothly and rapidly as ice on hot metal, his weapon flashing in a dazzling golden arc to strike all those around him. The Abyssal makes a standard Melee attack at his full dice pool, and applies it to all enemies within three yards; each target resolves defense and damage separately.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "254e00511d601ed2",
             "charmName": "Five Shadow Feint",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

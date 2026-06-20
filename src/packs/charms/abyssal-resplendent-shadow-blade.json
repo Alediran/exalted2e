@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal conjures a weapon formed of Essence-hardened shadows adorned or intertwined with corpse-elements.</p><p>Unlike its Solar mirror, Resplendent Shadow Blade is not Holy but imposes an Emotion effect of despair or horror whenever it inflicts any damage, draining one Willpower unless the target spends motes equal to the Abyssal's Essence rating. Mortal extras who somehow survive being hit with this weapon drop prone and curl up in a fetal position for the rest of the scene, too spiritually broken even to defend themselves.</p>",
+    "description": "<p>The Essence of the Abyssal manifests in a weapon formed of Essence-hardened shadows adorned or intertwined with corpse-elements. This blade inflicts aggravated damage to creatures of the Wyld and slightly dims any light brought near it. The Exalt can summon this weapon to her hand from anywhere it has fallen, as a diceless, miscellaneous action.</p><p>The character defines the form of her weapon upon purchasing this Charm. Statistically, the weapon has traits equal to single or paired basic 1, 2 or 3-dot close-range soulsteel artifact weapon (such as a daiklave, grimcleaver, or direlance) of the player's choice. Paired 1-dot weapons or a singular 2-dot weapon costs 3m. Paired 2-dot weapons or a single 3-dot weapon costs 5m. \"Brawling aides\" such as smashfists are not valid forms. Players wishing to have multiple options may purchase this Charm a number of times equal to their character's Melee score, creating a different weapon with each purchase.</p><p>If the character possesses an Overdrive pool, she gains one offensive mote to that pool each action while she is wielding Resplendent Shadow Blade. The character must be in battle to benefit from the one mote drip. She may only benefit from one drip from weaponry at a time. Additionally, this Charm may be purchased a second time to upgrade all weapons that may be created through Resplendent Shadow Blade, granting them the benefits detailed below.</p><p>Unlike its Solar mirror, Resplendent Shadow Blade is not Holy but imposes an Emotion effect of despair or horror whenever it inflicts any damage, draining one Willpower unless the target spends motes equal to the Abyssal's Essence rating. Mortal extras who somehow survive being hit with this weapon drop prone and curl up in a fetal position for the rest of the scene, too spiritually broken even to defend themselves.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -54,8 +54,8 @@
             "charmUid": "daedf00ab40b9838",
             "charmName": "Blade-Summoning Gesture",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -15,22 +15,24 @@
   "system": {
     "exaltType": "abyssal",
     "ability": "melee",
-    "essence": 5,
-    "minAbility": 5,
-    "charmType": "permanent",
-    "duration": "instant",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [1, 2],
     "keywords": [
-      "Mirror"
+      "Combo-OK",
+      "Mirror",
+      "Obvious"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The deathknight's weapon traces the air like a flameentranced moth, unerringly darting into the path of incoming attacks as if the weapon's destruction might offer a release from its master's evil. Abyssals with this Charm commonly prepare Death-Deflecting Technique in the realms of the dead before a mission, rather than paying the Willpower surcharge to ready that defense in Creation. Abyssals with Essence 6+ who know Fluttering Moth Defense reduce the cost to activate Death-Deflecting Technique to two motes (+1wp outside the realms of the dead), and may prepare up to their Melee score in invocations of that Charm.</p>",
+    "description": "<p>The deathknight's weapon traces the air like a flame-entranced moth, unerringly darting into the path of incoming attacks as if the weapon's destruction might bring a release from its master's evil. As the Abyssal activates this Charm, a single Melee weapon he wields takes on an eerie life of its own, writhing and moving in his grip as if seeking some escape. He takes no DV penalties from attacks made with the chosen weapon, and adds +1 to Damage and Defense ratings. The Abyssal may also use the enchanted weapon to perfectly parry any attack against him in Step 2, even if that attack is unblockable. Doing so ends this Charm prematurely, as the enchanted weapon finds no release even in the most devastating and destructive of attacks. Once the Abyssal has done so, he cannot reactivate this Charm for the rest of the scene, a limitation that counts as this defense's Flaw of Invulnerability.</p><p>With Melee 5+, Essence 5+, the deathknight may invoke this defense up to (Essence &divide; 2) times in one scene before this Charm ends.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,8 +53,8 @@
             "charmUid": "df15aa54dee692ea",
             "charmName": "Death-Deflecting Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

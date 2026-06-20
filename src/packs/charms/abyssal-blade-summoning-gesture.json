@@ -17,13 +17,11 @@
     "ability": "melee",
     "essence": 2,
     "minAbility": 2,
-    "charmType": "reflexive",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      2
-    ],
+    "steps": [],
     "keywords": [
       "Mirror",
       "Merged",
@@ -34,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The weapons of the Abyssal Exalted fear their masters and swiftly leap to their grasp when bidden by an imperiously outstretched hand.</p>",
+    "description": "<p>The weapons of the Abyssal Exalted fear their masters and swiftly leap to their grasp when bidden by an imperiously outstretched hand. The Abyssal may recall any weapon within (Essence x 2) yards in this manner while in battle.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",

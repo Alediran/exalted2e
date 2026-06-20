@@ -15,11 +15,11 @@
   "system": {
     "exaltType": "abyssal",
     "ability": "melee",
-    "essence": 3,
-    "minAbility": 5,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "simple",
     "duration": "instant",
-    "speed": 4,
+    "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -32,13 +32,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal lunges toward and past her opponent in a single perfect motion, striking so quickly that her opponent's corpse still stands when she glances back over her shoulder to watch him fall in half. Ebon Lightning Prana enables the deathknight to close the distance to any one target within (Essence x 10) yards and strike them with one Melee attack using a pool of (Dexterity + Melee + Essence). The attack is always unexpected and deals piercing damage. What's more, the Abyssal does not need to have a weapon in hand to use this Charm, provided she has a weapon available to draw as a reflexive action. If combat has not yet begun, the Abyssal automatically strikes first regardless of Join Battle rolls. If more than one character has such \"go first\" magic, their players roll Join Battle among themselves or all act simultaneously, at the Storyteller's option. A character cannot use Ebon Lightning Prana simply as an easy way to move a long way quickly. The Abyssal must strike at a foe, though she can continue moving past him.</p>",
+    "description": "<p>The Abyssal lunges towards and past his opponent in a single perfect motion, striking so fast that his victim's corpse still stands when he glances back over his shoulder to watch them fall in half. Ebon Lightning Prana allows the Abyssal to move up to (Essence x 8) yards and then make a single Melee attack against an opponent. The Deathknight must have a valid target in range to use this Charm.</p><p>With Essence 3+, the Abyssal can reflexively roll (Dexterity + Stealth) to establish surprise as part of the movement granted by this Charm, paying an additional five motes to do so.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -51,11 +50,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "65ef9a7e44361a6d",
-            "charmName": "Thieving Raiton Claws",
+            "charmUid": "daedf00ab40b9838",
+            "charmName": "Blade-Summoning Gesture",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
