@@ -55,16 +55,16 @@
             "charmUid": "c6955c914bf2db1b",
             "charmName": "Deception-Piercing Stare",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
+      "enabled": false,
+      "event": "",
+      "formula": ""
     },
     "charmUid": "8acf8a8ee08cb825"
   },

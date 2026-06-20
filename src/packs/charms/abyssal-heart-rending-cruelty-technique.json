@@ -53,17 +53,17 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "investigation",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
+      "enabled": false,
+      "event": "",
+      "formula": ""
     },
     "charmUid": "87ee2ea9b1eb4c4f"
   },
