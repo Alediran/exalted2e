@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>An Abyssal veiled by this Charm is a walking nightmare. He should not exist, so he does not exist. No screams or pleas for help from nameless strangers can convince bystanders otherwise. Upon activating this Charm, the Exalt's player rolls (Manipulation + Stealth), adding successes equal to his Essence rating. Observers with a Dodge MDV less than the number of rolled successes feel an unnatural compulsion to ignore the Abyssal and any combat in which he participates. Resisting this compulsion for the rest of the scene costs two Willpower, but if a witness does so while the Abyssal can perceive her, he immediately knows that she has chosen to involve herself. (The Willpower cost drops to one point if someone else calls a witness's attention to the Abyssal.) The compulsion also immediately ends without alerting the deathknight if he directly interacts with a bystander in any way or if the events of a battle physically affect that witness. Bystanders compelled by this Charm to ignore events bury the real memories deep in their psyche and do not attempt to correct their recollection without external prompting and a personally compelling reason. Even then, they must spend four Willpower points to confront the sickening truth that they could have done something and chose not to.</p>",
+    "description": "<p>An Abyssal veiled by this Charm is a walking nightmare. He should not exist, so he does not exist. No screams or pleas for help from nameless strangers can convince bystanders otherwise. Upon activating this Charm, the Exalt's player rolls (Manipulation + Stealth), adding successes equal to his Essence rating. Observers with a Dodge MDV less than the number of rolled successes feel an unnatural compulsion to ignore the Abyssal and any combat in which he participates. Resisting this compulsion for the rest of the scene costs two Willpower, but if a witness does so while the Abyssal can perceive her, he immediately knows that she has chosen to involve herself. (The Willpower cost drops to one point if someone else calls a witness's attention to the Abyssal.) The compulsion also immediately ends without alerting the deathknight if he directly interacts with a bystander in any way or if the events of a battle physically affect that witness.</p><p>Bystanders compelled by this Charm to ignore events bury the real memories deep in their psyche and do not attempt to correct their recollection without external prompting and a personally compelling reason. Even then, they must spend four Willpower points to confront the sickening truth that they could have done something and chose not to.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -54,8 +54,8 @@
             "charmUid": "9082deea539b3616",
             "charmName": "Shadow Cloak Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
