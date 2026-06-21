@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Lesser Abyssals might steady themselves with Essence for a time, only to fall flat on their faces at a key moment in combat when they cannot afford to waste a Charm activation on the effect. With this Charm, however, activating Raiton's Nimble Perch no longer counts as Charm use. More importantly, whenever the Abyssal has Raiton's Nimble Perch active, she can spend one mote to negate all damage from falling and automatically succeeds on any attempt to arrest a fall by grabbing onto something (unless there is absolutely nothing available to grab).</p>",
+    "description": "<p>Lesser Abyssals might steady themselves with Essence for a time, only to fall flat on their faces at a key moment in combat when they cannot afford to waste a Charm activation on the effect. With this Charm, however, activating Raiton's Nimble Perch no longer counts as Charm use. More importantly, whenever the Abyssal has Raiton's Nimble Perch active, she can spend one mote to negate all damage from falling and automatically succeeds on any attempt to arrest a fall by grabbing onto something (unless there is absolutely nothing available to grab).</p><p>Ignore the innate ability power. Instead, the Abyssal can pay one mote while Raiton's Nimble Perch is active to perfectly negate any knockback applied against him.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,8 +51,8 @@
             "charmUid": "9c6f7f2204dbe46d",
             "charmName": "Raiton's Nimble Perch",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
