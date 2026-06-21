@@ -39,7 +39,7 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -53,9 +53,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "bureaucracy",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
