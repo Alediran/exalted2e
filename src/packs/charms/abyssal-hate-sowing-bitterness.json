@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The deathknight taps into the hate and resentment that compelled him to accept Abyssal Exaltation, infusing his words with supernatural malice. While he keeps this Charm active, any attempt he makes to build a negative Intimacy or tear down a positive Intimacy with a natural social attack becomes unnatural mental influence that costs one Willpower point to resist. Once a character spends five Willpower points in a scene from resisting such attacks, that character becomes immune to all further attacks for the rest of the day. Failure to resist means the Intimacy forms or dissolves immediately as an Emotion effect rather than requiring the usual repeated effort. Mortals who gain a negative Intimacy thus also suffer an unnatural Compulsion effect that lasts past the duration of the Charm until the Intimacy erodes completely. This effect comes into play whenever anyone attempts to weaken the Intimacy with a social attack. The mortal must immediately retaliate against the speaker with physical violence unless she pays one Willpower point to resist the violent urge. Mortals maddened by such passions will even attack the Abyssal if he tries to douse the flames of hate his Charm ignited.</p>",
+    "description": "<p>The deathknight taps into the hate and resentment that compelled him to accept Abyssal Exaltation, infusing his words with supernatural malice. While he keeps this Charm active, any attempt he makes to build a negative Intimacy or tear down a positive Intimacy with a natural social attack becomes unnatural mental influence that costs one Willpower point to resist. Once a character spends five Willpower points in a scene from resisting such attacks, that character becomes immune to all further attacks for the rest of the day. Failure to resist means the Intimacy forms or dissolves immediately as an Emotion effect rather than requiring the usual repeated effort.</p><p>Mortals who gain a negative Intimacy thus also suffer an unnatural Compulsion effect that lasts past the duration of the Charm until the Intimacy erodes completely. This effect comes into play whenever anyone attempts to weaken the Intimacy with a social attack. The mortal must immediately retaliate against the speaker with physical violence unless she pays one Willpower point to resist the violent urge. Mortals maddened by such passions will even attack the Abyssal if he tries to douse the flames of hate his Charm ignited.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,9 +53,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "socialize",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
