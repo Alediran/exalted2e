@@ -27,11 +27,11 @@
     "keywords": [
       "Mirror",
       "Combo-OK",
-      "Spectral",
+      "Dusk",
       "Obvious"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "8m",
       "resonance": 0,
       "limitTrigger": 0
     },
@@ -56,8 +56,8 @@
             "charmUid": "e5cff20ae70cfd1c",
             "charmName": "Flitting Shadow Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
