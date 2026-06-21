@@ -54,8 +54,8 @@
             "charmUid": "3c32613e5f87d361",
             "charmName": "Life-Mocking Assembly",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -66,17 +66,17 @@
             "charmUid": "6b192688b3e6ecdb",
             "charmName": "Bone Graft Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
+      "enabled": false,
+      "status": "",
+      "resistPool": "",
+      "onFail": ""
     },
     "charmUid": "25a5565f942c1517"
   },

@@ -53,18 +53,18 @@
             "charmUid": "b90da259adc25fa8",
             "charmName": "Pitiless Triage Judgment",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "healingRoll": {
-      "enabled": true,
-      "pool": "1",
+      "enabled": false,
+      "pool": "",
       "bonus": "",
-      "damageType": "lethal",
-      "target": "self"
+      "damageType": "",
+      "target": ""
     },
     "charmUid": "105690e615c5d0a1"
   },

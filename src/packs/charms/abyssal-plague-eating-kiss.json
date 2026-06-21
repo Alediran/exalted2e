@@ -52,17 +52,17 @@
             "charmUid": "b90da259adc25fa8",
             "charmName": "Pitiless Triage Judgment",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
-      "status": "Sickness",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applySickness"
+      "enabled": false,
+      "status": "",
+      "resistPool": "",
+      "onFail": ""
     },
     "charmUid": "113f6bcbc5111b27",
     "mirrorId": "58ba3e8f89c63057"
