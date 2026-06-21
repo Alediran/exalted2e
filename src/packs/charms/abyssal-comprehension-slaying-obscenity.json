@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal speaks one word that is not merely incomprehensible, but aggressively antithetical to understanding. Roll the Exalt's (Manipulation + Linguistics + Essence). Every non-deaf being within a radius of (Linguistics x 100) yards who has a Dodge MDV less than the number of successes rolled falls victim to the Charm's unnatural mental influence. Those afflicted find themselves unable to parse meaning from any form of communication, whether written, spoken, body language or something more exotic. Social interactions and coordinated tactics become impossible. Affected units cannot take on new orders, though they can still follow existing orders, respond to stimuli or attack units with which they are engaged. Ultimately, the Storyteller remains final arbiter of what is and isn't possible while victims are denied comprehension, though the effects are generally quite brutal and far-reaching. Note that the Abyssal is not automatically immune to the unholy word. His player compares the successes to the character's own Dodge MDV to see if he is affected. Overcoming the vicious Illusion of this Charm costs three Willpower points. The cost may be paid in installments, but the confusion lasts until the character pays the final point. Once a unit leader pays this cost--which usually happens within a scene--the rest of his unit may be assumed to have done so and the unit functions normally, though this weakens individual unit members normally if it becomes necessary to deal with them as individuals.</p>",
+    "description": "<p>The Abyssal speaks one word that is not merely incomprehensible, but aggressively antithetical to understanding. Roll the Exalt's (Manipulation + Linguistics + Essence). Every non-deaf being within a radius of (Linguistics x 100) yards who has a Dodge MDV less than the number of successes rolled falls victim to the Charm's unnatural mental influence. Those afflicted find themselves unable to parse meaning from any form of communication, whether written, spoken, body language or something more exotic. Social interactions and coordinated tactics become impossible. Affected units cannot take on new orders, though they can still follow existing orders, respond to stimuli or attack units with which they are engaged. Ultimately, the Storyteller remains final arbiter of what is and isn't possible while victims are denied comprehension, though the effects are generally quite brutal and far-reaching.</p><p>Note that the Abyssal is not automatically immune to the unholy word. His player compares the successes to the character's own Dodge MDV to see if he is affected. Overcoming the vicious Illusion of this Charm costs three Willpower points. The cost may be paid in installments, but the confusion lasts until the character pays the final point. Once a unit leader pays this cost—which usually happens within a scene—the rest of his unit may be assumed to have done so and the unit functions normally, though this weakens individual unit members normally if it becomes necessary to deal with them as individuals.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,9 +53,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "linguistics",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -66,8 +66,8 @@
             "charmUid": "3f7f1739c0f5986e",
             "charmName": "Language-Absorbing Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

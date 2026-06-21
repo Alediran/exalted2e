@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The deathknight may borrow the hideous fluency of the Neverborn, facilitating communication with other creatures of darkness. While this Charm is active, the Abyssal mentally hears a rasping and eerie \"overdubbing\" in her native language whenever a creature of darkness speaks to her. This Charm provides no translation when the speaker does not intend to address the deathknight. Nor can it translate any positive emotional concepts such as professions of love or respect, since the Neverborn no longer understand such ideas in any meaningful capacity. Hollow or ironic honorifics do translate, however. The slain Primordials understand pettiness and spite with a vocabulary beyond imagination.</p><p>In addition to translation, Infinite Blasphemy Glossolalia also gives Abyssals the ability to speak in a guttural rasping hiss that is understood by any creature of darkness who hears it, provided the Abyssal does not try to convey a positive emotional concept. Everyone else hears the language as disturbing gibberish. (Charms that translate unknown languages can do so normally.) The Taint drawback to this Charm renders the Abyssal incapable of speaking any other language without spending one Willpower per scene, and he can never make any positive emotional statement. The Taint costs four bonus points or eight experience points.</p>",
+    "description": "<p>The deathknight may borrow the hideous fluency of the Neverborn, facilitating communication with other creatures of darkness. While this Charm is active, the Abyssal mentally hears a rasping and eerie \"overdubbing\" in her native language whenever a creature of darkness speaks to her. This Charm provides no translation when the speaker does not intend to address the deathknight. Nor can it translate any positive emotional concepts such as professions of love or respect, since the Neverborn no longer understand such ideas in any meaningful capacity. Hollow or ironic honorifics do translate, however. The slain Primordials understand pettiness and spite with a vocabulary beyond imagination.</p><p>In addition to translation, Infinite Blasphemy Glossolalia also gives Abyssals the ability to speak in a guttural rasping hiss that is understood by any creature of darkness who hears it, provided the Abyssal does not try to convey a positive emotional concept. Everyone else hears the language as disturbing gibberish. (Charms that translate unknown languages can do so normally.)</p><p>The Taint drawback to this Charm renders the Abyssal incapable of speaking any other language without spending one Willpower per scene, and he can never make any positive emotional statement. The Taint costs four bonus points or eight experience points.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -54,8 +54,8 @@
             "charmUid": "b166f46d2239456d",
             "charmName": "Scathing Cynic Attitude",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
