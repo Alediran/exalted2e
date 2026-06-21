@@ -1,6 +1,6 @@
 {
-  "_id": "eeb9adeba4cb597b",
-  "_key": "!items!eeb9adeba4cb597b",
+  "_id": "7c6d5e4f3a2b1098",
+  "_key": "!items!7c6d5e4f3a2b1098",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,14 +9,14 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Void Circle Necromancy",
+  "name": "Shadowlands Circle Necromancy",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
+    "exaltType": "sidereal",
     "ability": "occult",
-    "essence": 5,
-    "minAbility": 5,
+    "essence": 3,
+    "minAbility": 3,
     "charmType": "permanent",
     "duration": "instant",
     "speed": 6,
@@ -28,13 +28,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm permits the Abyssal to take Void Circle Necromancy actions</p>",
+    "description": "<p>This Charm permits the Sidereal to take Shadowlands Circle Necromancy actions. These actions work exactly the same way as the various sorcery actions: one action for Shadowlands Circle spells, two actions for Labyrinth Circle spells, three actions for Void Circle spells. For complete information about necromancy, and all the better-known spells, see The Books of Sorcery, Vol. II—The Black Treatise.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -42,28 +41,15 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "61f2734d44ae121b",
-            "charmName": "Labyrinth Circle Necromancy",
-            "abilityKey": "",
-            "virtueKey": "",
-            "virtueMin": 0
-          }
-        ]
-      }
-    ],
-    "charmUid": "eeb9adeba4cb597b",
+    "prereqGroups": [],
+    "charmUid": "7c6d5e4f3a2b1098",
     "grantsInitiation": {
       "enabled": true,
       "tradition": "necromancy",
-      "level": 3
+      "level": 1
     }
   },
-  "folder": "b0b1b2b3b4b5f041",
+  "folder": "b0b1b2b3b4b5f00f",
   "sort": 0,
   "ownership": {
     "default": 0

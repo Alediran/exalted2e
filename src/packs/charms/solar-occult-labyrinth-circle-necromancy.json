@@ -1,6 +1,6 @@
 {
-  "_id": "2df1d80f0a418d1e",
-  "_key": "!items!2df1d80f0a418d1e",
+  "_id": "5a4b3c2d1e0f9876",
+  "_key": "!items!5a4b3c2d1e0f9876",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,30 +9,26 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Through Dead Eyes",
+  "name": "Labyrinth Circle Necromancy",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
+    "exaltType": "solar",
     "ability": "occult",
-    "essence": 2,
-    "minAbility": 5,
-    "charmType": "reflexive",
-    "duration": "oneScene",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      1
-    ],
-    "keywords": [
-      "Mirror"
-    ],
+    "steps": [],
+    "keywords": [],
     "cost": {
-      "formula": "6m",
+      "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The deathknight's gaze probes the patterns of Essence that hold existence together, searching for weaknesses to exploit.</p>",
+    "description": "<p>This Charm permits the Solar to take Labyrinth Circle Necromancy actions.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -50,8 +46,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "7eb2f70702003571",
-            "charmName": "Spirit-Sensing Meditation",
+            "charmUid": "4f3e2d1c0b9a8765",
+            "charmName": "Shadowlands Circle Necromancy",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -59,10 +55,14 @@
         ]
       }
     ],
-    "charmUid": "2df1d80f0a418d1e",
-    "mirrorId": "2116640001866888"
+    "charmUid": "5a4b3c2d1e0f9876",
+    "grantsInitiation": {
+      "enabled": true,
+      "tradition": "necromancy",
+      "level": 2
+    }
   },
-  "folder": "b0b1b2b3b4b5f041",
+  "folder": "9f789a9f97cf7e28",
   "sort": 0,
   "ownership": {
     "default": 0
