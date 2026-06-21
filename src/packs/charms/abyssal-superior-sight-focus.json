@@ -44,7 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "mirrorId": "8ad7840da0d4ecd8",
+    "mirrorId": "6d64a80622250f23",
     "prereqGroups": [
       {
         "alternatives": [
@@ -53,8 +53,8 @@
             "charmUid": "",
             "charmName": "",
             "abilityKey": "awareness",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
