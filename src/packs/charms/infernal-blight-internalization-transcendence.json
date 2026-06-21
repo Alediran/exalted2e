@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "simple",
@@ -52,14 +52,14 @@
             "charmUid": "2052ce893e5b1740",
             "charmName": "By Pain Reforged",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
+      "enabled": false,
       "status": "Sickness",
       "resistPool": "@sta + @resistance",
       "onFail": "applySickness"
