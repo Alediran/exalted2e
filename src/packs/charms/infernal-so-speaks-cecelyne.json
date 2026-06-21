@@ -15,28 +15,25 @@
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 4,
+    "essence": 5,
     "minAbility": 1,
-    "charmType": "simple",
-    "duration": "scene",
+    "charmType": "permanent",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [
-      "Combo-Basic"
-    ],
+    "keywords": [],
     "cost": {
-      "formula": "3m, 1wp",
+      "formula": "",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>They simply act, and success flows through that action. This Charm may be purchased once for each iteration of First Cecelyne Excellency the character knows. While active, So Speaks Cecelyne allows an Infernal to use its prerequisite as an innate power rather than a Charm activation. If the Infernal also knows the appropriate Effortless Cecelyne Dominance, he can choose whether to pay the full cost of the Excellency to wield it innately or use it as a Charm to enjoy the cost reduction. The same rules apply if any other effects reduce the Excellency's cost.</p>",
+    "description": "<p>So Speaks Cecelyne permanently alters the costs and mechanics of the Infernal's Cecelyne Excellency suite. The First Cecelyne Excellency now provides two dice per mote spent rather than one, and the Second Cecelyne Excellency now provides one automatic success per mote spent rather than one per two motes. Cecelyne Inevitability Technique no longer requires a Willpower expenditure, costing four motes instead. So Speaks Cecelyne is incompatible with Effortless Cecelyne Dominance.</p>",
     "source": "MoP: Infernals",
     "yoziPatron": "cecelyne",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -58,30 +55,6 @@
         ]
       }
     ],
-    "motePoolBonus": {
-      "enabled": true,
-      "pool": "peripheral",
-      "amount": 10
-    },
-    "dvBonus": {
-      "enabled": true,
-      "dodgeBonus": 0,
-      "parryBonus": 0,
-      "ignoreAllPenalties": true,
-      "ignorePenaltyTypes": []
-    },
-    "healthGrant": {
-      "enabled": true,
-      "options": [
-        {
-          "label": "Purchase",
-          "zero": 0,
-          "one": 0,
-          "two": 3,
-          "dying": 1
-        }
-      ]
-    },
     "charmUid": "5fca4450eb130467"
   },
   "folder": "d852ccb3960d271d",
