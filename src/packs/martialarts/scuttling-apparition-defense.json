@@ -30,7 +30,7 @@
       "Obvious"
     ],
     "cost": {
-      "motes": 4,
+      "motes": 8,
       "willpower": 0,
       "bashingHealth": 0,
       "lethalHealth": 0,
@@ -41,13 +41,13 @@
       "limitTrigger": 0,
       "formula": "8m or 10m"
     },
-    "description": "<p>Spending four motes, the martial artist fades out of the path of an attack with a gruesome contortionist kata, ceasing to exist except as motes scattered on the breeze. She reappears within a heartbeat in a new position within (Essence) yards as a kind of short-range teleportation. This effect reduces the roll for the attacking character to zero dice. Scuttling Apparition Defense cannot defend against any attack that is unblockable, undodgeable or capable of hitting dematerialized beings, nor can it let a grappled character escape. Attacks supplemented by Charms that add automatic successes also might still strike. Since the Scuttling Apparition Defense is not truly a perfect defense, it does not carry a Flaw of Invulnerability. As a further benefit, the Abyssal can appear directly behind an enemy within range, giving an opportunity to attempt an unexpected attack (see Exalted, p. 155). Against flurries, Exalted may spend six motes when using this Charm to add an unnatural Illusion effect that confuses attackers as to the martial artist's location. Disoriented aggressors must pay a Willpower point or face debilitating waves of d�j� vu and uncertainty that reduce all attack rolls in the flurry to zero dice.</p>",
+    "description": "<p>Spending four motes, the martial artist fades out of the path of an attack with a gruesome contortionist kata, ceasing to exist except as motes scattered on the breeze. She reappears within a heartbeat in a new position within (Essence) yards as a kind of short-range teleportation. This effect reduces the roll for the attacking character to zero dice. Scuttling Apparition Defense cannot defend against any attack that is unblockable, undodgeable or capable of hitting dematerialized beings, nor can it let a grappled character escape. Attacks supplemented by Charms that add automatic successes also might still strike. Since the Scuttling Apparition Defense is not truly a perfect defense, it does not carry a Flaw of Invulnerability. As a further benefit, the Abyssal can appear directly behind an enemy within range, giving an opportunity to attempt an unexpected attack (see Exalted, p. 155). Against flurries, Exalted may spend six motes when using this Charm to add an unnatural Illusion effect that confuses attackers as to the martial artist's location. Disoriented aggressors must pay a Willpower point or face debilitating waves of déjà vu and uncertainty that reduce all attack rolls in the flurry to zero dice. Scuttling Apparition Defense's vulnerabilities count as a unique Flaw of Invulnerability. Activating it for a teleporting dodge costs eight motes; adding the Illusion raises the cost to ten motes.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Hungry Ghost Style",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -63,8 +63,8 @@
             "charmUid": "ff79c7c6320f8be5",
             "charmName": "Unnatural Shambling Deftness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

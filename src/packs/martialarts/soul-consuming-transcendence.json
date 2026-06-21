@@ -65,19 +65,6 @@
         ]
       }
     ],
-    "healingRoll": {
-      "enabled": true,
-      "pool": "1",
-      "bonus": "",
-      "damageType": "lethal",
-      "target": "self"
-    },
-    "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
-    },
     "charmUid": "26e90b0a6b44bc36",
     "grantsMastery": true
   },
