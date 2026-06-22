@@ -20,7 +20,7 @@
     "charmType": "simple",
     "duration": "instant",
     "speed": 4,
-    "dvPenalty": 0,
+    "dvPenalty": -3,
     "steps": [],
     "keywords": [
       "Combo-Basic",
@@ -32,13 +32,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>An array of lead plates, black jade baffles and Essenceredirecting adamant coils deploy, forcibly suppressing the Alchemical's anima banner. It flickers like a failing circuit and then disappears altogether. The process is briefly but intensely painful. The Exalt's anima is truly dampened out but will flare again with further expenditure of Peripheral Essence. This Charm costs three Willpower if the anima is at the eight- to 10-mote level or brighter, only two Willpower if dimmer than that, and one Willpower if previously activated in the scene.</p>",
+    "description": "<p>An array of lead plates, black jade baffles and Essence-redirecting adamant coils deploy, forcibly suppressing the Alchemical's anima banner. It flickers like a failing circuit and then disappears altogether. The process is briefly but intensely painful. The Exalt's anima is truly dampened out but will flare again with further expenditure of Peripheral Essence. This Charm costs three Willpower if the anima is at the eight- to 10-mote level or brighter, only two Willpower if dimmer than that, and one Willpower if previously activated in the scene.</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
