@@ -29,17 +29,16 @@
       "Internal"
     ],
     "cost": {
-      "formula": "1m-3m",
+      "formula": "1m–3m [1m]",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm connects its prerequisite(s) to a core of tangled starmetal monofilaments buried in the center of the Exalt's brain. This core autonomously collates and processes sensory data in conjunction with precognitive modeling of future events using Autochthon's Design. Use of Anticipatory Simulation Processor against an unexpected physical attack removes the \"unexpected\" label and allows normal defense. Against a physical attack the character can see coming, the Charm instead negates all onslaught or coordinated attack penalties associated with the attack. The Charm's base activation cost is two motes, but attackers outside the fate of Creation and the Design of Autochthon add a one-mote surcharge, while mortals apply a one-mote discount. Submodules: Intuitive Necessity Algorithm (Wits 4, Essence 3): The Exalt may invoke the Charm against a surprise attack without it counting as a Charm use, though doing so adds a two-Willpower surcharge to the activation cost.",
+    "description": "<p>This Charm connects its prerequisite(s) to a core of tangled starmetal monofilaments buried in the center of the Exalt's brain. This core autonomously collates and processes sensory data in conjunction with precognitive modeling of future events using Autochthon's Design. Use of Anticipatory Simulation Processor against an unexpected physical attack removes the \"unexpected\" label and allows normal defense. Against a physical attack the character can see coming, the Charm instead negates all onslaught or coordinated attack penalties associated with the attack. The Charm's base activation cost is two motes, but attackers outside the fate of Creation and the Design of Autochthon add a one-mote surcharge, while mortals apply a one-mote discount.</p><p>Submodules: Recursive Pattern Modeling (Wits 4, Essence 4): Once the Alchemical activates this Charm, the cost of all subsequent activations on that tick is reduced by two motes (minimum zero).</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
