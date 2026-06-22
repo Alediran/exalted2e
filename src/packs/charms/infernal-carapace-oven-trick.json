@@ -1,0 +1,72 @@
+{
+  "_id": "beef00000000000d",
+  "_key": "!items!beef00000000000d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Carapace Oven Trick",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal squeezes his fist in the direction of an armored adversary as wisps of Primordial sunfire play about his fingers. This Charm is a ranged attack with an attack pool of (Charisma + Resistance + Essence) against a target within 50 yards. The attack can be dodged normally. If a non-natural weapon parries this attack (using DV or otherwise), Carapace Oven Trick misses but the defending weapon is automatically superheated as per Rebuking Impudent Arms. Since this heating does not accompany any active disarm attempt, the victim can accept the damage or drop the weapon as desired without having to make a roll to hold on. This superheating does not occur if the attack is parried with the assistance of a Charm which can block unblockable attacks or which possesses a Flaw of Invulnerability.</p><p>If the attack hits, the victim's armor superheats bright green, damaging its wearer on contact as explained in Rebuking Impudent Arms. Nonmagical armor vaporizes, but the broader surface area means it still inflicts one level of lethal damage as it does so. Magical armor is considerably harder to affect, requiring the warlock to have a permanent Essence greater than the target's artifact rating (or the minimum Essence of the Charm that created the armor). If it can be affected, magical armor remains superheated for five minutes, but offers better insulation than weapons by inflicting bashing damage instead of lethal. Unfortunately, armor can't simply be dropped the way a weapon can. Getting out before being cooked to death requires the usual actions to do so (see Exalted, p. 374). Appropriate countermagic can also cool the armor back to normal temperature instantly.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "Instant/Five minutes",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c856e7e5e839a5b8",
+            "charmName": "Rebuking Impudent Arms",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000000d"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

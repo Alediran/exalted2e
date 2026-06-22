@@ -1,0 +1,68 @@
+{
+  "_id": "beef00000000000c",
+  "_key": "!items!beef00000000000c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Star-Piercing Spear of Glory",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm upgrades the spear conjured by repurchasing Vitriolic Corona Endowment. The summoned spear may fire blasts of cosmic energy as an alternative to close combat use. These blasts may be fired with a range increment of (Essence x 5) yards using Archery or Melee and require no ammunition or additional cost. Ranged attacks with the spear otherwise follow the same rules as attacking in close combat.</p><p>With Essence 4+ the Infernal can hurl bolts with identical statistics from any part of his body, even without summoning the spear.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7412955c67351b75",
+            "charmName": "Vitriolic Corona Endowment",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0,
+            "minPurchases": 2
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000000c"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

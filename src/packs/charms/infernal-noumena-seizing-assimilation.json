@@ -1,0 +1,71 @@
+{
+  "_id": "beef00000000001d",
+  "_key": "!items!beef00000000001d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Noumena-Seizing Assimilation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 5,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Blasphemy",
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1ahl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>During the First Age, the Lawgivers stacked their towers high along the dragon lines. The Whispering Flame regrets that she may never have the chance to show them how easily their petty infrastructure might be toppled. A character using Hollow Mind Possession to control the material intelligence of a manse he stands within may activate Noumena-Seizing Assimilation in order to emit a mimetic virus of will, which races through the dragon lines in every direction, striking every manse-based material intelligence within (Essence x 30) miles with a psychic attack.</p><p>This attack is slightly weaker than the prerequisite, omitting the warlock's Essence from its attack roll, but otherwise functions as Hollow Mind Possession. This does not allow the warlock to possess all targets at once; if successful, it establishes Sorcerous backdoors which the Infernal may then possess using this Charm's prerequisite.</p><p>While Noumena-Seizing Assimilation is not able to independently infect automatons, warstriders, and other material intelligences not grounded directly into the dragon lines, if any such constructs happen to be plugged into manses, hard-docked or otherwise directly connected to a manse when it is attacked, or otherwise junctioned directly into the dragon lines, they also suffer this attack and may have a backdoor Sorcerously appended by which the Infernal may arrest control of them.</p><p>This Charm may never be used across realms of existence.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "beef00000000001c",
+            "charmName": "Hollow Mind Possession",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0,
+            "minPurchases": 3
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000001d"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

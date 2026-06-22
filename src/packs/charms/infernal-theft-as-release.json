@@ -1,0 +1,82 @@
+{
+  "_id": "beef00000000002c",
+  "_key": "!items!beef00000000002c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Theft as Release",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Adorjan is no more a thief than she is a murderer. She does not take from others to enrich herself, but only to free others from the weight of cherished possessions. This Charm may enhance any action to make a target character lose an object or structure he owns. Examples include Larceny actions to pickpocket an item, a disarming attack to remove a weapon, social attacks to convince the target to sell or surrender the property or attacks against the item in an effort to take it away from everyone. Any action opposing the enhanced action suffers an external penalty of the warlock's Compassion rating, including DV-based defenses. If the enhanced action succeeds in making the item unavailable to its owner, he also loses metaphysical ownership of the item.</p><p>As a secondary effect, whenever this Charm causes its target to lose ownership of an object, the now-former owner experiences an Illusion effect convincing him that the item does not belong to him. Resisting the Illusion costs four Willpower (or one Willpower if the item is urgently important to its former owner, like a weapon disarmed in the middle of combat). If the Illusion takes hold, any attunement by the former owner to the object abruptly ends. Depending on the warlock's intent, the specific Illusion may alter memories so that the target believes he never owned the item or a subtler shift in perspective may cause him to reject the value of the lost item with a \"sour grapes\" attitude. A target under the effect of this unnatural Illusion can't take actions to reclaim the item until and unless he can be externally convinced of its value enough to build an Intimacy toward it. This dispels the Illusion and restores altered memories to normal. Unfortunately for victims of the Charm, the Illusion also forces them to resist such suggestions with the best social defenses available to them, though they are not compelled to physically attack anyone in defense of their ideas. Victims of this Charm can't spend Willpower to break the Illusion once it takes hold.</p><p>If an Infernal has Essence 3+, this Charm may also take living beings with the same effects as taking inanimate items, though the former possession must also pay Willpower or succumb to an Illusion that makes him believe he does not belong to his former master (and possibly that he never did). This Illusion ends any Intimacy he has toward his former owner. In general, \"owned beings\" includes pets, underage progeny, slaves, retainers, cultists and so on. The Storyteller should carefully consider the power dynamics of other relationships when assigning this title. A matriarch of a Great House can certainly be said to own junior members of her family, while a domineering spouse may \"own\" her mate. Attachments to living beings are not so easily subverted; the Illusion costs only two Willpower to resist.</p><p>With Essence 4+, taking the owned item or being away also has the effect of concealing the loss from others besides the former owner. Other characters do not notice or ignore the fact that the item is gone for the rest of the scene, but may spend one Willpower at any time to throw off this unnatural Illusion and come to their senses. If the owner resists the primary Illusion, this secondary Illusion also applies to him. With Essence 5+, the secondary Illusion lasts one day instead of one scene.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "323c4fdbe94b4f30",
+            "charmName": "Wind-Born Stride",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "10bac2ad89f6ca61",
+            "charmName": "Freedom Lets Go",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000002c"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

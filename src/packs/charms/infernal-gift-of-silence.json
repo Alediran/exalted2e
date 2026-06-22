@@ -1,0 +1,69 @@
+{
+  "_id": "beef00000000002f",
+  "_key": "!items!beef00000000002f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gift of Silence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Touch"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm upgrades its prerequisite, allowing its effects to be bestowed on others as a Touch effect, though beneficiaries must know Old Realm to make use of the gift. Hostile targets may spend one Willpower to prevent the Shaping from internalizing their voice.</p><p>Further purchase of Gift of Silence expands the radius of Eloquence in Unspoken Words, but eventually requires higher Essence ratings: second (1 mile; Essence 4+), third (10 miles; Essence 6+), fourth (100 miles; Essence 8+) and finally fifth (1000 miles; Essence 10). Increasing the range with repurchases does not increase the range at which others \"tagged\" by the Charm can telepathically speak.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0bba6c91345798e0",
+            "charmName": "Eloquence in Unspoken Words",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000002f"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

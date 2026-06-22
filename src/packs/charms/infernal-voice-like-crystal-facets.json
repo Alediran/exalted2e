@@ -1,0 +1,70 @@
+{
+  "_id": "beef000000000021",
+  "_key": "!items!beef000000000021",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Voice Like Crystal Facets",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 4,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Social"
+    ],
+    "cost": {
+      "formula": "-- (1wp per target)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The sound of the Whispering Flame's voice is as beautiful as it is alien. A character who learns this Charm permanently splits her voice into many elegant fragments. Whenever she speaks, she is heard not as one voice but as several cool, modular voices tinged by the sound of a thousand tiny crystals pouring through a sieve.</p><p>A character with this Charm may spend one Willpower to split her dialogue between two characters for one scene. She does not seem to speak in two voices at once; rather each target hears a customized dialogue, allowing the warlock to deny certain members of an audience the chance to hear her arguments. Characters who are not specifically targeted by the Infernal hear a pleasant humming of diamond sighs and glass whispers rather than what she is actually saying. Furthermore, the Infernal may pay up to (Essence) Willpower to split her arguments amongst (Essence) targets, making customized social attacks against multiple individuals, further reducing their power to aid one another in contradicting her.</p><p>In essence, the Infernal may roll Performance-based social attacks and ascribe different meaning to these attacks for different listening characters, while filtering other listeners out entirely. Listeners may spend one Willpower to take a miscellaneous action to try to unthread the Exalt's words, enabling them to hear all she says, by rolling Perception + Socialize against a difficulty of the warlock's Essence, with an external penalty equal to the number of Willpower she has paid into this Charm for the scene. Failure subjects listeners to an incomprehensible jumble of all the Infernal's words at once.</p><p>This Charm allows the warlock to choose (Essence) target languages when activating Interlocution Metamorphosis Prophecy at no extra cost. A repurchase of this Charm at Essence 5+ allows her to subsume up to (Essence x 2) languages when activating this Charm's prerequisite. A final repurchase at Essence 7+ allows her to be understood in any language, but increases the activation cost of Interlocution Metamorphosis Prophecy to 10 motes, one Willpower.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "beef000000000020",
+            "charmName": "Interlocution Metamorphosis Prophecy",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000021"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "beef000000000010",
+  "_key": "!items!beef000000000010",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inevitability of Law",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 5,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permanently upgrades its prerequisite. The Infernal may ignore the MDV of any First Circle demon when using any form of mental influence against it, forcing the spirit to accede to the command or pay the necessary Willpower to resist. A second purchase requiring Essence 6+ enchants these commands so that First Circle demons suffer one unsoakable level of aggravated damage for every Willpower point they spend resisting any mental influence from the warlock. Bound demons must resist commands that violate their orders. Even so, Cecelyne grinds to dust those who display such impudence regardless of how much choice they have in the matter. A third and fourth purchase (requiring Essence 7+ and 9+ respectively) extend the same cascade of benefits against Second Circle demons, making the Infernal truly Unquestionable in the laws of hell.</p><p><em>Scroll of Errata: This Charm lowers the MDVs of demons to zero, rather than bypassing them completely.</em></p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "maxPurchases": "4",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0128e16fadac2999",
+            "charmName": "Demonic Primacy of Essence",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000010"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "beef000000000029",
+  "_key": "!items!beef000000000029",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Splintered Gale Shintai",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 7,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Sorcerous",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>To call Adorjan insane minimizes how alien and frightening she really is. However, the fissures and partitions of her souls offer many opportunities to those who emulate her power. The Exalt's body shimmers and flickers like a mirage and she opens her mouth in a soundless scream of agony. Bloody vapors pour from her mouth in ragged gasps, congealing to form a duplicate of the Infernal's body that comes into existence naked or wearing simple clothes (worth Resources 2 or less). This duplicate is a heroic mortal, but has the same non-magical traits as its creator, including Intimacies, Motivation and memories. It has no destiny to divine and is a creature of darkness, but is too insignificant to be outside fate. Human trait limits apply, capping Attributes and Abilities at 5 dots. The construct begins life with full health, Willpower points equal to (lesser of the Infernal's Willpower or Essence rating) and all Virtue channels.</p><p>The duplicate knows it is a construct and that it has no more existence beyond its bestowed life. Not only is the created life naturally inclined to be loyal to its maker on account of their shared personality, but it also must obey her like a demon bound to her service (but without any Limit issues). It is considered part of her body as an arcane link.</p><p>The Storyteller controls the character like any other follower. Unlike most Sorcerous Charms, this one requires committed Essence and automatically terminates if that commitment ends. Withdrawing the Essence committed to this Charm or targeting the duplicate with appropriate countermagic causes it to scream and suffer a minute of unimaginable agony, which is usually spent vainly begging for help or life. When the creature's last minute passes or the construct dies by other means, its body dissolves to nothingness as though shredded by Adorjan's touch. Non-magical attire and carried possessions likewise disintegrate, though magical items endure. Alternately, the Infernal may end this Charm and absorb any duplicates within (Essence x 10) yards, causing them to unravel into crimson winds that flow into her, granting her their memories. She may later recreate absorbed duplicates if she desires. An Infernal may create and maintain as many separate duplicates as she is willing to sustain with committed Essence.</p><p>Should any of these duplicates somehow earn a Celestial Exaltation, their facsimile-souls become the genuine article; they no longer depend on their creator to maintain their existence. As an alternate use, warlocks with female reproductive organs who aren't already pregnant may activate the Charm to induce parthenogenic but otherwise normal pregnancies in themselves. The resultant offspring is an Infernal Half-Caste and looks the same as its sole parent, calculating Inheritance as if she were mother and father both (which she is). The child otherwise is its own being and develops as such.</p><p>A second purchase at Essence 4+ reduces the cost to one mote, one Willpower. The Exalt can also initiate real-time telepathic contact with any duplicate in the same realm of existence as a diceless miscellaneous action. Wards that block scrying block this power. Contact lasts for the rest of the scene or until reflexively dismissed. While the link remains open, either party can speak to the other, but neither can probe for anything except communicated thoughts. Only one link may be open at a time; opening another terminates the existing connection.</p><p>A third purchase at Essence 5+ allows the warlock to spend 30m as a diceless miscellaneous action to dissolve her current body like the death of a duplicate. She may then transfer her Exaltation and souls into a duplicate, traveling as an invisible and infinitely fast wind. This fails if the site of either body is warded against teleportation. The duplicate becomes the warlock as a Shaping effect. The Infernal finds herself in her new body without any of its memories. All attunements to artifacts break, leaving no arcane link to help her find and retrieve magical possessions abandoned with her old body. A fourth purchase at Essence 6+ causes the Infernal to instantly learn all memories of any duplicate she replaces. Furthermore, she can initiate the transfer as a reflexive action subject to the Imperfection of the Silent Wind, using it as a defense by accelerating into dissolution.</p><p>When Adorjan deigns to wield this Charm, she sends frail human parodies of her skills wrapped around the delicacy of a specific psychosis, choosing any of her infinite Urges and faces to define the creature's Motivation and appearance. The soulless creatures can't leave Malfeas on their own, but may be summoned (though not bound) as if they were First Circle demons. They have maximum human ratings in all traits, plus whatever combination of maximum specialties per Ability the Silent Wind chooses.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5733c280a06b3884",
+            "charmName": "Self as Cyclone Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000029"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
