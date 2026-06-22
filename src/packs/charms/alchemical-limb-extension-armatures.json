@@ -20,7 +20,7 @@
     "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": -3,
     "steps": [],
     "keywords": [
       "Combo-Basic",
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
