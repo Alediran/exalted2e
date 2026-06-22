@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "simple",
@@ -41,7 +41,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Five days",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -56,8 +56,8 @@
             "charmUid": "7249c980f7ce1540",
             "charmName": "Loom-Snarling Deception",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -68,8 +68,8 @@
             "charmUid": "984cfad987c93638",
             "charmName": "Witness to Darkness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

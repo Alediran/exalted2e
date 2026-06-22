@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "permanent",
@@ -50,8 +50,8 @@
             "charmUid": "984cfad987c93638",
             "charmName": "Witness to Darkness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

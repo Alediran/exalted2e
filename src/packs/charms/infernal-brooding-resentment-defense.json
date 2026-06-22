@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "simple",
@@ -52,8 +52,8 @@
             "charmUid": "56eb93448fc102a7",
             "charmName": "Cracked Cell Circumvention",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -15,10 +15,10 @@
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 1,
+    "essence": 3,
     "minAbility": 1,
-    "charmType": "supplemental",
-    "duration": "instant",
+    "charmType": "simple",
+    "duration": "oneDay",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -54,8 +54,8 @@
             "charmUid": "7023602325e0fcc2",
             "charmName": "Fate-Rending Desperation",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
