@@ -15,26 +15,28 @@
   "system": {
     "exaltType": "alchemical",
     "ability": "charisma",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
     "cost": {
       "formula": "7m, 1wp [1m]",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>TACTICAL BIAS? Autochthonian armies have conducted 5,000 years of warfare primarily in tight, cramped tunnels, in cluttered ducts and in house-to-house combat within crowded cities. Their martial magic focuses primarily on enhancing the strengths of such tactics or eliminating their weaknesses. Open-field fighting and large-scale siegecraft are concepts largely alien to Alchemical tacticians. Exposure to Creation and especially war in Creation will necessarily result in the development of Charms suitable to other stratagems. Keywords: Combo-OK, War Duration: One scene Prerequisite Charms: Tunnel-Fighting Tactical Omnibus Implant Gridwork patterns of Essence-conducting wire stretch across the surface of the Champion's face, linking his TunnelFighting Tactical Omnibus Implant to his soulgem. When activated, this Charm radiates a pulse of Essence throughout a complementary unit in which the Alchemical is a special character, up to a Magnitude equal to his Essence rating. The pulse instills each soldier with an instinctive awareness of his commander's tactical prowess and unit's role in his plans. As long as the unit remains in close formation, it gets +3 Drill (even if this bonus temporarily raises Drill above 5). Submodules: Veteran Faith Inculcator (3xp): At the end of each scene in which a unit enhanced by this Charm participated in actual mass combat against enemy forces, all unit members who survive the battle instantly develop or reassert an Intimacy of loyalty to whatever cause for which they were fighting. This includes the Alchemical. Deserters who broke from the unit are unaffected. Populat Militia Drive (Essence 4, 4xp): If the unit is fighting within a city and the bulk of the unit members have lived in that city for at least one year, the unit gets +5 Drill instead and the unit commander adds the Champion's (Essence � 2, rounded up) in bonus dice to all rally attempts. Precision-Tuned Coordinator (Charisma 7, 4xp): While a unit enhanced by this Charm is engaged with an enemy unit, the enemy commander must pay one Willpower to issue an order to change formation, as the Champion's unit moves to counter such tactical adjustments. A second installation also requires this surcharge from enemy commanders when attempting to disengage their forces from the Alchemical's soldiers.</p>",
+    "description": "<p>Gridwork patterns of Essence-conducting wire stretch across the surface of the Champion's face, linking his Tunnel-Fighting Tactical Omnibus Implant to his soulgem. When activated, this Charm radiates a pulse of Essence throughout a complementary unit in which the Alchemical is a special character, up to a Magnitude equal to his Essence rating. The pulse instills each soldier with an instinctive awareness of his commander's tactical prowess and unit's role in his plans. As long as the unit remains in close formation, it gets +3 Drill (even if this bonus temporarily raises Drill above 5).</p><p>Submodules: Veteran Faith Inculcator (3xp): At the end of each scene in which a unit enhanced by this Charm participated in actual mass combat against enemy forces, all unit members who survive the battle instantly develop or reassert an Intimacy of loyalty to whatever cause for which they were fighting. This includes the Alchemical. Deserters who broke from the unit are unaffected. Populat Militia Drive (Essence 4, 4xp): If the unit is fighting within a city and the bulk of the unit members have lived in that city for at least one year, the unit gets +5 Drill instead and the unit commander adds the Champion's (Essence ÷ 2, rounded up) in bonus dice to all rally attempts. Precision-Tuned Coordinator (Charisma 7, 4xp): While a unit enhanced by this Charm is engaged with an enemy unit, the enemy commander must pay one Willpower to issue an order to change formation, as the Champion's unit moves to counter such tactical adjustments. A second installation also requires this surcharge from enemy commanders when attempting to disengage their forces from the Alchemical's soldiers.</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,

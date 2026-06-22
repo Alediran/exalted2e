@@ -14,27 +14,30 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "alchemical",
-    "ability": "wits",
-    "essence": 1,
-    "minAbility": 1,
+    "ability": "charisma",
+    "essence": 4,
+    "minAbility": 6,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "War"
+    ],
     "cost": {
       "formula": "10m [1m]",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Duration: Instant Prerequisite Charms: Omnipresent Guardian Directive A circlet of pure orichalcum crosses the Alchemical's brow, running from his Omnibus to his soulgem. It shines forth an enormously bright beacon upon activation, stirring feelings of loyalty and uplifted morale in all soldiers who witness it. This Charm may be used to supplement a unit leader's roll to rally for numbers, provided the Alchemical is a special character in that unit. If the roll succeeds and the Storyteller deems that such numbers are available on the battlefield (mortal enemy deserters should be considered viable targets for this Charm), the Champion's unit raises its Magnitude by two rather than one. Submodules: Homeguard Reinforcement Clarion (4xp): If the unit is fighting within the bounds of its home city and sufficient numbers of non-combatant civilians are present for emergency conscription, a successful rally adds three to Magnitude and simultaneously signals the entire populace of the city to the fact that they are under siege, including the patropolis itself (if the city is such).</p>",
+    "description": "<p>A circlet of pure orichalcum crosses the Alchemical's brow, running from his Omnibus to his soulgem. It shines forth an enormously bright beacon upon activation, stirring feelings of loyalty and uplifted morale in all soldiers who witness it. This Charm may be used to supplement a unit leader's roll to rally for numbers, provided the Alchemical is a special character in that unit. If the roll succeeds and the Storyteller deems that such numbers are available on the battlefield (mortal enemy deserters should be considered viable targets for this Charm), the Champion's unit raises its Magnitude by two rather than one.</p><p>Submodules: Homeguard Reinforcement Clarion (4xp): If the unit is fighting within the bounds of its home city and sufficient numbers of non-combatant civilians are present for emergency conscription, a successful rally adds three to Magnitude and simultaneously signals the entire populace of the city to the fact that they are under siege, including the patropolis itself (if the city is such).</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
