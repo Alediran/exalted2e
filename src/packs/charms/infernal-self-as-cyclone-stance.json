@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "extraaction",
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>There is stillness. And then storm. This Charm is a magical flurry composed of any Attribute- and/or Ability-based actions besides ranged attacks. The flurry is not limited to a fixed number of actions, nor does it suffer usual multiple action penalties. Instead, each action after the first suffers a cumulative -1 penalty (-1 on the second, -2 on the third, etc.). If this penalty matches or exceeds the base dice pool it penalizes before applying any modifiers, that action can't be attempted. Normal rate limits apply to attacks within this flurry, with normally infinite rate weapons reduced to base Rate 5 before adding in any rate bonuses. The DV penalty for the entire flurry is the greatest penalty among component actions (or -0 if the Infernal has Essence 4+). Although a flurry granted by this Charm involves a finite number of attacks, each attack can represent dozens or even hundreds of lightning fast strikes whose cumulative effect is equivalent to fewer, better-defined blows. SCARLET RAPTURE SHINTAI Cost: 12m, 1wp or 3m; Mins: Essence 4; Type: Extra Action</p><p>Keywords: Combo-Basic, Form-Type, Obvious Duration: One action (Instant) Prerequisite Charms: Laughing Gust Denial, Self as Cyclone Stance In all of Malfeas, among all races of demons spawned of every Yozi, one prayer unites the best and worst of Hell in common terror: \"May the peace of Adorjan not fall upon me.\" Their desperate pleas are prayers to her, empowering her to bestow her unique instructive kindness upon them. Upon activating this Charm, the Infernal's body achieves ascetic transcendence as it dissolves like eroded stone. In the blink of an eye, the Exalt appears as a gust of crimson-hued wind swirling with mirage distortions. When initially still, he coalesces into a humanoid shape hinting at his material form. As he moves, his ephemeral substance warps and stretches behind him as amorphous streamers of light and pain, making it impossible to identify him without the aid of Charms. Scarlet Rapture Shintai provides an Instant duration magical flurry on the tick in which it is used. This flurry contains two actions that suffer no multiple action penalties, ignore weapon Rate and impose a total DV penalty equal to the highest penalty for either action. This flurry may not include ranged attacks. In the exact instant that the Infernal acts, his wind body takes on humanoid semblance to perform that action and exerts force as though solid. Attacks made against him while he exists as wind injure him normally, inflicting wounds in the form of violent disruptions to his component gusts. Each activation of Scarlet Rapture Shintai permits a dynamic Combo with any single Charm that could be placed in a normal Combo with it. Dynamic Combos still require one Willpower to activate and always display special effects like a normal Combo, though the exact manifestation can vary with each use. Scarlet Rapture Shintai normally costs 12 motes and one Willpower to activate, but only three motes if the character activated it on his last action tick. This Essence is committed only for the Duration of the Charm. Constant reactivation keeps the Infernal's identity obscured by wind form; the character does not change back to normal between activations. A second purchase of this Charm requires Essence 5+, increasing the total number of actions in the flurry and the number of Charms that may be contained in a dynamic Combo to three instead of two. A third and final purchase at Essence 6+ raises this to four, the inauspicious count of Adorjan's daughters, the numerology of balanced Virtue and the number of secret truths she must teach Creation before The End.</p>",
+    "description": "<p>There is stillness. And then storm. This Charm is a magical flurry composed of any Attribute- and/or Ability-based actions besides ranged attacks. The flurry is not limited to a fixed number of actions, nor does it suffer usual multiple action penalties. Instead, each action after the first suffers a cumulative -1 penalty (-1 on the second, -2 on the third, etc.). If this penalty matches or exceeds the base dice pool it penalizes before applying any modifiers, that action can't be attempted. Normal rate limits apply to attacks within this flurry, with normally infinite rate weapons reduced to base Rate 5 before adding in any rate bonuses. The DV penalty for the entire flurry is the greatest penalty among component actions (or -0 if the Infernal has Essence 4+). Although a flurry granted by this Charm involves a finite number of attacks, each attack can represent dozens or even hundreds of lightning fast strikes whose cumulative effect is equivalent to fewer, better-defined blows.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "adorjan",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "c4241cdb0700bcb2",
             "charmName": "Joy in Violence Approach",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

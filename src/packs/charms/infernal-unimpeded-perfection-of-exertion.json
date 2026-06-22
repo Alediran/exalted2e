@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "permanent",
@@ -47,8 +47,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "be514f40d547686e",
-            "charmName": "Adorjan Wind-Born Stride",
+            "charmUid": "323c4fdbe94b4f30",
+            "charmName": "Wind-Born Stride",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0

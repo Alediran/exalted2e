@@ -15,14 +15,17 @@
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 1,
+    "essence": 3,
     "minAbility": 1,
-    "charmType": "supplemental",
-    "duration": "instant",
+    "charmType": "simple",
+    "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Obvious",
+      "Velocity"
+    ],
     "cost": {
       "formula": "5m",
       "resonance": 0,
@@ -47,8 +50,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "be514f40d547686e",
-            "charmName": "Adorjan Wind-Born Stride",
+            "charmUid": "323c4fdbe94b4f30",
+            "charmName": "Wind-Born Stride",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0,
