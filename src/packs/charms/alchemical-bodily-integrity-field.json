@@ -15,13 +15,15 @@
   "system": {
     "exaltType": "alchemical",
     "ability": "strength",
-    "essence": 3,
+    "essence": 2,
     "minAbility": 4,
-    "charmType": "permanent",
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      10
+    ],
     "keywords": [
       "Combo-OK",
       "Internal",
@@ -32,13 +34,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Psychoreactive crystalline structures are laced throughout the Alchemical's skeleton. Upon suffering a Crippling effect that inflicts an amputation, the Alchemical may pay one Willpower to charge this telekinetic array, forcing it to hold his body together. Visible flickers and bolts of crackling violet Essence will hold a limb or organ in place, even if it has been completely severed from the body, until the Exalt's superior healing reattaches it in a more lasting manner. The Exalt also does not bleed. Submodules: Hardened Integrity Patterns (Essence 4, 4xp): This submodule permits the Alchemical to reflexively pay five motes and one Willpower to negate any Crippling effect at the moment it would otherwise be inflicted.</p>",
+    "description": "<p>Psychoreactive crystalline structures are laced throughout the Alchemical's skeleton. Upon suffering a Crippling effect that inflicts an amputation, the Alchemical may pay one Willpower to charge this telekinetic array, forcing it to hold his body together. Visible flickers and bolts of crackling violet Essence will hold a limb or organ in place, even if it has been completely severed from the body, until the Exalt's superior healing reattaches it in a more lasting manner. The Exalt also does not bleed. This Charm can be used to resist any Crippling effect. Crippling effects that would amputate one of the Alchemical's installed Charms cost three motes to defend against; all others cost five motes.</p><p>Submodules: Psychodynamic Stabilizers (Stamina 4, Essence 3): This submodule allows Bodily Integrity Field to be activated with a duration of one scene. Activated for three motes and a point of Willpower, it provides scene-long immunity against having installed Charms amputated; for eight motes and a point of Willpower, it protects against all Crippling for the duration.</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
