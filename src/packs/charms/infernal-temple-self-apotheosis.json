@@ -15,20 +15,23 @@
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 1,
+    "essence": 3,
     "minAbility": 1,
-    "charmType": "supplemental",
-    "duration": "instant",
+    "charmType": "permanent",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Emotion",
+      "Messianic"
+    ],
     "cost": {
       "formula": "-- (1wp)",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Duration: Permanent Prerequisite Charms: Penitents Like Scattered Grains Cecelyne orders demonic society by religious tenets because the concept of reverence amuses her. An Infernal with this Charm doubles all mote and Willpower awards provided by her Cult background and may choose to heal in lieu of receiving any or all Willpower at the appropriate interval (two bashing health levels or one lethal health level per one Willpower). Additionally, whenever anyone of equal or lesser Essence prays to the character with a standard prayer roll, they must reflexively pay one Willpower to resist unnatural mental influence or instantly develop an Intimacy of reverence toward the Infernal. If the Infernal preys on this Intimacy with a social attack, she benefits from a full +3 Appearance modifier regardless of relative Appearance.</p>",
+    "description": "<p>Cecelyne orders demonic society by religious tenets because the concept of reverence amuses her. An Infernal with this Charm doubles all mote and Willpower awards provided by her Cult background and may choose to heal in lieu of receiving any or all Willpower at the appropriate interval (two bashing health levels or one lethal health level per one Willpower). Additionally, whenever anyone of equal or lesser Essence prays to the character with a standard prayer roll, they must reflexively pay one Willpower to resist unnatural mental influence or instantly develop an Intimacy of reverence toward the Infernal. If the Infernal preys on this Intimacy with a social attack, she benefits from a full +3 Appearance modifier regardless of relative Appearance.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "cecelyne",
     "martialArtsTier": "",

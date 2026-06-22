@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "extraaction",
@@ -28,7 +28,7 @@
       "Shaping"
     ],
     "cost": {
-      "formula": "(4m, 1wp) or (6m, 1w)",
+      "formula": "(4m, 1wp) or (6m, 1wp)",
       "resonance": 0,
       "limitTrigger": 0
     },
