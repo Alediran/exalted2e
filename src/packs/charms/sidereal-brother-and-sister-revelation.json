@@ -22,9 +22,18 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": ["Obvious", "Fate", "Shaping", "Touch"],
-    "cost": { "formula": "8m, 3p", "resonance": 0, "limitTrigger": 0 },
-    "description": "<p>Astrological Charm (Greater Art). Simultaneously laying her hands upon two characters, the Sidereal pronounces a reciprocal family relationship between them--siblings, mother and daughter, grandson and grandfather, uncle and niece. As far as the universe is concerned, this relationship is both permanent and true, regardless of its absurdity or impossibility. For example, were Mnemon declared to be Ragara's mother, all descendants of Ragara would become valid targets for her Dynastic Charms. The Sidereal may include herself as one of the Charm's recipients. Beings outside fate may not be included in such familial bindings. Mortals declared descended from Essence 6+ spirits become Essence 3 subordinate spirits of the same type. Previously existing, contradictory family ties are nullified by the use of this Charm.</p>",
+    "keywords": [
+      "Obvious",
+      "Fate",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "8m, 3p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Astrological Charm (Greater Art). Simultaneously laying her hands upon two characters, the Sidereal is free to pronounce a reciprocal family relationship between them—siblings, mother and daughter, grandson and grandfather, uncle and niece. As far as the universe is concerned, this relationship is both permanent and true, regardless of its absurdity or even impossibility. For example, were Mnemon declared to be Ragara's mother, all descendants of Ragara would become valid targets for her Dynastic Charms. The Sidereal may include herself as one of the Charm's recipients. Beings outside fate may not be included in such familial bindings. Mortals declared descended from Essence 6+ spirits become Essence 3 subordinate spirits of the same type. Previously existing, contradictory family ties are nullified by the use of this Charm.</p>",
     "source": "Return of the Scarlet Empress",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +51,9 @@
   },
   "folder": "84b20a7805198847",
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
   "effects": []
 }

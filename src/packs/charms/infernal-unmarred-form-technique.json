@@ -1,0 +1,79 @@
+{
+  "_id": "a2b3c4d5e6f70024",
+  "_key": "!items!a2b3c4d5e6f70024",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unmarred Form Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 6,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm reduces the cost to instantly heal damage with Wholeness Rightly Assumed to two motes per bashing health level and three motes per lethal health level, and allows aggravated health levels to heal at the rate of one per hour.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e9195262d245e10e",
+            "charmName": "Ego-Infused Pattern Primacy",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b7ba216ddf910026",
+            "charmName": "Wholeness Rightly Assumed",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70024"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
