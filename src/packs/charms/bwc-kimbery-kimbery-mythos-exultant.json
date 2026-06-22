@@ -1,6 +1,6 @@
 {
-  "_id": "5f92ba1650a84a28",
-  "_key": "!items!5f92ba1650a84a28",
+  "_id": "c1a2b3d4e5f6a711",
+  "_key": "!items!c1a2b3d4e5f6a711",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,30 +9,29 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Bitter Heart Unfeeling",
+  "name": "Kimbery Mythos Exultant",
   "type": "charm",
   "img": "icons/magic/water/wave-water-blue.webp",
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 2,
+    "essence": 3,
     "minAbility": 1,
-    "charmType": "reflexive",
-    "duration": "instant",
-    "speed": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
     "dvPenalty": 0,
-    "steps": [2],
+    "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Social"
+      "Native"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Kimbery has learned that hatred is greater than trust. This Charm adds a bonus of (total number of negative Intimacies) to the warlock's Dodge MDV. This bonus may explicitly break the cap on DV bonuses from Charms.</p>",
-    "source": "Scroll of Errata",
+    "description": "<p>Kimbery's spite and bitterness are her very lifeblood. In lieu of usual stunt rewards, an Infernal with this Charm may heal one bashing level, one non-aggravated level or two non-aggravated levels for successful stunts rated one to three, respectively.</p>",
+    "source": "Broken Winged Crane",
     "yoziPatron": "kimbery",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -49,8 +48,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "80b19b6d23635466",
-            "charmName": "Bitter Heart Unbleeding",
+            "charmUid": "d501f1acb9fa25f0",
+            "charmName": "First Kimbery Excellency",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -58,7 +57,7 @@
         ]
       }
     ],
-    "charmUid": "5f92ba1650a84a28"
+    "charmUid": "c1a2b3d4e5f6a711"
   },
   "folder": "62f1b1afdfe8fbd5",
   "sort": 0,

@@ -1,6 +1,6 @@
 {
-  "_id": "5f92ba1650a84a28",
-  "_key": "!items!5f92ba1650a84a28",
+  "_id": "c1a2b3d4e5f6a712",
+  "_key": "!items!c1a2b3d4e5f6a712",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Bitter Heart Unfeeling",
+  "name": "Bitterness Beyond Wounds",
   "type": "charm",
   "img": "icons/magic/water/wave-water-blue.webp",
   "system": {
@@ -24,14 +24,14 @@
     "steps": [2],
     "keywords": [
       "Combo-OK",
-      "Social"
+      "Obvious"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "8m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Kimbery has learned that hatred is greater than trust. This Charm adds a bonus of (total number of negative Intimacies) to the warlock's Dodge MDV. This bonus may explicitly break the cap on DV bonuses from Charms.</p>",
+    "description": "<p>Blades cannot part the waves, nor may arrows part the tide. Such is the futility of making war against the sea. This Charm adds a bonus of (total number of negative Intimacies) to the warlock's Dodge DV. This bonus may explicitly break the cap on DV bonuses from Charms. This Charm's dependence on the Infernal's negative emotions counts as a unique Flaw of Invulnerability.</p>",
     "source": "Scroll of Errata",
     "yoziPatron": "kimbery",
     "martialArtsTier": "",
@@ -58,7 +58,7 @@
         ]
       }
     ],
-    "charmUid": "5f92ba1650a84a28"
+    "charmUid": "c1a2b3d4e5f6a712"
   },
   "folder": "62f1b1afdfe8fbd5",
   "sort": 0,

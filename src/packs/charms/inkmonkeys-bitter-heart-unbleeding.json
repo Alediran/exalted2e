@@ -30,9 +30,9 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Hate shelters The Sea That Marched Against the Flame from the wretched and vile universe that wants to hurt her. Used as a step 2 defense, this Charm adds a bonus of (total number of negative Intimacies) to the warlock's dodge DV or dodge MDV against a single attack. The bonus may explicitly break the usual cap on DV bonuses from Charms.</p><p>Alternately, Bitter Heart Unbleeding may be used as a step 7 defense, adding the same bonus to the Infernal's soak against a single instance of damage. To onlookers, it appears that the injuries luckily missed vital areas or that the warlock evaded at the last moment to suffer only grazing wounds.</p><p>An Essence 3+ repurchase grants additional powers. First, the soak boost mode adds equivalent natural Hardness while in proximity to a sea. Second, the Infernal can pay an extra mote to dissolve the injurious power of an attack outright (reducing raw and final damage to zero). Denying damage this way carries the Imperfection of The Sea That Marched Against the Flame, causing tongues of hissing green fog to rise from the wounds that never were.</p>",
+    "description": "<p>Hate shelters The Sea That Marched Against the Flame from the wretched and vile universe that wants to hurt her. Used as a step 2 defense, this Charm adds a bonus of (total number of negative Intimacies) to the warlock's dodge DV or dodge MDV against a single attack. The bonus may explicitly break the usual cap on DV bonuses from Charms.</p><p>Alternately, Bitter Heart Unbleeding may be used as a step 7 defense, adding the same bonus to the Infernal's soak against a single instance of damage. To onlookers, it appears that the injuries luckily missed vital areas or that the warlock evaded at the last moment to suffer only grazing wounds.</p><p>An Essence 3+ repurchase grants additional powers. First, the soak boost mode adds equivalent natural Hardness while in proximity to a sea. Second, the Infernal can pay an extra mote to dissolve the injurious power of an attack outright (reducing raw and final damage to zero). Denying damage this way carries the Imperfection of The Sea That Marched Against the Flame, causing tongues of hissing green fog to rise from the wounds that never were.</p><p><em>Scroll of Errata: This Charm cannot increase Dodge DV or Dodge MDV. The repurchase does not grant Hardness, and costs an additional five motes for the perfect soak.</em></p>",
     "source": "Broken Winged Crane",
-    "yoziPatron": "",
+    "yoziPatron": "kimbery",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -49,7 +49,7 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "",
+            "charmUid": "c1a2b3d4e5f6a70b",
             "charmName": "Intolerable Burning Truths",
             "abilityKey": "",
             "virtueKey": "",
