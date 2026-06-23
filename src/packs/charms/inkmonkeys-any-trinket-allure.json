@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Noble Stewards are able to exploit the covetousness and greed of others, even if they have nothing to work with but a few rocks and sticks. Taking an object in her hand, the Lunar reflexively rolls (Manipulation + [higher of Craft or Occult] + Essence). All observers whose Dodge MDV is lower than the Lunar's successes see the object as something else, as determined by the Steward. An object can be disguised as anything else within the following limitations: the illusion must be of roughly the same size and shape as the object, and it must be within two Resources dots of the original object's value. This unnatural mental influence costs two points of Willpower to resist. Any-Trinket Allure will disguise an object for a week by default, or for one season for a one Willpower surcharge. Silver Coin Bargain</p>",
+    "description": "<p>Noble Stewards are able to exploit the covetousness and greed of others, even if they have nothing to work with but a few rocks and sticks. Taking an object in her hand, the Lunar reflexively rolls (Manipulation + [higher of Craft or Occult] + Essence). All observers whose Dodge MDV is lower than the Lunar's successes see the object as something else, as determined by the Steward. An object can be disguised as anything else within the following limitations: the illusion must be of roughly the same size and shape as the object, and it must be within two Resources dots of the original object's value. This unnatural mental influence costs two points of Willpower to resist. Any-Trinket Allure will disguise an object for a week by default, or for one season for a one Willpower surcharge.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -59,7 +59,7 @@
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
+      "enabled": false,
       "event": "onDamageDealt",
       "formula": "1"
     },
