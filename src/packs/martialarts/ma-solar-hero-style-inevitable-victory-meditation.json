@@ -18,9 +18,9 @@
     "essence": 1,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 2,
     "steps": [],
     "keywords": [
       "Combo-Basic"
@@ -37,14 +37,27 @@
     "martialArtsStyleName": "Solar Hero Style",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until used",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dfe86cfccd04c971",
+            "charmName": "Fists of Iron Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "94b49c6f43f248e3"
   },
   "folder": "05bd4dac47a869bd",

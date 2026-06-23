@@ -19,7 +19,7 @@
     "minAbility": 4,
     "charmType": "simple",
     "duration": "oneScene",
-    "speed": 6,
+    "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -49,7 +49,7 @@
           {
             "type": "charm",
             "charmUid": "9f865a972bd74ded",
-            "charmName": "Iron-arm Block",
+            "charmName": "Iron-Arm Block",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0

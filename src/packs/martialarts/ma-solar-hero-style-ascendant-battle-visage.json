@@ -18,7 +18,7 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "untilNextAction",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -44,7 +44,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e7575df3657b8899",
+            "charmName": "Supremacy of War Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5338c766fd0987be",
+            "charmName": "Bloodthirsty Sword-Dancer Spirit",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d9ae57c405724338"
   },
   "folder": "05bd4dac47a869bd",

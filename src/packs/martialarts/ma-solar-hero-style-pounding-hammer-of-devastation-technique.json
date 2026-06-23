@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 5,
+    "essence": 4,
     "minAbility": 5,
-    "charmType": "supplemental",
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -27,11 +27,11 @@
       "Obvious"
     ],
     "cost": {
-      "formula": "7m",
+      "formula": "6m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character concentrates vast amounts of Essence around her hands, inflicting terrible wounds with an unarmed attack. The character's blow inflicts lethal damage. When she uses it against a living target, this Charm adds a bonus to the raw damage of the attack equal to the attacking character's permanent Essence. This Charm is far more effective against inanimate targets, though. If the character attacks such a target while using this Charm, add a number of damage levels (not dice) equal to four times the attacking character's permanent Essence.</p>",
+    "description": "<p>A child must learn to crawl before it can walk, just as the wicked must learn to fly before they can stand against the Solar Hero. The character's fist becomes a falling star, striking the earth to unleash a shockwave that rips through the ground in a straight line up to (Essence x 50) yards distant. Upon reaching an opponent in range, the attack terminates in a massive detonation of force, with a diameter of 10 yards and reaching up to 100 yards high. Everything caught in the range of this attack is immediately hit by an unblockable Heaven Thunder Hammer strike using a dice pool of (Dexterity + Martial Arts + Essence). Characters struck by this attack are always launched up or away from the Lawgiver. The Solar is immune to the effects of his own attack and may stand in the absolute center of this devastation unharmed.</p>",
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "71dcdd1ca6087258",
+            "charmName": "Dome-Shattering Smite",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "040db08c05b65e6f"
   },
   "folder": "05bd4dac47a869bd",

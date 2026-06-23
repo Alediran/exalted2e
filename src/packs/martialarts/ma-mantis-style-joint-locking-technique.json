@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Joint-locking Technique",
+  "name": "Joint-Locking Technique",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 4,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,7 +36,7 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Mantis Style",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "One action or hold",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
