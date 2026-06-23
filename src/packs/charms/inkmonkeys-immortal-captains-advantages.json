@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A man of the sea is a legendary thing to behold. A character who purchases this Charm gains the following benefits: Sail Charms no longer count as Charm activations, and Sail Charms may be activated to enhance a ship the Solar is not presently aboard, so long as he can perceive that vessel or it is within one mile. In addition to these advantages, the Lawgiver gains an auxiliary peripheral mote pool of ([Essence + Sail + 5] x 2) motes. The Solar may only use this pool to pay for Charms of the Sail ability. When this pool is depleted, the character may use his personal and peripheral mote pools to pay for Sail Charm activations. This mote pool refills by normal means, including stunts. A repurchase of Immortal Captain's Advantages at Essence 4+ doubles this mote pool; a repurchase at Essence 5+ doubles it again. This Charm only applies under the following conditions: � The character must own the ship (see Exalted, p. 238). � Characters who are admiral to a fleet of ships may apply this effect to various ships under their command, even ones they do not own. � The character may apply Perfect Reckoning Technique to every ship he commands with a single activation. New Abyssal Charm: Fell Captain's Advantages (Prerequisites: Dark Water Odyssey). This Charm permits the Abyssal to apply Dark Water Odyssey to every ship he commands with a single activation, but is otherwise identical to its Solar counterpart. Flag of All Nations Method</p>",
+    "description": "<p>A man of the sea is a legendary thing to behold. A character who purchases this Charm gains the following benefits: Sail Charms no longer count as Charm activations, and Sail Charms may be activated to enhance a ship the Solar is not presently aboard, so long as he can perceive that vessel or it is within one mile. In addition to these advantages, the Lawgiver gains an auxiliary peripheral mote pool of ([Essence + Sail + 5] x 2) motes. The Solar may only use this pool to pay for Charms of the Sail ability. When this pool is depleted, the character may use his personal and peripheral mote pools to pay for Sail Charm activations. This mote pool refills by normal means, including stunts. A repurchase of Immortal Captain's Advantages at Essence 4+ doubles this mote pool; a repurchase at Essence 5+ doubles it again. This Charm only applies under the following conditions: • The character must own the ship (see Exalted, p. 238). • Characters who are admiral to a fleet of ships may apply this effect to various ships under their command, even ones they do not own. • The character may apply Perfect Reckoning Technique to every ship he commands with a single activation. New Abyssal Charm: Fell Captain's Advantages (Prerequisites: Dark Water Odyssey). This Charm permits the Abyssal to apply Dark Water Odyssey to every ship he commands with a single activation, but is otherwise identical to its Solar counterpart.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -58,7 +58,10 @@
         ]
       }
     ],
-    "essenceGates": [4, 5],
+    "essenceGates": [
+      4,
+      5
+    ],
     "maxPurchases": "3",
     "charmUid": "854c8dc3ddd64342",
     "mirrorId": "c1d2e3f4a5b60013"
