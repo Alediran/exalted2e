@@ -38,13 +38,12 @@
       "limitTrigger": 0,
       "formula": "--"
     },
-    "description": "<p>This Charm permanently enhances its prerequisite. Upon an activation of Lightning Strikes Twice, the Solar's Charm use for that action is reset. That is, he still makes an unexpected attack, but he may choose to activate a new Charm or Combo to enhance that unexpected attack in order to further devastate his target. Split the Chase also expressly allows the Solar to activate Lightning Strikes Twice a second time against a single target on a single tick, provided he uses the chase effect of Lightning Strikes Twice to make a second Martial Arts attack, as opposed to an attack using another combat Ability. Split the Chase may not be triggered more than one time on a single tick against a single target. Flicker-Fade Recursion</p>",
+    "description": "<p>This Charm permanently enhances its prerequisite. Upon an activation of Lightning Strikes Twice, the Solar's Charm use for that action is reset. That is, he still makes an unexpected attack, but he may choose to activate a new Charm or Combo to enhance that unexpected attack in order to further devastate his target. Split the Chase also expressly allows the Solar to activate Lightning Strikes Twice a second time against a single target on a single tick, provided he uses the chase effect of Lightning Strikes Twice to make a second Martial Arts attack, as opposed to an attack using another combat Ability. Split the Chase may not be triggered more than one time on a single tick against a single target.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Solar Hero Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

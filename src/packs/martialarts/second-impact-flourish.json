@@ -22,7 +22,7 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
       "motes": 3,
       "willpower": 0,
@@ -35,13 +35,12 @@
       "limitTrigger": 0,
       "formula": "--(3m)"
     },
-    "description": "<p>This Charm enhances both Crashing Wave Throw and Heaven Thunder Hammer. The character may pay three additional motes when activating either of those Charms. Calculate the damage on impact as normal. However, as the tremendous force of the Solar's attack vibrates through the world at the point of impact, a shockwave flings the opponent back towards the Solar, allowing the Exalt to apply a finishing move which deals (Essence) automatic levels of damage to the victim in step 10, to a maximum of five health levels of damage. The finishing move is not a second attack roll but rather a second visual consequence of the first attack. If the character takes no health levels of damage from a collision with scenery caused by Crashing Wave Throw or Heaven Thunder Hammer, he is unaffected by the shockwave and Second Impact Flourish automatically fails. For this Charm, distance is important: the Solar must be in range in order to add this damage to his enemy. To determine range, use the yards the victim would have flown on impact to determine how far he is flung back toward the Exalt. If the Solar is in range, the victim is seen to be catapulted back into the Lawgiver's finishing move. Finishing moves may take a form defined by the player. Example finishing moves include a flying uppercut that blows the opponent's falling body out of the air, or leaping backwards to catch the target in a flying backflip suplex that leaves a crater in the street.</p><p>World-Rupturing Blow</p>",
+    "description": "<p>This Charm enhances both Crashing Wave Throw and Heaven Thunder Hammer. The character may pay three additional motes when activating either of those Charms. Calculate the damage on impact as normal. However, as the tremendous force of the Solar's attack vibrates through the world at the point of impact, a shockwave flings the opponent back towards the Solar, allowing the Exalt to apply a finishing move which deals (Essence) automatic levels of damage to the victim in step 10, to a maximum of five health levels of damage. The finishing move is not a second attack roll but rather a second visual consequence of the first attack. If the character takes no health levels of damage from a collision with scenery caused by Crashing Wave Throw or Heaven Thunder Hammer, he is unaffected by the shockwave and Second Impact Flourish automatically fails. For this Charm, distance is important: the Solar must be in range in order to add this damage to his enemy. To determine range, use the yards the victim would have flown on impact to determine how far he is flung back toward the Exalt. If the Solar is in range, the victim is seen to be catapulted back into the Lawgiver's finishing move. Finishing moves may take a form defined by the player. Example finishing moves include a flying uppercut that blows the opponent's falling body out of the air, or leaping backwards to catch the target in a flying backflip suplex that leaves a crater in the street.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Solar Hero Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

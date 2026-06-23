@@ -37,15 +37,14 @@
       "motesLabel": "",
       "resonance": 0,
       "limitTrigger": 0,
-      "formula": "--(2m, 1wp)"
+      "formula": "--(6m, 1wp)"
     },
-    "description": "<p>This Charm offers a permanent upgrade to Heaven Thunder Hammer and Crashing Wave Throw. On a successful knockback or throw using either of those Charms, while the target is still hurtling towards its doom but before they have collided with a solid object, the Solar may pay two motes and one Willpower, activating Lightning Strikes Twice to make a second attack against his opponent. Doing so cancels the collision effect of those Charms, but allows the Solar to make an unexpected attack against the target, taking advantage of its helpless flight. The Solar flashes instantly across the distance from the ground to his hurtling foe, appearing alongside his opponent to make this attack, automatically intercepting his target on the last instant before any collision with scenery or natural termination of the target's flight could possibly occur. When using Archery or Thrown to make this unexpected attack, the Solar need not personally follow the target. Instead, his ranged attack flashes into position beside the target before completing the attack, ignoring the weapon's Range value. Lightning Strikes Twice may not be triggered more than once on a single tick against a single target. Martial: Archery, Melee, Thrown Split the Chase</p>",
+    "description": "<p>This Charm offers a permanent upgrade to Heaven Thunder Hammer and Crashing Wave Throw. On a successful knockback or throw using either of those Charms, while the target is still hurtling towards its doom but before they have collided with a solid object, the Solar may pay two motes and one Willpower, activating Lightning Strikes Twice to make a second attack against his opponent. Doing so cancels the collision effect of those Charms, but allows the Solar to make an unexpected attack against the target, taking advantage of its helpless flight. The Solar flashes instantly across the distance from the ground to his hurtling foe, appearing alongside his opponent to make this attack, automatically intercepting his target on the last instant before any collision with scenery or natural termination of the target's flight could possibly occur. When using Archery or Thrown to make this unexpected attack, the Solar need not personally follow the target. Instead, his ranged attack flashes into position beside the target before completing the attack, ignoring the weapon's Range value. Lightning Strikes Twice may not be triggered more than once on a single tick against a single target. Attacks made with Lightning Strikes Twice are unblockable and undodgeable, not unexpected. Martial: Archery, Melee, Thrown</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Solar Hero Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
