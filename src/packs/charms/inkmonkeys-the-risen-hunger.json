@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "medicine",
     "essence": 3,
     "minAbility": 3,
@@ -22,13 +22,13 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
-      "formula": "-- (+2m)",
+      "formula": "--(+2m)",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm permits the Abyssal to pay a two-mote surcharge when animating a zombie with Life-Mocking Assembly. The walking dead enhanced in this fashion are infectious and possessed of a great hunger for the flesh of the living (though they still obey the Abyssal's orders, including orders not to indulge this craving). Any living individual slain by the zombie will rise again within 1-10 minutes as a non-infectious zombie extra. These extras are also possessed of the risen hunger, but are neither infectious nor under the Abyssal's control. Extras lose their animation after one day has passed during which they are unable to consume the flesh of the living. At Essence 4+ and again at each subsequent Essence rating, the Abyssal may enhance the Charm with one of the following options: �Zombie extras rise under the Abyssal's control, obeying orders as though created through Life-Mocking Assembly � Zombie extras are infectious, as though enhanced with The Risen Hunger. All of their victims, and the victims of their victims, and so on, also rise as infectious undead if the Abyssal has Essence 6+; otherwise, the victims of the second wave of zombies are not infectious. � Zombie extras may persist for an additional day without feeding before they lose their animation. This option may be selected multiple times as the Abyssal rises in Essence. Black Heart's Venom</p>",
+    "description": "<p>This Charm permits the Abyssal to pay a two-mote surcharge when animating a zombie with Life-Mocking Assembly. The walking dead enhanced in this fashion are infectious and possessed of a great hunger for the flesh of the living (though they still obey the Abyssal's orders, including orders not to indulge this craving). Any living individual slain by the zombie will rise again within 1-10 minutes as a non-infectious zombie extra. These extras are also possessed of the risen hunger, but are neither infectious nor under the Abyssal's control. Extras lose their animation after one day has passed during which they are unable to consume the flesh of the living. At Essence 4+ and again at each subsequent Essence rating, the Abyssal may enhance the Charm with one of the following options: �Zombie extras rise under the Abyssal's control, obeying orders as though created through Life-Mocking Assembly � Zombie extras are infectious, as though enhanced with The Risen Hunger. All of their victims, and the victims of their victims, and so on, also rise as infectious undead if the Abyssal has Essence 6+; otherwise, the victims of the second wave of zombies are not infectious. � Zombie extras may persist for an additional day without feeding before they lose their animation. This option may be selected multiple times as the Abyssal rises in Essence.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
