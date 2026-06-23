@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "The Unexpected Death (smoky Forgotten Breeze Kata)",
+  "name": "The Unexpected Death (Smoky Forgotten Breeze Kata)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -26,7 +26,7 @@
       "Combo-Basic",
       "Illusion",
       "Share-Breeze",
-      "ShareForgotten"
+      "Share-Forgotten"
     ],
     "cost": {
       "formula": "5m, 1wp",
@@ -39,7 +39,7 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Five actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

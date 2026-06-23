@@ -18,7 +18,7 @@
     "essence": 1,
     "minAbility": 2,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "untilNextAction",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
