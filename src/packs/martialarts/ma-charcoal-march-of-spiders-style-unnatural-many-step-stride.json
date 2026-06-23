@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Unnatural Many-step Stride",
+  "name": "Unnatural Many-Step Stride",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "oneScene",
-    "speed": 6,
+    "speed": 4,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [

@@ -20,7 +20,7 @@
     "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 3,
     "steps": [],
     "keywords": [
       "Form-type",
@@ -62,7 +62,7 @@
           {
             "type": "charm",
             "charmUid": "156f0f1fe463eb9b",
-            "charmName": "Spell-shattering Palm (li)",
+            "charmName": "Spell-Shattering Palm (li)",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
