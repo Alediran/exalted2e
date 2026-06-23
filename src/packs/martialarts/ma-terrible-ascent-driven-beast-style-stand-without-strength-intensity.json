@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Stand-without-strength Intensity",
+  "name": "Stand-Without-Strength Intensity",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -21,7 +21,7 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [10],
     "keywords": [
       "Combo-OK"
     ],
@@ -34,7 +34,7 @@
     "source": "Scroll of the Monk: The Imperfect Lotus",
     "yoziPatron": "",
     "martialArtsTier": "terrestrial",
-    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "martialArtsStyleName": "Terrible Ascent-Driven Beast Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,

@@ -18,10 +18,10 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [2],
     "keywords": [
       "Combo-OK"
     ],
@@ -36,7 +36,7 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Art of Relentless Persuasion",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "One action",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

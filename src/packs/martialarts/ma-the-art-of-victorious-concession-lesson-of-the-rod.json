@@ -21,7 +21,7 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [9],
     "keywords": [
       "Combo-OK",
       "Counterattack"
@@ -50,7 +50,7 @@
           {
             "type": "charm",
             "charmUid": "5ffaee19db58b9b3",
-            "charmName": "Honey-coated Admonitions",
+            "charmName": "Honey-Coated Admonitions",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0

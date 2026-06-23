@@ -21,7 +21,7 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [6],
     "keywords": [
       "Combo-OK",
       "Counterattack"
@@ -50,7 +50,7 @@
           {
             "type": "charm",
             "charmUid": "5070d08746e0a67d",
-            "charmName": "Flame-eater Stance",
+            "charmName": "Flame-Eater Stance",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0

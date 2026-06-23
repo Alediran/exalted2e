@@ -18,8 +18,8 @@
     "essence": 2,
     "minAbility": 3,
     "charmType": "simple",
-    "duration": "instant",
-    "speed": 6,
+    "duration": "formula",
+    "speed": 4,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -37,7 +37,7 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Art of Meditative Discussion",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
@@ -50,7 +50,7 @@
           {
             "type": "charm",
             "charmUid": "eae7e21987d57f2d",
-            "charmName": "Well-timed Words",
+            "charmName": "Well-Timed Words",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
