@@ -15,14 +15,15 @@
   "system": {
     "exaltType": "solar",
     "ability": "melee",
-    "essence": 7,
-    "minAbility": 7,
+    "essence": 5,
+    "minAbility": 5,
     "charmType": "simple",
     "duration": "oneScene",
-    "speed": 7,
-    "dvPenalty": -4,
+    "speed": 6,
+    "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Combo-Basic",
       "Mirror",
       "Obvious"
     ],
@@ -49,8 +50,32 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "0f988a84eeae7674",
-            "charmName": "Heavenly Guardian Defense",
+            "charmUid": "b3aae75052f980da",
+            "charmName": "Call The Blade",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ba897c2f69c99959",
+            "charmName": "Fire and Stones Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "de66f7219741b177",
+            "charmName": "Protection of Celestial Bliss",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1

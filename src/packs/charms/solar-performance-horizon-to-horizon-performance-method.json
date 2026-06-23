@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Horizon-To-Horizon Performance Method",
+  "name": "Horizon-to-Horizon Performance Method",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -18,7 +18,7 @@
     "essence": 6,
     "minAbility": 6,
     "charmType": "reflexive",
-    "duration": "oneAction",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -39,7 +39,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One action",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
