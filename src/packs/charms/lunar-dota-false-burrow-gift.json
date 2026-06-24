@@ -17,13 +17,13 @@
     "ability": "manipulation",
     "essence": 6,
     "minAbility": 6,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-Ok",
+      "Combo-OK",
       "Illusion",
       "Social"
     ],
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Stewards tend others' homes. This Charm instills in its target a false belief about their concept of \"home\" and reinforces this belief with an Intimacy. The beliefs that home is under attack, is already destroyed, is nearby or is lost forever count, as do the ideas that the target has been exiled from home, that home embodies certain political views or that home is a different place altogether. Instilling this false belief requires a successful (Manipulation + [Performance or Presence]) roll against the target's MDV. Against a group, the highest MDV contests it. It costs two Willpower points for a victim to ignore the belief for one scene.</p>",
+    "description": "<p>Stewards tend others' homes. This Charm instills in its target a false belief about their concept of \"home\" and reinforces this belief with an Intimacy. The beliefs that home is under attack, is already destroyed, is nearby or is lost forever count, as do the ideas that the target has been exiled from home, that home embodies certain political views or that home is a different place altogether. Instilling this false belief requires a successful (Manipulation + [Performance or Presence]) roll against the target's MDV. Against a group, the highest MDV contests it. It costs two Willpower points for a victim to ignore the belief for one scene.</p><p>Committing the Charm's cost invokes an additional Illusion effect. While the Charm persists, the world appears to support the belief. The target sees the ruins of a destroyed home city or feels the stones former countrymen throw at the returned exile. Releasing the commitment ends the Charm's effects in total.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",

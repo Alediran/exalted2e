@@ -1,6 +1,6 @@
 {
-  "_id": "bce33dd6ba484e5f",
-  "_key": "!items!bce33dd6ba484e5f",
+  "_id": "e8c3b41f72a96d50",
+  "_key": "!items!e8c3b41f72a96d50",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,34 +9,33 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Friend of the Plague",
+  "name": "Relentless Lunar Horde",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
-    "ability": "strength",
-    "essence": 7,
-    "minAbility": 6,
+    "ability": "stamina",
+    "essence": 6,
+    "minAbility": 5,
     "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Fury-OK"
+      "War"
     ],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Those whom the Stewards condemn invariably die; when she leaves the battlefield, they are defeated. This Charm permanently enhances Form-Destroying Touch, giving it the Fury-OK tag. When so used, the Charm inflicts its effects on everyone the Lunar successfully touches. The character may apply one of the additional effects from Besieging the Bastion of Form by also activating it with Relentless Lunar Fury. Besieging the Bastion of Form cannot be activated as part of a fury unless Form-Destroying Touch is.</p>",
+    "description": "<p>Relentless Lunar Horde allows the Lunar to use Relentless Lunar Fury while leading a military unit, rousing her warriors into a frenzy. In addition to its standard effects, the unit increases its Close Combat Damage rating by one, increases its Morale by two, does not lose Endurance for the duration and cannot assume close formation. Used in this fashion, Relentless Lunar Fury's duration is counted in long ticks.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -49,8 +48,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "84fe3404af5d25b4",
-            "charmName": "Besieging the Bastion of Form",
+            "charmUid": "c9ffe85a38e8f98f",
+            "charmName": "Relentless Lunar Fury",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -58,9 +57,9 @@
         ]
       }
     ],
-    "charmUid": "bce33dd6ba484e5f"
+    "charmUid": "e8c3b41f72a96d50"
   },
-  "folder": "aba1efe8ad0bef8a",
+  "folder": "956290ccde1dea72",
   "sort": 0,
   "ownership": {
     "default": 0

@@ -18,10 +18,10 @@
     "essence": 6,
     "minAbility": 6,
     "charmType": "reflexive",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [2],
     "keywords": [
       "Combo-OK",
       "Counterattack",
@@ -40,7 +40,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

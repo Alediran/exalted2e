@@ -1,6 +1,6 @@
 {
-  "_id": "bce33dd6ba484e5f",
-  "_key": "!items!bce33dd6ba484e5f",
+  "_id": "a7f5c29d8b3e4601",
+  "_key": "!items!a7f5c29d8b3e4601",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,35 +9,35 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Friend of the Plague",
+  "name": "Frozen Ripple Lair",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
-    "ability": "strength",
+    "ability": "wits",
     "essence": 7,
     "minAbility": 6,
-    "charmType": "permanent",
-    "duration": "permanent",
+    "charmType": "simple",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Fury-OK"
+      "Obvious",
+      "Wyld"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "14m, 2wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Those whom the Stewards condemn invariably die; when she leaves the battlefield, they are defeated. This Charm permanently enhances Form-Destroying Touch, giving it the Fury-OK tag. When so used, the Charm inflicts its effects on everyone the Lunar successfully touches. The character may apply one of the additional effects from Besieging the Bastion of Form by also activating it with Relentless Lunar Fury. Besieging the Bastion of Form cannot be activated as part of a fury unless Form-Destroying Touch is.</p>",
+    "description": "<p>This Charm is identical to Secure Den Prana, but the Lunar declares a time differential for her den in Elsewhere. Time within the redoubt moves faster or slower than it does in Creation by a factor equal to or less than the Lunar's Essence.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
@@ -49,8 +49,20 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "84fe3404af5d25b4",
-            "charmName": "Besieging the Bastion of Form",
+            "charmUid": "28c917e9d05631b7",
+            "charmName": "Secure Den Prana",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "289252018d6a8dca",
+            "charmName": "Blinking Eye Of Chaos",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -58,9 +70,9 @@
         ]
       }
     ],
-    "charmUid": "bce33dd6ba484e5f"
+    "charmUid": "a7f5c29d8b3e4601"
   },
-  "folder": "aba1efe8ad0bef8a",
+  "folder": "03a1efbef258d84f",
   "sort": 0,
   "ownership": {
     "default": 0
