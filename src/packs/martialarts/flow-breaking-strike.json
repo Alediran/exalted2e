@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Flow-breaking Strike",
+  "name": "Flow-Breaking Strike",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -25,6 +25,7 @@
     "keywords": [
       "Combo-OK",
       "Crippling",
+      "Native",
       "Stackable"
     ],
     "cost": {
@@ -51,7 +52,7 @@
           {
             "type": "charm",
             "charmUid": "404b047d85d7dc15",
-            "charmName": "Finger-stealing Handshake",
+            "charmName": "Finger-Stealing Handshake",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
