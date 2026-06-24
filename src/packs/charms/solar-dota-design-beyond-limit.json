@@ -18,17 +18,19 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "permanent",
-    "duration": "instant",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "None"
+    ],
     "cost": {
-      "formula": "-",
+      "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar Exalted see potential in the matter and Essence of Creation far beyond the petty limitations of Primordial vision—and make that potential reality. A character who knows this  harm may design artifacts and manses more efficiently.</p><p>The character may cap a demesne with a manse rated one dot higher than the demesne. For example, the Lawgiver could cap a 3-dot demesne with a 4-dot manse; the difficulty of all design rolls and the required construction time would be that of a 3-dot manse, but the resultant structure would be a 4-dot manse in all regards (producing a 4-dot hearthstone, having creation points equivalent to a 4-dot manse [see The Books of Sorcery, vol. III—Oadenol's Codex], and so forth). The Solar may still deliberately weaken his designs to produce one-dot manses, if desired. If used to design a 5-dot manse, Design Beyond Limit does not raise it to N/A level, instead providing ten additional creation points with which to design its features, and it making the manse a potential geomantic channel to sustain a N/A level.</p><p>Genius and excellence springs from the Solar's hands almost unbidden when crafting artifacts. He needs only accumulate a number of successes equal to an artifact rated one dot lower than her actual project (see Exalted, p. 134). For example, if attempting to forge a grand daiklave, the Solar would need only 30 successes rather than the usual 60. This Charm provides no benefit when the Solar deigns to construct one-dot artifacts.</p>",
+    "description": "<p>The Solar Exalted see potential in the matter and Essence of Creation far beyond the petty limitations of Primordial vision—and make that potential reality. A character who knows this Charm may design artifacts and manses more efficiently.</p><p>The character may cap a demesne with a manse rated one dot higher than the demesne. For example, the Lawgiver could cap a 3-dot demesne with a 4-dot manse; the difficulty of all design rolls and the required construction time would be that of a 3-dot manse, but the resultant structure would be a 4-dot manse in all regards (producing a 4-dot hearthstone, having creation points equivalent to a 4-dot manse [see The Books of Sorcery, vol. III—Oadenol's Codex], and so forth). The Solar may still deliberately weaken his designs to produce one-dot manses, if desired. If used to design a 5-dot manse, Design Beyond Limit does not raise it to N/A level, instead providing ten additional creation points with which to design its features, and it making the manse a potential geomantic channel to sustain a N/A level.</p><p>Genius and excellence springs from the Solar's hands almost unbidden when crafting artifacts. He needs only accumulate a number of successes equal to an artifact rated one dot lower than her actual project (see Exalted, p. 134). For example, if attempting to forge a grand daiklave, the Solar would need only 30 successes rather than the usual 60. This Charm provides no benefit when the Solar deigns to construct one-dot artifacts.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",

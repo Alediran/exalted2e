@@ -1,6 +1,6 @@
 {
-  "_id": "ec87729dc6800c98",
-  "_key": "!items!ec87729dc6800c98",
+  "_id": "b7c9d0e1f2a34502",
+  "_key": "!items!b7c9d0e1f2a34502",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,33 +9,34 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Web-Cutting Eyes",
+  "name": "Orichalcum Fists of Battle",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "solar",
-    "ability": "socialize",
-    "essence": 5,
-    "minAbility": 5,
+    "ability": "martialArts",
+    "essence": 6,
+    "minAbility": 6,
     "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Mirror",
-      "Combo-OK"
+      "Combo-Basic",
+      "Native",
+      "Obvious"
     ],
     "cost": {
-      "formula": "5m",
+      "formula": "10m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar's cunning gaze cuts across all subtleties of motive and concealment, laying bare the intentions of those who stand before him. While this Charm is active, all attempts to read the motivation of other characters (see Exalted, p. 131) are made at difficulty 1.</p>",
+    "description": "<p>The Solar's hands blaze with orichalcum fire, each strike carrying the force of a god made manifest. While this Charm is active, the raw damage of all unarmed attacks is calculated as (Strength × Essence) instead of the normal raw damage value. Furthermore, all unarmed attacks made while this Charm is active ignore the target's Hardness entirely, treating it as 0.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -49,8 +50,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "a1b2c3d4e5f60004",
-            "charmName": "Mastery of Small Manners",
+            "charmUid": "b7c9d0e1f2a34501",
+            "charmName": "Solar Hero Supremacy",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -58,10 +59,9 @@
         ]
       }
     ],
-    "charmUid": "ec87729dc6800c98",
-    "mirrorId": "4b4d7f23c9b4e50d"
+    "charmUid": "b7c9d0e1f2a34502"
   },
-  "folder": "5da24482e38ff9ae",
+  "folder": "a1b2c3d4e5f60101",
   "sort": 0,
   "ownership": {
     "default": 0

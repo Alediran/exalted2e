@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "formula",
-    "speed": 6,
+    "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -37,7 +37,7 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Five actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

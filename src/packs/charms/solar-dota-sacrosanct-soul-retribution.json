@@ -48,7 +48,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ab46565f8ef531b2",
+            "charmName": "Spirit-Maintaining Maneuver",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "081d47157a8579f1"
   },
   "folder": "b0a1d89a8f7c4cdb",

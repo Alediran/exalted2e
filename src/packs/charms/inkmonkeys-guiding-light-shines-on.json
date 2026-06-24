@@ -13,12 +13,12 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
+    "exaltType": "solar",
     "ability": "survival",
     "essence": 4,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -32,13 +32,13 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal summons a pale necrotic light that draws the living toward it with irresistible compulsion. This Charm is identical to its Solar counterpart, Wisp Light Summons.</p>",
-    "source": "Ink Monkeys",
+    "description": "<p>Guided by the light of the Solar Exalted, none shall lose their way. Flaring his anima to a towering iconic representation that surges a mile into the sky, the light of the Solar's Essence shines through all barriers and obstacles and may be seen up to (Essence x 10) miles away. All attempts to navigate toward the Solar automatically succeed--for both allies and enemies. Astrology used within this range returns only the message \"THE LAWGIVER BECKONS.\"</p><p>At Survival 6+, Essence 6+ this Charm may be activated for a cost of 10m to provide one of two alternate benefits. The Solar may act as a beacon only for those he wishes to attract without needing to flare his anima; alternately, the Solar may send his anima burning even higher into the sky, extending the range of its visibility and navigation benefits to (Essence x 100) miles.</p>",
+    "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -50,11 +50,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "c4469895fbceb24d",
-            "charmName": "Dark Paths Found",
+            "charmUid": "60204865733c7260",
+            "charmName": "Trackless Region Navigation",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
@@ -62,7 +62,7 @@
     "mirrorId": "0cd65082aa55d798",
     "charmUid": "c1d2e3f4a5b60016"
   },
-  "folder": "b0b1b2b3b4b5f049",
+  "folder": "82dbbb60bb2b2c18",
   "sort": 0,
   "ownership": {
     "default": 0

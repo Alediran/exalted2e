@@ -27,7 +27,7 @@
       "Native"
     ],
     "cost": {
-      "formula": "-",
+      "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7be682797ef0f798",
+            "charmName": "Phoenix Renewal Tactic",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "8610f55de421b383",
     "mirrorId": "e06b794aecef0d49"
   },

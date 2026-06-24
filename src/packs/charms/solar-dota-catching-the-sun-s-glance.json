@@ -17,10 +17,10 @@
     "ability": "performance",
     "essence": 7,
     "minAbility": 7,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "instant",
-    "speed": 6,
-    "dvPenalty": 0,
+    "speed": 7,
+    "dvPenalty": 3,
     "steps": [],
     "keywords": [
       "Combo-OK",
@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Presence</p>",
+    "description": "<p>The Unconquered Sun trusts his Chosen to separate out the righteous from the wicked. By the power he has invested in them, the Lawgivers may send forth the specter of his rage to be visited upon the enemies of the Exalted. This Charm allows entire groups to be labeled enemies of Creation and given the creature of darkness deformity. The Lawgiver's player makes a prayer roll against a difficulty of (3 + Magnitude of group targeted). If successful, the day dims and the air quivers, or the night grows hot and feverish and bright. Targeted beings realize what is about to happen as the wrath of Heaven gathers (the Charm is Obvious to them), and have one long tick to prepare themselves--Essence-users are advised to establish some form of Shaping defense. After one long tick passes, a surge of Essence rips through the area, flaring it bright as noon and rendering every targeted being a creature of darkness. This Charm may only be used to target relatively geographically compact groups, up to about the size of a city. Targeting may be based on geography or political affiliation. \"Every member of the Guild in Nexus\" would be a valid target for the Charm, as would \"every man woman and child in Nexus\" or \"the army encamped in that valley.\" However, Guild members not in Nexus would not be affected, and if the army's general were back in the Lap receiving new orders, he would be spared, as he is not with the targeted bulk of the group. Likewise, \"all members of the Guild\" or \"all Brides of Ahlat\" would not be valid targets, because those organizations are spread far and wide geographically. The Solar must be close enough to the targeted group for at least one targeted individual to hear the prayers and condemnations he speaks to the Unconquered Sun.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
