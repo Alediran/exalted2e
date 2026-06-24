@@ -24,6 +24,7 @@
     "steps": [],
     "keywords": [
       "Combo-Basic",
+      "Native",
       "Obvious"
     ],
     "cost": {
@@ -31,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>The Solar's fists blaze with orichalcum fire, each strike carrying the force of a god made manifest. While this Charm is active, the raw damage of all unarmed attacks is calculated as (Strength × Essence) instead of the normal raw damage value. Furthermore, all unarmed attacks made while this Charm is active ignore the target's Hardness entirely, treating it as 0.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -44,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dd19f04a457d6a2b",
+            "charmName": "Solar Hero Supremacy",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f863dbeac9dd1210"
   },
   "folder": "05bd4dac47a869bd",
