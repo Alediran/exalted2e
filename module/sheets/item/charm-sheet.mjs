@@ -61,8 +61,12 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removeTierHealthGrantOption:   CharmSheet.#onRemoveTierHealthGrantOption,
       addTierDVIgnorePenaltyType:    CharmSheet.#onAddTierDVIgnorePenaltyType,
       removeTierDVIgnorePenaltyType: CharmSheet.#onRemoveTierDVIgnorePenaltyType,
-      addAbilityDiceBonus:           CharmSheet.#onAddAbilityDiceBonus,
-      removeAbilityDiceBonus:        CharmSheet.#onRemoveAbilityDiceBonus,
+      addAbilityDiceBonus:              CharmSheet.#onAddAbilityDiceBonus,
+      removeAbilityDiceBonus:           CharmSheet.#onRemoveAbilityDiceBonus,
+      addSupplementalKeyword:           CharmSheet.#onAddSupplementalKeyword,
+      removeSupplementalKeyword:        CharmSheet.#onRemoveSupplementalKeyword,
+      addStatusImmunity:                CharmSheet.#onAddStatusImmunity,
+      removeStatusImmunity:             CharmSheet.#onRemoveStatusImmunity,
     }
   };
 
@@ -574,6 +578,35 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const current = foundry.utils.deepClone(this.document.system.abilityDiceBonus ?? []);
     current.splice(index, 1);
     await this.document.update({ "system.abilityDiceBonus": current });
+  }
+
+  static async #onAddSupplementalKeyword(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.supplementalKeywordInjection ?? []);
+    const first = game.exalted2e?.EX2E?.charmKeywords?.[0] ?? "Unblockable";
+    current.push(first);
+    await this.document.update({ "system.supplementalKeywordInjection": current });
+  }
+
+  static async #onRemoveSupplementalKeyword(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.supplementalKeywordInjection ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.supplementalKeywordInjection": current });
+  }
+
+  static async #onAddStatusImmunity(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.statusImmunity ?? []);
+    current.push("");
+    await this.document.update({ "system.statusImmunity": current });
+  }
+
+  static async #onRemoveStatusImmunity(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.statusImmunity ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.statusImmunity": current });
   }
 
   static async #onIncrementPurchaseLevel(event, _target) {

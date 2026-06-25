@@ -89,6 +89,13 @@
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     {{/unless}}
+    {{#if (eq system.exaltType "dragonblooded")}}
+    <div class="field-group">
+      <label>{{localize "EX2E.MinBreeding"}}</label>
+      <input type="number" name="system.minBreeding" value="{{system.minBreeding}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{/if}}
     <div class="field-group">
       <label>{{localize "EX2E.MinEssence"}}</label>
       <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"
