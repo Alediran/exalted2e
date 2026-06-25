@@ -118,12 +118,20 @@ export function aggregateDVBonusFormulaFromCharms(actor) {
   for (const c of (actor.items ?? [])) {
     if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
     const dvb = c.system?.dvBonus;
-    if (!dvb?.enabled) continue;
-    if (dvb.dodgeBonusFormula) {
-      dodgeBonus += (evaluateCharmFormula(dvb.dodgeBonusFormula, rollData, 0) | 0);
+    if (dvb?.enabled) {
+      if (dvb.dodgeBonusFormula) {
+        dodgeBonus += (evaluateCharmFormula(dvb.dodgeBonusFormula, rollData, 0) | 0);
+      }
+      if (dvb.parryBonusFormula) {
+        parryBonus += (evaluateCharmFormula(dvb.parryBonusFormula, rollData, 0) | 0);
+      }
     }
-    if (dvb.parryBonusFormula) {
-      parryBonus += (evaluateCharmFormula(dvb.parryBonusFormula, rollData, 0) | 0);
+    // Top-level dvBonusFormula applies to both DVs, independent of dvBonus.enabled
+    const topFormula = c.system?.dvBonusFormula;
+    if (topFormula) {
+      const bonus = (evaluateCharmFormula(topFormula, rollData, 0) | 0);
+      dodgeBonus += bonus;
+      parryBonus += bonus;
     }
   }
   return { dodgeBonus, parryBonus };
@@ -426,6 +434,145 @@ export function aggregatePostSoakDamageReductionFromCharms(actor) {
   for (const c of (actor.items ?? [])) {
     if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
     total += c.system?.postSoakDamageReduction ?? 0;
+  }
+  return total;
+}
+
+/**
+ * Sum minimumDamageReduction from all passively-active charms on the defender.
+ * Reduces the attacker's minimum damage pool (clamped to 0), applied after soak.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregateMinimumDamageReductionFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.minimumDamageReduction ?? 0;
+  }
+  return total;
+}
+
+/**
+ * Sum combatDiceBonus from all passively-active charms on the actor.
+ * Adds flat dice to the attack roll pool.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregateCombatDiceBonusFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.combatDiceBonus ?? 0;
+  }
+  return total;
+}
+
+/**
+ * Returns true if any passively-active charm on the actor has upgradeWeaponRange: true.
+ * Suppresses the out-of-range abort so the attack can proceed at extended distance.
+ * @param {object} actor
+ * @returns {boolean}
+ */
+export function hasUpgradeWeaponRangeFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.upgradeWeaponRange === true) return true;
+  }
+  return false;
+}
+
+/**
+ * Return the majesticResistanceType of the first passively-active charm that sets it.
+ * Overrides the normal intent-based MDV selection in social attacks.
+ * Values: "dodgelike" (force Dodge MDV) | "parrylike" (force Parry MDV) | null.
+ * @param {object} actor
+ * @returns {string|null}
+ */
+export function getMajesticResistanceTypeFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.majesticResistanceType) return c.system.majesticResistanceType;
+  }
+  return null;
+}
+
+/**
+ * Returns the actor's Appearance rating if any passively-active charm
+ * has addAppearanceDice: true, otherwise 0.
+ * Adds Appearance to social roll pools.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function getAddAppearanceDiceFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.addAppearanceDice === true) {
+      return actor.system?.attributes?.appearance?.value ?? 0;
+    }
+  }
+  return 0;
+}
+
+/**
+ * Evaluate creatureOfDarknessRawDamageReduction formulas from all passively-active charms.
+ * Reduces the attacker's raw damage pool when the attacker is a Creature of Darkness.
+ * @param {object} actor - The DEFENDER
+ * @param {object} rollData
+ * @returns {number}
+ */
+export function aggregateCoDRawDamageReductionFromCharms(actor, rollData = {}) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const formula = c.system?.creatureOfDarknessRawDamageReduction;
+    if (!formula) continue;
+    total += (evaluateCharmFormula(formula, rollData, 0) | 0);
+  }
+  return total;
+}
+
+/**
+ * Returns the total postSoakDamageReductionPerMote rate from all passively-active charms.
+ * Rate = damage reduction per mote spent (e.g., 1 = spend 1 mote → 1 less post-soak damage).
+ * @param {object} actor - The DEFENDER
+ * @returns {number}
+ */
+export function getPostSoakDamageReductionPerMoteFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.postSoakDamageReductionPerMote ?? 0;
+  }
+  return total;
+}
+
+/**
+ * Sum dvPenaltyReduction from all passively-active charms on the actor.
+ * Applied as a flat reduction to the total DV penalty (all penalty types).
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregateDVPenaltyReductionFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.dvPenaltyReduction ?? 0;
+  }
+  return total;
+}
+
+/**
+ * Sum onslaughtPenaltyReduction from all passively-active charms on the actor.
+ * Applied specifically to reduce onslaught-type DV penalties before summing.
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregateOnslaughtPenaltyReductionFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.onslaughtPenaltyReduction ?? 0;
   }
   return total;
 }

@@ -17,7 +17,7 @@
     "ability": "resistance",
     "essence": 1,
     "minAbility": 1,
-    "charmType": "reflexive",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -51,9 +51,12 @@
     "prereqGroups": [],
     "moteRecovery": {
       "enabled": true,
-      "event": "onDamageReceived",
+      "event": "onDamageRolled",
       "action": "recoverPeripheral",
-      "formula": "@ess"
+      "formula": "@ess",
+      "overdriveDiceMultiplier": 2,
+      "overdriveStaminaCap": true,
+      "maxRecovery": 20
     },
     "charmUid": "43ee9b8aabf2f6b1"
   },

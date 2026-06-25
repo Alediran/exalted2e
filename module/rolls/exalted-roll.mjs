@@ -18,7 +18,7 @@ import {
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
-import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms } from "./charm-passive-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms, aggregateCombatDiceBonusFromCharms, hasUpgradeWeaponRangeFromCharms, getMajesticResistanceTypeFromCharms, getAddAppearanceDiceFromCharms } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 import { getTerrainBonuses } from "../helpers/terrain.mjs";
 
@@ -693,11 +693,13 @@ export class ExaltedRoll {
       const { checkAttackRange } = await import("../helpers/targeting.mjs");
       const rangeInfo = checkAttackRange(mode, actor, targetActor);
       if (rangeInfo && !rangeInfo.inRange) {
-        ui.notifications.warn(game.i18n.format("EX2E.TargetOutOfRange", {
-          distance: Math.round(rangeInfo.distance),
-          max:      rangeInfo.maxRange
-        }));
-        return null;
+        if (!hasUpgradeWeaponRangeFromCharms(actor)) {
+          ui.notifications.warn(game.i18n.format("EX2E.TargetOutOfRange", {
+            distance: Math.round(rangeInfo.distance),
+            max:      rangeInfo.maxRange
+          }));
+          return null;
+        }
       }
       if (rangeInfo) {
         rangePenalty = rangeInfo.rangePenalty ?? 0;
@@ -1122,7 +1124,8 @@ export class ExaltedRoll {
     const attackRoll = new ExaltedRoll({
       pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice
                         + (charmAttackBonus.ignoreRangeBand ? (rangePenalty ?? 0) : 0)
-                        + terrainBonus.attackerDiceBonus,
+                        + terrainBonus.attackerDiceBonus
+                        + aggregateCombatDiceBonusFromCharms(actor),
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
@@ -1187,6 +1190,8 @@ export class ExaltedRoll {
       harmImmaterial:        getHarmImmaterialFromCharms(actor)
         || activatedCharmItems.some(c => c.system?.harmImmaterial === true),
       spiritAggravatedDamage: activatedCharmItems.some(c => c.system?.spiritAggravatedDamage === true),
+      guaranteedHit:         activatedCharmItems.some(c => c.system?.guaranteedHit === true),
+      upgradeWeaponRange:    hasUpgradeWeaponRangeFromCharms(actor) || null,
       guaranteedKnockback:   (() => {
         const c = activatedCharmItems.find(c => c.system?.guaranteedKnockback?.enabled);
         return c ? { enabled: true, distanceFormula: c.system.guaranteedKnockback.distanceFormula } : null;
@@ -1422,7 +1427,8 @@ export class ExaltedRoll {
     // 4. Base MDV. preStep2EffectiveMDV is the MDV before defender
     //    Step-2 charms / Excellencies bump it. The orchestrator
     //    recomputes the post-Step-2 effectiveMDV via resolveStep2().
-    const baseMDV = computeBaseMDV(intent, defender);
+    const majesticResistanceType = getMajesticResistanceTypeFromCharms(attacker);
+    const baseMDV = computeBaseMDV(intent, defender, majesticResistanceType);
     const preStep2EffectiveMDV = Math.max(0, baseMDV + stackingMod + mdvShiftFromApp);
 
     // 3c-1: Activate picked charms inline. Each charm's activateCharm posts
@@ -1539,8 +1545,9 @@ export class ExaltedRoll {
     // 5. Roll the attacker's pool.
     const attributeValue = attacker.system?.attributes?.[attribute]?.value ?? 0;
     const abilityValue   = attacker.system?.abilities?.[ability]?.value     ?? 0;
+    const appearanceDice = getAddAppearanceDiceFromCharms(attacker);
     const pool = attributeValue + abilityValue + (Number(stuntDice) || 0) + (firstExcDice ?? 0)
-               + charmSocialBonus.poolDice;
+               + charmSocialBonus.poolDice + appearanceDice;
 
     const intentLabel = game.i18n.localize({
       build:  "EX2E.IntentBuild",
@@ -1632,6 +1639,7 @@ export class ExaltedRoll {
       stackingMod,
       mdvShiftFromApp,
       baseMDV,
+      majesticResistanceType:      majesticResistanceType || null,
       preStep2EffectiveMDV,        // displayed in step2-pending phase
       rollSuccesses,
       netSuccesses,                // recomputed post-Step-2 too; this is a display-only seed

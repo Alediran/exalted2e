@@ -128,7 +128,7 @@ export function computeAttackOutcome(attack) {
   const perfectSoak    = !!attack.perfectDefenseCharm && attack.perfectDefenseType === "soak";
   const perfectDefense = !!attack.perfectDefenseCharm && !perfectSoak;
   const threshold = Math.max(0, attack.successes - attack.defense.dv);
-  const hit       = !perfectDefense && threshold > 0;
+  const hit       = !perfectDefense && (threshold > 0 || !!attack.guaranteedHit);
   data.threshold      = threshold;
   data.hit            = hit;
   data.perfectDefense = perfectDefense;

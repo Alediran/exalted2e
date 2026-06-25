@@ -3,7 +3,7 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { isCharmPassivelyActive, aggregateMoveBonusFromCharms, aggregateDVBonusFormulaFromCharms, aggregateAbilityMaxOverridesFromCharms } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregateMoveBonusFromCharms, aggregateDVBonusFormulaFromCharms, aggregateAbilityMaxOverridesFromCharms, aggregateDVPenaltyReductionFromCharms, aggregateOnslaughtPenaltyReductionFromCharms } from "../rolls/charm-passive-math.mjs";
 import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
@@ -605,15 +605,20 @@ export class ExaltedActor extends Actor {
   }
 
   _dvPenaltyIgnoring(ignoreTypes) {
-    const penalties  = this.system?.dvPenalties ?? [];
-    const immunities = new Set(this.getFlag("exalted2e", "dvImmunities") ?? []);
+    const penalties          = this.system?.dvPenalties ?? [];
+    const immunities         = new Set(this.getFlag("exalted2e", "dvImmunities") ?? []);
+    const onslaughtReduction = aggregateOnslaughtPenaltyReductionFromCharms(this);
     let total = 0;
     for (const p of penalties) {
       if (immunities.has(p.type)) continue;
       if (ignoreTypes.has(p.type)) continue;
-      total += p.value;
+      const value = p.type === "onslaught"
+        ? Math.max(0, p.value - onslaughtReduction)
+        : p.value;
+      total += value;
     }
-    return total;
+    const dvReduction = aggregateDVPenaltyReductionFromCharms(this);
+    return Math.max(0, total - dvReduction);
   }
 
   /** Sum of every non-immune DV penalty. */

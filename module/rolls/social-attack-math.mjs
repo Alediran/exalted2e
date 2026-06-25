@@ -55,9 +55,16 @@ export function computeMdvShiftFromApp(attacker, defender) {
   return clamped === 0 ? 0 : -clamped;
 }
 
-/** Erode and break-motivation hit Parry MDV; build/compel hit Dodge MDV. */
-export function computeBaseMDV(intent, defender) {
-  return (intent === "erode" || intent === "break-motivation")
+/**
+ * Erode and break-motivation hit Parry MDV; build/compel hit Dodge MDV.
+ * @param {string} intent
+ * @param {object} defender
+ * @param {"dodgelike"|"parrylike"|null} [resistanceOverride] - charm-sourced override
+ */
+export function computeBaseMDV(intent, defender, resistanceOverride = null) {
+  const useParry = resistanceOverride === "parrylike"
+    || (!resistanceOverride && (intent === "erode" || intent === "break-motivation"));
+  return useParry
     ? (defender.currentParryMDV ?? 0)
     : (defender.currentDodgeMDV ?? 0);
 }

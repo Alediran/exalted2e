@@ -274,9 +274,14 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         action:         new fields.StringField({ initial: "recoverPeripheral" }),
         formula:        new fields.StringField({ initial: "", blank: true }),
         source:         new fields.StringField({ initial: "self", choices: ["self", "fromTarget"] }),
-        perDamageLevel: new fields.BooleanField({ initial: false }),
-        maxRecovery:    new fields.NumberField({ initial: 20, integer: true, min: 1 }),
-        sentientOnly:   new fields.BooleanField({ initial: false }),
+        perDamageLevel:          new fields.BooleanField({ initial: false }),
+        maxRecovery:             new fields.NumberField({ initial: 20, integer: true, min: 1 }),
+        sentientOnly:            new fields.BooleanField({ initial: false }),
+        // Overdrive dice-roll mechanic (Essence-Gathering Temper family):
+        // roll (effectivePool × overdriveDiceMultiplier) dice, count successes,
+        // optionally cap at Stamina, then multiply by formula for motes.
+        overdriveDiceMultiplier: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+        overdriveStaminaCap:     new fields.BooleanField({ initial: false }),
       }),
 
       // M6 — Healing roll effect
@@ -417,6 +422,12 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       upgradeWeaponRange: new fields.BooleanField({ required: false, initial: false }),
       // M37 — Combat dice bonus (flat dice added to combat pools)
       combatDiceBonus: new fields.NumberField({ required: false, initial: 0 }),
+
+      // M40 — General DV penalty reduction (e.g. Fivefold Bulwark Stance)
+      dvPenaltyReduction: new fields.NumberField({ required: false, initial: 0 }),
+
+      // M41 — Onslaught-only DV penalty reduction (e.g. Lunar Hero Form)
+      onslaughtPenaltyReduction: new fields.NumberField({ required: false, initial: 0 }),
 
       // M6b — Healing rate multiplier (e.g. Body-Mending Meditation speeds healing × 10).
       // Data-storage only — no automatic tick engine exists; GM must track manually.

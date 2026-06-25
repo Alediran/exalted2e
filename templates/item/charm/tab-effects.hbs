@@ -1805,6 +1805,26 @@
     </label>
   </div>
 
+  {{!-- M40 DV Penalty Reduction ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DVPenaltyReduction"}}</label>
+      <input type="number" name="system.dvPenaltyReduction"
+             value="{{system.dvPenaltyReduction}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M41 Onslaught Penalty Reduction ───────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.OnslaughtPenaltyReduction"}}</label>
+      <input type="number" name="system.onslaughtPenaltyReduction"
+             value="{{system.onslaughtPenaltyReduction}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

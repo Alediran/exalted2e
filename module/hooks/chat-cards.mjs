@@ -11,7 +11,7 @@ import { resolveUserActor } from "../helpers/targeting.mjs";
 import { computeAttackOutcome } from "../rolls/attack-math.mjs";
 import { planLedgerRefund } from "../rolls/activation-ledger.mjs";
 import { countSuccesses }   from "../rolls/dice-math.mjs";
-import { aggregatePostSoakDamageReductionFromCharms } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregatePostSoakDamageReductionFromCharms, aggregateMinimumDamageReductionFromCharms, aggregateCoDRawDamageReductionFromCharms, getPostSoakDamageReductionPerMoteFromCharms } from "../rolls/charm-passive-math.mjs";
 import {
   applySocialInfluenceEffects,
   clearSocialInfluenceEffects
@@ -162,6 +162,49 @@ async function _applyDamageDealtMoteRecovery(message, targetActor, rawDamage) {
       const pool = mr.action === 'recoverPersonal' ? 'personal' : 'peripheral';
       await attackerActor.recoverMotes(capped, pool);
     }
+  }
+}
+
+// ── Overdrive on-damage-rolled mote recovery (Essence-Gathering Temper family) ──
+async function _applyOverdriveDamageRecovery(targetActor, effectivePool) {
+  if (!targetActor || targetActor.type !== "character" || effectivePool <= 0) return;
+
+  const charms = (targetActor.items ?? []).filter(c =>
+    c.type === "charm"
+    && isCharmPassivelyActive(c)
+    && c.system?.moteRecovery?.enabled
+    && c.system.moteRecovery.event === "onDamageRolled"
+    && (c.system.moteRecovery.overdriveDiceMultiplier ?? 0) > 0
+  );
+  if (!charms.length) return;
+
+  const rollData = targetActor.getRollData?.() ?? {};
+
+  for (const charm of charms) {
+    const mr        = charm.system.moteRecovery;
+    const totalDice = effectivePool * (mr.overdriveDiceMultiplier ?? 1);
+    const roll      = new Roll(`${totalDice}d10`);
+    await roll.evaluate();
+
+    if (game.dice3d?.showForRoll) {
+      await game.dice3d.showForRoll(roll, game.user, true);
+    } else {
+      const audio = foundry.audio?.AudioHelper ?? globalThis.AudioHelper;
+      audio?.play({ src: CONFIG.sounds.dice, volume: game.settings.get("core", "globalInterfaceVolume") ?? 0.8, autoplay: true, loop: false }, true);
+    }
+
+    let successes = countSuccesses(roll.terms[0].results.map(r => r.result));
+    if (mr.overdriveStaminaCap) successes = Math.min(successes, rollData.sta ?? 0);
+
+    const motesPerSuccess = (evaluateCharmFormula(mr.formula, rollData, 0) | 0);
+    const total = Math.min(successes * motesPerSuccess, mr.maxRecovery ?? 20);
+    if (total <= 0) continue;
+
+    const pool = mr.action === "recoverPersonal" ? "personal" : "peripheral";
+    await targetActor.recoverMotes(total, pool);
+    ui.notifications.info(
+      game.i18n.format("EX2E.OverdriveRecoveryMessage", { name: targetActor.name, charm: charm.name, successes, motes: total })
+    );
   }
 }
 
@@ -1230,21 +1273,78 @@ export function registerChatCardHooks() {
         && SPIRIT_NPC_TYPES.has(targetActor.system?.npcType ?? "");
       const effectiveDamageType = (spiritAggravatedDamage && targetIsSpirit) ? "aggravated" : damageType;
 
+      // Creature of Darkness raw damage reduction: defender charm reduces pre-soak pool.
+      const attackSnap    = message.flags?.exalted2e?.attack;
+      const attackerActor = game.actors.get(attackSnap?.actorId);
+      const attackerIsCoD = attackerActor?.effects.some(e => !e.disabled && e.flags?.exalted2e?.creatureOfDarkness);
+      if (attackerIsCoD && targetActor) {
+        const codRollData  = targetActor.getRollData?.() ?? {};
+        const codReduction = aggregateCoDRawDamageReductionFromCharms(targetActor, codRollData);
+        damagePool = Math.max(0, damagePool - codReduction);
+      }
+
       // Post-soak damage reduction (defensive): read from target's passively-active charms
-      const defenderPostSoakReduction = targetActor
+      const defenderPostSoakReduction  = targetActor
         ? aggregatePostSoakDamageReductionFromCharms(targetActor)
+        : 0;
+      const defenderMinDamageReduction = targetActor
+        ? aggregateMinimumDamageReductionFromCharms(targetActor)
         : 0;
 
       if (damagePool <= 0 && postSoakDice <= 0) return;
 
       // Roll the damage pool — post-soak dice bypass soak entirely.
-      // minimumDamage (from charms like Violet Bier of Sorrows Form) floors
-      // the post-soak pool before adding post-soak bonus dice.
+      // minimumDamage floors the post-soak pool before adding post-soak bonus dice.
+      // defenderMinDamageReduction (defensive charms) reduces that floor.
+      const effectiveMinimumDamage = Math.max(0, minimumDamage - defenderMinDamageReduction);
       const postSoakPool  = ignoreSoak
-        ? Math.max(damagePool, overwhelming, minimumDamage)
-        : Math.max(damagePool - soak, overwhelming, minimumDamage);
+        ? Math.max(damagePool, overwhelming, effectiveMinimumDamage)
+        : Math.max(damagePool - soak, overwhelming, effectiveMinimumDamage);
       const scaledPostSoakPool = Math.max(0, Math.floor(postSoakPool * postSoakDamageMultiplier) - defenderPostSoakReduction);
-      const effectivePool = scaledPostSoakPool + postSoakDice;
+
+      // postSoakDamageReductionPerMote: defender spends motes to reduce post-soak pool.
+      // Rate = damage reduction per mote spent (additive across all passively-active charms).
+      let perMoteReduction = 0;
+      const perMoteRate = targetActor ? getPostSoakDamageReductionPerMoteFromCharms(targetActor) : 0;
+      if (perMoteRate > 0 && scaledPostSoakPool > 0
+          && (game.user.isGM || targetActor.testUserPermission(game.user, "OWNER"))) {
+        const periAvail = targetActor.system?.motes?.peripheral?.value ?? 0;
+        const persAvail = targetActor.system?.motes?.personal?.value   ?? 0;
+        const available = periAvail + persAvail;
+        if (available > 0) {
+          const maxSpend = Math.min(available, scaledPostSoakPool);
+          const spent = await foundry.applications.api.DialogV2.wait({
+            window:  { title: game.i18n.format("EX2E.PostSoakMoteSpendTitle", { name: targetActor.name }) },
+            content: `<div style="padding:8px">
+              <p>${game.i18n.format("EX2E.PostSoakMoteSpendBody", { rate: perMoteRate, available, damage: scaledPostSoakPool })}</p>
+              <div class="form-group">
+                <label>${game.i18n.localize("EX2E.MotesToSpend")}</label>
+                <input type="number" name="motes" value="0" min="0" max="${maxSpend}" style="width:60px">
+              </div>
+            </div>`,
+            buttons: [
+              { action: "confirm", label: game.i18n.localize("EX2E.Confirm"), default: true,
+                callback: (_ev, _btn, dialog) => {
+                  const v = parseInt(dialog.element.querySelector("input[name=motes]")?.value ?? "0", 10);
+                  return Math.max(0, Math.min(isNaN(v) ? 0 : v, maxSpend));
+                }
+              },
+              { action: "cancel", label: game.i18n.localize("EX2E.Cancel") }
+            ],
+            rejectClose: false
+          });
+          if (spent && spent > 0) {
+            perMoteReduction = spent * perMoteRate;
+            // Spend from peripheral first, then personal.
+            const periSpend = Math.min(spent, periAvail);
+            const persSpend = spent - periSpend;
+            if (periSpend > 0) await targetActor.spendMotes(periSpend, "peripheral");
+            if (persSpend > 0) await targetActor.spendMotes(persSpend, "personal");
+          }
+        }
+      }
+
+      const effectivePool = Math.max(0, scaledPostSoakPool - perMoteReduction) + postSoakDice;
       const formula = `${effectivePool}d10`;
       const roll    = new Roll(formula);
       await roll.evaluate();
@@ -1304,6 +1404,7 @@ export function registerChatCardHooks() {
           await targetActor.applyDamage(rawDamage, effectiveDamageType);
           await _applyPerDamageLevelEffects(message, targetActor, rawDamage);
           await _applyDamageDealtMoteRecovery(message, targetActor, rawDamage);
+          await _applyOverdriveDamageRecovery(targetActor, effectivePool);
         }
       }
 
@@ -1330,6 +1431,7 @@ export function registerChatCardHooks() {
         await targetActor.applyDamage(dmg, type);
         await _applyPerDamageLevelEffects(message, targetActor, dmg);
         await _applyDamageDealtMoteRecovery(message, targetActor, dmg);
+        await _applyOverdriveDamageRecovery(targetActor, effectivePool);
 
         // Hide apply button via flags — keeps damageResult intact for re-renders.
         const attack = message.flags?.exalted2e?.attack ?? {};
