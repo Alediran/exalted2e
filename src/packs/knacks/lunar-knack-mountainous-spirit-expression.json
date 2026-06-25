@@ -1,0 +1,29 @@
+{
+  "_id": "3e05e7af359f82c0",
+  "_key": "!items!3e05e7af359f82c0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mountainous Spirit Expression",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 3,
+    "prerequisites": "Towering Beast Form, Essence 3, Stamina 4",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>When in spirit form, the Lunar's size doubles and she may gain benefits appropriate to the Large mutation.</p>",
+    "charmUid": "3e05e7af359f82c0"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

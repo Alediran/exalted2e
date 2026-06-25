@@ -1,0 +1,29 @@
+{
+  "_id": "faf2955c5f865e5e",
+  "_key": "!items!faf2955c5f865e5e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hybrid Body Rearrangement",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 3,
+    "prerequisites": "Essence 3, Wits 3",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>The Lunar may apply partial mutations drawn from her spirit shape or form library to her current body. Mutations cost 1–4 motes by tier, are not committed, and last as long as desired.</p>",
+    "charmUid": "faf2955c5f865e5e"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

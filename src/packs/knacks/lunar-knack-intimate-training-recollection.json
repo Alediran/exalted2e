@@ -1,0 +1,29 @@
+{
+  "_id": "00f540b13679556f",
+  "_key": "!items!00f540b13679556f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Intimate Training Recollection",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 3,
+    "prerequisites": "Prey's Skin Disguise, Essence 3, Intelligence 3",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>While in a stolen human form, the Lunar gains one floating Ability dot drawn from the victim's Abilities, costing 1 Willpower per scene. This Knack may be purchased a second time at Essence 5, Intelligence 5.</p>",
+    "charmUid": "00f540b13679556f"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

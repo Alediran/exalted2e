@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "lunar",
     "ability": "stamina",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,

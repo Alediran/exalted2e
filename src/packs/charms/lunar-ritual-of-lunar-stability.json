@@ -61,11 +61,6 @@
         ]
       }
     ],
-    "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
-    },
     "charmUid": "d67deb5db05e6cc0"
   },
   "folder": "8b05ba7cc3e236b8",

@@ -23,7 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Merged"
     ],
     "cost": {
       "formula": "1m",
@@ -45,7 +46,10 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "a201287ccf90e86e"
+    "charmUid": "a201287ccf90e86e",
+    "mergedIds": [
+      "92a9d269f955ba60"
+    ]
   },
   "folder": "03a1efbef258d84f",
   "sort": 0,

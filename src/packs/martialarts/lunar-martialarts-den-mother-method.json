@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "lunar",
-    "ability": "dexterity",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 2,
     "minAbility": 4,
     "charmType": "reflexive",
@@ -25,8 +25,7 @@
       6
     ],
     "keywords": [
-      "Combo-OK",
-      "Counterattack"
+      "Combo-OK"
     ],
     "cost": {
       "motes": 2,

@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Ground that Lunars walk safely may betray others. The Lunar draws her opponent's attention upward, distracting the opponent from the ground. This triggers a reflexive (Perception + Awareness) roll in her target at a difficulty of</p><p>(Lunar's Manipulation). If the target fails, she fails to notice the treacherous ground. The target may spend a point of Willpower to ignore this unnatural mental influence. When someone affected by this Charm must make any roll to keep her balance or suffers penalties because of the terrain, the difficulty of that roll or the penalties imposed increase by one. Lunars use this to lead people into traps, or just to make their foes more likely to fall.</p>",
+    "description": "<p>Ground that Lunars walk safely may betray others. The Lunar draws her opponent's attention upward, distracting the opponent from the ground. This triggers a reflexive (Perception + Awareness) roll in her target at a difficulty of (Lunar's Manipulation). If the target fails, she fails to notice the treacherous ground. The target may spend a point of Willpower to ignore this unnatural mental influence. When someone affected by this Charm must make any roll to keep her balance or suffers penalties because of the terrain, the difficulty of that roll or the penalties imposed increase by one. Lunars use this to lead people into traps, or just to make their foes more likely to fall.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "manipulation",
             "virtueKey": "valor",
             "virtueMin": 1
           }

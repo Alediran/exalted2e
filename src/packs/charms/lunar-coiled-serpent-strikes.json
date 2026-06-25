@@ -17,7 +17,7 @@
     "ability": "dexterity",
     "essence": 1,
     "minAbility": 1,
-    "charmType": "supplemental",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ed604a51e83b98e5",
+            "charmName": "Snake Body Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0ce8bb0d16a2567a"
   },
   "folder": "6d3aed86fa48b120",

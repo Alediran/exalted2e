@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Creating The Wolf Attitude",
+  "name": "Creating the Wolf Attitude",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Stewards tell their people what to feel. This Charm is a Manipulation-based social attack to induce the emotion of fear in a social group with Magnitude 1+. The character must have spent several hours within the past year encouraging the desired belief within this group before using this Charm, and this Charm must be invoked within the presence of at least one member of that group. The Lunar's player rolls (Manipulation + Socialize), subtracting an external penalty equal to the group leader's Mental Defense Value plus half the group's Magnitude. If the character succeeds, the group feels the emotion. Creating the Wolf Attitude generates unnatural mental influence. The target group and any group of Magnitude 1+ that breaks off from the target group must spend six points of Loyalty to break free of the influence forever, or one point to ignore the emotion for a scene. The Lunar may loose pure fear, generally inciting panic. More creatively, the character may bestow fear of something within the target populace. The character might invoke fear of</p><p>an enemy to smooth political efforts. The nature of the fear is up to the Lunar. This Charm has no effect on individuals. A character may use this Charm as a dominion action, the player rolling (Manipulation + Socialize) instead of a dominion dice pool for appropriate actions. The character must pay the cost for this Charm and any other Charms Comboed with it at the beginning of her next played out scene.</p>",
+    "description": "<p>Stewards tell their people what to feel. This Charm is a Manipulation-based social attack to induce the emotion of fear in a social group with Magnitude 1+. The character must have spent several hours within the past year encouraging the desired belief within this group before using this Charm, and this Charm must be invoked within the presence of at least one member of that group. The Lunar's player rolls (Manipulation + Socialize), subtracting an external penalty equal to the group leader's Mental Defense Value plus half the group's Magnitude. If the character succeeds, the group feels the emotion. Creating the Wolf Attitude generates unnatural mental influence. The target group and any group of Magnitude 1+ that breaks off from the target group must spend six points of Loyalty to break free of the influence forever, or one point to ignore the emotion for a scene. The Lunar may loose pure fear, generally inciting panic. More creatively, the character may bestow fear of something within the target populace. The character might invoke fear of an enemy to smooth political efforts. The nature of the fear is up to the Lunar. This Charm has no effect on individuals. A character may use this Charm as a dominion action, the player rolling (Manipulation + Socialize) instead of a dominion dice pool for appropriate actions. The character must pay the cost for this Charm and any other Charms Comboed with it at the beginning of her next played out scene.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,7 +53,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "manipulation",
             "virtueKey": "valor",
             "virtueMin": 1
           }

@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Lunars are skilled at misdirection, and they are subtle socialites. This Charm supplements any social attack and makes it difficult to notice. Characters using this Charm say something unthreatening and unrelated to relevant topics in such a way that it elicits the proper response to the intended attack. Players of characters targeted by Falling Leaf Distraction Technique may make (Perception + Investigation) rolls at a difficulty equal to the Lunar's ([Manipulation + Socialize] � 2) for their characters to notice the attack's source. Characters recognize they are being convinced of something but generally chalk it up to changing their own minds if they cannot find another cause. Lunar Exalted use this Charm to conceal social attacks in innocent conversation, oration or even musical performances.</p>",
+    "description": "<p>Lunars are skilled at misdirection, and they are subtle socialites. This Charm supplements any social attack and makes it difficult to notice. Characters using this Charm say something unthreatening and unrelated to relevant topics in such a way that it elicits the proper response to the intended attack. Players of characters targeted by Falling Leaf Distraction Technique may make (Perception + Investigation) rolls at a difficulty equal to the Lunar's ([Manipulation + Socialize] ÷ 2) for their characters to notice the attack's source. Characters recognize they are being convinced of something but generally chalk it up to changing their own minds if they cannot find another cause. Lunar Exalted use this Charm to conceal social attacks in innocent conversation, oration or even musical performances.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,7 +52,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "manipulation",
             "virtueKey": "valor",
             "virtueMin": 1
           }

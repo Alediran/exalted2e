@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Stewards know their territory better that most people know their bedrooms. The player makes a (Perception + Investigation) roll to detect the scents or Essence residue left behind by everyone who has passed through an area recently. The number of successes on the roll dictates how far back the character detects. One success provides traces from the last 24 hours, and each additional success doubles that number. The vast catalog of information available on a roll with many successes does not overwhelm the Lunar, and the character knows how recently (or within which time-category) each scent visited. These scents lack connection to names or faces unless the Lunar is already familiar with a person. Otherwise, the player receives a reflexive (Perception + Awareness) roll to</p><p>notice the scent of a person identified by this Charm when that person comes nearby. The player makes no more than one such roll per person in a single scene. Characters may target weapons, concubines or other tools to lift the scents of people who have touched them.</p>",
+    "description": "<p>Stewards know their territory better that most people know their bedrooms. The player makes a (Perception + Investigation) roll to detect the scents or Essence residue left behind by everyone who has passed through an area recently. The number of successes on the roll dictates how far back the character detects. One success provides traces from the last 24 hours, and each additional success doubles that number. The vast catalog of information available on a roll with many successes does not overwhelm the Lunar, and the character knows how recently (or within which time-category) each scent visited. These scents lack connection to names or faces unless the Lunar is already familiar with a person. Otherwise, the player receives a reflexive (Perception + Awareness) roll to notice the scent of a person identified by this Charm when that person comes nearby. The player makes no more than one such roll per person in a single scene. Characters may target weapons, concubines or other tools to lift the scents of people who have touched them.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "perception",
             "virtueKey": "valor",
             "virtueMin": 1
           }

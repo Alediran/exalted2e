@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>In Creation, almost everything is edible to something. The Lunar Exalted mimic that capability by fortifying their gullets, digestive systems and, occasionally, teeth so they can safely consume nearly anything. Activating the Charm, a character becomes able to eat without harm whatever he puts into his mouth and obtain the same sustenance as from decent food. Lunar Exalted use this Charm, among other things, to find all the food they need while surviving inhospitable regions of Creation. When activating Deadly Beastman Transformation, the character may commit one mote to gain the ability to eat materials appropriate to the hybrid form. ENDURANCE CHARMS OX-BODY TECHNIQUE Cost: --; Mins: Stamina 1, Essence 1; Type: Permanent Keywords: Stackable Prerequisite Charms: None Lunar Exalted are able to take blows far better than weak things such as mortals or castles. As anyone who has fought Lunars knows, Luna's Chosen can suffer grievous injuries and keep on fighting. This Charm gives the Lunars additional health levels. A player may purchase this Charm multiple times, but no more than once per dot of Stamina. Each purchase provides two additional Dying health levels (see Exalted, pp. 150-151) and the player's choice of the following: � Two -1 health levels � Four -2 health levels</p>",
+    "description": "<p>In Creation, almost everything is edible to something. The Lunar Exalted mimic that capability by fortifying their gullets, digestive systems and, occasionally, teeth so they can safely consume nearly anything. Activating the Charm, a character becomes able to eat without harm whatever he puts into his mouth and obtain the same sustenance as from decent food. Lunar Exalted use this Charm, among other things, to find all the food they need while surviving inhospitable regions of Creation. When activating Deadly Beastman Transformation, the character may commit one mote to gain the ability to eat materials appropriate to the hybrid form.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,7 +52,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "stamina",
             "virtueKey": "valor",
             "virtueMin": 1
           }

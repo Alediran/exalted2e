@@ -1,0 +1,29 @@
+{
+  "_id": "eec22b1216a0bfbd",
+  "_key": "!items!eec22b1216a0bfbd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Devastating Ogre Enhancement",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 5,
+    "prerequisites": "Deadly Beastman Transformation, Essence 5, Strength 4",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>The war form grows to over 12 feet tall and gains +1 to each physical Attribute on top of the Deadly Beastman Transformation bonus.</p>",
+    "charmUid": "eec22b1216a0bfbd"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}
