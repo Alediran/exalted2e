@@ -38,6 +38,13 @@ async function _ensureUnarmedWeapon(actor) {
 
 // ── Status effect application helper ──────────────────────────────────────
 export async function _applyStatusEffect(actor, onFail, status) {
+  const isImmune = actor.items.some(i =>
+    i.type === "charm" && i.system.active &&
+    Array.isArray(i.system.statusImmunity) &&
+    i.system.statusImmunity.includes(status)
+  );
+  if (isImmune) return;
+
   const effectData = {
     name:     status,
     img:      "icons/svg/aura.svg",

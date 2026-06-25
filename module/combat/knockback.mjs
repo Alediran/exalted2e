@@ -3,6 +3,7 @@ import {
   computeKnockdownTrigger,
   computeStunTrigger
 } from "./knockback-math.mjs";
+import { evaluateCharmFormula } from "../documents/item.mjs";
 
 /**
  * Resolve the knockback / knockdown / stun chain after damage applies.
@@ -25,6 +26,25 @@ export async function resolveKnockbackChain(message, { effectivePool, rawDamage 
   const targetActor   = attack.targetId ? game.actors.get(attack.targetId) : null;
   const attackerActor = attack.actorId  ? game.actors.get(attack.actorId)  : null;
   if (!targetActor || targetActor.type !== "character") return;
+
+  // ── Guaranteed knockback (e.g. Forceful Arrow) ────────────────────
+  if (attack.guaranteedKnockback?.enabled && rawDamage > 0 && attackerActor) {
+    const attackerRollData = attackerActor.getRollData?.() ?? {};
+    const dist = evaluateCharmFormula(attack.guaranteedKnockback.distanceFormula, attackerRollData, 0);
+    if (dist > 0) {
+      const moved = await _translateTokenAlongAttackVector(attackerActor, targetActor, dist);
+      const resolution = {
+        fired:               true,
+        distance:            dist,
+        tokenMoved:          moved,
+        knockdownPending:    false,
+        knockdownResolution: null,
+        stunFired:           false
+      };
+      await _persistAndRerender(message, resolution);
+    }
+    return;
+  }
 
   const { sta, res, dex, ath } = _readDefenderStats(targetActor);
 

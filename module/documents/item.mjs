@@ -279,6 +279,17 @@ export class ExaltedItem extends Item {
       }
     }
 
+    // ── Breeding gate ──────────────────────────────────────────────────────
+    if (!turningOff && (this.system.minBreeding ?? 0) > 0) {
+      const actorBreeding = actor.system.breeding ?? 0;
+      if (actorBreeding < this.system.minBreeding) {
+        ui.notifications.warn(
+          `${this.name} requires Breeding ${this.system.minBreeding} (you have ${actorBreeding}).`
+        );
+        return false;
+      }
+    }
+
     // ── Form-type charm: one-at-a-time enforcement ────────────────────────
     // For toggle-on: enforce one-Form-at-a-time; deactivate any existing Form
     //   first, then fall through to the normal path (costs, weapon artifacts,

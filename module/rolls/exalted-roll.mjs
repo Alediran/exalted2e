@@ -1155,7 +1155,10 @@ export class ExaltedRoll {
       attackerHasThirdExc,
       attackerExcKey:      excKey,
       weaponDamage:        mode.effectiveDamage + charmAttackBonus.extraDamageDice,
-      postSoakDamageDice:  charmAttackBonus.extraPostSoakDamageDice || 0,
+      postSoakDamageDice:  (charmAttackBonus.extraPostSoakDamageDice || 0) +
+        activatedCharmItems
+          .filter(c => c.system?.postSoakDamageBonus?.enabled)
+          .reduce((sum, c) => sum + _evalInt(c.system.postSoakDamageBonus.formula, rollData), 0),
       minimumDamage:       getMinimumDamageFromCharms(actor),
       rawDamageBonus:      aggregateRawDamageBonusFromCharms(actor),
       essenceDrain:        getEssenceDrainFromCharms(actor),
@@ -1168,6 +1171,10 @@ export class ExaltedRoll {
       harmImmaterial:        getHarmImmaterialFromCharms(actor)
         || activatedCharmItems.some(c => c.system?.harmImmaterial === true),
       spiritAggravatedDamage: activatedCharmItems.some(c => c.system?.spiritAggravatedDamage === true),
+      guaranteedKnockback:   (() => {
+        const c = activatedCharmItems.find(c => c.system?.guaranteedKnockback?.enabled);
+        return c ? { enabled: true, distanceFormula: c.system.guaranteedKnockback.distanceFormula } : null;
+      })(),
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the

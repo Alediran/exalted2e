@@ -61,9 +61,10 @@
       }
     ],
     "statusApply": {
-      "enabled": true,
+      "enabled": false,
       "status": "knockback"
     },
+    "guaranteedKnockback": { "enabled": true, "distanceFormula": "@ess * 3" },
     "charmUid": "59433ddb2c3cea0e"
   },
   "folder": "e842a3a532908d8d",

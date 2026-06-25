@@ -305,9 +305,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M9 — Extra-action charm execution
       extraActions: new fields.SchemaField({
-        enabled:       new fields.BooleanField({ initial: false }),
-        maxFormula:    new fields.StringField({ initial: "@essence", blank: true }),
-        costPerAction: new fields.NumberField({ initial: 2, min: 0, integer: true })
+        enabled:                new fields.BooleanField({ initial: false }),
+        maxFormula:             new fields.StringField({ initial: "@essence", blank: true }),
+        costPerAction:          new fields.NumberField({ initial: 2, min: 0, integer: true }),
+        costPerActionHighRate:  new fields.NumberField({ required: false, initial: 0, min: 0 })
       }),
 
       // M18 — Keyword effect magnitudes (Emotion / Compulsion / Servitude)
@@ -404,6 +405,18 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       damageSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
       // M12h — Bypass soak entirely (damage pool = threshold + weapon, soak skipped)
       ignoreSoak: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M32 — DV bonus applied during attack (formula-based, e.g. "+1 DV per 2 motes")
+      dvBonusFormula: new fields.StringField({ required: false, initial: "" }),
+      // M33 — Minimum post-soak damage reduction (e.g. "cannot reduce post-soak damage below 3")
+      minimumDamageReduction: new fields.NumberField({ required: false, initial: 0 }),
+      // M34 — Post-soak damage reduction per mote spent (scaling reduction)
+      postSoakDamageReductionPerMote: new fields.NumberField({ required: false, initial: 0 }),
+      // M35 — Creature of Darkness raw damage reduction (formula-based)
+      creatureOfDarknessRawDamageReduction: new fields.StringField({ required: false, initial: "" }),
+      // M36 — Upgrade weapon range (e.g. grants thrown range to melee weapon)
+      upgradeWeaponRange: new fields.BooleanField({ required: false, initial: false }),
+      // M37 — Combat dice bonus (flat dice added to combat pools)
+      combatDiceBonus: new fields.NumberField({ required: false, initial: 0 }),
 
       // M6b — Healing rate multiplier (e.g. Body-Mending Meditation speeds healing × 10).
       // Data-storage only — no automatic tick engine exists; GM must track manually.
@@ -500,6 +513,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       socialSuccessBonus: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
       // M24 — Social roll success multiplier (multiplies successes on social ability rolls)
       socialSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M38 — Majestic Resistance type (empty string = none, "dodgelike" | "parrylike" | etc.)
+      majesticResistanceType: new fields.StringField({ required: false, initial: "" }),
+      // M39 — Add Appearance dice bonus to social rolls
+      addAppearanceDice: new fields.BooleanField({ required: false, initial: false }),
       // M25 — Clockwork Auto-Success Conversion (Alchemical Clockwork Perfection Nodes)
       // When active, the rolled dice pool converts to automatic successes (no dice rolled).
       clockworkAutoSuccessConversion: new fields.BooleanField({ required: false, nullable: false, initial: false }),
@@ -511,15 +528,35 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // supplemental charm activates (e.g. "Unblockable", "Undodgeable"). These
       // are added to activatedKeywords during rollAttack supplemental activation.
       supplementalKeywordInjection: new fields.ArrayField(
-        new fields.StringField({ required: true, blank: false })
+        new fields.StringField({ required: true, blank: false }),
+        { initial: [] }
       ),
 
       // M28a — Harm Immaterial: attack can affect dematerialized spirits
       harmImmaterial: new fields.BooleanField({ required: false, nullable: false, initial: false }),
       // M28b — Spirit Aggravated Damage: damage dealt to spirits is Aggravated (materialized or not)
       spiritAggravatedDamage: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M30 — Guaranteed knockback (e.g. Forceful Arrow): bypasses the normal knockback roll; distance
+      // from distanceFormula yards of knockback when at least 1 die of damage is rolled.
+      guaranteedKnockback: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        distanceFormula: new fields.StringField({ initial: "" }),
+      }, { required: false }),
+      // M31 — Post-soak damage bonus (e.g. Spirit-Maiming Essence Attack): adds bonus dice after soak
+      postSoakDamageBonus: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        formula: new fields.StringField({ initial: "" }),
+      }, { required: false }),
       // M29 — Post-soak damage reduction (defensive): reduces post-soak pool when this actor is targeted
       postSoakDamageReduction: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+
+      negatesCripplingEffect: new fields.BooleanField({ required: false, initial: false }),
+      guaranteedHit: new fields.BooleanField({ required: false, initial: false }),
+      statusImmunity: new fields.ArrayField(new fields.StringField(), { required: false, initial: [] }),
+      minBreeding: new fields.NumberField({ required: false, initial: 0, min: 0 }),
+      dynastyEffect: new fields.StringField({ required: false, initial: "" }),
+      martyrEffect: new fields.StringField({ required: false, initial: "" }),
+      hasMartyrOption: new fields.BooleanField({ required: false, initial: false }),
 
       // ── Multi-Purchase Fields ───────────────────────────────────────────
       // Maximum number of times this charm can be purchased.

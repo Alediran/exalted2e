@@ -49,7 +49,8 @@
     "extraActions": {
       "enabled": true,
       "maxFormula": "@ess + 1",
-      "costPerAction": 2
+      "costPerAction": 2,
+      "costPerActionHighRate": 4
     },
     "charmUid": "17944eba50013449"
   },

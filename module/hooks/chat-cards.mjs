@@ -1362,11 +1362,14 @@ export function registerChatCardHooks() {
       if (!target) return;
       btn.disabled = true;
 
+      const negatesCrippling = onFail === "applyCrippling" &&
+        target.items.some(i => i.type === "charm" && i.system.active && i.system.negatesCripplingEffect);
+
       const rollData = target.getRollData() ?? {};
       const pool = evaluateCharmFormula(resistPool, rollData, 0);
 
       if (pool <= 0) {
-        await _applyStatusEffect(target, onFail, status);
+        if (!negatesCrippling) await _applyStatusEffect(target, onFail, status);
         return;
       }
 
@@ -1374,7 +1377,7 @@ export function registerChatCardHooks() {
       const roll = new ExaltedRoll({ pool, flavor: `${status} ${game.i18n.localize("EX2E.ResistRoll")}` });
       await roll.evaluate();
       await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: target }) });
-      if ((roll.successes ?? 0) === 0) {
+      if ((roll.successes ?? 0) === 0 && !negatesCrippling) {
         await _applyStatusEffect(target, onFail, status);
       }
     });
