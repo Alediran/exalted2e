@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "solar",
     "ability": "archery",
-    "essence": 1,
+    "essence": 2,
     "minAbility": 2,
-    "charmType": "supplemental",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -44,7 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "f29c6afbc6a82eae", "charmName": "Essence Arrow Attack", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
     "charmUid": "7372b08559265e8b"
   },
   "folder": "e842a3a532908d8d",

@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 3,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -33,14 +33,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Mortal weapons are as the stings of wasps and hornets to the Lawgivers reborn. The Solar invokes this Charm after an attack hits him but before damage is rolled. Roll (his Stamina + Resistance) against a difficulty equal to the attacker's Essence (up to a maximum of 6). On a success, this Charm prevents all damage from the attack; on a failure, this Charm still gives him +4A/+8L/+8B soak.</p>",
+    "description": "<p>All attacks against the Solar have their minimum damage reduced by one die for the duration of this Charm.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One tick",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -61,14 +61,6 @@
         ]
       }
     ],
-    "soakBonus": {
-      "enabled": true,
-      "bashing": 8,
-      "lethal": 8,
-      "aggravated": 4,
-      "hardnessAdd": 0,
-      "hardnessSetTo": 0
-    },
     "charmUid": "d8d91ebf4bca1ac7"
   },
   "folder": "f05b544008eaceb0",

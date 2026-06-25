@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "solar",
     "ability": "archery",
-    "essence": 4,
-    "minAbility": 5,
+    "essence": 3,
+    "minAbility": 4,
     "charmType": "simple",
     "duration": "oneScene",
     "speed": 5,
@@ -51,11 +51,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "d67b8d54669d2118",
-            "charmName": "Inexhaustible Bolts of Solar Fire",
+            "charmUid": "f29c6afbc6a82eae",
+            "charmName": "Essence Arrow Attack",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

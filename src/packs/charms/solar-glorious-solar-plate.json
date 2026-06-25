@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar armors herself in the blazing glory of the Unconquered Sun. This Charm creates a suit of golden body armor from the Solar's anima. The character can design the armor to suit his personal aesthetic and mood--it can be sleek, imposing, ornate or simple. Regardless of aesthetic, it is always unmistakably medium or heavy armor, and it always glows with a golden light resembling an 8-10 mote Solar anima display. This light is bright enough to read by in a three-yard radius. Characters can only use this Charm if they are not already wearing body armor or a warstrider. It creates armor with 10L/10B soak, 5 Hardness, a -1 mobility penalty and no fatigue penalty. The character is instantly fully armored. For an additional three motes, if the character is not carrying a shield, he can create a glowing shield that gives a +1 cover DV bonus against hand-to-hand attacks and a +3 cover DV bonus against ranged attacks. This shield is always unmistakably a shield and bears the sunburst emblem of the Unconquered Sun.</p>",
+    "description": "<p>The Solar summons brilliant orichalcum armor from the Elsewhere. He pays one mote for armor equivalent to a one-dot orichalcum artifact armor, three motes for a two-dot equivalent, or five motes and one Willpower for a three-dot equivalent. The armor's stats are as the relevant artifact armor type. Creatures of Darkness must subtract the Solar's Essence (minimum 1) from the raw damage of their attacks against the armored Solar.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,8 +51,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "55eb9297e2abde9e",
-            "charmName": "Hauberk-Lightening Gesture",
+            "charmUid": "369d8e8d97f73a31",
+            "charmName": "Whirlwind Armor-Donning Prana",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1

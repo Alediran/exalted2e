@@ -45,7 +45,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "17944eba50013449", "charmName": "Trance of Unhesitating Speed", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
     "charmUid": "48fef476a695f5f4"
   },
   "folder": "e842a3a532908d8d",

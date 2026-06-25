@@ -41,7 +41,7 @@
       "limitTrigger": 0,
       "formula": "3m"
     },
-    "description": "<p>The Solar burns with Essence. Her strength and agility rise to inhuman levels. This Charm supplements a single attack. It makes the target's Parry DV inapplicable. If the Solar hits, this Charm allows her to make one further unarmed Martial Arts attack by hurling the first opponent into another. This attack has a range of (Martial Arts x 5) yards. It is also unblockable. The first opponent is treated as a weapon with -3 Accuracy and +4B damage. If the attack misses or the Solar targets empty space, the first opponent travels the full (Martial Arts x 5) yards, with effects as noted in Heaven Thunder Hammer. Hurling one opponent into another operates with the same timing as a counterattack. This Charm cannot enhance a counterattack, and it prevents the target from responding with Charms with the Counterattack keyword such as Solar Counterattack or Leaping Dodge Method. The second attack is resolved in Step 9 of the original attack and imposes a cumulative counterattack-based penalty of -1 on the Solar's DV.</p>",
+    "description": "<p>The Solar burns with Essence. Her strength and agility rise to inhuman levels. This Charm supplements a single attack. It makes the target's Parry DV inapplicable. If the Solar hits, this Charm allows her to make one further unarmed Martial Arts attack by hurling the first opponent into another. This attack has a range of (Martial Arts x 5) yards. It is also unblockable. The first opponent is treated as a weapon with -3 Accuracy and +4B damage. If the attack misses or the Solar targets empty space, the first opponent travels the full (Martial Arts x 5) yards, with effects as noted in Heaven Thunder Hammer. Hurling one opponent into another operates with the same timing as a counterattack. This Charm cannot enhance a counterattack, and it prevents the target from responding with Charms with the Counterattack keyword such as Solar Counterattack or Leaping Dodge Method. The second attack is resolved in Step 9 of the original attack and imposes a cumulative counterattack-based penalty of -1 on the Solar's DV.</p><p>Enhancement: The Solar's opponent, when used as a weapon, has +2 accuracy and +6B damage. The attack made with this opponent may be applied to all characters within that unfortunate's flight path.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -93,32 +93,6 @@
         ]
       }
     ],
-    "dvBonus": {
-      "enabled": true,
-      "dodgeBonus": 0,
-      "ignoreAllPenalties": false,
-      "ignorePenaltyTypes": [],
-      "dodgeBonusFormula": "",
-      "parryBonusFormula": "",
-      "parryBonus": 1
-    },
-    "moteRecovery": {
-      "enabled": true,
-      "event": "onDamageReceived",
-      "action": "recoverPersonal",
-      "formula": "1"
-    },
-    "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
-    },
-    "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
-    },
     "charmUid": "2b5a51264eb4fae6",
     "grantsMastery": false
   },

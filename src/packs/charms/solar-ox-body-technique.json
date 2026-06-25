@@ -49,17 +49,24 @@
       "enabled": true,
       "options": [
         {
-          "label": "Option A: one -0 and two -2",
+          "label": "Option A: one −0",
           "zero": 1,
           "one": 0,
-          "two": 2,
+          "two": 0,
           "dying": 0
         },
         {
-          "label": "Option B: two -1 health levels",
+          "label": "Option B: two −1",
           "zero": 0,
           "one": 2,
           "two": 0,
+          "dying": 0
+        },
+        {
+          "label": "Option C: one −1 + two −2",
+          "zero": 0,
+          "one": 1,
+          "two": 2,
           "dying": 0
         }
       ]

@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar heroes are as one with their mounts. This Charm lets a character use his reflexive Charms to assist a loyal animal he is riding rather than himself. This counts as the character using that Charm, but adds one mote to its invocation cost. Because this counts as the character using the Charm, it must abide by all of the normal limitations on Charm invocation. For example, the character can't use a Martial Arts Excellency to enhance an attack and also use Reflex Sidestep Technique to help his mount dodge in the same action without a Combo. However, he could use either of these to help both himself and the horse in a single action. If the character has a self-invoking Charm, such as Surprise Anticipation Method, then it invokes to protect his mount as well. If the mount faces unexpected mortal danger, the character reflexively spends two motes to enhance the mount's Awareness and allow it to shy.</p><p>Worthy Mount Technique</p><p>(ANY RIDE EXCELLENCY)</p><p>Flashing Thunderbolt Steed</p><p>Single Spirit Method</p><p>Sometimes Horses Fly Approach</p><p>Wind-Racing Essence Infusion</p><p>MASTER HORSEMAN'S TECHNIQUES</p><p>Phantom Steed</p><p>SINGLE SPIRIT METHOD Cost: --; Mins: Ride 5, Essence 4; Type: Permanent Keywords: None Duration: Instant Prerequisite Charms: Worthy Mount Technique</p><p>This Charm enhances the character's Worthy Mount Technique. The character can use Supplemental Charms to enhance the horse's actions, adding two motes to their cost. For example, the character can use Thunderbolt Attack Prana to enhance his horse's attack, possibly even in the same action</p><p>PHANTOM STEED</p><p>Str/Dex/Sta Per/Int/Wits/WP Health Levels</p><p>Attack (Spd /Acc/Dmg/Rate)</p><p>Dodge/Soak</p><p>7/3/6</p><p>-0x3/-1x2/-2x3/-4/I Bite: 5/6/8L/1, Hoof: 6/6/13B*/2 6/3L/6B</p><p>Abilities: Athletics 3, Awareness 3, Dodge 3, Investigation 1, Martial Arts 3, Presence 3, Resistance 2, Survival 2</p><p>* This damage is piercing.</p><p>that the character uses it to enhance his own. The character cannot do so when these Supplemental Charms are part of a Combo that includes a Simple Charm.</p>",
+    "description": "<p>The Solar heroes are as one with their mounts. This Charm lets a character use his reflexive Charms to assist a loyal animal he is riding rather than himself. This counts as the character using that Charm, but adds one mote to its invocation cost. Because this counts as the character using the Charm, it must abide by all of the normal limitations on Charm invocation. For example, the character can't use a Martial Arts Excellency to enhance an attack and also use Reflex Sidestep Technique to help his mount dodge in the same action without a Combo. However, he could use either of these to help both himself and the horse in a single action. If the character has a self-invoking Charm, such as Surprise Anticipation Method, then it invokes to protect his mount as well. If the mount faces unexpected mortal danger, the character reflexively spends two motes to enhance the mount's Awareness and allow it to shy.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -49,7 +49,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "ride",
             "virtueKey": "valor",
             "virtueMin": 1
           }

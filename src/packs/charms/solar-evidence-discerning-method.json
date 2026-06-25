@@ -30,14 +30,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Lawgivers see into others' hearts. This Charm allows the character to make an Investigation-based roll to profile someone's personality. The character need not interact with the target, but must have sufficient material evidence of the target's personality to estimate the target's nature. If the target deliberately sends out misleading cues, subtract an external penalty of ([the target's Manipulation + Socialize] � 2) from the successes on the Investigation roll. Corrupted or incomplete evidence can also impose an external penalty. If the roll succeeds, then each success reduces external penalties on dramatic, social and mass combat actions the character takes against the target. This Charm cannot reduce external penalties by an amount greater than the Solar's Essence. The Exalt can have only one profile of a given target. The crispness of the profile--that quality that reduces external penalties--lasts only as long as the committed Essence. The Lawgiver's player cannot roll again to build a new profile unless the story ends or a new piece of evidence allows a dramatic reconceptualization of the target's personality.</p>",
+    "description": "<p>The Lawgivers see into others' hearts. This Charm allows the character to make an Investigation-based roll to profile someone's personality. The character need not interact with the target, but must have sufficient material evidence of the target's personality to estimate the target's nature. If the target deliberately sends out misleading cues, subtract an external penalty of ([the target's Manipulation + Socialize] ÷ 2) from the successes on the Investigation roll. Corrupted or incomplete evidence can also impose an external penalty. If the roll succeeds, then each success reduces external penalties on dramatic, social and mass combat actions the character takes against the target. This Charm cannot reduce external penalties by an amount greater than the Solar's Essence. The Exalt can have only one profile of a given target. The crispness of the profile--that quality that reduces external penalties--lasts only as long as the committed Essence. The Lawgiver's player cannot roll again to build a new profile unless the story ends or a new piece of evidence allows a dramatic reconceptualization of the target's personality.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One story",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "investigation",
             "virtueKey": "valor",
             "virtueMin": 1
           }

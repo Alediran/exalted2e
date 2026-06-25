@@ -23,7 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Mirror"
     ],
     "cost": {
       "formula": "3m",
@@ -31,14 +32,14 @@
       "limitTrigger": 0
     },
     "description": "<p>Essence enhances the Solar's senses. This Charm gives two bonus successes on Awareness actions that use sight. It also allows the character to clearly perceive sensory impressions that are normally too faint for human senses to validly observe at all. The character can make out the detail on a commander's epaulet at 500 yards distance, at night. He can see the individual threads of a shirt, and with a legendary success, he can make out the motion of the mites that live on others' eyebrows.</p>",
-    "source": "Core Rules",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -50,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "awareness",
             "virtueKey": "valor",
             "virtueMin": 1
           }

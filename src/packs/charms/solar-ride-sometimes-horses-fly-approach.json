@@ -1,6 +1,6 @@
 {
-  "_id": "d7a873e4ccc337f8",
-  "_key": "!items!d7a873e4ccc337f8",
+  "_id": "cd81b274844b8d2d",
+  "_key": "!items!cd81b274844b8d2d",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,35 +9,31 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Flow Like Blood",
+  "name": "Sometimes Horses Fly Approach",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "solar",
-    "ability": "dodge",
-    "essence": 3,
+    "ability": "ride",
+    "essence": 4,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "oneScene",
-    "speed": 6,
+    "duration": "oneHour",
+    "speed": 5,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [
-      "Combo-OK",
-      "Obvious"
-    ],
+    "keywords": ["Combo-OK", "Touch"],
     "cost": {
       "formula": "5m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Essence permeates the Lawgiver's being. She moves with an impossible fluid grace. For the remainder of the scene, this Charm negates the onslaught and coordinated attack penalties that others' attacks impose on the Exalt's DV.</p>",
+    "description": "<p>The Solar heroes inspire their mounts to unusual feats. This Charm gives a horse the ability to fly, as well as the confidence to do so. It can run on water, clouds and even the air itself with a Move or Dash action, spending two yards of movement to ascend one yard. Reduce this Charm's cost to five motes when used upon a horse summoned with Phantom Steed or a similar Charm.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -49,12 +45,12 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "dodge",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "type": "charm",
+            "charmUid": "41ce33cbb7bfef0a",
+            "charmName": "Flashing Thunderbolt Steed",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -62,30 +58,18 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "850e948dc390c37c",
-            "charmName": "Seven Shadow Evasion",
+            "charmUid": "91378ef78e9e8b79",
+            "charmName": "Single Spirit Method",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "58ca04a8cbcd4825",
-            "charmName": "Reflex Sidestep Technique",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "charmUid": "d7a873e4ccc337f8"
+    "charmUid": "cd81b274844b8d2d"
   },
-  "folder": "b4b556393b53edae",
+  "folder": "edcc4814a971a872",
   "sort": 0,
   "ownership": {
     "default": 0

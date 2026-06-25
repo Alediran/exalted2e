@@ -16,7 +16,7 @@
     "exaltType": "martialarts",
     "ability": "martialarts",
     "essence": 2,
-    "minAbility": 2,
+    "minAbility": 4,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 5,
@@ -28,7 +28,7 @@
       "Obvious"
     ],
     "cost": {
-      "motes": 2,
+      "motes": 4,
       "willpower": 0,
       "bashingHealth": 0,
       "lethalHealth": 0,
@@ -39,8 +39,8 @@
       "limitTrigger": 0,
       "formula": "4m"
     },
-    "description": "<p>The Solar's perfect understanding of the mortal body allows him to strike with surgical precision at the pressure points, nerve clusters, and structural vulnerabilities that can render a person instantly unconscious. Supplementing a bashing unarmed or martial arts attack, this charm converts all damage from the blow to bashing, but any damage that reaches the target's incapacitated health levels instead renders them unconscious for (Essence) hours rather than killing them. The target takes no additional damage from this unconscious state.</p><p>The charm also adds the Solar's Essence in bonus dice to the attack roll, as the precision required demands exceptional accuracy. Targets with supernatural resistance to pain or unconsciousness (such as undead or certain spirits) are immune to the rendering-unconscious effect, though the attack still deals its bashing damage normally. This charm is the prerequisite for Break the Storm.</p>",
-    "source": "Ink Monkeys",
+    "description": "<p>Knockout Blow supplements an unarmed Martial Arts attack. If the attack inflicts at least one level of damage, compare the product of (damage successes × attacker's Essence) against the target's remaining health levels. If the product exceeds the target's remaining health levels, the target is knocked unconscious and remains unconscious for one scene.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Solar Hero Style",
@@ -53,7 +53,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8e96863f868ad9a4",
+            "charmName": "Solar Hero Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2e7ebc109265447f",
     "grantsMastery": false
   },

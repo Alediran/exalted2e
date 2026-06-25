@@ -1,6 +1,6 @@
 {
-  "_id": "a1b2c3d4e5f6000f",
-  "_key": "!items!a1b2c3d4e5f6000f",
+  "_id": "b6cd85e53052a110",
+  "_key": "!items!b6cd85e53052a110",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -30,8 +30,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm expands Flashing Thunderbolt Steed, infusing the Solar's steed with supernatural speed granted by the Unconquered Sun. Once purchased, whenever the Lawgiver activates Flashing Thunderbolt Steed, her mount's travel rate becomes (the creature's Stamina + the Exalt's Essence) × 20 miles per hour. Unlike its Abyssal Mirror (Primal Terror Spurs), this Charm's benefits apply anywhere in Creation and beyond, not just within the realms of the dead.</p>",
-    "source": "MoEP: Abyssals",
+    "description": "<p>The steeds of the Lawgivers possess extraordinary speed. This Charm enhances the character's Flashing Thunderbolt Steed technique, allowing the mount under its influence to reliably travel ([the creature's Stamina + the character's Essence] x 10) miles per hour.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -59,8 +59,7 @@
         ]
       }
     ],
-    "charmUid": "a1b2c3d4e5f6000f",
-    "mergedIds": []
+    "charmUid": "b6cd85e53052a110"
   },
   "folder": "edcc4814a971a872",
   "sort": 0,

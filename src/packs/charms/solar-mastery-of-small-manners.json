@@ -1,6 +1,6 @@
 {
-  "_id": "a1b2c3d4e5f60004",
-  "_key": "!items!a1b2c3d4e5f60004",
+  "_id": "efb21b859dcd29c9",
+  "_key": "!items!efb21b859dcd29c9",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -21,7 +21,7 @@
     "duration": "untilNextAction",
     "speed": 5,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [1, 2],
     "keywords": [
       "Combo-OK",
       "Social"
@@ -31,8 +31,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Abyssals are horrid monsters full of lies and cruelty, but that is no excuse for bad manners. As Moonshadows must remind their circlemates, sometimes courtly elegance and sophistication can ruin more lives than all the swords in the world. The Solar's innate grace and courtly sophistication make her perfectly at ease in any social situation, and she extends that courtesy to those around her. Activating this Charm allows the Lawgiver to navigate any social gathering with perfect poise, lending her a bonus die on the first Socialize action she takes before the Charm expires.</p>",
-    "source": "MoEP: Abyssals",
+    "description": "<p>The Solar attunes herself to the patterns of human interaction. This Charm makes her responses to social situations so natural and appropriate that in social combat she treats all enemy groups as one point of Magnitude smaller than they are (to a minimum of 0.) It also increases her effective Appearance by one dot. When in doubt, other characters will be more apt to do small favors and provide hospitality than not. Finally, this Charm ensures that the character understands the basic motivations of everyone present in the scene, as if her player had rolled three successes on a mundane Investigation roll to estimate each person's motives.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -47,8 +47,7 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "a1b2c3d4e5f60004",
-    "mergedIds": []
+    "charmUid": "efb21b859dcd29c9"
   },
   "folder": "5da24482e38ff9ae",
   "sort": 0,

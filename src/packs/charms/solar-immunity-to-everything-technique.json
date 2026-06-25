@@ -51,19 +51,14 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "resistance",
             "virtueKey": "valor",
             "virtueMin": 1
           }
         ]
       }
     ],
-    "statusApply": {
-      "enabled": true,
-      "status": "Sickness",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applySickness"
-    },
+    "statusImmunity": ["Poison", "Sickness"],
     "charmUid": "866e91963172ada5"
   },
   "folder": "f05b544008eaceb0",

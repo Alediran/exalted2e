@@ -15,22 +15,20 @@
   "system": {
     "exaltType": "solar",
     "ability": "thrown",
-    "essence": 1,
-    "minAbility": 2,
-    "charmType": "reflexive",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [
-      "Combo-OK"
-    ],
+    "keywords": [],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar's Essence binds her thrown weapons to her, drawing them back to her hand. After making a thrown attack, the character may spend 1 mote to have the weapon return to her hand at the end of the tick. The weapon reappears as if thrown back, landing ready in her grip. This Charm does not work on weapons that were destroyed, embedded so deeply that removal is impossible, or weapons deliberately left behind.</p>",
+    "description": "<p>The Solar's thrown weapons snap back to his hand after use. This Charm is a permanent enhancement that grants three automatic successes on any physical action the Solar takes to retrieve thrown weapons he owns. Weapons the Solar has thrown can always be reclaimed without resistance, regardless of how deeply they are embedded in a target or the environment.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",

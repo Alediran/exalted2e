@@ -16,7 +16,7 @@
     "exaltType": "solar",
     "ability": "resistance",
     "essence": 2,
-    "minAbility": 2,
+    "minAbility": 3,
     "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
@@ -28,11 +28,11 @@
       "Combo-OK"
     ],
     "cost": {
-      "formula": "1m per pre-soak damage die removed",
+      "formula": "1m per post-soak damage die removed",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The unconquerable flame of the Solar's spirit armors her against attack. She invokes this Charm after an attack hits her but before damage is rolled. This Charm reduces the raw (presoak) damage of the attack by one die for each mote spent. This Charm can reduce the damage of the attack to zero.</p>",
+    "description": "<p>The unconquerable flame of the Solar's spirit armors her against attack. She invokes this Charm after an attack hits her but before damage is rolled. This Charm reduces the post-soak damage of the attack by one die for each mote spent. This Charm may not reduce an attack's damage below one die.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",

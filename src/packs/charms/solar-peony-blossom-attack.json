@@ -17,7 +17,7 @@
     "ability": "melee",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "extraaction",
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -59,11 +59,6 @@
         ]
       }
     ],
-    "extraActions": {
-      "enabled": true,
-      "maxFormula": "@ess + 1",
-      "costPerAction": 2
-    },
     "charmUid": "c0c11833e96dfa2c"
   },
   "folder": "fd05b302be1cc260",

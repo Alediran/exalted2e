@@ -23,7 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Mirror"
     ],
     "cost": {
       "formula": "3m",
@@ -31,7 +32,7 @@
       "limitTrigger": 0
     },
     "description": "<p>Essence enhances the Solar's senses. This Charm gives two bonus successes on Awareness actions that use smell or taste. It also allows the character to clearly perceive sensory impressions that are normally too faint for human senses to validly observe at all. The character can recognize others and hints of their recent activities by smell. He can track by scent, gaining one bonus success when tracking someone who has a scent. The character can identify spices and poisons by taste. With a legendary success, he can detect but not identify a few drops of tasteless poison in a wine--as its presence serves to dilute the wine.</p>",
-    "source": "Core Rules",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -39,7 +40,7 @@
 
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,7 +53,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "awareness",
             "virtueKey": "valor",
             "virtueMin": 1
           }

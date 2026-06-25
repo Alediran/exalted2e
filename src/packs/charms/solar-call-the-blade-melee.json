@@ -17,7 +17,7 @@
     "ability": "melee",
     "essence": 2,
     "minAbility": 2,
-    "charmType": "reflexive",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>When a Lawgiver has been separated from her weapon—whether disarmed, having set it down, or having thrown it at a target—she reaches out her hand and the weapon leaps to her grip in an instant. The weapon flies back from wherever it has gone, even from a wall or the ground, and arrives in her palm at the end of Step 2, just before damage is rolled. This Charm can only affect weapons owned by and attuned to the character. A Lawgiver can store a weapon in Elsewhere by paying the attunement cost and using this Charm; thereafter, she can pay 1m to summon it on Step 2. This Charm will not recall a weapon held by another creature.</p>",
+    "description": "<p>This Charm is a triggered permanent. After throwing a melee weapon as a Thrown attack, the Solar may pay one mote reflexively to recall it to his hand at Step 2 of his next action. The weapon returns from up to (Essence × 2) yards away during combat, or from any range outside of combat.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -47,20 +47,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "428f064f78b1cfba",
-            "charmName": "One Weapon, Two Blows",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "b3aae75052f980da",
     "mergedIds": [
       "7eefeb7437ae6390"

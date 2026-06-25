@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Even in a pitched battle, the Lawgivers strike with controlled precision. This Charm enhances a Thrown-based attack so that it stuns or cripples the Solar's opponent. For each health level of damage this attack inflicts, this Charm subtracts one die (as a -1 internal penalty) from the target's Physical Attribute dice pools and one point from the equivalent static ratings. This is a Crippling effect that lasts for the remainder of the scene. The players and Storyteller decide how the effect is inflicted--it could be an injured hand, slashed tendons or a stunning blow to the head. Storytellers will have to work with the players to determine how the attack cripples more exotic opponents such as automata and the walking dead.</p>",
+    "description": "<p>Even in a pitched battle, the Lawgivers strike with controlled precision. This Charm enhances a Thrown-based attack so that it stuns or cripples the Solar's opponent. For each health level of damage this attack inflicts, this Charm subtracts one die (as a -1 internal penalty) from the target's Physical Attribute dice pools and one point from the equivalent static ratings. This is a Crippling effect that lasts for the remainder of the scene. The players and Storyteller decide how the effect is inflicted--it could be an injured hand, slashed tendons or a stunning blow to the head. Storytellers will have to work with the players to determine how the attack cripples more exotic opponents such as automata and the walking dead.</p><p>Martial-ready: Archery, Martial Arts, Melee.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -46,25 +46,10 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "statusApply": {
       "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
+      "status": "Crippling"
     },
     "charmUid": "fd7e191f532df03b"
   },

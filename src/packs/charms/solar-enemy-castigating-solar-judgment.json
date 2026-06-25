@@ -54,18 +54,13 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "presence",
             "virtueKey": "valor",
             "virtueMin": 1
           }
         ]
       }
     ],
-    "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
-    },
     "charmUid": "1efc1f23c71c6d44"
   },
   "folder": "e6b3f42bab7e5717",

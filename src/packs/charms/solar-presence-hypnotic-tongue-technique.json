@@ -40,7 +40,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Solar's Charisma in days",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,7 +54,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "presence",
             "virtueKey": "valor",
             "virtueMin": 1
           }

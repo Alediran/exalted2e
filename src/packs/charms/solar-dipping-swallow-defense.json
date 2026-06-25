@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The maneuver named Dipping Swallow Defense restores defensive advantage to a beleaguered or overextended fighter.</p><p>This Charm is used in response to an attack. It allows the Exalt to ignore all penalties that apply to her Parry DV when resolving that attack. Her Parry DV is still 0 if it's inapplicable, but it takes no further penalties.</p>",
+    "description": "<p>The maneuver named Dipping Swallow Defense restores defensive advantage to a beleaguered or overextended fighter.</p><p>This Charm is used in response to an attack. It allows the Exalt to ignore all penalties that apply to her Parry DV when resolving that attack. Her Parry DV is still 0 if it's inapplicable, but it takes no further penalties.</p><p>This Charm negates penalties to the Exalt's Melee-derived Parry DV.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -47,20 +47,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "dvBonus": {
       "enabled": true,
       "dodgeBonus": 0,

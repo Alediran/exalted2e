@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "solar",
     "ability": "war",
-    "essence": 3,
+    "essence": 2,
     "minAbility": 4,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Chosen radiate the confidence and surety of the Unconquered Sun. This Charm affects any unit or social group that the Solar commands and every ally within (Essence x 5) yards. This Charm's targets no longer need to make Valor checks. In war, this Charm prevents rout and reduces the chance of fatigue (see p. 374).</p>",
+    "description": "<p>The Chosen radiate the confidence and surety of the Unconquered Sun. This Charm affects any unit or social group that the Solar commands and every ally within (Essence x 5) yards. This Charm's targets no longer need to make Valor checks. In war, this Charm prevents rout and reduces the chance of fatigue (see p. 374).</p><p>In mass combat, this Charm costs five motes and one Willpower and affects all allied units within the Solar's Essence × 20 yards. Targets of this Charm no longer need to make Valor checks to avoid rout for the rest of the scene.</p><p>At Essence 3+, when the Solar or any ally affected by this Charm channels Valor, his Valor dice become automatic successes instead of rolled dice. If that channeled action succeeds, the Solar or ally recovers the spent Willpower point.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -46,32 +46,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "4254865c07ee2713",
-            "charmName": "Rout-Stemming Gesture",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "417687d59d95503d",
-            "charmName": "Fury Inciting Presence",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "73df9d8899064827"
   },
   "folder": "d517bd826bc73b9e",

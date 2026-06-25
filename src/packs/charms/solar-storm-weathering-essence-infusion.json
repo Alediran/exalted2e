@@ -15,13 +15,15 @@
   "system": {
     "exaltType": "solar",
     "ability": "sail",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      1
+    ],
     "keywords": [
       "Combo-OK"
     ],
@@ -31,14 +33,14 @@
       "limitTrigger": 0
     },
     "description": "<p>Makes sure a ship and crew survive a storm, maze of reefs, whirlpool, or other hazard. The Solar must be on board and authorized to direct the crew. The Solar and the ship's crew receive two bonus successes on every action that directly serves the survival of the ship — whether repelling aquatic Fair Folk, patching the ship's side before it sinks, or taking a simplified dramatic action to bypass a less interesting hazard.</p>",
-    "source": "Core Rules",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

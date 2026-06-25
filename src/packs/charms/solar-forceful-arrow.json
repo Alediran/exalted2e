@@ -62,9 +62,7 @@
     ],
     "statusApply": {
       "enabled": true,
-      "status": "knockback",
-      "resistPool": "@sta + @resistance",
-      "onFail": "knockback"
+      "status": "knockback"
     },
     "charmUid": "59433ddb2c3cea0e"
   },

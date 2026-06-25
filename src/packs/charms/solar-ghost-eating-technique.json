@@ -39,7 +39,7 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -61,11 +61,10 @@
         ]
       }
     ],
-    "statusApply": {
+    "essenceDrain": {
       "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
+      "formula": "@ess * 2",
+      "pool": ""
     },
     "charmUid": "b6977eae1a392e18"
   },

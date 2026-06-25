@@ -45,20 +45,8 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
+    "maxPurchases": "@ess",
     "charmUid": "84931bf90a7a307d",
     "motePoolBonus": {
       "enabled": true,
