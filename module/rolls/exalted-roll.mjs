@@ -18,7 +18,7 @@ import {
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
-import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms, aggregateCombatDiceBonusFromCharms, hasUpgradeWeaponRangeFromCharms, getMajesticResistanceTypeFromCharms, getAddAppearanceDiceFromCharms } from "./charm-passive-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms, aggregateCombatDiceBonusFromCharms, hasUpgradeWeaponRangeFromCharms, getMajesticResistanceTypeFromCharms, getAddAppearanceDiceFromCharms, aggregateIncomingAttackDicePenaltyFromCharms } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 import { getTerrainBonuses } from "../helpers/terrain.mjs";
 
@@ -1056,6 +1056,14 @@ export class ExaltedRoll {
     targetDodgeDV += terrainBonus.defenderDVBonus;
     targetParryDV += terrainBonus.defenderDVBonus;
 
+    // M42/M43 — DV halving from supplemental charms (applied before base snapshot and Unblockable/Undodgeable)
+    if (activatedCharmItems.some(c => c.system?.dvHalving === true)) {
+      targetDodgeDV = Math.floor(targetDodgeDV / 2);
+      targetParryDV = Math.floor(targetParryDV / 2);
+    } else if (activatedCharmItems.some(c => c.system?.halvesParryDV === true)) {
+      targetParryDV = Math.floor(targetParryDV / 2);
+    }
+
     const targetBaseDodgeDV = targetDodgeDV;
     const targetBaseParryDV = targetParryDV;
     if (undodgeable) targetDodgeDV = 0;
@@ -1117,15 +1125,25 @@ export class ExaltedRoll {
       }
     }
 
+    // M45 — Charm-level hardness bypass from supplemental charms (e.g. Shell-Crushing Atemi)
+    if (targetHardness > 0 && activatedCharmItems.some(c => c.system?.ignoresHardness === true)) {
+      targetHardness = 0;
+    }
+
     targetSoak += terrainBonus.defenderSoakBonus;
 
     // Build and evaluate the attack roll
+    // M44 — Incoming attack dice penalty from defender's passively-active charms (e.g. Crouching Tiger Stance)
+    const incomingAttackPenalty = targetActor
+      ? aggregateIncomingAttackDicePenaltyFromCharms(targetActor)
+      : 0;
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
       pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice
                         + (charmAttackBonus.ignoreRangeBand ? (rangePenalty ?? 0) : 0)
                         + terrainBonus.attackerDiceBonus
-                        + aggregateCombatDiceBonusFromCharms(actor),
+                        + aggregateCombatDiceBonusFromCharms(actor)
+                        - incomingAttackPenalty,
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,

@@ -43,6 +43,20 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Aim bonus banking (one die per banked tick, consumed on aimed attack)
 - [x] Aborted-Aim divert penalty — `onCommitOther` returns `applyAbortPenalty:true`; `advanceCurrentByTicks` applies `applyInternalPenalty(2, dvRefreshable)` when diverted
 - [x] Minimum-damage errata swap — `Math.max(damagePool − soak, overwhelming)` where `overwhelming` defaults to 1; hardnessStops correctly blocks entirely (no minimum applies)
+- [x] DV halving from supplemental charms (`dvHalving: true` halves both Dodge+Parry DV floor before Step 4; `halvesParryDV: true` halves Parry DV only; wired in `rollAttack` after terrain bonus and before base snapshot — see Blazing Solar Bolt, Ferocious Biting Tooth)
+- [x] Incoming attack dice penalty from defender's passively-active charms (`incomingAttackDicePenalty: NumberField`; aggregated via `aggregateIncomingAttackDicePenaltyFromCharms`; subtracted from attacker pool in `ExaltedRoll` constructor — see Crouching Tiger Stance)
+- [x] Charm-level hardness bypass (`ignoresHardness: true` on supplemental charm zeros `targetHardness` before soak; distinct from aggravated-always-ignores-hardness path — see Shell-Crushing Atemi)
+- [ ] Target-number reduction (`targetNumberReduction: NumberField`) — reduces the success threshold below 7 for this attack's dice roll (e.g. 7→6); requires `ExaltedRoll` to accept a custom `targetNumber` and apply it during evaluation
+- [ ] Onslaught multiplier (`onslaughtMultiplier: NumberField`) — multiplies the number of onslaught DV-penalty stacks applied per attack (e.g. Agitation of Swarm Technique); applied in the onslaught-stamp step of `rollAttack`
+- [ ] Mote loan to target (`moteLoan: SchemaField { enabled, formula }`) — transfers motes from activator to a targeted ally; needs ally-targeting flow (see Social/Ally section) and a new `receiveMotes` actor method — see Essence-Lending Method
+- [ ] Willpower gift to target (`willpowerGift: SchemaField { enabled, formula }`) — transfers WP to a targeted ally; same ally-targeting dependency as moteLoan — see Will-Bolstering Method
+- [ ] Ally-targeting support — pick a friendly token from the charm activation dialog; currently all charm effects apply to self or the attack target only; needed by moteLoan, willpowerGift, and a handful of Lunar ally-buff charms
+- [ ] Soak reduction on hit (`soakReductionOnHit: SchemaField { bashingReduction, lethalReduction, duration }`) — temporarily lowers target's soak after a hit (e.g. Throat-Baring Hold, duration "untilNextAction"); stamp a time-limited AE on the target reducing soak aggregation
+- [ ] Damage-driven penalty on target (`damageDrivenPenalty: SchemaField { enabled, perHL, scope }`) — for each HL of damage dealt, apply `perHL` dice penalty to the target's attribute group (`scope`: "physicalAttributes" / "mentalAttributes" / "all"); stamp a named AE on target after damage roll — see Joint-Wounding Attack
+- [ ] Temporary health levels (`temporaryHealthLevels: SchemaField { enabled, level, formula }`) — add transient AE granting extra HL at the specified level (e.g. Anointment of Miraculous Health adds HL at −0); AE carries `charmDuration` for auto-sweep
+- [ ] Homing attack (persistent re-roll) — supplemental charm that causes a missed attack to re-roll on the following tick automatically; no schema field yet; requires a "pending re-attack" state on the combatant — Lunar specific
+- [ ] Ammo tracking + `bypassAmmoConsumption` — quiver/clip resource on weapon; charm flag bypasses the decrement; archery charms (Solar/Sidereal/Abyssal) need this before ammo-cost variants can automate
+- [ ] Elsewhere system — store a weapon/item in Elsewhere (charm-activated); recall it as a reflexive action; requires an "elsewhere inventory" section on CharacterData and a paired item AE — Archery specific
 
 ## Combat — Defense & Soak
 - [x] Dodge DV / Parry DV formulas, weapon-mode parry selection
@@ -96,6 +110,13 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Charm deactivation resolver (scene-end / combat-end) — `clearSceneCharms` sweeps oneScene + action-count AEs at scene/combat end; `decrementActionCharmsFor` counts down per combatant act; indefinite/permanent untouched
 - [x] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; gate conditions, passive/active tiers, per-tier effect sections, activation pipeline integration) — [charms-gap A2](docs/charms-gap.md)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
+- [ ] **Charm-level per-purchase variant selection** — when learning a charm that has distinct named variants (e.g. Subcutaneous vs Exoskeletal Armor Plating), prompt for variant choice at purchase time; each purchase is independent (multiple of same variant allowed); store chosen variant on the item instance
+- [ ] **`maxPurchases` formula support** — currently `maxPurchases` is a static integer; support `@essence` (and other rollData tokens) so charm purchase limit scales with Essence — see Immanent Solar Glory
+- [ ] **Upgrade tier system** (`upgradeRequiresEssence: N`) — a higher-essence purchase of the same charm unlocks additional effect fields (e.g. Iron Raptor Technique gains Unblockable at Ess 3+); separate from essence-tiered conditional branches already implemented
+- [ ] Fix consumer wiring — Unbreakable Warrior's Mastery: `statusApply` currently applies Crippling to targets; should instead grant `negatesCripplingEffect: true` on self (charm negates Crippling imposed on the owner, not imposes it on enemies)
+- [ ] Fix consumer wiring — Serpentine Evasion: `dvBonus` condition/formula incorrect; needs investigation to match errata text (DV bonus applies only when not yet acted in the tick, or similar guard)
+- [ ] Fix consumer wiring — Shockwave Technique: multiple fields (`moteRecovery`, `statusApply`, `dvBonus`, `willpowerRecovery`) present but at least one consumer misconfigured; audit all four fields against errata text
+- [ ] **Social attack pipeline for charms** — Presence/Performance opposed rolls with MDV; currently social bonus fields add dice/successes but the full opposed-roll pipeline (attacker pool vs MDV threshold, onslaught MDV, social-perfect defenses) is not wired to charm effects; blocks 30+ Social-keyword charms from full automation
 
 ## Social Combat
 - [x] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction; currently stub Item type only)
@@ -111,6 +132,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Social Combos (no Obvious display unless charm is Obvious)
 - [x] Social charm bonus payload (`socialBonus` schema — charm-driven pool dice/auto-successes/penalty-ignore for social attacks; MDV debuff gap noted in spec) — [charms-gap A9](docs/charms-gap.md)
   - [x] Social attack chat card: surface `charmPoolDice` / `charmPoolSuccesses` in pool breakdown line (currently stored in ledger but not rendered)
+- [ ] **Formal social attack pipeline for social-keyword charms** — charm effects that halve MDV, force Willpower-to-resist, or add unnatural-influence costs (e.g. Enemy-Castigating Solar Judgment social mode, Irresistible Salesman Spirit) require the MDV resolution step to read `supplementalKeywordInjection` equivalents for social attacks; design MDV-halving and influence-cost flags that parallel the physical Unblockable/Undodgeable pattern
 
 ## Sorcery & Necromancy
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)
@@ -158,6 +180,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Chimera Knacks gated by Casteless + Limit ≥ 5
 - [x] Gift keyword auto-activation on Deadly Beastman Transformation entry — [charms-gap A6](docs/charms-gap.md)
 - [x] Fury-OK charm filter during Relentless Lunar Fury (block non-Fury-OK from supplemental picker) — [charms-gap A7](docs/charms-gap.md)
+- [ ] **Dematerialized targeting gate** — `harmImmaterial: true` charms (Spirit-Cutting Attack, God-Cutting Essence) can strike dematerialized spirits; currently there is no dematerialized status effect; requires a `dematerialized` AE flag on spirit actors and a gate in `rollAttack` that allows `harmImmaterial` charms to bypass the materialization check
+- [ ] **Maladic capture + transfer** — Lunar charm mechanic to capture a spirit's Essence pattern (a malados) and transfer it to another being; requires a `malados` item type or AE wrapper and a transfer dialog
+- [ ] **Background grant via charm** — Lunar charms that temporarily grant a Background to an ally (e.g. Sharing the Gifts of Luna); requires a transient Background item stamped on the ally actor with a cleanup AE
+- [ ] **Linked NPC template** — charm that creates or binds a specific NPC actor as a companion (spirit ally, familiar); token linked to the charm's active state; teardown on deactivation
 
 ### Dragon-Blooded
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
@@ -187,6 +213,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
 - [x] Creature of Darkness flaw (GM-only removal, flag-based detection)
 - [x] Ravening Mouth of (Ability) mote recovery — hook into the damage step of `rollAttack`; when a Ravening Mouth AE is active for the attacking ability, regain 1m per HL of damage dealt to sentient beings (non-undead, non-automaton target flag); cap 20m per action across all Ravening Mouth effects; no recovery from spells or ongoing/poison damage ticks
+- [ ] **Overwrite pool** — Abyssal-specific temporary mote pool funded by spending successes or HL; distinct from the Overdrive pool (Overdrive feeds from damage taken; Overwrite feeds from spending successes/HL to fuel specific charm costs); requires a new `overwritePool` schema field and a separate spend path in the mote-cost resolver
 
 ### Infernal
 - [x] Castes (Slayer / Malefactor / Defiler / Scourge / Fiend)
@@ -241,6 +268,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Willpower recovery hooks (rest, stunt reward)
 - [x] Limit accumulation automation (Virtue suppression → Limit gain on primary virtue; UMI → +1 Limit already implemented)
 - [x] Limit Break scripting at 10 (per-Virtue-Flaw scene template) — see Solar/Virtues section; data-driven break AE stamped on resolve, scene-swept
+- [ ] **Formal virtue roll pipeline** — charms that trigger a Virtue roll (Valor/Conviction/Temperance/Compassion) with a specific difficulty and consequence (e.g. resist compulsion, avoid reckless action); requires a `virtueRollTrigger: SchemaField { virtue, difficulty, effect }` on charm data and a dedicated roll dialog/result handler; blocks 8+ charms across all splats
 
 ## Experience / Purchase Tracking
 - [x] Purchase Mode toggle + enforcement (block reductions, log XP on increases)

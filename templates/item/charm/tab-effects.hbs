@@ -1825,6 +1825,46 @@
     </div>
   </div>
 
+  {{!-- M42 DV Halving (both) ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DvHalving"}}</label>
+      <input type="checkbox" name="system.dvHalving"
+             {{#if system.dvHalving}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M43 Halves Parry DV ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.HalvesParryDV"}}</label>
+      <input type="checkbox" name="system.halvesParryDV"
+             {{#if system.halvesParryDV}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M44 Incoming Attack Dice Penalty ──────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.IncomingAttackDicePenalty"}}</label>
+      <input type="number" name="system.incomingAttackDicePenalty"
+             value="{{system.incomingAttackDicePenalty}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M45 Ignores Hardness ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.IgnoresHardness"}}</label>
+      <input type="checkbox" name="system.ignoresHardness"
+             {{#if system.ignoresHardness}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

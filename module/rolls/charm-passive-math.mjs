@@ -576,3 +576,13 @@ export function aggregateOnslaughtPenaltyReductionFromCharms(actor) {
   }
   return total;
 }
+
+// M44 — Incoming attack dice penalty imposed on the attacker by the defender's passive charms.
+export function aggregateIncomingAttackDicePenaltyFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.incomingAttackDicePenalty ?? 0;
+  }
+  return total;
+}

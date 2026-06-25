@@ -429,6 +429,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // M41 — Onslaught-only DV penalty reduction (e.g. Lunar Hero Form)
       onslaughtPenaltyReduction: new fields.NumberField({ required: false, initial: 0 }),
 
+      // M42 — DV halving: both target Dodge and Parry DVs are halved (floor) before Step 4 comparison
+      dvHalving: new fields.BooleanField({ required: false, initial: false }),
+      // M43 — Parry DV halving only (e.g. Ferocious Biting Tooth)
+      halvesParryDV: new fields.BooleanField({ required: false, initial: false }),
+      // M44 — Incoming attack dice penalty: defender's passively-active charm reduces attacker's pool
+      incomingAttackDicePenalty: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M45 — Ignore target hardness regardless of damage type (e.g. Shell-Crushing Atemi)
+      ignoresHardness: new fields.BooleanField({ required: false, initial: false }),
+
       // M6b — Healing rate multiplier (e.g. Body-Mending Meditation speeds healing × 10).
       // Data-storage only — no automatic tick engine exists; GM must track manually.
       healingRateMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
