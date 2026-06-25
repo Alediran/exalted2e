@@ -999,6 +999,22 @@ export class ExaltedRoll {
       if (!spent) return null;
     }
 
+    // Extra-action charm per-attack mote cost
+    const extraActionCharm = actor.items.find(i =>
+      i.type === "charm" && i.system.active && i.system.extraActions?.enabled
+    );
+    let extraActionMoteCost = 0;
+    if (extraActionCharm && actor.type === "character") {
+      const modeRate = mode?.rate ?? 1;
+      extraActionMoteCost = (modeRate < 1 && (extraActionCharm.system.extraActions.costPerActionHighRate ?? 0) > 0)
+        ? extraActionCharm.system.extraActions.costPerActionHighRate
+        : (extraActionCharm.system.extraActions.costPerAction ?? 0);
+      if (extraActionMoteCost > 0) {
+        const spent = await actor.spendMotes(extraActionMoteCost, dialogResult.moteType ?? "peripheral");
+        if (!spent) return null;
+      }
+    }
+
     // Handle virtue channeling
     let virtueChannelDice      = 0;
     let virtueChannelSuccesses = 0;
@@ -1207,6 +1223,8 @@ export class ExaltedRoll {
       originalAttackMessageId: options.originalAttackMessageId ?? null,
       defense:             null,
       extraActionsAvailable: charmExtraMax || null,
+      extraActionMoteCost:   extraActionMoteCost || null,
+      extraActionMoteType:   extraActionMoteCost > 0 ? (dialogResult.moteType ?? "peripheral") : null,
       effectiveSpeed:        charmSpeed !== baseSpeed ? charmSpeed : null,
       aimBonus:              aimBonus || null,
       rangeBand:             rangeBand || null,

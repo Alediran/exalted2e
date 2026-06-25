@@ -54,7 +54,7 @@
   {{#if extraActionsAvailable}}
   <div class="extra-actions-row">
     <i class="fa-solid fa-plus"></i>
-    {{localize "EX2E.ExtraActionsAvailable"}}: {{extraActionsAvailable}}
+    {{localize "EX2E.ExtraActionsAvailable"}}: {{extraActionsAvailable}}{{#if extraActionMoteCost}} · −{{extraActionMoteCost}}m ({{extraActionMoteType}}){{/if}}
   </div>
   {{/if}}
 
