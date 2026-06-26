@@ -11,7 +11,7 @@ import { resolveUserActor } from "../helpers/targeting.mjs";
 import { computeAttackOutcome } from "../rolls/attack-math.mjs";
 import { planLedgerRefund } from "../rolls/activation-ledger.mjs";
 import { countSuccesses }   from "../rolls/dice-math.mjs";
-import { isCharmPassivelyActive, aggregatePostSoakDamageReductionFromCharms, aggregateMinimumDamageReductionFromCharms, aggregateCoDRawDamageReductionFromCharms, getPostSoakDamageReductionPerMoteFromCharms, hasShapingImmunityFromCharms, hasLimitBreakInfluenceImmunityFromCharms } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregatePostSoakDamageReductionFromCharms, aggregateMinimumDamageReductionFromCharms, aggregateCoDRawDamageReductionFromCharms, getPostSoakDamageReductionPerMoteFromCharms, hasShapingImmunityFromCharms, hasLimitBreakInfluenceImmunityFromCharms, getIntimacyProtectionFromCharms } from "../rolls/charm-passive-math.mjs";
 import {
   applySocialInfluenceEffects,
   clearSocialInfluenceEffects
@@ -349,6 +349,21 @@ async function _resolveSocialAttackStep2(message) {
   // M55 — Limit Break influence immunity: defender in Limit Break auto-refuses all influence.
   if (hasLimitBreakInfluenceImmunityFromCharms(defender) && (defender.system?.limit?.value ?? 0) >= 10) {
     activatedKeywords.add("Perfect Mental Defense");
+  }
+  // M63 — Intimacy protection: attacks targeting a protected intimacy auto-fail.
+  if (record.targetedIntimacyId) {
+    const targetedIntimacy = defender.items.get(record.targetedIntimacyId);
+    if (targetedIntimacy) {
+      const protections = getIntimacyProtectionFromCharms(defender);
+      const intimacyName = (targetedIntimacy.name ?? "").toLowerCase();
+      const intimacyType = targetedIntimacy.system?.type ?? "";
+      const isProtected = protections.some(p => {
+        if (!p.description) return false;
+        if (!intimacyName.includes(p.description.toLowerCase())) return false;
+        return !p.type || p.type === intimacyType;
+      });
+      if (isProtected) activatedKeywords.add("Perfect Mental Defense");
+    }
   }
 
   // Spend defender Excellency motes. firstExcDice = 1m each, secondExcSucc

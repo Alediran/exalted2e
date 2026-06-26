@@ -1,11 +1,11 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMultiplier, virtueRollTrigger wired; Unbreakable Warrior's Mastery confirmed already correct)
+Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as new Group A/B items; Group C unchanged)
 
 ---
 
-## Group A — Ready, Simple ✅ All complete
+## Group A — Ready, Simple
 *Isolated, 1–3 files, clear existing pattern to follow.*
 
 | Item | TODO Section | Status |
@@ -14,6 +14,8 @@ Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMult
 | Onslaught multiplier (`onslaughtMultiplier`) | Combat System | ✅ Done — schema + extra `addOnslaught()` calls in `rollAttack` + UI + i18n |
 | Fix Unbreakable Warrior's Mastery | Charms | ✅ Done — source JSON already correct; no fix needed |
 | Formal virtue roll pipeline | Virtues & Willpower | ✅ Done — `virtueRollTrigger` SchemaField + consumer in `activateCharm` + UI + i18n |
+| Counterattack Unblockable variant (`counterattackUnblockableVariant`) | Combat System | ⏳ Pending — add `BooleanField` to charm-data.mjs; chat-cards counterattack handler passes `options.extraKeywords: ["Unblockable"]`; `rollAttack` merges `options.extraKeywords` into `activatedKeywords`; checkbox UI + i18n |
+| Overdrive pool display | Other Mechanics | ⏳ Pending — `system.motes.peripheral.overdrive` already stored; add a display badge to `tab-combat.hbs` alongside peripheral pool; i18n key `OverdriveMotes` |
 
 ---
 
@@ -29,6 +31,8 @@ Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMult
 | ~~Fix Shockwave Technique consumer~~ | Charms | **Done** — added `Unblockable` keyword |
 | ~~Per-purchase variant selection~~ | Charms | **Done** — `soakBonus.options[]` + picker hook + grouped CharacterSheet display + `evalMaxPurchases` formula resolution |
 | ~~Upgrade tier system~~ | Charms | **Done** — `upgradeTiers[]` schema + `charm-tier-math.mjs` + `TierSelectionDialog` + `activateCharm` pipeline |
+| Range multiplier (`rangeMultiplier`) | Combat System | ⏳ Pending — `NumberField` in charm-data.mjs; `getRangeMultiplierFromCharms(actor)` in charm-passive-math.mjs (max across active charms); multiply in `checkAttackRange` before comparison; add to attack snapshot in `rollAttack`; number input (min 1) in tab-effects.hbs; i18n |
+| Melee range extension (`meleeRangeExtension`) | Combat System | ⏳ Pending — `BooleanField`; `hasMeleeRangeExtensionFromCharms(actor)` helper; in `checkAttackRange`, if melee weapon + actor has this flag, allow short range; checkbox UI + i18n |
 
 ---
 
@@ -63,8 +67,8 @@ Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMult
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 0 (all done) |
-| B — Ready, Medium | 0 (all done) |
+| A — Ready, Simple | 2 |
+| B — Ready, Medium | 2 |
 | C — Ready, Complex | 11 |
-| **Total active** | **11** |
+| **Total active** | **15** |
 | (Parked) | 2 |

@@ -681,3 +681,14 @@ export function hasFirstAttackUnexpectedFromCharms(actor) {
   }
   return false;
 }
+
+export function getIntimacyProtectionFromCharms(actor) {
+  const result = [];
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    for (const e of (c.system?.intimacyProtection ?? [])) {
+      if (e?.description) result.push(e);
+    }
+  }
+  return result;
+}

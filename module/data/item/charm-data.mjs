@@ -503,6 +503,13 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       firstAttackUnexpected: new fields.BooleanField({ initial: false }),
       // M62 — Max times a perfect defense can be used per scene (0 = unlimited)
       maxPerfectUses: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M63 — Named intimacies this charm protects; attacks targeting them auto-fail
+      intimacyProtection: new fields.ArrayField(
+        new fields.SchemaField({
+          description: new fields.StringField({ initial: "", blank: true }),
+          type: new fields.StringField({ initial: "major", choices: ["minor", "major", "defining"] }),
+        })
+      ),
       // M48 — Virtue roll trigger: auto-roll a virtue when this charm activates
       virtueRollTrigger: new fields.SchemaField({
         enabled:    new fields.BooleanField({ required: false, initial: false }),

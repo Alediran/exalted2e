@@ -67,6 +67,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removeSupplementalKeyword:        CharmSheet.#onRemoveSupplementalKeyword,
       addStatusImmunity:                CharmSheet.#onAddStatusImmunity,
       removeStatusImmunity:             CharmSheet.#onRemoveStatusImmunity,
+      addIntimacyProtection:            CharmSheet.#onAddIntimacyProtection,
+      removeIntimacyProtection:         CharmSheet.#onRemoveIntimacyProtection,
     }
   };
 
@@ -607,6 +609,20 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const current = foundry.utils.deepClone(this.document.system.statusImmunity ?? []);
     current.splice(index, 1);
     await this.document.update({ "system.statusImmunity": current });
+  }
+
+  static async #onAddIntimacyProtection(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.intimacyProtection ?? []);
+    current.push({ description: "", type: "major" });
+    await this.document.update({ "system.intimacyProtection": current });
+  }
+
+  static async #onRemoveIntimacyProtection(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.intimacyProtection ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.intimacyProtection": current });
   }
 
   static async #onIncrementPurchaseLevel(event, _target) {

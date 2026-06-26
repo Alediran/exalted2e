@@ -2156,6 +2156,34 @@
     </div>
   </div>
 
+  {{!-- M63 Intimacy Protection ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="tags-header">
+      <label>{{localize "EX2E.IntimacyProtection"}}</label>
+      {{#if isEditable}}
+      <button data-action="addIntimacyProtection"><i class="fa-solid fa-plus"></i></button>
+      {{/if}}
+    </div>
+    {{#each system.intimacyProtection as |ip idx|}}
+    <div class="field-group" style="display:flex;gap:4px;align-items:center;margin-bottom:2px">
+      <input type="text" name="system.intimacyProtection.{{idx}}.description"
+             value="{{ip.description}}" placeholder="{{localize "EX2E.IntimacyProtectionDescHint"}}"
+             style="flex:1"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      <select name="system.intimacyProtection.{{idx}}.type"
+              {{#unless @root.isEditable}}disabled{{/unless}}>
+        <option value="minor"    {{#if (eq ip.type "minor")}}selected{{/if}}>{{localize "EX2E.IntensityMinor"}}</option>
+        <option value="major"    {{#if (eq ip.type "major")}}selected{{/if}}>{{localize "EX2E.IntensityMajor"}}</option>
+        <option value="defining" {{#if (eq ip.type "defining")}}selected{{/if}}>{{localize "EX2E.IntensityDefining"}}</option>
+      </select>
+      {{#if @root.isEditable}}
+      <button type="button" class="btn-remove" data-action="removeIntimacyProtection"
+              data-index="{{idx}}"><i class="fa-solid fa-times"></i></button>
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+
   {{!-- M48 Virtue Roll Trigger ────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
