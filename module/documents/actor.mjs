@@ -3,7 +3,7 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { isCharmPassivelyActive, aggregateMoveBonusFromCharms, aggregateDVBonusFormulaFromCharms, aggregateAbilityMaxOverridesFromCharms, aggregateDVPenaltyReductionFromCharms, aggregateOnslaughtPenaltyReductionFromCharms } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregateMoveBonusFromCharms, aggregateDVBonusFormulaFromCharms, aggregateAbilityMaxOverridesFromCharms, aggregateDVPenaltyReductionFromCharms, aggregateOnslaughtPenaltyReductionFromCharms, getDVPenaltyIgnoreFromCharms, aggregateMentalDVBonusFromCharms, hasOnslaughtToDVPenaltyFromCharms, hasDetectDematerializedFromCharms } from "../rolls/charm-passive-math.mjs";
 import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
@@ -659,8 +659,9 @@ export class ExaltedActor extends Actor {
       }
     }
 
-    const ignore  = s.dvBonusIgnore ?? { all: false, types: [] };
-    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
+    const ignore       = s.dvBonusIgnore ?? { all: false, types: [] };
+    const charmIgnore  = getDVPenaltyIgnoreFromCharms(this);
+    const penalty = (ignore.all || charmIgnore.dodge) ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
@@ -697,8 +698,9 @@ export class ExaltedActor extends Actor {
       }
     }
 
-    const ignore  = s.dvBonusIgnore ?? { all: false, types: [] };
-    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
+    const ignore       = s.dvBonusIgnore ?? { all: false, types: [] };
+    const charmIgnore  = getDVPenaltyIgnoreFromCharms(this);
+    const penalty = (ignore.all || charmIgnore.parry) ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
@@ -708,7 +710,7 @@ export class ExaltedActor extends Actor {
     const base = this.type === "character" ? (s.dodgeMDV ?? 0)
                : this.type === "npc"       ? (s.combat?.dodgeMDV ?? 0)
                : 0;
-    return Math.max(0, base - this.mdvPenaltyTotal);
+    return Math.max(0, base + aggregateMentalDVBonusFromCharms(this) - this.mdvPenaltyTotal);
   }
 
   get currentParryMDV() {
@@ -716,7 +718,12 @@ export class ExaltedActor extends Actor {
     const base = this.type === "character" ? (s.parryMDV?.best ?? 0)
                : this.type === "npc"       ? (s.combat?.parryMDV ?? 0)
                : 0;
-    return Math.max(0, base - this.mdvPenaltyTotal);
+    return Math.max(0, base + aggregateMentalDVBonusFromCharms(this) - this.mdvPenaltyTotal);
+  }
+
+  /** True when a passively-active charm (M54) allows this actor to see and target dematerialized spirits. */
+  get canDetectDematerialized() {
+    return hasDetectDematerializedFromCharms(this);
   }
 
   /**
@@ -814,10 +821,17 @@ export class ExaltedActor extends Actor {
       });
       return existing;
     }
-    return this.applyDVPenalty("onslaught", 1, {
+    await this.applyDVPenalty("onslaught", 1, {
       label: game.i18n.format("EX2E.OnslaughtEffect", { n: 1 }),
       icon:  "icons/svg/hazard.svg"
     });
+    // M49 — When the attacker's charm routes onslaught as a plain DV penalty too, apply that stack.
+    if (hasOnslaughtToDVPenaltyFromCharms(this)) {
+      await this.applyDVPenalty("onslaught-dv", 1, {
+        label: game.i18n.format("EX2E.OnslaughtEffect", { n: 1 }),
+        icon:  "icons/svg/hazard.svg"
+      });
+    }
   }
 
   /**

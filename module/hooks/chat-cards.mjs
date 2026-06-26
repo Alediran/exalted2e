@@ -11,7 +11,7 @@ import { resolveUserActor } from "../helpers/targeting.mjs";
 import { computeAttackOutcome } from "../rolls/attack-math.mjs";
 import { planLedgerRefund } from "../rolls/activation-ledger.mjs";
 import { countSuccesses }   from "../rolls/dice-math.mjs";
-import { isCharmPassivelyActive, aggregatePostSoakDamageReductionFromCharms, aggregateMinimumDamageReductionFromCharms, aggregateCoDRawDamageReductionFromCharms, getPostSoakDamageReductionPerMoteFromCharms } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregatePostSoakDamageReductionFromCharms, aggregateMinimumDamageReductionFromCharms, aggregateCoDRawDamageReductionFromCharms, getPostSoakDamageReductionPerMoteFromCharms, hasShapingImmunityFromCharms } from "../rolls/charm-passive-math.mjs";
 import {
   applySocialInfluenceEffects,
   clearSocialInfluenceEffects
@@ -337,6 +337,14 @@ async function _resolveSocialAttackStep2(message) {
     for (const kw of (charm.system?.keywords ?? [])) {
       activatedKeywords.add(kw);
     }
+    // M — perfectDefenseType "mental" maps to the Perfect Mental Defense keyword path.
+    if (charm.system?.perfectDefenseType === "mental") {
+      activatedKeywords.add("Perfect Mental Defense");
+    }
+  }
+  // M52 — Shaping immunity: attacks flagged isShaping auto-fail against a defender with this passive.
+  if (record.isShaping && hasShapingImmunityFromCharms(defender)) {
+    activatedKeywords.add("Perfect Mental Defense");
   }
 
   // Spend defender Excellency motes. firstExcDice = 1m each, secondExcSucc

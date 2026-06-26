@@ -1981,6 +1981,73 @@
     </div>
   </div>
 
+  {{!-- M49 Onslaught to DV Penalty ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.OnslaughtToDVPenalty"}}</label>
+      <input type="checkbox" name="system.onslaughtToDVPenalty"
+             {{#if system.onslaughtToDVPenalty}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M50 Ignore DV Penalties ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.IgnoreDVPenaltiesDodge"}}</label>
+      <input type="checkbox" name="system.ignoreDVPenalties.dodge"
+             {{#if system.ignoreDVPenalties.dodge}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.IgnoreDVPenaltiesParry"}}</label>
+      <input type="checkbox" name="system.ignoreDVPenalties.parry"
+             {{#if system.ignoreDVPenalties.parry}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M51 Mental DV Bonus ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MentalDVBonus"}}</label>
+      <input type="number" name="system.mentalDVBonus"
+             value="{{system.mentalDVBonus}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M52 Shaping Immunity ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.ShapingImmunity"}}</label>
+      <input type="checkbox" name="system.shapingImmunity"
+             {{#if system.shapingImmunity}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M53 Automatic Knockdown ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AutomaticKnockdown"}}</label>
+      <input type="checkbox" name="system.automaticKnockdown"
+             {{#if system.automaticKnockdown}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M54 Detect Dematerialized ──────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DetectDematerialized"}}</label>
+      <input type="checkbox" name="system.detectDematerialized"
+             {{#if system.detectDematerialized}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M48 Virtue Roll Trigger ────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

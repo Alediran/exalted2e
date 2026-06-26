@@ -27,8 +27,8 @@ Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMult
 | ~~Temporary health levels (`temporaryHealthLevels`)~~ | Combat System | **Done** — schema + `buildCharmSynthAEs` consumer writing to `healthGrantZero/One/Two` |
 | ~~Fix Serpentine Evasion consumer~~ | Charms | **Done** — disabled incorrect `dvBonus`; retroactive Step-2 success penalty not automatable yet |
 | ~~Fix Shockwave Technique consumer~~ | Charms | **Done** — added `Unblockable` keyword |
-| Per-purchase variant selection | Charms | Dialog at learn-time picking variant; store on item instance; `maxPurchases` formula support (`@essence`); ~4 files |
-| Upgrade tier system | Charms | `upgradeRequiresEssence` field; gate higher-tier effect fields behind Essence check in sheet + activation; ~4 files |
+| ~~Per-purchase variant selection~~ | Charms | **Done** — `soakBonus.options[]` + picker hook + grouped CharacterSheet display + `evalMaxPurchases` formula resolution |
+| ~~Upgrade tier system~~ | Charms | **Done** — `upgradeTiers[]` schema + `charm-tier-math.mjs` + `TierSelectionDialog` + `activateCharm` pipeline |
 
 ---
 
@@ -64,7 +64,7 @@ Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMult
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 0 (all done) |
-| B — Ready, Medium | 7 |
+| B — Ready, Medium | 0 (all done) |
 | C — Ready, Complex | 11 |
-| **Total active** | **18** |
+| **Total active** | **11** |
 | (Parked) | 2 |

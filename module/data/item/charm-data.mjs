@@ -463,6 +463,21 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       targetNumberReduction: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
       // M47 — Onslaught multiplier: adds this many onslaught stacks per attack instead of 1
       onslaughtMultiplier: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
+      // M49 — Onslaught also applies as a DV penalty (Agitation of the Swarm Technique)
+      onslaughtToDVPenalty: new fields.BooleanField({ initial: false }),
+      // M50 — Ignore DV penalties for dodge/parry while this charm is active (Absence — Dodge)
+      ignoreDVPenalties: new fields.SchemaField({
+        dodge: new fields.BooleanField({ initial: false }),
+        parry: new fields.BooleanField({ initial: false }),
+      }),
+      // M51 — Flat bonus to Mental DV (both dodge MDV and parry MDV)
+      mentalDVBonus: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M52 — Shaping immunity: social attacks flagged isShaping auto-fail against this actor
+      shapingImmunity: new fields.BooleanField({ initial: false }),
+      // M53 — Automatic knockdown on hit regardless of damage threshold
+      automaticKnockdown: new fields.BooleanField({ initial: false }),
+      // M54 — Actor can see and target dematerialized spirits
+      detectDematerialized: new fields.BooleanField({ initial: false }),
       // M48 — Virtue roll trigger: auto-roll a virtue when this charm activates
       virtueRollTrigger: new fields.SchemaField({
         enabled:    new fields.BooleanField({ required: false, initial: false }),

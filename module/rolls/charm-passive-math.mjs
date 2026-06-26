@@ -586,3 +586,62 @@ export function aggregateIncomingAttackDicePenaltyFromCharms(actor) {
   }
   return total;
 }
+
+// M49 — True if any passively-active charm routes onslaught stacks as DV penalties too.
+export function hasOnslaughtToDVPenaltyFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.onslaughtToDVPenalty) return true;
+  }
+  return false;
+}
+
+// M50 — Returns {dodge, parry} booleans: true when any passively-active charm ignores that DV penalty track.
+export function getDVPenaltyIgnoreFromCharms(actor) {
+  let dodge = false;
+  let parry = false;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.ignoreDVPenalties?.dodge) dodge = true;
+    if (c.system?.ignoreDVPenalties?.parry) parry = true;
+    if (dodge && parry) break;
+  }
+  return { dodge, parry };
+}
+
+// M51 — Sum of mentalDVBonus from all passively-active charms (adds to both dodge and parry MDV).
+export function aggregateMentalDVBonusFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.mentalDVBonus ?? 0;
+  }
+  return total;
+}
+
+// M52 — True if any passively-active charm grants shaping immunity.
+export function hasShapingImmunityFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.shapingImmunity) return true;
+  }
+  return false;
+}
+
+// M53 — True if any activated charm forces knockdown on hit.
+export function hasAutomaticKnockdownFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.automaticKnockdown) return true;
+  }
+  return false;
+}
+
+// M54 — True if any passively-active charm grants the ability to detect dematerialized spirits.
+export function hasDetectDematerializedFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.detectDematerialized) return true;
+  }
+  return false;
+}

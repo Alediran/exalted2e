@@ -1231,6 +1231,7 @@ export class ExaltedRoll {
         const c = activatedCharmItems.find(c => c.system?.guaranteedKnockback?.enabled);
         return c ? { enabled: true, distanceFormula: c.system.guaranteedKnockback.distanceFormula } : null;
       })(),
+      automaticKnockdown:    activatedCharmItems.some(c => c.system?.automaticKnockdown === true),
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the

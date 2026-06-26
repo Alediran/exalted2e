@@ -75,6 +75,17 @@ export async function resolveKnockbackChain(message, { effectivePool, rawDamage 
     }
   }
 
+  // M53 — Automatic knockdown: forces knockdown on hit regardless of knockback threshold.
+  if (!kb.fired && attack.automaticKnockdown && rawDamage > 0) {
+    const ownedByPlayer = targetActor.hasPlayerOwner;
+    if (ownedByPlayer) {
+      knockdownPending = true;
+    } else {
+      knockdownResolution = "auto-knocked-down";
+      await _applyProneStatus(targetActor);
+    }
+  }
+
   // ── Stun (independent — runs even if knockback didn't fire) ──────
   const stun = computeStunTrigger({ inflictedDamage: rawDamage, sta });
   if (stun.triggered) {
@@ -82,7 +93,8 @@ export async function resolveKnockbackChain(message, { effectivePool, rawDamage 
   }
 
   // ── Persist resolution to flag + re-render card ───────────────────
-  if (kb.fired || stun.triggered) {
+  const automaticKnockdownFired = !kb.fired && !!attack.automaticKnockdown && rawDamage > 0;
+  if (kb.fired || stun.triggered || automaticKnockdownFired) {
     const resolution = {
       fired:               kb.fired,
       distance:            kb.distance,

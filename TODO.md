@@ -110,12 +110,12 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Charm deactivation resolver (scene-end / combat-end) — `clearSceneCharms` sweeps oneScene + action-count AEs at scene/combat end; `decrementActionCharmsFor` counts down per combatant act; indefinite/permanent untouched
 - [x] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; gate conditions, passive/active tiers, per-tier effect sections, activation pipeline integration) — [charms-gap A2](docs/charms-gap.md)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
-- [ ] **Charm-level per-purchase variant selection** — when learning a charm that has distinct named variants (e.g. Subcutaneous vs Exoskeletal Armor Plating), prompt for variant choice at purchase time; each purchase is independent (multiple of same variant allowed); store chosen variant on the item instance
-- [ ] **`maxPurchases` formula support** — currently `maxPurchases` is a static integer; support `@essence` (and other rollData tokens) so charm purchase limit scales with Essence — see Immanent Solar Glory
-- [ ] **Upgrade tier system** (`upgradeRequiresEssence: N`) — a higher-essence purchase of the same charm unlocks additional effect fields (e.g. Iron Raptor Technique gains Unblockable at Ess 3+); separate from essence-tiered conditional branches already implemented
+- [x] **Charm-level per-purchase variant selection** — `soakBonus.options[]` + `selectedOption`; `createItem` hook fires variant picker dialog; grouped display in `CharacterSheet` with `#expandedGroups`; Armor Plating JSON updated
+- [x] **`maxPurchases` formula support** — `evalMaxPurchases()` in `charm-tree-builder.mjs`; resolves `@ess` and other rollData tokens; `getCharmState`/`getPipData` updated to use item-count model for multi-purchase charms
+- [x] **Upgrade tier system** — `upgradeTiers[]` ArrayField; `charm-tier-math.mjs`; `TierSelectionDialog`; activation pipeline integrated in `activateCharm()`; `tiersApplied` in ledger
 - [x] Fix consumer wiring — Unbreakable Warrior's Mastery: already has `negatesCripplingEffect: true` and no `statusApply` in source JSON — no fix needed; confirmed correct
-- [ ] Fix consumer wiring — Serpentine Evasion: `dvBonus` condition/formula incorrect; needs investigation to match errata text (DV bonus applies only when not yet acted in the tick, or similar guard)
-- [ ] Fix consumer wiring — Shockwave Technique: multiple fields (`moteRecovery`, `statusApply`, `dvBonus`, `willpowerRecovery`) present but at least one consumer misconfigured; audit all four fields against errata text
+- [x] Fix consumer wiring — Serpentine Evasion: disabled incorrect `dvBonus` (AE pipeline doesn't fire for instant charms; errata Step-2 retroactive penalty not automatable with current architecture)
+- [x] Fix consumer wiring — Shockwave Technique: added `Unblockable` keyword (description says "Parry DV inapplicable")
 - [ ] **Social attack pipeline for charms** — Presence/Performance opposed rolls with MDV; currently social bonus fields add dice/successes but the full opposed-roll pipeline (attacker pool vs MDV threshold, onslaught MDV, social-perfect defenses) is not wired to charm effects; blocks 30+ Social-keyword charms from full automation
 
 ## Social Combat
