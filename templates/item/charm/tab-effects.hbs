@@ -2215,6 +2215,16 @@
     </label>
   </div>
 
+  {{!-- M69 Halve MDV ──────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.halveMDV"
+             {{#if system.halveMDV}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.HalveMDV"}}
+    </label>
+  </div>
+
   {{!-- M67 Mote Loan ──────────────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

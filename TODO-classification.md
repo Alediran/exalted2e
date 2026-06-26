@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as new Group A/B items; Group C unchanged)
+Last updated: 2026-06-26 (M64–M69 done: counterattackUnblockableVariant, rangeMultiplier, meleeRangeExtension, dematerialized gate, moteLoan, willpowerGift, halveMDV; Group C count corrected)
 
 ---
 
@@ -41,9 +41,9 @@ Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as ne
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Mote loan + willpower gift | Combat System | Ally-targeting flow (see below) must land first; then `moteLoan`/`willpowerGift` schema fields + `receiveMotes`/`receiveWillpower` actor methods + chat card |
-| Ally-targeting support | Combat System | Charm activation dialog gains "pick ally token" step; prerequisite for moteLoan, willpowerGift, Background-grant Lunar charms |
-| Formal social attack pipeline for social-keyword charms | Social Combat | MDV-halving + Willpower-cost flags for social attacks paralleling Unblockable/Undodgeable; design-heavy |
+| ~~Mote loan + willpower gift~~ | Combat System | **Done** — `moteLoan`/`willpowerGift` SchemaFields; Circle-folder ally picker in `activateCharm`; `receiveMotes` → `recoverMotes` + new `receiveWillpower` actor method |
+| ~~Ally-targeting support~~ | Combat System | **Done** — embedded in moteLoan/willpowerGift; Circle folder by `flags.exalted2e.theCircle`; `DialogV2.prompt` with radio buttons |
+| ~~Formal social attack pipeline — MDV-halving~~ | Social Combat | **Done** — `halveMDV` BooleanField; detected post-activation in `rollAttributeAbility`; `resolveStep2` applies `Math.floor(rawBase/2)` to base subtotal; WP-to-resist already existed via `umiCost` |
 | Homing attack | Combat System | "Pending re-attack" state on combatant; auto-re-roll on following tick; Lunar-specific |
 | Ammo tracking + `bypassAmmoConsumption` | Combat System | Quiver/clip resource; decrement on attack; charm bypass flag; blocks archery-charm variants |
 | Elsewhere system | Combat System | "Elsewhere inventory" on CharacterData; charm-activated store/recall; paired AE; Archery-specific |
@@ -69,6 +69,6 @@ Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as ne
 |-------|-------|
 | A — Ready, Simple | 0 (all done) |
 | B — Ready, Medium | 0 (all done) |
-| C — Ready, Complex | 11 |
-| **Total active** | **10** |
+| C — Ready, Complex | 8 |
+| **Total active** | **8** |
 | (Parked) | 2 |

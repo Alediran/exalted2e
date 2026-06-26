@@ -210,6 +210,7 @@ export function resolveStep2({
   baseMDV,
   stackingMod,
   mdvShiftFromApp,
+  halveMDV = false,         // M69: attacker charm halves defender base MDV (floor)
   isUnnatural,
   autoFailedByNaturalCap,
   firstExcDice = 0,
@@ -220,10 +221,9 @@ export function resolveStep2({
   const perfectDefense     = activatedKeywords.has("Perfect Mental Defense");
   const motesResistApplied = !!isUnnatural && activatedKeywords.has("Resist Unnatural Mental Influence");
 
-  const effectiveMDV = Math.max(
-    0,
-    (baseMDV ?? 0) + (stackingMod ?? 0) + (mdvShiftFromApp ?? 0) + firstExcDice + secondExcSucc
-  );
+  const rawBase = (baseMDV ?? 0) + (stackingMod ?? 0) + (mdvShiftFromApp ?? 0);
+  const adjustedBase = halveMDV ? Math.floor(rawBase / 2) : rawBase;
+  const effectiveMDV = Math.max(0, adjustedBase + firstExcDice + secondExcSucc);
 
   const hit = !perfectDefense
            && !autoFailedByNaturalCap

@@ -1572,6 +1572,9 @@ export class ExaltedRoll {
       sourceByKeyword: attackerSourceByKeyword
     } = aggregateAttackerCharms(actuallyActivated);
 
+    // M69 — Check if any activated charm halves the defender's MDV.
+    const halveMDV = actuallyActivated.some(c => c.system?.halveMDV === true);
+
     const rollData = attacker.getRollData?.() ?? {};
     const charmSocialBonus = computeSocialCharmBonus(
       actuallyActivated.filter(c => c.system?.socialBonus?.enabled),
@@ -1727,8 +1730,9 @@ export class ExaltedRoll {
       stackingMod,
       mdvShiftFromApp,
       baseMDV,
+      halveMDV,
       majesticResistanceType:      majesticResistanceType || null,
-      preStep2EffectiveMDV,        // displayed in step2-pending phase
+      preStep2EffectiveMDV:        halveMDV ? Math.max(0, Math.floor(preStep2EffectiveMDV / 2)) : preStep2EffectiveMDV,
       rollSuccesses,
       netSuccesses,                // recomputed post-Step-2 too; this is a display-only seed
       unnaturalInfluence:          unnaturalInfluenceFinal,    // 3c-1: charm-or-manual source-of-truth

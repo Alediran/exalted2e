@@ -383,6 +383,7 @@ async function _resolveSocialAttackStep2(message) {
     baseMDV:                 record.baseMDV,
     stackingMod:             record.stackingMod,
     mdvShiftFromApp:         record.mdvShiftFromApp,
+    halveMDV:                record.halveMDV ?? false,
     isUnnatural:             record.unnaturalInfluence,
     autoFailedByNaturalCap:  record.autoFailedByNaturalCap,
     firstExcDice:            dialogResult.firstExcDice  ?? 0,
