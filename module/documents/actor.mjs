@@ -1121,6 +1121,14 @@ export class ExaltedActor extends Actor {
     return this.update({ [`system.motes.${pool}.value`]: newVal });
   }
 
+  async receiveWillpower(amount) {
+    if (this.type !== "character") return;
+    const wp = this.system.willpower;
+    const maxWp = wp.dotRating ?? 5;
+    const newVal = Math.min(maxWp, (wp.value ?? 0) + amount);
+    return this.update({ "system.willpower.value": newVal });
+  }
+
   async addOverdriveMotes(amount) {
     if (this.type !== "character") return;
 

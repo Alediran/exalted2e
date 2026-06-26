@@ -577,6 +577,55 @@ ${capWarning}`;
         }
       }
       ledger.cooperation = cooperation;
+
+      // M67/M68 — Mote loan / willpower gift to a Circle ally
+      if (sys.moteLoan?.enabled || sys.willpowerGift?.enabled) {
+        const circleFolder = game.folders.find(f => f.flags?.exalted2e?.theCircle === true);
+        const allies = circleFolder
+          ? game.actors.filter(a => a.folder?.id === circleFolder.id && a.id !== actor.id)
+          : [];
+        if (allies.length === 0) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NoCircleAlliesFound"));
+        } else {
+          const radioHtml = allies.map(a =>
+            `<label style="display:block"><input type="radio" name="allyId" value="${a.id}"> ${a.name}</label>`
+          ).join("");
+          const pickedId = await foundry.applications.api.DialogV2.prompt({
+            window:  { title: game.i18n.localize("EX2E.SelectAllyTitle") },
+            content: `<p>${game.i18n.localize("EX2E.SelectAllyPrompt")}</p><form>${radioHtml}</form>`,
+            ok: {
+              callback: (_event, _button, dialog) => {
+                const checked = dialog.querySelector("input[name='allyId']:checked");
+                return checked?.value ?? null;
+              }
+            }
+          });
+          if (pickedId) {
+            const targetAlly = game.actors.get(pickedId);
+            if (targetAlly) {
+              const rollData = actor.getRollData?.() ?? {};
+              if (sys.moteLoan?.enabled && sys.moteLoan?.formula) {
+                const raw = Number(evaluateCharmFormula(sys.moteLoan.formula, rollData, 0));
+                const cap = sys.moteLoan.maxReceive ?? 0;
+                const amt = cap > 0 ? Math.min(raw, cap) : raw;
+                if (amt > 0) {
+                  await targetAlly.recoverMotes(amt, "peripheral");
+                  ui.notifications.info(game.i18n.format("EX2E.MoteLoanSuccess", { amount: amt, name: targetAlly.name }));
+                }
+              }
+              if (sys.willpowerGift?.enabled && sys.willpowerGift?.formula) {
+                const raw = Number(evaluateCharmFormula(sys.willpowerGift.formula, rollData, 0));
+                const cap = sys.willpowerGift.maxTarget ?? 0;
+                const amt = cap > 0 ? Math.min(raw, cap) : raw;
+                if (amt > 0) {
+                  await targetAlly.receiveWillpower(amt);
+                  ui.notifications.info(game.i18n.format("EX2E.WillpowerGiftSuccess", { amount: amt, name: targetAlly.name }));
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
     // Restore peripheral motes before the mastery AE is deleted by cleanup.

@@ -516,6 +516,18 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       rangeMultiplier: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
       // M66 — Melee weapons treated as short thrown range (30 units) for checkAttackRange
       meleeRangeExtension: new fields.BooleanField({ initial: false }),
+      // M67 — Transfer motes to a Circle ally when this charm activates
+      moteLoan: new fields.SchemaField({
+        enabled:    new fields.BooleanField({ required: false, initial: false }),
+        formula:    new fields.StringField({ required: false, initial: "", blank: true }),
+        maxReceive: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      }, { required: false }),
+      // M68 — Transfer willpower to a Circle ally when this charm activates
+      willpowerGift: new fields.SchemaField({
+        enabled:   new fields.BooleanField({ required: false, initial: false }),
+        formula:   new fields.StringField({ required: false, initial: "", blank: true }),
+        maxTarget: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      }, { required: false }),
       // M48 — Virtue roll trigger: auto-roll a virtue when this charm activates
       virtueRollTrigger: new fields.SchemaField({
         enabled:    new fields.BooleanField({ required: false, initial: false }),
