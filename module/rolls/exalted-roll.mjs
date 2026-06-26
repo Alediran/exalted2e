@@ -18,7 +18,7 @@ import {
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
-import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms, aggregateCombatDiceBonusFromCharms, hasUpgradeWeaponRangeFromCharms, getMajesticResistanceTypeFromCharms, getAddAppearanceDiceFromCharms, aggregateIncomingAttackDicePenaltyFromCharms } from "./charm-passive-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms, aggregateCombatDiceBonusFromCharms, hasUpgradeWeaponRangeFromCharms, getMajesticResistanceTypeFromCharms, getAddAppearanceDiceFromCharms, aggregateIncomingAttackDicePenaltyFromCharms, hasMakesAttackUnexpectedFromItems, hasFirstAttackUnexpectedFromCharms, aggregateJoinBattleSuccessBonusFromCharms } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 import { getTerrainBonuses } from "../helpers/terrain.mjs";
 
@@ -1081,6 +1081,16 @@ export class ExaltedRoll {
     if (undodgeable) targetDodgeDV = 0;
     if (unblockable) targetParryDV = 0;
 
+    // M59/M61 — Unexpected attack: target DV = 0 (supplemental charm or first-attack passive).
+    const _hasAttacked = attackerCombatant?.getFlag("exalted2e", "hasAttacked") ?? false;
+    const isUnexpected = hasMakesAttackUnexpectedFromItems(activatedCharmItems)
+      || (hasFirstAttackUnexpectedFromCharms(actor) && !_hasAttacked);
+    if (isUnexpected) { targetDodgeDV = 0; targetParryDV = 0; }
+    // Mark that this actor has now attacked so firstAttackUnexpected only fires once.
+    if (!_hasAttacked && attackerCombatant && !isAreaAttack) {
+      await attackerCombatant.setFlag("exalted2e", "hasAttacked", true);
+    }
+
     // Holy vs Creature of Darkness: a charm activated for this attack
     // carrying the Holy keyword upgrades damage to aggravated against a
     // CoD-flagged target — bashing and lethal alike. (Weapons never carry
@@ -1232,6 +1242,11 @@ export class ExaltedRoll {
         return c ? { enabled: true, distanceFormula: c.system.guaranteedKnockback.distanceFormula } : null;
       })(),
       automaticKnockdown:    activatedCharmItems.some(c => c.system?.automaticKnockdown === true),
+      isUnexpected,
+      attackerMovement:      (() => {
+        const c = activatedCharmItems.find(c => c.system?.attackerMovement?.enabled);
+        return c ? { enabled: true, formula: c.system.attackerMovement.formula } : null;
+      })(),
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the
@@ -1652,7 +1667,13 @@ export class ExaltedRoll {
     // 6. Threshold display only — hit / wpToResist are deferred to
     //    defender Step-2 (orchestrator in exalted2e.mjs computes them
     //    after charm activations + Excellency mote spend resolve).
-    const rollSuccesses = (rollResult?.successes ?? 0) + charmSocialBonus.poolSuccesses;
+    // M57 — Social success bonus formula: sum formula results from activated charms.
+    const _socialFormulaBonus = actuallyActivated.reduce((acc, c) => {
+      const f = c.system?.socialSuccessBonusFormula ?? "";
+      if (!f) return acc;
+      return acc + (evaluateCharmFormula(f, rollData, 0) || 0);
+    }, 0);
+    const rollSuccesses = (rollResult?.successes ?? 0) + charmSocialBonus.poolSuccesses + _socialFormulaBonus;
     const netSuccesses = Math.max(0, rollSuccesses - preStep2EffectiveMDV);
 
     // 7. Build chat card content.

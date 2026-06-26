@@ -645,3 +645,39 @@ export function hasDetectDematerializedFromCharms(actor) {
   }
   return false;
 }
+
+// M55 — True if any passively-active charm grants influence immunity during Limit Break.
+export function hasLimitBreakInfluenceImmunityFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.limitBreakInfluenceImmunity) return true;
+  }
+  return false;
+}
+
+// M59 — True if any item in the provided activated-charm list makes the attack unexpected.
+export function hasMakesAttackUnexpectedFromItems(items) {
+  for (const c of (items ?? [])) {
+    if (c.system?.makesAttackUnexpected) return true;
+  }
+  return false;
+}
+
+// M60 — Sum of joinBattleSuccessBonus from all passively-active charms.
+export function aggregateJoinBattleSuccessBonusFromCharms(actor) {
+  let total = 0;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    total += c.system?.joinBattleSuccessBonus ?? 0;
+  }
+  return total;
+}
+
+// M61 — True if any passively-active charm makes the first attack of combat unexpected.
+export function hasFirstAttackUnexpectedFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.firstAttackUnexpected) return true;
+  }
+  return false;
+}

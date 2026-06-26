@@ -2048,6 +2048,114 @@
     </div>
   </div>
 
+  {{!-- M55 Limit Break Influence Immunity ─────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.LimitBreakInfluenceImmunity"}}</label>
+      <input type="checkbox" name="system.limitBreakInfluenceImmunity"
+             {{#if system.limitBreakInfluenceImmunity}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M56 Virtue Recovery ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.virtueRecovery.enabled"
+             {{#if system.virtueRecovery.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.VirtueRecovery"}}
+    </label>
+    {{#if system.virtueRecovery.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRollTriggerVirtue"}}</label>
+      <select name="system.virtueRecovery.virtue" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="valor"      {{#if (eq system.virtueRecovery.virtue "valor"     )}}selected{{/if}}>{{localize "EX2E.VirtueValor"}}</option>
+        <option value="conviction" {{#if (eq system.virtueRecovery.virtue "conviction")}}selected{{/if}}>{{localize "EX2E.VirtueConviction"}}</option>
+        <option value="temperance" {{#if (eq system.virtueRecovery.virtue "temperance")}}selected{{/if}}>{{localize "EX2E.VirtueTemperance"}}</option>
+        <option value="compassion" {{#if (eq system.virtueRecovery.virtue "compassion")}}selected{{/if}}>{{localize "EX2E.VirtueCompassion"}}</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRecoveryEvent"}}</label>
+      <select name="system.virtueRecovery.event" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="onEndScene"        {{#if (eq system.virtueRecovery.event "onEndScene"       )}}selected{{/if}}>{{localize "EX2E.EventOnEndScene"}}</option>
+        <option value="onDamageReceived"  {{#if (eq system.virtueRecovery.event "onDamageReceived" )}}selected{{/if}}>{{localize "EX2E.EventOnDamageReceived"}}</option>
+      </select>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M57 Social Success Bonus Formula ───────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.SocialSuccessBonusFormula"}}</label>
+      <input type="text" name="system.socialSuccessBonusFormula"
+             value="{{system.socialSuccessBonusFormula}}"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M58 Attacker Movement ──────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.attackerMovement.enabled"
+             {{#if system.attackerMovement.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.AttackerMovement"}}
+    </label>
+    {{#if system.attackerMovement.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackerMovementFormula"}}</label>
+      <input type="text" name="system.attackerMovement.formula"
+             value="{{system.attackerMovement.formula}}"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M59 Makes Attack Unexpected ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MakesAttackUnexpected"}}</label>
+      <input type="checkbox" name="system.makesAttackUnexpected"
+             {{#if system.makesAttackUnexpected}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M60 Join Battle Success Bonus ──────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.JoinBattleSuccessBonus"}}</label>
+      <input type="number" name="system.joinBattleSuccessBonus"
+             value="{{system.joinBattleSuccessBonus}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M61 First Attack Unexpected ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.FirstAttackUnexpected"}}</label>
+      <input type="checkbox" name="system.firstAttackUnexpected"
+             {{#if system.firstAttackUnexpected}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M62 Max Perfect Uses ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MaxPerfectUses"}}</label>
+      <input type="number" name="system.maxPerfectUses"
+             value="{{system.maxPerfectUses}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M48 Virtue Roll Trigger ────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

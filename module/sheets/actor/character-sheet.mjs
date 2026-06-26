@@ -1841,6 +1841,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await clearIntimacyAblation(this.document);
     const { stepDownAnima }         = await import("../../combat/anima-math.mjs");
     await stepDownAnima(this.document);
+    // M56 — Fire virtue recovery charms registered for onEndScene.
+    await this.document._fireRecoveryEvent("onEndScene");
   }
 
   static async #onMorningRest(_event, _target) {

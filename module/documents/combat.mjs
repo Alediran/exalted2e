@@ -1,4 +1,5 @@
 import { ex2eCan } from "../helpers/permissions.mjs";
+import { aggregateJoinBattleSuccessBonusFromCharms } from "../rolls/charm-passive-math.mjs";
 import { sortCombatants, computeTickFromJB } from "../combat/combat-math.mjs";
 import { planCommitOther, dispatchTickAdvance } from "../combat/multi-tick.mjs";
 import { payPendingStuntRewards } from "../combat/stunt-payment.mjs";
@@ -78,8 +79,10 @@ export class ExaltedCombat extends Combat {
       });
       // Store both successes and the botch flag — `_recomputeTicks` forces
       // botchers onto tick 6 regardless of the usual max-theirs math.
+      // M60 — joinBattleSuccessBonus adds a flat bonus from passively-active charms.
+      const jbBonus = aggregateJoinBattleSuccessBonusFromCharms(combatant.actor);
       await combatant.update({
-        "flags.exalted2e.joinBattleSuccesses": result.successes,
+        "flags.exalted2e.joinBattleSuccesses": result.successes + jbBonus,
         "flags.exalted2e.joinBattleBotched":   !!result.botch
       });
     }

@@ -135,6 +135,13 @@
       "path":   "packs/npcs",
       "type":   "Actor",
       "system": "exalted2e"
+    },
+    {
+      "name":   "knacks",
+      "label":  "Knacks",
+      "path":   "packs/knacks",
+      "type":   "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

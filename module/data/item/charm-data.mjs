@@ -478,6 +478,31 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       automaticKnockdown: new fields.BooleanField({ initial: false }),
       // M54 — Actor can see and target dematerialized spirits
       detectDematerialized: new fields.BooleanField({ initial: false }),
+      // M55 — Immune to social influence while in Limit Break (limit value ≥ 10)
+      limitBreakInfluenceImmunity: new fields.BooleanField({ initial: false }),
+      // M56 — Virtue channel recovery: resets a virtue's channeled flag on a trigger event
+      virtueRecovery: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        virtue:  new fields.StringField({ initial: "valor",
+          choices: ["valor", "conviction", "temperance", "compassion"] }),
+        event:   new fields.StringField({ initial: "onEndScene",
+          choices: ["onEndScene", "onDamageReceived"] }),
+      }),
+      // M57 — Formula added to social roll success count after rolling (from activated charms)
+      socialSuccessBonusFormula: new fields.StringField({ initial: "", blank: true }),
+      // M58 — Attacker moves after a hit; prompt the player to declare movement
+      attackerMovement: new fields.SchemaField({
+        enabled:   new fields.BooleanField({ initial: false }),
+        formula:   new fields.StringField({ initial: "1", blank: true }),
+      }),
+      // M59 — Makes the attack unexpected: target DV is treated as 0
+      makesAttackUnexpected: new fields.BooleanField({ initial: false }),
+      // M60 — Flat bonus to Join Battle success count
+      joinBattleSuccessBonus: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M61 — First attack in combat this scene is unexpected (target DV = 0)
+      firstAttackUnexpected: new fields.BooleanField({ initial: false }),
+      // M62 — Max times a perfect defense can be used per scene (0 = unlimited)
+      maxPerfectUses: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
       // M48 — Virtue roll trigger: auto-roll a virtue when this charm activates
       virtueRollTrigger: new fields.SchemaField({
         enabled:    new fields.BooleanField({ required: false, initial: false }),

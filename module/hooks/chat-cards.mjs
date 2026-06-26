@@ -11,7 +11,7 @@ import { resolveUserActor } from "../helpers/targeting.mjs";
 import { computeAttackOutcome } from "../rolls/attack-math.mjs";
 import { planLedgerRefund } from "../rolls/activation-ledger.mjs";
 import { countSuccesses }   from "../rolls/dice-math.mjs";
-import { isCharmPassivelyActive, aggregatePostSoakDamageReductionFromCharms, aggregateMinimumDamageReductionFromCharms, aggregateCoDRawDamageReductionFromCharms, getPostSoakDamageReductionPerMoteFromCharms, hasShapingImmunityFromCharms } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregatePostSoakDamageReductionFromCharms, aggregateMinimumDamageReductionFromCharms, aggregateCoDRawDamageReductionFromCharms, getPostSoakDamageReductionPerMoteFromCharms, hasShapingImmunityFromCharms, hasLimitBreakInfluenceImmunityFromCharms } from "../rolls/charm-passive-math.mjs";
 import {
   applySocialInfluenceEffects,
   clearSocialInfluenceEffects
@@ -344,6 +344,10 @@ async function _resolveSocialAttackStep2(message) {
   }
   // M52 — Shaping immunity: attacks flagged isShaping auto-fail against a defender with this passive.
   if (record.isShaping && hasShapingImmunityFromCharms(defender)) {
+    activatedKeywords.add("Perfect Mental Defense");
+  }
+  // M55 — Limit Break influence immunity: defender in Limit Break auto-refuses all influence.
+  if (hasLimitBreakInfluenceImmunityFromCharms(defender) && (defender.system?.limit?.value ?? 0) >= 10) {
     activatedKeywords.add("Perfect Mental Defense");
   }
 
@@ -858,12 +862,27 @@ export function registerChatCardHooks() {
           activatedNames.push(charm.name);
           if (!perfectDefenseCharm) {
             const pdt = charm.system.perfectDefenseType ?? "";
-            if (pdt === "soak") {
-              perfectDefenseCharm = charm.name;
-              perfectDefenseType  = "soak";
-            } else if (pdt === "parry" || pdt === "dodge") {
-              perfectDefenseCharm = charm.name;
-              perfectDefenseType  = pdt;
+            if (pdt === "soak" || pdt === "parry" || pdt === "dodge") {
+              // M62 — maxPerfectUses: block activation if the per-scene use cap is reached.
+              const maxUses = charm.system.maxPerfectUses ?? 0;
+              if (maxUses > 0) {
+                const targetCombatant = game.combat?.combatants?.find(c => c.actorId === targetActor.id);
+                const usedSoFar = targetCombatant?.getFlag("exalted2e", "perfectUses")?.[charm.id] ?? 0;
+                if (usedSoFar >= maxUses) {
+                  ui.notifications.warn(game.i18n.format("EX2E.PerfectUsesExhausted", { name: charm.name, max: maxUses }));
+                } else {
+                  if (targetCombatant) {
+                    const uses = { ...(targetCombatant.getFlag("exalted2e", "perfectUses") ?? {}) };
+                    uses[charm.id] = usedSoFar + 1;
+                    await targetCombatant.setFlag("exalted2e", "perfectUses", uses);
+                  }
+                  perfectDefenseCharm = charm.name;
+                  perfectDefenseType  = pdt;
+                }
+              } else {
+                perfectDefenseCharm = charm.name;
+                perfectDefenseType  = pdt;
+              }
             }
           }
         }
@@ -1468,6 +1487,10 @@ export function registerChatCardHooks() {
           await resolveKnockbackChain(message, { effectivePool, rawDamage }).catch(err =>
             console.error("exalted2e | knockback chain failed", err)
           );
+        }
+        // M58 — Attacker movement: prompt the attacker to declare a movement action.
+        if (attack.attackerMovement?.enabled) {
+          ui.notifications.info(game.i18n.localize("EX2E.AttackerMovementPrompt"));
         }
       }
     });

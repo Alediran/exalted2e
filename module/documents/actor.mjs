@@ -4,7 +4,7 @@ import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
 import { isCharmPassivelyActive, aggregateMoveBonusFromCharms, aggregateDVBonusFormulaFromCharms, aggregateAbilityMaxOverridesFromCharms, aggregateDVPenaltyReductionFromCharms, aggregateOnslaughtPenaltyReductionFromCharms, getDVPenaltyIgnoreFromCharms, aggregateMentalDVBonusFromCharms, hasOnslaughtToDVPenaltyFromCharms, hasDetectDematerializedFromCharms } from "../rolls/charm-passive-math.mjs";
-import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
+import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms, collectVirtueRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
 const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
@@ -1023,6 +1023,16 @@ export class ExaltedActor extends Actor {
       const amount = evaluateCharmFormula(wr.formula, rollData, 0);
       if (amount <= 0) continue;
       await this.recoverWillpower(amount);
+    }
+
+    // M56 — Virtue channel recovery: reset channeled flag on the specified virtue.
+    const vrCharms = collectVirtueRecoveryCharms(charms, event);
+    for (const c of vrCharms) {
+      const vr = c.system.virtueRecovery;
+      const key = vr.virtue ?? "valor";
+      if (this.system?.virtues?.[key]?.channeled) {
+        await this.update({ [`system.virtues.${key}.channeled`]: false });
+      }
     }
   }
 
