@@ -968,6 +968,16 @@ export class ExaltedRoll {
       .map(ac => actor.items.get(ac.id))
       .filter(Boolean);
 
+    // Dematerialized gate — block attack if target is dematerialized and no harmImmaterial is active.
+    if (targetActor && targetActor.statuses?.has("dematerialized")) {
+      const canHitImmaterial = getHarmImmaterialFromCharms(actor)
+        || activatedCharmItems.some(c => c.system?.harmImmaterial === true);
+      if (!canHitImmaterial) {
+        ui.notifications.warn(game.i18n.localize("EX2E.TargetIsDematerialized"));
+        return null;
+      }
+    }
+
     // M47 — Extra onslaught stacks from supplemental charms (e.g. onslaughtMultiplier: 2 adds 2 stacks instead of 1).
     // Placed here (post-dialog) because activatedCharmItems requires the resolved dialog activation list.
     if (targetActor && !isAreaAttack) {

@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 280 / 291 complete** (6 partial / out-of-scope, 0 plan tasks pending — last updated 2026-06-26 — added M49–M63 charm mechanic fields: onslaught DV injection, DV-penalty ignore, MDV bonus, shaping immunity, auto-knockdown, dematerialized detection, limit-break immunity, virtue recovery, social-success formula, attacker movement, unexpected-attack flags, join-battle bonus, max-perfect-uses, intimacy protection)
+**Progress: 281 / 291 complete** (6 partial / out-of-scope, 0 plan tasks pending — last updated 2026-06-26 — added M49–M63 charm mechanic fields: onslaught DV injection, DV-penalty ignore, MDV bonus, shaping immunity, auto-knockdown, dematerialized detection, limit-break immunity, virtue recovery, social-success formula, attacker movement, unexpected-attack flags, join-battle bonus, max-perfect-uses, intimacy protection)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -197,7 +197,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Chimera Knacks gated by Casteless + Limit ≥ 5
 - [x] Gift keyword auto-activation on Deadly Beastman Transformation entry — [charms-gap A6](docs/charms-gap.md)
 - [x] Fury-OK charm filter during Relentless Lunar Fury (block non-Fury-OK from supplemental picker) — [charms-gap A7](docs/charms-gap.md)
-- [ ] **Dematerialized targeting gate** — `harmImmaterial: true` charms (Spirit-Cutting Attack, God-Cutting Essence) can strike dematerialized spirits; currently there is no dematerialized status effect; requires a `dematerialized` AE flag on spirit actors and a gate in `rollAttack` that allows `harmImmaterial` charms to bypass the materialization check
+- [x] **Dematerialized targeting gate** — `dematerialized` custom status added to `CONFIG.statusEffects`; gate in `rollAttack` (post-`activatedCharmItems`) blocks attacks unless `getHarmImmaterialFromCharms` or an activated `harmImmaterial` supplemental charm is active; `TargetIsDematerialized` warning toast
 - [ ] **Maladic capture + transfer** — Lunar charm mechanic to capture a spirit's Essence pattern (a malados) and transfer it to another being; requires a `malados` item type or AE wrapper and a transfer dialog
 - [ ] **Background grant via charm** — Lunar charms that temporarily grant a Background to an ally (e.g. Sharing the Gifts of Luna); requires a transient Background item stamped on the ally actor with a cleanup AE
 - [ ] **Linked NPC template** — charm that creates or binds a specific NPC actor as a companion (spirit ally, familiar); token linked to the charm's active state; teardown on deactivation

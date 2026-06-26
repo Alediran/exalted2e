@@ -170,6 +170,8 @@ export function registerDocuments() {
     heightAdvantage: { id: "heightAdvantage", name: "EX2E.StatusHeightAdvantage", img: "icons/svg/up.svg",      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } } },
     // Crippling injury: −1 internal penalty to all physical actions until surgically healed.
     crippled:        { id: "crippled",        name: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } },
+    // Dematerialized: spirit is in the spirit world; only harmImmaterial attacks can hit.
+    dematerialized:  { id: "dematerialized",  name: "EX2E.StatusDematerialized",  img: "icons/svg/eye.svg",     flags: { exalted2e: { dematerialized: true } } },
   });
   // Unit mass-combat states — pushed as plain array entries so toggleStatusEffect / .find() can locate them by id.
   CONFIG.statusEffects.push(

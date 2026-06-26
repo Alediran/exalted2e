@@ -47,7 +47,7 @@ Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as ne
 | Homing attack | Combat System | "Pending re-attack" state on combatant; auto-re-roll on following tick; Lunar-specific |
 | Ammo tracking + `bypassAmmoConsumption` | Combat System | Quiver/clip resource; decrement on attack; charm bypass flag; blocks archery-charm variants |
 | Elsewhere system | Combat System | "Elsewhere inventory" on CharacterData; charm-activated store/recall; paired AE; Archery-specific |
-| Dematerialized targeting gate | Lunar | `dematerialized` status AE on spirit actors; `harmImmaterial` gate in `rollAttack`; pairs with Spirit/Lunar charms |
+| ~~Dematerialized targeting gate~~ | Lunar | **Done** — `dematerialized` status in `CONFIG.statusEffects`; gate in `rollAttack` post-`activatedCharmItems`; `harmImmaterial` from passives or supplemental charm bypasses it |
 | Maladic capture + transfer | Lunar | New item/AE type; transfer dialog; Lunar-specific |
 | Background grant via charm | Lunar | Transient Background item stamped on ally; cleanup AE; Lunar-specific |
 | Linked NPC template | Lunar | NPC actor binding to charm active state; token teardown on deactivation; Lunar-specific |
@@ -70,5 +70,5 @@ Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as ne
 | A — Ready, Simple | 0 (all done) |
 | B — Ready, Medium | 0 (all done) |
 | C — Ready, Complex | 11 |
-| **Total active** | **11** |
+| **Total active** | **10** |
 | (Parked) | 2 |
