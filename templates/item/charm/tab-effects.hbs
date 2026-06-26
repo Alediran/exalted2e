@@ -1865,6 +1865,56 @@
     </div>
   </div>
 
+  {{!-- M46 Target Number Reduction ───────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.TargetNumberReduction"}}</label>
+      <input type="number" name="system.targetNumberReduction"
+             value="{{system.targetNumberReduction}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M47 Onslaught Multiplier ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.OnslaughtMultiplier"}}</label>
+      <input type="number" name="system.onslaughtMultiplier"
+             value="{{system.onslaughtMultiplier}}"
+             min="1" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M48 Virtue Roll Trigger ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.virtueRollTrigger.enabled"
+             {{#if system.virtueRollTrigger.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.VirtueRollTrigger"}}
+    </label>
+    {{#if system.virtueRollTrigger.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRollTriggerVirtue"}}</label>
+      <select name="system.virtueRollTrigger.virtue" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="valor"      {{#if (eq system.virtueRollTrigger.virtue "valor"     )}}selected{{/if}}>{{localize "EX2E.VirtueValor"}}</option>
+        <option value="conviction" {{#if (eq system.virtueRollTrigger.virtue "conviction")}}selected{{/if}}>{{localize "EX2E.VirtueConviction"}}</option>
+        <option value="temperance" {{#if (eq system.virtueRollTrigger.virtue "temperance")}}selected{{/if}}>{{localize "EX2E.VirtueTemperance"}}</option>
+        <option value="compassion" {{#if (eq system.virtueRollTrigger.virtue "compassion")}}selected{{/if}}>{{localize "EX2E.VirtueCompassion"}}</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRollTriggerDifficulty"}}</label>
+      <input type="number" name="system.virtueRollTrigger.difficulty"
+             value="{{system.virtueRollTrigger.difficulty}}"
+             min="1" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    {{/if}}
+  </div>
+
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

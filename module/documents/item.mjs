@@ -716,6 +716,20 @@ ${capWarning}`;
       if (total > 0) await healTarget.healDamage(total);
     }
 
+    // M48 — Virtue roll trigger: auto-roll a Virtue pool when this charm activates
+    if (!turningOff && sys.virtueRollTrigger?.enabled) {
+      const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+      const virtue       = sys.virtueRollTrigger.virtue ?? "valor";
+      const virtueRating = actor.system.virtues?.[virtue]?.dotRating ?? 0;
+      const difficulty   = sys.virtueRollTrigger.difficulty ?? 1;
+      const virtueLabel  = game.i18n.localize(`EX2E.Virtue${virtue.charAt(0).toUpperCase() + virtue.slice(1)}`);
+      await ExaltedRoll.rollPool(actor, {
+        pool:     Math.max(1, virtueRating),
+        flavor:   game.i18n.format("EX2E.VirtueRollFlavor", { virtue: virtueLabel, difficulty }),
+        category: "all",
+      });
+    }
+
     // Step B — effect merging: build proxy charm carrying merged system
     let _proxyCharm = this;
     if (!turningOff) {

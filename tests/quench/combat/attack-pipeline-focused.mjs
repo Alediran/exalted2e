@@ -297,6 +297,158 @@ export function registerAttackPipelineFocused(context) {
       assert.ok(msg, "rollAttack returned a ChatMessage");
     });
 
+    // 56. dvHalving: supplemental charm halves both Dodge DV and Parry DV in snapshot.
+    it("[56] dvHalving: charm halves both dodge and parry DV in the attack snapshot", async function () {
+      const { attacker, defender, weapon: _baseWeapon } = await setupAttackFixture();
+      const baseDodge  = defender.currentDodgeDV ?? 0;
+      const baseParry  = defender.currentParryDV ?? 0;
+
+      const charm = await createTempCharm(attacker, {
+        name: "Crushing Wave", dvHalving: true, duration: "instant"
+      });
+      const weapon = await createTempWeapon(attacker, {
+        name: "Crushing Wave Strike",
+        accuracy: 5, damage: 5,
+        charmSource: charm.id, charmDuration: "instant"
+      });
+      await stubAttackDialog([defaultDialogResult({ charmIds: [charm.id] })]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const message = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        modeIndex: 0, explicitTargetActor: defender
+      });
+      const attack = message.flags?.exalted2e?.attack;
+      assert.equal(attack.targetDodgeDV, Math.floor(baseDodge / 2),
+        "dodge DV halved (floor)");
+      assert.equal(attack.targetParryDV, Math.floor(baseParry / 2),
+        "parry DV halved (floor)");
+    });
+
+    // 57. halvesParryDV: only parry DV is halved; dodge DV unchanged.
+    it("[57] halvesParryDV: only parry DV halved, dodge DV unchanged", async function () {
+      const { attacker, defender, weapon: _baseWeapon } = await setupAttackFixture();
+      const baseDodge = defender.currentDodgeDV ?? 0;
+      const baseParry = defender.currentParryDV ?? 0;
+
+      const charm = await createTempCharm(attacker, {
+        name: "Ferocious Bite", halvesParryDV: true, duration: "instant"
+      });
+      const weapon = await createTempWeapon(attacker, {
+        name: "Ferocious Strike",
+        accuracy: 5, damage: 5,
+        charmSource: charm.id, charmDuration: "instant"
+      });
+      await stubAttackDialog([defaultDialogResult({ charmIds: [charm.id] })]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const message = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        modeIndex: 0, explicitTargetActor: defender
+      });
+      const attack = message.flags?.exalted2e?.attack;
+      assert.equal(attack.targetDodgeDV, baseDodge,
+        "dodge DV unchanged by halvesParryDV");
+      assert.equal(attack.targetParryDV, Math.floor(baseParry / 2),
+        "parry DV halved (floor)");
+    });
+
+    // 58. ignoresHardness: supplemental charm zeros hardness in the snapshot.
+    it("[58] ignoresHardness: charm zeros hardness even when defender has hardness > 0", async function () {
+      const { attacker, defender } = await setupAttackFixture();
+      // Give the defender explicit hardness so the test is non-trivial.
+      await defender.update({ "system.hardness": 4 });
+      assert.ok(defender.system.hardness > 0, "precondition: defender has hardness > 0");
+
+      const charm = await createTempCharm(attacker, {
+        name: "Shell Crusher", ignoresHardness: true, duration: "instant"
+      });
+      const weapon = await createTempWeapon(attacker, {
+        name: "Shell Crusher Strike",
+        accuracy: 5, damage: 8, damageType: "lethal",
+        charmSource: charm.id, charmDuration: "instant"
+      });
+      await stubAttackDialog([defaultDialogResult({ charmIds: [charm.id] })]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const message = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        modeIndex: 0, explicitTargetActor: defender
+      });
+      const attack = message.flags?.exalted2e?.attack;
+      assert.equal(attack.targetHardness, 0, "hardness zeroed by ignoresHardness charm");
+    });
+
+    // 59. targetNumberReduction: snapshot carries the reduced target number.
+    it("[59] targetNumberReduction: snapshot targetNumber equals 7 minus reduction (min 5)", async function () {
+      const { attacker, defender } = await setupAttackFixture();
+
+      const charm = await createTempCharm(attacker, {
+        name: "Preternatural Accuracy", targetNumberReduction: 2, duration: "instant"
+      });
+      const weapon = await createTempWeapon(attacker, {
+        name: "Preternatural Strike",
+        accuracy: 5, damage: 5,
+        charmSource: charm.id, charmDuration: "instant"
+      });
+      await stubAttackDialog([defaultDialogResult({ charmIds: [charm.id] })]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const message = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        modeIndex: 0, explicitTargetActor: defender
+      });
+      const attack = message.flags?.exalted2e?.attack;
+      assert.equal(attack.targetNumber, 5, "targetNumber = 7 - 2 = 5");
+    });
+
+    // 60. onslaughtMultiplier: defender accrues multiplier onslaught stacks.
+    it("[60] onslaughtMultiplier=2: defender accrues 2 onslaught stacks", async function () {
+      const { attacker, defender } = await setupAttackFixture();
+
+      const charm = await createTempCharm(attacker, {
+        name: "Swarm Technique", onslaughtMultiplier: 2, duration: "instant"
+      });
+      const weapon = await createTempWeapon(attacker, {
+        name: "Swarm Strike",
+        accuracy: 5, damage: 5,
+        charmSource: charm.id, charmDuration: "instant"
+      });
+      await stubAttackDialog([defaultDialogResult({ charmIds: [charm.id] })]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        modeIndex: 0, explicitTargetActor: defender
+      });
+      const onslaughtAe = defender.effects.find(e =>
+        !e.disabled && e.flags?.exalted2e?.dvPenalty?.type === "onslaught"
+      );
+      assert.ok(onslaughtAe, "onslaught AE stamped on defender");
+      assert.equal(onslaughtAe.flags.exalted2e.dvPenalty.value, 2,
+        "onslaught value = 2 (multiplier=2 yields 2 stacks)");
+    });
+
+    // 61. incomingAttackDicePenalty: defender's permanent charm reduces attacker pool.
+    it("[61] incomingAttackDicePenalty: defender passive charm reduces attacker pool", async function () {
+      const { attacker, defender, weapon } = await setupAttackFixture({
+        attackerStats: { dex: 4 }
+      });
+      await attacker.update({ "system.abilities.melee.value": 3 });
+
+      // Baseline pool with no penalty
+      await stubAttackDialog([defaultDialogResult()]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const baseMsg = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        modeIndex: 0, explicitTargetActor: defender
+      });
+      const basePool = baseMsg.flags?.exalted2e?.attack?.pool;
+
+      // Add permanent charm to DEFENDER imposing incoming attack penalty
+      await createTempCharm(defender, {
+        name: "Tiger Stance", incomingAttackDicePenalty: 2,
+        charmType: "permanent", duration: "permanent"
+      });
+
+      await stubAttackDialog([defaultDialogResult()]);
+      const penaltyMsg = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        modeIndex: 0, explicitTargetActor: defender
+      });
+      const penaltyPool = penaltyMsg.flags?.exalted2e?.attack?.pool;
+      assert.equal(penaltyPool, basePool - 2,
+        "attacker pool reduced by 2 when defender has incomingAttackDicePenalty=2");
+    });
+
     // 55. Infinite Mastery discount: 6 committed motes → floor(6/2)=3 mote discount.
     it("[055] Infinite Mastery discount reduces total Excellency cost in rollAttack", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture();

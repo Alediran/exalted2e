@@ -21,7 +21,7 @@
  * @param {Array<number | {face: number}>} dice
  * @returns {{ rawSuccesses: number, ones: number, details: Array<{face: number, succs: number, cls: string}> }}
  */
-export function countSuccesses(dice) {
+export function countSuccesses(dice, targetNumber = 7) {
   let rawSuccesses = 0;
   let ones = 0;
   const details = [];
@@ -34,7 +34,7 @@ export function countSuccesses(dice) {
       succs = 2;
       cls   = "double-success";
       rawSuccesses += 2;
-    } else if (face >= 7) {
+    } else if (face >= targetNumber && face < 10) {
       succs = 1;
       cls   = "success";
       rawSuccesses += 1;

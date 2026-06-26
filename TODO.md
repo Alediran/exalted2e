@@ -46,8 +46,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] DV halving from supplemental charms (`dvHalving: true` halves both Dodge+Parry DV floor before Step 4; `halvesParryDV: true` halves Parry DV only; wired in `rollAttack` after terrain bonus and before base snapshot — see Blazing Solar Bolt, Ferocious Biting Tooth)
 - [x] Incoming attack dice penalty from defender's passively-active charms (`incomingAttackDicePenalty: NumberField`; aggregated via `aggregateIncomingAttackDicePenaltyFromCharms`; subtracted from attacker pool in `ExaltedRoll` constructor — see Crouching Tiger Stance)
 - [x] Charm-level hardness bypass (`ignoresHardness: true` on supplemental charm zeros `targetHardness` before soak; distinct from aggravated-always-ignores-hardness path — see Shell-Crushing Atemi)
-- [ ] Target-number reduction (`targetNumberReduction: NumberField`) — reduces the success threshold below 7 for this attack's dice roll (e.g. 7→6); requires `ExaltedRoll` to accept a custom `targetNumber` and apply it during evaluation
-- [ ] Onslaught multiplier (`onslaughtMultiplier: NumberField`) — multiplies the number of onslaught DV-penalty stacks applied per attack (e.g. Agitation of Swarm Technique); applied in the onslaught-stamp step of `rollAttack`
+- [x] Target-number reduction (`targetNumberReduction: NumberField`) — reduces the success threshold below 7 for this attack's dice roll; `ExaltedRoll` accepts `targetNumber` option, wired from supplemental charms in `rollAttack`; `countSuccesses` in `dice-math.mjs` parameterized accordingly
+- [x] Onslaught multiplier (`onslaughtMultiplier: NumberField`) — additional onslaught stacks = `max(multiplier,1)−1` extra `addOnslaught()` calls after the base stack in `rollAttack`
 - [ ] Mote loan to target (`moteLoan: SchemaField { enabled, formula }`) — transfers motes from activator to a targeted ally; needs ally-targeting flow (see Social/Ally section) and a new `receiveMotes` actor method — see Essence-Lending Method
 - [ ] Willpower gift to target (`willpowerGift: SchemaField { enabled, formula }`) — transfers WP to a targeted ally; same ally-targeting dependency as moteLoan — see Will-Bolstering Method
 - [ ] Ally-targeting support — pick a friendly token from the charm activation dialog; currently all charm effects apply to self or the attack target only; needed by moteLoan, willpowerGift, and a handful of Lunar ally-buff charms
@@ -113,7 +113,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] **Charm-level per-purchase variant selection** — when learning a charm that has distinct named variants (e.g. Subcutaneous vs Exoskeletal Armor Plating), prompt for variant choice at purchase time; each purchase is independent (multiple of same variant allowed); store chosen variant on the item instance
 - [ ] **`maxPurchases` formula support** — currently `maxPurchases` is a static integer; support `@essence` (and other rollData tokens) so charm purchase limit scales with Essence — see Immanent Solar Glory
 - [ ] **Upgrade tier system** (`upgradeRequiresEssence: N`) — a higher-essence purchase of the same charm unlocks additional effect fields (e.g. Iron Raptor Technique gains Unblockable at Ess 3+); separate from essence-tiered conditional branches already implemented
-- [ ] Fix consumer wiring — Unbreakable Warrior's Mastery: `statusApply` currently applies Crippling to targets; should instead grant `negatesCripplingEffect: true` on self (charm negates Crippling imposed on the owner, not imposes it on enemies)
+- [x] Fix consumer wiring — Unbreakable Warrior's Mastery: already has `negatesCripplingEffect: true` and no `statusApply` in source JSON — no fix needed; confirmed correct
 - [ ] Fix consumer wiring — Serpentine Evasion: `dvBonus` condition/formula incorrect; needs investigation to match errata text (DV bonus applies only when not yet acted in the tick, or similar guard)
 - [ ] Fix consumer wiring — Shockwave Technique: multiple fields (`moteRecovery`, `statusApply`, `dvBonus`, `willpowerRecovery`) present but at least one consumer misconfigured; audit all four fields against errata text
 - [ ] **Social attack pipeline for charms** — Presence/Performance opposed rolls with MDV; currently social bonus fields add dice/successes but the full opposed-roll pipeline (attacker pool vs MDV threshold, onslaught MDV, social-perfect defenses) is not wired to charm effects; blocks 30+ Social-keyword charms from full automation
@@ -268,7 +268,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Willpower recovery hooks (rest, stunt reward)
 - [x] Limit accumulation automation (Virtue suppression → Limit gain on primary virtue; UMI → +1 Limit already implemented)
 - [x] Limit Break scripting at 10 (per-Virtue-Flaw scene template) — see Solar/Virtues section; data-driven break AE stamped on resolve, scene-swept
-- [ ] **Formal virtue roll pipeline** — charms that trigger a Virtue roll (Valor/Conviction/Temperance/Compassion) with a specific difficulty and consequence (e.g. resist compulsion, avoid reckless action); requires a `virtueRollTrigger: SchemaField { virtue, difficulty, effect }` on charm data and a dedicated roll dialog/result handler; blocks 8+ charms across all splats
+- [x] **Formal virtue roll pipeline** — `virtueRollTrigger: SchemaField { enabled, virtue, difficulty }` on `CharmData`; consumer in `activateCharm` (item.mjs) rolls the Virtue pool and posts to chat; UI controls on Effects tab with virtue select + difficulty number; i18n in en.json/es.json
 
 ## Experience / Purchase Tracking
 - [x] Purchase Mode toggle + enforcement (block reductions, log XP on increases)

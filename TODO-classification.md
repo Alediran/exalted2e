@@ -1,19 +1,19 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-25 (Charm mechanics backlog extracted from charm-manual-discoveries; new attack-pipeline fields A1–A4 complete; A5–A14 + planned systems added to TODO)
+Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMultiplier, virtueRollTrigger wired; Unbreakable Warrior's Mastery confirmed already correct)
 
 ---
 
-## Group A — Ready, Simple
+## Group A — Ready, Simple ✅ All complete
 *Isolated, 1–3 files, clear existing pattern to follow.*
 
-| Item | TODO Section | Notes |
-|------|-------------|-------|
-| Target-number reduction (`targetNumberReduction`) | Combat System | New `NumberField` on CharmData; `ExaltedRoll` already accepts a `targetNumber` option — wire schema → pack data → UI control; same 4-file pattern as A1–A4 |
-| Onslaught multiplier (`onslaughtMultiplier`) | Combat System | New `NumberField`; multiply stacks in the onslaught-stamp step of `rollAttack`; straightforward addendum to existing onslaught logic |
-| Fix Unbreakable Warrior's Mastery | Charms | Remove wrong `statusApply`; add `negatesCripplingEffect: true` — one JSON fix + confirm consumer already reads that field |
-| Formal virtue roll pipeline | Virtues & Willpower | New `virtueRollTrigger` SchemaField; re-use existing virtue-channel roll dialog as a base; 3–4 files |
+| Item | TODO Section | Status |
+|------|-------------|--------|
+| Target-number reduction (`targetNumberReduction`) | Combat System | ✅ Done — schema + `countSuccesses` parameterized + `rollAttack` consumer + UI + i18n |
+| Onslaught multiplier (`onslaughtMultiplier`) | Combat System | ✅ Done — schema + extra `addOnslaught()` calls in `rollAttack` + UI + i18n |
+| Fix Unbreakable Warrior's Mastery | Charms | ✅ Done — source JSON already correct; no fix needed |
+| Formal virtue roll pipeline | Virtues & Willpower | ✅ Done — `virtueRollTrigger` SchemaField + consumer in `activateCharm` + UI + i18n |
 
 ---
 
@@ -63,8 +63,8 @@ Last updated: 2026-06-25 (Charm mechanics backlog extracted from charm-manual-di
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 4 |
+| A — Ready, Simple | 0 (all done) |
 | B — Ready, Medium | 7 |
 | C — Ready, Complex | 11 |
-| **Total active** | **22** |
+| **Total active** | **18** |
 | (Parked) | 2 |

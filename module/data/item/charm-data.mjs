@@ -437,6 +437,17 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       incomingAttackDicePenalty: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
       // M45 — Ignore target hardness regardless of damage type (e.g. Shell-Crushing Atemi)
       ignoresHardness: new fields.BooleanField({ required: false, initial: false }),
+      // M46 — Target number reduction: lowers the success threshold below 7 for this attack roll
+      targetNumberReduction: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M47 — Onslaught multiplier: adds this many onslaught stacks per attack instead of 1
+      onslaughtMultiplier: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
+      // M48 — Virtue roll trigger: auto-roll a virtue when this charm activates
+      virtueRollTrigger: new fields.SchemaField({
+        enabled:    new fields.BooleanField({ required: false, initial: false }),
+        virtue:     new fields.StringField({ required: false, initial: "valor",
+          choices: ["valor", "conviction", "temperance", "compassion"] }),
+        difficulty: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
+      }, { required: false }),
 
       // M6b — Healing rate multiplier (e.g. Body-Mending Meditation speeds healing × 10).
       // Data-storage only — no automatic tick engine exists; GM must track manually.

@@ -68,6 +68,9 @@ export class ExaltedRoll {
     // External penalty subtracts from successes after the roll (does NOT
     // touch the pool, and does NOT affect botch detection).
     this.externalPenalty    = options.externalPenalty    ?? 0;
+    // Target number: minimum die face that counts as 1 success (default 7).
+    // Reduced below 7 by targetNumberReduction supplemental charms.
+    this.targetNumber       = Math.max(5, options.targetNumber ?? 7);
 
     // Stunt adds extra dice (pool already includes 1st Excellency dice)
     this.totalPool = this.pool + this.stunt;
@@ -109,7 +112,8 @@ export class ExaltedRoll {
       secondExcSuccesses:  this.secondExcSuccesses,
       usedThirdExcellency: this.useThirdExcellency,
       specialty:           this.specialty,
-      externalPenalty:     this.externalPenalty
+      externalPenalty:     this.externalPenalty,
+      targetNumber:        this.targetNumber,
     });
   }
 
@@ -730,6 +734,10 @@ export class ExaltedRoll {
         // uses the pre-bump DVs; the next attack will see the bumped total.
         // Cleared by advanceWheel when the defender becomes free again.
         await targetActor.addOnslaught();
+        // M47 — Extra onslaught stacks from supplemental charms (e.g. onslaughtMultiplier: 2 adds 2 stacks instead of 1)
+        const _extraStacks = activatedCharmItems.reduce(
+          (acc, c) => Math.max(acc, c.system?.onslaughtMultiplier ?? 1), 1) - 1;
+        for (let _i = 0; _i < _extraStacks; _i++) await targetActor.addOnslaught();
 
         // Starmetal artifact armor worn by the defender imposes an external
         // penalty on the attacker's success tally (reduces effective hits).
@@ -1137,6 +1145,10 @@ export class ExaltedRoll {
     const incomingAttackPenalty = targetActor
       ? aggregateIncomingAttackDicePenaltyFromCharms(targetActor)
       : 0;
+    // M46 — Target number reduction from supplemental charms (e.g. lowers success threshold 7→6)
+    const _tnReduction = activatedCharmItems.reduce(
+      (acc, c) => Math.max(acc, c.system?.targetNumberReduction ?? 0), 0);
+    const attackTargetNumber = Math.max(5, 7 - _tnReduction);
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
       pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice
@@ -1150,7 +1162,8 @@ export class ExaltedRoll {
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice,
-      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses,
+      targetNumber:       attackTargetNumber,
     });
     const result = await attackRoll.evaluate();
 
@@ -1239,6 +1252,7 @@ export class ExaltedRoll {
       targetSoak,
       targetArmorSoak,
       targetHardness,
+      targetNumber:    attackTargetNumber,
       soakPiercing:    charmAttackBonus.soakPiercing   || 0,
       ignoresArmor:    charmAttackBonus.ignoresArmor   || false,
       attackCharms:            activatedCharms.map(c => c.name),
@@ -1790,9 +1804,10 @@ export class ExaltedRollResult {
     // External penalty — subtracted from the displayed success tally
     // post-roll. Botch detection is unaffected (reads rawSuccesses).
     this.externalPenalty     = options.externalPenalty      ?? 0;
+    this.targetNumber        = options.targetNumber         ?? 7;
 
     // ── Count successes from dice ────────────────────────────────────────
-    const _tally = countSuccesses(this.dice);
+    const _tally = countSuccesses(this.dice, this.targetNumber);
     this.rawSuccesses = _tally.rawSuccesses;
     this.ones         = _tally.ones;
     this.diceDetails  = _tally.details;

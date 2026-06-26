@@ -27,6 +27,7 @@ import {
   aggregateAbilityMaxOverridesFromCharms,
   getHarmImmaterialFromCharms,
   aggregatePostSoakDamageReductionFromCharms,
+  aggregateIncomingAttackDicePenaltyFromCharms,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 // ── computeWoundReduction ────────────────────────────────────────────
@@ -1049,5 +1050,62 @@ describe("aggregatePostSoakDamageReductionFromCharms", () => {
       { type: "charm", system: { duration: "permanent", postSoakDamageReduction: 0 } }
     ]};
     expect(aggregatePostSoakDamageReductionFromCharms(actor)).toBe(0);
+  });
+});
+
+// ── aggregateIncomingAttackDicePenaltyFromCharms ─────────────────────
+describe("aggregateIncomingAttackDicePenaltyFromCharms", () => {
+  it("returns 0 when actor has no charms", () => {
+    expect(aggregateIncomingAttackDicePenaltyFromCharms({ items: [] })).toBe(0);
+  });
+
+  it("sums penalty from multiple passively-active charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", incomingAttackDicePenalty: 2 } },
+      { type: "charm", system: { duration: "permanent", incomingAttackDicePenalty: 1 } },
+    ]};
+    expect(aggregateIncomingAttackDicePenaltyFromCharms(actor)).toBe(3);
+  });
+
+  it("permanent charm contributes even when active=false", () => {
+    const actor = { items: [
+      { type: "charm", system: { charmType: "permanent", duration: "instant", active: false, incomingAttackDicePenalty: 2 } },
+    ]};
+    expect(aggregateIncomingAttackDicePenaltyFromCharms(actor)).toBe(2);
+  });
+
+  it("ignores inactive oneScene charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "oneScene", active: false, incomingAttackDicePenalty: 5 } },
+    ]};
+    expect(aggregateIncomingAttackDicePenaltyFromCharms(actor)).toBe(0);
+  });
+
+  it("includes active oneScene charms", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "oneScene", active: true, incomingAttackDicePenalty: 3 } },
+    ]};
+    expect(aggregateIncomingAttackDicePenaltyFromCharms(actor)).toBe(3);
+  });
+
+  it("ignores non-charm items", () => {
+    const actor = { items: [
+      { type: "weapon", system: { duration: "permanent", incomingAttackDicePenalty: 4 } },
+    ]};
+    expect(aggregateIncomingAttackDicePenaltyFromCharms(actor)).toBe(0);
+  });
+
+  it("returns 0 when charm has no incomingAttackDicePenalty field", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent" } },
+    ]};
+    expect(aggregateIncomingAttackDicePenaltyFromCharms(actor)).toBe(0);
+  });
+
+  it("charm with incomingAttackDicePenalty=0 contributes nothing", () => {
+    const actor = { items: [
+      { type: "charm", system: { duration: "permanent", incomingAttackDicePenalty: 0 } },
+    ]};
+    expect(aggregateIncomingAttackDicePenaltyFromCharms(actor)).toBe(0);
   });
 });
