@@ -68,9 +68,9 @@
       }
     ],
     "dvBonus": {
-      "enabled": true,
-      "dodgeBonus": 2,
-      "parryBonus": 2,
+      "enabled": false,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
       "ignoreAllPenalties": false,
       "ignorePenaltyTypes": []
     },

@@ -22,11 +22,11 @@ Last updated: 2026-06-25 (Group A complete: targetNumberReduction, onslaughtMult
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Soak reduction on hit (`soakReductionOnHit`) | Combat System | Schema + post-hit AE stamped on target reducing soak aggregation; needs AE field → soak-aggregation read path; ~5 files |
-| Damage-driven penalty (`damageDrivenPenalty`) | Combat System | Post-damage hook reads HL dealt → stamps penalty AE on target; design scope: which attribute groups, how duration tracked; ~5 files |
-| Temporary health levels (`temporaryHealthLevels`) | Combat System | Transient AE adding HL at specified level; health-track must re-compute with AE-sourced HL; ~4 files + CSS |
-| Fix Serpentine Evasion consumer | Charms | `dvBonus` formula/condition wrong; read errata, patch `dvBonus` fields + confirm aggregator handles it |
-| Fix Shockwave Technique consumer | Charms | Multiple fields misconfigured; audit `moteRecovery`, `statusApply`, `dvBonus`, `willpowerRecovery` against errata; patch JSON and verify each consumer |
+| ~~Soak reduction on hit (`soakReductionOnHit`)~~ | Combat System | **Done** — schema + bonus fields + soak subtraction + `_applyOnHitSoakReduction` post-hit AE |
+| ~~Damage-driven penalty (`damageDrivenPenalty`)~~ | Combat System | **Done** — schema + `_applyDamageDrivenPenalty` stamps `internalPenalty` AE after damage |
+| ~~Temporary health levels (`temporaryHealthLevels`)~~ | Combat System | **Done** — schema + `buildCharmSynthAEs` consumer writing to `healthGrantZero/One/Two` |
+| ~~Fix Serpentine Evasion consumer~~ | Charms | **Done** — disabled incorrect `dvBonus`; retroactive Step-2 success penalty not automatable yet |
+| ~~Fix Shockwave Technique consumer~~ | Charms | **Done** — added `Unblockable` keyword |
 | Per-purchase variant selection | Charms | Dialog at learn-time picking variant; store on item instance; `maxPurchases` formula support (`@essence`); ~4 files |
 | Upgrade tier system | Charms | `upgradeRequiresEssence` field; gate higher-tier effect fields behind Essence check in sheet + activation; ~4 files |
 

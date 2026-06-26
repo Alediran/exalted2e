@@ -165,6 +165,46 @@ async function _applyDamageDealtMoteRecovery(message, targetActor, rawDamage) {
   }
 }
 
+// ── M2c — On-hit soak reduction (Throat-Baring Hold family) ──────────────────
+async function _applyOnHitSoakReduction(newAttack, targetActor) {
+  const sr = newAttack.soakReductionOnHit;
+  if (!sr || (!sr.bashing && !sr.lethal) || !targetActor) return;
+  const outcome = computeAttackOutcome(newAttack);
+  if (!outcome.hit) return;
+  const changes = [];
+  if (sr.bashing) changes.push({ key: "system.bonuses.soakReductionBashing", type: "add", value: String(sr.bashing) });
+  if (sr.lethal)  changes.push({ key: "system.bonuses.soakReductionLethal",  type: "add", value: String(sr.lethal)  });
+  const { initialRemainingActions } = await import("../helpers/charm-deactivation.mjs");
+  const duration = sr.duration ?? "untilNextAction";
+  const _ra = initialRemainingActions(duration);
+  await targetActor.createEmbeddedDocuments("ActiveEffect", [{
+    name:     game.i18n.localize("EX2E.SoakReductionOnHit"),
+    img:      "icons/svg/shield.svg",
+    disabled: false,
+    transfer: false,
+    changes,
+    flags:    { exalted2e: { soakReductionOnHit: true, charmDuration: duration, ...(_ra !== null ? { remainingActions: _ra } : {}) } }
+  }]);
+}
+
+// ── M2d — Damage-driven penalty (Joint-Wounding Attack family) ────────────────
+async function _applyDamageDrivenPenalty(message, targetActor, rawDamage) {
+  if (!rawDamage || rawDamage <= 0 || !targetActor) return;
+  const attack = message.flags?.exalted2e?.attack;
+  const ddp = attack?.damageDrivenPenalty;
+  if (!ddp) return;
+  const penalty = Math.max(1, Math.floor(rawDamage * (ddp.perHL ?? 1)));
+  const SCOPE_MAP = { physicalAttributes: "physical", mentalAttributes: "mental", all: "all" };
+  const penaltyType = SCOPE_MAP[ddp.scope] ?? "all";
+  await targetActor.createEmbeddedDocuments("ActiveEffect", [{
+    name:     game.i18n.localize("EX2E.DamageDrivenPenalty"),
+    img:      "icons/svg/regen.svg",
+    disabled: false,
+    transfer: false,
+    flags:    { exalted2e: { internalPenalty: { type: penaltyType, value: penalty }, charmDuration: "untilNextAction" } }
+  }]);
+}
+
 // ── Overdrive on-damage-rolled mote recovery (Essence-Gathering Temper family) ──
 async function _applyOverdriveDamageRecovery(targetActor, effectivePool) {
   if (!targetActor || targetActor.type !== "character" || effectivePool <= 0) return;
@@ -877,6 +917,7 @@ export function registerChatCardHooks() {
         };
 
         _tryFireAttackSuccess(newAttack);
+        await _applyOnHitSoakReduction(newAttack, targetActor);
         const { renderAttackCardContent } = await import("../rolls/exalted-roll.mjs");
         const content = await renderAttackCardContent(newAttack);
         await message.update({
@@ -901,6 +942,8 @@ export function registerChatCardHooks() {
       const dv = Math.max(0, parseInt(input?.value) || 0);
       const newAttack = { ...attack, defense: { type: "manual", dv } };
       _tryFireAttackSuccess(newAttack);
+      const manualTargetActor = attack.targetId ? game.actors.get(attack.targetId) : null;
+      await _applyOnHitSoakReduction(newAttack, manualTargetActor);
       const { renderAttackCardContent } = await import("../rolls/exalted-roll.mjs");
       const content = await renderAttackCardContent(newAttack);
       await message.update({
@@ -1403,6 +1446,7 @@ export function registerChatCardHooks() {
         if (targetActor) {
           await targetActor.applyDamage(rawDamage, effectiveDamageType);
           await _applyPerDamageLevelEffects(message, targetActor, rawDamage);
+          await _applyDamageDrivenPenalty(message, targetActor, rawDamage);
           await _applyDamageDealtMoteRecovery(message, targetActor, rawDamage);
           await _applyOverdriveDamageRecovery(targetActor, effectivePool);
         }
@@ -1430,6 +1474,7 @@ export function registerChatCardHooks() {
       if (targetActor && dmg > 0) {
         await targetActor.applyDamage(dmg, type);
         await _applyPerDamageLevelEffects(message, targetActor, dmg);
+        await _applyDamageDrivenPenalty(message, targetActor, dmg);
         await _applyDamageDealtMoteRecovery(message, targetActor, dmg);
         await _applyOverdriveDamageRecovery(targetActor, effectivePool);
 

@@ -352,8 +352,11 @@ export function registerAttackPipelineFocused(context) {
     // 58. ignoresHardness: supplemental charm zeros hardness in the snapshot.
     it("[58] ignoresHardness: charm zeros hardness even when defender has hardness > 0", async function () {
       const { attacker, defender } = await setupAttackFixture();
-      // Give the defender explicit hardness so the test is non-trivial.
-      await defender.update({ "system.hardness": 4 });
+      // Give the defender hardness via an AE (system.hardness is derived — direct update is overwritten).
+      await defender.createEmbeddedDocuments("ActiveEffect", [{
+        name: "Test Hardness", disabled: false, transfer: false,
+        changes: [{ key: "system.bonuses.hardnessAdd", type: "add", value: "4" }]
+      }]);
       assert.ok(defender.system.hardness > 0, "precondition: defender has hardness > 0");
 
       const charm = await createTempCharm(attacker, {

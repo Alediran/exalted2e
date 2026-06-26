@@ -1283,6 +1283,100 @@
     {{/if}}
   </div>
 
+  {{!-- M2b Temporary Health Levels ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.temporaryHealthLevels.enabled"
+               {{#if system.temporaryHealthLevels.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectTemporaryHealthLevels"}}</span>
+      </label>
+    </div>
+    {{#if system.temporaryHealthLevels.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.TemporaryHealthLevelsLevel"}}</label>
+        <select name="system.temporaryHealthLevels.level" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="zero"  {{#if (eq system.temporaryHealthLevels.level "zero") }}selected{{/if}}>{{localize "EX2E.TemporaryHealthLevelsLevelZero"}}</option>
+          <option value="one"   {{#if (eq system.temporaryHealthLevels.level "one")  }}selected{{/if}}>{{localize "EX2E.TemporaryHealthLevelsLevelOne"}}</option>
+          <option value="two"   {{#if (eq system.temporaryHealthLevels.level "two")  }}selected{{/if}}>{{localize "EX2E.TemporaryHealthLevelsLevelTwo"}}</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.TemporaryHealthLevelsFormula"}}</label>
+        <input type="text" name="system.temporaryHealthLevels.formula"
+               value="{{system.temporaryHealthLevels.formula}}"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M2c Soak Reduction on Hit ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.soakReductionOnHit.enabled"
+               {{#if system.soakReductionOnHit.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.SoakReductionOnHit"}}</span>
+      </label>
+    </div>
+    {{#if system.soakReductionOnHit.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.SoakReductionOnHitBashing"}}</label>
+        <input type="number" name="system.soakReductionOnHit.bashingReduction"
+               value="{{system.soakReductionOnHit.bashingReduction}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SoakReductionOnHitLethal"}}</label>
+        <input type="number" name="system.soakReductionOnHit.lethalReduction"
+               value="{{system.soakReductionOnHit.lethalReduction}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SoakReductionOnHitDuration"}}</label>
+        <input type="text" name="system.soakReductionOnHit.duration"
+               value="{{system.soakReductionOnHit.duration}}"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M2d Damage-Driven Penalty ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.damageDrivenPenalty.enabled"
+               {{#if system.damageDrivenPenalty.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.DamageDrivenPenalty"}}</span>
+      </label>
+    </div>
+    {{#if system.damageDrivenPenalty.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.DamageDrivenPenaltyPerHL"}}</label>
+        <input type="number" name="system.damageDrivenPenalty.perHL"
+               value="{{system.damageDrivenPenalty.perHL}}" min="0" step="0.5"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.DamageDrivenPenaltyScope"}}</label>
+        <select name="system.damageDrivenPenalty.scope" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="all"               {{#if (eq system.damageDrivenPenalty.scope "all")              }}selected{{/if}}>{{localize "EX2E.DDPScopeAll"}}</option>
+          <option value="physicalAttributes"{{#if (eq system.damageDrivenPenalty.scope "physicalAttributes")}}selected{{/if}}>{{localize "EX2E.DDPScopePhysical"}}</option>
+          <option value="mentalAttributes"  {{#if (eq system.damageDrivenPenalty.scope "mentalAttributes") }}selected{{/if}}>{{localize "EX2E.DDPScopeMental"}}</option>
+        </select>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
   {{!-- ── UTILITY ──────────────────────────────────────────────────────────── --}}
   <h4 class="effects-group-header">{{localize "EX2E.EffectGroupUtility"}}</h4>
 

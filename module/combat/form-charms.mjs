@@ -58,6 +58,16 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     }
   }
 
+  if (sys.temporaryHealthLevels?.enabled) {
+    const thl = sys.temporaryHealthLevels;
+    const count = Math.max(0, Math.floor(
+      thl.formula ? (evaluateCharmFormula(thl.formula, rollData, 1) ?? 1) : 1
+    ));
+    const lvl = thl.level ?? "zero";
+    const bonusKey = lvl === "two" ? "healthGrantTwo" : lvl === "one" ? "healthGrantOne" : "healthGrantZero";
+    if (count > 0) changes.push({ key: `system.bonuses.${bonusKey}`, type: "add", value: String(count) });
+  }
+
   if (sys.woundReduction?.enabled) {
     const formula = sys.woundReduction.formula;
     // 4 = magnitude of the worst wound-penalty level (−4); blank formula means "negate all".

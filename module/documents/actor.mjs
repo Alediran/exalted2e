@@ -899,6 +899,9 @@ export class ExaltedActor extends Actor {
     systemData.totalSoak.bashing    += b.soakBashing    ?? 0;
     systemData.totalSoak.lethal     += b.soakLethal     ?? 0;
     systemData.totalSoak.aggravated += b.soakAggravated ?? 0;
+    // On-hit soak reductions (M2c): AEs stamped on target by soakReductionOnHit charms.
+    systemData.totalSoak.bashing    = Math.max(0, systemData.totalSoak.bashing  - (b.soakReductionBashing ?? 0));
+    systemData.totalSoak.lethal     = Math.max(0, systemData.totalSoak.lethal   - (b.soakReductionLethal  ?? 0));
 
     // hardnessSetTo is non-additive (Math.max) — still scanned directly.
     const charms = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));

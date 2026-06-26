@@ -734,10 +734,6 @@ export class ExaltedRoll {
         // uses the pre-bump DVs; the next attack will see the bumped total.
         // Cleared by advanceWheel when the defender becomes free again.
         await targetActor.addOnslaught();
-        // M47 — Extra onslaught stacks from supplemental charms (e.g. onslaughtMultiplier: 2 adds 2 stacks instead of 1)
-        const _extraStacks = activatedCharmItems.reduce(
-          (acc, c) => Math.max(acc, c.system?.onslaughtMultiplier ?? 1), 1) - 1;
-        for (let _i = 0; _i < _extraStacks; _i++) await targetActor.addOnslaught();
 
         // Starmetal artifact armor worn by the defender imposes an external
         // penalty on the attacker's success tally (reduces effective hits).
@@ -970,6 +966,14 @@ export class ExaltedRoll {
     const activatedCharmItems = activatedCharms
       .map(ac => actor.items.get(ac.id))
       .filter(Boolean);
+
+    // M47 — Extra onslaught stacks from supplemental charms (e.g. onslaughtMultiplier: 2 adds 2 stacks instead of 1).
+    // Placed here (post-dialog) because activatedCharmItems requires the resolved dialog activation list.
+    if (targetActor && !isAreaAttack) {
+      const _extraStacks = activatedCharmItems.reduce(
+        (acc, c) => Math.max(acc, c.system?.onslaughtMultiplier ?? 1), 1) - 1;
+      for (let _i = 0; _i < _extraStacks; _i++) await targetActor.addOnslaught();
+    }
 
     // Pre-evaluate formula fields (e.g. "@ess") to plain integers before
     // passing to computeAttackCharmBonus, which only handles resolved numbers.
@@ -1255,6 +1259,25 @@ export class ExaltedRoll {
       targetNumber:    attackTargetNumber,
       soakPiercing:    charmAttackBonus.soakPiercing   || 0,
       ignoresArmor:    charmAttackBonus.ignoresArmor   || false,
+      // M2c — soakReductionOnHit: aggregate from activated charms, applied to target on hit
+      soakReductionOnHit: (() => {
+        let bashing = 0, lethal = 0, duration = "untilNextAction";
+        for (const c of activatedCharmItems) {
+          const sr = c.system?.soakReductionOnHit;
+          if (!sr?.enabled) continue;
+          bashing  += sr.bashingReduction ?? 0;
+          lethal   += sr.lethalReduction  ?? 0;
+          if (sr.duration) duration = sr.duration;
+        }
+        return (bashing || lethal) ? { bashing, lethal, duration } : null;
+      })(),
+      // M2d — damageDrivenPenalty: captured from activated charms, applied after damage is dealt
+      damageDrivenPenalty: (() => {
+        const c = activatedCharmItems.find(c => c.system?.damageDrivenPenalty?.enabled);
+        if (!c) return null;
+        const ddp = c.system.damageDrivenPenalty;
+        return { perHL: ddp.perHL ?? 1, scope: ddp.scope ?? "all" };
+      })(),
       attackCharms:            activatedCharms.map(c => c.name),
       isCounterattack:         !!options.isCounterattack,
       originalAttackMessageId: options.originalAttackMessageId ?? null,

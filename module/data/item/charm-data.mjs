@@ -232,6 +232,28 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         })),
       }),
 
+      // M2b — Transient health level grant (scene-long charms; Anointment of Miraculous Health family)
+      temporaryHealthLevels: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        level:   new fields.StringField({ initial: "zero", blank: false }),
+        formula: new fields.StringField({ initial: "1",    blank: false })
+      }),
+
+      // M2c — On-hit soak reduction (Throat-Baring Hold family): stamps time-limited AE on target
+      soakReductionOnHit: new fields.SchemaField({
+        enabled:         new fields.BooleanField({ initial: false }),
+        bashingReduction: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        lethalReduction:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        duration:        new fields.StringField({ initial: "untilNextAction", blank: false })
+      }),
+
+      // M2d — Damage-driven penalty (Joint-Wounding Attack family): stamps penalty AE per HL dealt
+      damageDrivenPenalty: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        perHL:   new fields.NumberField({ initial: 1, min: 0, integer: false }),
+        scope:   new fields.StringField({ initial: "all", blank: false })
+      }),
+
       // M3 — Wound penalty reduction / negation
       woundReduction: new fields.SchemaField({
         enabled: new fields.BooleanField({ initial: false }),
