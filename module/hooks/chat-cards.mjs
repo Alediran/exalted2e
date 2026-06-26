@@ -1242,6 +1242,32 @@ export function registerChatCardHooks() {
       });
     });
 
+    // ── Homing re-attack (M70) ───────────────────────────────────────────
+    // Fires a fresh rollAttack with the same weapon/mode/target. Shown on a
+    // missed attack whose charm had homingAttack: true. Fires on the NEXT
+    // tick; GM/player clicks when it's the attacker's turn.
+    el.querySelector?.(".btn-homing-reattack")?.addEventListener("click", async () => {
+      const attack = message.flags?.exalted2e?.attack;
+      if (!attack || attack.homingReattackFired) return;
+      const attacker = game.actors.get(attack.actorId);
+      if (!attacker?.testUserPermission(game.user, "OWNER")) {
+        ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+        return;
+      }
+      // Mark original card so button disappears.
+      const newAttack = { ...attack, homingReattackFired: true };
+      const { renderAttackCardContent, ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+      const content = await renderAttackCardContent(newAttack);
+      await message.update({ content, flags: { exalted2e: { attack: newAttack } } });
+      // Fire the re-attack.
+      const targetActor = attack.targetId ? game.actors.get(attack.targetId) : null;
+      await ExaltedRoll.rollAttack(attacker, attack.weaponId, {
+        modeIndex:           attack.modeIndex ?? 0,
+        explicitTargetActor: targetActor,
+        isHomingReattack:    true
+      });
+    });
+
     // ── Area resist roll ─────────────────────────────────────────────────
     el.querySelector?.(".btn-roll-area-resist")?.addEventListener("click", async (ev) => {
       const btn = ev.currentTarget;

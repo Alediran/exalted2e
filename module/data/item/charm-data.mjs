@@ -516,6 +516,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       rangeMultiplier: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
       // M66 — Melee weapons treated as short thrown range (30 units) for checkAttackRange
       meleeRangeExtension: new fields.BooleanField({ initial: false }),
+      // M70 — Supplemental: if the attack misses, show a re-attack button on the next tick
+      homingAttack: new fields.BooleanField({ initial: false }),
       // M69 — When used in a social attack, halves the defender's base MDV (floor)
       halveMDV: new fields.BooleanField({ initial: false }),
       // M67 — Transfer motes to a Circle ally when this charm activates

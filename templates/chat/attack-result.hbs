@@ -248,6 +248,13 @@
       <div class="roll-result failure">
         <span class="result-label failure-label">{{localize "EX2E.Miss"}}</span>
       </div>
+      {{#if showHomingReattack}}
+      <div class="third-exc-reroll">
+        <button class="btn-roll btn-homing-reattack">
+          <i class="fa-solid fa-rotate-right"></i> {{localize "EX2E.HomingReattack"}}
+        </button>
+      </div>
+      {{/if}}
       {{/if}}
     {{else if showAttackerReroll}}
       <div class="step-pending-label">{{localize "EX2E.Step4Pending"}}</div>

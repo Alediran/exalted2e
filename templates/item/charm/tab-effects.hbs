@@ -2215,6 +2215,16 @@
     </label>
   </div>
 
+  {{!-- M70 Homing Attack ──────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.homingAttack"
+             {{#if system.homingAttack}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.HomingAttack"}}
+    </label>
+  </div>
+
   {{!-- M69 Halve MDV ──────────────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="checkbox-label">

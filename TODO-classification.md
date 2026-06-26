@@ -44,7 +44,7 @@ Last updated: 2026-06-26 (M64–M69 done: counterattackUnblockableVariant, range
 | ~~Mote loan + willpower gift~~ | Combat System | **Done** — `moteLoan`/`willpowerGift` SchemaFields; Circle-folder ally picker in `activateCharm`; `receiveMotes` → `recoverMotes` + new `receiveWillpower` actor method |
 | ~~Ally-targeting support~~ | Combat System | **Done** — embedded in moteLoan/willpowerGift; Circle folder by `flags.exalted2e.theCircle`; `DialogV2.prompt` with radio buttons |
 | ~~Formal social attack pipeline — MDV-halving~~ | Social Combat | **Done** — `halveMDV` BooleanField; detected post-activation in `rollAttributeAbility`; `resolveStep2` applies `Math.floor(rawBase/2)` to base subtotal; WP-to-resist already existed via `umiCost` |
-| Homing attack | Combat System | "Pending re-attack" state on combatant; auto-re-roll on following tick; Lunar-specific |
+| ~~Homing attack~~ | Combat System | **Done** — `homingAttack` BooleanField; snapshot carries `homingAttack`/`weaponId`/`modeIndex`/`isHomingReattack`; `showHomingReattack` in `computeAttackOutcome`; button + handler in chat-cards; `homingReattackFired` prevents loops |
 | Ammo tracking + `bypassAmmoConsumption` | Combat System | Quiver/clip resource; decrement on attack; charm bypass flag; blocks archery-charm variants |
 | Elsewhere system | Combat System | "Elsewhere inventory" on CharacterData; charm-activated store/recall; paired AE; Archery-specific |
 | ~~Dematerialized targeting gate~~ | Lunar | **Done** — `dematerialized` status in `CONFIG.statusEffects`; gate in `rollAttack` post-`activatedCharmItems`; `harmImmaterial` from passives or supplemental charm bypasses it |

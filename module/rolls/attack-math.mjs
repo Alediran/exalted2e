@@ -181,8 +181,14 @@ export function computeAttackOutcome(attack) {
   const step9Complete = !step9Applicable
     || !!attack.counterattackTriggered
     || !!attack.step9Passed;
-  data.showCounterattack = step9Applicable && !step9Complete;
-  data.showRollDamage    = (data.hit ?? false) && !data.hardnessStops && !data.perfectSoak && step9Complete;
+  data.showCounterattack  = step9Applicable && !step9Complete;
+  data.showRollDamage     = (data.hit ?? false) && !data.hardnessStops && !data.perfectSoak && step9Complete;
+  // M70 — Homing re-attack button: show on a miss when the original attack had homingAttack
+  data.showHomingReattack = data.showResolution
+    && !(data.hit ?? false)
+    && !perfectDefense
+    && !!attack.homingAttack
+    && !attack.homingReattackFired;
 
   return data;
 }
