@@ -7,6 +7,8 @@
  * normal input afterwards.
  */
 
+import { getRangeMultiplierFromCharms, hasMeleeRangeExtensionFromCharms } from "../rolls/charm-passive-math.mjs";
+
 /**
  * Resolve the best available actor for the current user.
  *
@@ -132,12 +134,18 @@ export function checkAttackRange(mode, attackerActor, targetActor) {
   const distance = path?.distance ?? 0;
   const spaces   = path?.spaces   ?? 0;
 
-  const rangeVal = mode?.effectiveRange ?? mode?.range ?? 0;
-  if (rangeVal === 0) {
+  let rangeVal = mode?.effectiveRange ?? mode?.range ?? 0;
+  const meleeExtension = attackerActor ? hasMeleeRangeExtensionFromCharms(attackerActor) : false;
+  if (rangeVal === 0 && !meleeExtension) {
     const hasReach = mode?.tags?.includes("Reach");
     const maxSpaces = hasReach ? 2 : 1;
     return { inRange: spaces <= maxSpaces, distance, spaces, maxRange: maxSpaces, band: null, rangePenalty: 0 };
   }
+  if (rangeVal === 0 && meleeExtension) {
+    rangeVal = 30; // short thrown range
+  }
+  const multiplier = attackerActor ? getRangeMultiplierFromCharms(attackerActor) : 1;
+  rangeVal = rangeVal * multiplier;
 
   if (distance > rangeVal) {
     return { inRange: false, distance, spaces, maxRange: rangeVal, band: null, rangePenalty: 0 };

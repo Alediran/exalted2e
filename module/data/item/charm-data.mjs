@@ -510,6 +510,12 @@ export class CharmData extends foundry.abstract.TypeDataModel {
           type: new fields.StringField({ initial: "major", choices: ["minor", "major", "defining"] }),
         })
       ),
+      // M64 — Counterattack fired via this charm automatically gains the Unblockable keyword
+      counterattackUnblockableVariant: new fields.BooleanField({ initial: false }),
+      // M65 — Multiplies effective weapon range for checkAttackRange (1 = no change; max across active charms)
+      rangeMultiplier: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
+      // M66 — Melee weapons treated as short thrown range (30 units) for checkAttackRange
+      meleeRangeExtension: new fields.BooleanField({ initial: false }),
       // M48 — Virtue roll trigger: auto-roll a virtue when this charm activates
       virtueRollTrigger: new fields.SchemaField({
         enabled:    new fields.BooleanField({ required: false, initial: false }),

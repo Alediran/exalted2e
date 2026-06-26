@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 276 / 291 complete** (6 partial / out-of-scope, 4 still pending — last updated 2026-06-26 — added M49–M63 charm mechanic fields: onslaught DV injection, DV-penalty ignore, MDV bonus, shaping immunity, auto-knockdown, dematerialized detection, limit-break immunity, virtue recovery, social-success formula, attacker movement, unexpected-attack flags, join-battle bonus, max-perfect-uses, intimacy protection)
+**Progress: 280 / 291 complete** (6 partial / out-of-scope, 0 plan tasks pending — last updated 2026-06-26 — added M49–M63 charm mechanic fields: onslaught DV injection, DV-penalty ignore, MDV bonus, shaping immunity, auto-knockdown, dematerialized detection, limit-break immunity, virtue recovery, social-success formula, attacker movement, unexpected-attack flags, join-battle bonus, max-perfect-uses, intimacy protection)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -56,9 +56,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Join Battle success bonus (`joinBattleSuccessBonus: NumberField`) — flat bonus successes from passively-active charms added to `rollInitiative` success count
 - [x] First-attack-unexpected passive charm (`firstAttackUnexpected: BooleanField`) — actor's first attack each combat zeroes target DVs; tracks via `combatant.flags.exalted2e.hasAttacked`; cleared on new combat
 - [x] Max perfect uses per scene (`maxPerfectUses: NumberField`) — caps perfect-defense activations via `targetCombatant.flags.exalted2e.perfectUses[charmId]` counter; toast warns on exhaustion (0 = unlimited)
-- [ ] Counterattack becomes Unblockable via charm flag (`counterattackUnblockableVariant: BooleanField`) — injects `Unblockable` keyword when the counterattack is fired; needs schema + chat-cards counterattack handler + `rollAttack` `extraKeywords` merge + UI + i18n
-- [ ] Range multiplier (`rangeMultiplier: NumberField`) — passively-active charms multiply effective weapon range for `checkAttackRange`; needs charm-passive-math helper + targeting.mjs consumer + attack snapshot + UI + i18n
-- [ ] Melee range extension (`meleeRangeExtension: BooleanField`) — melee weapons treated as short thrown range for `checkAttackRange`; same pipeline as rangeMultiplier
+- [x] Counterattack becomes Unblockable via charm flag (`counterattackUnblockableVariant: BooleanField`) — injects `Unblockable` keyword when the counterattack is fired; `rollAttack` merges `options.extraKeywords` into `activatedKeywords` after the supplemental-charm loop
+- [x] Range multiplier (`rangeMultiplier: NumberField`) — passively-active charms multiply effective weapon range; `getRangeMultiplierFromCharms` (max across active charms) applied to `rangeVal` in `checkAttackRange`
+- [x] Melee range extension (`meleeRangeExtension: BooleanField`) — melee weapons treated as 30-unit thrown range in `checkAttackRange` when any passively-active charm has this flag
 - [ ] Mote loan to target (`moteLoan: SchemaField { enabled, formula }`) — transfers motes from activator to a targeted ally; needs ally-targeting flow (see Social/Ally section) and a new `receiveMotes` actor method — see Essence-Lending Method
 - [ ] Willpower gift to target (`willpowerGift: SchemaField { enabled, formula }`) — transfers WP to a targeted ally; same ally-targeting dependency as moteLoan — see Will-Bolstering Method
 - [ ] Ally-targeting support — pick a friendly token from the charm activation dialog; currently all charm effects apply to self or the attack target only; needed by moteLoan, willpowerGift, and a handful of Lunar ally-buff charms
@@ -344,7 +344,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [~] Background mechanical hooks — Familiar (actor link, species, bond rating, linked actor creation into The Circle/Familiars), Cult (mote regen / WP recovery from dot rating), Command (war dice) and Followers (magnitude) done via dedicated item types + `_prepareXxxData` rating tables; 53-type registry with optgroup display. Backing / Contacts / Resources are intentionally **narrative-only** (ST-adjudicated) — no automation planned for now (decision 2026-06-04). Item parked pending the user identifying specific automations worth building.
 - [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)
 - [x] Scene-end reset (anima step-down done; Peripheral-spend counter, per-scene WP drain counters)
-- [ ] Overdrive pool display on character sheet — `system.motes.peripheral.overdrive` already written by `addOverdriveMotes`; needs a display badge alongside the peripheral pool in `tab-combat.hbs` + i18n key `OverdriveMotes`
+- [x] Overdrive pool display on character sheet — `system.motes.peripheral.overdrive` already rendered in `header.hbs` (lines 93–94) as a conditional `+N` badge with `OverdriveTooltip` i18n; already complete
 
 ## Crafting
 - [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.) — multiple named Craft variants with independent dot ratings, XP costs (inherits Caste/Favored), and roll integration with per-variant charm gating

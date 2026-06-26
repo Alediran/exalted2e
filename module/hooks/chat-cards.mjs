@@ -1199,11 +1199,13 @@ export function registerChatCardHooks() {
       // Fire the counterattack. It will post its own attack card, flagged so
       // it can't recursively offer Step 9 on itself.
       const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+      const extraKeywords = charm.system?.counterattackUnblockableVariant ? ["Unblockable"] : [];
       const counterMessage = await ExaltedRoll.rollAttack(defender, result.weaponId, {
         modeIndex:               result.modeIndex,
         isCounterattack:         true,
         originalAttackMessageId: message.id,
-        explicitTargetActor:     originalAttacker
+        explicitTargetActor:     originalAttacker,
+        extraKeywords
       });
 
       // Mark the original attack as having triggered its counterattack so the

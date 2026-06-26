@@ -692,3 +692,21 @@ export function getIntimacyProtectionFromCharms(actor) {
   }
   return result;
 }
+
+export function getRangeMultiplierFromCharms(actor) {
+  let max = 1;
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    const m = c.system?.rangeMultiplier ?? 1;
+    if (m > max) max = m;
+  }
+  return max;
+}
+
+export function hasMeleeRangeExtensionFromCharms(actor) {
+  for (const c of (actor.items ?? [])) {
+    if (c.type !== "charm" || !isCharmPassivelyActive(c)) continue;
+    if (c.system?.meleeRangeExtension) return true;
+  }
+  return false;
+}

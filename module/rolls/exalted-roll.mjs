@@ -939,6 +939,7 @@ export class ExaltedRoll {
       for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
       for (const kw of (c.system.supplementalKeywordInjection ?? [])) activatedKeywords.add(kw);
     }
+    for (const kw of (options.extraKeywords ?? [])) activatedKeywords.add(kw);
     if (activationBucket.length === 1) {
       const soleCharm = actor.items.get(activationBucket[0].charmId);
       if (soleCharm) await soleCharm.sendToChat({ activation: activationBucket[0].ledger });

@@ -14,8 +14,8 @@ Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as ne
 | Onslaught multiplier (`onslaughtMultiplier`) | Combat System | ✅ Done — schema + extra `addOnslaught()` calls in `rollAttack` + UI + i18n |
 | Fix Unbreakable Warrior's Mastery | Charms | ✅ Done — source JSON already correct; no fix needed |
 | Formal virtue roll pipeline | Virtues & Willpower | ✅ Done — `virtueRollTrigger` SchemaField + consumer in `activateCharm` + UI + i18n |
-| Counterattack Unblockable variant (`counterattackUnblockableVariant`) | Combat System | ⏳ Pending — add `BooleanField` to charm-data.mjs; chat-cards counterattack handler passes `options.extraKeywords: ["Unblockable"]`; `rollAttack` merges `options.extraKeywords` into `activatedKeywords`; checkbox UI + i18n |
-| Overdrive pool display | Other Mechanics | ⏳ Pending — `system.motes.peripheral.overdrive` already stored; add a display badge to `tab-combat.hbs` alongside peripheral pool; i18n key `OverdriveMotes` |
+| ~~Counterattack Unblockable variant (`counterattackUnblockableVariant`)~~ | Combat System | **Done** — schema + chat-cards handler passes `extraKeywords: ["Unblockable"]`; `rollAttack` merges after supplemental loop; checkbox UI + i18n |
+| ~~Overdrive pool display~~ | Other Mechanics | **Done** — already rendered in `header.hbs:93-94` as conditional `+N` badge with `OverdriveTooltip`; already complete |
 
 ---
 
@@ -31,8 +31,8 @@ Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as ne
 | ~~Fix Shockwave Technique consumer~~ | Charms | **Done** — added `Unblockable` keyword |
 | ~~Per-purchase variant selection~~ | Charms | **Done** — `soakBonus.options[]` + picker hook + grouped CharacterSheet display + `evalMaxPurchases` formula resolution |
 | ~~Upgrade tier system~~ | Charms | **Done** — `upgradeTiers[]` schema + `charm-tier-math.mjs` + `TierSelectionDialog` + `activateCharm` pipeline |
-| Range multiplier (`rangeMultiplier`) | Combat System | ⏳ Pending — `NumberField` in charm-data.mjs; `getRangeMultiplierFromCharms(actor)` in charm-passive-math.mjs (max across active charms); multiply in `checkAttackRange` before comparison; add to attack snapshot in `rollAttack`; number input (min 1) in tab-effects.hbs; i18n |
-| Melee range extension (`meleeRangeExtension`) | Combat System | ⏳ Pending — `BooleanField`; `hasMeleeRangeExtensionFromCharms(actor)` helper; in `checkAttackRange`, if melee weapon + actor has this flag, allow short range; checkbox UI + i18n |
+| ~~Range multiplier (`rangeMultiplier`)~~ | Combat System | **Done** — schema + `getRangeMultiplierFromCharms` (max across active charms) applied in `checkAttackRange`; number input UI + i18n |
+| ~~Melee range extension (`meleeRangeExtension`)~~ | Combat System | **Done** — schema + `hasMeleeRangeExtensionFromCharms`; melee treated as 30-unit ranged in `checkAttackRange`; checkbox UI + i18n |
 
 ---
 
@@ -67,8 +67,8 @@ Last updated: 2026-06-26 (M49–M63 all done; 4 remaining plan tasks added as ne
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 2 |
-| B — Ready, Medium | 2 |
+| A — Ready, Simple | 0 (all done) |
+| B — Ready, Medium | 0 (all done) |
 | C — Ready, Complex | 11 |
-| **Total active** | **15** |
+| **Total active** | **11** |
 | (Parked) | 2 |
