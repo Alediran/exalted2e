@@ -45,6 +45,18 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
+    "healthGrant": {
+      "enabled": true,
+      "options": [
+        {
+          "label": "Purchase",
+          "zero": 0,
+          "one": 0,
+          "two": 3,
+          "dying": 1
+        }
+      ]
+    },
     "charmUid": "b31ec09022c3b489"
   },
   "folder": "1945ba1655ca5f6f",

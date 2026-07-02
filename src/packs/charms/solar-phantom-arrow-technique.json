@@ -45,6 +45,7 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "f29c6afbc6a82eae", "charmName": "Essence Arrow Attack", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "bypassAmmoConsumption": true,
     "charmUid": "7372b08559265e8b"
   },
   "folder": "e842a3a532908d8d",
