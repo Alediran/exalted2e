@@ -740,6 +740,19 @@
   </div>
   {{/if}}
 
+  {{#if (eq item.type "malados")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.SpiritName"}}</label>
+    <input type="text" name="system.spiritName" value="{{system.spiritName}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px;margin-bottom:16px">
+    <label>{{localize "EX2E.EssenceRating"}}</label>
+    <input type="number" name="system.essenceRating" value="{{system.essenceRating}}"
+           min="1" max="10" style="width:60px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
   <div class="editor-container">
     {{#if isEditable}}
     {{> "systems/exalted2e/templates/item/_partials/description-langs.hbs"}}

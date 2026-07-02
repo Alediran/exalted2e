@@ -522,6 +522,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       bypassAmmoConsumption: new fields.BooleanField({ initial: false }),
       // M72 — Reflexive/Simple: send the wielded bow to Elsewhere; recall as reflexive
       sendsWeaponToElsewhere: new fields.BooleanField({ initial: false }),
+      // M73 — Simple: capture a slain/dominated spirit's Essence pattern as a malados item
+      capturesMalados: new fields.BooleanField({ initial: false }),
+      // M73 — Simple: inject a held malados into a Circle ally, granting spirit-like traits
+      transfersMalados: new fields.BooleanField({ initial: false }),
       // M69 — When used in a social attack, halves the defender's base MDV (floor)
       halveMDV: new fields.BooleanField({ initial: false }),
       // M67 — Transfer motes to a Circle ally when this charm activates

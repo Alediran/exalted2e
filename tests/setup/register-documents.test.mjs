@@ -98,7 +98,7 @@ describe("registerDocuments", () => {
     expect(CONFIG.Item.dataModels.weapon).toBe(WeaponData);
   });
 
-  it("registers all 30 item data model types", () => {
+  it("registers all 32 item data model types", () => {
     registerDocuments();
     const expectedTypes = [
       "charm", "spell", "weapon", "armor", "background", "intimacy",
@@ -106,7 +106,7 @@ describe("registerDocuments", () => {
       "urge", "destiny", "resplendency", "equipment", "hearthstone",
       "martialartsstyle", "poison", "disease", "drug", "mutation",
       "manse", "manse-power", "familiar", "cult", "command", "followers",
-      "thaum-art", "procedure",
+      "thaum-art", "procedure", "ammo", "malados",
     ];
     for (const type of expectedTypes) {
       expect(CONFIG.Item.dataModels[type], `missing item type: ${type}`).toBeDefined();

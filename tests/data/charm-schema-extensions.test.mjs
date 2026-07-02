@@ -155,3 +155,29 @@ describe("CharmData schema — sendsWeaponToElsewhere (M72)", () => {
     expect(initial).toBe(false);
   });
 });
+
+describe("CharmData schema — capturesMalados (M73)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.capturesMalados).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.capturesMalados.getInitialValue?.() ?? schema.capturesMalados.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("CharmData schema — transfersMalados (M73)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.transfersMalados).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.transfersMalados.getInitialValue?.() ?? schema.transfersMalados.options?.initial;
+    expect(initial).toBe(false);
+  });
+});

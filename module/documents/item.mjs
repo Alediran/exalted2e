@@ -628,6 +628,88 @@ ${capWarning}`;
       }
     }
 
+    // M73 — Capture a spirit's Essence pattern into a malados item on this actor.
+    if (sys.capturesMalados) {
+      const html = `
+        <p>${game.i18n.localize("EX2E.CapturesMaladosPrompt")}</p>
+        <div class="form-group" style="margin-bottom:6px">
+          <label>${game.i18n.localize("EX2E.SpiritName")}</label>
+          <input type="text" name="spiritName" style="width:100%">
+        </div>
+        <div class="form-group">
+          <label>${game.i18n.localize("EX2E.EssenceRating")}</label>
+          <input type="number" name="essenceRating" value="1" min="1" max="10" style="width:60px">
+        </div>`;
+      const result = await foundry.applications.api.DialogV2.prompt({
+        window:  { title: game.i18n.localize("EX2E.CapturesMaladosTitle") },
+        content: html,
+        ok: {
+          callback: (_event, _button, dialog) => ({
+            spiritName:   dialog.querySelector("[name='spiritName']")?.value?.trim() ?? "",
+            essenceRating: Number(dialog.querySelector("[name='essenceRating']")?.value ?? 1),
+          })
+        }
+      });
+      if (result?.spiritName) {
+        await actor.createEmbeddedDocuments("Item", [{
+          name:   result.spiritName,
+          type:   "malados",
+          system: { spiritName: result.spiritName, essenceRating: result.essenceRating }
+        }]);
+        ui.notifications.info(game.i18n.format("EX2E.MaladosCaptured", { name: result.spiritName }));
+      }
+    }
+
+    // M73 — Transfer a held malados to a Circle ally.
+    if (sys.transfersMalados) {
+      const maladosItems = actor.items.filter(i => i.type === "malados");
+      if (maladosItems.length === 0) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoMaladosFound"));
+      } else {
+        const circleFolder = game.folders.find(f => f.flags?.exalted2e?.theCircle === true);
+        const allies = circleFolder
+          ? game.actors.filter(a => a.folder?.id === circleFolder.id && a.id !== actor.id)
+          : [];
+        if (allies.length === 0) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NoCircleAlliesFound"));
+        } else {
+          const maladosRadio = maladosItems.map(m =>
+            `<label style="display:block"><input type="radio" name="maladosId" value="${m.id}"> ${m.name} (Ess ${m.system.essenceRating})</label>`
+          ).join("");
+          const allyRadio = allies.map(a =>
+            `<label style="display:block"><input type="radio" name="allyId" value="${a.id}"> ${a.name}</label>`
+          ).join("");
+          const result = await foundry.applications.api.DialogV2.prompt({
+            window:  { title: game.i18n.localize("EX2E.TransfersMaladosTitle") },
+            content: `<p><b>${game.i18n.localize("EX2E.SelectMaladosPrompt")}</b></p>
+              <form>${maladosRadio}</form>
+              <hr>
+              <p><b>${game.i18n.localize("EX2E.SelectAllyPrompt")}</b></p>
+              <form>${allyRadio}</form>`,
+            ok: {
+              callback: (_event, _button, dialog) => ({
+                maladosId: dialog.querySelector("input[name='maladosId']:checked")?.value ?? null,
+                allyId:    dialog.querySelector("input[name='allyId']:checked")?.value ?? null,
+              })
+            }
+          });
+          if (result?.maladosId && result?.allyId) {
+            const malados = actor.items.get(result.maladosId);
+            const targetAlly = game.actors.get(result.allyId);
+            if (malados && targetAlly) {
+              await targetAlly.createEmbeddedDocuments("Item", [{
+                name:   malados.name,
+                type:   "malados",
+                system: foundry.utils.deepClone(malados.system),
+              }]);
+              await malados.delete();
+              ui.notifications.info(game.i18n.format("EX2E.MaladosTransferred", { name: malados.name, target: targetAlly.name }));
+            }
+          }
+        }
+      }
+    }
+
     // Restore peripheral motes before the mastery AE is deleted by cleanup.
     if (turningOff && isToggleable && sys.excellency === "infiniteMastery") {
       const ae = actor.effects.find(
