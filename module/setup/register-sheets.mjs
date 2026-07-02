@@ -67,7 +67,7 @@ export function registerSheets() {
   foundry.documents.collections.Items.registerSheet("exalted2e", GenericItemSheet, {
     types:     ["background", "intimacy", "meritflaw", "equipment", "hearthstone",
                 "poison", "disease", "drug", "mutation", "manse", "manse-power", "familiar", "cult",
-                "command", "followers"],
+                "command", "followers", "ammo"],
     makeDefault: true,
     label:     "EX2E.SheetGenericItem"
   });

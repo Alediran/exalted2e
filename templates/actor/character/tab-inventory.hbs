@@ -14,6 +14,20 @@
     <div class="item-row" data-item-id="{{w.id}}">
       <img class="item-img" src="{{w.img}}" alt="{{w.name}}">
       <span class="item-name">{{w.name}}</span>
+      {{#with (lookup @root.weaponAmmoData w.id) as |ammoData|}}
+      {{#if ammoData}}
+      <select class="ammo-selector" data-weapon-id="{{w.id}}"
+              style="width:180px;flex-shrink:0"
+              {{#unless @root.isEditable}}disabled{{/unless}}>
+        <option value="">— {{localize "EX2E.NoAmmo"}} —</option>
+        {{#each ammoData.items as |a|}}
+        <option value="{{a.id}}" {{#if (eq a.id ammoData.selectedId)}}selected{{/if}}>
+          {{a.name}} ({{a.system.quantity}})
+        </option>
+        {{/each}}
+      </select>
+      {{/if}}
+      {{/with}}
       <span class="item-stat">{{w.system.modes.length}} {{#if (eq w.system.modes.length 1)}}{{localize "EX2E.Mode"}}{{else}}{{localize "EX2E.Modes"}}{{/if}}</span>
       <div class="item-controls">
         <button data-action="toggleEquip" title="{{#if w.system.equipped}}Unequip{{else}}Equip{{/if}}">
@@ -46,6 +60,41 @@
       {{/if}}
     </div>
     {{/each}}
+
+    <!-- ═══════ AMMO ═══════ -->
+    {{#if ammoItems.length}}
+    <div class="section-toolbar ex2e-row" style="margin-top:8px">
+      <h3 class="section-header" style="margin:0;flex:1;font-size:0.85em;opacity:0.8">{{localize "EX2E.Ammunition"}}</h3>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="ammo">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each ammoItems as |a|}}
+    <div class="item-row" data-item-id="{{a.id}}">
+      <img class="item-img" src="{{a.img}}" alt="{{a.name}}">
+      <span class="item-name">{{a.name}}</span>
+      <span class="item-stat">{{#if (eq a.system.ammoType "arrows")}}{{localize "EX2E.AmmoTypeArrows"}}{{else}}{{localize "EX2E.AmmoTypeFiredust"}}{{/if}}</span>
+      <span class="item-stat">×{{a.system.quantity}}</span>
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+    {{#if isEditable}}
+    <div style="display:flex;justify-content:flex-end;margin-top:4px">
+      <button class="btn-add-item" data-action="createItem" data-type="ammo"
+              title="{{localize 'EX2E.AddAmmo'}}">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.Ammunition"}}
+      </button>
+    </div>
+    {{/if}}
+    {{/if}}
 
     <!-- ═══════ ARMOR ═══════ -->
     <div class="section-toolbar ex2e-row" style="margin-top:16px">

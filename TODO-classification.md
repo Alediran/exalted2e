@@ -45,7 +45,7 @@ Last updated: 2026-06-26 (M64–M69 done: counterattackUnblockableVariant, range
 | ~~Ally-targeting support~~ | Combat System | **Done** — embedded in moteLoan/willpowerGift; Circle folder by `flags.exalted2e.theCircle`; `DialogV2.prompt` with radio buttons |
 | ~~Formal social attack pipeline — MDV-halving~~ | Social Combat | **Done** — `halveMDV` BooleanField; detected post-activation in `rollAttributeAbility`; `resolveStep2` applies `Math.floor(rawBase/2)` to base subtotal; WP-to-resist already existed via `umiCost` |
 | ~~Homing attack~~ | Combat System | **Done** — `homingAttack` BooleanField; snapshot carries `homingAttack`/`weaponId`/`modeIndex`/`isHomingReattack`; `showHomingReattack` in `computeAttackOutcome`; button + handler in chat-cards; `homingReattackFired` prevents loops |
-| Ammo tracking + `bypassAmmoConsumption` | Combat System | Quiver/clip resource; decrement on attack; charm bypass flag; blocks archery-charm variants |
+| ~~Ammo tracking + `bypassAmmoConsumption`~~ | Combat System | **Done** — `ammo: SchemaField { enabled, current, max }` on WeaponData; gate in `rollAttack` post-`activatedCharmItems`; `bypassAmmoConsumption` BooleanField on CharmData; abort+toast at 0; skipped on homing re-attack |
 | Elsewhere system | Combat System | "Elsewhere inventory" on CharacterData; charm-activated store/recall; paired AE; Archery-specific |
 | ~~Dematerialized targeting gate~~ | Lunar | **Done** — `dematerialized` status in `CONFIG.statusEffects`; gate in `rollAttack` post-`activatedCharmItems`; `harmImmaterial` from passives or supplemental charm bypasses it |
 | Maladic capture + transfer | Lunar | New item/AE type; transfer dialog; Lunar-specific |

@@ -611,6 +611,27 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const knacks     = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
     const weapons    = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
+
+    // M71 — Build per-weapon ammo selector data for the inventory tab.
+    const ammoItems = actor.items.filter(i => i.type === "ammo").sort((a, b) => a.name.localeCompare(b.name));
+    const _ammosByType = {
+      arrows:   ammoItems.filter(a => a.system.ammoType === "arrows"),
+      firedust: ammoItems.filter(a => a.system.ammoType === "firedust"),
+    };
+    const weaponAmmoData = {};
+    for (const w of weapons) {
+      const tags      = w.system.modes.flatMap(m => m.tags ?? []);
+      const needsBow  = tags.includes("Bow");
+      const needsFlame = tags.includes("Flame Piece");
+      const ammoType  = needsBow ? "arrows" : (needsFlame ? "firedust" : null);
+      if (ammoType) {
+        weaponAmmoData[w.id] = {
+          ammoType,
+          items:      _ammosByType[ammoType],
+          selectedId: w.system.ammo?.selectedAmmoId ?? "",
+        };
+      }
+    }
     const backgrounds= actor.items.filter(i => i.type === "background") .sort((a,b) => a.name.localeCompare(b.name));
     const intimacies = actor.items.filter(i => i.type === "intimacy")   .sort((a,b) => a.name.localeCompare(b.name));
     const conviction = actor.system?.virtues?.conviction?.value ?? 1;
@@ -1031,6 +1052,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       hearthstones,
       manses, familiars, cults,
       artifactSlotMap,
+      weaponAmmoData,
+      ammoItems,
       maStyles,
       linkedVehicles,
       mountedVehicle,
@@ -1135,6 +1158,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         const item = this.document.items.get(row.dataset.itemId);
         if (!item) return;
         event.dataTransfer.setData("text/plain", JSON.stringify({ type: "Item", uuid: item.uuid }));
+      });
+    });
+
+    // M71 — Ammo selector: route change to the weapon item update.
+    this.element.querySelectorAll(".ammo-selector").forEach(sel => {
+      sel.addEventListener("change", async event => {
+        const weaponId = event.target.dataset.weaponId;
+        const weapon   = this.document.items.get(weaponId);
+        if (!weapon) return;
+        await weapon.update({ "system.ammo.selectedAmmoId": event.target.value });
       });
     });
 

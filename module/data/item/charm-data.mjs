@@ -518,6 +518,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       meleeRangeExtension: new fields.BooleanField({ initial: false }),
       // M70 — Supplemental: if the attack misses, show a re-attack button on the next tick
       homingAttack: new fields.BooleanField({ initial: false }),
+      // M71 — Supplemental: skip ammo decrement for this attack
+      bypassAmmoConsumption: new fields.BooleanField({ initial: false }),
       // M69 — When used in a social attack, halves the defender's base MDV (floor)
       halveMDV: new fields.BooleanField({ initial: false }),
       // M67 — Transfer motes to a Circle ally when this charm activates

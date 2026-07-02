@@ -968,6 +968,32 @@ export class ExaltedRoll {
       .map(ac => actor.items.get(ac.id))
       .filter(Boolean);
 
+    // M71 — Ammo gate: decrement linked ammo item when weapon mode needs projectiles.
+    let resolvedAmmoItem = null;
+    const needsAmmo = mode.tags?.includes("Bow") || mode.tags?.includes("Flame Piece");
+    if (needsAmmo && !options.isHomingReattack) {
+      const bypass = activatedCharmItems.some(c => c.system?.bypassAmmoConsumption === true);
+      if (!bypass) {
+        const selectedAmmoId = wSys.ammo?.selectedAmmoId ?? "";
+        if (selectedAmmoId) {
+          const ammoItem = actor.items.get(selectedAmmoId)
+            ?? weaponOwner.items.get(selectedAmmoId);
+          const qty = ammoItem?.type === "ammo" ? (ammoItem.system.quantity ?? 0) : 0;
+          if (!ammoItem || ammoItem.type !== "ammo" || qty <= 0) {
+            ui.notifications.warn(game.i18n.localize("EX2E.NoAmmoRemaining"));
+            return null;
+          }
+          await ammoItem.update({ "system.quantity": qty - 1 });
+          resolvedAmmoItem = ammoItem;
+        }
+      }
+    }
+    // Apply ammo damage-type override before soak lookups (affects which soak column is read).
+    if (resolvedAmmoItem) {
+      const at = resolvedAmmoItem.system.damageType;
+      if (at) mode.damageType = at;
+    }
+
     // Dematerialized gate — block attack if target is dematerialized and no harmImmaterial is active.
     if (targetActor && targetActor.statuses?.has("dematerialized")) {
       const canHitImmaterial = getHarmImmaterialFromCharms(actor)
@@ -1229,7 +1255,7 @@ export class ExaltedRoll {
       secondExcSuccesses,
       attackerHasThirdExc,
       attackerExcKey:      excKey,
-      weaponDamage:        mode.effectiveDamage + charmAttackBonus.extraDamageDice,
+      weaponDamage:        (resolvedAmmoItem ? (resolvedAmmoItem.system.damageBonus ?? mode.effectiveDamage) : mode.effectiveDamage) + charmAttackBonus.extraDamageDice,
       postSoakDamageDice:  (charmAttackBonus.extraPostSoakDamageDice || 0) +
         activatedCharmItems
           .filter(c => c.system?.postSoakDamageBonus?.enabled)
@@ -1286,6 +1312,7 @@ export class ExaltedRoll {
       targetNumber:    attackTargetNumber,
       soakPiercing:    charmAttackBonus.soakPiercing   || 0,
       ignoresArmor:    charmAttackBonus.ignoresArmor   || false,
+      ammoSoakMod:     resolvedAmmoItem?.system?.soakMod ?? "normal",
       // M2c — soakReductionOnHit: aggregate from activated charms, applied to target on hit
       soakReductionOnHit: (() => {
         let bashing = 0, lethal = 0, duration = "untilNextAction";

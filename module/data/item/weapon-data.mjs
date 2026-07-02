@@ -53,6 +53,10 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
       descriptions: descriptionsField(),
       equipped:    new fields.BooleanField({ initial: false }),
       slot:        new fields.StringField({ initial: "hands", blank: false, choices: ["hands","feet","armor","head","none"] }),
+      // ── Ammunition ────────────────────────────────────────────────────────
+      ammo: new fields.SchemaField({
+        selectedAmmoId: new fields.StringField({ initial: "", blank: true }),
+      }),
       martialArtsStyles: new fields.ArrayField(new fields.StringField({ blank: false }))
     };
   }

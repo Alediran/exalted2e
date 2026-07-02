@@ -43,6 +43,7 @@ import { CommandData }   from "../data/item/command-data.mjs";
 import { FollowersData } from "../data/item/followers-data.mjs";
 import { ThaummArtData }  from "../data/item/thaum-art-data.mjs";
 import { ProcedureData }  from "../data/item/procedure-data.mjs";
+import { AmmoData }       from "../data/item/ammo-data.mjs";
 import { HazardDamageBehaviorType }    from "../data/region-behaviors/hazard-damage.mjs";
 import { TerrainModifierBehaviorType } from "../data/region-behaviors/terrain-modifier.mjs";
 import { GmRollPoolDialog }   from "../dialogs/gm-roll-pool-dialog.mjs";
@@ -115,6 +116,7 @@ export function registerDocuments() {
     followers:   FollowersData,
     "thaum-art": ThaummArtData,
     procedure:   ProcedureData,
+    ammo:        AmmoData,
   };
 
   // ── Region Behavior Types ────────────────────────────────────────────────

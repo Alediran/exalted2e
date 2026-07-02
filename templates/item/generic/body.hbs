@@ -703,6 +703,43 @@
   {{/if}}
   {{/if}}
 
+  {{!-- ── Ammo ──────────────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "ammo")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.AmmoType"}}</label>
+    <select name="system.ammoType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="arrows"   {{#if (eq system.ammoType "arrows")}}selected{{/if}}>{{localize "EX2E.AmmoTypeArrows"}}</option>
+      <option value="firedust" {{#if (eq system.ammoType "firedust")}}selected{{/if}}>{{localize "EX2E.AmmoTypeFiredust"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Quantity"}}</label>
+    <input type="number" name="system.quantity" value="{{system.quantity}}"
+           min="0" style="width:80px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.DamageBonus"}}</label>
+    <input type="number" name="system.damageBonus" value="{{system.damageBonus}}"
+           style="width:80px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.DamageType"}}</label>
+    <select name="system.damageType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="lethal"     {{#if (eq system.damageType "lethal")}}selected{{/if}}>{{localize "EX2E.Lethal"}}</option>
+      <option value="bashing"    {{#if (eq system.damageType "bashing")}}selected{{/if}}>{{localize "EX2E.Bashing"}}</option>
+      <option value="aggravated" {{#if (eq system.damageType "aggravated")}}selected{{/if}}>{{localize "EX2E.Aggravated"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px;margin-bottom:16px">
+    <label>{{localize "EX2E.SoakMod"}}</label>
+    <select name="system.soakMod" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="normal"  {{#if (eq system.soakMod "normal")}}selected{{/if}}>{{localize "EX2E.SoakModNormal"}}</option>
+      <option value="doubled" {{#if (eq system.soakMod "doubled")}}selected{{/if}}>{{localize "EX2E.SoakModDoubled"}}</option>
+      <option value="halved"  {{#if (eq system.soakMod "halved")}}selected{{/if}}>{{localize "EX2E.SoakModHalved"}}</option>
+    </select>
+  </div>
+  {{/if}}
+
   <div class="editor-container">
     {{#if isEditable}}
     {{> "systems/exalted2e/templates/item/_partials/description-langs.hbs"}}
