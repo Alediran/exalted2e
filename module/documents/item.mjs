@@ -769,6 +769,36 @@ ${capWarning}`;
       }
     }
 
+    // M75 — Bind an NPC companion; track via charmSource AE; dismiss token on deactivation.
+    if (!turningOff && sys.linksNpcCompanion) {
+      const npcs = game.actors.filter(a => a.type === "npc");
+      if (npcs.length === 0) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoNpcsFound"));
+      } else {
+        const opts = npcs.map(a => `<option value="${a.id}">${a.name}</option>`).join("");
+        const pickedId = await foundry.applications.api.DialogV2.prompt({
+          window:  { title: game.i18n.localize("EX2E.LinkNpcTitle") },
+          content: `<p>${game.i18n.localize("EX2E.LinkNpcPrompt")}</p>
+            <select name="npcId" style="width:100%">${opts}</select>`,
+          ok: {
+            callback: (_event, _button, dialog) =>
+              dialog.querySelector("select[name='npcId']")?.value ?? null
+          }
+        });
+        if (pickedId) {
+          const companion = game.actors.get(pickedId);
+          if (companion) {
+            await actor.createEmbeddedDocuments("ActiveEffect", [{
+              name:     game.i18n.format("EX2E.LinkedNpcTracking", { name: companion.name }),
+              disabled: true,
+              flags:    { exalted2e: { charmSource: this.id, linkedNpcActorId: pickedId } }
+            }]);
+            ui.notifications.info(game.i18n.format("EX2E.NpcLinked", { name: companion.name }));
+          }
+        }
+      }
+    }
+
     // Restore peripheral motes before the mastery AE is deleted by cleanup.
     if (turningOff && isToggleable && sys.excellency === "infiniteMastery") {
       const ae = actor.effects.find(
@@ -1348,6 +1378,18 @@ ${capWarning}`;
         const targetActor = game.actors?.get(ref.targetActorId);
         const bgItem = targetActor?.items?.get(ref.backgroundItemId);
         if (bgItem) await bgItem.delete();
+      }
+    }
+    // M75 — Dismiss NPC companion tokens from the active scene.
+    for (const ae of charmAEs) {
+      const npcId = ae.flags?.exalted2e?.linkedNpcActorId;
+      if (npcId && canvas?.scene) {
+        const tokenIds = canvas.scene.tokens
+          .filter(t => t.actorId === npcId)
+          .map(t => t.id);
+        if (tokenIds.length) {
+          await canvas.scene.deleteEmbeddedDocuments("Token", tokenIds);
+        }
       }
     }
     const effectIds = charmAEs.map(e => e.id);

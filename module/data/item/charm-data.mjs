@@ -528,6 +528,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       transfersMalados: new fields.BooleanField({ initial: false }),
       // M74 — Simple/Sustained: create a temporary Background item on a Circle ally
       grantsBackground: new fields.BooleanField({ initial: false }),
+      // M75 — Sustained: bind a specific NPC actor as a companion; token dismissed on deactivation
+      linksNpcCompanion: new fields.BooleanField({ initial: false }),
       // M69 — When used in a social attack, halves the defender's base MDV (floor)
       halveMDV: new fields.BooleanField({ initial: false }),
       // M67 — Transfer motes to a Circle ally when this charm activates

@@ -194,3 +194,16 @@ describe("CharmData schema — grantsBackground (M74)", () => {
     expect(initial).toBe(false);
   });
 });
+
+describe("CharmData schema — linksNpcCompanion (M75)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.linksNpcCompanion).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.linksNpcCompanion.getInitialValue?.() ?? schema.linksNpcCompanion.options?.initial;
+    expect(initial).toBe(false);
+  });
+});

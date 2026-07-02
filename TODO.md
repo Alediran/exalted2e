@@ -200,7 +200,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] **Dematerialized targeting gate** — `dematerialized` custom status added to `CONFIG.statusEffects`; gate in `rollAttack` (post-`activatedCharmItems`) blocks attacks unless `getHarmImmaterialFromCharms` or an activated `harmImmaterial` supplemental charm is active; `TargetIsDematerialized` warning toast
 - [x] **Maladic capture + transfer** — Lunar charm mechanic to capture a spirit's Essence pattern (a malados) and transfer it to another being; requires a `malados` item type or AE wrapper and a transfer dialog
 - [x] **Background grant via charm** — Lunar charms that temporarily grant a Background to an ally (e.g. Sharing the Gifts of Luna); requires a transient Background item stamped on the ally actor with a cleanup AE
-- [ ] **Linked NPC template** — charm that creates or binds a specific NPC actor as a companion (spirit ally, familiar); token linked to the charm's active state; teardown on deactivation
+- [x] **Linked NPC template** — charm that creates or binds a specific NPC actor as a companion (spirit ally, familiar); token linked to the charm's active state; teardown on deactivation
 
 ### Dragon-Blooded
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
