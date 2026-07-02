@@ -629,7 +629,7 @@ ${capWarning}`;
     }
 
     // M73 — Capture a spirit's Essence pattern into a malados item on this actor.
-    if (sys.capturesMalados) {
+    if (!turningOff && sys.capturesMalados) {
       const html = `
         <p>${game.i18n.localize("EX2E.CapturesMaladosPrompt")}</p>
         <div class="form-group" style="margin-bottom:6px">
@@ -661,7 +661,7 @@ ${capWarning}`;
     }
 
     // M73 — Transfer a held malados to a Circle ally.
-    if (sys.transfersMalados) {
+    if (!turningOff && sys.transfersMalados) {
       const maladosItems = actor.items.filter(i => i.type === "malados");
       if (maladosItems.length === 0) {
         ui.notifications.warn(game.i18n.localize("EX2E.NoMaladosFound"));
@@ -705,6 +705,65 @@ ${capWarning}`;
               await malados.delete();
               ui.notifications.info(game.i18n.format("EX2E.MaladosTransferred", { name: malados.name, target: targetAlly.name }));
             }
+          }
+        }
+      }
+    }
+
+    // M74 — Grant a temporary Background to a Circle ally (teardown via tracking AE on caster).
+    if (!turningOff && sys.grantsBackground) {
+      const circleFolder = game.folders.find(f => f.flags?.exalted2e?.theCircle === true);
+      const allies = circleFolder
+        ? game.actors.filter(a => a.folder?.id === circleFolder.id && a.id !== actor.id)
+        : [];
+      if (allies.length === 0) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoCircleAlliesFound"));
+      } else {
+        const allyRadio = allies.map(a =>
+          `<label style="display:block"><input type="radio" name="allyId" value="${a.id}"> ${a.name}</label>`
+        ).join("");
+        const result = await foundry.applications.api.DialogV2.prompt({
+          window:  { title: game.i18n.localize("EX2E.GrantBackgroundTitle") },
+          content: `<p><b>${game.i18n.localize("EX2E.SelectAllyPrompt")}</b></p>
+            <form>${allyRadio}</form>
+            <hr>
+            <div class="form-group" style="margin-top:8px">
+              <label>${game.i18n.localize("EX2E.BackgroundName")}</label>
+              <input type="text" name="bgName" style="width:100%">
+            </div>
+            <div class="form-group" style="margin-top:6px">
+              <label>${game.i18n.localize("EX2E.Rating")}</label>
+              <input type="number" name="rating" value="1" min="1" max="5" style="width:60px">
+            </div>`,
+          ok: {
+            callback: (_event, _button, dialog) => ({
+              allyId: dialog.querySelector("input[name='allyId']:checked")?.value ?? null,
+              bgName: dialog.querySelector("[name='bgName']")?.value?.trim() ?? "",
+              rating: Number(dialog.querySelector("[name='rating']")?.value ?? 1),
+            })
+          }
+        });
+        if (result?.allyId && result?.bgName) {
+          const targetAlly = game.actors.get(result.allyId);
+          if (targetAlly) {
+            const [bgItem] = await targetAlly.createEmbeddedDocuments("Item", [{
+              name:   result.bgName,
+              type:   "background",
+              system: { value: result.rating },
+              flags:  { exalted2e: { charmGranted: true, charmId: this.id, casterActorId: actor.id } }
+            }]);
+            // Tracking AE on the caster — charmSource links it to _removeCharmWeaponArtifacts
+            await actor.createEmbeddedDocuments("ActiveEffect", [{
+              name:   game.i18n.format("EX2E.GrantedBackgroundTracking", { target: targetAlly.name }),
+              disabled: true,
+              flags:  {
+                exalted2e: {
+                  charmSource: this.id,
+                  grantedBackgroundRef: { targetActorId: targetAlly.id, backgroundItemId: bgItem.id }
+                }
+              }
+            }]);
+            ui.notifications.info(game.i18n.format("EX2E.BackgroundGranted", { name: result.bgName, target: targetAlly.name }));
           }
         }
       }
@@ -1281,9 +1340,17 @@ ${capWarning}`;
     const weaponIds = actor.items
       .filter(i => i.type === "weapon" && i.getFlag("exalted2e", "charmSource") === this.id)
       .map(i => i.id);
-    const effectIds = actor.effects
-      .filter(e => e.flags?.exalted2e?.charmSource === this.id)
-      .map(e => e.id);
+    const charmAEs = actor.effects.filter(e => e.flags?.exalted2e?.charmSource === this.id);
+    // M74 — Delete granted-background items on ally actors before removing the tracking AEs.
+    for (const ae of charmAEs) {
+      const ref = ae.flags?.exalted2e?.grantedBackgroundRef;
+      if (ref?.targetActorId && ref?.backgroundItemId) {
+        const targetActor = game.actors?.get(ref.targetActorId);
+        const bgItem = targetActor?.items?.get(ref.backgroundItemId);
+        if (bgItem) await bgItem.delete();
+      }
+    }
+    const effectIds = charmAEs.map(e => e.id);
     if (weaponIds.length) await actor.deleteEmbeddedDocuments("Item",         weaponIds);
     if (effectIds.length) await actor.deleteEmbeddedDocuments("ActiveEffect", effectIds);
   }

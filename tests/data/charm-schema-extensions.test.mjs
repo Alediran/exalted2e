@@ -181,3 +181,16 @@ describe("CharmData schema — transfersMalados (M73)", () => {
     expect(initial).toBe(false);
   });
 });
+
+describe("CharmData schema — grantsBackground (M74)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.grantsBackground).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.grantsBackground.getInitialValue?.() ?? schema.grantsBackground.options?.initial;
+    expect(initial).toBe(false);
+  });
+});

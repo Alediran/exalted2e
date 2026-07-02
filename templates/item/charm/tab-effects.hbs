@@ -2325,6 +2325,16 @@
     </label>
   </div>
 
+  {{!-- M74 Background Grant ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.grantsBackground"
+             {{#if system.grantsBackground}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.GrantsBackground"}}
+    </label>
+  </div>
+
   {{!-- M48 Virtue Roll Trigger ────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

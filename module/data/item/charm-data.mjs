@@ -526,6 +526,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       capturesMalados: new fields.BooleanField({ initial: false }),
       // M73 — Simple: inject a held malados into a Circle ally, granting spirit-like traits
       transfersMalados: new fields.BooleanField({ initial: false }),
+      // M74 — Simple/Sustained: create a temporary Background item on a Circle ally
+      grantsBackground: new fields.BooleanField({ initial: false }),
       // M69 — When used in a social attack, halves the defender's base MDV (floor)
       halveMDV: new fields.BooleanField({ initial: false }),
       // M67 — Transfer motes to a Circle ally when this charm activates
