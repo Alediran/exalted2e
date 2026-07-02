@@ -230,7 +230,6 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
 - [x] Creature of Darkness flaw (GM-only removal, flag-based detection)
 - [x] Ravening Mouth of (Ability) mote recovery — hook into the damage step of `rollAttack`; when a Ravening Mouth AE is active for the attacking ability, regain 1m per HL of damage dealt to sentient beings (non-undead, non-automaton target flag); cap 20m per action across all Ravening Mouth effects; no recovery from spells or ongoing/poison damage ticks
-- [ ] **Overwrite pool** — Abyssal-specific temporary mote pool funded by spending successes or HL; distinct from the Overdrive pool (Overdrive feeds from damage taken; Overwrite feeds from spending successes/HL to fuel specific charm costs); requires a new `overwritePool` schema field and a separate spend path in the mote-cost resolver
 
 ### Infernal
 - [x] Castes (Slayer / Malefactor / Defiler / Scourge / Fiend)

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-26 (M64–M69 done: counterattackUnblockableVariant, rangeMultiplier, meleeRangeExtension, dematerialized gate, moteLoan, willpowerGift, halveMDV; Group C count corrected)
+Last updated: 2026-07-02 (M71–M75 done: ammo tracking, elsewhere system, maladic capture+transfer, background grant, linked NPC companion)
 
 ---
 
@@ -46,12 +46,11 @@ Last updated: 2026-06-26 (M64–M69 done: counterattackUnblockableVariant, range
 | ~~Formal social attack pipeline — MDV-halving~~ | Social Combat | **Done** — `halveMDV` BooleanField; detected post-activation in `rollAttributeAbility`; `resolveStep2` applies `Math.floor(rawBase/2)` to base subtotal; WP-to-resist already existed via `umiCost` |
 | ~~Homing attack~~ | Combat System | **Done** — `homingAttack` BooleanField; snapshot carries `homingAttack`/`weaponId`/`modeIndex`/`isHomingReattack`; `showHomingReattack` in `computeAttackOutcome`; button + handler in chat-cards; `homingReattackFired` prevents loops |
 | ~~Ammo tracking + `bypassAmmoConsumption`~~ | Combat System | **Done** — `ammo: SchemaField { enabled, current, max }` on WeaponData; gate in `rollAttack` post-`activatedCharmItems`; `bypassAmmoConsumption` BooleanField on CharmData; abort+toast at 0; skipped on homing re-attack |
-| Elsewhere system | Combat System | "Elsewhere inventory" on CharacterData; charm-activated store/recall; paired AE; Archery-specific |
+| ~~Elsewhere system~~ | Combat System | **Done** — `inElsewhere` BooleanField on WeaponData; `sendsWeaponToElsewhere` on CharmData; `ElsewhereInventoryDialog` to recall; paired AE on caster; Archery-specific |
 | ~~Dematerialized targeting gate~~ | Lunar | **Done** — `dematerialized` status in `CONFIG.statusEffects`; gate in `rollAttack` post-`activatedCharmItems`; `harmImmaterial` from passives or supplemental charm bypasses it |
-| Maladic capture + transfer | Lunar | New item/AE type; transfer dialog; Lunar-specific |
-| Background grant via charm | Lunar | Transient Background item stamped on ally; cleanup AE; Lunar-specific |
-| Linked NPC template | Lunar | NPC actor binding to charm active state; token teardown on deactivation; Lunar-specific |
-| Overwrite pool | Abyssal | New `overwritePool` schema field; separate spend path in mote-cost resolver; Abyssal-specific |
+| ~~Maladic capture + transfer~~ | Lunar | **Done** — `malados` item type (MaladosData: spiritName, essenceRating); `capturesMalados`/`transfersMalados` BooleanFields on CharmData; capture dialog creates malados item; transfer dialog picks malados + ally and moves item |
+| ~~Background grant via charm~~ | Lunar | **Done** — `grantsBackground` BooleanField on CharmData; ally picker creates Background item on target with `charmGranted` flag; tracking AE with `grantedBackgroundRef`; `_removeCharmWeaponArtifacts` deletes granted bg on deactivation |
+| ~~Linked NPC companion~~ | Lunar | **Done** — `linksNpcCompanion` BooleanField on CharmData; NPC dropdown binding; tracking AE with `linkedNpcActorId`; `_removeCharmWeaponArtifacts` dismisses NPC tokens from scene on deactivation |
 
 ---
 
@@ -69,6 +68,6 @@ Last updated: 2026-06-26 (M64–M69 done: counterattackUnblockableVariant, range
 |-------|-------|
 | A — Ready, Simple | 0 (all done) |
 | B — Ready, Medium | 0 (all done) |
-| C — Ready, Complex | 8 |
-| **Total active** | **8** |
+| C — Ready, Complex | 0 (all done) |
+| **Total active** | **0** |
 | (Parked) | 2 |
