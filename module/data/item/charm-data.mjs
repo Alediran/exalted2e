@@ -520,6 +520,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       homingAttack: new fields.BooleanField({ initial: false }),
       // M71 — Supplemental: skip ammo decrement for this attack
       bypassAmmoConsumption: new fields.BooleanField({ initial: false }),
+      // M72 — Reflexive/Simple: send the wielded bow to Elsewhere; recall as reflexive
+      sendsWeaponToElsewhere: new fields.BooleanField({ initial: false }),
       // M69 — When used in a social attack, halves the defender's base MDV (floor)
       halveMDV: new fields.BooleanField({ initial: false }),
       // M67 — Transfer motes to a Circle ally when this charm activates

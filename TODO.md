@@ -67,7 +67,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Temporary health levels (`temporaryHealthLevels: SchemaField { enabled, level, formula }`) — add transient AE granting extra HL at the specified level (e.g. Anointment of Miraculous Health adds HL at −0); AE carries `charmDuration` for auto-sweep
 - [x] Homing attack — `homingAttack` BooleanField on CharmData; stored in attack snapshot; `computeAttackOutcome` sets `showHomingReattack` on miss; `btn-homing-reattack` button in attack-result.hbs; click handler in chat-cards.mjs re-fires `rollAttack` with `isHomingReattack: true`; infinite-loop prevention via `homingReattackFired` flag
 - [x] Ammo tracking + `bypassAmmoConsumption` — `ammo: SchemaField { enabled, current, max }` on WeaponData; decrement in `rollAttack` post-dialog (after `activatedCharmItems`, before dematerialized gate); `bypassAmmoConsumption: BooleanField` on CharmData skips decrement; aborts attack with toast when current ≤ 0; skipped on `isHomingReattack`
-- [ ] Elsewhere system — store a weapon/item in Elsewhere (charm-activated); recall it as a reflexive action; requires an "elsewhere inventory" section on CharacterData and a paired item AE — Archery specific
+- [x] Elsewhere system — `inElsewhere: BooleanField` on WeaponData; weapons split into `weapons` (active) and `elsewhereWeapons` in context; Elsewhere section in inventory tab with Recall button; Send to Elsewhere button on active weapon rows; `sendsWeaponToElsewhere: BooleanField` on CharmData for charm data annotation; Send clears `equipped`
 
 ## Combat — Defense & Soak
 - [x] Dodge DV / Parry DV formulas, weapon-mode parry selection

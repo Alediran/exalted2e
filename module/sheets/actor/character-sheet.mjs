@@ -159,6 +159,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editPurchaseEntry:    CharacterSheet.#onEditPurchaseEntry,
       deletePurchaseEntry:  CharacterSheet.#onDeletePurchaseEntry,
       toggleEquip:         CharacterSheet.#onToggleEquip,
+      sendToElsewhere:     CharacterSheet.#onSendToElsewhere,
+      recallFromElsewhere: CharacterSheet.#onRecallFromElsewhere,
       sendItemToChat:      CharacterSheet.#onSendItemToChat,
       rollPool:            CharacterSheet.#onRollPool,
       cycleAbilityFlag:    CharacterSheet.#onCycleAbilityFlag,
@@ -608,8 +610,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       spellCastButton[s.id] = computeSpellCastButtonState(s);
     }
 
-    const knacks     = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
-    const weapons    = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
+    const knacks          = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
+    const _allWeapons     = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
+    const weapons         = _allWeapons.filter(w => !w.system.inElsewhere);
+    const elsewhereWeapons = _allWeapons.filter(w => w.system.inElsewhere);
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
 
     // M71 — Build per-weapon ammo selector data for the inventory tab.
@@ -619,7 +623,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       firedust: ammoItems.filter(a => a.system.ammoType === "firedust"),
     };
     const weaponAmmoData = {};
-    for (const w of weapons) {
+    for (const w of _allWeapons) {
       const tags      = w.system.modes.flatMap(m => m.tags ?? []);
       const needsBow  = tags.includes("Bow");
       const needsFlame = tags.includes("Flame Piece");
@@ -1013,6 +1017,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       combos: comboRows,
       isLunar: beh.isLunar,
       weapons,
+      elsewhereWeapons,
       armors,
       backgrounds,
       intimacies,
@@ -1602,6 +1607,22 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
 
     await item.update({ "system.equipped": !item.system.equipped });
+  }
+
+  static async #onSendToElsewhere(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (!item) return;
+    const update = { "system.inElsewhere": true };
+    if (item.system.equipped) update["system.equipped"] = false;
+    await item.update(update);
+  }
+
+  static async #onRecallFromElsewhere(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (!item) return;
+    await item.update({ "system.inElsewhere": false });
   }
 
   // ── Active Effects tab handlers ──────────────────────────────────────────

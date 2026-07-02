@@ -129,3 +129,29 @@ describe("attack schema — area attack fields", () => {
     expect(areaResistEffectInitial).toBe("avoid");
   });
 });
+
+describe("CharmData schema — bypassAmmoConsumption (M71)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.bypassAmmoConsumption).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.bypassAmmoConsumption.getInitialValue?.() ?? schema.bypassAmmoConsumption.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("CharmData schema — sendsWeaponToElsewhere (M72)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.sendsWeaponToElsewhere).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.sendsWeaponToElsewhere.getInitialValue?.() ?? schema.sendsWeaponToElsewhere.options?.initial;
+    expect(initial).toBe(false);
+  });
+});

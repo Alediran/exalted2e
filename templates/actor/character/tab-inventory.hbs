@@ -41,6 +41,9 @@
         </button>
         {{/if}}
         {{#if ../isEditable}}
+        <button data-action="sendToElsewhere" title="{{localize 'EX2E.SendToElsewhere'}}">
+          <i class="fa-solid fa-box-archive"></i>
+        </button>
         <button data-action="editItem">✏️</button>
         <button data-action="deleteItem">🗑</button>
         {{/if}}
@@ -94,6 +97,31 @@
       </button>
     </div>
     {{/if}}
+    {{/if}}
+
+    <!-- ═══════ ELSEWHERE ═══════ -->
+    {{#if elsewhereWeapons.length}}
+    <div class="section-toolbar ex2e-row" style="margin-top:8px">
+      <h3 class="section-header" style="margin:0;flex:1;font-size:0.85em;opacity:0.8">
+        <i class="fa-solid fa-box-archive" style="margin-right:4px"></i>{{localize "EX2E.Elsewhere"}}
+      </h3>
+    </div>
+    {{#each elsewhereWeapons as |w|}}
+    <div class="item-row" data-item-id="{{w.id}}" style="opacity:0.7">
+      <img class="item-img" src="{{w.img}}" alt="{{w.name}}">
+      <span class="item-name">{{w.name}}</span>
+      <span class="item-stat" style="font-style:italic">{{localize "EX2E.StoredElsewhere"}}</span>
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="recallFromElsewhere" title="{{localize 'EX2E.RecallFromElsewhere'}}">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+        </button>
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
     {{/if}}
 
     <!-- ═══════ ARMOR ═══════ -->
