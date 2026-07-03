@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 3,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "untilNextAction",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -31,13 +31,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character using this Charm can move or dash along walls, ropes, hanging chains and other vertical surfaces as easily as he can walk along a floor. Using this Charm, the character can climb a surface simply by running up it, without halving his base movement rate. In his next action, the character must either activate the Charm again, remain where he is (if he's made it to a ledge or suitable hand- and footholds) or attempt to leap or climb down normally. perform a flurry but may still use Combos and reflexive and extra action Charms normally. He can perform a Guard action as usual.</p>",
+    "description": "<p>The character using this Charm can move or dash along walls, ropes, hanging chains and other vertical surfaces as easily as he can walk along a floor. Using this Charm, the character can climb a surface simply by running up it, without halving his base movement rate. In his next action, the character must either activate the Charm again, remain where he is (if he's made it to a ledge or suitable hand- and footholds) or attempt to leap or climb down normally.</p>",
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Ebon Shadow Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "78831c0fe338b222",
+            "charmName": "Image of Death Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "7fc4b8300de71159"
   },
   "folder": "8ba2fc566f928c7a",

@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "All-encompassing Discussion",
+  "name": "All-Encompassing Discussion",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -21,7 +21,7 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [2],
     "keywords": [
       "Combo-OK"
     ],
@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Art of Meditative Discussion",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c2ea296ee1ced3eb",
+            "charmName": "Hidden Defense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2bcaeb59b551e036"
   },
   "folder": "1b2f6d78bc952477",

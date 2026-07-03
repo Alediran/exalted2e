@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "reflexive",
-    "duration": "formula",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -36,7 +36,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The world is filled with those who think themselves fearsome and awe-inspiring, but they are as posturing children before the ultimate darkness of Oblivion. Deathknights can use this Charm in response to any mental influence, perfectly negating the attempt as the Abyssal's anima momentarily flashes with power. This Charm has a more vicious effect when defending against direct unnatural mental influence from a character who is solely targeting and currently interacting with the Abyssal (rather than doing so indirectly through a written text, delayed-effect Social Charm, etc.). In such cases, the thread of Essence connecting the attacker to the Abyssal's psyche also momentarily touches the sleeping minds of the Neverborn through the conduit of the deathknight's Whispers. The attacker suffers a Resonance eruption with Resonance points equal to half the deathknight's Essence rating (rounded down). The points allocated to particular Resonance effects are limited by the attacker's Essence rating as normal. Note that this backlash is not an optional part of the Charm, even if the Abyssal would rather defend in a more subtle fashion. Perfect mental defenses can disconnect the attacker's Essence from the Abyssal's mind in time to avoid a Resonance backlash.</p>",
+    "description": "<p>The world is filled with those who think themselves fearsome and awe-inspiring, but they are as posturing children before the ultimate darkness of Oblivion. Deathknights can use this Charm in response to any mental influence, perfectly negating the attempt as the Abyssal's anima momentarily flashes with power.</p><p>This Charm has a more vicious effect when defending against direct unnatural mental influence from a character who is solely targeting and currently interacting with the Abyssal (rather than doing so indirectly through a written text, delayed-effect Social Charm, etc.). In such cases, the thread of Essence connecting the attacker to the Abyssal's psyche also momentarily touches the sleeping minds of the Neverborn through the conduit of the deathknight's Whispers. The attacker suffers a Resonance eruption with Resonance points equal to half the deathknight's Essence rating (rounded down). The points allocated to particular Resonance effects are limited by the attacker's Essence rating as normal.</p><p>Note that this backlash is not an optional part of the Charm, even if the Abyssal would rather defend in a more subtle fashion. Perfect mental defenses can disconnect the attacker's Essence from the Abyssal's mind in time to avoid a Resonance backlash.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -57,8 +57,8 @@
             "charmUid": "b6e16f077e878cf3",
             "charmName": "Heart Of Darkness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

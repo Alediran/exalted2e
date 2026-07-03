@@ -32,13 +32,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>Among the Night Caste, there are those who ply a trade beyond ordinary theft: those who take the intangible. This Charm supplements a disbelief roll or an attempt to perceive another character's precise emotional state. During an attempt to disbelieve an Illusion, the Solar may pay this Charm's cost to automatically succeed on the disbelief roll. During any attempt to precisely determine a character's emotional state, whether through supernatural means or mundane (such as an application of the Empathy Ability), the Solar may pay this Charm's cost. In either application, the Charm extends a Touch to the target, allowing the Solar to directly sample the target's emotional or illusory essence with his hand. The target's mote pool is briefly taxed by one point per success the Solar needs to make contact; the target does not actually lose those motes. The result of the Solar's attempt may then be presented to him as a short, tactile sensation or impression of the thing he seeks to understand or pierce. The target may attempt to protect his emotional secrets with a reflexive (Manipulation + Integrity) roll, but without any additional concealment, he must do so openly.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e8e48f13e7dc5ff3",
+            "charmName": "Reversal Of Fortune",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "afaafdfe6a40c2ce"
   },
   "folder": "e2cfe49eaa1f7c53",

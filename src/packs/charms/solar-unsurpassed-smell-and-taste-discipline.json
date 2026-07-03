@@ -15,31 +15,32 @@
   "system": {
     "exaltType": "solar",
     "ability": "awareness",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Mirror"
     ],
     "cost": {
       "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Doubles the character's successes on Awareness rolls using smell or taste, before subtracting any external penalties. When combined with Keen Smell and Taste Technique, the character could gauge an individual's mood by scent.</p>",
-    "source": "Core Rules",
+    "description": "<p>Essence grants the character supreme sensory prowess. This Charm doubles the character's successes on Awareness rolls using smell or taste, before subtracting any external penalties. Should the character employ this Charm in combination with Keen Smell and Taste Technique, it is reasonable to imagine that she could gauge an individual's mood by scent.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

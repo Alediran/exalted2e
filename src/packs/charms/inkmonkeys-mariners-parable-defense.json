@@ -32,13 +32,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar's vessel shouts his legend into the world. This Charm may only be used aboard a ship the Solar owns. The identity of the vessel's owner becomes Obvious to all characters who perceive it. Should they be unaware of the Solar by reputation or personal association, Mariner's Parable Defense makes it clear--the Exalt is a legendary man of the sea: a hero who sinks pirates, rescues damsels in distress, puts storm gods in their place, braves hurricanes and defies the Yozis; or a peerless</p><p>pirate who ransacks port towns, evades capture with a laugh, and steals comely lads or lasses with as much ease and abandon as casks of jade. Should the Solar's ship put into port while this Charm is in effect, this aura follows the character wherever he should go, up to (Essence) miles from the ship. Common folk marvel at the Solar's heroism or cringe before his rapacity--he raises his Appearance and MDVs by three with regard to all characters struck by this aura. Additionally, fear of the Solar's prowess imposes a -1 external penalty to all attacks directed at his person or his ship. This unnatural mental influence costs two Willpower to resist for a scene. Additionally, the Solar gains one temporary dot of Influence while this Charm is active.</p><p>LUNAR EXALTED</p><p>Shifting Knacks</p><p>Charms</p><p>Beast-Power Concentration Prerequisites: Deadly Beastman Transformation, Essence 2, Appearance 3 Certain Stewards, whether due to vanity or subtlety, prefer to enter battle without outwardly displaying the beast within. This Knack assists in such endeavors, refining the Lunar's Essence until she is able to concentrate the power of her Deadly Beastman Transformation into her human form. This Knack modifies the character's war form, allowing her to activate that form while retaining her natural human shape, if desired. While using Beast-Power Concentration, the Lunar enjoys the benefits of Deadly Beastman Transformation's Bonus Attributes, enhanced healing, and use of Gift Charms, but does not manifest any of that Form's mutations. The Lunar's Tell becomes more prominent while this power is active, reducing the base MDV needed to see it to 8.</p><p>Strength Beast Spirit Defense</p>",
+    "description": "<p>The Solar's vessel shouts his legend into the world. This Charm may only be used aboard a ship the Solar owns. The identity of the vessel's owner becomes Obvious to all characters who perceive it. Should they be unaware of the Solar by reputation or personal association, Mariner's Parable Defense makes it clear—the Exalt is a legendary man of the sea: a hero who sinks pirates, rescues damsels in distress, puts storm gods in their place, braves hurricanes and defies the Yozis; or a peerless pirate who ransacks port towns, evades capture with a laugh, and steals comely lads or lasses with as much ease and abandon as casks of jade. Should the Solar's ship put into port while this Charm is in effect, this aura follows the character wherever he should go, up to (Essence) miles from the ship. Common folk marvel at the Solar's heroism or cringe before his rapacity—he raises his Appearance and MDVs by three with regard to all characters struck by this aura. Additionally, fear of the Solar's prowess imposes a -1 external penalty to all attacks directed at his person or his ship. This unnatural mental influence costs two Willpower to resist for a scene. Additionally, the Solar gains one temporary dot of Influence while this Charm is active.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -61,7 +60,7 @@
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
+      "enabled": false,
       "event": "onDamageDealt",
       "formula": "1"
     },

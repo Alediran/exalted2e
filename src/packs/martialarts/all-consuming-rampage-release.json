@@ -22,7 +22,7 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
       "motes": 0,
       "willpower": 0,
@@ -35,7 +35,7 @@
       "limitTrigger": 0,
       "formula": "--"
     },
-    "description": "<p>The Infernal Monster is a being of singular madness and violent purpose. He refuses to be conflicted in his urges. This Charm is a permanent modification of the Infernal's capabili-</p><p>ties. Whenever he hits Limit 10 and would enter a bout of Limit Break or Torment, he can allow the usual madness or suffering to take place. Alternately, he can choose to frenzy with benefits and drawbacks identical to an uncontrolled Berserk Anger Limit Break (Exalted, p. 105). He regains (Martial Arts rating) Willpower points from entering this rampage and is considered to have Retribution Will Follow active for all Infernal Monster Style Charms that have effects based on using that Charm. He can also choose to heal instead of regaining Willpower from going berserk, regenerating any of the following damage options: one level of aggravated, two levels of lethal or four levels of bashing. With Essence 5+, the Infernal radiates his madness in a radius of (Martial Arts x 10) yards. Any being that hits Limit 10 within that radius has the option to frenzy like the Exalt. Such beings can only regain Willpower and may not heal by going berserk. Fearless Frenzy Attitude</p>",
+    "description": "<p>The Infernal Monster is a being of singular madness and violent purpose. He refuses to be conflicted in his urges. This Charm is a permanent modification of the Infernal's capabilities. Whenever he hits Limit 10 and would enter a bout of Limit Break or Torment, he can allow the usual madness or suffering to take place. Alternately, he can choose to frenzy with benefits and drawbacks identical to an uncontrolled Berserk Anger Limit Break (Exalted, p. 105). He regains (Martial Arts rating) Willpower points from entering this rampage and is considered to have Retribution Will Follow active for all Infernal Monster Style Charms that have effects based on using that Charm. He can also choose to heal instead of regaining Willpower from going berserk, regenerating any of the following damage options: one level of aggravated, two levels of lethal or four levels of bashing. With Essence 5+, the Infernal radiates his madness in a radius of (Martial Arts x 10) yards. Any being that hits Limit 10 within that radius has the option to frenzy like the Exalt. Such beings can only regain Willpower and may not heal by going berserk.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -64,7 +64,7 @@
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
+      "enabled": false,
       "event": "onDamageDealt",
       "formula": "1"
     },

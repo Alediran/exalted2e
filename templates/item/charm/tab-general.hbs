@@ -89,6 +89,13 @@
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     {{/unless}}
+    {{#if (eq system.exaltType "dragonblooded")}}
+    <div class="field-group">
+      <label>{{localize "EX2E.MinBreeding"}}</label>
+      <input type="number" name="system.minBreeding" value="{{system.minBreeding}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{/if}}
     <div class="field-group">
       <label>{{localize "EX2E.MinEssence"}}</label>
       <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"
@@ -234,13 +241,21 @@
                  name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.virtueMin"
                  value="{{alt.virtueMin}}" min="1" max="5" style="width:3em"
                  {{#unless @root.isEditable}}readonly{{/unless}}>
-          {{else}}
+          {{else if (eq alt.type "anyExcellency")}}
           <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.abilityKey" value="{{alt.abilityKey}}">
           <span class="prereq-any-exc-label">{{localize "EX2E.PrereqAnyExcellencyHint"}}</span>
           <input type="number"
                  name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.minCount"
                  value="{{alt.minCount}}" min="1" max="3" style="width:3em"
                  {{#unless @root.isEditable}}readonly{{/unless}}>
+          {{else if (eq alt.type "anyCharmOfAbility")}}
+          <input type="text"
+                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.abilityKey"
+                 value="{{alt.abilityKey}}"
+                 placeholder="{{localize 'EX2E.AbilityKey'}}"
+                 style="width:8em"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
+          {{else}}
           {{/if}}
           {{/if}}
           <button type="button" data-action="removePrereqAlt"
@@ -368,12 +383,9 @@
 
 
   <!-- Description -->
-  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}
-    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
-      {{{enrichedDescription}}}
-    </prose-mirror>
+    {{> "systems/exalted2e/templates/item/_partials/description-langs.hbs"}}
     {{else}}
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}

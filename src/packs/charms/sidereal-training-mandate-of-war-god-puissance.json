@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With this Charm, a Sidereal trains a group of gods or elementals in the battle tactics of the regional war gods. In so doing, he grants each a temporary promotion that increases the spirit's power on the field of battle. Unlike the preceding Training Mandate Charms, this one was not</p><p>developed during the Primordial War. The Five Maidens allowed this Charm to come into being when their Sidereal generals planned the Usurpation... though the Maidens offered no comment on the Charm's potential uses. The Sidereal can affect (his Essence x 5) spirits at one time, and they retain its effects only for as long as they remain under his direct command. Each spirit so affected gains one temporary dot of Essence, 10 motes of Essence and any two spirit Charms the spirit does not already have that the Sidereal feels the spirit needs. These benefits last for one week. Also, for the rest of the week, the cost of using the Materialize Charm drops by an amount equal to (Sidereal's Essence x 5), to a minimum of one mote. This Charm works equally well on any god or elemental who accepts the command of the Sidereal using it.</p>",
+    "description": "<p>Spirits who undergo a week-long dramatic training session with this Charm gain a bonus die on Archery, Melee and War rolls. If any spirit lacks a First Excellency in Archery, Dodge, Melee or War, it gains those Charms temporarily for the duration. The Sidereal may also grant each spirit one temporary iteration of Ox-Body Technique, Essence Plethora or Principle of Motion; with a month-long training course instead, spirits may permanently learn one of these Charms. At the Sidereal's command, trained spirits will act as a mass combat unit for the duration of any battle under his leadership. A leader who spends 1 Willpower allows his spirit soldiers to materialize for the duration of the battle at no other cost. All spirits trained by this Charm count as members of the Crimson Panoply of Victory; their rank is one step lower than their individual power, to a minimum of the Third Rank.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -46,18 +46,6 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
       {
         "alternatives": [
           {

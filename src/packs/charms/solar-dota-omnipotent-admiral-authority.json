@@ -18,7 +18,7 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -32,20 +32,33 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>The Solar's anima erupts into an aureate corona which washes over a ship she owns or commands. The magic quickly sinks into the boards of the vessel, visible only by the lanyards which untie themselves, the sails which raise and lower in accordance to the Lawgiver's will, and the other processes by which the ship obediently tends to its own upkeep and operation. So long as this Charm remains in effect, the ship requires a crew of zero sailors. So long as the Solar remains within (Sail x 100) yards of the ship, she may direct its course as though she were onboard.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "68677c274f7ae125",
+            "charmName": "Storm-Weathering Essence Infusion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0cc997b4c5564d56",
     "mirrorId": "4b4d7f23c9b4e508"
   },

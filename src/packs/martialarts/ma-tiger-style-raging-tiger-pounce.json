@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "supplemental",
-    "duration": "instant",
+    "duration": "untilNextAction",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,7 +36,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Tiger Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "8244aba6f1c9d199"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8202141275259535",
+            "charmName": "Tiger Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "8244aba6f1c9d199",
+    "grantsMastery": false
   },
   "folder": "086aba86b0941ecb",
   "sort": 0,

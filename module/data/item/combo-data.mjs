@@ -1,9 +1,12 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class ComboData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
-      description: new fields.HTMLField({ initial: "" }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
       // Ordered list of target charms, referenced by the stable
       // `system.charmUid` field (same convention the prereq system uses).
       // Storing UIDs instead of item ids means delete-and-recreate and

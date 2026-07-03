@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The maneuver named Iron Raptor Technique extends the Solar's reach. Her weapon flies toward the enemy like a hungry bird of prey, then returns at the Solar's call. This Charm is a Melee-based attack that costs two motes and can attack enemies up to (Essence x 8) yards from the Solar. It is in all other ways treated as a normal Melee attack.</p><p>If the Exalt has Essence 3 or more, she can spend two additional motes for a total cost of four motes and throw a burning arc of energy from her weapon instead of the weapon itself. This is called the \"Sandstorm-Wind Attack.\" It cannot be blocked without a stunt or Charm.</p>",
+    "description": "<p>The maneuver named Iron Raptor Technique extends the Solar's reach. Her weapon flies toward the enemy like a hungry bird of prey, then returns at the Solar's call. This Charm is a Melee-based attack that costs two motes and can attack enemies up to (Essence x 8) yards from the Solar. It is in all other ways treated as a normal Melee attack.</p><p>If the Exalt has Essence 3 or more, she can spend two additional motes for a total cost of four motes and throw a burning arc of energy from her weapon instead of the weapon itself. This is called the \"Sandstorm-Wind Attack.\" It cannot be blocked without a stunt or Charm.</p><p>This Charm inflicts automatic knockdown if it strikes its target. The Sandstorm-Wind Attack upgrade (Essence 3+, 4m cost) fires a blade of Essence instead — the weapon never leaves the Solar's hand and cannot be blocked without a Charm.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -59,6 +59,7 @@
         ]
       }
     ],
+    "meleeRangeExtension": true,
     "charmUid": "1d04e939ae15b231"
   },
   "folder": "fd05b302be1cc260",

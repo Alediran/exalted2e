@@ -721,9 +721,17 @@ export function registerMassCombatPhase6(context) {
       await unitActor.update({ "system.armorFatigue": 0, "system.endurance": 3, "system.engaged": false });
       const fresh = game.actors.get(unitActor.id);
       const result = await rollExhaustion(fresh, { charged: false });
-      assert.ok(result.success, "roll should succeed (pool=10 vs diff=1)");
+      // Pool and difficulty are deterministic; dice outcome is not.
+      assert.equal(result.pool, 10, "pool should be 10 (commander charisma 5 + war 5)");
+      assert.equal(result.difficulty, 1, "difficulty should be 1 (armorFatigue=0, morale=2, not engaged)");
       const after = game.actors.get(unitActor.id);
-      assert.equal(after.system.endurance, 3, "endurance unchanged on success");
+      if (result.success) {
+        assert.equal(after.system.endurance, 3, "endurance unchanged on success");
+      } else {
+        assert.equal(after.system.endurance, 2, "endurance decremented on failure");
+        // Restore for subsequent tests
+        await unitActor.update({ "system.endurance": 3 });
+      }
     });
   });
 

@@ -43,7 +43,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -57,10 +56,10 @@
           {
             "type": "charm",
             "charmUid": "4587092a71ae1d45",
-            "charmName": "Fists of the Old Ones",
+            "charmName": "Fists Of The Old Ones",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -69,10 +68,10 @@
           {
             "type": "charm",
             "charmUid": "459b3699eb050138",
-            "charmName": "Joyful Cessation of Restraint",
+            "charmName": "Joyful Cessation Of Restraint",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -83,8 +82,8 @@
             "charmUid": "f428756b1b39215e",
             "charmName": "Screaming Meat Shield",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

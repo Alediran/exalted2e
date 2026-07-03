@@ -1,4 +1,5 @@
 import { ExaltedRoll } from "../../rolls/exalted-roll.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { ex2eCan } from "../../helpers/permissions.mjs";
 import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
@@ -170,7 +171,7 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     const TextEditor = foundry.applications.ux.TextEditor.implementation;
     const powers     = item.system.powers     ? await TextEditor.enrichHTML(item.system.powers,     enrichOpts) : "";
-    const desc       = item.system.description ? await TextEditor.enrichHTML(item.system.description, enrichOpts) : "";
+    const desc       = item.system.description ? await TextEditor.enrichHTML(itemDescription(item), enrichOpts) : "";
     await ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor: this.document }),
       content: `<h2>${item.name}</h2>${powers}${desc}`,

@@ -54,14 +54,18 @@
             "charmUid": "4a97beb3bc27ac1d",
             "charmName": "Essence-Draining Touch",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "84551fead8f3e442",
-    "mirrorId": "b6556519b203161e"
+    "mirrorId": "b6556519b203161e",
+    "targetWillpowerDrain": {
+      "enabled": true,
+      "formula": "1"
+    }
   },
   "folder": "b0b1b2b3b4b5f03d",
   "sort": 0,

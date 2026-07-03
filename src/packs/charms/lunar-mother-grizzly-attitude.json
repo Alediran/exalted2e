@@ -14,14 +14,14 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
-    "ability": "dexterity",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "ability": "stamina",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [6],
     "keywords": [
       "Combo-OK"
     ],
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Lunar throws himself headlong into the blows meant for his ward, trusting to Luna's grace and his own superhuman resilience to see him through. While the Lunar is protecting a character with a Defend Other action, he may use this Charm to prevent any attackers from targeting the warded character even if they overcome the Lunar's interposed DV with their attack roll, forcing them to instead direct their attacks against the Lunar for the duration. Chapter Four � Lunars</p>",
+    "description": "<p>The Lunar throws himself headlong into the blows meant for his ward, trusting to Luna's grace and his own superhuman resilience to see him through. While the Lunar is protecting a character with a Defend Other action, he may use this Charm to prevent any attackers from targeting the warded character even if they overcome the Lunar's interposed DV with their attack roll, forcing them to instead direct their attacks against the Lunar for the duration.</p>",
     "source": "Scroll of Errata",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,10 +43,23 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "stamina",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "a7690a4ff3ce649e"
   },
-  "folder": "6d3aed86fa48b120",
+  "folder": "956290ccde1dea72",
   "sort": 0,
   "ownership": {
     "default": 0

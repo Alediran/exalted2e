@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Overbold critics of Dragon-Blooded culture often complain that too many Dynasts are nothing but orgiastic dilettantes. Even when this is an accurate description of particular Dragon-Blood, however, one cannot deny that such individuals are supremely gifted hosts. With this Charm, a Dragon-Blood spends the requisite Essence and instantly improves the quality, strength and taste of any nearby quantity of alcohol. Aside from the Epicurean advantages of this Charm, if the affected wine is drunk, the difficulty of any Socialize rolls made against the drinkers decreases by one for the scene. Unfortunately, there is a downside. If any of the drinkers present botches a Socialize roll, the result will almost certainly be some degree of personal embarrassment, from a drunken brawl to an ill-advised seduction attempt.</p>",
+    "description": "<p>Overbold critics of Dragon-Blooded culture often complain that too many Dynasts are nothing but orgiastic dilettantes. Even when this is an accurate description of particular Dragon-Blood, however, one cannot deny that such individuals are supremely gifted hosts. With this Charm, a Dragon-Blood spends the requisite Essence and instantly improves the quality, strength and taste of any nearby quantity of alcohol. Aside from the Epicurean advantages of this Charm, if the affected wine is drunk, the difficulty of any Socialize rolls made against the drinkers decreases by one for the scene. Unfortunately, there is a downside. If any of the drinkers present botches a Socialize roll, the result will almost certainly be some degree of personal embarrassment, from a drunken brawl to an ill-advised seduction attempt.</p><p>This Charm enchants a particular social event attended by no more than (Socialize rating) Magnitude individuals. Anyone at the event who consumes alcohol or any other recreational intoxicant finds the experience far more pleasurable than normal and suffers a penalty of −1 to MDV for the scene from lowered inhibitions. If any social attack botches against an intoxicated individual, she is deeply offended and must pay 1wp not to Join Battle against the attacker with her next action as an unnatural Compulsion. This Charm may be repurchased multiple times to enchant different social pleasures, including having sex, participating in/being an active spectator to violence (such as duels or fight clubs), and anything else the Storyteller approves. Those who indulge in the chosen vice are affected as above. Different versions of the Charm stack, but only one use of each version can enchant the same event.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,7 +52,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "socialize",
             "virtueKey": "valor",
             "virtueMin": 1
           }

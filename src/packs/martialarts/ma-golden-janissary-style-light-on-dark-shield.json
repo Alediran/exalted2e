@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -37,15 +37,27 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Golden Janissary Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "(Martial Arts) actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9061eb2a439b8566",
+            "charmName": "Golden Janissary Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "c49606c1c95563d9"
   },
   "folder": "308a6e755f91c2ff",

@@ -1,5 +1,6 @@
 import { EX2E } from "../config.mjs";
 import { moteCostString } from "../rolls/activation-ledger.mjs";
+import { itemDescription } from "./localize-description.mjs";
 
 /**
  * Register all Handlebars helpers used by the Exalted 2e system.
@@ -245,5 +246,22 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper("localizeKey", function(key, options) {
     const entry = options.find(o => String(o.key) === String(key));
     return entry ? entry.label : (key ?? "");
+  });
+
+  // ── localizeDesc ──────────────────────────────────────────────────────
+  // Resolve an item's description to the current UI language (raw HTML).
+  // Usage: {{localizeDesc item}}
+  Handlebars.registerHelper("localizeDesc", (item) => itemDescription(item));
+
+  // ── descLanguageList ──────────────────────────────────────────────────
+  // Declared languages MINUS the primary (first) — the override slots
+  // offered in the description editor. Each entry: { lang, label }.
+  // Usage: {{#each (descLanguageList)}}
+  Handlebars.registerHelper("descLanguageList", () => {
+    // game.system.languages is a Set/Collection in Foundry (not an array);
+    // Array.from handles Set/array/iterable and degrades to [] for anything
+    // non-iterable, so only the Default editor shows if it's unavailable.
+    const langs = Array.from(game.system?.languages ?? []);
+    return langs.slice(1).map(l => ({ lang: l.lang, label: l.name ?? l.lang }));
   });
 }

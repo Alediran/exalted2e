@@ -1,4 +1,5 @@
 import { ExaltedRoll } from "../rolls/exalted-roll.mjs";
+import { itemDescription } from "../helpers/localize-description.mjs";
 
 /**
  * Activate a Resplendency: spend its parent destiny's Endurance, roll any
@@ -76,7 +77,7 @@ export async function activateResplendency(resplendency, destiny) {
       enduranceLeft: have - cost,
       paradoxGained,
       keyword: resplendency.system.keyword,
-      description: resplendency.system.description
+      description: itemDescription(resplendency)
     }
   );
   await ChatMessage.create({ content, speaker: ChatMessage.getSpeaker({ actor }) });

@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal is a figure of transcendent stillness and patience within the bloody fury of combat, systematically turning aside blows without the slightest wasted motion.</p>",
+    "description": "<p>The Abyssal is a figure of transcendent stillness and patience within the bloody fury of combat, systematically turning aside blows without the slightest wasted motion. This Charm only applies its benefits to the Exalt's Melee-derived Parry DV.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "abc2cbf472d6949e",
             "charmName": "Vengeful Riposte",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

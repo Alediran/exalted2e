@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "The Disappearing Assassin (forgotten Misty Breeze Kata)",
+  "name": "The Disappearing Assassin (Forgotten Misty Breeze Kata)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -39,7 +39,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "94addaf75104164c",
+            "charmName": "Breeze Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "949b3d79e895ff89"
   },
   "folder": "30abfdbff9e8ecc7",

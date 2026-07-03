@@ -16,7 +16,7 @@
     "exaltType": "martialarts",
     "ability": "martialarts",
     "essence": 7,
-    "minAbility": 1,
+    "minAbility": 6,
     "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
@@ -36,7 +36,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Obsidian Shards of Infinity Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "55a9a8c998398b8e"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e705f8bb8e47f4e5",
+            "charmName": "Vanished Within the Glass",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4e126dc377952194",
+            "charmName": "Draw Forth Every Shard",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "55a9a8c998398b8e",
+    "grantsMastery": false
   },
   "folder": "87a660847a455039",
   "sort": 0,

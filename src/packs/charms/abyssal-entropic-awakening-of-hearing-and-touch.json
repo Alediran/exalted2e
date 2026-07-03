@@ -16,23 +16,22 @@
     "exaltType": "abyssal",
     "ability": "awareness",
     "essence": 2,
-    "minAbility": 3,
-    "charmType": "simple",
-    "duration": "one scene",
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Combo-OK",
-      "Obvious"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's hearing and touch flood with the cold resonance of the grave, her ears detecting frequencies beyond mortal range and her skin feeling the subtle pressure-waves of nearby motion as clearly as sight. The dead weight of Oblivion's attention strips away the noise of the living world, leaving only signal. She adds her Essence in bonus dice to all Awareness rolls involving hearing or touch, and may attempt to locate hidden or invisible targets by sound alone at no penalty.</p>",
+    "description": "<p>There is little beauty left for those enlightened to the myriad ways in which the world decays moment by moment. The Abyssal can smell the hint of rot in a freshly cut flower and feel the wrinkles waiting to emerge on a nubile courtesan's skin.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",

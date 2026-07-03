@@ -1,0 +1,67 @@
+{
+  "_id": "beef000000000016",
+  "_key": "!items!beef000000000016",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rapacious Delicacy Summons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 4,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permanently upgrades its prerequisite so that locusts emerge from and devour any foodstuffs within the radius of their appearance, growing thinner and then ultimately dying as they gorge themselves. Foodstuffs include all standing drinkable liquids, dead animal matter and the most edible parts of all plants. The locusts are not predators and do not harm living animals. Walking dead caught in the feasting suffer three levels of unsoakable aggravated damage from the gnawing; the locusts do not care whether meat walks when they eat it. Units composed solely of walking dead extras caught in the radius lose a dot of Magnitude. The Storyteller should also apply this damage to other characters that meet the locusts' definition of food, such as wood elementals. Abyssal Exalted, Ghost-Blooded and other technically living beings attuned to death confuse some locusts into biting, inflicting a one-time environmental hazard (Damage 3B, Trauma 5).</p><p>The Infernal may also double the Magnitude of those they can feed with a single activation and triple the radius in which the bugs appear, but doing so adds the Blasphemy keyword.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a1b5963c8623fb7f",
+            "charmName": "Locust Mana Plague",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000016"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

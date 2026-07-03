@@ -21,10 +21,11 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [10],
     "keywords": [
       "Combo-OK",
       "Crippling",
+      "Native",
       "Obvious"
     ],
     "cost": {
@@ -45,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dd19f04a457d6a2b",
+            "charmName": "Solar Hero Supremacy",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "bc45eb7695d912bc"
   },
   "folder": "05bd4dac47a869bd",

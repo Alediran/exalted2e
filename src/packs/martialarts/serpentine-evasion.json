@@ -39,7 +39,7 @@
       "limitTrigger": 0,
       "formula": "3m"
     },
-    "description": "<p>The serpent bends and weaves with utmost grace. This Charm gives the character +2 Dodge or Parry DV against a single attack.</p>",
+    "description": "<p>The serpent bends and weaves with utmost grace. ERRATA: This Charm does not add a DV bonus. Instead, it inflicts a -2 external penalty on any attack roll the martial artist defends against with his Dodge DV or unarmed Parry DV.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -68,9 +68,9 @@
       }
     ],
     "dvBonus": {
-      "enabled": true,
-      "dodgeBonus": 2,
-      "parryBonus": 2,
+      "enabled": false,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
       "ignoreAllPenalties": false,
       "ignorePenaltyTypes": []
     },

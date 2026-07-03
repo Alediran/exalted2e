@@ -2,6 +2,9 @@ import { EX2E } from "../config.mjs";
 import { computeSpellCastButtonState } from "./spell-cast-button.mjs";
 import { resolveUserActor } from "../helpers/targeting.mjs";
 import { moteCostString } from "../rolls/activation-ledger.mjs";
+import { QB_GROUP_OF } from "./quickbar/quickbar-layout.mjs";
+import { applyDockLayout } from "./quickbar/dock-layout.mjs";
+import { applyRadialLayout } from "./quickbar/radial-layout.mjs";
 
 /**
  * Lazily create (or return) the shared bottom-HUD flex container that
@@ -71,10 +74,17 @@ export class ActionQuickbar {
     // Close the popover submenu on any outside click. Both the Attack and
     // Cast Spell buttons open it, so either one keeps it open.
     document.addEventListener("click", (ev) => {
-      if (!this._submenu || this._submenu.hidden) return;
-      if (this._submenu.contains(ev.target)) return;
-      if (ev.target.closest(".qb-attack") || ev.target.closest(".qb-cast")) return;
-      this._hideSubmenu();
+      // Close the Attack/Cast mode popover.
+      if (this._submenu && !this._submenu.hidden
+          && !this._submenu.contains(ev.target)
+          && !ev.target.closest(".qb-attack") && !ev.target.closest(".qb-cast")) {
+        this._hideSubmenu();
+      }
+      // Close the radial overflow popover.
+      const openRadial = this._root?.querySelector(".ex2e-action-radial.open");
+      if (openRadial && !openRadial.contains(ev.target) && !ev.target.closest(".qb-more")) {
+        openRadial.classList.remove("open");
+      }
     });
   }
 
@@ -93,6 +103,13 @@ export class ActionQuickbar {
     // The popover needs to overflow the HUD bounds, so it lives on body.
     document.body.appendChild(submenu);
     this._submenu = submenu;
+  }
+
+  /** Tag a button element with its layout group + key (read by the layouts). */
+  _tag(el, key) {
+    el.dataset.qbKey = key;
+    el.dataset.qbGroup = QB_GROUP_OF[key] ?? "utility";
+    return el;
   }
 
   refresh() {
@@ -114,7 +131,8 @@ export class ActionQuickbar {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.classList.add("qb-btn", "qb-mass-guard");
-    btn.innerHTML = `<i class="fa-solid fa-shield"></i> ${game.i18n.localize("EX2E.MassGuardButton")}`;
+    btn.innerHTML = `<i class="fa-solid fa-shield"></i> <span class="qb-label">${game.i18n.localize("EX2E.MassGuardButton")}</span>`;
+    this._tag(btn, "massGuard");
     btn.addEventListener("click", async () => {
       const controlled = canvas.tokens?.controlled ?? [];
       if (!controlled.length) {
@@ -210,6 +228,9 @@ export class ActionQuickbar {
 
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
       if (cfg.clinchOnly) continue;  // handled via _clinchControlSection
+      // Shapeshift is Lunar-only — hide it for every other splat (and when
+      // there's no actor to read a splat from).
+      if (key === "shapeshift" && actor?.system?.exaltType !== "lunar") continue;
       pieces.push(this._actionButton(key, cfg));
       // Cast Spell slots in right after the Simple Charm action — it
       // occupies an equivalent conceptual spot (another Simple-shape
@@ -220,8 +241,28 @@ export class ActionQuickbar {
     pieces.push(this._flurryButton(flurry));
     pieces.push(this._finishButton());
 
-    this._root.replaceChildren(...pieces);
+    this._applyLayout(pieces);
     this._wire(combat, current);
+  }
+
+  /**
+   * Arrange built pieces into the root using the player's chosen bar style.
+   * Replaces the bare `this._root.replaceChildren(...pieces)` call so both
+   * styles share one entry point. Buttons keep their wiring hooks — `_wire`
+   * runs after this and queries `this._root`, which still contains every
+   * button (the radial popover is a child of the root).
+   */
+  _applyLayout(pieces) {
+    const style = game.settings.get("exalted2e", "actionBarStyle") ?? "dock";
+    const radial = style === "radial";
+    this._root.classList.toggle("qb-style-dock", !radial);
+    this._root.classList.toggle("qb-style-radial", radial);
+    if (radial) {
+      const pinned = game.settings.get("exalted2e", "actionBarPinned") ?? [];
+      applyRadialLayout(this._root, pieces, pinned);
+    } else {
+      applyDockLayout(this._root, pieces);
+    }
   }
 
   _clinchControlSection(combat, current, clinch) {
@@ -244,7 +285,7 @@ export class ActionQuickbar {
       btn.type = "button";
       btn.classList.add("qb-btn", "qb-clinch");
       btn.dataset.clinchAction = key;
-      btn.innerHTML = `<i class="${cfg.icon}"></i> ${game.i18n.localize(cfg.label)}`;
+      btn.innerHTML = `<i class="${cfg.icon}"></i> <span class="qb-label">${game.i18n.localize(cfg.label)}</span>`;
       if (cfg.speed > 0) btn.title = `(${cfg.speed}s)`;
       frag.appendChild(btn);
     }
@@ -260,7 +301,7 @@ export class ActionQuickbar {
     indicator.classList.add("qb-held-indicator");
     indicator.innerHTML = `<i class="fa-solid fa-lock"></i> ${game.i18n.format("EX2E.QuickbarHeldIndicator", { name: controllerName })}`;
 
-    this._root.replaceChildren(indicator, this._finishButton());
+    this._applyLayout([indicator, this._finishButton()]);
     this._root.querySelector(".qb-finish")?.addEventListener("click", async () => {
       await finishTurnFor(combat, current);
     });
@@ -287,7 +328,8 @@ export class ActionQuickbar {
     btn.type = "button";
     btn.classList.add("qb-btn", "qb-attack");
     btn.title = game.i18n.localize("EX2E.QuickbarAttackTooltip");
-    btn.innerHTML = `<i class="fa-solid fa-crosshairs"></i> ${game.i18n.localize("EX2E.ActionAttack")} <i class="fa-solid fa-caret-up"></i>`;
+    btn.innerHTML = `<i class="fa-solid fa-crosshairs"></i> <span class="qb-label">${game.i18n.localize("EX2E.ActionAttack")}</span> <i class="fa-solid fa-caret-up qb-caret"></i>`;
+    this._tag(btn, "attack");
     if (modes.length === 0) {
       btn.disabled = true;
       btn.title = game.i18n.localize("EX2E.QuickbarNoEquipped");
@@ -301,7 +343,8 @@ export class ActionQuickbar {
     btn.type = "button";
     btn.classList.add("qb-btn", "qb-cast");
     btn.title = game.i18n.localize("EX2E.QuickbarCastTooltip");
-    btn.innerHTML = `<i class="fa-solid fa-hat-wizard"></i> ${game.i18n.localize("EX2E.ActionCast")} <i class="fa-solid fa-caret-up"></i>`;
+    btn.innerHTML = `<i class="fa-solid fa-hat-wizard"></i> <span class="qb-label">${game.i18n.localize("EX2E.ActionCast")}</span> <i class="fa-solid fa-caret-up qb-caret"></i>`;
+    this._tag(btn, "cast");
     if (spells.length === 0) {
       btn.disabled = true;
       btn.title = game.i18n.localize("EX2E.QuickbarNoSpells");
@@ -319,7 +362,8 @@ export class ActionQuickbar {
       name: label, speed: cfg.speed, dv: cfg.dvMod
     });
     const iconMarkup = cfg.icon ? `<i class="${cfg.icon}"></i> ` : "";
-    btn.innerHTML = `${iconMarkup}${label} <small>(${cfg.speed}s)</small>`;
+    btn.innerHTML = `${iconMarkup}<span class="qb-label">${label}</span> <small class="qb-speed">${cfg.speed}s</small>`;
+    this._tag(btn, key);
     return btn;
   }
 
@@ -328,7 +372,8 @@ export class ActionQuickbar {
     btn.type = "button";
     btn.classList.add("qb-btn", "qb-flurry");
     btn.title = game.i18n.localize("EX2E.FlurryDeclare");
-    btn.innerHTML = `<i class="fa-solid fa-burst"></i> ${game.i18n.localize("EX2E.FlurryDeclare")}`;
+    btn.innerHTML = `<i class="fa-solid fa-burst"></i> <span class="qb-label">${game.i18n.localize("EX2E.FlurryDeclare")}</span>`;
+    this._tag(btn, "flurry");
     if (flurry) btn.disabled = true;
     return btn;
   }
@@ -338,7 +383,8 @@ export class ActionQuickbar {
     btn.type = "button";
     btn.classList.add("qb-btn", "qb-finish");
     btn.title = game.i18n.localize("EX2E.FinishTurn");
-    btn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${game.i18n.localize("EX2E.FinishTurn")}`;
+    btn.innerHTML = `<i class="fa-solid fa-forward-step"></i> <span class="qb-label">${game.i18n.localize("EX2E.FinishTurn")}</span>`;
+    this._tag(btn, "finish");
     return btn;
   }
 
@@ -539,10 +585,12 @@ export class ActionQuickbar {
     pieces.push(this._attackButton(actor));
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
       if (cfg.clinchOnly) continue;
+      // Shapeshift is Lunar-only (see _render).
+      if (key === "shapeshift" && actor?.system?.exaltType !== "lunar") continue;
       pieces.push(this._actionButton(key, cfg));
       if (key === "simpleCharm") pieces.push(this._castSpellButton(actor));
     }
-    this._root.replaceChildren(...pieces);
+    this._applyLayout(pieces);
     this._wirePassive(actor);
   }
 
@@ -594,12 +642,13 @@ export class ActionQuickbar {
     btn.type = "button";
     btn.classList.add("qb-btn", "qb-abort");
     btn.title = game.i18n.localize("EX2E.AbortActionTooltip");
-    btn.innerHTML = `<i class="fa-solid fa-ban"></i> ${game.i18n.localize("EX2E.AbortAction")}`;
+    btn.innerHTML = `<i class="fa-solid fa-ban"></i> <span class="qb-label">${game.i18n.localize("EX2E.AbortAction")}</span>`;
     btn.addEventListener("click", async () => {
       await this._handleAbort(current, committed);
     });
+    this._tag(btn, "abort");
 
-    this._root.replaceChildren(indicator, btn);
+    this._applyLayout([indicator, btn]);
   }
 
   async _handleAbort(current, committed) {

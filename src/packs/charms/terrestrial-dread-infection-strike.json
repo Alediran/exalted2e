@@ -17,11 +17,13 @@
     "ability": "medicine",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "supplemental",
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      1
+    ],
     "keywords": [
       "Combo-OK",
       "Sickness"
@@ -31,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Medicinal knowledge can kill as well as heal, infect as well as purify. The Dragon-Blood using this Charm can enchant her weapon so that any wounds it causes are much more likely to become</p><p>infected. When this Charm is invoked, the difficulty to resist infection from a lethal wound inflicted by the Dragon-Blood increases by two, even for Exalted. The Essence must be spent before the attack roll, and the attack must inflict at least one level of lethal damage or the Essence is wasted. Using this Charm against a fellow Dragon-Blood is a sure way for the character to win enemies for himself, as there is no weapon more hated or feared in the Age of Sorrows than disease. This Charm is explicitly allowed to be used in Combos with Charms of other Abilities.</p>",
+    "description": "<p>Medicinal knowledge can kill as well as heal, infect as well as purify. The Dragon-Blood using this Charm can enchant her weapon so that any wounds it causes are much more likely to become infected. When this Charm is invoked, the difficulty to resist infection from a lethal wound inflicted by the Dragon-Blood increases by two, even for Exalted. The Essence must be spent before the attack roll, and the attack must inflict at least one level of lethal damage or the Essence is wasted. Using this Charm against a fellow Dragon-Blood is a sure way for the character to win enemies for himself, as there is no weapon more hated or feared in the Age of Sorrows than disease. This Charm is explicitly allowed to be used in Combos with Charms of other Abilities.</p><p>(Errata) This Charm may enhance any non-bashing physical attack, not only lethal attacks. At Essence 3+, the infection is automatic — the target does not roll to resist it.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,8 +55,8 @@
             "charmUid": "9324112c88a5d4d6",
             "charmName": "Infection-Banishing Prana",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Laugh at the Enemy's Aim (forgotten Misty Mountain Kata)",
+  "name": "Laugh at the Enemy's Aim (Forgotten Misty Mountain Kata)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -38,15 +38,27 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Five actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7be3ecc915e9354b",
+            "charmName": "The Forgotten Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "c45e276edd40ea01"
   },
   "folder": "30abfdbff9e8ecc7",

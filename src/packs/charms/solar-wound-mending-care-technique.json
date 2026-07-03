@@ -31,34 +31,21 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Solar physicians can speed a patient's recovery from even the most terrible wounds. This Charm supplements a dramatic action to treat, monitor and tend to the patient. This action requires one hour spent without a stunt or a Charm. The Solar's player rolls (Intelligence + Medicine). This Charm replaces the normal benefits of medical care, instead allowing the target to recover a number of lethal or bashing health levels equal to the number of successes at the end of the day. If the target spends the day resting, the target recovers a number of additional lethal and bashing health levels equal to the Solar's permanent Essence. No patient can benefit from this Charm more than once per day.</p>",
+    "description": "<p>Solar physicians can speed a patient's recovery from even the most terrible wounds. This Charm supplements a dramatic action to treat, monitor and tend to the patient. This action requires one hour spent without a stunt or a Charm. The Solar's player rolls (Intelligence + Medicine). This Charm replaces the normal benefits of medical care, instead allowing the target to recover a number of lethal or bashing health levels equal to the number of successes at the end of the day. If the target spends the day resting, the target recovers a number of additional lethal and bashing health levels equal to the Solar's permanent Essence. No patient can benefit from this Charm more than once per day.</p><p>ERRATA: The patient recovers (rolled successes) health levels at the end of the treatment, not at the end of the day.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until the day ends",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "26fc78b5a5ebc5c7"
   },
   "folder": "05ee3760b1dfb04f",

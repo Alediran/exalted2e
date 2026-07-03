@@ -39,7 +39,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Permanent if student spends 3 XP; otherwise one day per 1wp paid by the Abyssal",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,16 +54,16 @@
             "charmUid": "84551fead8f3e442",
             "charmName": "Will-Feasting Onslaught",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
+      "enabled": false,
+      "event": "",
+      "formula": ""
     },
     "charmUid": "6c4c679df74fc91b"
   },

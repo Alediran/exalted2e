@@ -17,7 +17,7 @@
     "ability": "stealth",
     "essence": 1,
     "minAbility": 2,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm supplements expenditures of Essence. While the Charm is active, divide the number of motes spent by two for purposes of calculating the effect on the character's anima. A Combo that includes this Charm does not automatically make</p><p>the Sidereal's anima flare (though the mote expenditure might, and Obvious Charms remain Obvious). Soft Presence Practice can be part of a Combo with almost any other Charm.</p>",
+    "description": "<p>This Charm supplements expenditures of Essence. While the Charm is active, divide the number of motes spent by two for purposes of calculating the effect on the character's anima. A Combo that includes this Charm does not automatically make the Sidereal's anima flare (though the mote expenditure might, and Obvious Charms remain Obvious). Soft Presence Practice can be part of a Combo with almost any other Charm.</p><p><em>Scroll of Errata:</em> While this Charm is active, motes spent on the Sidereal's non-Obvious Stealth Charms (including Excellencies) do not contribute to anima flare, and she may spend up to (Essence) peripheral motes on other non-Obvious Charms each tick without them counting for anima flare. In addition, she adds an extra success to her Larceny and Stealth rolls during the scene.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,6 +41,10 @@
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
+    "abilityDiceBonus": [
+      { "ability": "stealth", "formula": "1" },
+      { "ability": "larceny", "formula": "1" }
+    ],
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,

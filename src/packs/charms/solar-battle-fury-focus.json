@@ -49,7 +49,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "resistance",
             "virtueKey": "valor",
             "virtueMin": 1
           }
@@ -58,8 +58,9 @@
     ],
     "woundReduction": {
       "enabled": true,
-      "formula": "-1"
+      "formula": "1"
     },
+    "combatDiceBonus": 1,
     "charmUid": "072368fff7831d6f"
   },
   "folder": "f05b544008eaceb0",

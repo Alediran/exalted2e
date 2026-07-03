@@ -15,20 +15,23 @@
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 1,
+    "essence": 3,
     "minAbility": 1,
-    "charmType": "supplemental",
-    "duration": "instant",
+    "charmType": "simple",
+    "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Obvious",
+      "Velocity"
+    ],
     "cost": {
       "formula": "5m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Duration: Indefinite Prerequisite Charms: Wind-Born Stride (x3), Unimpeded Perfection of Exertion The wind is felt, not seen. So long as he maintains maximum dashing speed, the Infernal is invisible and as inaudible as desired. This state imposes a -2 external penalty on all attempts to notice or attack him and provides two bonus successes on contested Stealth rolls, but these benefits do not stack with each other. Ranged attacks against the Exalt automatically miss without aid of a Charm or stunt. Efforts to track the Infernal automatically fail. If a perfect tracking effect contests this effect, add the Infernal's Essence rating in automatic successes to the opposed roll. SACRED KAMILLA'S INHALATION</p>",
+    "description": "<p>Duration: Indefinite Prerequisite Charms: Wind-Born Stride (x3), Unimpeded Perfection of Exertion The wind is felt, not seen. So long as he maintains maximum dashing speed, the Infernal is invisible and as inaudible as desired. This state imposes a -2 external penalty on all attempts to notice or attack him and provides two bonus successes on contested Stealth rolls, but these benefits do not stack with each other. Ranged attacks against the Exalt automatically miss without aid of a Charm or stunt. Efforts to track the Infernal automatically fail. If a perfect tracking effect contests this effect, add the Infernal's Essence rating in automatic successes to the opposed roll.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "adorjan",
     "martialArtsTier": "",
@@ -42,7 +45,33 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "323c4fdbe94b4f30",
+            "charmName": "Wind-Born Stride",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0,
+            "minPurchases": 3
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "64f20f3dbde6b4d6",
+            "charmName": "Unimpeded Perfection Of Exertion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "a2b17057a1ca1b02"
   },
   "folder": "e1c045f50a834f12",

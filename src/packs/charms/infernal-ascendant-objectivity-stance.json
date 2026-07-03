@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 4,
     "minAbility": 1,
     "charmType": "simple",
@@ -53,14 +53,14 @@
             "charmUid": "5bcde127bb0f348c",
             "charmName": "Crystal-Fire Barrier Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
+      "enabled": false,
       "status": "Knockback",
       "resistPool": "@sta + @athletics",
       "onFail": "applyKnockback"

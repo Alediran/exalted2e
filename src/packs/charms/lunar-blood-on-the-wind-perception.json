@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Blood On The Wind",
+  "name": "Blood on the Wind",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Like a wolf on the hunt, the Lunar can track any quarry whose scent she has sampled, no matter how far the prey has fled. This Charm supplements a (Perception + Survival) tracking roll. The Lunar may track any target whose scent she has encountered within the current scene, ignoring all penalties for terrain, distance, or time elapsed during the scene. The scent trail remains vivid in the Lunar's senses for as long as the Essence commitment is maintained, and she can follow it unerringly even in darkness or across difficult ground. This Charm cannot track across open water; a submerged or offshore target breaks the trail entirely.</p>",
+    "description": "<p>Once a true predator catches a scent, she never lets it go. This Charm supplements a Perception roll to track by scent, doubling the successes generated before environmental penalties are applied. The Lunar can follow any trail through even the most masking environment, and the effect persists indefinitely as long as she remains committed to the hunt.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -48,12 +48,12 @@
       {
         "alternatives": [
           {
-            "type": "charm",
-            "charmUid": "df263e6801f8a19b",
-            "charmName": "Inevitable Spoor Discovery",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "perception",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

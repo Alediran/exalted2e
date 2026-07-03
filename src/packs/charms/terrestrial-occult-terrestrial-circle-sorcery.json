@@ -24,7 +24,7 @@
     "steps": [],
     "keywords": [],
     "cost": {
-      "formula": "--",
+      "formula": "1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
@@ -37,12 +37,13 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
+    "incompatibleCharms": ["8d7e6f5a4b3c21a9"],
     "charmUid": "1538863d8f39ad12",
     "grantsInitiation": {
       "enabled": true,

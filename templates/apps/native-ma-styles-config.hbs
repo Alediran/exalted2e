@@ -1,0 +1,16 @@
+<div class="ex2e-native-ma-styles-config">
+  <p class="hint">{{localize "EX2E.NativeMaStylesConfigHint"}}</p>
+  <div class="ex2e-native-ma-styles-config-body">
+    {{#each splats as |splat|}}
+    <div class="form-group">
+      <label>{{splat.label}}</label>
+      <textarea name="styles.{{splat.key}}"
+                rows="3"
+                placeholder="{{localize 'EX2E.NativeStylePlaceholder'}}">{{splat.styles}}</textarea>
+    </div>
+    {{/each}}
+  </div>
+  <footer class="form-footer">
+    <button type="submit"><i class="fa-solid fa-save"></i> {{localize "EX2E.Save"}}</button>
+  </footer>
+</div>

@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,36 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d872984a1182bd4f",
+            "charmName": "Butterfly Eyes Fist",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "875649a645d28d59",
+            "charmName": "Butterfly Eyes Tread",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "271f7ff2e681ce32",
+            "charmName": "Butterfly Eyes Defense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2ecb4ab82949e223"
   },
   "folder": "7e56afbcd2643f32",

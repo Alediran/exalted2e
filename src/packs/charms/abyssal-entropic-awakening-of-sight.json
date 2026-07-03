@@ -16,23 +16,22 @@
     "exaltType": "abyssal",
     "ability": "awareness",
     "essence": 2,
-    "minAbility": 3,
-    "charmType": "simple",
-    "duration": "one scene",
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Combo-OK",
-      "Obvious"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's eyes flood with grave-black essence, turning her irises the colour of an eclipsed sun as she awakens the Underworld's perspective: the ability to see not what things are, but what they are becoming. Decay, structural weakness, illness, moral failing, and the inevitable progress toward dissolution become visible as shadow-patterns overlaid upon the physical world. Against living targets, the Abyssal can perceive health levels lost, diseases brewing, and emotional vulnerabilities, adding her Essence in bonus dice to all attack and social rolls as she exploits what she sees.</p><p>Against objects and structures, the entropic sight reveals fatigue cracks, rot, and mechanical failure points in exquisite detail. The Obvious effect is apparent to all observers as the unsettling black-void sheen of the Exalted's gaze. This charm is the prerequisite for the Piercing Gaze of the Unmaker, which builds upon this entropic sight to actively accelerate the decay the Abyssal perceives.</p>",
+    "description": "<p>There is little beauty left for those enlightened to the myriad ways in which the world decays moment by moment. The Abyssal can smell the hint of rot in a freshly cut flower and feel the wrinkles waiting to emerge on a nubile courtesan's skin.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",

@@ -17,7 +17,7 @@
     "ability": "integrity",
     "essence": 2,
     "minAbility": 2,
-    "charmType": "supplemental",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm actually represents four separate Charms with a similar effect. Each is based on one of the character's Virtues and uses either that Virtue or a particular Ability to mark its effects, in addition to the basic Integrity and</p><p>Essence. A player can take the Charm once for each Virtue. The specific Charms are the following: � Compassionate Essence Replenishment, based on the character's Compassion and Performance; � Stern Essence Replenishment, based on the character's Conviction and Socialize; � Heroic Essence Replenishment, based on the character's Valor and Presence; and � Slick Essence Replenishment, based on the character's Temperance and Bureaucracy. To buy each Charm, a character needs at least three dots in the secondary Ability. Each Charm has no cost to use; each Charm permanently enhances the character's capabilities. When a character with this Charm channels Willpower through the Virtue that pertains to the Charm and succeeds on her action, she gets back (Virtue x 2) motes of Essence. The character can also use the required additional Ability to gain a smaller Essence replenishment if her action using the Ability supports the theme of the Virtue in a situation where something important is at stake. For instance, if a character with Heroic Essence Replenishment successfully uses Presence to rally for numbers (see Exalted, p. 165) in the face of overwhelming enemy forces, she gains (Virtue) motes. The character cannot gain motes from using the Ability and channeling Willpower through the Virtue on the same roll. The motes can go to either the character's peripheral or personal Essence pools.</p>",
+    "description": "<p>This Charm actually represents four separate Charms with a similar effect. Each is based on one of the character's Virtues and uses either that Virtue or a particular Ability to mark its effects, in addition to the basic Integrity and Essence. A player can take the Charm once for each Virtue. The specific Charms are the following: � Compassionate Essence Replenishment, based on the character's Compassion and Performance; � Stern Essence Replenishment, based on the character's Conviction and Socialize; � Heroic Essence Replenishment, based on the character's Valor and Presence; and � Slick Essence Replenishment, based on the character's Temperance and Bureaucracy. To buy each Charm, a character needs at least three dots in the secondary Ability. Each Charm has no cost to use; each Charm permanently enhances the character's capabilities. When a character with this Charm channels Willpower through the Virtue that pertains to the Charm and succeeds on her action, she gets back (Virtue x 2) motes of Essence. The character can also use the required additional Ability to gain a smaller Essence replenishment if her action using the Ability supports the theme of the Virtue in a situation where something important is at stake. For instance, if a character with Heroic Essence Replenishment successfully uses Presence to rally for numbers (see Exalted, p. 165) in the face of overwhelming enemy forces, she gains (Virtue) motes. The character cannot gain motes from using the Ability and channeling Willpower through the Virtue on the same roll. The motes can go to either the character's peripheral or personal Essence pools.</p><p><em>Scroll of Errata:</em> This Charm no longer provides motes for channeling a Virtue once that Virtue has been channeled a number of times in a day equal to its rating.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +37,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

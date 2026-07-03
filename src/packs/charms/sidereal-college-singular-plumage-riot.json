@@ -1,6 +1,6 @@
 {
-  "_id": "10d14f408c6a452f",
-  "_key": "!items!10d14f408c6a452f",
+  "_id": "c7cd1c974348f9ef",
+  "_key": "!items!c7cd1c974348f9ef",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "college",
-    "essence": 5,
-    "minAbility": 4,
+    "essence": 1,
+    "minAbility": 1,
     "charmType": "simple",
     "duration": "formula",
     "speed": 6,
@@ -34,21 +34,20 @@
       "limitTrigger": 0
     },
     "description": "<p>Violently wrenching destiny into a tangle around himself, the Vizier draws in those who share some commonality with him and forges them into a weapon. The character names one trait about himself, with roughly the same level of specificity as an Ability specialty (Storyteller's discretion--appropriate examples include \"blue eyes,\" \"red hair,\" \"born in Chiaroscuro\" or \"wearing a turban\"). He then spends two motes per dot of desired Magnitude, up to a maximum Magnitude equal to his Essence. All extras who meet this criteria and who do not consider the Vizier an enemy immediately approach the character and, over the course of a minimum of five long ticks, form into an unordered complimentary social or military unit which the Sidereal leads. If there is an insufficient number of valid extras in the immediate vicinity, the nearest valid extras drop what they are doing and trek to the location where the Charm was invoked, even if doing so requires long and dangerous travel. This is an unnatural Compulsion effect, which cannot be resisted. Once formed, the unit persists for one scene, at which point it dissolves.</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "source": "Glories of the Most High: The Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "10d14f408c6a452f"
+    "charmUid": "c7cd1c974348f9ef"
   },
   "folder": "84b20a7805198847",
   "sort": 0,

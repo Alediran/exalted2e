@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "simple",
-    "duration": "scene",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -45,7 +45,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "White Reaper Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -58,11 +57,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "cc4d8c493b1eeadc",
+            "charmUid": "91714697b3f46782",
             "charmName": "Falling Scythe Flash",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -70,11 +69,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "e9087e0d04267b30",
+            "charmUid": "082c98db96a30676",
             "charmName": "Revolving Crescent Defense",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

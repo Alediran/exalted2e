@@ -17,13 +17,11 @@
     "ability": "martialarts",
     "essence": 3,
     "minAbility": 5,
-    "charmType": "reflexive",
+    "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      8
-    ],
+    "steps": [],
     "keywords": [
       "Combo-OK"
     ],
@@ -39,7 +37,7 @@
       "limitTrigger": 0,
       "formula": "5m"
     },
-    "description": "<p>When the Sidereal successfully attacks someone, he can tangle the vector of that attack in the weave of the victim's fate, lodging the vector there like a barbed hook in a fish's mouth. In Step 8 of attack resolution, when the player rolls the attack's damage, he can activate this Charm. He may then buy automatic successes on this roll for two motes of Essence per additional health level. A character may purchase no more automatic successes than he has dots of Essence.</p>",
+    "description": "<p>Sighting a violet glimmer of the Essence of Endings in her enemy's soul, the Sidereal strikes through it to bring them closer to their death. Add (Essence) to the raw damage of an unarmed attack supplemented by this Charm. The same amount is also added to the minimum damage of the attack, granting it the Overwhelming tag.</p><p>A character reduced to their Incapacitated level by an attack supplemented with Life-Severing Blow can be unmade as a Shaping effect, killing them instantly and reducing their corpse to ash. Against mortals, even a single level of damage is sufficient to shape them dead.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -48,7 +46,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -58,8 +56,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "139b1e5b31101b02",
-            "charmName": "Crimson Palm Counterstrike",
+            "charmUid": "8dec44904d734733",
+            "charmName": "Violet Bier of Sorrows Form",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1
@@ -67,6 +65,10 @@
         ]
       }
     ],
+    "rawDamageBonus": {
+      "enabled": true,
+      "formula": "@essence"
+    },
     "charmUid": "407ace0395d098e5",
     "grantsMastery": false
   },

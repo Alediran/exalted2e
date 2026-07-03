@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "alchemical",
     "ability": "intelligence",
-    "essence": 1,
-    "minAbility": 1,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Mental Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "3a320986e66753ef"
   },
   "folder": "b0b1b2b3b4b5f04f",

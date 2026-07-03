@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Blood On The Wind",
+  "name": "Blood on the Wind",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -23,7 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Merged"
     ],
     "cost": {
       "formula": "4m, 1wp",

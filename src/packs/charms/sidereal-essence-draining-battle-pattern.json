@@ -17,7 +17,7 @@
     "ability": "war",
     "essence": 3,
     "minAbility": 5,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal must first activate Predestined Triumph Practice in order to use this Charm. He then urges his forces into a combat pattern that blocks and reroutes the flows of Essence that empower their enemies. Designing the pattern and properly arranging his troops into it requires a successful (Intelligence + War) roll. The maximum number of successes the Sidereal can achieve is equal to his permanent Essence--extra successes are lost. During the battle, every hero or sorcerer special character (see Exalted, p. 162) who enacts his part of the pattern receives an extra mote of Essence per action from the flows that the pattern disrupts. Each such character also adds a number of motes equal to the Sidereal's player's successes on the aforementioned roll to the costs of any Charms or sorcery used by the opposing army. This increase, however, cannot more than double the cost for a Charm or spell. For instance, an Essence 5 Sidereal leading an army with six special characters could add up to 30 motes to the cost of enemy Charms or spells; for instance, Rain of Doom could have its cost raised from 60 motes to 90. A minor Charm such as Fists of Iron Technique, however, would have its cost raised from just one mote to two. An army can benefit from only one Battle Pattern Charm in a given battle.</p>",
+    "description": "<p>When the Sidereal is the leader or a special character of a mass combat unit, he may activate this Charm reflexively. Once active, at the beginning of each action tick, the Sidereal and every other special character in the unit gains one mote to their respective Overdrive pools. Characters who do not already have an Overdrive pool gain a temporary five-mote pool that starts empty; this Charm does not increase the capacity of an existing Overdrive pool. An army can benefit from only one Battle Pattern Charm in a given battle.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

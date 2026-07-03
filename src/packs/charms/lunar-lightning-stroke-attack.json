@@ -27,7 +27,7 @@
       "Obvious"
     ],
     "cost": {
-      "formula": "11m",
+      "formula": "7m",
       "resonance": 0,
       "limitTrigger": 0
     },
@@ -71,7 +71,8 @@
         ]
       }
     ],
-    "charmUid": "a8cbf8de87a5f8e7"
+    "charmUid": "a8cbf8de87a5f8e7",
+    "supplementalKeywordInjection": ["Unblockable", "Undodgeable"]
   },
   "folder": "6d3aed86fa48b120",
   "sort": 0,

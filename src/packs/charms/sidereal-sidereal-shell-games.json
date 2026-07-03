@@ -28,11 +28,11 @@
       "Touch"
     ],
     "cost": {
-      "formula": "6m",
+      "formula": "6m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character sweeps a hand through the weave of events, wrapping her fate around that of a target so that certain portions of one strand temporarily become indistinguishable from the other. The player then rolls (Wits + Larceny). If the roll succeeds, the Sidereal can steal a number equal to his Essence from his target's innate bashing and lethal soak, his target's damage dice from all attacks or dice from one of</p><p>his target's specific dice pools. The target loses the dice or levels of soak for the scene, and the Sidereal gains them in addition to his own. This Charm cannot take more dice or levels from the target than the target has and cannot add more bonus dice to the Sidereal's pool in conjunction with other Charms than the Sidereal has dots of Essence. The Sidereal can steal dice from several different targets or steal dice from several of one target's dice pools, but the Sidereal cannot add to his own soak or to any one of his dice pools more than once. Also, he cannot steal dice or soak just to make it disappear from the target: the character must be able to receive and use the stolen dice or levels in order to be able to steal them.</p>",
+    "description": "<p>The character sweeps a hand through the weave of events, touching a target to wrap their fate around her own. The player rolls (Wits + Larceny). Each extra success on the roll, up to the Sidereal's Essence in extra successes, steals from one of the target's specific dice pools: the target suffers a -1 internal penalty to that pool for the scene, and the Sidereal gains one bonus die in the same pool for the scene. The Sidereal cannot steal from the same pool more than once per use of this Charm. A Sidereal of Essence 4 or higher may extend the range of this Charm beyond touch for an additional mote and 1wp per use. This Charm is a Shaping attack that cannot be blocked or dodged.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

@@ -30,7 +30,7 @@
     "styles/_hud.css",
     "styles/_actor.css",
     "styles/_actor-unit.css",
-    "module/css/charm-tree.css"
+    "styles/_charm-tree.css"
   ],
   "languages": [
     {
@@ -135,6 +135,13 @@
       "path":   "packs/npcs",
       "type":   "Actor",
       "system": "exalted2e"
+    },
+    {
+      "name":   "knacks",
+      "label":  "Knacks",
+      "path":   "packs/knacks",
+      "type":   "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {
@@ -174,7 +181,9 @@
       "thaum-art": {},
       "procedure": {},
       "resplendency": {},
-      "manse-power": {}
+      "manse-power": {},
+      "ammo": {},
+      "malados": {}
     },
     "RegionBehavior": {
       "hazardDamage":    {},

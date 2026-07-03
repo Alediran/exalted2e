@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Some Abyssals find ranged weapons distasteful because they do not afford an opportunity to stare into a victim's eyes as she dies. Unfortunately, archers who fire weapons close enough to savor each kill lose the primary advantage of using ranged weapons in the first place. This Charm reconciles the paradox of sadism and practicality, invoking the proximate certainty of Oblivion to aid</p><p>point-blank shots. Upon activating Elegant Executioner Stance, the Abyssal may draw and load any Archery weapons available to him as part of the action needed to use this Charm. For the rest of the Charm's duration, whenever the Abyssal makes an Archerybased attack on a target within five yards, extra successes on attack rolls count twice for purposes of determining raw damage.</p>",
+    "description": "<p>Some Abyssals find ranged weapons distasteful because they do not afford an opportunity to stare into a victim's eyes as she dies. Unfortunately, archers who fire weapons close enough to savor each kill lose the primary advantage of using ranged weapons in the first place. This Charm reconciles the paradox of sadism and practicality, invoking the proximate certainty of Oblivion to aid point-blank shots. Upon activating Elegant Executioner Stance, the Abyssal may draw and load any Archery weapons available to him as part of the action needed to use this Charm. For the rest of the Charm's duration, whenever the Abyssal makes an Archerybased attack on a target within five yards, extra successes on attack rolls count twice for purposes of determining raw damage.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,12 +52,13 @@
             "charmUid": "300237f0e80c2dd4",
             "charmName": "Withering Feathered Maelstrom",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
+    "extraSuccessMultiplier": 2,
     "charmUid": "bb8ba0090586318b"
   },
   "folder": "b0b1b2b3b4b5f033",

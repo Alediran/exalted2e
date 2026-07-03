@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's presence terrifies natural animals, evoking ancestral fear of the Primordials who once walked Creation. This Charm projects an unnatural Compulsion within a radius of (Essence x 2) yards, forcing natural animals to flee the zone of terror. Resistance is not possible, but animals that are cornered or otherwise cannot flee attack the Abyssal out of</p><p>instinctual desperation. Superior Predator Style has no effect on animals that are magically compelled by other effects or supernaturally loyal, such as familiars. This Charm may be activated while the character is inactive. The Taint drawback to this Charm is its own effects, since a constant fear aura does not differentiate between hostile and useful animals. The Taint costs six bonus points or 12 experience points.</p>",
+    "description": "<p>The Abyssal's presence terrifies natural animals, evoking ancestral fear of the Primordials who once walked Creation. This Charm projects an unnatural Compulsion within a radius of (Essence x 2) yards, forcing natural animals to flee the zone of terror. Resistance is not possible, but animals that are cornered or otherwise cannot flee attack the Abyssal out of instinctual desperation. Superior Predator Style has no effect on animals that are magically compelled by other effects or supernaturally loyal, such as familiars. This Charm may be activated while the character is inactive. The Taint drawback to this Charm is its own effects, since a constant fear aura does not differentiate between hostile and useful animals. The Taint costs six bonus points or 12 experience points.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -54,9 +54,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "survival",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

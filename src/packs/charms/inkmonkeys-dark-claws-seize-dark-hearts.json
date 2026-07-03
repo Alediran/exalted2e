@@ -1,0 +1,69 @@
+{
+  "_id": "6bc92439290e72e1",
+  "_key": "!items!6bc92439290e72e1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dark Claws Seize Dark Hearts",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Ultimate Darkness preys upon the vile feelings that seep from wounded memories. Such emotions are but a shadow of the Dragon, and so they rightly yield before their master and betray the heart that holds them. This Charm can enhance any social attack aimed at a single target (typically with Investigation or Presence), provided the attack preys upon an Intimacy created or corrupted by Golden Years Tarnished Black. For instance, if the warlock caused a widow to despise her late husband, he could then attempt to prey upon that hate by suggesting she should set fire to all the art he painted as his life's work. Instead of the usual -1 MDV modifier, the social attack becomes unnatural (if not already) and unexpected, costing one additional Willpower to resist at each opportunity to do so (to a maximum of five Willpower as normal). If the Infernal has Essence 7+, Dark Claws Seize Dark Hearts may also be used to augment Performance-based social attacks as an alternative to single target use. Such attacks work on all listeners, but the benefits of the Charm (unexpected, automatically unnatural, etc.) only apply against those with appropriate Intimacies.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6c3b6f5e514da984",
+            "charmName": "Unreasoning Prejudice Infliction",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "6bc92439290e72e1"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -30,14 +30,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Essence enhances the Solar's arts. This Charm allows the Solar to create ghostly images, Essence flares, ethereal music and strange sensory effects when using a Performance Excellency or Presence Excellency. These effects do not seem entirely real, they remain within (Essence x 10) yards of the Solar, and they cannot be used to confuse or deceive others without a stunt. This Charm has no cost, but the Solar need not use its effects.</p>",
+    "description": "<p>Essence enhances the Solar's arts. This Charm allows the Solar to create ghostly images, Essence flares, ethereal music and strange sensory effects when using a Performance Excellency or Presence Excellency. These effects do not seem entirely real, they remain within (Essence x 10) yards of the Solar, and they cannot be used to confuse or deceive others without a stunt. This Charm has no cost, but the Solar need not use its effects.</p><p>At Performance and Essence 4+, a Solar with this Charm may personalize the expressions of his iconic anima displays, changing its appearance each time it flares up. Deathknights with this Charm's Abyssal Mirror gain the same benefit.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Variable",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "performance",
             "virtueKey": "valor",
             "virtueMin": 1
           }

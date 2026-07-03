@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Flame-eater Stance",
+  "name": "Flame-Eater Stance",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -21,7 +21,7 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [2],
     "keywords": [
       "Combo-OK",
       "Obvious"
@@ -37,7 +37,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Golden Exhalation Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b5d50186b5757fca",
+            "charmName": "Golden Exhalation Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "5070d08746e0a67d"
   },
   "folder": "792dc280d116c2e8",

@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "permanent",
     "duration": "oneWeek",
-    "speed": 5,
+    "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -30,8 +30,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The most devoted servants of the Unconquered Sun pass their heroic virtues on to those they train. This Charm expands Tiger Warrior Training Technique, enabling the Solar to impart her heroic values to her soldiers. Unlike its Abyssal Mirror, this Charm can confer bonus dice to those she trains. Mortals and spirits may be taught to embody heroic virtues as an unnatural Compulsion effect (costing trainees no bonus or experience points). These champions become immune to wound penalties until Incapacitated and automatically succeed on all Valor rolls, giving units of these troops perfect morale. The effects of this heroic conditioning last until the warrior's will is broken (Exalted, p. 174).</p>",
-    "source": "MoEP: Abyssals",
+    "description": "<p>Legendary Warrior Curriculum is a permanent upgrade to Tiger Warrior Training Technique. When instructing a military unit, the Solar may now train Lore, Integrity, Survival, and Stealth in addition to the standard military abilities. The Solar may also raise a unit's Willpower to a maximum of seven, one point per week. If the Solar creates a specialty technique during training, soldiers who use that specialty technique gain a bonus die on relevant rolls.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",

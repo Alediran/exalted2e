@@ -37,7 +37,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Righteous Devil Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "697c4e2f66df1600"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5bad2ad81b645386",
+            "charmName": "Phoenix Flies on Golden Wings Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "697c4e2f66df1600",
+    "grantsMastery": false
   },
   "folder": "c9f7d573ff8d32af",
   "sort": 0,

@@ -32,14 +32,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Spurred by mad genius and inspired by the desolation of the Underworld, Abyssal artisans construct and repair weapons almost as fast as they imagine them. This Charm enhances a Craft action, which can be an extended or dramatic action. Until the Exalt completes the project or ends the Charm by taking another action, he may ac-</p><p>complish (Essence x 5) hours worth of work to build or repair a destructive item per hour. He also works without the need for tools as if he had access to a basic workshop (see The Books of Sorcery, Vol. III--Oadenol's Codex, p. 28). When repairing items, broken pieces may be joined together seamlessly as if the object were new again. For the purposes of this Charm, a destructive item is defined as anything with a function that is overtly harmful, with weapons as an obvious example. Strictly utilitarian items do not qualify, let alone anything actually intended to help others outside of making them more effective killers (for instance, armor made for an army bent on massacre). The Storyteller remains final arbiter of what qualifies as a destructive item but should be strict in judgment. The Abyssal Exalted exist to destroy the world, not add to its wonders.</p>",
+    "description": "<p>Spurred by mad genius and inspired by the desolation of the Underworld, Abyssal artisans construct and repair weapons almost as fast as they imagine them. This Charm enhances a Craft action, which can be an extended or dramatic action. Until the Exalt completes the project or ends the Charm by taking another action, he may accomplish (Essence x 5) hours worth of work to build or repair a destructive item per hour. He also works without the need for tools as if he had access to a basic workshop (see The Books of Sorcery, Vol. III--Oadenol's Codex, p. 28). When repairing items, broken pieces may be joined together seamlessly as if the object were new again.</p><p>For the purposes of this Charm, a destructive item is defined as anything with a function that is overtly harmful, with weapons as an obvious example. Strictly utilitarian items do not qualify, let alone anything actually intended to help others outside of making them more effective killers (for instance, armor made for an army bent on massacre). The Storyteller remains final arbiter of what qualifies as a destructive item but should be strict in judgment. The Abyssal Exalted exist to destroy the world, not add to its wonders.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until project is complete or another action is taken",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,8 +54,8 @@
             "charmUid": "541776aee0f95fcb",
             "charmName": "Fault-Finding Scrutiny",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

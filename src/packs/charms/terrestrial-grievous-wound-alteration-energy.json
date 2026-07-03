@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With this Charm, the Dragon-Blood can cause himself or someone else to more quickly heal even the most serious of injuries. For every three motes spent, the Dragon-Blood can convert one level of aggravated damage into lethal damage. Healing even one level of damage also automatically closes any bleeding wounds. This</p><p>Charm can be used on someone else just as easily as the Exalt uses it on himself. The Dragon-Blood must spend one Willpower per aggravated health level converted. Damage converted from aggravated to lethal can be further transformed into simple bashing damage through a subsequent application of Wound-Closing Touch.</p>",
+    "description": "<p>With this Charm, the Dragon-Blood can cause himself or someone else to more quickly heal even the most serious of injuries. For every three motes spent, the Dragon-Blood can convert one level of aggravated damage into lethal damage. Healing even one level of damage also automatically closes any bleeding wounds. This Charm can be used on someone else just as easily as the Exalt uses it on himself. The Dragon-Blood must spend one Willpower per aggravated health level converted. Damage converted from aggravated to lethal can be further transformed into simple bashing damage through a subsequent application of Wound-Closing Touch.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,8 +53,8 @@
             "charmUid": "97ec2aadaa8383ce",
             "charmName": "Wound-Closing Touch",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

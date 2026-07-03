@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Haunting Heart-rending Melody",
+  "name": "Haunting Heart-Rending Melody",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -35,9 +35,8 @@
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "Silver-voiced Nightingale Style",
+    "martialArtsStyleName": "Silver-Voiced Nightingale Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "99f7bba3d8d56cac"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "20e9454fcb14b12b",
+            "charmName": "Inspiring Battle Hymn",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "99f7bba3d8d56cac",
+    "grantsMastery": false
   },
   "folder": "f8d2ffb92c6967bb",
   "sort": 0,

@@ -1,5 +1,5 @@
 import { matchesFilter, deduplicateCharms, buildTree, splitIntoBranches, getCharmState, getPipData, getVirtualNodeState } from '../helpers/charm-tree-builder.mjs';
-import { renderTree, drawConnectors, alignRowsToParents } from '../helpers/charm-tree-renderer.mjs';
+import { renderTree, drawConnectors } from '../helpers/charm-tree-renderer.mjs';
 
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
@@ -202,7 +202,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const card = ev.target.closest('.charm-tree-card');
       if (!card) return;
       const node = this.#treeData?.nodes?.get(card.dataset.nodeId);
-      if (!node || node.isVirtual) return;
+      if (!node || node.isVirtual || node.isGhost) return;
       this.#onCardClick(node);
     });
 
@@ -231,7 +231,9 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       return;
     }
 
-    const treeData = buildTree(charms, this.#groupKey);
+    const externalUids = await this.#loadExternalUids(charms);
+    if (gen !== this.#renderGeneration) return;
+    const treeData = buildTree(charms, this.#groupKey, { externalUids });
 
     // Attach cardState + pipData to every node before splitting into branches
     for (const node of treeData.nodes.values()) {
@@ -239,13 +241,14 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
         node.cardState = getVirtualNodeState(node, this.#actor);
         continue;
       }
+      if (node.isGhost) continue;
       const charm = node.charm;
       node.cardState = getCharmState(charm, this.#actor);
       const uid = charm.system?.charmUid;
       const ownedItem = uid && this.#actor
         ? this.#actor.items.find(i => i.type === 'charm' && i.system?.charmUid === uid)
         : null;
-      node.pipData = getPipData(charm, ownedItem ?? null);
+      node.pipData = getPipData(charm, ownedItem ?? null, this.#actor);
     }
 
     this.#branches = splitIntoBranches(treeData);
@@ -266,16 +269,16 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     this.#resizeObserver = null;
 
     const EX2E = game.exalted2e.EX2E;
-    this.#nodeEls = renderTree(body, branch, this.#exaltType, EX2E.splatPipColor, EX2E.splatLightColor);
+    const { nodeEls, canvas } = renderTree(body, branch, this.#exaltType, EX2E.splatPipColor, EX2E.splatLightColor);
+    this.#nodeEls = nodeEls;
 
     const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svgEl.setAttribute('class', 'charm-tree-svg');
-    body.appendChild(svgEl);
+    canvas.appendChild(svgEl);
     this.#svgEl = svgEl;
 
     const redrawConnectors = () => {
-      alignRowsToParents(body, branch.edges, this.#nodeEls);
-      drawConnectors(svgEl, body, branch.edges, this.#nodeEls);
+      drawConnectors(svgEl, canvas, branch.edges, this.#nodeEls);
     };
     requestAnimationFrame(redrawConnectors);
     this.#resizeObserver = new ResizeObserver(() => requestAnimationFrame(redrawConnectors));
@@ -366,6 +369,50 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     return deduplicateCharms(entries);
+  }
+
+  async #loadExternalUids(currentCharms) {
+    if (this.#exaltType !== 'alchemical') return null;
+
+    const currentUidSet = new Set(
+      currentCharms.map(c => c.system?.charmUid).filter(Boolean)
+    );
+
+    const externalUids = new Map();
+
+    if (this.#sources.systemPack) {
+      const pack = game.packs.get('exalted2e.charms');
+      if (pack) {
+        const index = await pack.getIndex({
+          fields: ['type', 'system.charmUid', 'system.ability', 'system.exaltType'],
+        });
+        for (const entry of index) {
+          if (entry.type !== 'charm') continue;
+          if (entry.system?.exaltType !== 'alchemical') continue;
+          const uid = entry.system?.charmUid;
+          if (!uid || currentUidSet.has(uid)) continue;
+          externalUids.set(uid, {
+            name:    entry.name ?? '',
+            ability: entry.system?.ability ?? '',
+          });
+        }
+      }
+    }
+
+    if (this.#sources.worldItems) {
+      for (const item of game.items) {
+        if (item.type !== 'charm') continue;
+        if (item.system?.exaltType !== 'alchemical') continue;
+        const uid = item.system?.charmUid;
+        if (!uid || currentUidSet.has(uid)) continue;
+        externalUids.set(uid, {
+          name:    item.name ?? '',
+          ability: item.system?.ability ?? '',
+        });
+      }
+    }
+
+    return externalUids.size > 0 ? externalUids : null;
   }
 
   // ── card interaction ──────────────────────────────────────────────────────

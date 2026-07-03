@@ -34,7 +34,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Falling Blossom Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,7 +41,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "db5fe0a3f8933759",
+            "charmName": "Falling Blossom Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "1bad187f24a5b48b"
   },
   "folder": "dd497199f5d1964b",

@@ -1,0 +1,69 @@
+{
+  "_id": "d1e2f3a4b5c60009",
+  "_key": "!items!d1e2f3a4b5c60009",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Spirit of the Living World",
+  "type": "charm",
+  "img": "icons/magic/nature/elemental-earth-stone-brown.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 6,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Heretical"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Through the power of her Exaltation, the Infernal carves out a world from the substance of her own soul. This Charm permits the Infernal to create a world, piece by piece, as though with Constructive Convergence of Principles (including the requisite mote cost and roll to expand and modify that world). This does not count as a Charm use, but the Infernal must remain in a meditative trance while altering or expanding her inner world. She may not create demesnes or magical things within herself, and her creations do not unravel if they do not interact with Creation. The Infernal's soul is treated as Pure Chaos for this purpose.</p><p>This created world exists wholly within the Infernal's soul, but is otherwise a real, ongoing, self-contained place, which continues to exist even when she is not paying attention to it. The internal worlds of the Infernal Exalted are strange, uncanny places. The world the Infernal forges should be consistent with the mood and themes of the Excellency she created through Triumphant Howl of the Devil-Tiger, at the Storyteller's discretion.</p><p>The Infernal may mentally visit this world by taking a miscellaneous action (Speed 5 long ticks, DV −3) to enter an Inactive meditative state, always appearing at the center of the first part of the world she shaped into being. She may leave this trance at any time with a Speed 5, DV −2 miscellaneous action.</p><p>Individuals created in her inner world do not have souls of their own and cannot grant her Essence through prayer, though they are otherwise real to her while she is there. The Infernal cannot yet travel physically into this world, bring anything from the outer world into it, or bring anything from the inner world out. These feats require additional Charms.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "heretical",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d1e2f3a4b5c60008",
+            "charmName": "The Face of the Titans",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "d1e2f3a4b5c60009"
+  },
+  "folder": "d1e2f3a4b5c60000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

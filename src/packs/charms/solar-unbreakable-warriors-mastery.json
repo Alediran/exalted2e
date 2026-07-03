@@ -51,34 +51,17 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
             "type": "charm",
-            "charmUid": "0feb3945130e2008",
-            "charmName": "Ox-Body Technique",
+            "charmUid": "20cba12e0ede41be",
+            "charmName": "Durability of Oak Meditation",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
-    },
+    "negatesCripplingEffect": true,
     "charmUid": "a07f54fc186566df",
     "mirrorId": "4b5d7f23c9b4e50a"
   },

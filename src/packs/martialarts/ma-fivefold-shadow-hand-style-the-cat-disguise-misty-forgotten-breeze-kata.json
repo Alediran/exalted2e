@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "The Cat Disguise (misty Forgotten Breeze Kata)",
+  "name": "The Cat Disguise (Misty Forgotten Breeze Kata)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -26,7 +26,7 @@
       "Combo-Basic",
       "Illusion",
       "Share-Breeze",
-      "ShareMist"
+      "Share-Mist"
     ],
     "cost": {
       "formula": "6m, 1wp",
@@ -39,7 +39,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7be3ecc915e9354b",
+            "charmName": "The Forgotten Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "e59df4f23f1af0bb"
   },
   "folder": "30abfdbff9e8ecc7",

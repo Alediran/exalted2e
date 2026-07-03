@@ -18,17 +18,19 @@
     "essence": 1,
     "minAbility": 2,
     "charmType": "simple",
-    "duration": "scene",
+    "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Combo-OK"
+    ],
     "cost": {
       "formula": "1m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>To the bureaucratic masters of the Water Aspects, even a collection of complete dullards (or worse, a group of soul-drained victims of the Fair Folk) can be fashioned into an efficient workforce for the short-term operation of any business. By spending a single mote of Essence, the Dragon-Blood can divide his own Bureaucracy Ability dots among a group of underlings who have no Bureaucracy Ability dots with which to begin. The Dragon-Blood cannot give out more dice than he has, nor can he give any underling more than a single dot. The Dragon-Blood must supervise the work of the affected underlings, and while his Bureaucracy dots are farmed out, he is considered to have no actual Bureaucracy dots of his own.</p>",
+    "description": "<p>To the bureaucratic masters of the Water Aspects, even a collection of complete dullards (or worse, a group of soul-drained victims of the Fair Folk) can be fashioned into an efficient workforce for the short-term operation of any business. By spending a single mote of Essence, the Dragon-Blood can divide his own Bureaucracy Ability dots among a group of underlings who have no Bureaucracy Ability dots with which to begin. The Dragon-Blood cannot give out more dice than he has, nor can he give any underling more than a single dot. The Dragon-Blood must supervise the work of the affected underlings, and while his Bureaucracy dots are farmed out, he is considered to have no actual Bureaucracy dots of his own.</p><p>While active, this Charm improves the capability of Terrestrial Bureaucracy Reinforcement to boost the Bureaucracy rating of anyone who is a recognized subordinate in an organization to which the Exalt belongs. Applied to such targets, Terrestrial Bureaucracy Reinforcement treats all of them as if they were holding hands at the time of activation (regardless of actual location), ignores the usual cap of twice the beneficiary's Bureaucracy rating, and has duration Indefinite.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

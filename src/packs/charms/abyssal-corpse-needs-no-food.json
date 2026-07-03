@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The deathknight feels hunger as mild discomfort rather than a debilitating and ultimately fatal condition. While this Charm is active, the total penalty for starvation and/or thirst never exceeds -1. The Taint drawback to making this Charm permanent is that the Abyssal becomes incapable of eating except when he devours others for Essence. After eating</p><p>any other food, his player rolls (Stamina + Resistance) each minute with the difficulty equal to the minutes that passed since the character's first bite. Failure causes the deathknight to vomit the contents of his stomach. The Taint costs two bonus points or four experience points.</p>",
+    "description": "<p>The deathknight feels hunger as mild discomfort rather than a debilitating and ultimately fatal condition. While this Charm is active, the total penalty for starvation and/or thirst never exceeds -1. The Taint drawback to making this Charm permanent is that the Abyssal becomes incapable of eating except when he devours others for Essence. After eating any other food, his player rolls (Stamina + Resistance) each minute with the difficulty equal to the minutes that passed since the character's first bite. Failure causes the deathknight to vomit the contents of his stomach. The Taint costs two bonus points or four experience points.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,8 +52,8 @@
             "charmUid": "1a8998a6de110104",
             "charmName": "Restless As The Dead",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

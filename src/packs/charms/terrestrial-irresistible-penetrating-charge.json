@@ -17,7 +17,7 @@
     "ability": "ride",
     "essence": 3,
     "minAbility": 4,
-    "charmType": "supplemental",
+    "charmType": "reflexive",
     "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,16 +31,16 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This variation of Charge of One Hundred Generals can be used only for mass combat maneuvers. The Charm lets the DragonBlood temporarily boost the effectiveness of large groups of mounted cavalry. The Dragon-Blood must spend one Willpower plus three motes for each point of Magnitude the cavalry unit possesses. Beginning with the first action of actual combat and lasting for a number of long ticks equal to the Dragon-Blood's Essence, the Dragon-Blood's (Ride + Essence) is added to the unit's Join Battle roll, and his ([Ride + Essence] � 3) is added to the unit's Close Combat Attack rating. This Charm can be used only during an actual charge and cannot be initiated once combat actually begins. The Dragon-Blood must be a part of the cavalry unit (although he does not have to be the leader), and a unit can benefit from only one use of this Charm at a time.</p>",
+    "description": "<p>This variation of Charge of One Hundred Generals can be used only for mass combat maneuvers. The Charm lets the Dragon-Blood temporarily boost the effectiveness of large groups of mounted cavalry. The Dragon-Blood must spend one Willpower plus three motes for each point of Magnitude the cavalry unit possesses. Beginning with the first action of actual combat and lasting for a number of long ticks equal to the Dragon-Blood's Essence, the Dragon-Blood's (Ride + Essence) is added to the unit's Join Battle roll, and his ([Ride + Essence] � 3) is added to the unit's Close Combat Attack rating. This Charm can be used only during an actual charge and cannot be initiated once combat actually begins. The Dragon-Blood must be a part of the cavalry unit (although he does not have to be the leader), and a unit can benefit from only one use of this Charm at a time.</p><p>(Errata) Disregard the Charm's printed rules. It enhances a mass combat unit's charges using the same overall rules as Charge of One Hundred Generals. However, the benefit conferred to a charging unit is an external penalty equal to the Exalt's Ride rating applied against all attacks aimed at the unit or its special characters. Once the charge ends for any reason (including to make an attack), the protective penalty lasts for one more action before receding.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One charge",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,8 +53,8 @@
             "charmUid": "13f9cbddaeb2ea25",
             "charmName": "Charge of One Hundred Generals",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

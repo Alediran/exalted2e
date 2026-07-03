@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "reflexive",
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>To merely outpace opposition is insufficient victory. The Infernal may dash reflexively each tick as though taking Move actions, enabling him to dash and take other actions without requiring a flurry. This Charm deactivates at speeds less than dashing at maximum rate. WHO STRIKES THE WIND?</p>",
+    "description": "<p>To merely outpace opposition is insufficient victory. The Infernal may dash reflexively each tick as though taking Move actions, enabling him to dash and take other actions without requiring a flurry. This Charm deactivates at speeds less than dashing at maximum rate.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "adorjan",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "323c4fdbe94b4f30",
             "charmName": "Wind-Born Stride",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

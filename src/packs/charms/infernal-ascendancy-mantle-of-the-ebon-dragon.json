@@ -1,0 +1,69 @@
+{
+  "_id": "beef000000000005",
+  "_key": "!items!beef000000000005",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ascendancy Mantle of the Ebon Dragon",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 5,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Primordials did not wait to exert their will over Creation and the crashing maelstroms of the Wyld at its shores, their authority rooted in the elegant ecology of superior might. The Green Sun Princes now emulate this splendor with a Charm of their devising, hastening their growth toward unknowable transcendence.</p><p>As a permanent upgrade, the Infernal can spend experience to buy his Essence rating up to a dot higher than his age should permit (see Exalted, p. 275). Each version of this Charm carries a different drawback depending on the Yozi used as a springboard for enlightenment. These drawbacks persist only as long as the character's Essence rating is higher than it could be without this Charm. Upon reaching the age that Essence 10 is naturally available, the Infernal replaces this Charm with another of his choice. Characters may only learn a single Ascendancy Mantle of (Yozi).</p><p>Ebon Dragon: The Ebon Dragon's hollow Essence pervades the warlock, rendering him incapable of channeling Virtues.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "30b0fc5966a24d09",
+            "charmName": "Essence Overwhelming (First The Ebon Dragon Excellency)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000005"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

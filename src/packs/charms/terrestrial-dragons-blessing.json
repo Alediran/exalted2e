@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Dragon's Blessing",
+  "name": "Extension of the (Element) Dragon's Blessing",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -18,7 +18,7 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "one day",
+    "duration": "oneDay",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -26,11 +26,11 @@
       "Elemental"
     ],
     "cost": {
-      "formula": "10m",
+      "formula": "10m + 2m per ally",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The pinnacle of the survivalist's skill, this Charm is actually a cluster of five elemental Charms. The Charm confers near total immunity to adverse environmental conditions for the DragonBlood. For the duration of one day, the Charm negates all external environmental penalties to Survival rolls provided that the right version for that environment is applied. With the proper Charm, a Dragon-Blood could stand naked on the coldest glacier or cross the hottest desert while wearing furs with little chance of frostbite, sunstroke or any other similar penalty. The Charm allows those affected to easily find food and water, and it protects them against natural environmental conditions, though not direct environmental damage. Therefore, Extension of the Fire Dragon's Blessing allows protected individuals to cross a searing desert as if it were a verdant plain on a crisp autumn morning, but it will convey no protection at all to actual fire. Each version of the Charm is attuned to one of the five elemental poles and will protect the user from direct exposure to the conditions at that pole. Air protects against extremes of cold and allows the DragonBlood to find food even on a frozen tundra. Earth permits the Dragon-Blood to walk through choking dust clouds without penalty and ensures that she will not accidentally trigger a rockslide no matter how loose the rocks are. If she is caught in an avalanche or otherwise buried alive, the Dragon-Blooded survives on an extremely limited air supply while the Charm lasts. Fire protects against extremes of heat and permits the Exalt to cross the hottest desert without sunburn and to easily find water there, as well as to ignore choking smoke and the tremendous heat produced by lava (although not direct contact with lava itself). Water protects against sunstroke and other maladies while the character is adrift at sea. It also allows the Exalt to ignore the effects of even the heaviest rains</p><p>and practically guarantees that fish will jump into her nets. While the Charm is in effect, the Dragon-Blood can drink seawater as if it were fresh with no adverse effects. Wood lets her move easily through the most overgrown forest without so much as a bug bite and to ignore any natural (but not supernatural) poisons whose Toxicity does not exceed the Dragon-Blood's Essence. (While the Wood version grants improved resistance to all natural toxins, each of the other four versions grant the same immunity to poisonous plants and creatures indigenous to the region of Creation associated with those Charms.) The Dragon-Blood can extend the benefits of these Charms to others at a cost of two motes per ally protected. All Essence spent is committed for the Charm's duration. Unlike many elemental Charms, a Dragon-Blood can learn more than one version of Extension of the (Element) Dragon's Blessing, but the Dragon-Blood must learn the version associated with her aspect first. More than one version can be used at a time, and they can even be activated simultaneously. Regardless of the specific elemental version learned, each Charm is always considered to be a Wood-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be activated on any tick.</p>",
+    "description": "<p>The pinnacle of the survivalist's skill, this Charm is actually a cluster of five elemental Charms. The Charm confers near total immunity to adverse environmental conditions for the Dragon-Blood. For the duration of one day, the Charm negates all external environmental penalties to Survival rolls provided that the right version for that environment is applied. With the proper Charm, a Dragon-Blood could stand naked on the coldest glacier or cross the hottest desert while wearing furs with little chance of frostbite, sunstroke or any other similar penalty. The Charm allows those affected to easily find food and water, and it protects them against natural environmental conditions, though not direct environmental damage. Therefore, Extension of the Fire Dragon's Blessing allows protected individuals to cross a searing desert as if it were a verdant plain on a crisp autumn morning, but it will convey no protection at all to actual fire. Each version of the Charm is attuned to one of the five elemental poles and will protect the user from direct exposure to the conditions at that pole. Air protects against extremes of cold and allows the Dragon-Blood to find food even on a frozen tundra. Earth permits the Dragon-Blood to walk through choking dust clouds without penalty and ensures that she will not accidentally trigger a rockslide no matter how loose the rocks are. If she is caught in an avalanche or otherwise buried alive, the Dragon-Blooded survives on an extremely limited air supply while the Charm lasts. Fire protects against extremes of heat and permits the Exalt to cross the hottest desert without sunburn and to easily find water there, as well as to ignore choking smoke and the tremendous heat produced by lava (although not direct contact with lava itself). Water protects against sunstroke and other maladies while the character is adrift at sea. It also allows the Exalt to ignore the effects of even the heaviest rains and practically guarantees that fish will jump into her nets. While the Charm is in effect, the Dragon-Blood can drink seawater as if it were fresh with no adverse effects. Wood lets her move easily through the most overgrown forest without so much as a bug bite and to ignore any natural (but not supernatural) poisons whose Toxicity does not exceed the Dragon-Blood's Essence. (While the Wood version grants improved resistance to all natural toxins, each of the other four versions grant the same immunity to poisonous plants and creatures indigenous to the region of Creation associated with those Charms.) The Dragon-Blood can extend the benefits of these Charms to others at a cost of two motes per ally protected. All Essence spent is committed for the Charm's duration. Unlike many elemental Charms, a Dragon-Blood can learn more than one version of Extension of the (Element) Dragon's Blessing, but the Dragon-Blood must learn the version associated with her aspect first. More than one version can be used at a time, and they can even be activated simultaneously. Regardless of the specific elemental version learned, each Charm is always considered to be a Wood-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies. </p><p>(Errata) Once a character has any version of this Charm active, other known versions cost only 1m to activate and allies already protected by the first activation inherit the other version's benefits at no additional cost. Essence 5+ Exalted with all five versions active suffer no penalties, damage or other harm from any environmental conditions—even those not native to Creation, such as Primordial weather. Whenever an Exalt with this Charm creates a shelter with its prerequisite, the structure itself and all those within it automatically gain the protection associated with all known versions of Extension of the (Element) Dragon's Blessing.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,8 +52,8 @@
             "charmUid": "2811dca7d15a5309",
             "charmName": "(Element) Shelter Creation Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

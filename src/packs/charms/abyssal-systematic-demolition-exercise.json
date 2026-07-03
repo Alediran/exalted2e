@@ -16,7 +16,7 @@
     "exaltType": "abyssal",
     "ability": "craft",
     "essence": 2,
-    "minAbility": 2,
+    "minAbility": 5,
     "charmType": "simple",
     "duration": "oneScene",
     "speed": 5,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal does not build — she unmakes. Channeling the Underworld's intimate understanding of entropy and structural failure, the Exalted identifies the precise stress points, load-bearing elements, and material weaknesses in any construction. When applied to a demolition task, this charm allows the Abyssal to bring down structures, breach fortifications, or destroy objects with terrifying efficiency, adding her Essence in automatic successes to any Craft (Destruction) or similar roll and halving the time required.</p><p>Against inanimate objects and structures, the Abyssal's attacks deal full damage as though the target had no soak, as her supernatural knowledge of structural weakness bypasses the inherent toughness of materials. This charm is the prerequisite for the all-consuming entropy attack, representing the foundational principle that understanding what something is made of is the first step to ensuring it ceases to exist.</p>",
+    "description": "<p>Deathknights find it easy to tear apart the labor of days in a matter of minutes.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "craft",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "6d4ee8890f0c3ffc",
     "mirrorId": "8c9b54ea5544e4d6"
   },

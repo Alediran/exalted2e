@@ -15,10 +15,10 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "war",
-    "essence": 3,
+    "essence": 2,
     "minAbility": 3,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood ignites the fighting spirit of those under her command with the passion of the Fire Dragon. The character delivers a rousing battle cry or pre-combat speech that fills her troops with elemental valor. All friendly units within (Essence x 10) yards gain a bonus of (War) dice on Valor checks made this scene, and the difficulty of any Morale check to make them rout is increased by the character's Essence. Fire Aspects using this Charm may choose to have the bonus dice apply to attack rolls instead of Valor checks.</p>",
+    "description": "<p>The Dragon-Blooded were fashioned by the five Elemental Dragons to serve as the ultimate troop leaders, and this Charm symbolizes their ancient responsibility of looking after their troops. The Dragon-Blood spends one mote per warrior that she commands, and each soldier gains one additional Bruised health level for the duration of the scene. The maximum number of troops who can be affected by this Charm is equal to the Dragon-Blood's (Essence + War). The participants must all hold hands while the Charm is activated. The extra health level conferred is a −0. When the Charm ends, reapply each beneficiary's current damage to his normal health track.</p><p>With Essence 3+, this Charm gains the power to enchant an entire mass combat unit as per Enfolded in the Dragon's Wings. A unit blessed this way has one additional health level at every dot of Magnitude.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,12 +39,25 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bb47b6a6a779bd8d",
+            "charmName": "Phantom-Warrior Horde",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2ab3c9cb26c3fdbf"
   },
   "folder": "b0b1b2b3b4b5f032",

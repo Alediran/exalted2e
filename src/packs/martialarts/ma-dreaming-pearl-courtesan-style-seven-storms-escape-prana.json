@@ -20,7 +20,7 @@
     "charmType": "simple",
     "duration": "instant",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 2,
     "steps": [],
     "keywords": [
       "Obvious"
@@ -36,7 +36,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dreaming Pearl Courtesan Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3a444ba237c74922",
+            "charmName": "Fragrant Petal Fascination Kata",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "3fd70eeea807f46d"
   },
   "folder": "7769b16bd9ec72b1",

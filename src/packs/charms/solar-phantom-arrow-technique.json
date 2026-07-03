@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "solar",
     "ability": "archery",
-    "essence": 1,
+    "essence": 2,
     "minAbility": 2,
-    "charmType": "supplemental",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar's bow fires arrows of pure Essence rather than physical ammunition. The character need not have arrows, bolts or other ammunition to make an attack. Any weapon capable of firing projectiles may be used with this Charm, and the phantom arrow it creates counts as a standard arrow or bolt in all ways. The phantom arrow vanishes after it strikes or misses its target. The character need not retrieve any ammunition, as none was used.</p>",
+    "description": "<p>The bane of the mortal archer is her dependence on ammunition, but Lawgivers can use this Charm to shape sparkling arrows of Essence. This Charm permits a Lawgiver to make ranged attacks without using ammunition. Each such attack costs one mote of Essence. The Exalt can attack as if using any form of ammunition without Resources cost, such as a broadhead, fowling, frog crotch or target arrow. This Charm permanently enhances the Exalt's capabilities. Therefore, shaping motes into ammunition is an unrolled reflexive action and not a Charm activation.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +44,8 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "f29c6afbc6a82eae", "charmName": "Essence Arrow Attack", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "bypassAmmoConsumption": true,
     "charmUid": "7372b08559265e8b"
   },
   "folder": "e842a3a532908d8d",

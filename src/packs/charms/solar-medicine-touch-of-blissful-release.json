@@ -38,7 +38,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Solar's Essence in hours",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -52,7 +52,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "medicine",
             "virtueKey": "valor",
             "virtueMin": 1
           }
@@ -61,7 +61,7 @@
     ],
     "woundReduction": {
       "enabled": true,
-      "formula": "-3"
+      "formula": "3"
     },
     "charmUid": "ae9cc0c479c14572"
   },

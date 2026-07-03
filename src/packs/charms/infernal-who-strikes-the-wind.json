@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "reflexive",
@@ -29,7 +29,7 @@
       "Obvious"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "8m",
       "resonance": 0,
       "limitTrigger": 0
     },
@@ -55,8 +55,8 @@
             "charmUid": "323c4fdbe94b4f30",
             "charmName": "Wind-Born Stride",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -23,14 +23,14 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Native"
+      "Stackable"
     ],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar Exalted exist in a heroic mythological tradition that emphasizes the ability to endure great suffering and continue fighting regardless of how battered one's body is. The Solar warrior who could give no ground and would never fall from his wounds is an archetype common to many ancient stories. This Charm emulates that hero's legendary durability. Each purchase of this Charm grants the player one option from the following list:</p><ul><li>One -0 health level and two -2 health levels</li><li>Two -1 health levels</li></ul><p>A character may purchase this Charm once per dot of Resistance he possesses.</p>",
+    "description": "<p>The Exalted are like the mountains: not easily worn down by such mortal things as men. This Charm gives the Lawgiver additional health levels.</p><p>A player may purchase this Charm up to once per dot of the Resistance Ability her character possesses. Each purchase provides one of the following, at the player's option, determined at the time of purchase:</p><ul><li>One -0 health level and two -2 health levels</li><li>Two -1 health levels</li></ul><p>A character may purchase this Charm once per dot of Resistance he possesses.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -49,17 +49,24 @@
       "enabled": true,
       "options": [
         {
-          "label": "Option A: one -0 and two -2",
+          "label": "Option A: one −0",
           "zero": 1,
           "one": 0,
-          "two": 2,
+          "two": 0,
           "dying": 0
         },
         {
-          "label": "Option B: two -1 health levels",
+          "label": "Option B: two −1",
           "zero": 0,
           "one": 2,
           "two": 0,
+          "dying": 0
+        },
+        {
+          "label": "Option C: one −1 + two −2",
+          "zero": 0,
+          "one": 1,
+          "two": 2,
           "dying": 0
         }
       ]

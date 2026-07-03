@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "supplemental",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -31,21 +31,33 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Duration: (Martial Arts) actions Prerequisite Charms: Seafaring Hero Form In ship-to-ship combat, one of the most effective tactics is to target an opponent's sails, rendering her ship dead in the water until her crew can repair the damage. While inflicting damage on an enemy with a Martial Arts attack, the Exalt makes sure that he retains the maneuverability advantage. Each health level of damage inflicted with this Charm reduces a target's Move and Dash actions by two yards, to a minimum of zero. Characters with a Move action of zero yards suffer a -2 internal penalty to their Dodge DVs.</p>",
+    "description": "<p>In ship-to-ship combat, one of the most effective tactics is to target an opponent's sails, rendering her ship dead in the water until her crew can repair the damage. While inflicting damage on an enemy with a Martial Arts attack, the Exalt makes sure that he retains the maneuverability advantage. Each health level of damage inflicted with this Charm reduces a target's Move and Dash actions by two yards, to a minimum of zero. Characters with a Move action of zero yards suffer a -2 internal penalty to their Dodge DVs.</p>",
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Seafaring Hero Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "(Martial Arts) actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ef373d8ce9761713",
+            "charmName": "Seafaring Hero Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d22867643cb39afe"
   },
   "folder": "ffeecb9a37f5f4a9",

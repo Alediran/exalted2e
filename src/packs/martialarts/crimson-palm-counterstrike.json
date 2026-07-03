@@ -26,7 +26,7 @@
     ],
     "keywords": [
       "Combo-OK",
-      "Obvious"
+      "Counterattack"
     ],
     "cost": {
       "motes": 5,
@@ -38,7 +38,7 @@
       "motesLabel": "",
       "resonance": 0,
       "limitTrigger": 0,
-      "formula": "6m"
+      "formula": "5m"
     },
     "description": "<p>Reading his opponent's movements in the weave of fate, the Sidereal interrupts his attack with a nigh-preemptive counterattack. If he's a skilled enough combatant, the Sidereal not only can weave over his opponent's attack but can supplant it with an attack of his own. When the Sidereal's foe attacks, the Sidereal may reflexively defend himself with this Charm, his player rolling his own (Dexterity + Martial Arts) pool in a contest against the attacker's attack roll. After taking successes out of the attacker's roll based on the Sidereal's normal Parry Defense Value, the Sidereal's successes on this roll then cancel out leftover successes from the attack roll one for one. If the Sidereal's Parry Defense Value and (Dexterity + Martial Arts) result cancels out all of the attacker's successes and still has successes left over, those extra successes are applied against the original attacker as a counterattack. The Sidereal cannot use this Charm against a counterattack, and he must be physically able to attack his foe.</p>",
     "source": "MoEP: Sidereals",
@@ -49,7 +49,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

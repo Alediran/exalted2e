@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "integrity",
     "essence": 2,
     "minAbility": 1,
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Wielding the power of soulsteel, a deathknight may draw Essence from his victims. This Charm enhances that proclivity. If the Exalt has an Overdrive pool, he may select to divert soulsteel-drained motes to his Overdrive pool. If the deathknight selects to place all the motes reaped from a single attack into his Overdrive pool, he gains an additional offensive mote. Dark Visionary Defense</p>",
+    "description": "<p>Wielding the power of soulsteel, a deathknight may draw Essence from his victims. This Charm enhances that proclivity. If the Exalt has an Overdrive pool, he may select to divert soulsteel-drained motes to his Overdrive pool. If the deathknight selects to place all the motes reaped from a single attack into his Overdrive pool, he gains an additional offensive mote.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",

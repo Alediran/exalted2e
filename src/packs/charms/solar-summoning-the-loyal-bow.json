@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Chosen may set aside their weapons for a time, but a life of peace can never be their fate. The Solar first draws a ranged weapon that he owns and has used to inflict damage in battle. This Charm banishes that weapon to Elsewhere. The Solar can then draw the weapon directly from Elsewhere later, using a miscellaneous action. The Charm ends when he does so. If he cancels the Essence committed to this Charm while the weapon is Elsewhere, the weapon falls to the ground at his side. This Charm can banish only objects (including artifacts) deliberately created as ranged weapons.</p><p>CHARM CONCEPT: ELSEWHERE Elsewhere is a place where things exist but do not interact or decay. Things that characters store Elsewhere are \"safe enough.\" Though Charms could exist to steal things from Elsewhere (and Elsewhere could theoretically have strange monsters, Malfean taint, Wyld energy or some form of entropy), it is sufficiently secure that the First Age Lawgivers never developed a better storage space. Storytellers who want to treat Elsewhere as an actual place with actual events should carefully make sure that this approach does not devalue Elsewhere-using Charms. permanent Essence score. It inflicts lethal damage, and its damage bonus is also equal to the character's permanent Essence. (The raw lethal damage of each shot equals [the character's Strength + Essence + extra successes + any bonus from arrows].)</p>",
+    "description": "<p>The Chosen may set aside their weapons for a time, but a life of peace can never be their fate. The Solar first draws a ranged weapon that he owns and has used to inflict damage in battle. This Charm banishes that weapon to Elsewhere. The Solar can then draw the weapon directly from Elsewhere later, using a miscellaneous action. The Charm ends when he does so. If he cancels the Essence committed to this Charm while the weapon is Elsewhere, the weapon falls to the ground at his side. This Charm can banish only objects (including artifacts) deliberately created as ranged weapons.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -59,6 +59,7 @@
         ]
       }
     ],
+    "sendsWeaponToElsewhere": true,
     "charmUid": "b8f29331d3607ec1",
     "mirrorId": "a57d1d1087890f3e"
   },

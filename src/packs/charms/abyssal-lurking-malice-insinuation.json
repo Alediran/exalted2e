@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 5,
     "charmType": "permanent",
-    "duration": "formula",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -51,8 +51,8 @@
             "charmUid": "7cf5e7305d424357",
             "charmName": "Poisoning The Will",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

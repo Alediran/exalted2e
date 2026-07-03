@@ -34,9 +34,8 @@
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "Silver-voiced Nightingale Style",
+    "martialArtsStyleName": "Silver-Voiced Nightingale Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "318fd0de2420b99a"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c7faa89918f8fd5e",
+            "charmName": "Voice of the Night Bird",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "318fd0de2420b99a",
+    "grantsMastery": false
   },
   "folder": "f8d2ffb92c6967bb",
   "sort": 0,

@@ -33,14 +33,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>It is hard for mortals to resist the shining glory of the Solar Exalted. This Charm exerts unnatural mental influence to create a Compulsion effect. The Lawgiver's player rolls (Manipulation + Presence). If the result exceeds the target's Mental DV, the target receives a compulsion to follow one order given by the Solar. The order can be as complicated as the Solar desires. The target must spend one Willpower to resist the order but need pay this cost only once per day. The influence fades when the Charm expires. When the Solar uses Hypnotic Tongue Technique, the target is not aware of the compulsion, nor does the Solar need to spell out the order explicitly in words. If the target wishes to recognize the influence or remember it later, doing so costs four Willpower, which must be spent all at once, and the target is thenceforth fully aware of the effect. Recognizing or remembering the influence is not considered \"resisting\" it, and the target does not gain Limit from doing so.</p><p>Hypnotic Tongue Technique</p><p>(ANY PRESENCE EXCELLENCY)</p><p>Worshipful Lackey Acquisition</p><p>Irresistible Salesman Spirit</p><p>Majestic Radiant Presence</p><p>Enemy-Castigating Solar Judgment</p><p>Terrifying Apparition of Glory</p><p>Underling Promoting Touch</p><p>Authority-Radiating Stance</p>",
+    "description": "<p>It is hard for mortals to resist the shining glory of the Solar Exalted. This Charm exerts unnatural mental influence to create a Compulsion effect. The Lawgiver's player rolls (Manipulation + Presence). If the result exceeds the target's Mental DV, the target receives a compulsion to follow one order given by the Solar. The order can be as complicated as the Solar desires. The target must spend one Willpower to resist the order but need pay this cost only once per day. The influence fades when the Charm expires. When the Solar uses Hypnotic Tongue Technique, the target is not aware of the compulsion, nor does the Solar need to spell out the order explicitly in words. If the target wishes to recognize the influence or remember it later, doing so costs four Willpower, which must be spent all at once, and the target is thenceforth fully aware of the effect. Recognizing or remembering the influence is not considered \"resisting\" it, and the target does not gain Limit from doing so.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Solar's Charisma in days",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,7 +54,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "presence",
             "virtueKey": "valor",
             "virtueMin": 1
           }

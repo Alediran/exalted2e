@@ -1,0 +1,29 @@
+{
+  "_id": "089ee814eb795886",
+  "_key": "!items!089ee814eb795886",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Heart-Theft of the Behemoth",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 5,
+    "prerequisites": "Green Sun Child, Essence 5, Stamina 5",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>Allows the Lunar to conduct a sacred hunt against primordial monster-beasts and similar behemoths, claiming their forms.</p>",
+    "charmUid": "089ee814eb795886"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

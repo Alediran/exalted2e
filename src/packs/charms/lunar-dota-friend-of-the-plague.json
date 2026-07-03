@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Those whom the Stewards condemn invariably die; when she leaves the battlefield, they are defeated. This Charm</p>",
+    "description": "<p>Those whom the Stewards condemn invariably die; when she leaves the battlefield, they are defeated. This Charm permanently enhances Form-Destroying Touch, giving it the Fury-OK tag. When so used, the Charm inflicts its effects on everyone the Lunar successfully touches. The character may apply one of the additional effects from Besieging the Bastion of Form by also activating it with Relentless Lunar Fury. Besieging the Bastion of Form cannot be activated as part of a fury unless Form-Destroying Touch is.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "84fe3404af5d25b4",
+            "charmName": "Besieging the Bastion of Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "bce33dd6ba484e5f"
   },
   "folder": "aba1efe8ad0bef8a",

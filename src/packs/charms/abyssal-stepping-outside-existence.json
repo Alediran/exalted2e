@@ -15,20 +15,20 @@
   "system": {
     "exaltType": "abyssal",
     "ability": "athletics",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": ["Avatar", "Combo-OK", "Mirror", "Obvious", "Shaping"],
     "cost": {
       "formula": "10m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Duration: Instant Prerequisite Charms: Earth-Forsaking Stance The Abyssal throws himself into the dark space between and outside the strands of fate, daring a shortcut that physically traverses the normally abstract and intangible nightmares of the Neverborn. Upon activating this Charm, the deathknight leaps and vanishes into a vortex of darkness. For five minutes, he exists only as a remembrance in the Whispers of the Neverborn and risks true annihilation if the Neverborn should cease to dream. Lost in total sensory deprivation, he experiences the journey as a Storytellercontrolled Whispers vision showing him something he would rather not have seen. When the harrowing detour ends, the Abyssal reappears at any desired destination that he has previously observed that is within (Essence x 5) miles of where he started. This Charm will not teleport the Abyssal into a solid object, but rather spits him out at the closest permitted point to his intended destination. Activating this Charm during the day does nothing but waste Essence.</p>",
+    "description": "<p>The Abyssal throws himself into the dark space between and outside the strands of fate, daring a shortcut that physically traverses the normally abstract and intangible nightmares of the Neverborn. Upon activating this Charm, the deathknight leaps and vanishes into a vortex of darkness. For five minutes, he exists only as a remembrance in the Whispers of the Neverborn and risks true annihilation if the Neverborn should cease to dream. Lost in total sensory deprivation, he experiences the journey as a Storyteller-controlled Whispers vision showing him something he would rather not have seen. When the harrowing detour ends, the Abyssal reappears at any desired destination that he has previously observed that is within (Essence x 5) miles of where he started.</p><p>This Charm will not teleport the Abyssal into a solid object, but rather spits him out at the closest permitted point to his intended destination. Activating this Charm during the day does nothing but waste Essence.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,8 +42,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "0795fd8a744b62db"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "834ffba1870a82bc",
+            "charmName": "Earth-Forsaking Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "0795fd8a744b62db",
+    "mirrorId": "f10b4ed34117037c"
   },
   "folder": "b0b1b2b3b4b5f034",
   "sort": 0,

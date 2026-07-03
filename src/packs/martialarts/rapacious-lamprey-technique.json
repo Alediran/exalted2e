@@ -25,7 +25,8 @@
       10
     ],
     "keywords": [
-      "Combo-Basic"
+      "Combo-Basic",
+      "Native"
     ],
     "cost": {
       "motes": 2,
@@ -61,8 +62,8 @@
             "charmUid": "fe2ee015fb3dc9dd",
             "charmName": "Inescapable Iron Grip",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

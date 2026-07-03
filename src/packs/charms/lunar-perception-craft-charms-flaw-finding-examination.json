@@ -23,16 +23,14 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Leader",
-      "War"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "1m for touch or 3m for sight, plus 1wp to repair",
+      "formula": "8m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>So-named out of respect for Pasiap's Children's skill with a similar Charm, this Charm allows Stewards to see the flaws in their constructions and correct them--or destroy them. Flaw-Finding Examination supplements</p><p>either a Craft roll to repair the item or an attempt to destroy it. The player reflexively rolls (Perception + relevant Craft skill). Each success on that roll reduces the time necessary to repair the object by one hour, to a minimum of one hour. If the character attempts to destroy the target, each success adds two dice to damage after the character hits it or one to the character's rating on the feats of strength chart.</p>",
+    "description": "<p>So-named out of respect for Pasiap's Children's skill with a similar Charm, this Charm allows Stewards to see the flaws in their constructions and correct them--or destroy them. Flaw-Finding Examination supplements either a Craft roll to repair the item or an attempt to destroy it. The player reflexively rolls (Perception + relevant Craft skill). Each success on that roll reduces the time necessary to repair the object by one hour, to a minimum of one hour. If the character attempts to destroy the target, each success adds two dice to damage after the character hits it or one to the character's rating on the feats of strength chart.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "perception",
             "virtueKey": "valor",
             "virtueMin": 1
           }

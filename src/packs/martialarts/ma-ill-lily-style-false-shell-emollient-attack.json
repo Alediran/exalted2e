@@ -18,8 +18,8 @@
     "essence": 1,
     "minAbility": 3,
     "charmType": "simple",
-    "duration": "instant",
-    "speed": 6,
+    "duration": "formula",
+    "speed": 4,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -36,8 +36,7 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Ill Lily Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

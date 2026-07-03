@@ -44,12 +44,25 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 3,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6e517a451f3d56a2",
+            "charmName": "Soul-Stirring Performance Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "9ce957cd1228057c"
   },
   "folder": "b0b1b2b3b4b5f029",

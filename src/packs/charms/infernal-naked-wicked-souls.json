@@ -1,0 +1,69 @@
+{
+  "_id": "beef000000000030",
+  "_key": "!items!beef000000000030",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Naked Wicked Souls",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Shadow of All Things abhors Virtue, but its absence empowers him. While this Charm is active, whenever another character within (Essence x 10) yards of the Infernal spends a Willpower point to ignore the dictates of a Virtue rated 3+, the warlock knows which Virtue has been ignored, how many dots the person ignoring the Virtue has of it, and where exactly the act of deliberate wickedness took place relative to his present location. If the target is the warlock's Nemesis or someone he has a negative Intimacy toward, he absorbs the point of Willpower as it is spent. If the Infernal has Essence 3+, he also gains a brief synopsis of what course of action the character took that the Virtue forbid as if that action were Obvious to his senses. Essence 4+ makes the character's rationale for doing so Obvious, though she can spend another Willpower to shield her reasons (which can't be consumed). Essence 5+ renders the sinner's identity Obvious, though shielding her rationale also shields her identity.</p><p>A repurchase at Essence 4+ pushes the radius to (Essence x 100) yards. A third purchase at Essence 6+ raises this to (Essence) miles. Once the radius reaches this third threshold, the character's awareness of Virtue's failure occurs as a mental aside rather than a constant deluge of information. When it is unimportant to know who has sinned and why from a plot perspective, the Charm internalizes but does not trouble the Infernal with these details. Fully sensing a specific instance of moral degradation to the point that the Storyteller interrupts play with narrative of the event should indicate that the immorality is somehow significant to the warlock's interests or important to the setting.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "984cfad987c93638",
+            "charmName": "Witness to Darkness",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000030"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

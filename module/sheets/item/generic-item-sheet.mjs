@@ -1,4 +1,5 @@
 import { editImageAction } from "../_edit-image.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 import { EX2E } from "../../config.mjs";
 import { manseBudgetState, manseDamageThreshold, mansePowerDesignReqs, canDesignPower, manseSoakRef } from "../../helpers/manse-geomancy.mjs";
 import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
@@ -209,7 +210,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       followersMagnitude = lookupBackgroundTableValue(followersBackgroundRating, EX2E.followersMagnitude);
     }
 
-    const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
+    const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(item), {
       secrets: this.document.isOwner, relativeTo: this.document
     });
 

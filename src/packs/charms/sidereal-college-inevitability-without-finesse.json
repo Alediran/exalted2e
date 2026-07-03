@@ -1,6 +1,6 @@
 {
-  "_id": "ad9052ae0acdf9b5",
-  "_key": "!items!ad9052ae0acdf9b5",
+  "_id": "84311c7b7e62d77b",
+  "_key": "!items!84311c7b7e62d77b",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "college",
-    "essence": 4,
-    "minAbility": 3,
+    "essence": 1,
+    "minAbility": 1,
     "charmType": "simple",
     "duration": "instant",
     "speed": 6,
@@ -33,21 +33,20 @@
       "limitTrigger": 0
     },
     "description": "<p>Grasping the skein of fate in his fist, the Sidereal forges an unalterable path between his killing intent and the heart of an opponent. The Vizier makes an attack at his full dice pool with the offensive Ability of his choice. This attack is unblockable, undodgeable, and strikes with a threshold of at least 0 successes for the purpose of calculating raw damage, even if it should have otherwise missed. No attack may strike the Sidereal until his next action.</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "source": "Glories of the Most High: The Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "ad9052ae0acdf9b5"
+    "charmUid": "84311c7b7e62d77b"
   },
   "folder": "84b20a7805198847",
   "sort": 0,

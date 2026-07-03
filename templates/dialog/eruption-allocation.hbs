@@ -3,7 +3,7 @@
     {{#each categories as |cat|}}
     <div class="eruption-category-row">
       <label class="eruption-cat-label">{{localize cat.labelKey}}</label>
-      <div class="eruption-stepper">
+      <div class="eruption-stepper ex2e-row">
         <button type="button" class="eruption-step-btn" data-category="{{cat.key}}" data-step="-1">−</button>
         <input type="number" class="eruption-cat-input" data-category="{{cat.key}}"
                value="{{cat.value}}" min="0" max="5" readonly />

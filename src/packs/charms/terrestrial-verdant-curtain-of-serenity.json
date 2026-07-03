@@ -21,7 +21,9 @@
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      2
+    ],
     "keywords": [
       "Combo-OK",
       "Leader"
@@ -31,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As per Granite Curtain of Serenity on page 145. JADE CRUCIBLE METHOD Cost: Special, 1wp; Mins: Medicine 5, Essence 4; Type: Simple</p><p>Keywords: Combo-OK Duration: Instant Prerequisite Charms: Grievous Wound Alteration Energy, Purity of Mind Method With this Charm, the Exalt approaches the Immaculate Dragons themselves in his understanding of the interrelationship between the physical body and the Essence that animates it. This Charm allows the Dragon-Blood to tap into the hidden wellspring of Essence within himself by sacrificing some of his own health and vitality to release new Essence for more immediate use. The player of the character invoking this Charm must decide how many health levels are to be sacrificed in its activation. He then rolls (the character's permanent Essence + Medicine). Each success on the roll grants one mote of Peripheral Essence per health level expended. The resulting damage to the Dragon-Blooded is considered lethal, and any resulting damage penalties do not apply until after the roll is made for this Charm. Essence gained in this way can increase the character's Peripheral Essence pool in excess of its normal limit, but any such excess Essence is lost at the end of the scene.</p>",
+    "description": "<p>As per Granite Curtain of Serenity on page 145.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -50,11 +52,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "f3b75a693c34abfb",
-            "charmName": "Purity of Mind Method",
+            "charmUid": "58a3dc9eff479bb2",
+            "charmName": "Madness-Analyzing Stare",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

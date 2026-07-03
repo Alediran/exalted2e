@@ -16,8 +16,8 @@
     "exaltType": "sidereal",
     "ability": "dodge",
     "essence": 2,
-    "minAbility": 4,
-    "charmType": "simple",
+    "minAbility": 3,
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>By joining the fates of other people to her own, a Sidereal not only can escape danger herself but protect people around her as well. In a scene in which this Charm is active, the Sidereal can use any Dodge Charm she knows on behalf of a number of targets whose combined Essence scores do not exceed her own (provided a given target reflexively consents to this protection). Simple Charms use the Sidereal's Dodge Defense Value on the character's action. Reflexive Charms use the Sidereal's Dodge Defense Value as well. Supplemental Charms enhance the protected target's action. Using a Dodge Charm on a willing target's behalf counts as the Sidereal's using that Charm for that action, and the</p><p>Exalt must pay any costs associated with that Charm. The character can use a Dodge Charm that is part of a Combo on a protected target, and still use the other Charm(s) in the Combo on herself.</p>",
+    "description": "<p>Generous Sidereals learn to spot impending danger to others, protecting the people around them even as they escape danger themselves. While this Charm is active, the Sidereal may take a Dodge-based Defend Other action, substituting her Dodge DV for her Parry DV. She treats these as Speed 3, DV -0 miscellaneous actions, and can always channel Compassion to protect a warded character.</p><p>In addition, if the Sidereal activates Avoidance Kata while protecting another character with a Dodge-based Defend Other action, she may bring that character along with her if they are willing, paying an additional point of Willpower for each other character who vanishes with her.</p><p>A Dodge 4+ repurchase of this Charm allows the Sidereal to commit up to (Dexterity − 1) additional motes when activating this Charm. While it is active, she may flurry to take multiple Dodge-based Defend Other actions on a single action tick, with each additional committed mote adding one to the number of Defend Other actions she can maintain simultaneously.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -50,8 +50,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "b7fc85c754e61c93",
-            "charmName": "Duck Fate",
+            "charmUid": "01cf9c8775a6e68d",
+            "charmName": "Absence",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1

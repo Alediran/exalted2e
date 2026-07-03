@@ -3,8 +3,8 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { isCharmPassivelyActive, aggregateMoveBonusFromCharms } from "../rolls/charm-passive-math.mjs";
-import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
+import { isCharmPassivelyActive, aggregateMoveBonusFromCharms, aggregateDVBonusFormulaFromCharms, aggregateAbilityMaxOverridesFromCharms, aggregateDVPenaltyReductionFromCharms, aggregateOnslaughtPenaltyReductionFromCharms, getDVPenaltyIgnoreFromCharms, aggregateMentalDVBonusFromCharms, hasOnslaughtToDVPenaltyFromCharms, hasDetectDematerializedFromCharms } from "../rolls/charm-passive-math.mjs";
+import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms, collectVirtueRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
 const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
@@ -467,8 +467,9 @@ export class ExaltedActor extends Actor {
         aeParry += legacyDv.parry ?? 0;
       }
     }
+    const { dodgeBonus: formulaDodge, parryBonus: formulaParry } = aggregateDVBonusFormulaFromCharms(this);
     systemData.dvBonusIgnore = { all: ignoreAll, types: [...ignoreTypes] };
-    systemData.statusDVBonus = { dodgeBonus: aeDodge, parryBonus: aeParry };
+    systemData.statusDVBonus = { dodgeBonus: aeDodge + formulaDodge, parryBonus: aeParry + formulaParry };
   }
 
   /**
@@ -491,6 +492,7 @@ export class ExaltedActor extends Actor {
     const installed = this.items.filter(i => i.type === "charm" && i.system.installed);
     systemData.dedicatedSlotsUsed = installed.filter(i => i.system.installedSlotType === "dedicated").length;
     systemData.generalSlotsUsed   = installed.filter(i => i.system.installedSlotType === "general").length;
+    systemData.abilityMaxOverrides = aggregateAbilityMaxOverridesFromCharms(this);
 
     for (const item of this.items) {
       if (item.type !== "charm" || !item.system.isSubmodule) continue;
@@ -603,15 +605,20 @@ export class ExaltedActor extends Actor {
   }
 
   _dvPenaltyIgnoring(ignoreTypes) {
-    const penalties  = this.system?.dvPenalties ?? [];
-    const immunities = new Set(this.getFlag("exalted2e", "dvImmunities") ?? []);
+    const penalties          = this.system?.dvPenalties ?? [];
+    const immunities         = new Set(this.getFlag("exalted2e", "dvImmunities") ?? []);
+    const onslaughtReduction = aggregateOnslaughtPenaltyReductionFromCharms(this);
     let total = 0;
     for (const p of penalties) {
       if (immunities.has(p.type)) continue;
       if (ignoreTypes.has(p.type)) continue;
-      total += p.value;
+      const value = p.type === "onslaught"
+        ? Math.max(0, p.value - onslaughtReduction)
+        : p.value;
+      total += value;
     }
-    return total;
+    const dvReduction = aggregateDVPenaltyReductionFromCharms(this);
+    return Math.max(0, total - dvReduction);
   }
 
   /** Sum of every non-immune DV penalty. */
@@ -652,8 +659,9 @@ export class ExaltedActor extends Actor {
       }
     }
 
-    const ignore  = s.dvBonusIgnore ?? { all: false, types: [] };
-    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
+    const ignore       = s.dvBonusIgnore ?? { all: false, types: [] };
+    const charmIgnore  = getDVPenaltyIgnoreFromCharms(this);
+    const penalty = (ignore.all || charmIgnore.dodge) ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
@@ -690,8 +698,9 @@ export class ExaltedActor extends Actor {
       }
     }
 
-    const ignore  = s.dvBonusIgnore ?? { all: false, types: [] };
-    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
+    const ignore       = s.dvBonusIgnore ?? { all: false, types: [] };
+    const charmIgnore  = getDVPenaltyIgnoreFromCharms(this);
+    const penalty = (ignore.all || charmIgnore.parry) ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
@@ -701,7 +710,7 @@ export class ExaltedActor extends Actor {
     const base = this.type === "character" ? (s.dodgeMDV ?? 0)
                : this.type === "npc"       ? (s.combat?.dodgeMDV ?? 0)
                : 0;
-    return Math.max(0, base - this.mdvPenaltyTotal);
+    return Math.max(0, base + aggregateMentalDVBonusFromCharms(this) - this.mdvPenaltyTotal);
   }
 
   get currentParryMDV() {
@@ -709,7 +718,12 @@ export class ExaltedActor extends Actor {
     const base = this.type === "character" ? (s.parryMDV?.best ?? 0)
                : this.type === "npc"       ? (s.combat?.parryMDV ?? 0)
                : 0;
-    return Math.max(0, base - this.mdvPenaltyTotal);
+    return Math.max(0, base + aggregateMentalDVBonusFromCharms(this) - this.mdvPenaltyTotal);
+  }
+
+  /** True when a passively-active charm (M54) allows this actor to see and target dematerialized spirits. */
+  get canDetectDematerialized() {
+    return hasDetectDematerializedFromCharms(this);
   }
 
   /**
@@ -807,10 +821,17 @@ export class ExaltedActor extends Actor {
       });
       return existing;
     }
-    return this.applyDVPenalty("onslaught", 1, {
+    await this.applyDVPenalty("onslaught", 1, {
       label: game.i18n.format("EX2E.OnslaughtEffect", { n: 1 }),
       icon:  "icons/svg/hazard.svg"
     });
+    // M49 — When the attacker's charm routes onslaught as a plain DV penalty too, apply that stack.
+    if (hasOnslaughtToDVPenaltyFromCharms(this)) {
+      await this.applyDVPenalty("onslaught-dv", 1, {
+        label: game.i18n.format("EX2E.OnslaughtEffect", { n: 1 }),
+        icon:  "icons/svg/hazard.svg"
+      });
+    }
   }
 
   /**
@@ -892,6 +913,9 @@ export class ExaltedActor extends Actor {
     systemData.totalSoak.bashing    += b.soakBashing    ?? 0;
     systemData.totalSoak.lethal     += b.soakLethal     ?? 0;
     systemData.totalSoak.aggravated += b.soakAggravated ?? 0;
+    // On-hit soak reductions (M2c): AEs stamped on target by soakReductionOnHit charms.
+    systemData.totalSoak.bashing    = Math.max(0, systemData.totalSoak.bashing  - (b.soakReductionBashing ?? 0));
+    systemData.totalSoak.lethal     = Math.max(0, systemData.totalSoak.lethal   - (b.soakReductionLethal  ?? 0));
 
     // hardnessSetTo is non-additive (Math.max) — still scanned directly.
     const charms = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
@@ -1000,6 +1024,16 @@ export class ExaltedActor extends Actor {
       if (amount <= 0) continue;
       await this.recoverWillpower(amount);
     }
+
+    // M56 — Virtue channel recovery: reset channeled flag on the specified virtue.
+    const vrCharms = collectVirtueRecoveryCharms(charms, event);
+    for (const c of vrCharms) {
+      const vr = c.system.virtueRecovery;
+      const key = vr.virtue ?? "valor";
+      if (this.system?.virtues?.[key]?.channeled) {
+        await this.update({ [`system.virtues.${key}.channeled`]: false });
+      }
+    }
   }
 
   /**
@@ -1085,6 +1119,14 @@ export class ExaltedActor extends Actor {
     const moteData = this.system.motes[pool];
     const newVal   = Math.min(moteData.max, moteData.value + amount);
     return this.update({ [`system.motes.${pool}.value`]: newVal });
+  }
+
+  async receiveWillpower(amount) {
+    if (this.type !== "character") return;
+    const wp = this.system.willpower;
+    const maxWp = wp.dotRating ?? 5;
+    const newVal = Math.min(maxWp, (wp.value ?? 0) + amount);
+    return this.update({ "system.willpower.value": newVal });
   }
 
   async addOverdriveMotes(amount) {

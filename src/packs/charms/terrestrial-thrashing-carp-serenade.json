@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As the Immaculate Texts say: \"That which can be facilitated can also be impeded.\" This is as true for bureaucracies as anything else to which a Dragon-Blood applies himself. With this Charm, a Dragon-Blood may bring any bureaucratic or administrative tasks going on within the sound of his voice to a standstill. The player of anyone attempting to succeed on a Bureaucracy action must overcome the Dragon-Blood's player in an opposed (Stamina + Bureaucracy) roll. While this Charm might be freely used in business-related settings or even against lesser agents of the ministries, it is a serious crime to attempt to delay the business of the Deliberative with this Charm.</p>",
+    "description": "<p>As the Immaculate Texts say: \"That which can be facilitated can also be impeded.\" This is as true for bureaucracies as anything else to which a Dragon-Blood applies himself. With this Charm, a Dragon-Blood may bring any bureaucratic or administrative tasks going on within the sound of his voice to a standstill. The player of anyone attempting to succeed on a Bureaucracy action must overcome the Dragon-Blood's player in an opposed (Stamina + Bureaucracy) roll. While this Charm might be freely used in business-related settings or even against lesser agents of the ministries, it is a serious crime to attempt to delay the business of the Deliberative with this Charm.</p><p>Upon activation, the Exalt targets an organization. For the duration of the Charm, whenever any member of the targeted organization who can perceive the Exalt takes any action that directly advances the group's official agenda, that action suffers an external penalty of the Exalt's Bureaucracy rating. This does not apply to actions taken in personal or mass combat. It is not immediately evident that the Terrestrial is the source of the disruption. These rules entirely replace the listed rules for the Charm. Only the highest penalty among all uses of this Charm applies to any action.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "bureaucracy",
             "virtueKey": "valor",
             "virtueMin": 1
           }

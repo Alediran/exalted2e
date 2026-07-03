@@ -17,7 +17,7 @@
     "ability": "survival",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "simple",
+    "charmType": "supplemental",
     "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
@@ -30,16 +30,16 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The forests know their masters and do not hesitate to give up their bounties when asked. This Charm can greatly improve the success rate of any hunting or foraging expeditions in which the Dragon-Blood participates. This Charm lasts for the duration of a single hunt, in which the Dragon-Blood must be an active participant. The Charm can be used to aid just the Dragon-Blood, or it can be extended to include others in the hunting party at a cost of one mote of Essence per hunter. Only one application of this Charm can aid any single hunting party, however, and the Dragon-Blood can only aid one party at a time. While the Charm is in effect, the hunting party finds twice as much food as the results on any Survival rolls would otherwise dictate. HOSTILE ENVIRONMENT PREPARATION METHOD Cost: 3m + 1m per companion; Mins: Survival 3, Essence 2; Type: Simple Keywords: None Duration: One day</p><p>Prerequisite Charms: Any Survival Excellency With this Charm, the Dragon-Blood's intuitive knowledge of how to survive in difficult climes allows him to protect his fellows in all but the harshest conditions. In a hot environment, the Dragon-Blood can make certain that he and his allies can avoid heat prostration and other hazards. In a cold environment, he can enable his friends to better preserve body heat and avoid frostbite. For one day, the Dragon-Blood and his companions get three automatic successes on Survival rolls to resist adverse environmental conditions. In other words, any environmental penalty of three or less is reduced to zero, and persons protected by this Charm never suffer an environmental penalty greater than two. The cost is three motes plus one additional mote per companion protected. The Exalt can protect a maximum number of allies equal to his permanent Essence.</p>",
+    "description": "<p>The forests know their masters and do not hesitate to give up their bounties when asked. This Charm can greatly improve the success rate of any hunting or foraging expeditions in which the Dragon-Blood participates. This Charm lasts for the duration of a single hunt, in which the Dragon-Blood must be an active participant. The Charm can be used to aid just the Dragon-Blood, or it can be extended to include others in the hunting party at a cost of one mote of Essence per hunter. Only one application of this Charm can aid any single hunting party, however, and the Dragon-Blood can only aid one party at a time. While the Charm is in effect, the hunting party finds twice as much food as the results on any Survival rolls would otherwise dictate.</p><p>(Errata) This Charm enhances a hunting/foraging action, allowing the hunt to be accomplished in one hour regardless of terrain or skill. The roll ignores penalties for lacking tools or weapons and further adds a number of bonus successes equal to the Exalt's Essence rating.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One hunt",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,8 +52,8 @@
             "charmUid": "a0791c8427f05ea0",
             "charmName": "Quarry Revelation Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

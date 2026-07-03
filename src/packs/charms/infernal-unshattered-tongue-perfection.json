@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "simple",
@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Before the gods and their Chosen debased Creation's original language with babbling, broken dialects of mutual unintelligibility, all of existence spoke as one. The Principle of Hierarchy will restore that linguistic order. Upon touching an intelligent being and activating this Charm, the Infernal instantly imprints the target with knowledge of Old Realm in the Malfean dialect and temporarily excises knowledge of all other languages. This artificial fluency extends to writing if the target has Lore 1+ and does not increase the target's Linguistics rating, but it prevents acquisition of other languages until dispelled. Essence-wielding targets may spend one Willpower to reduce the Charm's duration to a scene or three Willpower to cancel it outright. Non-extra mortals can reduce duration to one day for three Willpower. A second purchase of Unshattered Tongue Perfection at Essence 3+ allows the Infernal to target a unit with Magnitude less than his Intelligence rating rather than an individual by touching or being the leader and paying an increased cost of 15 motes and a Willpower. All unit members in the same realm of existence are affected as though individually targeted by the Charm, though the Infernal is not affected so long as he already knows Old Realm. Countermagic against one affected member only frees that member, not the whole. It is possible to effect sub-units of larger units in order to convert them piecemeal by attacking lower in the chain of command.</p><p>Whether targeting an individual or unit, those affected with the second version of this Charm base Appearance modifiers for experiencing or imposing mental influence on relative Essence ratings rather than relative Appearance, even imposing this context on unaffected characters with whom they interact. Affected characters also treat the social attacks of higher-ranking members of any unit they belong to as unnatural mental influence costing two Willpower to resist. Victims of this Charm may go to the effort of breaking an Intimacy to leave the organization and reduce its hold over them, though such efforts often fail in face of compulsions from said superiors to remain with the unit and stay loyal. COSMIC TRANSCENDENCE OF (VIRTUE)</p>",
+    "description": "<p>Before the gods and their Chosen debased Creation's original language with babbling, broken dialects of mutual unintelligibility, all of existence spoke as one. The Principle of Hierarchy will restore that linguistic order. Upon touching an intelligent being and activating this Charm, the Infernal instantly imprints the target with knowledge of Old Realm in the Malfean dialect and temporarily excises knowledge of all other languages. This artificial fluency extends to writing if the target has Lore 1+ and does not increase the target's Linguistics rating, but it prevents acquisition of other languages until dispelled. Essence-wielding targets may spend one Willpower to reduce the Charm's duration to a scene or three Willpower to cancel it outright. Non-extra mortals can reduce duration to one day for three Willpower. A second purchase of Unshattered Tongue Perfection at Essence 3+ allows the Infernal to target a unit with Magnitude less than his Intelligence rating rather than an individual by touching or being the leader and paying an increased cost of 15 motes and a Willpower. All unit members in the same realm of existence are affected as though individually targeted by the Charm, though the Infernal is not affected so long as he already knows Old Realm. Countermagic against one affected member only frees that member, not the whole. It is possible to effect sub-units of larger units in order to convert them piecemeal by attacking lower in the chain of command.</p><p>Whether targeting an individual or unit, those affected with the second version of this Charm base Appearance modifiers for experiencing or imposing mental influence on relative Essence ratings rather than relative Appearance, even imposing this context on unaffected characters with whom they interact. Affected characters also treat the social attacks of higher-ranking members of any unit they belong to as unnatural mental influence costing two Willpower to resist. Victims of this Charm may go to the effort of breaking an Intimacy to leave the organization and reduce its hold over them, though such efforts often fail in face of compulsions from said superiors to remain with the unit and stay loyal.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "sheWhoLivesInHerName",
     "martialArtsTier": "",
@@ -55,8 +55,8 @@
             "charmUid": "c8e4b5aa7818918a",
             "charmName": "Factual Determination Analysis",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

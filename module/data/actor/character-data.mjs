@@ -381,7 +381,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         motePeripheral:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
         healthGrantZero:       new fields.NumberField({ initial: 0, min: 0, integer: true }),
         healthGrantOne:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        healthGrantTwo:        new fields.NumberField({ initial: 0, min: 0, integer: true })
+        healthGrantTwo:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        soakReductionBashing:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        soakReductionLethal:   new fields.NumberField({ initial: 0, min: 0, integer: true })
       })
     };
   }

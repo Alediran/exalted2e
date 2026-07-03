@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Letter-Within-A-Letter Technique",
+  "name": "Letter-Within-a-Letter Technique",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Though the glorious Solar Exalted of the First Age are dead, many left secret messages for their heirs. This Charm allows the character to hide a message within another written work. Only the intended targets for the message can perceive it. The concealed message can include natural or unnatural mental influence. If so, the influence is an attempted surprise attack. Add the author's Linguistics in automatic successes to the Socialize roll to take the target by surprise. DISCERNING SAVANT'S EYE Cost: 6m, 1wp; Mins: Linguistics 5, Essence 2; Type: Reflexive (Step 2) Keywords: Combo-OK</p><p>WHIRLING BRUSH METHOD</p><p>Discerning Savant's Eye</p><p>Flawless Brush Discipline</p><p>(ANY LINGUISTICS EXCELLENCY)</p><p>Letter-Within-a-Letter Technique</p><p>Excellent Emissary's Tongue</p><p>SAGACIOUS READING OF INTENT</p><p>Twisted Words Technique</p><p>Poetic Expression Style</p><p>Unbreakable Fascination Method</p><p>Duration: One scene Prerequisite Charms: Any Linguistics Excellency The Solar heroes see through petty mysteries. This Charm lets the character understand encoded, obscured and hidden communication as if it were clear. For example, the Exalt can read weather-damaged stone tablets, recognize the signals in a coded exchange, browse ciphered manuscripts as if they were in their original language and make out the words of someone whose tongue has been cut in half. This Charm can oppose the concealing effects of Letter-Within-a-Letter Technique and similar Charms. The character is never surprised by social attacks while this Charm is in force.</p>",
+    "description": "<p>Though the glorious Solar Exalted of the First Age are dead, many left secret messages for their heirs. This Charm allows the character to hide a message within another written work. Only the intended targets for the message can perceive it. The concealed message can include natural or unnatural mental influence. If so, the influence is an attempted surprise attack. Add the author's Linguistics in automatic successes to the Socialize roll to take the target by surprise.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "linguistics",
             "virtueKey": "valor",
             "virtueMin": 1
           }

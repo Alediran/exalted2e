@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Essence-shattering Typhoon",
+  "name": "Essence-Shattering Typhoon",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -18,9 +18,9 @@
     "essence": 7,
     "minAbility": 7,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 3,
     "steps": [],
     "keywords": [
       "Obvious",
@@ -37,7 +37,7 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Citrine Poxes of Contagion Style",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "One action",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

@@ -1,0 +1,71 @@
+{
+  "_id": "beef000000000023",
+  "_key": "!items!beef000000000023",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Space Monster Scream",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 5,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1ahl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Once, the Whispering Flame placed her ear against the conceptual Without of Oramus and heard a terrifying scream. In her secret heart it excited her, and she remembered every detail: tone, pitch, and length. Through practice she tuned her perfectly fragmented voice to produce this one sound: a Primordial scream which may rend the traitor gods asunder.</p><p>An Infernal who unleashes this Charm pierces the conceptual fabric of existence to visit the landscape with the very essence of horror made sound, shredding through spirits, torturing Fair Folk and shattering mortal souls. As the warlock searches for the perfect tone to create this monstrosity, she makes an undodgeable attack which cannot be blocked without the aid of magic, rolling (Intelligence + Performance) and adding (Essence) automatic successes. Space Monster Scream targets all beings within (Essence x 100) yards of the Infernal, but may be heard up to (Essence) miles with no consequence. Its base damage is (Intelligence + Occult + Essence)L. This damage is aggravated against gods, raksha, and the sheridans of Adorjan. Targets incapacitated by Space Monster Scream without a Shaping defense active immediately lose their dying health levels and are shaped into solid crystal statues frozen in the agony of their final death throes.</p><p>Repurchasing this Charm at Essence 6+ allows an Infernal using Broadcast Announcement Prana to unleash Space Monster Scream from all manses she is broadcasting from for an activation cost of 20 motes, two willpower, and one aggravated health level. She may not do so again until her DV has refreshed 10 times.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "beef000000000021",
+            "charmName": "Voice Like Crystal Facets",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000023"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

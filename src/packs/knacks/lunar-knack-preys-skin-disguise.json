@@ -1,0 +1,29 @@
+{
+  "_id": "5a635eca00deb030",
+  "_key": "!items!5a635eca00deb030",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Prey's Skin Disguise",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 2,
+    "prerequisites": "Essence 2, Appearance 3",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>The Lunar may conduct a sacred hunt against a human target, adding that person's form to her library. Assuming this human form costs 1 Willpower; Compassion 3+ characters must succeed on a Compassion roll or gain Limit each time they use the stolen form.</p>",
+    "charmUid": "5a635eca00deb030"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

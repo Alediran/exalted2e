@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar shapes his Essence into a deadly bow. Each bow has an appearance unique to the Exalt who conjures it. It has a Range of 300 yards. It has Rate and Accuracy equal to the Lawgiver's</p>",
+    "description": "<p>The Solar shapes his Essence into a deadly bow. This Charm is identical to Glorious Solar Saber, except that it creates artifact bows (including crossbows, if the Solar is familiar with them).</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,11 +51,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "7372b08559265e8b",
-            "charmName": "Phantom Arrow Technique",
+            "charmUid": "f29c6afbc6a82eae",
+            "charmName": "Essence Arrow Attack",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

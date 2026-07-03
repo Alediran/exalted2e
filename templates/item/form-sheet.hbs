@@ -81,12 +81,9 @@
   </div>
 
   <!-- Description -->
-  <h2 class="section-header" style="margin-top: 12px">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}
-    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
-      {{{enrichedDescription}}}
-    </prose-mirror>
+    {{> "systems/exalted2e/templates/item/_partials/description-langs.hbs"}}
     {{else}}
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}

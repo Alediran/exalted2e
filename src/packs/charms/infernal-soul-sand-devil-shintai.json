@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 4,
     "minAbility": 1,
     "charmType": "permanent",
@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Flesh cannot properly express those who would go among the reaches of forever as Cecelyne. The Infernal's body permanently assumes a natural dematerialized state like a demon,</p><p>the manifest image of which appears in close inspection to be constructed from billions of jagged particles. The Infernal gains the benefits of a demon's panoply with regard to the material state of his own possessions and attuned artifacts. He no longer needs to breathe air, but suffocates normally if taken into a place where there is no living Essence to respire (such as the Underworld) unless he has Cult 3+ or Essence 6+. He longer requires food regardless of whether he is in a place of desolation, but he still hungers and gains penalties as described in Transcendent Desert Creature unless he has Cult 3+ to provide a steady diet of nourishing prayers. He may manifest or conceal his presence to communicate as a translucent apparition, toggling between the two states for a reflexive cost of one mote. Any anima banner display at the four to seven mote level or above automatically manifests regardless of whether his form has manifested. Finally, the Infernal gains the Charm Materialize for free as a benefit of purchasing this Charm (see Exalted, p. 295), using the standard formula of ([Willpower + Essence] x 5) motes to build a convincing simulacrum of what he used to look like. If this cost exceeds the maximum size of his combined Essence pools, then paying his entire pool is sufficient. Whenever a character with this Charm materializes, his body assembles itself out of fine grit that blows in a tightening vortex. Bones appear first, wreathed in webs of slimy visceral cording and pulsating meat until the final layer of ephemeral flesh encloses them in its borders. Exalted do not become spirits by purchasing this Charm; they merely alter their default corporeal state.</p>",
+    "description": "<p>Flesh cannot properly express those who would go among the reaches of forever as Cecelyne. The Infernal's body permanently assumes a natural dematerialized state like a demon, the manifest image of which appears in close inspection to be constructed from billions of jagged particles. The Infernal gains the benefits of a demon's panoply with regard to the material state of his own possessions and attuned artifacts. He no longer needs to breathe air, but suffocates normally if taken into a place where there is no living Essence to respire (such as the Underworld) unless he has Cult 3+ or Essence 6+. He longer requires food regardless of whether he is in a place of desolation, but he still hungers and gains penalties as described in Transcendent Desert Creature unless he has Cult 3+ to provide a steady diet of nourishing prayers. He may manifest or conceal his presence to communicate as a translucent apparition, toggling between the two states for a reflexive cost of one mote. Any anima banner display at the four to seven mote level or above automatically manifests regardless of whether his form has manifested. Finally, the Infernal gains the Charm Materialize for free as a benefit of purchasing this Charm (see Exalted, p. 295), using the standard formula of ([Willpower + Essence] x 5) motes to build a convincing simulacrum of what he used to look like. If this cost exceeds the maximum size of his combined Essence pools, then paying his entire pool is sufficient. Whenever a character with this Charm materializes, his body assembles itself out of fine grit that blows in a tightening vortex. Bones appear first, wreathed in webs of slimy visceral cording and pulsating meat until the final layer of ephemeral flesh encloses them in its borders. Exalted do not become spirits by purchasing this Charm; they merely alter their default corporeal state.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "cecelyne",
     "martialArtsTier": "",
@@ -50,8 +50,8 @@
             "charmUid": "4db97077ae460682",
             "charmName": "Soul-Sieve Transmutation",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

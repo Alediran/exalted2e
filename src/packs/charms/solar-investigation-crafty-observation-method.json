@@ -19,7 +19,7 @@
     "minAbility": 3,
     "charmType": "simple",
     "duration": "instant",
-    "speed": 6,
+    "speed": 5,
     "dvPenalty": -1,
     "steps": [],
     "keywords": [
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "investigation",
             "virtueKey": "valor",
             "virtueMin": 1
           }

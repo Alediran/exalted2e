@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>While terror and madness are the primary social weapons of the Abyssal Exalted, some prefer the subtler horror of unwanted desire. Unlike its Solar Mirror, this Charm builds only Intimacies of lust toward the Abyssal and cannot build love or loyalty to the Exalt or a cause, but this Charm ignores a victim's usual sexual orientation. In addition, the first time a deathknight makes a (Manipulation + Presence)-based social attack to seduce a character with a lower Essence rating in the same scene that he gained an Intimacy of lust toward her, the attempt becomes unnatural mental influence costing three Willpower to resist. Note that a seduced character may still defend against attacks</p><p>and can spend Willpower normally to shrug off a successful seduction as circumstances require, but that doesn't make an Abyssal any less desirable to those inflamed with lust toward her.</p>",
+    "description": "<p>While terror and madness are the primary social weapons of the Abyssal Exalted, some prefer the subtler horror of unwanted desire. Unlike its Solar Mirror, this Charm builds only Intimacies of lust toward the Abyssal and cannot build love or loyalty to the Exalt or a cause, but this Charm ignores a victim's usual sexual orientation. In addition, the first time a deathknight makes a (Manipulation + Presence)-based social attack to seduce a character with a lower Essence rating in the same scene that he gained an Intimacy of lust toward her, the attempt becomes unnatural mental influence costing three Willpower to resist. Note that a seduced character may still defend against attacks and can spend Willpower normally to shrug off a successful seduction as circumstances require, but that doesn't make an Abyssal any less desirable to those inflamed with lust toward her.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -55,8 +55,8 @@
             "charmUid": "9f7a47ea507bf512",
             "charmName": "Soul-Desiccating Style",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

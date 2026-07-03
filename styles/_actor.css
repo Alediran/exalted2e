@@ -245,14 +245,18 @@
 /* ── Section headers ────────────────────────────────────────────────────── */
 
 .crafting-roll-dialog .crafting-charms-section,
-.crafting-roll-dialog .crafting-stunt-section {
+.crafting-roll-dialog .crafting-stunt-section,
+.artifact-crafting-dialog .crafting-charms-section,
+.artifact-crafting-dialog .crafting-stunt-section {
   margin:      var(--ex2e-gap-sm) 0;
   padding-top: var(--ex2e-gap-sm);
   border-top:  1px solid var(--ex2e-border-color);
 }
 
 .crafting-roll-dialog .crafting-charms-section h4,
-.crafting-roll-dialog .crafting-stunt-section h4 {
+.crafting-roll-dialog .crafting-stunt-section h4,
+.artifact-crafting-dialog .crafting-charms-section h4,
+.artifact-crafting-dialog .crafting-stunt-section h4 {
   margin:         0 0 var(--ex2e-gap-sm) 0;
   font-family:    var(--ex2e-font-title);
   font-size:      var(--ex2e-font-size-xs);
@@ -263,7 +267,8 @@
 
 /* ── Charm list ─────────────────────────────────────────────────────────── */
 
-.crafting-roll-dialog .crafting-charm-list {
+.crafting-roll-dialog .crafting-charm-list,
+.artifact-crafting-dialog .crafting-charm-list {
   list-style:     none;
   margin:         0 0 var(--ex2e-gap-sm) 0;
   padding:        0;
@@ -271,15 +276,17 @@
   overflow-y:     auto;
   display:        flex;
   flex-direction: column;
-  gap:            3px;
+  gap:            var(--ex2e-gap-xs);
 }
 
-.crafting-roll-dialog .crafting-charm-list li {
+.crafting-roll-dialog .crafting-charm-list li,
+.artifact-crafting-dialog .crafting-charm-list li {
   border:        1px solid var(--ex2e-border-color);
   border-radius: var(--ex2e-border-radius);
 }
 
-.crafting-roll-dialog .crafting-charm-list label {
+.crafting-roll-dialog .crafting-charm-list label,
+.artifact-crafting-dialog .crafting-charm-list label {
   display:     flex;
   align-items: center;
   gap:         var(--ex2e-gap-sm);
@@ -293,13 +300,15 @@
   background: var(--ex2e-bg-hover);
 }
 
-.crafting-roll-dialog .charm-dice-row {
+.crafting-roll-dialog .charm-dice-row,
+.artifact-crafting-dialog .charm-dice-row {
   display:     flex;
   align-items: center;
   gap:         var(--ex2e-gap-sm);
   margin-top:  var(--ex2e-gap-xs);
 }
-.crafting-roll-dialog .charm-dice-row label {
+.crafting-roll-dialog .charm-dice-row label,
+.artifact-crafting-dialog .charm-dice-row label {
   font-family:    var(--ex2e-font-ui);
   font-size:      var(--ex2e-font-size-xs);
   color:          var(--ex2e-text-muted);
@@ -318,13 +327,15 @@
 
 /* ── Stunt radios ───────────────────────────────────────────────────────── */
 
-.crafting-roll-dialog .stunt-options {
+.crafting-roll-dialog .stunt-options,
+.artifact-crafting-dialog .stunt-options {
   display:   flex;
   flex-wrap: wrap;
   gap:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
 }
 
-.crafting-roll-dialog .stunt-options label {
+.crafting-roll-dialog .stunt-options label,
+.artifact-crafting-dialog .stunt-options label {
   display:     flex;
   align-items: center;
   gap:         4px;
@@ -339,7 +350,8 @@
 
 /* ── Dialog footer ──────────────────────────────────────────────────────── */
 
-.crafting-roll-dialog .crafting-dialog-footer {
+.crafting-roll-dialog .crafting-dialog-footer,
+.artifact-crafting-dialog .crafting-dialog-footer {
   display:         flex;
   justify-content: flex-end;
   gap:             var(--ex2e-gap-sm);
@@ -578,65 +590,8 @@
   min-width:     2px;
 }
 
-/* ── Shared inner sections: reuse crafting-roll-dialog rules ────────────── */
-
-.artifact-crafting-dialog .crafting-charms-section,
-.artifact-crafting-dialog .crafting-stunt-section {
-  margin:      var(--ex2e-gap-sm) 0;
-  padding-top: var(--ex2e-gap-sm);
-  border-top:  1px solid var(--ex2e-border-color);
-}
-
-.artifact-crafting-dialog .crafting-charms-section h4,
-.artifact-crafting-dialog .crafting-stunt-section h4 {
-  margin:         0 0 var(--ex2e-gap-sm) 0;
-  font-family:    var(--ex2e-font-title);
-  font-size:      var(--ex2e-font-size-xs);
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color:          var(--ex2e-gold-main);
-}
-
-.artifact-crafting-dialog .crafting-charm-list {
-  list-style:     none;
-  margin:         0 0 var(--ex2e-gap-sm) 0;
-  padding:        0;
-  max-height:     9rem;
-  overflow-y:     auto;
-  display:        flex;
-  flex-direction: column;
-  gap:            3px;
-}
-
-.artifact-crafting-dialog .crafting-charm-list li {
-  border:        1px solid var(--ex2e-border-color);
-  border-radius: var(--ex2e-border-radius);
-}
-
-.artifact-crafting-dialog .crafting-charm-list label {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-  padding:     4px 8px;
-  cursor:      pointer;
-  color:       var(--ex2e-text-primary);
-  font-size:   var(--ex2e-font-size-sm);
-  transition:  background var(--ex2e-transition-fast);
-}
 .artifact-crafting-dialog .crafting-charm-list label:hover { background: var(--ex2e-bg-hover); }
 
-.artifact-crafting-dialog .charm-dice-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-  margin-top:  var(--ex2e-gap-xs);
-}
-.artifact-crafting-dialog .charm-dice-row label {
-  font-family:    var(--ex2e-font-ui);
-  font-size:      var(--ex2e-font-size-xs);
-  color:          var(--ex2e-text-muted);
-  letter-spacing: 0.04em;
-}
 .artifact-crafting-dialog .charm-dice-row input[type="number"],
 .artifact-crafting-dialog .charm-dice-row select {
   background:    var(--ex2e-bg-medium);
@@ -656,30 +611,7 @@
   border-top: 1px solid var(--ex2e-border-color);
 }
 
-.artifact-crafting-dialog .stunt-options {
-  display:   flex;
-  flex-wrap: wrap;
-  gap:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
-}
-.artifact-crafting-dialog .stunt-options label {
-  display:     flex;
-  align-items: center;
-  gap:         4px;
-  font-size:   var(--ex2e-font-size-sm);
-  color:       var(--ex2e-text-secondary);
-  cursor:      pointer;
-  transition:  color var(--ex2e-transition-fast);
-}
 .artifact-crafting-dialog .stunt-options label:hover { color: var(--ex2e-text-primary); }
-
-.artifact-crafting-dialog .crafting-dialog-footer {
-  display:         flex;
-  justify-content: flex-end;
-  gap:             var(--ex2e-gap-sm);
-  margin-top:      var(--ex2e-gap-md);
-  padding-top:     var(--ex2e-gap-md);
-  border-top:      1px solid var(--ex2e-gold-dark);
-}
 
 .artifact-crafting-dialog .btn-roll {
   padding:        5px var(--ex2e-gap-lg);

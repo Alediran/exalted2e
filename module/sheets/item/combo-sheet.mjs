@@ -1,5 +1,6 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { validateComboAdd, charmCostMetaString } from "../../helpers/combo-helpers.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -66,7 +67,7 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       rows,
       hasActor:    !!actor,
       isEditable:  this.isEditable,
-      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description ?? "", {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(item), {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };

@@ -15,7 +15,7 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "integrity",
-    "essence": 3,
+    "essence": 2,
     "minAbility": 3,
     "charmType": "reflexive",
     "duration": "instant",
@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character's steadfast resolve and confidence in his destiny shield him from an attempt to change his mind or do him harm. Any player whose character has an Essence less than the Sidereal's Temperance must first succeed on a reflexive Willpower roll before the character attempts a social or physical attack against the Sidereal. If the Willpower roll fails, the attack fails automatically. The Sidereal's apparent</p><p>steely dedication in the face of opposition cows the attacker so her aim or intention falters. If the Willpower roll succeeds, the attack may proceed, but the Sidereal combines his Parry Defense Value and Dodge Mental Defense Value against the attack.</p>",
+    "description": "<p>With unflappable dedication to his destiny beyond the trials that face him, the Sidereal becomes untouchable. This Charm imposes an external penalty on a physical or social attack equal to the Exalt's Temperance. Against a physical attack that still hits despite this penalty, he also gains (Essence) bashing and lethal soak.</p><p>With an Integrity 4+, Essence 4+ repurchase the Sidereal may add +1wp to the Cost to speak encouragement into the destiny of an ally within (Essence) yards, allowing them to gain the benefits of this Charm.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -61,11 +61,6 @@
         ]
       }
     ],
-    "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
-    },
     "charmUid": "c67fd4f2e51a420b"
   },
   "folder": "b0b1b2b3b4b5f007",

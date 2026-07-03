@@ -17,7 +17,7 @@
     "ability": "war",
     "essence": 3,
     "minAbility": 5,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character activates this Charm just as he would activate Essence-Draining Battle Pattern. This battle pattern, however, is designed to help straighten out the strands of fate disrupted by the presence of inhabitants of the Demon</p><p>Realm. The Sidereal's player makes the same (Intelligence + War) roll after activating Predestined Triumph Practice, and counts the successes up to a maximum equal to his Essence. During the battle, every hero or sorcerer who enacts his part of the pattern imposes that number as a dice-pool penalty on one special character on the opposing side. Alternatively, every hero or sorcerer who does his part to form the pattern can impose a cumulative -1 penalty on the enemy's commander's War rolls. This alternative imposed penalty cannot exceed the Sidereal's Essence or reduce the commander's dice pool below zero. After the Usurpation, the Five-Score Fellowship petitioned the Maidens to create analogous Charms against the Fair Folk and denizens of the Underworld. Chaos-Quelling Battle Pattern and Ghost-Banishing Battle Pattern work exactly the same way as Demon-Blocking Battle Pattern, except for the class of supernatural enemies the Charms affect. An army can benefit from only one Battle Pattern Charm in a given battle.</p>",
+    "description": "<p>Creatures of darkness that would target the Sidereal's unit suffer a -1 external penalty to all relevant rolls. When demons engage the unit in close combat, this penalty extends to all of their non-reflexive actions. Multiple Sidereals may stack this Charm on the same unit; the maximum stacked penalty equals the lowest Essence rating among the Sidereals involved. A Sidereal with Essence 4+ who has trained the unit with a Training Mandate Charm may extend this protection to shaped Fair Folk as well. An army can benefit from only one Battle Pattern Charm in a given battle.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

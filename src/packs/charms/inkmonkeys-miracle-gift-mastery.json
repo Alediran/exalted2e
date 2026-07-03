@@ -22,13 +22,13 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Cecelyne may give her blessings slowly, the better to exact compounding price for each piece of her gift. But this need not be so. With purchase of this Charm, an Infernal's power to wield Verdant Emptiness Endowment grows mightily as follows: � She may bestow degrees of thaumaturgy like standard specialties; as usual, she need not possess the degree in question. The target must meet all prerequisites for learning the degree. � She may give multiple dots of the same trait as a single blessing, as many as desired (subject to the usual trait maximum for the beneficiary). Since this is a single blessing, the number of botches associated with failing to pay the price is based on conferring one dot, regardless of the total number actually conferred. Conversely, since this is a single blessing, it does not matter if the target would end up in experience debt after a single dot--all dots still get conferred. � She may bestow Attributes, Abilities or specialties instantly. This is Obvious, as swirling silver sands envelop the target and transform her mentally and physically as appropriate. If she knows Bestowal of Accursed Fortune and grants multiple Background dots, they still appear in weeks according to the new rating and cannot be granted faster. � The price to refuse her blessing is (half her Essence rating, rounded up) Willpower points rather than just one. As a reminder, rejecting a gift is not considered resisting mental influence. � She may bestow her blessing on anyone she can perceive within one mile, rather than being limited to (Essence rating) yards. � With Essence 4+, she may bestow trait dots on mortal characters who are in experience debt. � With Essence 4+, the cost to use Verdant Emptiness Endowment on a target may be lowered to a single mote, provided the target already accepted a blessing from the Infernal's use of the Charm earlier in the scene. However, as soon as the target pays Willpower to reject a gift, the cost resets to normal. Draught of Sweet Infinity</p>",
+    "description": "<p>Cecelyne may give her blessings slowly, the better to exact compounding price for each piece of her gift. But this need not be so. With purchase of this Charm, an Infernal's power to wield Verdant Emptiness Endowment grows mightily as follows: � She may bestow degrees of thaumaturgy like standard specialties; as usual, she need not possess the degree in question. The target must meet all prerequisites for learning the degree. � She may give multiple dots of the same trait as a single blessing, as many as desired (subject to the usual trait maximum for the beneficiary). Since this is a single blessing, the number of botches associated with failing to pay the price is based on conferring one dot, regardless of the total number actually conferred. Conversely, since this is a single blessing, it does not matter if the target would end up in experience debt after a single dot--all dots still get conferred. � She may bestow Attributes, Abilities or specialties instantly. This is Obvious, as swirling silver sands envelop the target and transform her mentally and physically as appropriate. If she knows Bestowal of Accursed Fortune and grants multiple Background dots, they still appear in weeks according to the new rating and cannot be granted faster. � The price to refuse her blessing is (half her Essence rating, rounded up) Willpower points rather than just one. As a reminder, rejecting a gift is not considered resisting mental influence. � She may bestow her blessing on anyone she can perceive within one mile, rather than being limited to (Essence rating) yards. � With Essence 4+, she may bestow trait dots on mortal characters who are in experience debt. � With Essence 4+, the cost to use Verdant Emptiness Endowment on a target may be lowered to a single mote, provided the target already accepted a blessing from the Infernal's use of the Charm earlier in the scene. However, as soon as the target pays Willpower to reject a gift, the cost resets to normal.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "cecelyne",
     "martialArtsTier": "",
@@ -56,6 +56,7 @@
         ]
       }
     ],
+    "grantsBackground": true,
     "charmUid": "1158043af375e14c"
   },
   "folder": "d852ccb3960d271d",

@@ -147,7 +147,7 @@
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
 
-    <div class="destiny-trait-row resplendent-endurance-row">
+    <div class="destiny-trait-row resplendent-endurance-row ex2e-row">
       <label class="destiny-trait-label">{{localize "EX2E.ResplendentEndurance"}}</label>
       {{#if isEditable}}
       <button type="button" class="btn-sm" data-action="spendEndurance" title="{{localize 'EX2E.ResplendentSpendEndurance'}}">
@@ -167,7 +167,7 @@
     <div class="resplendency-list">
       <label class="destiny-trait-label">{{localize "EX2E.ResplendenciesHeader"}}</label>
       {{#each resplendencies as |r|}}
-      <div class="resplendency-row">
+      <div class="resplendency-row ex2e-row">
         <span class="resplendency-name">{{r.name}}</span>
         <span class="resplendency-cost">{{r.enduranceCost}} End{{#if r.paradoxDice}} · {{r.paradoxDice}} ◈{{/if}}{{#if r.keyword}} · {{r.keyword}}{{/if}}</span>
         {{#if @root.isEditable}}
@@ -202,13 +202,9 @@
   {{/if}}
 
   {{!-- ── Description ── --}}
-  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}
-    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
-                  value="{{system.description}}" collaborate="true" toggled="true">
-      {{{enrichedDescription}}}
-    </prose-mirror>
+    {{> "systems/exalted2e/templates/item/_partials/description-langs.hbs"}}
     {{else}}
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}

@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Fire Aspect's affinity for movement continues to improve. With this Charm, the Exalt is capable of defying gravity. He can rise up and, buoyed by a hot updraft, fly at a rate equal to twice his normal movement rate. During the duration of the flight, the</p><p>Dragon-Blood must remain within ([Essence + Athletics] x 3) yards of a solid surface. He can fly along the surface of walls and cliffs to gain a higher altitude, but the magic of the Charm will not function if he strays farther from a solid surface than the stated distance. Bodies of water are not a solid surface, and the Charm ends if the Exalt strays over large body of water, instantly dunking him. Also, the Dragon-Blood must remain in motion at all times. He cannot hover, and if he ever stops moving, the Charm ends. As the Exalt is dependent on warm air currents to remain in flight, his aerial maneuverability is relatively poor. He can engage in aerial combat or attack ground targets, but all actions suffer a -2 penalty while he is airborne.</p>",
+    "description": "<p>The Fire Aspect's affinity for movement continues to improve. With this Charm, the Exalt is capable of defying gravity. He can rise up and, buoyed by a hot updraft, fly at a rate equal to twice his normal movement rate. During the duration of the flight, the Dragon-Blood must remain within ([Essence + Athletics] x 3) yards of a solid surface. He can fly along the surface of walls and cliffs to gain a higher altitude, but the magic of the Charm will not function if he strays farther from a solid surface than the stated distance. Bodies of water are not a solid surface, and the Charm ends if the Exalt strays over large body of water, instantly dunking him. Also, the Dragon-Blood must remain in motion at all times. He cannot hover, and if he ever stops moving, the Charm ends. As the Exalt is dependent on warm air currents to remain in flight, his aerial maneuverability is relatively poor. He can engage in aerial combat or attack ground targets, but all actions suffer a −2 internal penalty while he is airborne.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

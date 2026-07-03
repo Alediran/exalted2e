@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The elocution and charisma of Air-aspected debaters is astonishing to behold, and never more so than when Essence powers their words. For the duration of this Charm, the Dragon-Blood can add a number of dice equal to his Essence to any speech-related roll, be it seduction, persuasion or intimidation. The Charm can normally only affect one listener at a time, but each extra mote spent doubles the number of listeners who can be affected. If the Charm is used defensively in social combat, add half the Exalt's Essence, rounded up, to his Parry MDV. The Dragon-Blood must be able to speak the listener's language, either naturally or with Charms, in order for this Charm to have any utility.</p>",
+    "description": "<p>The elocution and charisma of Air-aspected debaters is astonishing to behold, and never more so than when Essence powers their words. For the duration of this Charm, the Dragon-Blood can add a number of dice equal to his Essence to any speech-related roll, be it seduction, persuasion or intimidation. The Charm can normally only affect one listener at a time, but each extra mote spent doubles the number of listeners who can be affected. If the Charm is used defensively in social combat, add half the Exalt's Essence, rounded up, to his Parry MDV. The Dragon-Blood must be able to speak the listener's language, either naturally or with Charms, in order for this Charm to have any utility. The Charm's targets can't be reset without reactivation.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

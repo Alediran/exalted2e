@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A truly gifted performance contains multiple layers of communication, as a single turn of an actor's head or a single note artistic flourish in a musical performance can contain nuances that only a true aficionado can appreciate. With this Charm, a Dragon-Blood can weave hidden subtexts and messages into his performance, ideas that only audience members of his choice can perceive. The Exalt must spend two motes per person with whom he wishes to communicate secretly, and the Charm can only be used in the course of a performance. Once the Charm is activated, he can deliver messages of almost any length, which the subject perceives subliminally, as if the Exalt were speaking in a slow monotone voice. The Charm</p><p>does not permit the subject to communicate anything back to the Dragon-Blood, but if multiple Dragon-Blooded with this Charm are performing together on the same stage, they can have lengthy conversations or even arguments without the audience being any the wiser. Highly specialized or technical knowledge generally cannot be communicated with this Charm. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be used only on a tick upon which the Dragon-Blood acts.</p>",
+    "description": "<p>A truly gifted performance contains multiple layers of communication, as a single turn of an actor's head or a single note artistic flourish in a musical performance can contain nuances that only a true aficionado can appreciate. With this Charm, a Dragon-Blood can weave hidden subtexts and messages into his performance, ideas that only audience members of his choice can perceive. The Exalt must spend two motes per person with whom he wishes to communicate secretly, and the Charm can only be used in the course of a performance. Once the Charm is activated, he can deliver messages of almost any length, which the subject perceives subliminally, as if the Exalt were speaking in a slow monotone voice. The Charm does not permit the subject to communicate anything back to the Dragon-Blood, but if multiple Dragon-Blooded with this Charm are performing together on the same stage, they can have lengthy conversations or even arguments without the audience being any the wiser. Highly specialized or technical knowledge generally cannot be communicated with this Charm.</p><p>(Errata) With Essence 3+, the character may hide subtext in the oration of everyday speech. The Leader effect of this Charm costs only 2m to convey coded orders to all fellow officers, adding the Exalt's Performance to the difficulty of Read Strategy rolls to study the Terrestrial's unit (Scroll of Kings, p. 110).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -43,7 +43,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -55,9 +55,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "performance",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

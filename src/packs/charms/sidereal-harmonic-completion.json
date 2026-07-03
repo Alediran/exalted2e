@@ -32,14 +32,21 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal activates this Charm using a prayer strip marked with the Scripture of the Dancer. When she wraps the prayer strip around her eyes and infuses it with Essence, the strip becomes a band of starmetal and blue jade. (This event is Obvious, but subsequent Charm effects are not.) The prayer strip remains as durable as any other activated prayer strip (see p. 125), but it can be pulled from the character's head if someone's attack manages to get past the Sidereal's defenses and the strip's own Parry Defense Value. If the band comes off the Sidereal's head for any reason, the Charm's effect ends. The Exalt is blind to Creation while she wears the prayer strip (with all the normal penalties to physical actions), but her words ring with the power of higher truth and ageless wisdom. Any Performance roll for the character (including Charms) automatically succeeds with one success for every die. Anyone who pays attention to the Sidereal's performance immediately gains an Intimacy to this performer who speaks with the voice of Heaven. Finally, the static values of the Sidereal's Dodge Defense Value and Dodge Mental Defense Value increase by an amount equal to her unmodified Performance, as fate itself strives to protect the source of such blessed assurance. THE SCRIPTURE OF THE DANCER Once, there was a maiden... ...who stood at the center of every dance. Back then, she knew all the dances. She never missed a step. One day, she heard something in the music, as a singer dropped the beat. It taught her of the joy of dancing poorly. She started dancing more and more awry. \"Love has no rules,\" she said. SOCIALIZE: THE LOVERS</p>",
+    "description": "<p>The Sidereal activates this Charm using a prayer strip marked with the Scripture of the Dancer. When she wraps the prayer strip around her eyes and infuses it with Essence, the strip becomes a band of starmetal and blue jade. (This event is Obvious, but subsequent Charm effects are not.) The prayer strip remains as durable as any other activated prayer strip (see p. 125), but it can be pulled from the character's head if someone's attack manages to get past the Sidereal's defenses and the strip's own Parry Defense Value. If the band comes off the Sidereal's head for any reason, the Charm's effect ends. The Exalt is blind to Creation while she wears the prayer strip (with all the normal penalties to physical actions), but her words ring with the power of higher truth and ageless wisdom. Any Performance roll for the character (including Charms) automatically succeeds with one success for every die. Anyone who pays attention to the Sidereal's performance immediately gains an Intimacy to this performer who speaks with the voice of Heaven. Finally, the static values of the Sidereal's Dodge Defense Value and Dodge Mental Defense Value increase by an amount equal to her unmodified Performance, as fate itself strives to protect the source of such blessed assurance.</p><p>This Charm does not automatically impose Intimacies. Any character successfully influenced by the Exalt is also subject to an unnatural Emotion effect of complete trust for the Sidereal. In addition to suffering the usual penalties for acting contrarily, targets halve their MDVs against further social attacks from the Vizier for the rest of the scene, and in turn add two extra successes to any of their own social attacks to impose complementary influence that spreads the Sidereal's own messages and goals. Ignoring the influence for one action costs 1wp, and after doing so five times it cannot take hold again for the rest of the scene.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Five days",
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "dodgeBonusFormula": "@performance",
+      "parryBonusFormula": ""
+    },
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -72,6 +79,7 @@
         ]
       }
     ],
+    "halveMDV": true,
     "charmUid": "ffbc9dca1ebc5f50"
   },
   "folder": "b0b1b2b3b4b5f010",

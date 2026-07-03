@@ -1,0 +1,33 @@
+{
+  "_id": "5f00000000000014",
+  "_key": "!items!5f00000000000014",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Sail Specialty Focus",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "sail",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": { "formula": "—", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>In the specific duties a Terrestrial assigns himself, his power comes easily. This Charm enhances its prerequisite, reducing its cost by one mote per specialty that applies to the enhanced action (minimum zero motes). Every success added with Second Sail Excellency still counts as two dice for the purpose of Charm bonus limits.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "", "martialArtsTier": "", "martialArtsStyleName": "", "maidenAffiliation": "",
+    "durationFormula": "", "stackCount": 0, "umiCost": 0, "cooperationBonusDice": 0,
+    "excellency": "", "perfectDefenseType": "", "active": false,
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "4e03f55446607627", "charmName": "Second Sail Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "charmUid": "5f00000000000014"
+  },
+  "folder": "b0b1b2b3b4b5f02d",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

@@ -13,12 +13,12 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "survival",
     "essence": 4,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -33,14 +33,13 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The cold fires of the Underworld fascinate even as they terrify. Flaring his anima into a vast constellation of cold, winking blue flames that surges a mile into the air, the light of the Abyssal's display shines through all obstructions and may be dimly glimpsed from up to (Essence) miles away, or up to (Essence</p><p>x 5) miles away by a certain class of individuals the Abyssal defines at the time of this Charm's activation. Possible examples might include \"Tya,\" \"Yozi cultists,\" \"citizens of Nexus,\" \"Lookshy helots,\" or \"the wealthy,\" with the last example being articulated by the Abyssal in those terms, and by the Abyssal's player as \"characters with Resources rated four or higher.\" The Abyssal's player rolls (Manipulation + Survival + Essence). Those who see the Abyssal's beacon and whose Dodge MDVs are lower than her successes suffer an unnatural Compulsion to seek out the source of the light, which may be resisted by paying two points of Willpower. Those who see the lights and attempt to navigate toward them automatically succeed, regardless of whether they are compelled to do so. At Survival 6+, Essence 6+ the Charm may be activated for a cost of ten motes to send the beacon burning even higher into the sky, extending the range of its visibility for those specified to (Essence x 50) miles. Astrology used within the range of the lights returns only the message \"THE VOID HUNGERS.\" Daybreak Caste Medicine Candle Left Burning</p>",
+    "description": "<p>The cold fires of the Underworld fascinate even as they terrify. Flaring his anima into a vast constellation of cold, winking blue flames that surges a mile into the air, the light of the Abyssal's display shines through all obstructions and may be dimly glimpsed from up to (Essence) miles away, or up to (Essence x 5) miles away by a certain class of individuals the Abyssal defines at the time of this Charm's activation. Possible examples might include \"Tya,\" \"Yozi cultists,\" \"citizens of Nexus,\" \"Lookshy helots,\" or \"the wealthy,\" with the last example being articulated by the Abyssal in those terms, and by the Abyssal's player as \"characters with Resources rated four or higher.\" The Abyssal's player rolls (Manipulation + Survival + Essence). Those who see the Abyssal's beacon and whose Dodge MDVs are lower than her successes suffer an unnatural Compulsion to seek out the source of the light, which may be resisted by paying two points of Willpower. Those who see the lights and attempt to navigate toward them automatically succeed, regardless of whether they are compelled to do so. At Survival 6+, Essence 6+ the Charm may be activated for a cost of ten motes to send the beacon burning even higher into the sky, extending the range of its visibility for those specified to (Essence x 50) miles. Astrology used within the range of the lights returns only the message \"THE VOID HUNGERS.\"</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -55,8 +54,8 @@
             "charmUid": "c4469895fbceb24d",
             "charmName": "Dark Paths Found",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
@@ -64,7 +63,7 @@
     "charmUid": "0cd65082aa55d798",
     "mirrorId": "c1d2e3f4a5b60016"
   },
-  "folder": "82dbbb60bb2b2c18",
+  "folder": "b0b1b2b3b4b5f049",
   "sort": 0,
   "ownership": {
     "default": 0

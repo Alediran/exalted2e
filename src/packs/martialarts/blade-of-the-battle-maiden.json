@@ -40,7 +40,7 @@
       "limitTrigger": 0,
       "formula": "5m, 1wp"
     },
-    "description": "<p>Scarlet Essence flares around the Vizier, giving her the fate of an armed and armored warrior. For the rest of the scene, the character's Martial Arts attacks (including clinches) inflict lethal damage. The character can also parry lethal damage from physical attacks (including ranged attacks) without using a weapon or stunt. What's more, every two motes spent on this Charm add one die to each unarmed Martial Arts attack, and one to the pool used to calculate Parry Defense Value. For this Charm alone, the maximum number of dice added rises to (Dexterity + Martial Arts)-- but only for Martial Arts, and only if the character does not wear armor (even if the Seer uses Martial Arts Charms from a style that permits armor, such as the Earth Dragon Style described in The Manual of Exalted Power--The Dragon-Blooded).</p>",
+    "description": "<p>Crimson ribbons of Essence trail from the Sidereal's hands, the strands of a martial destiny waiting to be seized. This crimson nimbus allows the martial artist to both deal lethal damage and parry lethal attacks while unarmed, and enchants her natural attacks with the traits of a starmetal daiklave (except for clinches).</p><p>Alternatively, the martial artist may invoke this Charm to invoke a form weapon she wields, granting it the magical material bonus of starmetal and rendering it as indestructible as an attuned artifact. It also benefits from the reduced target number for damage.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -49,7 +49,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

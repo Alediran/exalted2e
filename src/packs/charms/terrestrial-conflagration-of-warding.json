@@ -1,0 +1,71 @@
+{
+  "_id": "ca1b2c3d4e5f001a",
+  "_key": "!items!ca1b2c3d4e5f001a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Conflagration of Warding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Cooperative",
+      "Leader",
+      "War"
+    ],
+    "cost": {
+      "formula": "—",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows its prerequisite to parry attacks boosted or created by Charms and spells, provided that the attacker has a lower Essence rating. Any number of Dragon-Blooded within 100 yards who witness the attack may bolster the defender by raising their weapons in salute and also activating Portentous Comet Deflecting Mode at a reduced cost of three motes. Each supporting activation cumulatively increases the defender's effective Essence rating by one to determine if her defense works. With any support, she can also block an unblockable attack. The Leader use can be supported only by fellow officers or other Dragon-Blooded in range.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fb51ece890f4e0c4",
+            "charmName": "Portentous Comet Deflecting Mode",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f001a"
+  },
+  "folder": "b0b1b2b3b4b5f027",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

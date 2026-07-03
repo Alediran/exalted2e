@@ -37,7 +37,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,52 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "94addaf75104164c",
+            "charmName": "Breeze Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "cd4750677fd1f338",
+            "charmName": "Mist Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "089742fcd1c4a4f0",
+            "charmName": "Smoke Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "7be3ecc915e9354b",
+            "charmName": "The Forgotten Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
+            "charmUid": "5d36dbe9f4a23e72",
+            "charmName": "Mountain Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2c505cc513b72d0d"
   },
   "folder": "30abfdbff9e8ecc7",

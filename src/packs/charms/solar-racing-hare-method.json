@@ -15,12 +15,12 @@
   "system": {
     "exaltType": "solar",
     "ability": "athletics",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 6,
     "steps": [],
     "keywords": [
       "Combo-OK",
@@ -31,8 +31,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Allows the character to travel ([Stamina + Essence] x 10) miles per hour for up to one hour. This is a single dramatic action (DV -6). If the character invokes this Charm again as her next action, she may ignore the Willpower cost.</p>",
-    "source": "Core Rules",
+    "description": "<p>To the Lawgiver, the great distances between Creation's territories are not so much an obstacle as a place to keep their dominions. This Charm allows the character to travel ([her Stamina + Essence] x 10) miles per hour, for up to one hour. This is a single dramatic action. If the character invokes this Charm again as her next action, she may ignore the Willpower cost.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",

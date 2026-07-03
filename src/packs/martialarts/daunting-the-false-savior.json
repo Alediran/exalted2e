@@ -37,13 +37,12 @@
       "limitTrigger": 0,
       "formula": "5m"
     },
-    "description": "<p>Solars of the Dawn Caste are the greatest of all warriors, capable of feeling the truth of a foe's conviction in the spirit of his attacks. A hand that lies has no strength over the Lawgiver, and only the truest salvos may strike the Solar Hero. A character activating this Charm modifies his opponent's attacks. For one action, all attacks against the Exalt suffer an internal penalty equal to the difference between the Ability being used and the lowest of the attacker's Archery, Martial Arts, Melee and Thrown ratings. Daunting the False Savior must be activated while the character is using a Form-type Charm and may expressly enhance any Form-type Charm the character knows. The Sidereal Exalted employ an identical Charm called Eyes Toward an Ending, whose prerequisite is Throne Shadow Form.</p><p>Sun-Suffusing Slag</p>",
+    "description": "<p>Solars of the Dawn Caste are the greatest of all warriors, capable of feeling the truth of a foe's conviction in the spirit of his attacks. A hand that lies has no strength over the Lawgiver, and only the truest salvos may strike the Solar Hero. A character activating this Charm modifies his opponent's attacks. For one action, all attacks against the Exalt suffer an internal penalty equal to the difference between the Ability being used and the lowest of the attacker's Archery, Martial Arts, Melee and Thrown ratings. Daunting the False Savior must be activated while the character is using a Form-type Charm and may expressly enhance any Form-type Charm the character knows. The Sidereal Exalted employ an identical Charm called Eyes Toward an Ending, whose prerequisite is Throne Shadow Form.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "Throne Shadow Style",
+    "martialArtsStyleName": "Solar Hero Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,8 +58,8 @@
             "charmUid": "8e96863f868ad9a4",
             "charmName": "Solar Hero Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

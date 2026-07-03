@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>This Charm acts as a permanent upgrade to Phantom Arrow Technique, allowing the archer to fire any ranged weapon he may lay his hands on, be it a firewand, prayer piece, light implosion bow, or giant steam cannon. Firing a personal-scale weapon which uses exotic ammunition, or ammunition with a Resources cost, demands 3m per shot fired; firing an artillery-scaled weapon with this Charm costs 3m, 1wp per shot. If the effect of Inexhaustible Bolts of Solar Fire is active, such attacks require one mote per shot, or 1m, 1wp per artillery shot.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7372b08559265e8b",
+            "charmName": "Phantom Arrow Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "8357b9fbb564f845",
     "mirrorId": "4b4d7f23c9b4e503"
   },

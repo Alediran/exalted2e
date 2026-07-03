@@ -33,14 +33,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Lunar curses the cowardice of his enemies, drawing their blades away from those under his protection and toward himself. The player rolls (Charisma + Presence) at a difficulty of the target's MDV. If the roll succeeds, the target must direct any attacks he makes at the Lunar for the duration of the Charm. Shaking off this compulsion costs four Willpower points--two Willpower if the target is attacked by any individual other than the Lunar during the Charm's duration. For a surcharge of one Willpower, the Lunar's player may instead roll (Charisma + Performance) for the character to draw all enemies whose MDV is less than his successes to attack him. This Charm functions equally well in social and physical combat. MANIPULATION</p>",
+    "description": "<p>The Lunar curses the cowardice of his enemies, drawing their blades away from those under his protection and toward himself. The player rolls (Charisma + Presence) at a difficulty of the target's MDV. If the roll succeeds, the target must direct any attacks he makes at the Lunar for the duration of the Charm. Shaking off this compulsion costs four Willpower points--two Willpower if the target is attacked by any individual other than the Lunar during the Charm's duration. For a surcharge of one Willpower, the Lunar's player may instead roll (Charisma + Performance) for the character to draw all enemies whose MDV is less than his successes to attack him. This Charm functions equally well in social and physical combat.</p>",
     "source": "Glories of the Most High: Luna",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "(Essence x 3) actions",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,

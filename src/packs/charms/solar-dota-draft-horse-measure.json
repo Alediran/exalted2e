@@ -18,7 +18,7 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "oneDay",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Duration: One day Prerequisite Charms: Horse Skids Trick The mounts of the Solar Exalted are as tenacious as their riders. The Lawgiver may use this Charm to lock on to a target no more than (Essence x 3) yards away. Doing so causes an invisible tether of force to bind his mount into an orbit around the target. Carried on the momentum of the target's movements, the Solar's mount may effortlessly keep pace with the target, moving freely to any point within (Essence x 3) yards in order to maintain the minimum distance required for this Charm. The Lawgiver's mount becomes tireless so long as Draft Horse Measure is in effect, and all Ride Charm costs are lowered by 2 motes (to a minimum of zero motes). This Charm does not confer the ability to fly or to run across water, so other Charms are required in order to ride the Silent Winds of Adorjan across Malfeas or chase Leviathan across the ocean. At Ride 6+, Essence 6+ the Solar may tether himself to weather patterns, enabling him to draft behind a hurricane or trade wind.</p>",
+    "description": "<p>The mounts of the Solar Exalted are as tenacious as their riders. The Lawgiver may use this Charm to lock on to a target no more than (Essence x 3) yards away. Doing so causes an invisible tether of force to bind his mount into an orbit around the target. Carried on the momentum of the target's movements, the Solar's mount may effortlessly keep pace with the target, moving freely to any point within (Essence x 3) yards in order to maintain the minimum distance required for this Charm. The Lawgiver's mount becomes tireless so long as Draft Horse Measure is in effect, and all Ride Charm costs are lowered by 2 motes (to a minimum of zero motes). This Charm does not confer the ability to fly or to run across water, so other Charms are required in order to ride the Silent Winds of Adorjan across Malfeas or chase Leviathan across the ocean. At Ride 6+, Essence 6+ the Solar may tether himself to weather patterns, enabling him to draft behind a hurricane or trade wind.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5f39d25367180fca",
+            "charmName": "Horse Skids Trick",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0987ea2c2e89bafd"
   },
   "folder": "edcc4814a971a872",

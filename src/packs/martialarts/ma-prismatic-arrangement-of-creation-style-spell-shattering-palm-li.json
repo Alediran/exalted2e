@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Spell-shattering Palm (li)",
+  "name": "Spell-Shattering Palm (li)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -21,7 +21,7 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [5],
     "keywords": [
       "Combo-OK",
       "Obvious"
@@ -37,7 +37,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,7 +45,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "156f0f1fe463eb9b"
+    "charmUid": "156f0f1fe463eb9b",
+    "grantsMastery": false
   },
   "folder": "33c138eb339f4538",
   "sort": 0,

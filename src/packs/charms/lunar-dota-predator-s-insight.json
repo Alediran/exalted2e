@@ -30,21 +30,33 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Lunar Exalted learn much from their prey. By consuming the mind of a creature, the character using this Charm learns what that entity knew. Devouring a brain takes an instant (for the smallest), 10 minutes (for a normal-sized human) or longer (for behemoths and other strange creatures). More exotic targets require the character to consume the seat of their minds, which he locates with a ([Perception or Intelligence] + Occult) roll. The character then has access to everything the creature once knew. For animals, this amounts to a few subtle</p>",
+    "description": "<p>Lunar Exalted learn much from their prey. By consuming the mind of a creature, the character using this Charm learns what that entity knew. Devouring a brain takes an instant (for the smallest), 10 minutes (for a normal-sized human) or longer (for behemoths and other strange creatures). More exotic targets require the character to consume the seat of their minds, which he locates with a ([Perception or Intelligence] + Occult) roll.</p><p>The character then has access to everything the creature once knew. For animals, this amounts to a few subtle instincts and familiarity with the region—the animal's den and sources of food. People's knowledge is more varied and valuable.</p><p>Any time during the Charm's duration, the character can rummage through the victim's memory as a miscellaneous action. The victim's clear memories are just as clear to the Lunar. Things a victim barely recalled require an (Intelligence + Investigation) roll to find, and the foggiest memories are at difficulty 2+. Digging out something the victim kept secret (while alive) requires the same roll at a difficulty equal to the victim's Integrity.</p><p>If the character uses this Charm on a target whose form he can take, he may spend one experience point to call upon the creature's memories as long as he retains the shape. (It is most useful to buy this benefit after a successful sacred hunt.) When in that form thereafter, he can activate this Charm to call upon those memories for another hour. Predator's Insight is a grotesque way to learn new Charms or Abilities, if the player has enough experience points to spend.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "One hour",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "151d990c55ba222b",
+            "charmName": "Lessons In The Blood",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d4b07cbee6f32be0"
   },
   "folder": "8b05ba7cc3e236b8",

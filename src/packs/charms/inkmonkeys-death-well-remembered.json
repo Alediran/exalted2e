@@ -51,11 +51,23 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "e8177e6c08d3eaf0",
-            "charmName": "Bulwark Stance",
+            "charmUid": "b8859d9c457e679b",
+            "charmName": "Elegant Flowing Deflection",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "254e00511d601ed2",
+            "charmName": "Five-Shadow Feint",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

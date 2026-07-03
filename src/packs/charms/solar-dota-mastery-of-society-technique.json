@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Chapter Ten � Dreams of the First Age Lunar Knacks & Charms Knacks</p>",
+    "description": "<p>Seasoned Princes of the Earth are no longer surprised by the schemes and treacheries of their subjects and peers. Their petty games are transparent before the Lawgiver's jaded eyes. While this Charm is active all social magic directed at the character becomes Obvious to his senses. At Socialize 7+, Essence 7+ this Charm's duration becomes Indefinite. At Socialize 9+, Essence 9+, its cost drops to 1m. A second purchase of this Charm at Socialize 6+, Essence 6+ adds a second benefit: While the Charm is active, any social Charm directed at a social unit the character is a member of or which includes loyalty to him as part of its Policy becomes Obvious to his senses, though the identity of the character attempting to influence his social group is not automatically made known to him. For example, if a young Solar attempts to use Taboo-Inflicting Diatribe on the capital of a prefecture the Solar rules, he becomes aware that someone is attempting to influence the people of the city with Taboo-Inflicting Diatribe, but would have to personally investigate to discover the identity of the offender.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "616fba4c208140cf",
+            "charmName": "Understanding The Court",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "7ef2b89c962047a4"
   },
   "folder": "5da24482e38ff9ae",

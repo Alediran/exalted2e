@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The intentions of others are transparent to the Chosen of the Sun. The Exalt uses this Charm immediately after interacting with a target. The Solar's player rolls (Perception + Investigation). The difficulty of this roll is 1, but subtract an external penalty of ([the target's Manipulation + Socialize] � 2) from the successes on the Investigation roll. On a success, this Charm forces the target's player to declare the target's intentions in this interaction.</p>",
+    "description": "<p>The intentions of others are transparent to the Chosen of the Sun. The Exalt uses this Charm immediately after interacting with a target. The Solar's player rolls (Perception + Investigation). The difficulty of this roll is 1, but subtract an external penalty of ([the target's Manipulation + Socialize] ÷ 2) from the successes on the Investigation roll. On a success, this Charm forces the target's player to declare the target's intentions in this interaction.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",

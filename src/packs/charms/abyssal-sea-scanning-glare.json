@@ -14,40 +14,67 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "abyssal",
-    "ability": "awareness",
-    "essence": 1,
-    "minAbility": 2,
-    "charmType": "reflexive",
-    "duration": "instant",
-    "speed": 3,
+    "ability": "sail",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Avatar (1)",
+      "Mirror",
+      "Spectral"
     ],
     "cost": {
       "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's eyes take on a steely, storm-grey cast as she pierces the concealing veils of sea mist, fog banks, driving rain, and the grey murk of overcast days at sea. For the remainder of the scene, the Exalted ignores all visibility penalties caused by weather, atmospheric conditions, or natural obscuration, and doubles the effective range at which she can make out details. This supernatural clarity extends equally to reading distant signals, identifying ships by their rigging, and spotting hazards before they become crises.</p><p>The charm's effect is subtle enough to appear as merely exceptional eyesight to observers, though the silver-grey quality of the Abyssal's gaze while active is distinctive to those who have encountered Abyssal Exalted before. It serves as prerequisite for Mist-Veiled Doldrums Technique, which leverages this same perception to project obscuring conditions outward rather than simply see through them.</p>",
+    "description": "<p>An Abyssal can activate this Charm only aboard a ship he owns; it ends when he leaves the ship for any reason. While active, the Exalt ignores all visibility limitations or other penalties that would inhibit his ability to navigate. He also becomes preternaturally aware of his environment out to a distance of (Sail x 10) miles.</p><p>Through this Charm's awareness, the Exalt perfectly understands all weather conditions and mentally maps all terrain that is not magically obscured from scrying. He can spot reefs and other hazards long before they threaten his ship, not to mention noticing distant coasts before his lookouts do. His awareness lets him pinpoint other ships of seaworthy size. He also senses comparably large animals such as whales and siaka unless they are magically hidden in some way, though the Charm alone only reveals the size, speed and bearing of these objects. Used aboard an aerial vessel, this Charm maps terrain and tracks other aerial vehicles or animals of suitable size.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Until disembarking",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "c330cd333015de72"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "008d7af14645e8e1",
+            "charmName": "Deck-Striding Phantom",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "sail",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "c330cd333015de72",
+    "mirrorId": "a1b2c3d4e5f60013"
   },
-  "folder": "b0b1b2b3b4b5f035",
+  "folder": "b0b1b2b3b4b5f046",
   "sort": 0,
   "ownership": {
     "default": 0

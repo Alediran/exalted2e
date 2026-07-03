@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Lightspeed Body Dynamics",
+  "name": "Burning Corona Evasion",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -17,27 +17,28 @@
     "ability": "dodge",
     "essence": 2,
     "minAbility": 4,
-    "charmType": "permanent",
-    "duration": "permanent",
+    "charmType": "reflexive",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      2
+    ],
     "keywords": [
-      "Native",
-      "Reactor"
+      "Combo-OK",
+      "Obvious"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "2m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The body and soul of the Solar Exalted are as one, transcending all limits in emulation of the light from which they were born. A Lawgiver who has purchased this Charm has perfected his body at the motonic level through a mastery of Dodge techniques, allowing him to accrue ambient motes as a matter of course. Whenever the Solar successfully avoids an attack by applying his Dodge DV, he gains (attacker's Essence</p><p>� 2, round up) motes in step 10. This Charm is subject to the following limitations: � The attack must be made with intent to injure the Lawgiver, and must also be capable of harming him. For example, this Charm would offer no benefit if the character were attacked with a firewand while carrying a hearthstone which rendered him immune to fire. � The Charm offers no benefit if the Solar defends himself with a Charm carrying a Flaw of Invulnerability. � Lightspeed Body Dynamics is incompatible with any other Charm which grants the character motes of Essence. Night's Avenger Lunge</p>",
+    "description": "<p>Streams of golden anima trace the Solar's movement in shimmering after-images, as light itself pays homage to the perfection of the Sun's Chosen. Whenever the Solar applies his Dodge DV against an attack, he can use this Charm to penalize the attacker's roll as though they were blind (see Exalted, p. 152). His enemies are unable to target him clearly through the blinding light and refracted images of his anima. With Essence 3+, the Solar can extend the duration of this Charm to one tick for a surcharge of three motes.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

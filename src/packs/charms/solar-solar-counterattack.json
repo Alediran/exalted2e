@@ -35,7 +35,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Those who attack the Chosen of the Sun invite their own deaths. The Solar invokes this Charm after using her Parry DV against an attack. This Charm gives the Solar a counterattack, which is resolved in Step 9 of the initial attack's resolution. Note the rules for counterattacks on pages 150 and 183.</p>",
+    "description": "<p>Those who attack the Chosen of the Sun invite their own deaths. The Solar invokes this Charm after using her Parry DV against an attack. This Charm gives the Solar a counterattack, which is resolved in Step 9 of the initial attack's resolution. Note the rules for counterattacks on pages 150 and 183.</p><p>Additionally, if the Solar has stocked free reflexive attacks (from other Charms), she may spend one to make the counterattack Unblockable at no extra mote cost. This unblockable variant is available only through Melee or Martial Arts use of this Charm. This Charm is Martial-ready: Archery, Martial Arts, Thrown.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -62,6 +62,7 @@
         ]
       }
     ],
+    "counterattackUnblockableVariant": true,
     "charmUid": "7d8ac977a388a09f",
     "mirrorId": "abc2cbf472d6949e"
   },

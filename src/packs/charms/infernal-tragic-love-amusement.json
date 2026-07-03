@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "simple",
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Sometimes, Adorjan falls in love. Her hate is safer. The Infernal gains an Intimacy of sincere love toward another individual, be it amorous or purely platonic. So long as the Intimacy lasts, the character adds successes instead of dice when channeling Compassion to aid the subject of the Intimacy. Additionally, any stunt that teaches, hurts or expresses affection toward that subject adds one to its rating as though it resonated with the Exalt's Motivation. If the Infernal gains one Willpower from succeeding with such a stunt, she may forgo that award to regain one Compassion channel instead. Finally, the Exalt subtracts her Compassion rating from the MDV of the subject whenever socially attacking her. Tragic Love Amusement can't create any new Intimacies once</p><p>the Infernal maintains this type of enchanted love toward (Compassion) individuals.</p>",
+    "description": "<p>Sometimes, Adorjan falls in love. Her hate is safer. The Infernal gains an Intimacy of sincere love toward another individual, be it amorous or purely platonic. So long as the Intimacy lasts, the character adds successes instead of dice when channeling Compassion to aid the subject of the Intimacy. Additionally, any stunt that teaches, hurts or expresses affection toward that subject adds one to its rating as though it resonated with the Exalt's Motivation. If the Infernal gains one Willpower from succeeding with such a stunt, she may forgo that award to regain one Compassion channel instead. Finally, the Exalt subtracts her Compassion rating from the MDV of the subject whenever socially attacking her. Tragic Love Amusement can't create any new Intimacies once the Infernal maintains this type of enchanted love toward (Compassion) individuals.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "adorjan",
     "martialArtsTier": "",
@@ -53,14 +53,14 @@
             "charmUid": "10bac2ad89f6ca61",
             "charmName": "Freedom Lets Go",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
+      "enabled": false,
       "event": "onDamageDealt",
       "formula": "1"
     },

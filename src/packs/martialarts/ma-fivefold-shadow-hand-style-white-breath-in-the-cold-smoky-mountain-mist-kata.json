@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "White Breath in the Cold (smoky Mountain Mist Kata)",
+  "name": "White Breath in the Cold (Smoky Mountain Mist Kata)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -39,7 +39,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cd4750677fd1f338",
+            "charmName": "Mist Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "a8e0a83750ddd9c4"
   },
   "folder": "30abfdbff9e8ecc7",

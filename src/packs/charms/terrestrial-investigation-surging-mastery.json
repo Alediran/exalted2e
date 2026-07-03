@@ -1,0 +1,33 @@
+{
+  "_id": "5a00000000000008",
+  "_key": "!items!5a00000000000008",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Surging Investigation Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "investigation",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Combo-OK"],
+    "cost": { "formula": "6m 0+wp", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>Like natural disasters incarnate, Dragon-Blooded explode with power and force. Upon activating the Charm, the Dragon-Blood chooses the First or Third Dragon-Blooded Excellency for the same Ability. The cost to activate the chosen Charm becomes zero motes until his DV refreshes, regardless of how much benefit he chooses to gain from it. This Charm costs six motes to activate, plus a number of Willpower points equal to the number of times the character has used any version of Surging Investigation Mastery previously in the scene (maximum two Willpower points).</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "", "martialArtsTier": "", "martialArtsStyleName": "", "maidenAffiliation": "",
+    "durationFormula": "", "stackCount": 0, "umiCost": 0, "cooperationBonusDice": 0,
+    "excellency": "", "perfectDefenseType": "", "active": false,
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "328844d7fac93623", "charmName": "First Investigation Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }, { "type": "charm", "charmUid": "4e22e5f2436bd249", "charmName": "Third Investigation Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "charmUid": "5a00000000000008"
+  },
+  "folder": "b0b1b2b3b4b5f021",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

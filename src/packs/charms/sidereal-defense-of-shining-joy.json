@@ -28,13 +28,19 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Moving with the tempo of her opponent's actions, as if the two of them were lifelong dance partners, the Sidereal can predict the perfect completion of any attack that opponent launches. She can also make certain that this perfect completion does not involve her. For the rest of the scene, the character adds her Performance score to her Dodge in calculating her Dodge Defense Value. Also, the character can use either her Performance or Dodge Excellencies (but not both) to increase her Dodge Defense Value static value. This new Defense Value ignores onslaught penalties and reduces the Defense Value penalty of any attack the character makes by one (to a minimum of zero).</p>",
+    "description": "<p>Moving with the tempo of her opponent's actions, as if the two of them were lifelong dance partners, the Sidereal can predict the perfect completion of any attack that opponent launches. She can also make certain that this perfect completion does not involve her. For the rest of the scene, the Exalt does not add her Performance to her Dodge; instead, she may use the higher of her Dodge or Performance to calculate her Dodge DV. She may also use either her Performance or Dodge Excellencies (but not both) to increase her Dodge Defense Value static value.</p><p>Rather than ignoring all onslaught penalties, she ignores up to (Performance) points worth of penalties to her Dodge DV, from any source, apart from penalties from her own actions which are ignored separately. If the Sidereal is protecting someone with a Defend Other action, she may apply this benefit to both her own and her ward's DVs, even when parrying.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "dodgeBonusFormula": "max(@performance - @dodge, 0)",
+      "parryBonusFormula": ""
+    },
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

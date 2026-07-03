@@ -17,7 +17,7 @@
     "ability": "lore",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm is identical to Elemental Bolt Attack in all respects except the following. First, each mote spent on the burst inflicts only one level of lethal damage. Second, the burst inflicts damage across a circular area with a radius equal to the Dragon-Blood's permanent Essence in yards. The burst attack has a range increment of (permanent Essence x 20) yards and an Accuracy bonus equal to the Dragon-Blood's permanent Essence. The burst also applies elemental effects identical to the Elemental Bolt Attack to each person caught within the burst radius. If multiple Exalted who know this Charm join together, the power of the elemental burst is calculated in the same manner as the elemental bolt, and the radius of the burst is equal to the combined permanent Essences of all participants in yards.</p>",
+    "description": "<p>This Charm is identical to Elemental Bolt Attack in all respects except the following. First, each mote spent on the burst inflicts only one level of lethal damage. Second, the burst inflicts damage across a circular area with a radius equal to the Dragon-Blood's permanent Essence in yards. The burst attack has a range increment of (permanent Essence x 20) yards and an Accuracy bonus equal to the Dragon-Blood's permanent Essence. The burst also applies elemental effects identical to the Elemental Bolt Attack to each person caught within the burst radius. If multiple Exalted who know this Charm join together, the power of the elemental burst is calculated in the same manner as the elemental bolt, and the radius of the burst is equal to the combined permanent Essences of all participants in yards.</p><p>The purchase of this Charm adds a new \"setting\" to Elemental Bolt Attack that functions as described for Elemental Burst Technique (subject to the pertinent rules established above for a standard Elemental Bolt Attack). The Exalt assigns the setting per activation.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

@@ -37,13 +37,12 @@
       "limitTrigger": 0,
       "formula": "6m"
     },
-    "description": "<p>While the Abyssal performs the kata to assume Dark Messiah Form, she concentrates on every pain the world ever inflicted on her. Farewell ethics, it's time for bloody, brutal payback! While using this Charm, all the character's unarmed attacks inflict piercing damage (if they didn't already). The martial artist can make an unarmed Martial Arts parry against ranged and lethal attacks without a stunt. What's more, Dark Messiah Form eliminates multiple-action penalties for the first (Martial Arts � 2, rounded up) actions in a flurry. At Martial Arts 5, an Abyssal can punch three times in a flurry with no penalty at all. Any actions after the penalty-free number, however, take the same penalties as if this Charm had not been active. As a final benefit, a Dark Messiah stylist can attune to soulsteel form weapons (if he couldn't before) and gain all the motes stripped from a target by such weapons. The amoral ferocity of Dark Messiah Form comes at a price, though. While using the form, characters cannot channel their Virtues.</p>",
+    "description": "<p>While the Abyssal performs the kata to assume Dark Messiah Form, she concentrates on every pain the world ever inflicted on her. Farewell ethics, it's time for bloody, brutal payback! While using this Charm, all the character's unarmed attacks inflict piercing damage (if they didn't already). The martial artist can make an unarmed Martial Arts parry against ranged and lethal attacks without a stunt. What's more, Dark Messiah Form eliminates multiple-action penalties for the first (Martial Arts ÷ 2, rounded up) actions in a flurry. At Martial Arts 5, an Abyssal can punch three times in a flurry with no penalty at all. Any actions after the penalty-free number, however, take the same penalties as if this Charm had not been active. As a final benefit, a Dark Messiah stylist can attune to soulsteel form weapons (if he couldn't before) and gain all the motes stripped from a target by such weapons. The amoral ferocity of Dark Messiah Form comes at a price, though. While using the form, characters cannot channel their Virtues.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dark Messiah Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,8 +58,8 @@
             "charmUid": "513364bf77cee8fe",
             "charmName": "Foe-Blinding Jab",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -71,8 +70,8 @@
             "charmUid": "fe2ee015fb3dc9dd",
             "charmName": "Inescapable Iron Grip",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

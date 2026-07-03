@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "permanent",
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>There is no difference between physical and mental force. The crushing of opposition must be absolute.</p><p>Whenever an Infernal with this Charm would inflict two or more levels of damage to a target with direct attacks using Mind-Hand Manipulation, the Exalt knows whether the target has any Willpower points remaining and may choose to forgo all damage to drain one Willpower instead. If this drain reduces a target with lesser Essence to zero Willpower points, her will is broken (see Exalted, p. 174). Mortals and natural animals broken in this way become hollowed mockeries of themselves. Such wretches have no Virtues and automatically succeed/fail at Virtue rolls as per an automaton. Their original Motivations disappear, replaced by the Policy of whatever Magnitude 3+ social unit each victim is most closely affiliated with. A victim's player chooses which unit her will subsumes into, subject to Storyteller veto. Acting against the best interests of the unit whose Policy the victim gains becomes an unacceptable order for her. With Essence 4+, breaking a mortal can inculcate her with a Policy as described or impose any logical extrapolation of the Infernal's Urge instead. The only way to escape this altered state is to break the mortal's will anew by means other than this Charm. A mortal victim broken by an Essence 5+ Exalt dies as the totality of her being dissolves into white fire. When it dims, the victim appears unburned and completely healthy</p><p>with the usual modifications to Virtues and Motivation, but this is not the same being. The new entity shares memories with and is a perfect copy of the original down to the last freckle, but the thing that replaces her is a creature of darkness with no soul. If killed, its Essence dissipates back into that of Creation like a person shaped from the Wyld.</p>",
+    "description": "<p>There is no difference between physical and mental force. The crushing of opposition must be absolute.</p><p>Whenever an Infernal with this Charm would inflict two or more levels of damage to a target with direct attacks using Mind-Hand Manipulation, the Exalt knows whether the target has any Willpower points remaining and may choose to forgo all damage to drain one Willpower instead. If this drain reduces a target with lesser Essence to zero Willpower points, her will is broken (see Exalted, p. 174). Mortals and natural animals broken in this way become hollowed mockeries of themselves. Such wretches have no Virtues and automatically succeed/fail at Virtue rolls as per an automaton. Their original Motivations disappear, replaced by the Policy of whatever Magnitude 3+ social unit each victim is most closely affiliated with. A victim's player chooses which unit her will subsumes into, subject to Storyteller veto. Acting against the best interests of the unit whose Policy the victim gains becomes an unacceptable order for her. With Essence 4+, breaking a mortal can inculcate her with a Policy as described or impose any logical extrapolation of the Infernal's Urge instead. The only way to escape this altered state is to break the mortal's will anew by means other than this Charm. A mortal victim broken by an Essence 5+ Exalt dies as the totality of her being dissolves into white fire. When it dims, the victim appears unburned and completely healthy with the usual modifications to Virtues and Motivation, but this is not the same being. The new entity shares memories with and is a perfect copy of the original down to the last freckle, but the thing that replaces her is a creature of darkness with no soul. If killed, its Essence dissipates back into that of Creation like a person shaped from the Wyld.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "sheWhoLivesInHerName",
     "martialArtsTier": "",
@@ -52,13 +52,17 @@
             "charmUid": "e34e6bd54a2ffc9d",
             "charmName": "Mind-Hand Manipulation",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "charmUid": "0badaf4398bcdcd1"
+    "charmUid": "0badaf4398bcdcd1",
+    "targetWillpowerDrain": {
+      "enabled": true,
+      "formula": "1"
+    }
   },
   "folder": "37c208aaa9a4b179",
   "sort": 0,

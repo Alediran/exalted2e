@@ -17,20 +17,18 @@
     "ability": "integrity",
     "essence": 3,
     "minAbility": 4,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [
-      "Combo-Basic"
-    ],
+    "keywords": [],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>By sheer force of will, the Sidereal forces the area around her to conform to the dictates of fate. When the character enters the Wyld, the Underworld or Malfeas, she carries a measure of Creation with her. Neither the character nor anything within 10 yards of her suffers the effects of exposure to these alien realms. Creation-Preserving Will does not protect against physical or magical dangers such as Wyldbeasts, the acidic waves of the demon-ocean Kimbery or attacks by ghosts, but characters avoid Wyld mutation or recover Essence in the Underworld as they would in Creation. This protection lasts only as long as the character remains conscious and keeps the Essence committed.</p>",
+    "description": "<p>The Sidereal determination to see the Ending allotted to them by Saturn is so strong, they are empowered to eschew the trials of worlds beyond Creation. This Charm enhances its prerequisite (Unwavering Well-Being Meditation), so that in addition to penalizing any attack it is applied against, it negates undesired Shaping that accompanies it. It may also be applied against effects that are not character-driven attacks, such as Wyld mutation. Against Shaping from sources outside of fate, the Charm's cost is reduced by 1m; against the Shaping of Sidereal Charms and astrology, it is increased by 1m. This cost variance is considered a special Flaw of Invulnerability.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,24 +37,12 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
       {
         "alternatives": [
           {

@@ -1,0 +1,71 @@
+{
+  "_id": "069182efe28dec75",
+  "_key": "!items!069182efe28dec75",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-enlightening Beneficence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Enlightening",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This variation on the better known Power-Awarding Prana (see Exalted, p. 218) immediately and permanently blasts open a willing mortal's doors of perception, opening him to the world's currents of Essence. Soul-Enlightening Beneficence requires a short ceremony to steel both donor and recipient for the awesome forces they shall unleash. The ceremony takes whatever form the participants feel is appropriate to solemnize the event. Then the mortal and the Exalt simply touch--and the cataract of Essence flooding through the recipient's soul knocks him out for (5 - his Stamina) hours. The recipient also trades one permanent dot of Willpower for another point of permanent Essence. After the character recovers, however, he possesses his own Essence pool. Like Touch of Divinity, this Charm offers no benefit to beings who already channel Essence. The donor merely transfers 15 motes of his own Essence. All types of Celestial (and Abyssal and Infernal) Exalted possess a variation of Soul-Enlightening Beneficence. The recipient gains an affinity for the source of the Exalt's power, like that granted by Touch of Divinity, which other Essencesensing creatures can perceive.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0b7df63b20866a07",
+            "charmName": "Essence-Lending Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "069182efe28dec75"
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

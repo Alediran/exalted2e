@@ -25,14 +25,15 @@
       2
     ],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Obvious"
     ],
     "cost": {
       "formula": "5m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As with Impeding the Flow, the character's weapon trails evanescent streamers of crimson stardust, visible only to those who can see dematerialized spirits. This dust parts not only the most obvious conjunctions of fate that bind the character to her attackers, but the subtlest ones as well. This Charm is a parry that perfectly defends against any attack, even if it is unblockable. The Sidereal's player may even invoke Serenity in Blood to block unexpected attacks, although in those cases, the player must succeed at a (Perception + Melee) roll at difficulty 3 for the parry to be effective. This Charm has one of the Four Flaws of Invulnerability (see Exalted, p. 194).</p>",
+    "description": "<p>As with Impeding the Flow, the character's weapon trails evanescent streamers of crimson stardust, visible only to those who can see dematerialized spirits. This dust parts not only the most obvious conjunctions of fate that bind the character to her attackers, but the subtlest ones as well. This Charm is a parry that perfectly defends against any attack, even if it is unblockable. The Sidereal's player may even invoke Serenity in Blood to block unexpected attacks, although in those cases, the player must succeed at a (Perception + Melee) roll at difficulty 3 for the parry to be effective.</p><p>This Charm has one of the Four Flaws of Invulnerability (see Exalted, p. 194). Its Flaw is that it cannot be activated to defend against attacks validly enhanced by Sidereal astrology laid by the Exalt herself. Against attacks enhanced by others' Sidereal astrology, it suffers a +3m surcharge.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +45,7 @@
     "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
-    "perfectDefenseType": "",
+    "perfectDefenseType": "parry",
     "active": false,
     "prereqGroups": [
       {

@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Finger-stealing Handshake",
+  "name": "Finger-Stealing Handshake",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -34,18 +34,44 @@
     "description": "<p>Improvisation is a cherished skill of brawlers and courtly guardians alike. The Sidereal rolls (Charisma + Martial Arts), issuing an exhortation to abandon arms and loyalties and rally to him for the sake of the world's preservation. This battlefield plea is ineffective against heroes and supernatural beings, but the weak minds of the world's extras may be easily swayed to change their loyalties. Compare the Sidereal's roll to the highest MDV of any hostile extra present; should the Sidereal succeed, (Essence x 2) extras switch sides and immediately begin fighting under the Sidereal's leadership (assuming that so many are present). These extras are considered to be shadow fingers until the end of the scene; after that point, the Sidereal must use Sifu's Useful Fingers on them if he is to retain them as his tools. This Charm's unnatural mental influence costs three points of Willpower to resist. If the character is a Sidereal Exalt with Essence 4+, then this Charm may also win the loyalty of mindless automatons, including undead, though such beings add their master's Essence to their MDV if they are under magical control.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 3,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "404b047d85d7dc15"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ae3e085e94228890",
+            "charmName": "Clear Eyes Defense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b8880b68ec3c5844",
+            "charmName": "Welcoming the Uninvited Guest",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "404b047d85d7dc15",
+    "grantsMastery": false
   },
   "folder": "0489c660869ce271",
   "sort": 0,

@@ -1,4 +1,5 @@
 import { editImageAction } from "../_edit-image.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
@@ -43,7 +44,7 @@ export class FormSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       formTypes:           ["human", "animal", "beast", "spirit", "wyldborn", "warform"],
       mutationCategories:  ["pox", "affliction", "blight", "abomination"],
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-        this.document.system.description,
+        itemDescription(this.document),
         { secrets: this.document.isOwner, relativeTo: this.document }
       )
     };

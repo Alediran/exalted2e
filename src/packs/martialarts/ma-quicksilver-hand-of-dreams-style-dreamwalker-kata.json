@@ -36,7 +36,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "5f4ffeb05ad3126c"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6f4ea77de4c4deaf",
+            "charmName": "Ephemeral Presence Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "5f4ffeb05ad3126c",
+    "grantsMastery": false
   },
   "folder": "4f4566b64a919114",
   "sort": 0,

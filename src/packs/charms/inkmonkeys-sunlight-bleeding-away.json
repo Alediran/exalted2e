@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "integrity",
     "essence": 4,
     "minAbility": 5,
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With each sunset the Abyssal is renewed, catalyzed by the symbolic dying of the Unconquered Sun. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty,</p><p>it gains five motes whenever the sun sets while the Abyssal is in the engagement range of one or more enemy, regardless of whether he is rolled into battle. This power is conferred by more than just the actual dying of the light; each time a nonextra opponent incurs a larger wound penalty as a direct result of the deathknight's actions, the Abyssal gains a number of offensive motes equal to twice the wound penalty's value. For example, a character being driven down to a -4 wound penalty would grant eight offensive motes. Presence Barrow King's Authority</p>",
+    "description": "<p>With each sunset the Abyssal is renewed, catalyzed by the symbolic dying of the Unconquered Sun. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty, it gains five motes whenever the sun sets while the Abyssal is in the engagement range of one or more enemy, regardless of whether he is rolled into battle. This power is conferred by more than just the actual dying of the light; each time a nonextra opponent incurs a larger wound penalty as a direct result of the deathknight's actions, the Abyssal gains a number of offensive motes equal to twice the wound penalty's value. For example, a character being driven down to a -4 wound penalty would grant eight offensive motes.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -61,7 +61,7 @@
       }
     ],
     "moteRecovery": {
-      "enabled": true,
+      "enabled": false,
       "event": "onDamageReceived",
       "action": "recoverPeripheral",
       "formula": "5"

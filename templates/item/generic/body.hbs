@@ -192,7 +192,7 @@
   {{#if system.hearthstoneSlots}}
   <div class="hearthstone-socket-rows" style="margin-top:4px">
     {{#each socketedSlots as |slot|}}
-    <div class="hearthstone-slot-row">
+    <div class="hearthstone-slot-row ex2e-row">
       {{#if slot.filled}}
       <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
       {{#if @root.isEditable}}
@@ -703,12 +703,59 @@
   {{/if}}
   {{/if}}
 
-  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  {{!-- ── Ammo ──────────────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "ammo")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.AmmoType"}}</label>
+    <select name="system.ammoType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="arrows"   {{#if (eq system.ammoType "arrows")}}selected{{/if}}>{{localize "EX2E.AmmoTypeArrows"}}</option>
+      <option value="firedust" {{#if (eq system.ammoType "firedust")}}selected{{/if}}>{{localize "EX2E.AmmoTypeFiredust"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Quantity"}}</label>
+    <input type="number" name="system.quantity" value="{{system.quantity}}"
+           min="0" style="width:80px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.DamageBonus"}}</label>
+    <input type="number" name="system.damageBonus" value="{{system.damageBonus}}"
+           style="width:80px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.DamageType"}}</label>
+    <select name="system.damageType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="lethal"     {{#if (eq system.damageType "lethal")}}selected{{/if}}>{{localize "EX2E.Lethal"}}</option>
+      <option value="bashing"    {{#if (eq system.damageType "bashing")}}selected{{/if}}>{{localize "EX2E.Bashing"}}</option>
+      <option value="aggravated" {{#if (eq system.damageType "aggravated")}}selected{{/if}}>{{localize "EX2E.Aggravated"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px;margin-bottom:16px">
+    <label>{{localize "EX2E.SoakMod"}}</label>
+    <select name="system.soakMod" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="normal"  {{#if (eq system.soakMod "normal")}}selected{{/if}}>{{localize "EX2E.SoakModNormal"}}</option>
+      <option value="doubled" {{#if (eq system.soakMod "doubled")}}selected{{/if}}>{{localize "EX2E.SoakModDoubled"}}</option>
+      <option value="halved"  {{#if (eq system.soakMod "halved")}}selected{{/if}}>{{localize "EX2E.SoakModHalved"}}</option>
+    </select>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "malados")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.SpiritName"}}</label>
+    <input type="text" name="system.spiritName" value="{{system.spiritName}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px;margin-bottom:16px">
+    <label>{{localize "EX2E.EssenceRating"}}</label>
+    <input type="number" name="system.essenceRating" value="{{system.essenceRating}}"
+           min="1" max="10" style="width:60px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
   <div class="editor-container">
     {{#if isEditable}}
-    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
-      {{{enrichedDescription}}}
-    </prose-mirror>
+    {{> "systems/exalted2e/templates/item/_partials/description-langs.hbs"}}
     {{else}}
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}

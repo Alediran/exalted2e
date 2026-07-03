@@ -17,7 +17,7 @@
     "ability": "war",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Crimson stardust, visible only to Sidereals or characters with supernatural senses, wafts down from the sky onto a unit of soldiers, whose Magnitude cannot exceed the Sidereal's Essence. Every combatant, man, beast or spirit, gains a primal opposition to entities from beyond Creation. If the anointed soldiers face demons, the dead, the Fair Folk or other creatures of darkness during the five-day duration, the soldiers enjoy a +1 bonus to their Drill rating. A single Sidereal can affect a given unit only once at a time, but several Sidereals working together can affect the same unit simultaneously, increasing the bonus. The maximum bonus equals the highest Essence rating among the Sidereals activating the Charm simultaneously, but the unit's Magnitude cannot exceed the lowest Essence rating among their group.</p>",
+    "description": "<p>Crimson stardust, visible only to Sidereals or characters with supernatural senses, wafts down from the sky onto a unit of soldiers, whose Magnitude cannot exceed the Sidereal's Essence. Every combatant, man, beast or spirit, gains a primal opposition to entities from beyond Creation. If the anointed soldiers face demons, the dead, the Fair Folk or other creatures of darkness during the five-day duration, the soldiers enjoy a +1 bonus to their Drill rating. A single Sidereal can affect a given unit only once at a time, but several Sidereals working together can affect the same unit simultaneously, increasing the bonus. The maximum bonus equals the highest Essence rating among the Sidereals activating the Charm simultaneously, but the unit's Magnitude cannot exceed the lowest Essence rating among their group, plus one for each additional Seer. This Charm applies automatically to units which include the Sidereal as a special character.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

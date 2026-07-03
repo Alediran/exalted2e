@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class VirtueFlawData extends foundry.abstract.TypeDataModel {
@@ -5,7 +7,8 @@ export class VirtueFlawData extends foundry.abstract.TypeDataModel {
     return {
       exaltType:   new fields.StringField({ initial: "solar",      blank: false }),
       baseVirtue:  new fields.StringField({ initial: "compassion", blank: false }),
-      description: new fields.HTMLField({ initial: "" }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
       changes: new fields.ArrayField(new fields.SchemaField({
         key:   new fields.StringField({ initial: "", blank: true }),
         mode:  new fields.NumberField({ initial: 2, integer: true }),

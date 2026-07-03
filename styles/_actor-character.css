@@ -383,7 +383,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 .ability-stack {
   display: flex;
   flex-direction: column; /* Stacks its children vertically */
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
 }
 
 /* Individual column */
@@ -481,24 +481,10 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   flex-shrink: 0;
 }
 
-/* Specialties inside columns */
-.specialty-list {
-  display:        flex;
-  flex-direction: column;
-  gap:            2px;
-  padding-left:   2px;
-}
-
 .specialty-row {
   display:     flex;
   align-items: center;
-  gap:         3px;
-}
-
-.specialty-text {
-  font-size:  var(--ex2e-font-size-xs);
-  font-style: italic;
-  color:      var(--ex2e-text-muted);
+  gap:         var(--ex2e-gap-xs);
 }
 
 /* Add-specialty button inside columns */
@@ -591,11 +577,6 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   padding:     1px 0;
 }
 
-.specialty-column .specialty-text,
-.specialty-column-section .specialty-text {
-  font-size: var(--ex2e-font-size-sm);
-  color:     var(--ex2e-text-primary);
-}
 
 .specialty-column .specialty-name,
 .specialty-column-section .specialty-name {
@@ -644,7 +625,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   font-size: 1.05em;
   font-weight: bold;
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   text-align: center;
   min-height: 1.4em;
 }
@@ -775,7 +756,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 .exalted2e.actor.character .charm-group-header {
   display:     flex;
   align-items: center;
-  gap:         6px;
+  gap:         var(--ex2e-gap-sm);
   list-style:  none;
 }
 
@@ -923,16 +904,11 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 }
 
 /* ── Alchemical Dissonance / Gremlin Syndrome ──────────────────────────── */
-.exalted2e .dissonance-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
 .exalted2e .clarity-compassion-penalty {
-  color: var(--ex2e-amber, #d9a441);
+  color: #d9a441;
 }
 .exalted2e .clarity-compassion-suppressed {
-  color: var(--ex2e-danger, #c0392b);
+  color: var(--ex2e-dmg-lethal);
   font-weight: bold;
 }
 .exalted2e .gremlin-syndrome-warning {

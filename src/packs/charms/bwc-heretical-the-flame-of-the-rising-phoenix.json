@@ -1,0 +1,70 @@
+{
+  "_id": "d1e2f3a4b5c60007",
+  "_key": "!items!d1e2f3a4b5c60007",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Flame of the Rising Phoenix",
+  "type": "charm",
+  "img": "icons/magic/fire/phoenix-fire-orange.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 6,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Blasphemy",
+      "Heretical"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Learning this Charm requires a shorter but far more dangerous retreat into hermitage than its prerequisite. When she begins developing this Charm, the warlock weaves an Essence-forged cocoon around herself, where she will remain for the normal training time required to learn it. During her time in this new Chrysalis Grotesque, she gains a soak of 30L/30B and a Hardness of 15L/15B, but remains Inactive for the entire duration.</p><p>Upon emerging, the warlock enjoys the benefits of a transformation far more radical than her last. She dissolves her Caste entirely, forging a new Caste suited to her personal nature. She retains her original patron Yozi as a second Favored Yozi, and becomes capable of designing an entirely new set of Charms reflecting her own Essence, nature, and power, which are purchased as Favored Charms. The Charm cascades of the Yozis should be used as an example of what is appropriate for this new Charm tree.</p><p>While the Infernal does not change her current Caste and Favored Abilities, she notionally designates five Abilities from among that set as the new Abilities of \"her\" Caste. Her next incarnation treats these as Caste Abilities, rather than the Caste Abilities the Exaltation previously harbored.</p><p>All changes to the Exalt made by this Charm as well as those produced by The Tempest of Inward Focus are now permanent, carrying on into future incarnations (although the specific presentation of future iconic animas will vary from incarnation to incarnation), barring alteration of her Exaltation. Learning this Charm is a Blasphemy. All of existence feels the warlock's ascension.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "heretical",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d1e2f3a4b5c60006",
+            "charmName": "The Tempest of Inward Focus",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "d1e2f3a4b5c60007"
+  },
+  "folder": "d1e2f3a4b5c60000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

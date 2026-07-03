@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Legend-drawing Invocation",
+  "name": "Legend-Drawing Invocation",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "indefinite",
-    "speed": 6,
+    "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0b7df63b20866a07",
+            "charmName": "Essence-Lending Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0790b7834b6e2866"
   },
   "folder": "5b0108cbcf2feaf4",

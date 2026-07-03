@@ -17,7 +17,7 @@
     "ability": "martialarts",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "simple",
+    "charmType": "supplemental",
     "duration": "instant",
     "speed": 3,
     "dvPenalty": 0,
@@ -38,7 +38,7 @@
       "limitTrigger": 0,
       "formula": "1m"
     },
-    "description": "<p>When the Solar Exalt strikes, she is swifter than lightning. The character pours Essence into quickening her actions. She then makes an unarmed Martial Arts attack. This Charm has a lower Speed and DV penalty than normal attacks. KNOCKOUT BLOW Cost: 4m, 1wp; Mins: Martial Arts 4, Essence 2; Type: Supplemental Keywords: Combo-OK, Crippling, Obvious</p>",
+    "description": "<p>When the Solar Exalt strikes, she is swifter than lightning. The character pours Essence into quickening her actions. She then makes an unarmed Martial Arts attack. This Charm reduces the attack's Speed to 3 and has a lower DV penalty than normal attacks. It is resolved in Step 3 of attack resolution.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -66,12 +66,6 @@
         ]
       }
     ],
-    "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
-    },
     "charmUid": "39b3e5fbcb162747",
     "grantsMastery": false
   },

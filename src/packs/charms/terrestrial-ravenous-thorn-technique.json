@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With this Charm, the Wood Aspect can breathe new life into a wooden shaft, causing it to sprout writhing vines and hungry roots the instant it strikes its target. The arrow inflicts its normal damage, and if the archer's initial attack causes any damage to the target at all, the arrow sprouts roots and creepers that bore into the target's body. These tendrils inflict additional damage equal to the base damage type of the arrow (a minimum of 1L) on the tick upon which the arrow strikes. This additional damage ignores armor and may be soaked only with Stamina and other natural soak. The arrow inflicts this damage again five ticks later and again every five ticks thereafter until it is removed or until it inflicts the extra damage a total number of times equal to the archer's permanent Essence. The extra damage inflicted cannot be healed until the arrow is removed, which requires a (Dexterity + Medicine) roll with a difficulty equal to the permanent Essence of the archer.</p>",
+    "description": "<p>With this Charm, the Wood Aspect can breathe new life into a wooden shaft, causing it to sprout writhing vines and hungry roots the instant it strikes its target. The arrow inflicts its normal damage, and if the archer's initial attack causes any damage to the target at all, the arrow sprouts roots and creepers that bore into the target's body. These tendrils inflict additional damage equal to the base damage type of the arrow (a minimum of 1L) on the tick upon which the arrow strikes. This additional damage ignores armor and may be soaked only with Stamina and other natural soak. The arrow inflicts this damage again five ticks later and again every five ticks thereafter until it is removed or until it inflicts the extra damage a total number of times equal to the archer's permanent Essence. The extra damage inflicted cannot be healed until the arrow is removed, which requires a (Dexterity + Medicine) roll with a difficulty equal to the permanent Essence of the archer.</p><p>Damage inflicted by the Charm is based on the base damage of the projectile without any Strength modifiers and has the appropriate type. For projectiles that do not have a listed damage less than the weapon itself (such as firewand blasts), the damage at each interval is 4 dice. Retry penalties apply to efforts to remove the embedded projectile and accumulate with each would-be surgeon's failure.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,8 +53,8 @@
             "charmUid": "6e70fa1a5dc2419a",
             "charmName": "Life-Swelling Sap Strike",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

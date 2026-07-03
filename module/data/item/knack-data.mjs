@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class KnackData extends foundry.abstract.TypeDataModel {
@@ -13,7 +15,8 @@ export class KnackData extends foundry.abstract.TypeDataModel {
       keywords: new fields.ArrayField(new fields.StringField({ blank: true })),
 
       // ── Description ──────────────────────────────────────────────────
-      description: new fields.HTMLField({ initial: "" })
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField()
     };
   }
 }

@@ -31,13 +31,16 @@ class _MockTypeDataModel {}
 globalThis.foundry = {
   abstract: { TypeDataModel: _MockTypeDataModel },
   data: {
+    regionBehaviors: { RegionBehaviorType: _MockTypeDataModel },
     fields: {
       SchemaField:  _MockDataField,
       StringField:  _MockScalarField,
       NumberField:  _MockScalarField,
       BooleanField: _MockScalarField,
       ArrayField:   _MockDataField,
-      HTMLField:    _MockScalarField
+      HTMLField:    _MockScalarField,
+      ObjectField:      _MockDataField,
+      TypedObjectField: class extends _MockDataField { constructor(element, config = {}) { super(config); this.element = element; } }
     }
   },
   utils: {
@@ -89,7 +92,8 @@ globalThis.foundry = {
     },
     api: {
       DialogV2: {
-        confirm: vi.fn().mockResolvedValue(true)
+        confirm: vi.fn().mockResolvedValue(true),
+        prompt:  vi.fn().mockResolvedValue(null),
       }
     }
   }
@@ -163,6 +167,12 @@ globalThis.CONST = {
     FRIENDLY: 1,
     NEUTRAL:  0,
     HOSTILE: -1
+  },
+  REGION_EVENTS: {
+    TOKEN_ENTER:      "tokenEnter",
+    TOKEN_EXIT:       "tokenExit",
+    TOKEN_TURN_START: "tokenTurnStart",
+    TOKEN_TURN_END:   "tokenTurnEnd",
   }
 };
 
@@ -205,4 +215,59 @@ globalThis.Roll = class _MockRoll {
   static safeEval(expr) {
     return Function(`"use strict"; return (${expr});`)();
   }
+};
+
+// ── Combat base class ─────────────────────────────────────────────────
+globalThis.Combat = class _MockCombat {
+  getFlag() { return undefined; }
+  setFlag() { return Promise.resolve(); }
+  update() { return Promise.resolve(); }
+};
+
+// ── ApplicationV2 + HandlebarsApplicationMixin ────────────────────────
+// Required by sheets, dialogs, and apps that extend AppV2 at module load.
+class _MockApplicationV2 {
+  static DEFAULT_OPTIONS = {};
+  render() { return Promise.resolve(); }
+  close() { return Promise.resolve(); }
+  async _prepareContext() { return {}; }
+}
+
+foundry.applications.api.ApplicationV2 = _MockApplicationV2;
+foundry.applications.api.HandlebarsApplicationMixin = (Base) => {
+  return class extends Base {
+    static DEFAULT_OPTIONS = Base.DEFAULT_OPTIONS ?? {};
+  };
+};
+
+// ── Sheet base classes ────────────────────────────────────────────────
+foundry.applications.sheets = {
+  ActorSheetV2: class _MockActorSheetV2 extends _MockApplicationV2 {},
+  ItemSheetV2:  class _MockItemSheetV2  extends _MockApplicationV2 {},
+};
+
+// ── Template loading ──────────────────────────────────────────────────
+foundry.applications.handlebars.loadTemplates = vi.fn().mockResolvedValue([]);
+
+// ── Sheet registration API ────────────────────────────────────────────
+// foundry.documents.collections.{Actors,Items} used by register-sheets.mjs
+foundry.documents = {
+  collections: {
+    Actors: { registerSheet: vi.fn(), unregisterSheet: vi.fn() },
+    Items:  { registerSheet: vi.fn(), unregisterSheet: vi.fn() },
+  }
+};
+// Core sheet classes unregistered by register-sheets
+foundry.appv1 = {
+  sheets: {
+    ActorSheet: class _MockActorSheet {},
+    ItemSheet:  class _MockItemSheet  {},
+  }
+};
+
+// ── Handlebars ────────────────────────────────────────────────────────
+globalThis.Handlebars = {
+  registerHelper: vi.fn(),
+  SafeString: class { constructor(s) { this.string = s; } },
+  helpers: {},
 };

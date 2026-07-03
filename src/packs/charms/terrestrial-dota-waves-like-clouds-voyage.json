@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Speeding a ship for a quick burst has its uses, but most journeys are long-term endeavors. Once the Dragon-Blood activates this Charm onboard a vessel, his anima releases a pulse of liquid energy that enfolds the contours of the ship in a bubble extending five yards from the hull. This energy gently drags the vessel beneath the waves while allowing it</p>",
+    "description": "<p>Speeding a ship for a quick burst has its uses, but most journeys are long-term endeavors. Once the Dragon-Blood activates this Charm onboard a vessel, his anima releases a pulse of liquid energy that enfolds the contours of the ship in a bubble extending five yards from the hull. This energy gently drags the vessel beneath the waves while allowing it and everyone aboard to operate as if protected by a Water Aspect anima. While so submerged, the ship moves at twice its normal speed and may take full advantage of its three-dimensional environment through normal propulsion (using currents instead of wind to fill sails). Crew unwise enough to leave the safety of the bubble had better hope they are close enough to the surface to reach air before they drown. If the Exalt dies or fails to renew the Charm each day, the protection ends, serving as a considerable deterrent to mutiny. This Charm can enchant a skyship, allowing it to fly through the ocean with the aforementioned benefits.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +44,56 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "784108a341b80ff9",
+            "charmName": "Seven Seas Wind-Luring Chanty",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "66a5559c834aa83e",
+            "charmName": "Storm-Outrunning Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "092ddfc96d7f76c1",
+            "charmName": "Sturdy Bulkhead Concentration",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ccad811be2e45fd8",
+            "charmName": "Deck-Striding Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "7a781286ab69fdbc"
   },
   "folder": "b0b1b2b3b4b5f02d",

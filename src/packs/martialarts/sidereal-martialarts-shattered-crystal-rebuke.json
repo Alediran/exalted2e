@@ -47,7 +47,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Crystal Chameleon Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,11 +59,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "6bf856350923f8f8",
+            "charmUid": "237b9fb439583f13",
             "charmName": "Flashing Leaves Evasion",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

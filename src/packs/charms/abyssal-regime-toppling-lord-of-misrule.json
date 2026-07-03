@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Empires fall when the Abyssal wills it so, and they die by suicide. Through a week of interaction with selected members of an organization, the Abyssal curses that social group to sloth, corruption and ineptitude. The Abyssal's player rolls (Wits + Bureaucracy) at a difficulty equal to its leader's Dodge MDV plus half of the group's Magnitude. If the roll succeeds, the time the organization takes to complete any project increases every week thereafter. It doubles on the first week, triples on the second, and so on. At the same time, every project of the organization whose success could be represented through a dice roll suffers an internal penalty that increases by one per week (-1, -2, -3, etc.) The time multiplier and internal penalty increase until they match the Bureaucracy rating the Abyssal had when she laid the curse. At that point, the time required to complete even the simplest task--one that people in the organization would normally finish in minutes-- increases to a number of hours equal to the Abyssal's Bureaucracy rating. A military unit cursed by this Charm loses Drill instead of taking an internal penalty, to a minimum Drill of 0. The level of corruption instilled by this Charm is brazenly obvious to everyone who interacts with the afflicted organization. How individuals and other organizations respond to this vice depends on their personality or policy as normal, though a backlash of some kind is almost inevitable. The organization's leader can force the organization to work faster on one specific project by spending Loyalty: one point to counter one increment of time delay and internal penalty. Only after spending a number of Loyalty points equal to the Abyssal's (Wits + Bureaucracy + Essence) and the organization's Magnitude can the leader restore the organization to its previous efficiency... whatever that was. Fortunately, effects of Regime-Toppling Lord of Misrule do not stack.</p>",
+    "description": "<p>Empires fall when the Abyssal wills it so, and they die by suicide. Through a week of interaction with selected members of an organization, the Abyssal curses that social group to sloth, corruption and ineptitude. The Abyssal's player rolls (Wits + Bureaucracy) at a difficulty equal to its leader's Dodge MDV plus half of the group's Magnitude.</p><p>If the roll succeeds, the time the organization takes to complete any project increases every week thereafter. It doubles on the first week, triples on the second, and so on. At the same time, every project of the organization whose success could be represented through a dice roll suffers an internal penalty that increases by one per week (-1, -2, -3, etc.) The time multiplier and internal penalty increase until they match the Bureaucracy rating the Abyssal had when she laid the curse. At that point, the time required to complete even the simplest task--one that people in the organization would normally finish in minutes-- increases to a number of hours equal to the Abyssal's Bureaucracy rating. A military unit cursed by this Charm loses Drill instead of taking an internal penalty, to a minimum Drill of 0.</p><p>The level of corruption instilled by this Charm is brazenly obvious to everyone who interacts with the afflicted organization. How individuals and other organizations respond to this vice depends on their personality or policy as normal, though a backlash of some kind is almost inevitable.</p><p>The organization's leader can force the organization to work faster on one specific project by spending Loyalty: one point to counter one increment of time delay and internal penalty. Only after spending a number of Loyalty points equal to the Abyssal's (Wits + Bureaucracy + Essence) and the organization's Magnitude can the leader restore the organization to its previous efficiency... whatever that was. Fortunately, effects of Regime-Toppling Lord of Misrule do not stack.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,8 +52,8 @@
             "charmUid": "38b29c9e3a06da67",
             "charmName": "Accursed Overlord Authority",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -64,8 +64,8 @@
             "charmUid": "59c18932aaec6ac8",
             "charmName": "Caustic Hatred Diatribe",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

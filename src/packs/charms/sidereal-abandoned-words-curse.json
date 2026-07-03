@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "linguistics",
-    "essence": 1,
-    "minAbility": 1,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Chapter Five � Sidereals but sometimes the tree of Serenity grows from a seed of strife. This Charm enhances a social attack targeting an individual that in some way disparages or dismisses a key phrase or even a whole dialect of language. In addition to its other effects, the target unknowingly comes under an unnatural Illusion that strips from them the ability to understand or utilize the chosen phrase or dialect. Certain actions and social attacks may be rendered harder or even impossible. A guard may prevent all from entering a secret meeting, because he cannot recognize the correct pass phrase; a spy who forgets his conspiracy's secret code may find himself shunned or even assassinated. Suppressed linguistic traits are not lost; specialties for each dialect are still there. They simply cannot be used while this Charm remains in power. A character may even unlearn that which they do not think they know, shifting their dialect to something else per normal rules for switching specialties. The Illusion ensures that the targets of this Charm do not realize that there is anything wrong with themselves. Clearly, everyone else is mistaken or crazy. Recognizing this deception and shedding the Illusion costs 4wp, or 2wp if the target must produce the banned linguistic element to avoid physical harm. A repurchase at Linguistics 4+, Essence 4+ grants two new capabilities. The Sidereal may suppress entire language families in targets (i.e., the ability granted by each dot of Linguistics), or may attempt to suppress phrases or dialects in all listeners with a Performance-based social attack. At Essence 5+ these two options can be combined, suppressing language families in whole crowds.</p>",
+    "description": "<p>It may seem cruel to take away something old and dear as a trademark phrase, or the intimate dialect of a pair of twins, but sometimes the tree of Serenity grows from a seed of strife. This Charm enhances a social attack targeting an individual that in some way disparages or dismisses a key phrase or even a whole dialect of language. In addition to its other effects, the target unknowingly comes under an unnatural Illusion that strips from them the ability to understand or utilize the chosen phrase or dialect. Certain actions and social attacks may be rendered harder or even impossible. A guard may prevent all from entering a secret meeting, because he cannot recognize the correct pass phrase; a spy who forgets his conspiracy's secret code may find himself shunned or even assassinated. Suppressed linguistic traits are not lost; specialties for each dialect are still there. They simply cannot be used while this Charm remains in power. A character may even unlearn that which they do not think they know, shifting their dialect to something else per normal rules for switching specialties. The Illusion ensures that the targets of this Charm do not realize that there is anything wrong with themselves. Clearly, everyone else is mistaken or crazy. Recognizing this deception and shedding the Illusion costs 4wp, or 2wp if the target must produce the banned linguistic element to avoid physical harm. A repurchase at Linguistics 4+, Essence 4+ grants two new capabilities. The Sidereal may suppress entire language families in targets (i.e., the ability granted by each dot of Linguistics), or may attempt to suppress phrases or dialects in all listeners with a Performance-based social attack. At Essence 5+ these two options can be combined, suppressing language families in whole crowds.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 4,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

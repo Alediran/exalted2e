@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "medicine",
     "essence": 4,
     "minAbility": 3,
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's heart-venom overflows into all his works as a reanimator. Every zombie the Abyssal personally raises (whether through Life-Mocking Assembly, Vermillion Plague Conscription, necromancy, or any other means) gains a poisonous bite. The bite of the walking dead delivers a toxin identical to that of Black Heart Venom, save that it does not automatically reanimate those slain by it; that final horror is left to other Charms, such as The Risen Hunger or Vermillion Plague Conscription. The traits given for a zombie's punch on page 314 of Exalted are also used to model its bite. Occult Dancing on the Graves of Giants</p>",
+    "description": "<p>The Abyssal's heart-venom overflows into all his works as a reanimator. Every zombie the Abyssal personally raises (whether through Life-Mocking Assembly, Vermillion Plague Conscription, necromancy, or any other means) gains a poisonous bite. The bite of the walking dead delivers a toxin identical to that of Black Heart Venom, save that it does not automatically reanimate those slain by it; that final horror is left to other Charms, such as The Risen Hunger or Vermillion Plague Conscription. The traits given for a zombie's punch on page 314 of Exalted are also used to model its bite.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,15 +51,15 @@
             "charmUid": "bb86b59b281c4a66",
             "charmName": "Black Heart's Venom",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "3baecb9d765e654d"
   },
-  "folder": "05ee3760b1dfb04f",
+  "folder": "b0b1b2b3b4b5f03f",
   "sort": 0,
   "ownership": {
     "default": 0

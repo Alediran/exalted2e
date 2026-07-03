@@ -1,0 +1,69 @@
+{
+  "_id": "beef00000000001f",
+  "_key": "!items!beef00000000001f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Disembodied Voice Tintinnabula",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>She Who Lives in Her Name need not manifest in order to make her will known. A character who invokes this Charm is able to communicate over long distances with all characters to whom she is superior within a hierarchical organization. Victims broken by Will-Crushing Force, infected by Mind Spider Curse or affected by Unshattered Tongue Perfection are always considered valid targets for this Charm, regardless of the warlock's hierarchical position.</p><p>Characters subject to this communication hear a voice like dozens of crystal chimes which conveys the wishes of a supreme and alien intellect. The Infernal may selectively address as many or as few valid targets as she wishes. Only valid targets of Disembodied Voice Tintinnabula actually hear the warlock's words. If the character attempts to address a target in another realm of existence, this Charm gains the Blasphemy keyword. This Blasphemy is centered on the Infernal if she is in Creation. Otherwise it is centered on everyone to whom she is speaking.</p><p>Targets treat social attacks made by the voice as unnatural mental influence costing two Willpower to resist. They do not instinctively know the source of this speech, or to whom the voice belongs. Those familiar with the Infernal must make a (Wits + Socialize) roll at a difficulty of the warlock's Essence in order to recognize her behind the tinkling, chiming voice they are hearing.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9a4091c0949caf2f",
+            "charmName": "Unshattered Tongue Perfection",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000001f"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

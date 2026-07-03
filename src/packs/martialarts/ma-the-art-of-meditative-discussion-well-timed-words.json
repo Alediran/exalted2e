@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Well-timed Words",
+  "name": "Well-Timed Words",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -18,7 +18,7 @@
     "essence": 1,
     "minAbility": 3,
     "charmType": "supplemental",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,15 +36,27 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Art of Meditative Discussion",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "380b7d5bb2f5120a",
+            "charmName": "Cautious Comments",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "eae7e21987d57f2d"
   },
   "folder": "1b2f6d78bc952477",

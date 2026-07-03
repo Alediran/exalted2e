@@ -9,14 +9,14 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Reality-subverting Gesture",
+  "name": "Reality-Subverting Gesture",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "abyssal",
     "ability": "larceny",
-    "essence": 1,
-    "minAbility": 1,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
@@ -51,9 +51,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "larceny",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

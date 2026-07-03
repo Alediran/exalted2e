@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "supplemental",
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Ebon Dragon would transform all life into his own image, a universe of hollowed shadows. This Charm can enhance any ranged attack. Any living being hit by the attack suffers (Infernal's Willpower) lethal dice of piercing damage, resolved separately from and prior to any damage from the attack itself. Every level of damage, not including Dying levels, inflicted on a being this way restores one mote to the Infernal's Essence pool. If the attack harms multiple beings, only the highest Essence yield for any one victim provides motes.</p>",
+    "description": "<p>The Ebon Dragon would transform all life into his own image, a universe of hollowed shadows. This Charm can enhance any ranged attack. Any living being hit by the attack suffers (Infernal's Willpower) lethal dice of piercing damage, resolved separately from and prior to any damage from the attack itself. Every level of damage, not including Dying levels, inflicted on a being this way restores one mote to the Infernal's Essence pool. If the attack harms multiple beings, only the highest Essence yield for any one victim provides motes.</p><p>The additional damage of this Charm has minimum damage equal to that of the supplemented attack. Any motes granted by this Charm must be added to the Infernal's Overdrive pool as offensive motes. If he does not have an Overdrive pool, they are lost.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "984cfad987c93638",
             "charmName": "Witness to Darkness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

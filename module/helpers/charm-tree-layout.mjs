@@ -1,0 +1,307 @@
+/** Layout constants — match the .charm-tree-card width + cards-row gap in _charm-tree.css. */
+export const CARD_WIDTH = 110;
+export const H_GAP      = 16;
+export const ROW_HEIGHT = 160;
+
+function median(arr) {
+  if (!arr.length) return null;
+  const s = [...arr].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
+/**
+ * Nearest x to `desired` that is at least `step` from every occupied position.
+ * Used to drop a leaf beside its parent's column, displaced only as far as the
+ * through-node spine forces it (rather than to the tier edge).
+ */
+function nearestFreeSlot(desired, occupied, step) {
+  const free = (c) => occupied.every(o => Math.abs(c - o) >= step - 1e-6);
+  if (free(desired)) return desired;
+  const cands = [];
+  for (const o of occupied) cands.push(o + step, o - step);
+  const valid = cands.filter(free);
+  if (!valid.length) return Math.max(...occupied) + step;
+  valid.sort((a, b) => Math.abs(a - desired) - Math.abs(b - desired));
+  return valid[0];
+}
+
+/**
+ * Spread nodes in a tier so they are at least `step` apart, preserving their
+ * centroid (centre of mass). Nodes are shifted symmetrically outward so that
+ * a parent positioned at the group centroid remains centred after resolve.
+ */
+function resolveSymmetric(tierNodes, x, step, orderIndex) {
+  if (tierNodes.length < 2) return;
+
+  // Sort by current x, breaking ties by original insertion order.
+  const sorted = [...tierNodes].sort(
+    (a, b) => (x.get(a.id) - x.get(b.id)) || (orderIndex.get(a.id) - orderIndex.get(b.id))
+  );
+
+  // Capture the centroid before spreading so we can restore it afterward.
+  const centroidBefore = median(sorted.map(n => x.get(n.id)));
+
+  // Forward pass: push rightward to enforce minimum spacing.
+  for (let k = 1; k < sorted.length; k++) {
+    const minX = x.get(sorted[k - 1].id) + step;
+    if (x.get(sorted[k].id) < minX) x.set(sorted[k].id, minX);
+  }
+
+  // Shift all nodes so the centroid is preserved (spreads symmetrically).
+  const centroidAfter = median(sorted.map(n => x.get(n.id)));
+  if (centroidAfter != null && centroidBefore != null) {
+    const shift = centroidBefore - centroidAfter;
+    if (Math.abs(shift) > 1e-9) for (const n of sorted) x.set(n.id, x.get(n.id) + shift);
+  }
+}
+
+/**
+ * Assign each node an x-coordinate so parents are centred over their children
+ * (and vice-versa), with no same-tier overlap. Pure + deterministic.
+ * @returns {Map<string, number>} nodeId → x (min x normalised to 0)
+ */
+export function assignCoordinates({ edges, tierMap, maxTier }, { cardWidth = CARD_WIDTH, hGap = H_GAP, passes = 4 } = {}) {
+  const step = cardWidth + hGap;
+
+  const tierOf = new Map();
+  for (let t = 0; t <= maxTier; t++) for (const n of (tierMap.get(t) ?? [])) tierOf.set(n.id, t);
+
+  const parentsOf = new Map();
+  const childrenOf = new Map();
+  const sameTierPeers = new Map(); // id → Set<id> of same-tier neighbours
+  for (const { fromId, toId } of edges) {
+    const ft = tierOf.get(fromId);
+    const tt = tierOf.get(toId);
+    if (ft == null || tt == null) continue;
+    if (ft === tt) {
+      // Same-tier edge (Excellency row: feeding Excellencies → virtual node →
+      // quasi-Excellencies). These don't drive the median passes; they bind the
+      // nodes into a horizontal band handled after coordinate assignment.
+      if (!sameTierPeers.has(fromId)) sameTierPeers.set(fromId, new Set());
+      if (!sameTierPeers.has(toId)) sameTierPeers.set(toId, new Set());
+      sameTierPeers.get(fromId).add(toId);
+      sameTierPeers.get(toId).add(fromId);
+      continue;
+    }
+    if (!parentsOf.has(toId)) parentsOf.set(toId, []);
+    parentsOf.get(toId).push(fromId);
+    if (!childrenOf.has(fromId)) childrenOf.set(fromId, []);
+    childrenOf.get(fromId).push(toId);
+  }
+
+  const x = new Map();
+  for (let t = 0; t <= maxTier; t++) (tierMap.get(t) ?? []).forEach((n, i) => x.set(n.id, i * step));
+
+  const orderIndex = new Map();
+  for (let t = 0; t <= maxTier; t++) (tierMap.get(t) ?? []).forEach((n, i) => orderIndex.set(n.id, i));
+
+  // Crossing reduction (Sugiyama transpose): reorder each tier via adjacent
+  // swaps that reduce edge crossings with the neighbouring tiers, using
+  // order-index as the position proxy. Runs before coordinate assignment so the
+  // passes position the improved order. Same-tier-band nodes (the Excellency
+  // row) are not reordered. Works on local copies — tierMap is not mutated.
+  const tierOrder = new Map();
+  for (let t = 0; t <= maxTier; t++) tierOrder.set(t, [...(tierMap.get(t) ?? [])]);
+  const idxOf = (id) => orderIndex.get(id) ?? 0;
+  for (let iter = 0; iter < 4; iter++) {
+    let improved = false;
+    for (let t = 0; t <= maxTier; t++) {
+      const tn = tierOrder.get(t);
+      for (let i = 0; i + 1 < tn.length; i++) {
+        const u = tn[i].id;
+        const w = tn[i + 1].id;
+        if (sameTierPeers.get(u)?.size || sameTierPeers.get(w)?.size) continue;
+        let curr = 0;
+        let swap = 0;
+        for (const adj of [parentsOf, childrenOf]) {
+          const un = (adj.get(u) ?? []).map(idxOf);
+          const wn = (adj.get(w) ?? []).map(idxOf);
+          for (const a of un) for (const b of wn) {
+            if (a > b) curr++; else if (a < b) swap++;
+          }
+        }
+        if (swap < curr) {
+          [tn[i], tn[i + 1]] = [tn[i + 1], tn[i]];
+          orderIndex.set(u, i + 1);
+          orderIndex.set(w, i);
+          improved = true;
+        }
+      }
+    }
+    if (!improved) break;
+  }
+  // Re-seed x and normalise order-index to the transposed order.
+  for (let t = 0; t <= maxTier; t++) {
+    tierOrder.get(t).forEach((n, i) => { orderIndex.set(n.id, i); x.set(n.id, i * step); });
+  }
+
+  // Childless nodes (no children, no same-tier peers) are held out of the
+  // positioning + overlap passes so they can't drag the through-node "spine"
+  // off-centre, then placed last. Two flavours:
+  //   • isolated — no parents either (standalone charms): flank their tier.
+  //   • leaf     — has parents (terminal charms): placed beside their tier's
+  //                through-nodes on the side nearest their parent, so the
+  //                through-nodes keep the central, well-connected slots.
+  const isChildless = (id) => !(childrenOf.get(id)?.length) && !(sameTierPeers.get(id)?.size);
+  const isolatedSet = new Set();
+  const leafSet = new Set();
+  for (const id of x.keys()) {
+    if (!isChildless(id)) continue;
+    (parentsOf.get(id)?.length ? leafSet : isolatedSet).add(id);
+  }
+
+  const resolve = (t) => resolveSymmetric(tierMap.get(t) ?? [], x, step, orderIndex);
+  // Resolve overlaps among the tier's "anchored" nodes. Isolated nodes are
+  // always held out; leaves yield only when the tier has a through-node spine
+  // (a leaf-only tier still needs its members spaced normally).
+  const resolveAnchored = (t) => {
+    const tn = tierMap.get(t) ?? [];
+    const hasThrough = tn.some(n => childrenOf.get(n.id)?.length);
+    const filtered = tn.filter(n =>
+      !isolatedSet.has(n.id) && !(hasThrough && leafSet.has(n.id)));
+    resolveSymmetric(filtered, x, step, orderIndex);
+  };
+
+  // Iterative refinement: alternate top-down and bottom-up sweeps.
+  for (let p = 0; p < passes; p++) {
+    if (p % 2 === 0) {
+      // Top-down: centre each child at the median of its parents' positions.
+      for (let t = 1; t <= maxTier; t++) {
+        for (const n of (tierMap.get(t) ?? [])) {
+          const m = median((parentsOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null));
+          if (m != null) x.set(n.id, m);
+        }
+        resolveAnchored(t);
+      }
+    } else {
+      // Bottom-up: centre each parent at the median of its children's positions.
+      for (let t = maxTier - 1; t >= 0; t--) {
+        for (const n of (tierMap.get(t) ?? [])) {
+          const m = median((childrenOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null));
+          if (m != null) x.set(n.id, m);
+        }
+        resolveAnchored(t);
+      }
+    }
+  }
+
+  // Same-tier clustering: pack the Excellency row into a tight horizontal band.
+  // The hubs are the virtual anyExcellency node(s) — which the median passes
+  // already centred over their subtrees — and the semi-Excellencies split
+  // evenly on both sides, each one step apart, giving short straight horizontal
+  // connectors instead of letting peers drift over their own subtrees.
+  if (sameTierPeers.size) {
+    const byOrder = (a, b) => (orderIndex.get(a) ?? 0) - (orderIndex.get(b) ?? 0);
+    const virtualSet = new Set();
+    for (let t = 0; t <= maxTier; t++) for (const n of (tierMap.get(t) ?? [])) if (n.isVirtual) virtualSet.add(n.id);
+    const touchedTiers = new Set();
+    const tiersWithVirtualBand = new Set();
+
+    // 1) Tiers with virtual hubs: ALL virtual nodes in the tier sit together in
+    //    the centre (the rare two-anyExcellency case keeps both centred even when
+    //    one has no same-tier quasi of its own), semi-Excellencies split evenly
+    //    outside them. Centred on the median of the hubs' subtree centres.
+    for (let t = 0; t <= maxTier; t++) {
+      const tierIds = (tierMap.get(t) ?? []).map(n => n.id);
+      const cores = tierIds.filter(id => virtualSet.has(id));
+      if (!cores.length) continue;
+      tiersWithVirtualBand.add(t);
+      const sats = tierIds.filter(id => !virtualSet.has(id) && sameTierPeers.get(id)?.size);
+      if (cores.length + sats.length < 2) continue;
+      cores.sort(byOrder);
+      sats.sort(byOrder);
+      const leftCount = Math.floor(sats.length / 2);
+      const ordered = [...sats.slice(0, leftCount), ...cores, ...sats.slice(leftCount)];
+      const coreCentre = leftCount + (cores.length - 1) / 2;
+      const anchorX = median(cores.map(id => x.get(id)).filter(v => v != null)) ?? 0;
+      ordered.forEach((id, i) => x.set(id, anchorX + (i - coreCentre) * step));
+      touchedTiers.add(t);
+    }
+
+    // 2) Same-tier components without a virtual hub: centre on the highest-degree
+    //    member, peers split evenly either side.
+    const seen = new Set();
+    const degree = (id) => (childrenOf.get(id)?.length ?? 0) + (parentsOf.get(id)?.length ?? 0);
+    for (const startId of sameTierPeers.keys()) {
+      if (seen.has(startId)) continue;
+      const cluster = [];
+      const stack = [startId];
+      seen.add(startId);
+      while (stack.length) {
+        const id = stack.pop();
+        cluster.push(id);
+        for (const peer of (sameTierPeers.get(id) ?? [])) {
+          if (!seen.has(peer)) { seen.add(peer); stack.push(peer); }
+        }
+      }
+      if (cluster.length < 2) continue;
+      if (tiersWithVirtualBand.has(tierOf.get(cluster[0]))) continue; // handled in pass 1
+      cluster.sort(byOrder);
+      let hub = cluster[0];
+      for (const id of cluster) {
+        const better = degree(id) > degree(hub)
+          || (degree(id) === degree(hub) && (orderIndex.get(id) ?? 0) < (orderIndex.get(hub) ?? 0));
+        if (better) hub = id;
+      }
+      const peers = cluster.filter(id => id !== hub);
+      const leftCount = Math.floor(peers.length / 2);
+      const ordered = [...peers.slice(0, leftCount), hub, ...peers.slice(leftCount)];
+      const hubPos = leftCount;
+      const hubX   = x.get(hub) ?? 0;
+      ordered.forEach((id, i) => x.set(id, hubX + (i - hubPos) * step));
+      touchedTiers.add(tierOf.get(hub));
+    }
+
+    for (const t of touchedTiers) resolveAnchored(t);
+  }
+
+  // Leaf placement: childless leaves (held out of the passes above) are dropped
+  // next to their parent's column, displaced just enough to clear the through-
+  // node spine and each other (nearest free slot to the parent median). The
+  // through-nodes are left untouched, so they keep the slots aligned with both
+  // their parents and their children, while leaves stay near their parents.
+  for (let t = 0; t <= maxTier; t++) {
+    const tn = tierMap.get(t) ?? [];
+    const through = tn.filter(n => childrenOf.get(n.id)?.length);
+    const leaves  = tn.filter(n => leafSet.has(n.id));
+    if (!through.length || !leaves.length) continue;
+    const occupied = through.map(n => x.get(n.id) ?? 0);
+    const fallback = (Math.min(...occupied) + Math.max(...occupied)) / 2;
+    const want = leaves.map(n => ({
+      n,
+      d: median((parentsOf.get(n.id) ?? []).map(id => x.get(id)).filter(v => v != null)) ?? fallback,
+    }));
+    want.sort((a, b) => a.d - b.d);
+    for (const { n, d } of want) {
+      const pos = nearestFreeSlot(d, occupied, step);
+      x.set(n.id, pos);
+      occupied.push(pos);
+    }
+  }
+
+  // Isolated standalone nodes (held out of the passes above) split evenly on
+  // both sides of their tier's anchored content instead of clumping at one end
+  // from their seed order — and without having shifted the anchored nodes.
+  const isolatedTiers = new Set();
+  for (let t = 0; t <= maxTier; t++) {
+    const tn = tierMap.get(t) ?? [];
+    const isolated = tn.filter(n => isolatedSet.has(n.id));
+    const anchored = tn.filter(n => !isolatedSet.has(n.id));
+    if (!isolated.length || !anchored.length) continue;
+    isolated.sort((a, b) => (orderIndex.get(a.id) ?? 0) - (orderIndex.get(b.id) ?? 0));
+    const minX = Math.min(...anchored.map(n => x.get(n.id) ?? 0));
+    const maxX = Math.max(...anchored.map(n => x.get(n.id) ?? 0));
+    const leftCount = Math.floor(isolated.length / 2);
+    const left  = isolated.slice(0, leftCount);
+    const right = isolated.slice(leftCount);
+    left.forEach((n, i)  => x.set(n.id, minX - step * (left.length - i)));
+    right.forEach((n, i) => x.set(n.id, maxX + step * (i + 1)));
+    isolatedTiers.add(t);
+  }
+  for (const t of isolatedTiers) resolve(t);
+
+  const min = Math.min(...x.values());
+  if (Number.isFinite(min)) for (const k of x.keys()) x.set(k, x.get(k) - min);
+  return x;
+}

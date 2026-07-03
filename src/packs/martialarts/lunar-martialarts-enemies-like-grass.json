@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "White Reaper Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -57,11 +56,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "76ee32e4a000dee3",
+            "charmUid": "4c38d99a62bd16d1",
             "charmName": "Greatest Killer Attitude",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

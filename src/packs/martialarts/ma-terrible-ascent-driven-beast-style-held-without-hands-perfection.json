@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Held-without-hands Perfection",
+  "name": "Held-Without-Hands Perfection",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -32,9 +32,8 @@
     "source": "Scroll of the Monk: The Imperfect Lotus",
     "yoziPatron": "",
     "martialArtsTier": "terrestrial",
-    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "martialArtsStyleName": "Terrible Ascent-Driven Beast Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,8 +41,47 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "b9b25ed9be8279af"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "740bb168c843a7ad",
+            "charmName": "Boulder-of-Intentions Rush Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "19fb60f3653dac50",
+            "charmName": "Walking-on-the-Dragon Life Defense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "54e8fda4d79ca0e7",
+            "charmName": "Falling-Without-Fear Assault",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "b9b25ed9be8279af",
+    "incompatibleCharms": ["29e59605878393da"],
+    "grantsMastery": true
   },
   "folder": "5ce01017f4c92c09",
   "sort": 0,

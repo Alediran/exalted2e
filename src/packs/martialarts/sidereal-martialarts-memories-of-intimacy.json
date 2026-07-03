@@ -18,7 +18,7 @@
     "essence": 5,
     "minAbility": 5,
     "charmType": "supplemental",
-    "duration": "varies",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -38,13 +38,12 @@
       "limitTrigger": 0,
       "formula": "15m"
     },
-    "description": "<p>Duration: Instant Prerequisite Charms: Joy in Ownership pursuing it past a line of all her former lovers, Try as they might, the martial artist's former conquests cannot shake that status. This Charm supplements an unarmed attack, rendering it unblockable and undodgeable if any of the following criteria apply to the target: � The martial artist has defeated the target in combat at some point in the past (defined as having rendered the target unconscious, or the target having voluntarily admitted defeat or surrendered to the martial artist on the field of battle, even if only in a sparring match). � The target carries an Intimacy of any sort for the martial artist. � The martial artist owns the target. � The target suffers from any Crippling effect inflicted by the martial artist. If two or more of these criteria apply to the target, the attack is also considered unexpected.</p>",
+    "description": "<p>pursuing it past a line of all her former lovers, Try as they might, the martial artist's former conquests cannot shake that status. This Charm supplements an unarmed attack, rendering it unblockable and undodgeable if any of the following criteria apply to the target: � The martial artist has defeated the target in combat at some point in the past (defined as having rendered the target unconscious, or the target having voluntarily admitted defeat or surrendered to the martial artist on the field of battle, even if only in a sparring match). � The target carries an Intimacy of any sort for the martial artist. � The martial artist owns the target. � The target suffers from any Crippling effect inflicted by the martial artist. If two or more of these criteria apply to the target, the attack is also considered unexpected.</p>",
     "source": "Glories of the Most High: Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Sapphire Veil of Passion Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,7 +51,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "542faf8bbd998bc6",
+            "charmName": "Joy in Ownership",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "232e6d65ea1aaec8",
     "grantsMastery": false
   },

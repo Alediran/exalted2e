@@ -53,12 +53,14 @@
             "charmUid": "7eb2f70702003571",
             "charmName": "Spirit-Sensing Meditation",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
+    "harmImmaterial": true,
+    "spiritAggravatedDamage": true,
     "charmUid": "d6c7f874fe08e08e",
     "mirrorId": "415fb6e2de5db196"
   },

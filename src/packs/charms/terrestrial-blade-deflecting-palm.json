@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "terrestrial",
-    "ability": "martialarts",
+    "ability": "martialArts",
     "essence": 1,
     "minAbility": 3,
     "charmType": "reflexive",
@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Lesser hand-to-hand combatants are forced to fall back when confronted by bladed weapons, but not the Princes of the Earth. When the Dragon-Blood activates this Charm, he can freely apply his PDV to parry any incoming martial arts or melee attack with his bare hands, even those that inflict lethal damage. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p>",
+    "description": "<p>Lesser hand-to-hand combatants are forced to fall back when confronted by bladed weapons, but not the Princes of the Earth. When the Dragon-Blood activates this Charm, he can freely apply his PDV to parry any incoming martial arts or melee attack with his bare hands, even those that inflict lethal damage. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p><p>The character also adds one to his Parry DV.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "terrestrial",
@@ -43,7 +43,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -52,9 +52,9 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
+            "type": "charm",
             "charmUid": "",
-            "charmName": "",
+            "charmName": "Currents Sweep to Sea",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1
@@ -62,7 +62,7 @@
           {
             "type": "charm",
             "charmUid": "",
-            "charmName": "any Charm from any supernatural martial arts style",
+            "charmName": "Pounding Surf Style",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1

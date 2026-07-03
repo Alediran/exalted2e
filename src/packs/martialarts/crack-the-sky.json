@@ -39,13 +39,12 @@
       "limitTrigger": 0,
       "formula": "15m, 1wp"
     },
-    "description": "<p>The Infernal Monster will tear the sun from the sky. Until then, it flings screaming reminders of this doom into the heavens as unwilling heralds. As they tumble and spill their broken innards on the earth, so will molten orichalcum blood</p><p>splatter the smoking crater of final twilight. This Charm may be activated whenever the character releases an enemy from a clinch by throwing her, provided the Infernal is capable of lifting that enemy's weight with a feat of strength. The Exalt hefts her up one-armed into the air and slams her with a thunderous punch from his other hand. The opponent flies up to (Martial Arts x 4) miles away over the course of approximately five minutes and plummets back to earth, impacting the land at terminal velocity to suffer the usual damage and inflict the same damage to the impacted surface (see Exalted, pp. 126-127). Everyone within (the Infernal's Strength x 10) yards of the impact point (including the Infernal) must check for knockdown at a difficulty of (the Infernal's Strength). Anyone blasted back by this Charm who is stopped prior to reaching maximum distance still suffers all effects of a terminal velocity impact. Lifted inanimate objects may also be hurled extreme distances with this Charm to the same overall effect. Lawgivers practice a Solar Hero Style expansion Charm named Horizon-Hurling Tactic that has Heaven Thunder Hammer as a prerequisite. Its required trait minimums and effects are otherwise identical.</p>",
+    "description": "<p>The Infernal Monster will tear the sun from the sky. Until then, it flings screaming reminders of this doom into the heavens as unwilling heralds. As they tumble and spill their broken innards on the earth, so will molten orichalcum blood splatter the smoking crater of final twilight. This Charm may be activated whenever the character releases an enemy from a clinch by throwing her, provided the Infernal is capable of lifting that enemy's weight with a feat of strength. The Exalt hefts her up one-armed into the air and slams her with a thunderous punch from his other hand. The opponent flies up to (Martial Arts x 4) miles away over the course of approximately five minutes and plummets back to earth, impacting the land at terminal velocity to suffer the usual damage and inflict the same damage to the impacted surface (see Exalted, pp. 126-127). Everyone within (the Infernal's Strength x 10) yards of the impact point (including the Infernal) must check for knockdown at a difficulty of (the Infernal's Strength). Anyone blasted back by this Charm who is stopped prior to reaching maximum distance still suffers all effects of a terminal velocity impact. Lifted inanimate objects may also be hurled extreme distances with this Charm to the same overall effect. Lawgivers practice a Solar Hero Style expansion Charm named Horizon-Hurling Tactic that has Heaven Thunder Hammer as a prerequisite. Its required trait minimums and effects are otherwise identical.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "ebonDragon",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,16 +58,17 @@
           {
             "type": "charm",
             "charmUid": "4587092a71ae1d45",
-            "charmName": "Fists of the Old Ones",
+            "charmName": "Fists Of The Old Ones",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "954fa8d7f27b13f1",
-    "grantsMastery": false
+    "grantsMastery": true,
+    "nativeOnly": true
   },
   "folder": "ae5a8ed470f7303b",
   "sort": 0,

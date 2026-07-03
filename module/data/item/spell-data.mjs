@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 /**
@@ -49,7 +51,8 @@ export class SpellData extends foundry.abstract.TypeDataModel {
       range:      new fields.StringField({ initial: "", blank: true }),
 
       // ── Description ────────────────────────────────────────────────────
-      description: new fields.HTMLField({ initial: "" }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
       countermagicImmune: new fields.BooleanField({ initial: false }),
       // Set true on the countermagic spells (Emerald/Sapphire/Adamant,
       // Iron/Onyx/Obsidian) so buildEligibleCharms can find them.

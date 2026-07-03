@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 3,
     "charmType": "reflexive",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -41,7 +41,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -52,9 +52,9 @@
       {
         "alternatives": [
           {
-            "type": "charm",
-            "charmUid": "9a4f9b1e7ffa9b69",
-            "charmName": "Presence Essence Flow",
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1

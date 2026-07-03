@@ -29,7 +29,7 @@
       "Obvious"
     ],
     "cost": {
-      "motes": 6,
+      "motes": 11,
       "willpower": 0,
       "bashingHealth": 0,
       "lethalHealth": 0,
@@ -38,7 +38,7 @@
       "motesLabel": "",
       "resonance": 0,
       "limitTrigger": 0,
-      "formula": "6m"
+      "formula": "11m"
     },
     "description": "<p>Putting on a sudden burst of speed, the martial artist melts into a blur as an attack closes in on her, briefly disappearing and reappearing to evade the blow. This Charm sets an incoming attack's successes to 0 in Step Three after all other modifiers. This does mean that rerolls (which occur in Step Four) may allow an attack to bypass this form of defense. This weakness is considered to be a special flaw of invulnerability. Flashing Leaves Evasion does not function against attacks that are undodgeable or unexpected. This Charm is known in Autochthonia as Shadow Among Shadows.</p>",
     "source": "Glories of the Most High: Maidens of Destiny",
@@ -46,7 +46,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Crystal Chameleon Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,11 +58,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "c78c95720be57ae9",
+            "charmUid": "e7f09debe47bb7a6",
             "charmName": "Crystal Chameleon Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

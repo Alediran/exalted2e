@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "reflexive",
@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Ebon Dragon has no form of his own under all his stolen shadows. This Charm provides a perfect dodge against any physical attack the Infernal can perceive, even undodgeable attacks. Rather than moving aside in a conventional sense, the Exalt's body and possessions dissolve into tarry, writhing shadows that immediately congeal back to normal anywhere within (temporary Willpower points remaining) yards. This sudden movement cannot pass through solid objects, though the slightest crack in a wall allows the Infernal's liquid self to slip through the chink. This Charm is vulnerable to the Imperfection of the Shadow of All Things.</p><p>IMPERFECTION OF THE SHADOW OF ALL THINGS The Ebon Dragon is not simply a creature of darkness. He is The Creature of Darkness, the first to bear that judgment from the Unconquered Sun. Charms listed as vulnerable to the Imperfection of the Shadow of All Things cannot be used to defend against attacks incorporating any Holy effects. SUPERNATURAL MARTIAL ARTS INFERNAL MONSTER STYLE Prior to his treachery, Gorol was among the foremost grandmasters of Solar Hero Style and one of the first to develop more custom Charms for that style. Following his surrender and enslavement to the Yozis, he returned to Creation armed with new Charms that mocked his former accomplishments and the noble purity of his former style. These obscene fighting techniques allowed him to best his circle once his crimes became known. If the natural fighting arts of the Lawgivers equip them to bravely strike down the mightiest devils with whatever lies at hand, then Infernal Monster Style exists to create monsters worthy of needing Solar Hero Style. Exalted who study this art learn to use their rage as a lens, focusing</p><p>Essence toward acts of unthinkable brutality and savagery. There is nothing noble about this art except the refreshing simplicity with which it grinds enemies into sticky red paste. Infernal Monster Style is only compatible with armor created by Infernal Charms. Its form weapons are the cestus, fighting gauntlet, boot and all improvised weapons (see Exalted, p. 242), as well as artifact versions thereof. Despite this style's name, it is the \"hero\" style of the Infernal Exalted and is sometimes called Infernal Hero Style by those who view Creation's Exalted as worse monsters than themselves. Infernal-only expansions to this style are Ability-based Martial Arts Charms rather than Infernal Charms, extrapolating the themes and imagery of the Infernal Monster rather than expressing the esoteric powers of any particular Yozi. Both Green Sun Princes and akuma may access and develop new</p><p>extensions. As normal, non-Infernals can learn the base Charms of this style as a formal Celestial art.</p>",
+    "description": "<p>The Ebon Dragon has no form of his own under all his stolen shadows. This Charm provides a perfect dodge against any physical attack the Infernal can perceive, even undodgeable attacks. Rather than moving aside in a conventional sense, the Exalt's body and possessions dissolve into tarry, writhing shadows that immediately congeal back to normal anywhere within (temporary Willpower points remaining) yards. This sudden movement cannot pass through solid objects, though the slightest crack in a wall allows the Infernal's liquid self to slip through the chink. This Charm is vulnerable to the Imperfection of the Shadow of All Things.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
@@ -56,8 +56,8 @@
             "charmUid": "56eb93448fc102a7",
             "charmName": "Cracked Cell Circumvention",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

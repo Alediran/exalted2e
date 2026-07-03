@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>War</p>",
+    "description": "<p>The Solar focuses the apocalyptic might of his Essence into a weapon and hurls it out into the world, where it becomes a vortex of annihilation formed of ten thousand glittering blades. The character makes a single Thrown attack with a readied weapon. This attack is unblockable and undodgeable, and applies to every character within a line (Essence x 3) yards wide, (Essence x 2) yards high, and (Thrown) miles long. At Thrown 8+, Essence 8+ the Charm's distance extends to (Thrown x 3) miles. A second purchase of this Charm at Thrown 7+, Essence 7+ upgrades its destructive power to the point that the attack lacerates the very fabric of the cosmos. A million white-hot cuts sizzle in the air, leaving behind a ragged white scar of sunfire. This acts as an environmental attack within the area covered by the Charm's initial attack with Damage 3L/action (Damage 3A/action as a Holy effect against creatures of darkness), Trauma 3. This scar lingers for (Solar's Essence) hours. The Lawgiver is advised to be wary of this barrier, as he is not immune to its power.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4c8eb8c4c57043f5",
+            "charmName": "Cascade Of Cutting Terror",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f8040a1de88c6110",
     "mirrorId": "4b4d7f23c9b4e506"
   },

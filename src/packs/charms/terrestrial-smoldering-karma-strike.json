@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Fire Aspect's remarkable skill at dodging attacks approaches its pinnacle, allowing him to dodge an attack and instantly initiate a free counterattack. Whenever the DragonBlood relies on his Dodge DV and the attacker fails to hit him, the Dragon-Blood can spend the Essence and make a reflexive Martial Arts or Melee counterattack with his full dice pool. This Charm cannot be used to respond to a counterattack launched with any Charm nor can it be combined with any other Charm that allows the Dragon-Blood a free counterattack. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack. UNASSAILABLE BODY OF (ELEMENT) DEFENSE</p>",
+    "description": "<p>The Fire Aspect's remarkable skill at dodging attacks approaches its pinnacle, allowing him to dodge an attack and instantly initiate a free counterattack. Whenever the DragonBlood relies on his Dodge DV and the attacker fails to hit him, the Dragon-Blood can spend the Essence and make a reflexive Martial Arts or Melee counterattack with his full dice pool. This Charm cannot be used to respond to a counterattack launched with any Charm nor can it be combined with any other Charm that allows the Dragon-Blood a free counterattack. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p><p>This Charm follows normal rules regarding its interaction with other counterattack effects and may be activated whenever the Exalt successfully dodges an attack by any means.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -43,7 +43,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

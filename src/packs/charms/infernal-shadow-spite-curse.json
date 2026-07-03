@@ -17,11 +17,11 @@
     "ability": "",
     "essence": 1,
     "minAbility": 1,
-    "charmType": "supplemental",
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [2],
     "keywords": [
       "Combo-OK",
       "Obvious"
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Prerequisite Charms: First Ebon Dragon Excellency The Ebon Dragon offers no certainty of victory apart from the certainty of an opponent's defeat. Accordingly, the Shadow of All Things lacks a Second Excellency but offers this hateful alternative. Upon witnessing another character perform a valid action within (Essence x 100) yards, the Infernal may spend three motes per -1 external penalty applied to the enemy. This penalty can't exceed the Exalt's Essence by default, but the Infernal's player may describe the target's failure in a way that earns a stunt bonus, and the rating of this stunt adds to the Exalt's Essence rating to determine the maximum penalty. Shadows ooze and lash out from the Infernal's anima to momentarily entwine the victim with obscene tendrils that inflict bad luck and sudden lapses in competence. A valid action as defined by this Charm is one that furthers the target's Motivation, supports or protects any of her Intimacies or directly contests the Infernal's own actions, provided the Infernal could enhance her own action with First Ebon Dragon Excellency. Once an Infernal has Essence 3+, she may remove the Obvious keyword from this Charm whenever she activates it.</p>",
+    "description": "<p>The Ebon Dragon offers no certainty of victory apart from the certainty of an opponent's defeat. Accordingly, the Shadow of All Things lacks a Second Excellency but offers this hateful alternative. Upon witnessing another character perform a valid action within (Essence x 100) yards, the Infernal may spend three motes per -1 external penalty applied to the enemy. This penalty can't exceed the Exalt's Essence by default, but the Infernal's player may describe the target's failure in a way that earns a stunt bonus, and the rating of this stunt adds to the Exalt's Essence rating to determine the maximum penalty. Shadows ooze and lash out from the Infernal's anima to momentarily entwine the victim with obscene tendrils that inflict bad luck and sudden lapses in competence. A valid action as defined by this Charm is one that furthers the target's Motivation, supports or protects any of her Intimacies or directly contests the Infernal's own actions, provided the Infernal could enhance her own action with First Ebon Dragon Excellency. Once an Infernal has Essence 3+, she may remove the Obvious keyword from this Charm whenever she activates it.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "30b0fc5966a24d09",
+            "charmName": "Essence Overwhelming (First The Ebon Dragon Excellency)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "8e517b7ab3a5fdf4"
   },
   "folder": "7c2ec8d4b84c1156",

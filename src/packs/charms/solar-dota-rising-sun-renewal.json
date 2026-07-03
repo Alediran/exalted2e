@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "formula",
-    "speed": 6,
+    "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -37,15 +37,27 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Five actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ed5942d4c7d98c91",
+            "charmName": "Body-Mending Meditation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "e581e457511daf5c"
   },
   "folder": "f05b544008eaceb0",

@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's senses of smell and taste are sharpened by Oblivion's hunger, able to taste death on the wind and smell the slow rot beneath living skin. She can identify individuals by scent, detect poison or disease in food and drink, and track quarry by scent across distances that would confound a hunting hound. This heightened perception adds the Abyssal's Essence in bonus dice to all Awareness rolls involving smell or taste.</p>",
+    "description": "<p>Abyssals do not perceive their surroundings more clearly out of any excellence or effort, but rather because it is their ordained place to know the beauty of the world before they grind it underfoot.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "",
             "charmName": "",
             "abilityKey": "awareness",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

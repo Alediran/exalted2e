@@ -105,7 +105,8 @@ EX2E.yoziPatrons = {
   sheWhoLivesInHerName: "EX2E.YoziSheWhoLives",
   adorjan:              "EX2E.YoziAdorjan",
   ebonDragon:           "EX2E.YoziEbonDragon",
-  kimbery:              "EX2E.YoziKimbery"
+  kimbery:              "EX2E.YoziKimbery",
+  heretical:            "EX2E.YoziHeretical"
 };
 
 EX2E.infernalCastePatron = {
@@ -162,6 +163,7 @@ EX2E.durations = {
   oneSeason:        "EX2E.DurationOneSeason",
   indefinite:       "EX2E.DurationIndefinite",
   untilCalibration: "EX2E.DurationUntilCalibration",
+  untilReleased:    "EX2E.DurationUntilReleased",
   formula:          "EX2E.DurationFormula",
   permanent:        "EX2E.DurationPermanent"
 };

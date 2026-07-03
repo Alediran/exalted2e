@@ -51,13 +51,14 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "strength",
             "virtueKey": "valor",
             "virtueMin": 1
           }
         ]
       }
     ],
+    "rawDamageMultiplier": 2,
     "charmUid": "ca312357ea8a787d"
   },
   "folder": "aba1efe8ad0bef8a",

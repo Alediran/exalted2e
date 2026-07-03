@@ -32,27 +32,21 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal can use this Charm when a person is suffering from some normal disease--i.e., not a Charm's Sickness effect or the effects of an infectious martial art (from Scroll of the Monk, pp. 153�154). The Sidereal makes the Inferior Sign of the Corpse over the sick person, targeting the least god of that person's illness. The Sidereal's player rolls (Intelligence + Medicine + Essence) against the disease's listed Difficulty to Treat. If the roll succeeds, the illness's least god relinquishes its hold on the victim, and the victim begins to recover.</p>",
+    "description": "<p>The Sidereal can use this Charm when a person is suffering from some normal disease--i.e., not a Charm's Sickness effect or the effects of an infectious martial art (from Scroll of the Monk, pp. 153�154). The Sidereal makes the Inferior Sign of the Corpse over the sick person, targeting the least god of that person's illness. The Sidereal's player rolls (Intelligence + Medicine + Essence) against the disease's listed Difficulty to Treat. If the roll succeeds, the illness's least god relinquishes its hold on the victim, and the victim begins to recover.</p><p>No roll is needed to end mundane diseases. With Essence 3+, the Sidereal can use this Charm to cure even magical Sickness. Doing so requires an activation roll as described in the Charm's text, and extends the time needed to activate this Charm to one hour. Magical diseases without a Virulence rating cannot be cured with this Charm.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "statusApply": {
-      "enabled": true,
-      "status": "Sickness",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applySickness"
-    },
     "charmUid": "8351678bca07c62a"
   },
   "folder": "b0b1b2b3b4b5f00d",

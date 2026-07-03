@@ -46,7 +46,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Sapphire Veil of Passion Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -62,8 +61,8 @@
             "charmUid": "532c9600457b6cef",
             "charmName": "Silken Rope Trick",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -74,8 +73,8 @@
             "charmUid": "68916c5f7b14676a",
             "charmName": "Someone Else's Consequence",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

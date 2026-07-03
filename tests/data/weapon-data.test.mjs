@@ -208,3 +208,37 @@ describe("computeWielderPenalty", () => {
     )).toBe(3 + 2);
   });
 });
+
+describe("WeaponData schema — inElsewhere (M72)", () => {
+  let schema;
+  beforeAll(() => { schema = WeaponData.defineSchema(); });
+
+  it("field exists", () => {
+    expect(schema.inElsewhere).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const initial = schema.inElsewhere.getInitialValue?.() ?? schema.inElsewhere.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("WeaponData schema — ammo.selectedAmmoId (M71)", () => {
+  let schema;
+  beforeAll(() => { schema = WeaponData.defineSchema(); });
+
+  it("ammo SchemaField exists", () => {
+    expect(schema.ammo).toBeDefined();
+  });
+
+  it("selectedAmmoId StringField exists inside ammo", () => {
+    const f = schema.ammo.fields?.selectedAmmoId ?? schema.ammo.schema?.fields?.selectedAmmoId;
+    expect(f).toBeDefined();
+  });
+
+  it("selectedAmmoId defaults to empty string", () => {
+    const f = schema.ammo.fields?.selectedAmmoId ?? schema.ammo.schema?.fields?.selectedAmmoId;
+    const initial = f?.getInitialValue?.() ?? f?.options?.initial;
+    expect(initial).toBe("");
+  });
+});

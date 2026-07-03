@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Lunar warriors are known for their ability to keep on going despite the pain. For each two motes spent, the character allows herself to ignore one point of internal penalties from wounds, fatigue or any manner of deprivation or pain. A Lunar may cancel up to (Stamina � 2) points of penalties. The character need not have any penalties in order to use the Charm; she may preemptively render herself proof against these penalties. Penalties from wounds are always canceled first; other penalties are prioritized by the Lunar's player and may be reprioritized at will.</p><p>When this Charm is activated with Relentless Lunar Fury, the Lunar ignores wound penalties completely until her rage subsides.</p>",
+    "description": "<p>Lunar warriors are known for their ability to keep on going despite the pain. For each two motes spent, the character allows herself to ignore one point of internal penalties from wounds, fatigue or any manner of deprivation or pain. A Lunar may cancel up to (Stamina ÷ 2) points of penalties. The character need not have any penalties in order to use the Charm; she may preemptively render herself proof against these penalties. Penalties from wounds are always canceled first; other penalties are prioritized by the Lunar's player and may be reprioritized at will.</p><p>When this Charm is activated with Relentless Lunar Fury, the Lunar ignores wound penalties completely until her rage subsides.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,7 +53,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "stamina",
             "virtueKey": "valor",
             "virtueMin": 1
           }

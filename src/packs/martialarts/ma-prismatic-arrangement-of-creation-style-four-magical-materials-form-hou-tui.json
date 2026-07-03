@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "oneScene",
-    "speed": 6,
+    "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -37,7 +37,6 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,8 +44,58 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "f6f746bf63417601"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "940d10a5c0c81735",
+            "charmName": "Deadly Starmetal Offensive (ji)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c7aa0a5b86e9753a",
+            "charmName": "Orichalcum Sheathing Stance (peng)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "77bbb421e393d391",
+            "charmName": "Flickering Moonsilver Approach (lu)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1b68d7476f060d19",
+            "charmName": "Five Jade Fury (zhou)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "f6f746bf63417601",
+    "grantsMastery": false
   },
   "folder": "33c138eb339f4538",
   "sort": 0,

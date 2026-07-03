@@ -1,0 +1,70 @@
+{
+  "_id": "ca1b2c3d4e5f0006",
+  "_key": "!items!ca1b2c3d4e5f0006",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Excellence of the Dutiful Hero",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those with lesser rank are not necessarily lesser. This is one of two Charms of this name — one for heroes and one for sorcerers (Excellence of the Dutiful Sorcerer). Characters may learn both. Whenever a Terrestrial makes a separate attack as the hero type of special character using any Ability, he may activate this Charm to enhance the action. Doing so improves the attack with the benefits of the unit's Close Combat Rating, Ranged Combat Rating, Close Combat Damage, Ranged Combat Damage and Might as appropriate, applying these bonuses in the same way that they improve the unit's own attacks. This Charm may be placed in a Combo with Charms of other Abilities.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0002",
+            "charmName": "Army-to-Mob Assault",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0006"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

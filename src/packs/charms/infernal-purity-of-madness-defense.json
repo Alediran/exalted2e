@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "permanent",
@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Demon City is his own architect and does not abide the designs of other artists marring the blueprints of his will. Whenever the Infernal would be altered by a Shaping effect that qualifies as an attack (see Exalted, p. 179), that effect becomes Obvious to his senses so he can make an informed decision before permitting or rejecting the change. Resistance perfectly negates the changes at the cost of gaining one point of Limit from the strain of asserting inviolability. Infernals</p><p>with Essence 3+ may also use this Charm to stop Shaping effects from altering any owned inanimate object within three yards, though each change to each separate object requires another point of Limit to stop.</p>",
+    "description": "<p>The Demon City is his own architect and does not abide the designs of other artists marring the blueprints of his will. Whenever the Infernal would be altered by a Shaping effect that qualifies as an attack (see Exalted, p. 179), that effect becomes Obvious to his senses so he can make an informed decision before permitting or rejecting the change. Resistance perfectly negates the changes at the cost of gaining one point of Limit from the strain of asserting inviolability. Infernals with Essence 3+ may also use this Charm to stop Shaping effects from altering any owned inanimate object within three yards, though each change to each separate object requires another point of Limit to stop.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "malfeas",
     "martialArtsTier": "",
@@ -50,8 +50,8 @@
             "charmUid": "2052ce893e5b1740",
             "charmName": "By Pain Reforged",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

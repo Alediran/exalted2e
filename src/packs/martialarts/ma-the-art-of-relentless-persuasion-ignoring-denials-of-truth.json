@@ -24,7 +24,8 @@
     "steps": [],
     "keywords": [
       "Combo-OK",
-      "Obvious"
+      "Obvious",
+      "Piercing"
     ],
     "cost": {
       "formula": "4m, 1wp",
@@ -37,7 +38,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Art of Relentless Persuasion",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +45,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e50c9687f9298b31",
+            "charmName": "To the Heart of the Matter",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d14840b675a14ec7",
+            "charmName": "Understanding the Foundation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "5d14ac843f0094a9"
   },
   "folder": "9f5e4d584840c173",

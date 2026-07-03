@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class CharmData extends foundry.abstract.TypeDataModel {
@@ -79,7 +81,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         alternatives: new fields.ArrayField(new fields.SchemaField({
           type: new fields.StringField({
             initial: "charm",
-            choices: ["charm", "anyExcellency", "virtue"]
+            choices: ["charm", "anyExcellency", "virtue", "anyCharmOfAbility"]
           }),
           // Canonical reference: the target charm's `system.charmUid`.
           // `charmName` is kept as a display label and as a name-based
@@ -90,15 +92,22 @@ export class CharmData extends foundry.abstract.TypeDataModel {
           // of the hosting charm's own ability. Used for cross-ability prereqs
           // (e.g. "Any Perception Excellency" on a Lore charm).
           abilityKey: new fields.StringField({ initial: "", blank: true }),
-          virtueKey: new fields.StringField({ initial: "valor", blank: true }),
-          virtueMin: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          minCount:  new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
+          virtueKey:    new fields.StringField({ initial: "valor", blank: true }),
+          virtueMin:    new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          minCount:     new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true }),
+          // For type:"charm" prereqs: how many times the prereq charm must have been purchased.
+          minPurchases: new fields.NumberField({ initial: 1, min: 1, integer: true })
         }))
       })),
+      incompatibleCharms: new fields.ArrayField(
+        new fields.StringField({ initial: "", blank: true })
+      ),
+      nativeOnly: new fields.BooleanField({ initial: false }),
 
       // ── Description / Source ─────────────────────────────────────────────
-      description: new fields.HTMLField({ initial: "" }),
-      source:      new fields.StringField({ initial: "", blank: true }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
+      source:       new fields.StringField({ initial: "", blank: true }),
 
       // ── Excellency ───────────────────────────────────────────────────────
       // "" = not an Excellency, "first" | "second" | "third" = which tier
@@ -212,13 +221,55 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         hardnessSetTo:     new fields.NumberField({ initial: 0, min: 0, integer: true }),
         bashingFormula:    new fields.StringField({ initial: "", blank: true }),
         lethalFormula:     new fields.StringField({ initial: "", blank: true }),
-        aggravatedFormula: new fields.StringField({ initial: "", blank: true })
+        aggravatedFormula: new fields.StringField({ initial: "", blank: true }),
+        selectedOption:    new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        options: new fields.ArrayField(new fields.SchemaField({
+          label:       new fields.StringField({ initial: "", blank: true }),
+          bashing:     new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          lethal:      new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          aggravated:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          hardnessAdd: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        })),
+      }),
+
+      // M2b — Transient health level grant (scene-long charms; Anointment of Miraculous Health family)
+      temporaryHealthLevels: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        level:   new fields.StringField({ initial: "zero", blank: false }),
+        formula: new fields.StringField({ initial: "1",    blank: false })
+      }),
+
+      // M2c — On-hit soak reduction (Throat-Baring Hold family): stamps time-limited AE on target
+      soakReductionOnHit: new fields.SchemaField({
+        enabled:         new fields.BooleanField({ initial: false }),
+        bashingReduction: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        lethalReduction:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        duration:        new fields.StringField({ initial: "untilNextAction", blank: false })
+      }),
+
+      // M2d — Damage-driven penalty (Joint-Wounding Attack family): stamps penalty AE per HL dealt
+      damageDrivenPenalty: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        perHL:   new fields.NumberField({ initial: 1, min: 0, integer: false }),
+        scope:   new fields.StringField({ initial: "all", blank: false })
       }),
 
       // M3 — Wound penalty reduction / negation
       woundReduction: new fields.SchemaField({
         enabled: new fields.BooleanField({ initial: false }),
         formula: new fields.StringField({ initial: "", blank: true })
+      }),
+
+      // M3b — Minimum post-soak damage dice (Violet Bier of Sorrows Form family)
+      minimumDamage: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+      }),
+
+      // M3c — Raw (pre-soak) damage bonus dice (Martial Arts Form charms)
+      rawDamageBonus: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
       }),
 
       // M4 — Scene-long attribute / ability boost
@@ -245,9 +296,14 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         action:         new fields.StringField({ initial: "recoverPeripheral" }),
         formula:        new fields.StringField({ initial: "", blank: true }),
         source:         new fields.StringField({ initial: "self", choices: ["self", "fromTarget"] }),
-        perDamageLevel: new fields.BooleanField({ initial: false }),
-        maxRecovery:    new fields.NumberField({ initial: 20, integer: true, min: 1 }),
-        sentientOnly:   new fields.BooleanField({ initial: false }),
+        perDamageLevel:          new fields.BooleanField({ initial: false }),
+        maxRecovery:             new fields.NumberField({ initial: 20, integer: true, min: 1 }),
+        sentientOnly:            new fields.BooleanField({ initial: false }),
+        // Overdrive dice-roll mechanic (Essence-Gathering Temper family):
+        // roll (effectivePool × overdriveDiceMultiplier) dice, count successes,
+        // optionally cap at Stamina, then multiply by formula for motes.
+        overdriveDiceMultiplier: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+        overdriveStaminaCap:     new fields.BooleanField({ initial: false }),
       }),
 
       // M6 — Healing roll effect
@@ -276,9 +332,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M9 — Extra-action charm execution
       extraActions: new fields.SchemaField({
-        enabled:       new fields.BooleanField({ initial: false }),
-        maxFormula:    new fields.StringField({ initial: "@essence", blank: true }),
-        costPerAction: new fields.NumberField({ initial: 2, min: 0, integer: true })
+        enabled:                new fields.BooleanField({ initial: false }),
+        maxFormula:             new fields.StringField({ initial: "@essence", blank: true }),
+        costPerAction:          new fields.NumberField({ initial: 2, min: 0, integer: true }),
+        costPerActionHighRate:  new fields.NumberField({ required: false, initial: 0, min: 0 })
       }),
 
       // M18 — Keyword effect magnitudes (Emotion / Compulsion / Servitude)
@@ -361,6 +418,144 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         perMotes:     new fields.NumberField({ initial: 0, min: 0, integer: true })
       }),
 
+      // M12b — Attack success multiplier (e.g. Cascade of Cutting Terror doubles successes before DV comparison)
+      attackSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M12c — Extra-success multiplier: multiplies threshold successes (above DV) added to raw damage pool (Step 7). Leave at 1 for no effect.
+      extraSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M12d — Flat guaranteed successes added to attack roll (Step 3) before DV comparison.
+      attackSuccessBonus: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+      // M12e — Raw damage pool multiplier (applied before soak, Step 7)
+      rawDamageMultiplier: new fields.NumberField({ required: false, nullable: false, integer: false, min: 1, initial: 1 }),
+      // M12f — Post-soak damage multiplier (applied after soak, before damage roll)
+      postSoakDamageMultiplier: new fields.NumberField({ required: false, nullable: false, integer: false, min: 1, initial: 1 }),
+      // M12g — Damage success multiplier (each die success counted N times in Step 8)
+      damageSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M12h — Bypass soak entirely (damage pool = threshold + weapon, soak skipped)
+      ignoreSoak: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M32 — DV bonus applied during attack (formula-based, e.g. "+1 DV per 2 motes")
+      dvBonusFormula: new fields.StringField({ required: false, initial: "" }),
+      // M33 — Minimum post-soak damage reduction (e.g. "cannot reduce post-soak damage below 3")
+      minimumDamageReduction: new fields.NumberField({ required: false, initial: 0 }),
+      // M34 — Post-soak damage reduction per mote spent (scaling reduction)
+      postSoakDamageReductionPerMote: new fields.NumberField({ required: false, initial: 0 }),
+      // M35 — Creature of Darkness raw damage reduction (formula-based)
+      creatureOfDarknessRawDamageReduction: new fields.StringField({ required: false, initial: "" }),
+      // M36 — Upgrade weapon range (e.g. grants thrown range to melee weapon)
+      upgradeWeaponRange: new fields.BooleanField({ required: false, initial: false }),
+      // M37 — Combat dice bonus (flat dice added to combat pools)
+      combatDiceBonus: new fields.NumberField({ required: false, initial: 0 }),
+
+      // M40 — General DV penalty reduction (e.g. Fivefold Bulwark Stance)
+      dvPenaltyReduction: new fields.NumberField({ required: false, initial: 0 }),
+
+      // M41 — Onslaught-only DV penalty reduction (e.g. Lunar Hero Form)
+      onslaughtPenaltyReduction: new fields.NumberField({ required: false, initial: 0 }),
+
+      // M42 — DV halving: both target Dodge and Parry DVs are halved (floor) before Step 4 comparison
+      dvHalving: new fields.BooleanField({ required: false, initial: false }),
+      // M43 — Parry DV halving only (e.g. Ferocious Biting Tooth)
+      halvesParryDV: new fields.BooleanField({ required: false, initial: false }),
+      // M44 — Incoming attack dice penalty: defender's passively-active charm reduces attacker's pool
+      incomingAttackDicePenalty: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M45 — Ignore target hardness regardless of damage type (e.g. Shell-Crushing Atemi)
+      ignoresHardness: new fields.BooleanField({ required: false, initial: false }),
+      // M46 — Target number reduction: lowers the success threshold below 7 for this attack roll
+      targetNumberReduction: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M47 — Onslaught multiplier: adds this many onslaught stacks per attack instead of 1
+      onslaughtMultiplier: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
+      // M49 — Onslaught also applies as a DV penalty (Agitation of the Swarm Technique)
+      onslaughtToDVPenalty: new fields.BooleanField({ initial: false }),
+      // M50 — Ignore DV penalties for dodge/parry while this charm is active (Absence — Dodge)
+      ignoreDVPenalties: new fields.SchemaField({
+        dodge: new fields.BooleanField({ initial: false }),
+        parry: new fields.BooleanField({ initial: false }),
+      }),
+      // M51 — Flat bonus to Mental DV (both dodge MDV and parry MDV)
+      mentalDVBonus: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M52 — Shaping immunity: social attacks flagged isShaping auto-fail against this actor
+      shapingImmunity: new fields.BooleanField({ initial: false }),
+      // M53 — Automatic knockdown on hit regardless of damage threshold
+      automaticKnockdown: new fields.BooleanField({ initial: false }),
+      // M54 — Actor can see and target dematerialized spirits
+      detectDematerialized: new fields.BooleanField({ initial: false }),
+      // M55 — Immune to social influence while in Limit Break (limit value ≥ 10)
+      limitBreakInfluenceImmunity: new fields.BooleanField({ initial: false }),
+      // M56 — Virtue channel recovery: resets a virtue's channeled flag on a trigger event
+      virtueRecovery: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        virtue:  new fields.StringField({ initial: "valor",
+          choices: ["valor", "conviction", "temperance", "compassion"] }),
+        event:   new fields.StringField({ initial: "onEndScene",
+          choices: ["onEndScene", "onDamageReceived"] }),
+      }),
+      // M57 — Formula added to social roll success count after rolling (from activated charms)
+      socialSuccessBonusFormula: new fields.StringField({ initial: "", blank: true }),
+      // M58 — Attacker moves after a hit; prompt the player to declare movement
+      attackerMovement: new fields.SchemaField({
+        enabled:   new fields.BooleanField({ initial: false }),
+        formula:   new fields.StringField({ initial: "1", blank: true }),
+      }),
+      // M59 — Makes the attack unexpected: target DV is treated as 0
+      makesAttackUnexpected: new fields.BooleanField({ initial: false }),
+      // M60 — Flat bonus to Join Battle success count
+      joinBattleSuccessBonus: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M61 — First attack in combat this scene is unexpected (target DV = 0)
+      firstAttackUnexpected: new fields.BooleanField({ initial: false }),
+      // M62 — Max times a perfect defense can be used per scene (0 = unlimited)
+      maxPerfectUses: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      // M63 — Named intimacies this charm protects; attacks targeting them auto-fail
+      intimacyProtection: new fields.ArrayField(
+        new fields.SchemaField({
+          description: new fields.StringField({ initial: "", blank: true }),
+          type: new fields.StringField({ initial: "major", choices: ["minor", "major", "defining"] }),
+        })
+      ),
+      // M64 — Counterattack fired via this charm automatically gains the Unblockable keyword
+      counterattackUnblockableVariant: new fields.BooleanField({ initial: false }),
+      // M65 — Multiplies effective weapon range for checkAttackRange (1 = no change; max across active charms)
+      rangeMultiplier: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
+      // M66 — Melee weapons treated as short thrown range (30 units) for checkAttackRange
+      meleeRangeExtension: new fields.BooleanField({ initial: false }),
+      // M70 — Supplemental: if the attack misses, show a re-attack button on the next tick
+      homingAttack: new fields.BooleanField({ initial: false }),
+      // M71 — Supplemental: skip ammo decrement for this attack
+      bypassAmmoConsumption: new fields.BooleanField({ initial: false }),
+      // M72 — Reflexive/Simple: send the wielded bow to Elsewhere; recall as reflexive
+      sendsWeaponToElsewhere: new fields.BooleanField({ initial: false }),
+      // M73 — Simple: capture a slain/dominated spirit's Essence pattern as a malados item
+      capturesMalados: new fields.BooleanField({ initial: false }),
+      // M73 — Simple: inject a held malados into a Circle ally, granting spirit-like traits
+      transfersMalados: new fields.BooleanField({ initial: false }),
+      // M74 — Simple/Sustained: create a temporary Background item on a Circle ally
+      grantsBackground: new fields.BooleanField({ initial: false }),
+      // M75 — Sustained: bind a specific NPC actor as a companion; token dismissed on deactivation
+      linksNpcCompanion: new fields.BooleanField({ initial: false }),
+      // M69 — When used in a social attack, halves the defender's base MDV (floor)
+      halveMDV: new fields.BooleanField({ initial: false }),
+      // M67 — Transfer motes to a Circle ally when this charm activates
+      moteLoan: new fields.SchemaField({
+        enabled:    new fields.BooleanField({ required: false, initial: false }),
+        formula:    new fields.StringField({ required: false, initial: "", blank: true }),
+        maxReceive: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      }, { required: false }),
+      // M68 — Transfer willpower to a Circle ally when this charm activates
+      willpowerGift: new fields.SchemaField({
+        enabled:   new fields.BooleanField({ required: false, initial: false }),
+        formula:   new fields.StringField({ required: false, initial: "", blank: true }),
+        maxTarget: new fields.NumberField({ required: false, initial: 0, min: 0, integer: true }),
+      }, { required: false }),
+      // M48 — Virtue roll trigger: auto-roll a virtue when this charm activates
+      virtueRollTrigger: new fields.SchemaField({
+        enabled:    new fields.BooleanField({ required: false, initial: false }),
+        virtue:     new fields.StringField({ required: false, initial: "valor",
+          choices: ["valor", "conviction", "temperance", "compassion"] }),
+        difficulty: new fields.NumberField({ required: false, initial: 1, min: 1, integer: true }),
+      }, { required: false }),
+
+      // M6b — Healing rate multiplier (e.g. Body-Mending Meditation speeds healing × 10).
+      // Data-storage only — no automatic tick engine exists; GM must track manually.
+      healingRateMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+
       // M14 — Rate bonus (extra attacks in a flurry)
       rateBonus: new fields.SchemaField({
         modeExclusive: new fields.BooleanField({ initial: false }),
@@ -420,6 +615,82 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // Words-as-Workshop Method — treat any location as at least a Master's
       // Workshop (floors the workshop dice modifier at 0 for the crafter).
       wordsAsWorkshop: new fields.BooleanField({ initial: false }),
+
+      // M21 — Essence Drain (on hit): drain motes from target on a confirmed hit.
+      // amount is resolved from formula using attacker's rollData.
+      essenceDrain: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+        pool:    new fields.StringField({ required: false, nullable: false, initial: "peripheral", choices: ["peripheral", "personal", "any"] }),
+        targetTypeFilter: new fields.StringField({ required: false, nullable: false, initial: "", blank: true }),
+      }),
+
+      // M22b — Target Willpower Drain: reduce target's WP on a confirmed hit.
+      targetWillpowerDrain: new fields.SchemaField({
+        enabled: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+        formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+      }),
+
+      // M22 — Ability Dice Bonus: adds bonus dice to non-attack rolls for a
+      // specific ability (e.g. Dreaming Pearl Courtesan Form adds Martial Arts
+      // rating to all Presence and Socialize rolls). Evaluated in
+      // rollAttributeAbility via aggregateAbilityDiceBonusFromCharms.
+      abilityDiceBonus: new fields.ArrayField(
+        new fields.SchemaField({
+          ability: new fields.StringField({ required: false, nullable: false, initial: "" }),
+          formula: new fields.StringField({ required: false, nullable: false, initial: "" }),
+        }),
+        { required: false, nullable: false, initial: [] }
+      ),
+
+      // M23 — Social roll success bonus (flat successes on social ability rolls: Presence, Performance, Bureaucracy, Investigation)
+      socialSuccessBonus: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+      // M24 — Social roll success multiplier (multiplies successes on social ability rolls)
+      socialSuccessMultiplier: new fields.NumberField({ required: false, nullable: false, integer: true, min: 1, initial: 1 }),
+      // M38 — Majestic Resistance type (empty string = none, "dodgelike" | "parrylike" | etc.)
+      majesticResistanceType: new fields.StringField({ required: false, initial: "" }),
+      // M39 — Add Appearance dice bonus to social rolls
+      addAppearanceDice: new fields.BooleanField({ required: false, initial: false }),
+      // M25 — Clockwork Auto-Success Conversion (Alchemical Clockwork Perfection Nodes)
+      // When active, the rolled dice pool converts to automatic successes (no dice rolled).
+      clockworkAutoSuccessConversion: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M26 — Ability/Attribute max override: when > 0, the target attribute/ability cap is raised
+      // to this value (e.g. Alchemical Sixth Augmentation allows an attribute to reach 6).
+      abilityMaxOverride: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+
+      // Supplemental keyword injection: keywords forced onto the attack when this
+      // supplemental charm activates (e.g. "Unblockable", "Undodgeable"). These
+      // are added to activatedKeywords during rollAttack supplemental activation.
+      supplementalKeywordInjection: new fields.ArrayField(
+        new fields.StringField({ required: true, blank: false }),
+        { initial: [] }
+      ),
+
+      // M28a — Harm Immaterial: attack can affect dematerialized spirits
+      harmImmaterial: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M28b — Spirit Aggravated Damage: damage dealt to spirits is Aggravated (materialized or not)
+      spiritAggravatedDamage: new fields.BooleanField({ required: false, nullable: false, initial: false }),
+      // M30 — Guaranteed knockback (e.g. Forceful Arrow): bypasses the normal knockback roll; distance
+      // from distanceFormula yards of knockback when at least 1 die of damage is rolled.
+      guaranteedKnockback: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        distanceFormula: new fields.StringField({ initial: "" }),
+      }, { required: false }),
+      // M31 — Post-soak damage bonus (e.g. Spirit-Maiming Essence Attack): adds bonus dice after soak
+      postSoakDamageBonus: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        formula: new fields.StringField({ initial: "" }),
+      }, { required: false }),
+      // M29 — Post-soak damage reduction (defensive): reduces post-soak pool when this actor is targeted
+      postSoakDamageReduction: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
+
+      negatesCripplingEffect: new fields.BooleanField({ required: false, initial: false }),
+      guaranteedHit: new fields.BooleanField({ required: false, initial: false }),
+      statusImmunity: new fields.ArrayField(new fields.StringField(), { required: false, initial: [] }),
+      minBreeding: new fields.NumberField({ required: false, initial: 0, min: 0 }),
+      dynastyEffect: new fields.StringField({ required: false, initial: "" }),
+      martyrEffect: new fields.StringField({ required: false, initial: "" }),
+      hasMartyrOption: new fields.BooleanField({ required: false, initial: false }),
 
       // ── Multi-Purchase Fields ───────────────────────────────────────────
       // Maximum number of times this charm can be purchased.

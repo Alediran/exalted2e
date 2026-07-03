@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
     "charmType": "simple",
@@ -54,12 +54,13 @@
             "charmUid": "894e52425f8b0fb8",
             "charmName": "Hellscry Chakra",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
+    "harmImmaterial": true,
     "charmUid": "7faafb049b0b3089"
   },
   "folder": "d852ccb3960d271d",

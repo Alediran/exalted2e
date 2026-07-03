@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 4,
     "minAbility": 1,
     "charmType": "permanent",
@@ -52,8 +52,8 @@
             "charmUid": "7f00802e9d652635",
             "charmName": "Green Sun Nimbus Flare",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

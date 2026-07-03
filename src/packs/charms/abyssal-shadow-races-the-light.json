@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Exalt surges forward with superhuman speed, trailing ghostly afterimages of her movements that can be glimpsed only peripherally in the moment before they vanish. STEPPING OUTSIDE EXISTENCE Cost: 10m, 1wp; Mins: Athletics 5, Essence 4; Type: Simple (Dramatic Action) Keywords: Avatar (1), Combo-OK, Mirror (Mountain-Crossing Leap Technique; Exalted, p. 223), Obvious, Shaping</p><p>Duration: Instant Prerequisite Charms: Earth-Forsaking Stance The Abyssal throws himself into the dark space between and outside the strands of fate, daring a shortcut that physically traverses the normally abstract and intangible nightmares of the Neverborn. Upon activating this Charm, the deathknight leaps and vanishes into a vortex of darkness. For five minutes, he exists only as a remembrance in the Whispers of the Neverborn and risks true annihilation if the Neverborn should cease to dream. Lost in total sensory deprivation, he experiences the journey as a Storytellercontrolled Whispers vision showing him something he would rather not have seen. When the harrowing detour ends, the Abyssal reappears at any desired destination that he has previously observed that is within (Essence x 5) miles of where he started. This Charm will not teleport the Abyssal into a solid object, but rather spits him out at the closest permitted point to his intended destination. Activating this Charm during the day does nothing but waste Essence. AWARENESS SUPERIOR (SENSE) FOCUS</p>",
+    "description": "<p>The Exalt surges forward with superhuman speed, trailing ghostly afterimages of her movements that can be glimpsed only peripherally in the moment before they vanish.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,9 +51,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "athletics",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

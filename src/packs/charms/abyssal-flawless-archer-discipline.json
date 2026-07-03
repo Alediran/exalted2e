@@ -50,15 +50,17 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "9b3e8ee1fc37aeb6",
+            "charmUid": "86afe8033d83b4e2",
             "charmName": "Pulse of the Prey",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
+    "extraSuccessMultiplier": 2,
+    "homingAttack": true,
     "charmUid": "5ca209e542e1aad2",
     "mirrorId": "7470c9903a4e8dc3"
   },

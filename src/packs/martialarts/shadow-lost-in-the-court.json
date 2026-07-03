@@ -33,8 +33,8 @@
     "description": "<p>The world of the Exalted is a world of vast, eye-catching luminaries; nobody notices a shadow lost in the tangle of the crowd. This Charm enhances an attempt to re-establish surprise in a crowd (defined as a scene in which at least 20 characters are present), producing a -2 external penalty on attempts to spot the Sidereal. If the Sidereal has at least two shadow fingers present, this also qualifies as a crowd, permitting her to attempt to re-establish surprise.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -43,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "33e8321a85f9396a"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "01165ee757be9897",
+            "charmName": "Throne Shadow Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "33e8321a85f9396a",
+    "grantsMastery": false
   },
   "folder": "0489c660869ce271",
   "sort": 0,

@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "solar",
     "ability": "archery",
-    "essence": 4,
-    "minAbility": 5,
+    "essence": 3,
+    "minAbility": 4,
     "charmType": "simple",
     "duration": "oneScene",
     "speed": 5,
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar shapes his Essence into a firewand. Each such weapon has an appearance unique to the Exalt who conjures it. It has a Range of 15 yards. It has Rate 2 and Accuracy equal to Lawgiver's permanent Essence score. Its raw damage equals 16L, plus extra successes.</p>",
+    "description": "<p>The Solar shapes his Essence into a firewand. This Charm is identical to Glorious Solar Saber, except that it creates artifact firewands and similar weapons. Examples include the plasma tongue repeater (see Wonders of the Lost Age, p. 75) or the prayer piece (see Glories of the Most High: The Unconquered Sun, p. 38).</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,11 +51,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "d67b8d54669d2118",
-            "charmName": "Inexhaustible Bolts of Solar Fire",
+            "charmUid": "f29c6afbc6a82eae",
+            "charmName": "Essence Arrow Attack",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -17,7 +17,7 @@
     "ability": "performance",
     "essence": 2,
     "minAbility": 2,
-    "charmType": "simple",
+    "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Not every person in Creation has a glorious destiny, but every person can live up to his destiny with grace. One of the duties of the Chosen of Venus, then, is to see that mortals and Exalted all live up to their potential. A Sidereal uses this Charm while he gives a performance of some kind, such as singing, dancing, reciting an epic poem or the like. Audience members feel the sense</p><p>of completion, triumph and peace--the exaltation--that comes from knowing you are exactly where you should be, doing what you should do. The Seer's player rolls (Charisma + Performance) against the highest Dodge Mental Defense Value of his assembled audience. If the roll succeeds, everyone who witnessed the Exalt's entire performance (and is not a creature outside fate) gains a temporary Willpower point. A person can receive this bonus from the same Exalt only once per day, but the extra point can put the person over his Willpower maximum for the scene.</p>",
+    "description": "<p>Not every person in Creation has a glorious destiny, but every person can live up to his destiny with grace. One of the duties of the Chosen of Venus, then, is to see that mortals and Exalted all live up to their potential.</p><p>This Charm enhances a social attack that encourages belief or behavior. Those that are convinced by the Sidereal and who do not spend Willpower to resist regain 1wp, even if this would grant them more than their normal maximum. Characters that accept this reward cannot later resist the influence in any way for the rest of the scene. A character cannot gain more than 1wp per scene from this Charm.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

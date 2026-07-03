@@ -28,13 +28,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Lunars become true masters of their territories. This Charm permanently enhances all (Directional) Mastery Technique Charms the character knows. It eliminates the exception made for other characters' deliberation and intention; the character never suffers damage or penalties from dangers covered by his (Directional) Mastery Technique Charms.</p><p>With a person's death, the patterns of Essence that bind the decedent's higher and lower souls relax, releasing several motes into Creation. Activating this Charm, the Lunar's player rolls (his Essence + target's Essence) to prevent that Essence from going to waste. Any character who died within the last minute becomes a valid target for this Charm. Each success, to a maximum of the Lunar's Stamina, returns two motes to the Lunar's pools. This Charm cannot fill the character's Essence pool past its maximum. Activating this Charm with Relentless Lunar Fury, the character regains one mote of Essence each time he kills a target. SILVER LUNAR RESOLUTION Cost: --; Mins: Stamina 4, Essence 3; Type: Permanent Keywords: Obvious Prerequisite Charms: Any Stamina Excellency Lunars empower themselves through the successful strengthening and defense of others. The more effort a character puts into protecting a society or culture, the greater her power. With the purchase of this Charm, the Lunar may recover motes by working to protect any social or military unit from danger or dissolution. Each hour spent on such tasks recovers motes equal to the unit's Magnitude. In addition, each purchase of this Charm adds 10 motes to the character's Peripheral Essence pool. This Essence cannot be committed to any artifact and can only be recovered through the method above or through Essence-recovery Charms. A character may not take this Charm more times than her permanent Essence.</p>",
+    "description": "<p>Lunars become true masters of their territories. This Charm permanently enhances all (Directional) Mastery Technique Charms the character knows. It eliminates the exception made for other characters' deliberation and intention; the character never suffers damage or penalties from dangers covered by his (Directional) Mastery Technique Charms.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -47,21 +46,15 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "",
-            "charmName": "Any (Directional) Mastery Technique",
+            "charmUid": "a296a300975895d5",
+            "charmName": "(Directional) Mastery Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "moteRecovery": {
-      "enabled": true,
-      "event": "onKill",
-      "action": "recoverPeripheral",
-      "formula": "1"
-    },
     "charmUid": "9175de3e98afc74f"
   },
   "folder": "956290ccde1dea72",

@@ -20,7 +20,7 @@
     "charmType": "simple",
     "duration": "oneDay",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 3,
     "steps": [],
     "keywords": [
       "Illusion"
@@ -36,7 +36,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Ebon Shadow Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,

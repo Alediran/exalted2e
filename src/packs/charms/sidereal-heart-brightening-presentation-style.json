@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal's skill at poetry and song infuses his speech at all times. By spending two more motes, the character can apply any Bureaucracy, Performance, Presence or Socialize Excellency to any dice pool involving those four Abilities. The normal limits for raising dice pools through Charms still apply.</p>",
+    "description": "<p>The Sidereal's skill at poetry and song infuses his speech at all times. By spending two more motes, the character can apply any Bureaucracy, Performance, Presence or Socialize Excellency to any dice pool involving those four Abilities. The normal limits for raising dice pools through Charms still apply. There is no surcharge for applying the listed Excellencies interchangeably amongst the listed Abilities. In addition, this Charm allows the Exalt to channel Compassion on any rolls enhanced by those Excellencies. The first time she does so in a scene costs 0wp.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,44 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "",
-            "charmName": "Any Bureaucracy",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "",
-            "charmName": "Presence",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "3758903228b81879"
   },
   "folder": "b0b1b2b3b4b5f010",

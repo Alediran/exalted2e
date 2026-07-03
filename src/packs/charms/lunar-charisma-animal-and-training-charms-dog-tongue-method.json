@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Stewards may communicate with all things in their domain. Dog-Tongue Method gives a character the ability to speak the many tongues of animals. This Charm makes natural animals (or other creatures that potentially understand the same sounds and gestures) valid targets for all social attacks, because the Lunar can now communicate even the most complex ideas to them. A character may choose to activate this Charm without the Willpower cost. This variation allows her to speak only to animals whose shape she currently takes. When in animal form, a character using Dog-Tongue Method can also speak any human tongue she knows. With Perception 2, the character also understands the speech of animals while this Charm is active. Lunars may purchase this Charm with Perception 2 instead of Charisma</p><p>2; the Charm is often then called \"Dog-Ear Method\" and functions only to understand animals until the character also has Charisma 2. Purchasing the Charm in this way requires a Perception Excellency instead of a Charisma Excellency.</p>",
+    "description": "<p>Stewards may communicate with all things in their domain. Dog-Tongue Method gives a character the ability to speak the many tongues of animals. This Charm makes natural animals (or other creatures that potentially understand the same sounds and gestures) valid targets for all social attacks, because the Lunar can now communicate even the most complex ideas to them. A character may choose to activate this Charm without the Willpower cost. This variation allows her to speak only to animals whose shape she currently takes. When in animal form, a character using Dog-Tongue Method can also speak any human tongue she knows. With Perception 2, the character also understands the speech of animals while this Charm is active. Lunars may purchase this Charm with Perception 2 instead of Charisma 2; the Charm is often then called \"Dog-Ear Method\" and functions only to understand animals until the character also has Charisma 2. Purchasing the Charm in this way requires a Perception Excellency instead of a Charisma Excellency.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "charisma",
             "virtueKey": "valor",
             "virtueMin": 1
           }

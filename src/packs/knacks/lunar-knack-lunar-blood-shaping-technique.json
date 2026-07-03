@@ -1,0 +1,29 @@
+{
+  "_id": "6fd03845d6d10659",
+  "_key": "!items!6fd03845d6d10659",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lunar Blood Shaping Technique",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 3,
+    "prerequisites": "Prey's Skin Disguise, Essence 3, Charisma 4",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>The Lunar may feed her blood to another person, transferring a stolen human form to that person for a scene. The Lunar loses access to that form while the other person wears it.</p>",
+    "charmUid": "6fd03845d6d10659"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

@@ -4,7 +4,6 @@ import {
   computeMdvShiftFromApp,
   computeBaseMDV,
   checkNaturalCap,
-  computeWpToResist,
   aggregateAttackerCharms       // 3c-1
 } from "./social-attack-math.mjs";
 import { findCampaign } from "./motivation-break-math.mjs";
@@ -19,7 +18,7 @@ import {
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
-import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount } from "./charm-passive-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount, getAttackSuccessMultiplier, getExtraSuccessMultiplierFromCharms, getAttackSuccessBonusFromCharms, getMinimumDamageFromCharms, aggregateRawDamageBonusFromCharms, getEssenceDrainFromCharms, getTargetWillpowerDrainFromCharms, aggregateAbilityDiceBonusFromCharms, getRawDamageMultiplierFromCharms, getPostSoakDamageMultiplierFromCharms, getDamageSuccessMultiplierFromCharms, getIgnoreSoakFromCharms, aggregateSocialSuccessBonusFromCharms, aggregateSocialSuccessMultiplierFromCharms, getClockworkAutoSuccessFromCharms, getHarmImmaterialFromCharms, aggregateCombatDiceBonusFromCharms, hasUpgradeWeaponRangeFromCharms, getMajesticResistanceTypeFromCharms, getAddAppearanceDiceFromCharms, aggregateIncomingAttackDicePenaltyFromCharms, hasMakesAttackUnexpectedFromItems, hasFirstAttackUnexpectedFromCharms, aggregateJoinBattleSuccessBonusFromCharms } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 import { getTerrainBonuses } from "../helpers/terrain.mjs";
 
@@ -69,6 +68,9 @@ export class ExaltedRoll {
     // External penalty subtracts from successes after the roll (does NOT
     // touch the pool, and does NOT affect botch detection).
     this.externalPenalty    = options.externalPenalty    ?? 0;
+    // Target number: minimum die face that counts as 1 success (default 7).
+    // Reduced below 7 by targetNumberReduction supplemental charms.
+    this.targetNumber       = Math.max(5, options.targetNumber ?? 7);
 
     // Stunt adds extra dice (pool already includes 1st Excellency dice)
     this.totalPool = this.pool + this.stunt;
@@ -110,7 +112,8 @@ export class ExaltedRoll {
       secondExcSuccesses:  this.secondExcSuccesses,
       usedThirdExcellency: this.useThirdExcellency,
       specialty:           this.specialty,
-      externalPenalty:     this.externalPenalty
+      externalPenalty:     this.externalPenalty,
+      targetNumber:        this.targetNumber,
     });
   }
 
@@ -460,15 +463,26 @@ export class ExaltedRoll {
     const finalAttr = dialogResult.attribute ?? defaultAttr;
     const externalSuccessPenalty = physicalKeys.has(finalAttr) ? externalPhysicalPenalty : 0;
 
+    // Passive ability dice bonus: charms that add dice to all rolls for a
+    // specific ability (e.g. Dreaming Pearl Courtesan Form adds Martial Arts
+    // rating in dice to all Presence and Socialize rolls). Aggregated across
+    // all passively-active charms with matching abilityDiceBonus entries.
+    const abilityDiceBonus = aggregateAbilityDiceBonusFromCharms(actor, ability);
+
+    const socialBonus      = aggregateSocialSuccessBonusFromCharms(actor, ability);
+    const socialMultiplier = aggregateSocialSuccessMultiplierFromCharms(actor, ability);
+    const clockworkConvert = getClockworkAutoSuccessFromCharms(actor);
+
+    const basePool = Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty + abilityDiceBonus);
     const exRoll = new ExaltedRoll({
-      pool:               Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty),
+      pool:               clockworkConvert ? 0 : basePool,
       flavor:             dialogResult.flavor,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice:       firstExcDice,
-      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses,
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses + socialBonus + (clockworkConvert ? basePool : 0),
       useThirdExcellency: useThirdExcellency,
       specialty:          dialogResult.specialty ?? "",
       externalPenalty:    externalSuccessPenalty
@@ -480,6 +494,9 @@ export class ExaltedRoll {
     // itself never carries the successes — the tally lives on the
     // ExaltedRollResult returned by evaluate().
     const result = await exRoll.evaluate();
+    if (socialMultiplier > 1) {
+      result.successes = Math.floor(result.successes * socialMultiplier);
+    }
     const message = await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
     await bankStuntReward(actor, {
       stunt:              dialogResult.stunt,
@@ -680,11 +697,13 @@ export class ExaltedRoll {
       const { checkAttackRange } = await import("../helpers/targeting.mjs");
       const rangeInfo = checkAttackRange(mode, actor, targetActor);
       if (rangeInfo && !rangeInfo.inRange) {
-        ui.notifications.warn(game.i18n.format("EX2E.TargetOutOfRange", {
-          distance: Math.round(rangeInfo.distance),
-          max:      rangeInfo.maxRange
-        }));
-        return null;
+        if (!hasUpgradeWeaponRangeFromCharms(actor)) {
+          ui.notifications.warn(game.i18n.format("EX2E.TargetOutOfRange", {
+            distance: Math.round(rangeInfo.distance),
+            max:      rangeInfo.maxRange
+          }));
+          return null;
+        }
       }
       if (rangeInfo) {
         rangePenalty = rangeInfo.rangePenalty ?? 0;
@@ -918,7 +937,9 @@ export class ExaltedRoll {
       if (!ok) continue;
       activatedCharms.push({ id: c.id, name: c.name });
       for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
+      for (const kw of (c.system.supplementalKeywordInjection ?? [])) activatedKeywords.add(kw);
     }
+    for (const kw of (options.extraKeywords ?? [])) activatedKeywords.add(kw);
     if (activationBucket.length === 1) {
       const soleCharm = actor.items.get(activationBucket[0].charmId);
       if (soleCharm) await soleCharm.sendToChat({ activation: activationBucket[0].ledger });
@@ -946,6 +967,50 @@ export class ExaltedRoll {
     const activatedCharmItems = activatedCharms
       .map(ac => actor.items.get(ac.id))
       .filter(Boolean);
+
+    // M71 — Ammo gate: decrement linked ammo item when weapon mode needs projectiles.
+    let resolvedAmmoItem = null;
+    const needsAmmo = mode.tags?.includes("Bow") || mode.tags?.includes("Flame Piece");
+    if (needsAmmo && !options.isHomingReattack) {
+      const bypass = activatedCharmItems.some(c => c.system?.bypassAmmoConsumption === true);
+      if (!bypass) {
+        const selectedAmmoId = wSys.ammo?.selectedAmmoId ?? "";
+        if (selectedAmmoId) {
+          const ammoItem = actor.items.get(selectedAmmoId)
+            ?? weaponOwner.items.get(selectedAmmoId);
+          const qty = ammoItem?.type === "ammo" ? (ammoItem.system.quantity ?? 0) : 0;
+          if (!ammoItem || ammoItem.type !== "ammo" || qty <= 0) {
+            ui.notifications.warn(game.i18n.localize("EX2E.NoAmmoRemaining"));
+            return null;
+          }
+          await ammoItem.update({ "system.quantity": qty - 1 });
+          resolvedAmmoItem = ammoItem;
+        }
+      }
+    }
+    // Apply ammo damage-type override before soak lookups (affects which soak column is read).
+    if (resolvedAmmoItem) {
+      const at = resolvedAmmoItem.system.damageType;
+      if (at) mode.damageType = at;
+    }
+
+    // Dematerialized gate — block attack if target is dematerialized and no harmImmaterial is active.
+    if (targetActor && targetActor.statuses?.has("dematerialized")) {
+      const canHitImmaterial = getHarmImmaterialFromCharms(actor)
+        || activatedCharmItems.some(c => c.system?.harmImmaterial === true);
+      if (!canHitImmaterial) {
+        ui.notifications.warn(game.i18n.localize("EX2E.TargetIsDematerialized"));
+        return null;
+      }
+    }
+
+    // M47 — Extra onslaught stacks from supplemental charms (e.g. onslaughtMultiplier: 2 adds 2 stacks instead of 1).
+    // Placed here (post-dialog) because activatedCharmItems requires the resolved dialog activation list.
+    if (targetActor && !isAreaAttack) {
+      const _extraStacks = activatedCharmItems.reduce(
+        (acc, c) => Math.max(acc, c.system?.onslaughtMultiplier ?? 1), 1) - 1;
+      for (let _i = 0; _i < _extraStacks; _i++) await targetActor.addOnslaught();
+    }
 
     // Pre-evaluate formula fields (e.g. "@ess") to plain integers before
     // passing to computeAttackCharmBonus, which only handles resolved numbers.
@@ -983,6 +1048,22 @@ export class ExaltedRoll {
     if (totalMoteCost > 0 && actor.type === "character") {
       const spent = await actor.spendMotes(totalMoteCost, dialogResult.moteType);
       if (!spent) return null;
+    }
+
+    // Extra-action charm per-attack mote cost
+    const extraActionCharm = actor.items.find(i =>
+      i.type === "charm" && i.system.active && i.system.extraActions?.enabled
+    );
+    let extraActionMoteCost = 0;
+    if (extraActionCharm && actor.type === "character") {
+      const modeRate = mode?.rate ?? 1;
+      extraActionMoteCost = (modeRate < 1 && (extraActionCharm.system.extraActions.costPerActionHighRate ?? 0) > 0)
+        ? extraActionCharm.system.extraActions.costPerActionHighRate
+        : (extraActionCharm.system.extraActions.costPerAction ?? 0);
+      if (extraActionMoteCost > 0) {
+        const spent = await actor.spendMotes(extraActionMoteCost, dialogResult.moteType ?? "peripheral");
+        if (!spent) return null;
+      }
     }
 
     // Handle virtue channeling
@@ -1024,10 +1105,28 @@ export class ExaltedRoll {
     targetDodgeDV += terrainBonus.defenderDVBonus;
     targetParryDV += terrainBonus.defenderDVBonus;
 
+    // M42/M43 — DV halving from supplemental charms (applied before base snapshot and Unblockable/Undodgeable)
+    if (activatedCharmItems.some(c => c.system?.dvHalving === true)) {
+      targetDodgeDV = Math.floor(targetDodgeDV / 2);
+      targetParryDV = Math.floor(targetParryDV / 2);
+    } else if (activatedCharmItems.some(c => c.system?.halvesParryDV === true)) {
+      targetParryDV = Math.floor(targetParryDV / 2);
+    }
+
     const targetBaseDodgeDV = targetDodgeDV;
     const targetBaseParryDV = targetParryDV;
     if (undodgeable) targetDodgeDV = 0;
     if (unblockable) targetParryDV = 0;
+
+    // M59/M61 — Unexpected attack: target DV = 0 (supplemental charm or first-attack passive).
+    const _hasAttacked = attackerCombatant?.getFlag("exalted2e", "hasAttacked") ?? false;
+    const isUnexpected = hasMakesAttackUnexpectedFromItems(activatedCharmItems)
+      || (hasFirstAttackUnexpectedFromCharms(actor) && !_hasAttacked);
+    if (isUnexpected) { targetDodgeDV = 0; targetParryDV = 0; }
+    // Mark that this actor has now attacked so firstAttackUnexpected only fires once.
+    if (!_hasAttacked && attackerCombatant && !isAreaAttack) {
+      await attackerCombatant.setFlag("exalted2e", "hasAttacked", true);
+    }
 
     // Holy vs Creature of Darkness: a charm activated for this attack
     // carrying the Holy keyword upgrades damage to aggravated against a
@@ -1085,21 +1184,37 @@ export class ExaltedRoll {
       }
     }
 
+    // M45 — Charm-level hardness bypass from supplemental charms (e.g. Shell-Crushing Atemi)
+    if (targetHardness > 0 && activatedCharmItems.some(c => c.system?.ignoresHardness === true)) {
+      targetHardness = 0;
+    }
+
     targetSoak += terrainBonus.defenderSoakBonus;
 
     // Build and evaluate the attack roll
+    // M44 — Incoming attack dice penalty from defender's passively-active charms (e.g. Crouching Tiger Stance)
+    const incomingAttackPenalty = targetActor
+      ? aggregateIncomingAttackDicePenaltyFromCharms(targetActor)
+      : 0;
+    // M46 — Target number reduction from supplemental charms (e.g. lowers success threshold 7→6)
+    const _tnReduction = activatedCharmItems.reduce(
+      (acc, c) => Math.max(acc, c.system?.targetNumberReduction ?? 0), 0);
+    const attackTargetNumber = Math.max(5, 7 - _tnReduction);
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
       pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice
                         + (charmAttackBonus.ignoreRangeBand ? (rangePenalty ?? 0) : 0)
-                        + terrainBonus.attackerDiceBonus,
+                        + terrainBonus.attackerDiceBonus
+                        + aggregateCombatDiceBonusFromCharms(actor)
+                        - incomingAttackPenalty,
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice,
-      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses,
+      targetNumber:       attackTargetNumber,
     });
     const result = await attackRoll.evaluate();
 
@@ -1114,9 +1229,16 @@ export class ExaltedRoll {
     // rawSuccesses, so a Prone attacker can still botch even when their
     // display successes would otherwise be non-negative.
     const effectiveExternalPenalty = charmAttackBonus.ignorePenalties ? 0 : externalPenalty;
-    const displaySuccesses = Math.max(0,
-      (result.successes ?? 0) - effectiveExternalPenalty + charmAttackBonus.extraAccuracySuccesses
-    );
+    // Attack success multiplier (Step 3): some charms (e.g. Cascade of Cutting Terror)
+    // double the attacker's successes before comparing to defense. The multiplier
+    // applies to the full pre-penalty success tally so the doubled result is what
+    // faces the DV, consistent with the RAW description ("doubles successes on the
+    // attack roll before comparing to defense").
+    const successMultiplier = getAttackSuccessMultiplier(actor);
+    // extraAccuracySuccesses is included in the multiplicand: all successes contributing to the Step 3 comparison are doubled
+    const attackSuccessBonus  = getAttackSuccessBonusFromCharms(actor);
+    const rawDisplaySuccesses = (result.successes ?? 0) - effectiveExternalPenalty + charmAttackBonus.extraAccuracySuccesses + attackSuccessBonus;
+    const displaySuccesses = Math.max(0, rawDisplaySuccesses * successMultiplier);
     const attack = {
       actorId:             actor.id,
       actorName:           actor.name,
@@ -1133,8 +1255,35 @@ export class ExaltedRoll {
       secondExcSuccesses,
       attackerHasThirdExc,
       attackerExcKey:      excKey,
-      weaponDamage:        mode.effectiveDamage + charmAttackBonus.extraDamageDice,
-      postSoakDamageDice:  charmAttackBonus.extraPostSoakDamageDice || 0,
+      weaponDamage:        (resolvedAmmoItem ? (resolvedAmmoItem.system.damageBonus ?? mode.effectiveDamage) : mode.effectiveDamage) + charmAttackBonus.extraDamageDice,
+      postSoakDamageDice:  (charmAttackBonus.extraPostSoakDamageDice || 0) +
+        activatedCharmItems
+          .filter(c => c.system?.postSoakDamageBonus?.enabled)
+          .reduce((sum, c) => sum + _evalInt(c.system.postSoakDamageBonus.formula, rollData), 0),
+      minimumDamage:       getMinimumDamageFromCharms(actor),
+      rawDamageBonus:      aggregateRawDamageBonusFromCharms(actor),
+      essenceDrain:        getEssenceDrainFromCharms(actor),
+      targetWillpowerDrain: getTargetWillpowerDrainFromCharms(actor),
+      extraSuccessMultiplier: getExtraSuccessMultiplierFromCharms(actor),
+      rawDamageMultiplier:      getRawDamageMultiplierFromCharms(actor),
+      postSoakDamageMultiplier: getPostSoakDamageMultiplierFromCharms(actor),
+      damageSuccessMultiplier:  getDamageSuccessMultiplierFromCharms(actor),
+      ignoreSoak:               getIgnoreSoakFromCharms(actor),
+      harmImmaterial:        getHarmImmaterialFromCharms(actor)
+        || activatedCharmItems.some(c => c.system?.harmImmaterial === true),
+      spiritAggravatedDamage: activatedCharmItems.some(c => c.system?.spiritAggravatedDamage === true),
+      guaranteedHit:         activatedCharmItems.some(c => c.system?.guaranteedHit === true),
+      upgradeWeaponRange:    hasUpgradeWeaponRangeFromCharms(actor) || null,
+      guaranteedKnockback:   (() => {
+        const c = activatedCharmItems.find(c => c.system?.guaranteedKnockback?.enabled);
+        return c ? { enabled: true, distanceFormula: c.system.guaranteedKnockback.distanceFormula } : null;
+      })(),
+      automaticKnockdown:    activatedCharmItems.some(c => c.system?.automaticKnockdown === true),
+      isUnexpected,
+      attackerMovement:      (() => {
+        const c = activatedCharmItems.find(c => c.system?.attackerMovement?.enabled);
+        return c ? { enabled: true, formula: c.system.attackerMovement.formula } : null;
+      })(),
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the
@@ -1160,13 +1309,40 @@ export class ExaltedRoll {
       targetSoak,
       targetArmorSoak,
       targetHardness,
+      targetNumber:    attackTargetNumber,
       soakPiercing:    charmAttackBonus.soakPiercing   || 0,
       ignoresArmor:    charmAttackBonus.ignoresArmor   || false,
+      ammoSoakMod:     resolvedAmmoItem?.system?.soakMod ?? "normal",
+      // M2c — soakReductionOnHit: aggregate from activated charms, applied to target on hit
+      soakReductionOnHit: (() => {
+        let bashing = 0, lethal = 0, duration = "untilNextAction";
+        for (const c of activatedCharmItems) {
+          const sr = c.system?.soakReductionOnHit;
+          if (!sr?.enabled) continue;
+          bashing  += sr.bashingReduction ?? 0;
+          lethal   += sr.lethalReduction  ?? 0;
+          if (sr.duration) duration = sr.duration;
+        }
+        return (bashing || lethal) ? { bashing, lethal, duration } : null;
+      })(),
+      // M2d — damageDrivenPenalty: captured from activated charms, applied after damage is dealt
+      damageDrivenPenalty: (() => {
+        const c = activatedCharmItems.find(c => c.system?.damageDrivenPenalty?.enabled);
+        if (!c) return null;
+        const ddp = c.system.damageDrivenPenalty;
+        return { perHL: ddp.perHL ?? 1, scope: ddp.scope ?? "all" };
+      })(),
       attackCharms:            activatedCharms.map(c => c.name),
       isCounterattack:         !!options.isCounterattack,
+      isHomingReattack:        !!options.isHomingReattack,
+      weaponId,
+      modeIndex,
+      homingAttack:            !options.isHomingReattack && activatedCharmItems.some(c => c.system?.homingAttack === true),
       originalAttackMessageId: options.originalAttackMessageId ?? null,
       defense:             null,
       extraActionsAvailable: charmExtraMax || null,
+      extraActionMoteCost:   extraActionMoteCost || null,
+      extraActionMoteType:   extraActionMoteCost > 0 ? (dialogResult.moteType ?? "peripheral") : null,
       effectiveSpeed:        charmSpeed !== baseSpeed ? charmSpeed : null,
       aimBonus:              aimBonus || null,
       rangeBand:             rangeBand || null,
@@ -1364,7 +1540,8 @@ export class ExaltedRoll {
     // 4. Base MDV. preStep2EffectiveMDV is the MDV before defender
     //    Step-2 charms / Excellencies bump it. The orchestrator
     //    recomputes the post-Step-2 effectiveMDV via resolveStep2().
-    const baseMDV = computeBaseMDV(intent, defender);
+    const majesticResistanceType = getMajesticResistanceTypeFromCharms(attacker);
+    const baseMDV = computeBaseMDV(intent, defender, majesticResistanceType);
     const preStep2EffectiveMDV = Math.max(0, baseMDV + stackingMod + mdvShiftFromApp);
 
     // 3c-1: Activate picked charms inline. Each charm's activateCharm posts
@@ -1426,6 +1603,9 @@ export class ExaltedRoll {
       sourceByKeyword: attackerSourceByKeyword
     } = aggregateAttackerCharms(actuallyActivated);
 
+    // M69 — Check if any activated charm halves the defender's MDV.
+    const halveMDV = actuallyActivated.some(c => c.system?.halveMDV === true);
+
     const rollData = attacker.getRollData?.() ?? {};
     const charmSocialBonus = computeSocialCharmBonus(
       actuallyActivated.filter(c => c.system?.socialBonus?.enabled),
@@ -1481,8 +1661,9 @@ export class ExaltedRoll {
     // 5. Roll the attacker's pool.
     const attributeValue = attacker.system?.attributes?.[attribute]?.value ?? 0;
     const abilityValue   = attacker.system?.abilities?.[ability]?.value     ?? 0;
+    const appearanceDice = getAddAppearanceDiceFromCharms(attacker);
     const pool = attributeValue + abilityValue + (Number(stuntDice) || 0) + (firstExcDice ?? 0)
-               + charmSocialBonus.poolDice;
+               + charmSocialBonus.poolDice + appearanceDice;
 
     const intentLabel = game.i18n.localize({
       build:  "EX2E.IntentBuild",
@@ -1531,7 +1712,13 @@ export class ExaltedRoll {
     // 6. Threshold display only — hit / wpToResist are deferred to
     //    defender Step-2 (orchestrator in exalted2e.mjs computes them
     //    after charm activations + Excellency mote spend resolve).
-    const rollSuccesses = (rollResult?.successes ?? 0) + charmSocialBonus.poolSuccesses;
+    // M57 — Social success bonus formula: sum formula results from activated charms.
+    const _socialFormulaBonus = actuallyActivated.reduce((acc, c) => {
+      const f = c.system?.socialSuccessBonusFormula ?? "";
+      if (!f) return acc;
+      return acc + (evaluateCharmFormula(f, rollData, 0) || 0);
+    }, 0);
+    const rollSuccesses = (rollResult?.successes ?? 0) + charmSocialBonus.poolSuccesses + _socialFormulaBonus;
     const netSuccesses = Math.max(0, rollSuccesses - preStep2EffectiveMDV);
 
     // 7. Build chat card content.
@@ -1574,7 +1761,9 @@ export class ExaltedRoll {
       stackingMod,
       mdvShiftFromApp,
       baseMDV,
-      preStep2EffectiveMDV,        // displayed in step2-pending phase
+      halveMDV,
+      majesticResistanceType:      majesticResistanceType || null,
+      preStep2EffectiveMDV:        halveMDV ? Math.max(0, Math.floor(preStep2EffectiveMDV / 2)) : preStep2EffectiveMDV,
       rollSuccesses,
       netSuccesses,                // recomputed post-Step-2 too; this is a display-only seed
       unnaturalInfluence:          unnaturalInfluenceFinal,    // 3c-1: charm-or-manual source-of-truth
@@ -1706,9 +1895,10 @@ export class ExaltedRollResult {
     // External penalty — subtracted from the displayed success tally
     // post-roll. Botch detection is unaffected (reads rawSuccesses).
     this.externalPenalty     = options.externalPenalty      ?? 0;
+    this.targetNumber        = options.targetNumber         ?? 7;
 
     // ── Count successes from dice ────────────────────────────────────────
-    const _tally = countSuccesses(this.dice);
+    const _tally = countSuccesses(this.dice, this.targetNumber);
     this.rawSuccesses = _tally.rawSuccesses;
     this.ones         = _tally.ones;
     this.diceDetails  = _tally.details;

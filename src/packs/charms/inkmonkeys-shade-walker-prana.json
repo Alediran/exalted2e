@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "stealth",
     "essence": 3,
     "minAbility": 4,
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal Exalted almost pity those who huddle in the light, believing themselves safe while failing to notice the darkness always trailing at their heels. This Charm may only be activated while the Abyssal is concealed from the notice of all present beings. Unseen, he steps onto the shadow of another character and spend four motes to sink into its depths. So long as the Abyssal commits motes to this Charm, he may ride along inside of a character's shadow, watching the world while remaining utterly unseen. In this manner a deathknight may infiltrate the most secure fortresses in Creation, or even breach Heaven itself, carried in the shadow of those who have every right to be there. If the Abyssal chooses to terminate his concealment by launching an unexpected attack at the character whose shadow he is riding, he adds three automatic successes to his attack roll. If the Abyssal is spotted hiding within a shadow by some means, he may be targeted normally by striking at the shadow. A second purchase of this Charm permits the Abyssal to take small, surreptitious actions while riding in a shadow. Directly attacking other characters or doing anything so loud or overtly obvious as to draw notice breaks the Charm, but Larceny actions to pick pockets or steal small objects are usually valid, as might be other stealthy actions at the Storyteller's discretion (such as tipping a drop of poison into a drinking cup). The Abyssal temporarily hijacks his host's shadow while performing such actions; all characters present may make a reflexive (Perception + Awareness) roll against a difficulty of the Abyssal's Stealth rating to notice the unnatural movements of the ridden shadow.</p><p>Moonshadow Caste Socialize Scribing the Old Laws</p>",
+    "description": "<p>The Abyssal Exalted almost pity those who huddle in the light, believing themselves safe while failing to notice the darkness always trailing at their heels. This Charm may only be activated while the Abyssal is concealed from the notice of all present beings. Unseen, he steps onto the shadow of another character and spend four motes to sink into its depths. So long as the Abyssal commits motes to this Charm, he may ride along inside of a character's shadow, watching the world while remaining utterly unseen. In this manner a deathknight may infiltrate the most secure fortresses in Creation, or even breach Heaven itself, carried in the shadow of those who have every right to be there. If the Abyssal chooses to terminate his concealment by launching an unexpected attack at the character whose shadow he is riding, he adds three automatic successes to his attack roll. If the Abyssal is spotted hiding within a shadow by some means, he may be targeted normally by striking at the shadow. A second purchase of this Charm permits the Abyssal to take small, surreptitious actions while riding in a shadow. Directly attacking other characters or doing anything so loud or overtly obvious as to draw notice breaks the Charm, but Larceny actions to pick pockets or steal small objects are usually valid, as might be other stealthy actions at the Storyteller's discretion (such as tipping a drop of poison into a drinking cup). The Abyssal temporarily hijacks his host's shadow while performing such actions; all characters present may make a reflexive (Perception + Awareness) roll against a difficulty of the Abyssal's Stealth rating to notice the unnatural movements of the ridden shadow.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,15 +51,15 @@
             "charmUid": "9082deea539b3616",
             "charmName": "Shadow Cloak Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "bfb885975c93022a"
   },
-  "folder": "07815dca7bd3d3d3",
+  "folder": "b0b1b2b3b4b5f048",
   "sort": 0,
   "ownership": {
     "default": 0

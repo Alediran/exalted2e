@@ -1,0 +1,69 @@
+{
+  "_id": "beef000000000033",
+  "_key": "!items!beef000000000033",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Victory in Defeat",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Although the Ebon Dragon loathes his confinement above all else, he also understands the necessity of biding his time. An Infernal may use this Charm whenever a hostile mental influence overcomes his defenses and he may pay Willpower to resist/mitigate the effects (i.e. he has the required points available). By activating this Charm, the character refuses to pay the Willpower cost and accepts the influence's hold over him. However, he regains one Willpower from his voluntarily submission while his attacker loses one Willpower (and gains one Limit if she has a Limit track). The Infernal may even acquiesce to social attacks that violate his Motivation or Urge.</p><p>Victory in Defeat does not provide a constant stream of Willpower for acquiescing to harmless or mildly inconveniencing requests, such as a merchant hawking his wares. Hostility means actual harm to the Infernal or something he values, especially influence that makes him act against his own interests.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "489a31e51ffdd8e8",
+            "charmName": "Brooding Resentment Defense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000033"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

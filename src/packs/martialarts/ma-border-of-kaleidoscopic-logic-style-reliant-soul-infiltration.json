@@ -18,8 +18,8 @@
     "essence": 8,
     "minAbility": 7,
     "charmType": "simple",
-    "duration": "instant",
-    "speed": 6,
+    "duration": "formula",
+    "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -38,7 +38,7 @@
     "martialArtsStyleName": "Border of Kaleidoscopic Logic Style",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Ten minutes",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

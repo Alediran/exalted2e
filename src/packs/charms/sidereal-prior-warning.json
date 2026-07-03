@@ -30,16 +30,19 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character keeps one eye on the present while the other eye watches for impending trouble. At any time during the next five hours when the character is just about to get into trouble, the player may make a reflexive (Wits + Awareness) roll. If this roll succeeds, the character feels a frisson of cold or gets a sinking sensation in his guts that warns him of a danger on the horizon. This sensation befalls him two minutes per success in advance of the danger and assumes that he will not change his course of action in the intervening period. Example: Black Ice Shadow uses this Charm while walking through the jungle. The Storyteller tells the Sidereal's player to make the reflexive roll, and the roll garners five successes. The Storyteller informs the player that danger lies 10 minutes ahead. If Black Ice Shadow had continued on his present course at his present speed, he would have walked right into the danger unknowing. Since the character has been warned, however, he can change his intended actions to mitigate or avoid it. Barring that, he can at least approach the danger ready and vigilant-- possibly with a prayer strip ready in hand. This Charm doesn't provide a specific warning of what danger lies ahead, only that something will happen. The aforementioned Sidereal might not know if an ambush lurks ahead, a nest of claw striders or a booby-trapped bridge across a deep chasm. When or if the danger confronts him, though, he'll recognize it as the foreseen peril.</p>",
+    "description": "<p>The character keeps one eye on the present while the other eye watches for impending trouble. At any time during the next five hours when the character is just about to get into trouble, the player may make a reflexive (Wits + Awareness) roll. If this roll succeeds, the character feels a frisson of cold or gets a sinking sensation in his guts that warns him of a danger on the horizon. This sensation befalls him two minutes per success in advance of the danger and assumes that he will not change his course of action in the intervening period. Example: Black Ice Shadow uses this Charm while walking through the jungle. The Storyteller tells the Sidereal's player to make the reflexive roll, and the roll garners five successes. The Storyteller informs the player that danger lies 10 minutes ahead. If Black Ice Shadow had continued on his present course at his present speed, he would have walked right into the danger unknowing. Since the character has been warned, however, he can change his intended actions to mitigate or avoid it. Barring that, he can at least approach the danger ready and vigilant-- possibly with a prayer strip ready in hand. This Charm doesn't provide a specific warning of what danger lies ahead, only that something will happen. The aforementioned Sidereal might not know if an ambush lurks ahead, a nest of claw striders or a booby-trapped bridge across a deep chasm. When or if the danger confronts him, though, he'll recognize it as the foreseen peril.</p><p><em>Scroll of Errata:</em> Instead of a reflexive roll when trouble arrives, the Storyteller has the Sidereal make any Awareness roll to notice a threat (Essence × 2) minutes before she would normally be able to roll. When the Storyteller cannot determine the difficulty beforehand, use the highest ([Intelligence + Larceny] ÷ 2) of any character involved in the threat—or difficulty 1 if the Sidereal could notice the threat automatically. On a success, she receives a vague premonition of harm, putting her on guard. Such forewarning adds one automatic success to her actual roll to notice the threat when it finally arrives.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Five hours",
     "stackCount": 0,
     "umiCost": 1,
+    "abilityDiceBonus": [
+      { "ability": "awareness", "formula": "1" }
+    ],
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

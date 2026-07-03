@@ -18,7 +18,7 @@
     "essence": 5,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,16 +36,53 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Until released",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "9396b8b150313e08"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9b3881e6835bd8e3",
+            "charmName": "Unassailable Rebuff Position",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "19898098d233f78c",
+            "charmName": "Glance and Stride",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0c737a208f8b4070",
+            "charmName": "Without Strategy Arrangement",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "9396b8b150313e08",
+    "grantsMastery": false
   },
   "folder": "8d69b74ca0e132d3",
   "sort": 0,

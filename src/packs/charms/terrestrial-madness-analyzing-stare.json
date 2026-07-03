@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>There is more to the healing arts than rejuvenation of the body. A good physician must also tend to his patient's mind. This Charm permits a Dragon-Blood to analyze another character and diagnose any external influences that cloud her mind. Such influences can include mind-effecting sorcery or Charms, as well as derangements. The Dragon-Blood's player must roll (Perception + Medicine) at a difficulty of 2. If the roll is successful, the Exalt can detect the existence of any external influences on the target as well as the nature of any derangements. With four or more successes, the Dragon-Blood can trace external magical influences back to their source or instantly understand the root cause of any natural derangement (adding two dice to any subsequent attempt to cure the patient of her mental illness). The Dragon-Blood cannot use this power on himself. The Charm can diagnose a patient suffering from a low-Willpower compulsion and even identify the approximate nature of any Exalt's Virtue Flaw while he is in Limit Break, but it can neither diagnose nor aid in curing any aspect of the Great Curse.</p>",
+    "description": "<p>There is more to the healing arts than rejuvenation of the body. A good physician must also tend to his patient's mind. This Charm permits a Dragon-Blood to analyze another character and diagnose any external influences that cloud her mind. Such influences can include mind-effecting sorcery or Charms, as well as derangements. The Dragon-Blood's player must roll (Perception + Medicine) at a difficulty of 2. If the roll is successful, the Exalt can detect the existence of any external influences on the target as well as the nature of any derangements. With four or more successes, the Dragon-Blood can trace external magical influences back to their source or instantly understand the root cause of any natural derangement (adding two dice to any subsequent attempt to cure the patient of her mental illness). The Dragon-Blood cannot use this power on himself. The Charm can diagnose a patient suffering from a low-Willpower compulsion and even identify the approximate nature of any Exalt's Virtue Flaw while he is in Limit Break, but it can neither diagnose nor aid in curing any aspect of the Great Curse.</p><p>(Errata) This Charm can diagnose any externally-imposed negative mental condition, including insanity arising from external trauma, not only those caused by sorcery or Charms. A character with a permanent Virtue rating of 1 is considered to be suffering from a form of madness that this Charm can identify. The Charm detects unnatural mental influence only — it cannot identify whether a compulsion is natural or unnatural from the result alone. When external magical influence is detected, the nature and origin of the magic is Obvious to the Dragon-Blood, though she does not automatically learn who cast it or precisely when.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +37,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -50,8 +50,8 @@
             "charmUid": "9324112c88a5d4d6",
             "charmName": "Infection-Banishing Prana",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

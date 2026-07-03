@@ -15,22 +15,24 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "craft",
-    "essence": 2,
+    "essence": 1,
     "minAbility": 3,
-    "charmType": "supplemental",
-    "duration": "instant",
+    "charmType": "simple",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Leader",
+      "War"
     ],
     "cost": {
       "formula": "1m (touch) or 3m (sight), +1wp if repairing",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Exalt scrutinizes an object to reveal its hidden structural weaknesses. When supplementing a Craft roll to repair an item, the player reflexively rolls (Perception + relevant Craft skill); each success reduces the time needed to complete the repair by one hour, to a minimum of one hour. When supplementing an attempt to destroy a target, each success instead adds two dice to the attack's damage after the blow lands, or adds one to the character's effective Strength rating when using feats of strength to break the object. The Charm may be activated by touch for 1m or by sight for 3m; if the character intends to repair rather than destroy, an additional 1wp must be spent at the time of activation.</p>",
+    "description": "<p>The Dragon-Blood may attempt to find the weak spot in some object. If the Dragon-Blood wishes to eliminate the flaws in an object, his player must roll (Intelligence + Craft) and spend one Willpower point. With a single success, damaged items are repaired instantly, although some things might be so damaged that this Charm must be used multiple times. If the Dragon-Blood wishes to strike at the item's weak point, any damage inflicted on his next successful physical attack against the object is doubled. If used against armor or a weapon, treat this as a disarming attempt, with a success destroying the item. Using this Charm requires the Dragon-Blood to spend at least one minute examining the item to be affected. It costs one mote if he can physically touch or handle the item or three motes if he must study it from a distance. This Charm is explicitly allowed to be made a part of a Combo with other Abilities.</p><p>The activation roll uses the character's highest Craft ability. Fixing objects is a Shaping effect, and the Charm can only repair non-magical inanimate objects by default. Broken structures must be repaired by mending each component object. Repairing a damaged simple artifact requires Essence 3+ and each use counts as (Essence rating) successes toward the task. Repairing or maintaining magitech or other exotic craft products further requires at least a dot of the appropriate Craft. If a special character uses this Charm to study flaws, she can communicate her findings to her leader or a fellow officer to enhance the next attack against the target made by the unit or character, respectively. If a character or unit has multiple applications of this Charm advising it on how to destroy an object, the formula for damage increase is (raw damage x 2) + (total Essence of advisors past first).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,25 +41,12 @@
 
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "craft",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "9f2e4b7c1a8d5e03"
   },
   "folder": "b0b1b2b3b4b5f01e",

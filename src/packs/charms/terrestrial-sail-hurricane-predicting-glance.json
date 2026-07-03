@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With a glance toward the western sky and a quick whiff of the sea salt in the air, the Dragon-Blood can flawlessly predict the course of the weather for the day by intuitively sensing the currents of the ocean and the air. The Charm will not help the DragonBlood predict supernatural changes to the weather made after her prediction. It can, however, sometimes predict phenomena related in some way to the weather or to the seas, such as deducing when an enemy fleet is most likely to leave port by knowing the tidal patterns or predicting an earthquake by foreseeing the tsunami it will cause. In order to use this Charm, the Dragon-Blood must�be on water. It automatically fails when she is standing on land.</p>",
+    "description": "<p>With a glance toward the western sky and a quick whiff of the sea salt in the air, the Dragon-Blood can flawlessly predict the course of the weather for the day by intuitively sensing the currents of the ocean and the air. The Charm will not help the Dragon-Blood predict supernatural changes to the weather made after her prediction. It can, however, sometimes predict phenomena related in some way to the weather or to the seas, such as deducing when an enemy fleet is most likely to leave port by knowing the tidal patterns or predicting an earthquake by foreseeing the tsunami it will cause. In order to use this Charm, the Dragon-Blood must be on water. It automatically fails when she is standing on land.</p><p>The Charm can detect impending changes to the weather caused by magic that has already been activated at the time the Terrestrial checks.</p><p>With Essence 2, the Charm functions above water aboard an aerial vehicle piloted with Sail. With Essence 3+, it functions onboard any Sail vehicle without needing water.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +37,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

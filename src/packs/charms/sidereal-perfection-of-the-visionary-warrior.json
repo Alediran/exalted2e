@@ -17,7 +17,7 @@
     "ability": "melee",
     "essence": 4,
     "minAbility": 5,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Sidereal channels Essence into a prayer strip that bears the Scripture of the Maiden on the Shelf, then places the strip across his eyes like a blindfold. It adheres there, and dark blood drips from beneath it, running down the character's face like tears. The strip does not hinder his vision, however. Instead, the prayer strip makes the patterns of his foes' fates--or the disruptions in the strands of fate caused by creatures outside fate--more apparent to him. (Supernatural stealth or concealment effects still work against him as normal.) While the Charm is in effect, the character doubles his Parry Defense Value against all blockable attacks and suffers no onslaught penalty to his Parry Defense Value. Also, once per action, he can make a reflexive Archery, Martial Arts, Melee or Thrown attack at his full dice pool--but not during the same action in which he performs a flurry. He could, however, reflexively attack once with his sword (and parry any incoming attack with twice his Defense Value) while concentrating on riding a wild horse through a storm of flaming arrows. PRESENCE: THE GAUNTLET</p>",
+    "description": "<p>The Sidereal channels Essence into a prayer strip that bears the Scripture of the Maiden on the Shelf, then places the strip across his eyes like a blindfold. It adheres there, and dark blood drips from beneath it, running down the character's face like tears. The strip does not hinder his vision. Instead, the prayer strip makes the patterns of his foes' fates—or the disruptions in the strands of fate caused by creatures outside fate—more apparent to him. (Supernatural stealth or concealment effects still work against him as normal.)</p><p>While the Charm is in effect, the Sidereal reduces the DV penalty of any action she takes in combat by one point, in addition to canceling onslaught penalties. Also, once per action, she can make a reflexive Archery, Martial Arts, Melee or Thrown attack at her full dice pool—but not during the same action in which she performs a flurry. She could, however, reflexively attack once with her sword (and parry any incoming attack) while concentrating on riding a wild horse through a storm of flaming arrows.</p><p>With Essence 4+, the Sidereal may choose to stock the reflexive attacks granted by this Charm, up to a maximum of (Dexterity) stocked attacks.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -46,6 +46,13 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
+    "dvBonus": {
+      "enabled": true,
+      "modeExclusive": false,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "ignorePenaltyTypes": ["onslaught"]
+    },
     "prereqGroups": [
       {
         "alternatives": [

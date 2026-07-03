@@ -15,22 +15,25 @@
   "system": {
     "exaltType": "solar",
     "ability": "melee",
-    "essence": 3,
-    "minAbility": 4,
-    "charmType": "permanent",
-    "duration": "permanent",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Mirror"
+      "Combo-OK",
+      "Martial-ready",
+      "Mirror",
+      "Obvious"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "1m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>An exhausting regimen of training and meditation allows the Solar to distill that part of her spirit which responds to the sunmetal orichalcum, radiating its power into every weapon she ever wields. Any weapon wielded by the Solar using her Melee Ability enjoys a +1 bonus to its Accuracy, Defense and Rate. This bonus stacks with standard magical material bonuses. New Abyssal Charm: All Blades Cry for Blood (Prerequisite: Resplendent Shadow Blade). An Abyssal who has learned this Charm fills her hands with a constant cold yearning for life. Any weapon she wields using her Melee Ability enjoys a +2 bonus to its Accuracy, and drains a number of motes equal to the Abyssal's Essence whenever it hits a target and inflicts at least one health level of damage. The Abyssal does not gain these motes; they simply vanish from the world. This Charm's Accuracy bonus stacks with standard magical material bonuses, save that its mote-drain does not double the yield granted by soulsteel weapons; instead it adds one to the number of motes drained. Molten Sun-Blade</p>",
+    "description": "<p>Solar Essence superheats the Lawgiver's blade until it glows cherry-red, burning hot enough to cleave through solid steel as if it were air. An attack supplemented by this Charm gains the Piercing tag and ignores all Hardness from armor. With Essence 3+, the Solar can pay an additional mote to ignore Hardness from other sources. Martial-Ready: Archery, Martial Arts, Thrown New Abyssal Charm: All Blades Cry for Blood (Prerequisite Charms: Savage Shade Style). The Abyssal's blade twists through armor to taste the precious lifeblood beneath it. This Charm is identical to its Solar counterpart.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -48,8 +51,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "45d7c78fc64a2391",
-            "charmName": "Glorious Solar Saber",
+            "charmUid": "7545ef0c42677e06",
+            "charmName": "Hungry Tiger Technique",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1

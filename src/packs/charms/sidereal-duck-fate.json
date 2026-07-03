@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Vibrations in the strands of fate alert a Sidereal to imminent danger. Her player rolls (Dexterity + Dodge) against a difficulty equal to the permanent Essence of the foe responsible for the trouble. (Environmental dangers are difficulty 1.) If the roll succeeds, the Exalt avoids the harmful effect. For this Charm's purposes, a \"harmful effect\" includes unexpected attacks, area-of-effect attacks, attacks with no physical component or even continuous effects with a duration longer than instant. (The character only needs to avoid a continuous effect once.) Attacks with very wide areas of effect (such as the Rain of Doom spell) defeat this Charm if the character is physically incapable of moving the distance needed to escape the effect. The Sidereal's player must activate this Charm either before her opponent's attack roll or as soon as the player becomes aware of the effect.</p>",
+    "description": "<p>Vibrations in the strands of fate alert a Sidereal to imminent danger. Her player rolls (Dexterity + Dodge) against a difficulty equal to the permanent Essence of the foe responsible for the trouble. (Environmental dangers are difficulty 1.) If the roll succeeds, the Exalt avoids the harmful effect. For this Charm's purposes, a \"harmful effect\" includes unexpected attacks, area-of-effect attacks, attacks with no physical component or even continuous effects with a duration longer than instant. (The character only needs to avoid a continuous effect once.) Attacks with very wide areas of effect (such as the Rain of Doom spell) defeat this Charm if the character is physically incapable of moving the distance needed to escape the effect. The Sidereal's player must activate this Charm either before her opponent's attack roll or as soon as the player becomes aware of the effect.</p><p>This Charm may be employed to avoid any harmful effect (including all undesired physical, social, mental and spiritual influence), regardless of applicability or the scope of the attack, so long as the Sidereal succeeds on the Charm's activation roll. It fails only against unexpected attacks, Limit Break and Pattern Bite. Duck Fate's fallible activation roll is considered a unique Flaw of Invulnerability.</p><p>This Charm protects the person of the Exalt, including his possessions. It does not protect allies or distant estates just because they may be represented as Background traits on the Sidereal's character sheet.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +44,7 @@
     "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
-    "perfectDefenseType": "",
+    "perfectDefenseType": "dodge",
     "active": false,
     "prereqGroups": [
       {

@@ -18,8 +18,8 @@
     "essence": 5,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "indefinite",
-    "speed": 6,
+    "duration": "formula",
+    "speed": 4,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -38,15 +38,27 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "526ad6ec0f62c7d6",
+            "charmName": "Mental Invisibility Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "512db165bad7d26c"
   },
   "folder": "07815dca7bd3d3d3",

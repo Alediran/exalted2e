@@ -365,6 +365,36 @@
     {{/if}}
   </div>
 
+  {{!-- M12b Attack Success Multiplier ─────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackSuccessMultiplier"}}</label>
+      <input type="number" name="system.attackSuccessMultiplier"
+             value="{{system.attackSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M12c Extra Success Multiplier ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.ExtraSuccessMultiplier"}}</label>
+      <input type="number" name="system.extraSuccessMultiplier"
+             value="{{system.extraSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M12d Attack Success Bonus ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackSuccessBonus"}}</label>
+      <input type="number" name="system.attackSuccessBonus"
+             value="{{system.attackSuccessBonus}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
   {{!-- M11 Penalty to Target ──────────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-section-header-row">
@@ -548,6 +578,12 @@
                value="{{system.extraActions.costPerAction}}" min="0"
                {{#unless isEditable}}readonly{{/unless}}>
       </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.EACostPerActionHighRate"}}</label>
+        <input type="number" name="system.extraActions.costPerActionHighRate"
+               value="{{system.extraActions.costPerActionHighRate}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
     </div>
     {{/if}}
   </div>
@@ -651,6 +687,116 @@
     {{/if}}
   </div>
 
+  {{!-- M30 Guaranteed Knockback ──────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.guaranteedKnockback.enabled"
+             {{#if system.guaranteedKnockback.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectGuaranteedKnockback"}}</span>
+    </label>
+    {{#if system.guaranteedKnockback.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.GKDistanceFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.guaranteedKnockback.distanceFormula"
+                 value="{{system.guaranteedKnockback.distanceFormula}}"
+                 placeholder="e.g. @ess * 3"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.guaranteedKnockback.distanceFormula"
+                  data-label="{{localize 'EX2E.GKDistanceFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M31 Post-Soak Damage Bonus ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.postSoakDamageBonus.enabled"
+             {{#if system.postSoakDamageBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectPostSoakDamageBonus"}}</span>
+    </label>
+    {{#if system.postSoakDamageBonus.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.PSDFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.postSoakDamageBonus.formula"
+                 value="{{system.postSoakDamageBonus.formula}}"
+                 placeholder="e.g. @ess"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.postSoakDamageBonus.formula"
+                  data-label="{{localize 'EX2E.PSDFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- Guaranteed Hit ─────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.guaranteedHit"
+             {{#if system.guaranteedHit}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.GuaranteedHit"}}
+    </label>
+  </div>
+
+  {{!-- M36 Upgrade Weapon Range ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.upgradeWeaponRange"
+             {{#if system.upgradeWeaponRange}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.UpgradeWeaponRange"}}
+    </label>
+  </div>
+
+  {{!-- Supplemental Keyword Injection ─────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="tags-header">
+      <label>{{localize "EX2E.SupplementalKeywordInjection"}}</label>
+      {{#if isEditable}}
+      <button data-action="addSupplementalKeyword"><i class="fa-solid fa-plus"></i></button>
+      {{/if}}
+    </div>
+    <div class="tags-list">
+      {{#each system.supplementalKeywordInjection as |kw idx|}}
+      <span class="keyword-tag-edit">
+        <select name="system.supplementalKeywordInjection.{{idx}}"
+                {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{#each @root.allKeywords as |opt|}}
+          <option value="{{opt}}" {{#if (eq opt kw)}}selected{{/if}}>{{opt}}</option>
+          {{/each}}
+        </select>
+        {{#if @root.isEditable}}
+        <button data-action="removeSupplementalKeyword" data-index="{{idx}}">✕</button>
+        {{/if}}
+      </span>
+      {{/each}}
+    </div>
+    {{#if system.supplementalKeywordInjection.length}}
+    <p class="hint">{{localize "EX2E.SupplementalKeywordInjectionHint"}}</p>
+    {{/if}}
+  </div>
+
   {{!-- ── DEFENSIVE ────────────────────────────────────────────────────────── --}}
   <h4 class="effects-group-header">{{localize "EX2E.EffectGroupDefensive"}}</h4>
 
@@ -686,6 +832,38 @@
       {{/if}}
       {{/if}}
     </div>
+  </div>
+
+  {{!-- Negates Crippling Effect ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.negatesCripplingEffect"
+             {{#if system.negatesCripplingEffect}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.NegatesCripplingEffect"}}
+    </label>
+  </div>
+
+  {{!-- Status Immunity ────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="tags-header">
+      <label>{{localize "EX2E.StatusImmunity"}}</label>
+      {{#if isEditable}}
+      <button data-action="addStatusImmunity"><i class="fa-solid fa-plus"></i></button>
+      {{/if}}
+    </div>
+    {{#each system.statusImmunity as |sid idx|}}
+    <div class="field-group" style="display:flex;gap:4px;align-items:center;margin-bottom:2px">
+      <input type="text" name="system.statusImmunity.{{idx}}"
+             value="{{sid}}" placeholder="e.g. knockback"
+             style="flex:1"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      {{#if @root.isEditable}}
+      <button type="button" class="btn-remove" data-action="removeStatusImmunity"
+              data-index="{{idx}}"><i class="fa-solid fa-times"></i></button>
+      {{/if}}
+    </div>
+    {{/each}}
   </div>
 
   {{!-- M19 Hazard Immunity ────────────────────────────────────────────────── --}}
@@ -943,6 +1121,108 @@
     {{/if}}
   </div>
 
+  {{!-- M3b Minimum Damage ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.minimumDamage.enabled"
+             {{#if system.minimumDamage.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectMinimumDamage"}}</span>
+    </label>
+    {{#if system.minimumDamage.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.MDFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.minimumDamage.formula"
+                 value="{{system.minimumDamage.formula}}"
+                 placeholder="e.g. @martialArts"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.minimumDamage.formula"
+                  data-label="{{localize 'EX2E.MDFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M3c Raw Damage Bonus (pre-soak) ────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.rawDamageBonus.enabled"
+             {{#if system.rawDamageBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectRawDamageBonus"}}</span>
+    </label>
+    {{#if system.rawDamageBonus.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.RDBFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.rawDamageBonus.formula"
+                 value="{{system.rawDamageBonus.formula}}"
+                 placeholder="e.g. @ess"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.rawDamageBonus.formula"
+                  data-label="{{localize 'EX2E.RDBFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M25a Raw Damage Multiplier ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.RawDamageMultiplier"}}</label>
+      <input type="number" name="system.rawDamageMultiplier"
+             value="{{system.rawDamageMultiplier}}"
+             min="1" step="0.1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M25b Post-Soak Damage Multiplier ──────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.PostSoakDamageMultiplier"}}</label>
+      <input type="number" name="system.postSoakDamageMultiplier"
+             value="{{system.postSoakDamageMultiplier}}"
+             min="1" step="0.1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M25c Damage Success Multiplier ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DamageSuccessMultiplier"}}</label>
+      <input type="number" name="system.damageSuccessMultiplier"
+             value="{{system.damageSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M25d Ignore Soak ───────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.ignoreSoak"
+             {{#if system.ignoreSoak}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.IgnoreSoak"}}
+    </label>
+  </div>
+
   {{!-- M1 Health Level Grant ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-section-header-row">
@@ -999,6 +1279,100 @@
         {{localize "EX2E.HGAddOption"}}
       </button>
       {{/if}}
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M2b Temporary Health Levels ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.temporaryHealthLevels.enabled"
+               {{#if system.temporaryHealthLevels.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectTemporaryHealthLevels"}}</span>
+      </label>
+    </div>
+    {{#if system.temporaryHealthLevels.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.TemporaryHealthLevelsLevel"}}</label>
+        <select name="system.temporaryHealthLevels.level" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="zero"  {{#if (eq system.temporaryHealthLevels.level "zero") }}selected{{/if}}>{{localize "EX2E.TemporaryHealthLevelsLevelZero"}}</option>
+          <option value="one"   {{#if (eq system.temporaryHealthLevels.level "one")  }}selected{{/if}}>{{localize "EX2E.TemporaryHealthLevelsLevelOne"}}</option>
+          <option value="two"   {{#if (eq system.temporaryHealthLevels.level "two")  }}selected{{/if}}>{{localize "EX2E.TemporaryHealthLevelsLevelTwo"}}</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.TemporaryHealthLevelsFormula"}}</label>
+        <input type="text" name="system.temporaryHealthLevels.formula"
+               value="{{system.temporaryHealthLevels.formula}}"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M2c Soak Reduction on Hit ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.soakReductionOnHit.enabled"
+               {{#if system.soakReductionOnHit.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.SoakReductionOnHit"}}</span>
+      </label>
+    </div>
+    {{#if system.soakReductionOnHit.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.SoakReductionOnHitBashing"}}</label>
+        <input type="number" name="system.soakReductionOnHit.bashingReduction"
+               value="{{system.soakReductionOnHit.bashingReduction}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SoakReductionOnHitLethal"}}</label>
+        <input type="number" name="system.soakReductionOnHit.lethalReduction"
+               value="{{system.soakReductionOnHit.lethalReduction}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SoakReductionOnHitDuration"}}</label>
+        <input type="text" name="system.soakReductionOnHit.duration"
+               value="{{system.soakReductionOnHit.duration}}"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M2d Damage-Driven Penalty ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.damageDrivenPenalty.enabled"
+               {{#if system.damageDrivenPenalty.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.DamageDrivenPenalty"}}</span>
+      </label>
+    </div>
+    {{#if system.damageDrivenPenalty.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.DamageDrivenPenaltyPerHL"}}</label>
+        <input type="number" name="system.damageDrivenPenalty.perHL"
+               value="{{system.damageDrivenPenalty.perHL}}" min="0" step="0.5"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.DamageDrivenPenaltyScope"}}</label>
+        <select name="system.damageDrivenPenalty.scope" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="all"               {{#if (eq system.damageDrivenPenalty.scope "all")              }}selected{{/if}}>{{localize "EX2E.DDPScopeAll"}}</option>
+          <option value="physicalAttributes"{{#if (eq system.damageDrivenPenalty.scope "physicalAttributes")}}selected{{/if}}>{{localize "EX2E.DDPScopePhysical"}}</option>
+          <option value="mentalAttributes"  {{#if (eq system.damageDrivenPenalty.scope "mentalAttributes") }}selected{{/if}}>{{localize "EX2E.DDPScopeMental"}}</option>
+        </select>
+      </div>
     </div>
     {{/if}}
   </div>
@@ -1270,6 +1644,19 @@
     {{/if}}
   </div>
 
+  {{!-- M6b Healing Rate Multiplier ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.HealingRateMultiplier"}}</label>
+      <input type="number" name="system.healingRateMultiplier"
+             value="{{system.healingRateMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{#if (gt system.healingRateMultiplier 1)}}
+    <p class="hint">{{localize "EX2E.HealingRateMultiplierHint"}}</p>
+    {{/if}}
+  </div>
+
   {{!-- M7 Status Application ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -1429,6 +1816,563 @@
   </div>
   {{/if}}
 
+  {{!-- M22 Ability Dice Bonus ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AbilityDiceBonus"}}</label>
+      {{#if isEditable}}
+      <button type="button" data-action="addAbilityDiceBonus" class="btn-sm">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each system.abilityDiceBonus as |entry idx|}}
+    <div class="field-group ability-dice-bonus-row" data-index="{{idx}}">
+      <select name="system.abilityDiceBonus.{{idx}}.ability"
+              {{#unless @root.isEditable}}disabled{{/unless}}>
+        <option value="">—</option>
+        {{#each @root.allAbilities}}
+        <option value="{{this.value}}" {{#if (eq this.value ../entry.ability)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+      <input type="text" name="system.abilityDiceBonus.{{idx}}.formula"
+             value="{{entry.formula}}" placeholder="{{localize 'EX2E.Formula'}}"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      {{#if @root.isEditable}}
+      <button type="button" data-action="removeAbilityDiceBonus" data-index="{{idx}}" class="btn-sm btn-danger">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+
+  {{!-- M26a Social Success Bonus ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.SocialSuccessBonus"}}</label>
+      <input type="number" name="system.socialSuccessBonus"
+             value="{{system.socialSuccessBonus}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M26b Social Success Multiplier ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.SocialSuccessMultiplier"}}</label>
+      <input type="number" name="system.socialSuccessMultiplier"
+             value="{{system.socialSuccessMultiplier}}"
+             min="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M37 Combat Dice Bonus ───────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.CombatDiceBonus"}}</label>
+      <input type="number" name="system.combatDiceBonus"
+             value="{{system.combatDiceBonus}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M38 Majestic Resistance Type ──────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MajesticResistanceType"}}</label>
+      <select name="system.majesticResistanceType" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="" {{#if (eq system.majesticResistanceType "")}}selected{{/if}}>—</option>
+        <option value="dodgelike"  {{#if (eq system.majesticResistanceType "dodgelike")}}selected{{/if}}>{{localize "EX2E.MRTDodgelike"}}</option>
+        <option value="parrylike"  {{#if (eq system.majesticResistanceType "parrylike")}}selected{{/if}}>{{localize "EX2E.MRTParrylike"}}</option>
+      </select>
+    </div>
+  </div>
+
+  {{!-- M39 Add Appearance Dice ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.addAppearanceDice"
+             {{#if system.addAppearanceDice}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.AddAppearanceDice"}}
+    </label>
+  </div>
+
+  {{!-- M40 DV Penalty Reduction ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DVPenaltyReduction"}}</label>
+      <input type="number" name="system.dvPenaltyReduction"
+             value="{{system.dvPenaltyReduction}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M41 Onslaught Penalty Reduction ───────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.OnslaughtPenaltyReduction"}}</label>
+      <input type="number" name="system.onslaughtPenaltyReduction"
+             value="{{system.onslaughtPenaltyReduction}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M42 DV Halving (both) ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DvHalving"}}</label>
+      <input type="checkbox" name="system.dvHalving"
+             {{#if system.dvHalving}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M43 Halves Parry DV ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.HalvesParryDV"}}</label>
+      <input type="checkbox" name="system.halvesParryDV"
+             {{#if system.halvesParryDV}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M44 Incoming Attack Dice Penalty ──────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.IncomingAttackDicePenalty"}}</label>
+      <input type="number" name="system.incomingAttackDicePenalty"
+             value="{{system.incomingAttackDicePenalty}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M45 Ignores Hardness ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.IgnoresHardness"}}</label>
+      <input type="checkbox" name="system.ignoresHardness"
+             {{#if system.ignoresHardness}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M46 Target Number Reduction ───────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.TargetNumberReduction"}}</label>
+      <input type="number" name="system.targetNumberReduction"
+             value="{{system.targetNumberReduction}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M47 Onslaught Multiplier ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.OnslaughtMultiplier"}}</label>
+      <input type="number" name="system.onslaughtMultiplier"
+             value="{{system.onslaughtMultiplier}}"
+             min="1" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M49 Onslaught to DV Penalty ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.OnslaughtToDVPenalty"}}</label>
+      <input type="checkbox" name="system.onslaughtToDVPenalty"
+             {{#if system.onslaughtToDVPenalty}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M50 Ignore DV Penalties ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.IgnoreDVPenaltiesDodge"}}</label>
+      <input type="checkbox" name="system.ignoreDVPenalties.dodge"
+             {{#if system.ignoreDVPenalties.dodge}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.IgnoreDVPenaltiesParry"}}</label>
+      <input type="checkbox" name="system.ignoreDVPenalties.parry"
+             {{#if system.ignoreDVPenalties.parry}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M51 Mental DV Bonus ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MentalDVBonus"}}</label>
+      <input type="number" name="system.mentalDVBonus"
+             value="{{system.mentalDVBonus}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M52 Shaping Immunity ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.ShapingImmunity"}}</label>
+      <input type="checkbox" name="system.shapingImmunity"
+             {{#if system.shapingImmunity}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M53 Automatic Knockdown ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AutomaticKnockdown"}}</label>
+      <input type="checkbox" name="system.automaticKnockdown"
+             {{#if system.automaticKnockdown}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M54 Detect Dematerialized ──────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DetectDematerialized"}}</label>
+      <input type="checkbox" name="system.detectDematerialized"
+             {{#if system.detectDematerialized}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M55 Limit Break Influence Immunity ─────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.LimitBreakInfluenceImmunity"}}</label>
+      <input type="checkbox" name="system.limitBreakInfluenceImmunity"
+             {{#if system.limitBreakInfluenceImmunity}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M56 Virtue Recovery ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.virtueRecovery.enabled"
+             {{#if system.virtueRecovery.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.VirtueRecovery"}}
+    </label>
+    {{#if system.virtueRecovery.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRollTriggerVirtue"}}</label>
+      <select name="system.virtueRecovery.virtue" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="valor"      {{#if (eq system.virtueRecovery.virtue "valor"     )}}selected{{/if}}>{{localize "EX2E.VirtueValor"}}</option>
+        <option value="conviction" {{#if (eq system.virtueRecovery.virtue "conviction")}}selected{{/if}}>{{localize "EX2E.VirtueConviction"}}</option>
+        <option value="temperance" {{#if (eq system.virtueRecovery.virtue "temperance")}}selected{{/if}}>{{localize "EX2E.VirtueTemperance"}}</option>
+        <option value="compassion" {{#if (eq system.virtueRecovery.virtue "compassion")}}selected{{/if}}>{{localize "EX2E.VirtueCompassion"}}</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRecoveryEvent"}}</label>
+      <select name="system.virtueRecovery.event" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="onEndScene"        {{#if (eq system.virtueRecovery.event "onEndScene"       )}}selected{{/if}}>{{localize "EX2E.EventOnEndScene"}}</option>
+        <option value="onDamageReceived"  {{#if (eq system.virtueRecovery.event "onDamageReceived" )}}selected{{/if}}>{{localize "EX2E.EventOnDamageReceived"}}</option>
+      </select>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M57 Social Success Bonus Formula ───────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.SocialSuccessBonusFormula"}}</label>
+      <input type="text" name="system.socialSuccessBonusFormula"
+             value="{{system.socialSuccessBonusFormula}}"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M58 Attacker Movement ──────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.attackerMovement.enabled"
+             {{#if system.attackerMovement.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.AttackerMovement"}}
+    </label>
+    {{#if system.attackerMovement.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackerMovementFormula"}}</label>
+      <input type="text" name="system.attackerMovement.formula"
+             value="{{system.attackerMovement.formula}}"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M59 Makes Attack Unexpected ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MakesAttackUnexpected"}}</label>
+      <input type="checkbox" name="system.makesAttackUnexpected"
+             {{#if system.makesAttackUnexpected}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M60 Join Battle Success Bonus ──────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.JoinBattleSuccessBonus"}}</label>
+      <input type="number" name="system.joinBattleSuccessBonus"
+             value="{{system.joinBattleSuccessBonus}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M61 First Attack Unexpected ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.FirstAttackUnexpected"}}</label>
+      <input type="checkbox" name="system.firstAttackUnexpected"
+             {{#if system.firstAttackUnexpected}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M62 Max Perfect Uses ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MaxPerfectUses"}}</label>
+      <input type="number" name="system.maxPerfectUses"
+             value="{{system.maxPerfectUses}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M63 Intimacy Protection ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="tags-header">
+      <label>{{localize "EX2E.IntimacyProtection"}}</label>
+      {{#if isEditable}}
+      <button data-action="addIntimacyProtection"><i class="fa-solid fa-plus"></i></button>
+      {{/if}}
+    </div>
+    {{#each system.intimacyProtection as |ip idx|}}
+    <div class="field-group" style="display:flex;gap:4px;align-items:center;margin-bottom:2px">
+      <input type="text" name="system.intimacyProtection.{{idx}}.description"
+             value="{{ip.description}}" placeholder="{{localize "EX2E.IntimacyProtectionDescHint"}}"
+             style="flex:1"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      <select name="system.intimacyProtection.{{idx}}.type"
+              {{#unless @root.isEditable}}disabled{{/unless}}>
+        <option value="minor"    {{#if (eq ip.type "minor")}}selected{{/if}}>{{localize "EX2E.IntensityMinor"}}</option>
+        <option value="major"    {{#if (eq ip.type "major")}}selected{{/if}}>{{localize "EX2E.IntensityMajor"}}</option>
+        <option value="defining" {{#if (eq ip.type "defining")}}selected{{/if}}>{{localize "EX2E.IntensityDefining"}}</option>
+      </select>
+      {{#if @root.isEditable}}
+      <button type="button" class="btn-remove" data-action="removeIntimacyProtection"
+              data-index="{{idx}}"><i class="fa-solid fa-times"></i></button>
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+
+  {{!-- M64 Counterattack Unblockable Variant ──────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.counterattackUnblockableVariant"
+             {{#if system.counterattackUnblockableVariant}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.CounterattackUnblockableVariant"}}
+    </label>
+  </div>
+
+  {{!-- M65 Range Multiplier ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.RangeMultiplier"}}</label>
+      <input type="number" name="system.rangeMultiplier"
+             value="{{system.rangeMultiplier}}"
+             min="1" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M66 Melee Range Extension ──────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.meleeRangeExtension"
+             {{#if system.meleeRangeExtension}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.MeleeRangeExtension"}}
+    </label>
+  </div>
+
+  {{!-- M70 Homing Attack ──────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.homingAttack"
+             {{#if system.homingAttack}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.HomingAttack"}}
+    </label>
+  </div>
+
+  {{!-- M69 Halve MDV ──────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.halveMDV"
+             {{#if system.halveMDV}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.HalveMDV"}}
+    </label>
+  </div>
+
+  {{!-- M67 Mote Loan ──────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.moteLoan.enabled"
+             {{#if system.moteLoan.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.MoteLoan"}}
+    </label>
+    {{#if system.moteLoan.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.MoteLoanFormula"}}</label>
+      <input type="text" name="system.moteLoan.formula"
+             value="{{system.moteLoan.formula}}"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.MoteLoanMaxReceive"}}</label>
+      <input type="number" name="system.moteLoan.maxReceive"
+             value="{{system.moteLoan.maxReceive}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M68 Willpower Gift ─────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.willpowerGift.enabled"
+             {{#if system.willpowerGift.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.WillpowerGift"}}
+    </label>
+    {{#if system.willpowerGift.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.WillpowerGiftFormula"}}</label>
+      <input type="text" name="system.willpowerGift.formula"
+             value="{{system.willpowerGift.formula}}"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.WillpowerGiftMaxTarget"}}</label>
+      <input type="number" name="system.willpowerGift.maxTarget"
+             value="{{system.willpowerGift.maxTarget}}"
+             min="0" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M71 Bypass Ammo Consumption ──────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.bypassAmmoConsumption"
+             {{#if system.bypassAmmoConsumption}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.BypassAmmoConsumption"}}
+    </label>
+  </div>
+
+  {{!-- M72 Sends Weapon to Elsewhere ─────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.sendsWeaponToElsewhere"
+             {{#if system.sendsWeaponToElsewhere}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.SendsWeaponToElsewhere"}}
+    </label>
+  </div>
+
+  {{!-- M73 Maladic Capture ──────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.capturesMalados"
+             {{#if system.capturesMalados}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.CapturesMalados"}}
+    </label>
+  </div>
+
+  {{!-- M73 Malados Transfer ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.transfersMalados"
+             {{#if system.transfersMalados}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.TransfersMalados"}}
+    </label>
+  </div>
+
+  {{!-- M74 Background Grant ───────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.grantsBackground"
+             {{#if system.grantsBackground}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.GrantsBackground"}}
+    </label>
+  </div>
+
+  {{!-- M75 Linked NPC Companion ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.linksNpcCompanion"
+             {{#if system.linksNpcCompanion}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.LinksNpcCompanion"}}
+    </label>
+  </div>
+
+  {{!-- M48 Virtue Roll Trigger ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.virtueRollTrigger.enabled"
+             {{#if system.virtueRollTrigger.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.VirtueRollTrigger"}}
+    </label>
+    {{#if system.virtueRollTrigger.enabled}}
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRollTriggerVirtue"}}</label>
+      <select name="system.virtueRollTrigger.virtue" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="valor"      {{#if (eq system.virtueRollTrigger.virtue "valor"     )}}selected{{/if}}>{{localize "EX2E.VirtueValor"}}</option>
+        <option value="conviction" {{#if (eq system.virtueRollTrigger.virtue "conviction")}}selected{{/if}}>{{localize "EX2E.VirtueConviction"}}</option>
+        <option value="temperance" {{#if (eq system.virtueRollTrigger.virtue "temperance")}}selected{{/if}}>{{localize "EX2E.VirtueTemperance"}}</option>
+        <option value="compassion" {{#if (eq system.virtueRollTrigger.virtue "compassion")}}selected{{/if}}>{{localize "EX2E.VirtueCompassion"}}</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.VirtueRollTriggerDifficulty"}}</label>
+      <input type="number" name="system.virtueRollTrigger.difficulty"
+             value="{{system.virtueRollTrigger.difficulty}}"
+             min="1" step="1"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    {{/if}}
+  </div>
+
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -1541,9 +2485,222 @@
     </label>
   </div>
 
+  {{!-- M21 Essence Drain (on hit) ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.essenceDrain.enabled"
+             {{checked system.essenceDrain.enabled}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EssenceDrain"}}</span>
+    </label>
+    {{#if system.essenceDrain.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.Formula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.essenceDrain.formula"
+                 value="{{system.essenceDrain.formula}}"
+                 placeholder="e.g. @ess"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.essenceDrain.formula"
+                  data-label="{{localize 'EX2E.Formula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.Pool"}}</label>
+        <select name="system.essenceDrain.pool" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="peripheral" {{#if (eq system.essenceDrain.pool "peripheral")}}selected{{/if}}>{{localize "EX2E.Peripheral"}}</option>
+          <option value="personal"   {{#if (eq system.essenceDrain.pool "personal")}}selected{{/if}}>{{localize "EX2E.Personal"}}</option>
+          <option value="any"        {{#if (eq system.essenceDrain.pool "any")}}selected{{/if}}>{{localize "EX2E.Any"}}</option>
+        </select>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M22b Target Willpower Drain ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.targetWillpowerDrain.enabled"
+             {{checked system.targetWillpowerDrain.enabled}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.TargetWillpowerDrain"}}</span>
+    </label>
+    {{#if system.targetWillpowerDrain.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.Formula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.targetWillpowerDrain.formula"
+                 value="{{system.targetWillpowerDrain.formula}}"
+                 placeholder="e.g. 1, @ess"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.targetWillpowerDrain.formula"
+                  data-label="{{localize 'EX2E.TargetWillpowerDrain'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M28a Harm Immaterial ──────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.harmImmaterial"
+             {{#if system.harmImmaterial}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.HarmImmaterial"}}
+    </label>
+  </div>
+
+  {{!-- M28b Spirit Aggravated Damage ─────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.spiritAggravatedDamage"
+             {{#if system.spiritAggravatedDamage}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.SpiritAggravatedDamage"}}
+    </label>
+  </div>
+
+  {{!-- M29 Post-Soak Damage Reduction ────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.PostSoakDamageReduction"}}</label>
+      <input type="number" name="system.postSoakDamageReduction"
+             value="{{system.postSoakDamageReduction}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M32 DV Bonus Formula (attack-phase bonus) ────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DVBonusFormula"}}</label>
+      <div class="formula-field-row">
+        <input type="text" name="system.dvBonusFormula"
+               value="{{system.dvBonusFormula}}"
+               placeholder="e.g. 1"
+               {{#unless isEditable}}readonly{{/unless}}>
+        {{#if isEditable}}
+        <button type="button" class="btn-fx" data-action="openFormula"
+                data-path="system.dvBonusFormula"
+                data-label="{{localize 'EX2E.DVBonusFormula'}}"
+                data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+          <i class="fa-solid fa-function"></i>
+        </button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- M33 Minimum Damage Reduction ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.MinimumDamageReduction"}}</label>
+      <input type="number" name="system.minimumDamageReduction"
+             value="{{system.minimumDamageReduction}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M34 Post-Soak Damage Reduction Per Mote ──────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.PostSoakDamageReductionPerMote"}}</label>
+      <input type="number" name="system.postSoakDamageReductionPerMote"
+             value="{{system.postSoakDamageReductionPerMote}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- M35 Creature of Darkness Raw Damage Reduction ───────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.CreatureOfDarknessRawDamageReduction"}}</label>
+      <div class="formula-field-row">
+        <input type="text" name="system.creatureOfDarknessRawDamageReduction"
+               value="{{system.creatureOfDarknessRawDamageReduction}}"
+               placeholder="e.g. @ess"
+               {{#unless isEditable}}readonly{{/unless}}>
+        {{#if isEditable}}
+        <button type="button" class="btn-fx" data-action="openFormula"
+                data-path="system.creatureOfDarknessRawDamageReduction"
+                data-label="{{localize 'EX2E.CreatureOfDarknessRawDamageReduction'}}"
+                data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+          <i class="fa-solid fa-function"></i>
+        </button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- M27 Clockwork Auto-Success Conversion ─────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.clockworkAutoSuccessConversion"
+             {{#if system.clockworkAutoSuccessConversion}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.ClockworkAutoSuccessConversion"}}
+    </label>
+  </div>
+
+  {{!-- M30 Ability Max Override ──────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.AbilityMaxOverride"}}</label>
+      <input type="number" name="system.abilityMaxOverride"
+             value="{{system.abilityMaxOverride}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  {{!-- Dynasty / Martyr Effects ──────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="field-group">
+      <label>{{localize "EX2E.DynastyEffect"}}</label>
+      <input type="text" name="system.dynastyEffect"
+             value="{{system.dynastyEffect}}"
+             placeholder="{{localize 'EX2E.DynastyEffectPlaceholder'}}"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  <div class="effect-section">
+    <label class="checkbox-label">
+      <input type="checkbox" name="system.hasMartyrOption"
+             {{#if system.hasMartyrOption}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.HasMartyrOption"}}
+    </label>
+    {{#if system.hasMartyrOption}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.MartyrEffect"}}</label>
+        <input type="text" name="system.martyrEffect"
+               value="{{system.martyrEffect}}"
+               placeholder="{{localize 'EX2E.MartyrEffectPlaceholder'}}"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
   {{!-- ── UPGRADE TIERS ────────────────────────────────────────────────────────── --}}
   <div class="upgrade-tiers-section">
-    <div class="section-toolbar">
+    <div class="section-toolbar ex2e-row">
       <h3>{{localize "EX2E.UpgradeTiers"}}</h3>
       {{#if isEditable}}
       <button type="button" class="btn-icon" data-action="addUpgradeTier"

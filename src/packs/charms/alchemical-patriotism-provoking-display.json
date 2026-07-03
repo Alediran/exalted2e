@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "alchemical",
     "ability": "charisma",
-    "essence": 1,
-    "minAbility": 1,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
@@ -34,13 +34,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Luminescent artificial glands are implanted beneath the Alchemical's skin. When this Charm is used to supplement a social attack, the glands divert a trickle of power from his anima to transform the way light and shadow play across his body, producing deep shadows and bright planes. He looks both inspiring and intimidating, like a commemorative statue or propaganda poster. Few are able to resist the dictates of such a starkly heroic figure. This Charm can enhance any social attack intended to convince a single target to take some action to support a social group to which he or the Alchemical belongs. Resisting this influence costs two Willpower, though the attack can be natural or unnatural depending on the intended force of the Champion's words. If the Exalt channels Conviction to aid the attack, add his rating as bonus successes rather than dice. Submodules: Many Is One Node (Charisma 4, 4xp): The Alchemical can apply this Charm to social attacks directed at groups or all listening (using Performance) as readily as it applies to individual targets, but the activation cost increases by three motes and one Willpower. One Is Many Node (Charisma 4, 4xp): This submodule broadens the Charm to allow favorable action directed at a specific member of a valid social unit, rather than toward the unit as a whole.</p>",
+    "description": "<p>Luminescent artificial glands are implanted beneath the Alchemical's skin. When this Charm is used to supplement a social attack, the glands divert a trickle of power from his anima to transform the way light and shadow play across his body, producing deep shadows and bright planes. He looks both inspiring and intimidating, like a commemorative statue or propaganda poster. Few are able to resist the dictates of such a starkly heroic figure. This Charm can enhance any social attack intended to convince a single target to take some action to support a social group to which he or the Alchemical belongs. Resisting this influence costs two Willpower, though the attack can be natural or unnatural depending on the intended force of the Champion's words. If the Exalt channels Conviction to aid the attack, add his rating as bonus successes rather than dice.</p><p>Submodules: Many Is One Node (Charisma 4, 4xp): The Alchemical can apply this Charm to social attacks directed at groups or all listening (using Performance) as readily as it applies to individual targets, but the activation cost increases by three motes and one Willpower. One Is Many Node (Charisma 4, 4xp): This submodule broadens the Charm to allow favorable action directed at a specific member of a valid social unit, rather than toward the unit as a whole.</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -48,7 +47,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Charisma Augmentation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "cb19cd611accb6ae"
   },
   "folder": "b0b1b2b3b4b5f04d",

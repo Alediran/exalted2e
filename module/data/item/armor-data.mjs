@@ -1,4 +1,5 @@
 import { EX2E } from "../../config.mjs";
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
 
 const fields = foundry.data.fields;
 
@@ -32,7 +33,8 @@ export class ArmorData extends foundry.abstract.TypeDataModel {
       tags: new fields.ArrayField(new fields.StringField({ blank: true })),
 
       // ── Description ──────────────────────────────────────────────────────
-      description: new fields.HTMLField({ initial: "" }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
       equipped:    new fields.BooleanField({ initial: false }),
       slot:        new fields.StringField({ initial: "armor", blank: false, choices: ["hands","feet","armor","head","none"] })
     };

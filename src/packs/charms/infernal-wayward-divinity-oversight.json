@@ -15,10 +15,10 @@
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 1,
+    "essence": 3,
     "minAbility": 1,
-    "charmType": "supplemental",
-    "duration": "instant",
+    "charmType": "permanent",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -49,8 +49,8 @@
             "charmUid": "894e52425f8b0fb8",
             "charmName": "Hellscry Chakra",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -1,0 +1,33 @@
+{
+  "_id": "5f0000000000000c",
+  "_key": "!items!5f0000000000000c",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Martial Arts Specialty Focus",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "martialArts",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": { "formula": "—", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>In the specific duties a Terrestrial assigns himself, his power comes easily. This Charm enhances its prerequisite, reducing its cost by one mote per specialty that applies to the enhanced action (minimum zero motes). Every success added with Second Martial Arts Excellency still counts as two dice for the purpose of Charm bonus limits.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "", "martialArtsTier": "", "martialArtsStyleName": "", "maidenAffiliation": "",
+    "durationFormula": "", "stackCount": 0, "umiCost": 0, "cooperationBonusDice": 0,
+    "excellency": "", "perfectDefenseType": "", "active": false,
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "9a0dabd4e13a0085", "charmName": "Second Martial Arts Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "charmUid": "5f0000000000000c"
+  },
+  "folder": "a1b2c3d4e5f60104",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

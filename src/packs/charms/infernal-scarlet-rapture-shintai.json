@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 1,
+    "essence": 5,
     "minAbility": 1,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -47,7 +47,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5733c280a06b3884",
+            "charmName": "Self As Cyclone Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "24dedf0bdbd7a088",
+            "charmName": "Who Strikes The Wind?",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "4392984734b5ccc6"
   },
   "folder": "e1c045f50a834f12",

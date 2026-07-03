@@ -1,6 +1,6 @@
 {
-  "_id": "2e1cce0fe0fd01fa",
-  "_key": "!items!2e1cce0fe0fd01fa",
+  "_id": "15eb2b99b8d0a614",
+  "_key": "!items!15eb2b99b8d0a614",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -15,10 +15,10 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "college",
-    "essence": 4,
-    "minAbility": 4,
+    "essence": 1,
+    "minAbility": 1,
     "charmType": "simple",
-    "duration": "oneMonth",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -32,21 +32,20 @@
       "limitTrigger": 0
     },
     "description": "<p>The impermanence of the world wears down the spirits of those sworn to preserve it. Only in letting go do they find peace. While in effect, this Charm renders the Sidereal immune to all Emotion effects that seek to produce any feeling other than simple happiness or joy-in-living. The Vizier may waive the Charm's Paradox cost and extend its Duration to one season if he voluntarily abandons an artifact that he owns at the time of activation. He must leave it behind in some place where it cannot be easily retrieved (abandoning a daiklave in a crowded market swarming with thieves, for example, or casting it into the ocean), and instantly loses all mystical rights of ownership. Intentionally coming into possession of the item again in the future provokes immediate Pattern Bite.</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "source": "Glories of the Most High: The Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "One month",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "2e1cce0fe0fd01fa"
+    "charmUid": "15eb2b99b8d0a614"
   },
   "folder": "84b20a7805198847",
   "sort": 0,

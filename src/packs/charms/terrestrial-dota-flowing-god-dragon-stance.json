@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Flowing God-dragon Stance",
+  "name": "Flowing God-Dragon Stance",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "oneDay",
-    "speed": 6,
+    "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fd3996ba22d104af",
+            "charmName": "Window-In-The-Door Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0dc8e766688c3915"
   },
   "folder": "b0b1b2b3b4b5f022",

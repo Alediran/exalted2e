@@ -37,7 +37,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Ebon Shadow Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "48ee7e1440e5648a",
+            "charmName": "Limb-immobilizing Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0c59457a2c25b9bb"
   },
   "folder": "8ba2fc566f928c7a",

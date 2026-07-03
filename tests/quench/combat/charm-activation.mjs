@@ -356,5 +356,25 @@ export function registerCharmActivation(context) {
       assert.equal(actor.system.motes.peripheral.value, peripheralAfterFirst,
         "peripheral didn't double-refund");
     });
+
+    // 9. virtueRollTrigger: activating a charm posts a virtue roll chat card.
+    it("[63] virtueRollTrigger: activation posts a virtue roll chat card", async function () {
+      const actor = await setupCharmActor();
+      // Seed the actor's Valor rating so the roll pool is non-zero.
+      await actor.update({ "system.virtues.valor.dotRating": 3 });
+      const sizeBefore = game.messages.size;
+
+      const charm = await createTempCharm(actor, {
+        cost: { formula: "3m" },
+        duration: "instant",
+        virtueRollTrigger: { enabled: true, virtue: "valor", difficulty: 1 }
+      });
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      // The virtue roll posts a second chat message (the charm activation
+      // card is the first; the pool-roll card is the second).
+      const ok = await waitFor(() => game.messages.size >= sizeBefore + 2);
+      assert.ok(ok, "virtue roll posted a second chat message");
+    });
   });
 }

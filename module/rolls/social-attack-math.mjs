@@ -55,9 +55,16 @@ export function computeMdvShiftFromApp(attacker, defender) {
   return clamped === 0 ? 0 : -clamped;
 }
 
-/** Erode and break-motivation hit Parry MDV; build/compel hit Dodge MDV. */
-export function computeBaseMDV(intent, defender) {
-  return (intent === "erode" || intent === "break-motivation")
+/**
+ * Erode and break-motivation hit Parry MDV; build/compel hit Dodge MDV.
+ * @param {string} intent
+ * @param {object} defender
+ * @param {"dodgelike"|"parrylike"|null} [resistanceOverride] - charm-sourced override
+ */
+export function computeBaseMDV(intent, defender, resistanceOverride = null) {
+  const useParry = resistanceOverride === "parrylike"
+    || (!resistanceOverride && (intent === "erode" || intent === "break-motivation"));
+  return useParry
     ? (defender.currentParryMDV ?? 0)
     : (defender.currentDodgeMDV ?? 0);
 }
@@ -203,6 +210,7 @@ export function resolveStep2({
   baseMDV,
   stackingMod,
   mdvShiftFromApp,
+  halveMDV = false,         // M69: attacker charm halves defender base MDV (floor)
   isUnnatural,
   autoFailedByNaturalCap,
   firstExcDice = 0,
@@ -213,10 +221,9 @@ export function resolveStep2({
   const perfectDefense     = activatedKeywords.has("Perfect Mental Defense");
   const motesResistApplied = !!isUnnatural && activatedKeywords.has("Resist Unnatural Mental Influence");
 
-  const effectiveMDV = Math.max(
-    0,
-    (baseMDV ?? 0) + (stackingMod ?? 0) + (mdvShiftFromApp ?? 0) + firstExcDice + secondExcSucc
-  );
+  const rawBase = (baseMDV ?? 0) + (stackingMod ?? 0) + (mdvShiftFromApp ?? 0);
+  const adjustedBase = halveMDV ? Math.floor(rawBase / 2) : rawBase;
+  const effectiveMDV = Math.max(0, adjustedBase + firstExcDice + secondExcSucc);
 
   const hit = !perfectDefense
            && !autoFailedByNaturalCap

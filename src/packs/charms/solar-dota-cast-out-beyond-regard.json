@@ -17,10 +17,10 @@
     "ability": "performance",
     "essence": 8,
     "minAbility": 8,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "formula",
-    "speed": 6,
-    "dvPenalty": 0,
+    "speed": 7,
+    "dvPenalty": 3,
     "steps": [],
     "keywords": [
       "Combo-OK",
@@ -39,15 +39,27 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "One performance",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "201cc500e90a9cc8",
+            "charmName": "Catching the Sun's Glance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "b168efd05b72f7d4"
   },
   "folder": "e38c83836f199624",

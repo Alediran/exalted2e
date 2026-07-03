@@ -22,7 +22,7 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
-      5
+      7
     ],
     "keywords": [
       "Combo-OK"
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>When this Charm is activated, the Dragon-Blood's ability to avoid danger becomes truly astonishing. When the Dragon-Blood is attacked and successfully evades injury through his Dodge DV, he can reflexively spend two motes to let his dodge carry him on and away from his attacker. The Dragon-Blood can instantly and reflexively execute a Dash action without suffering any DV penalty for doing so. Doing so usually takes him out of hand-to-hand combat range and allows him to evade most multiple attack Charms after</p><p>the first attack. This Charm must be activated as part of a dodge, however, so if the Dragon-Blood relies on his Parry DV instead of his Dodge DV, the Charm cannot be used. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p>",
+    "description": "<p>When this Charm is activated, the Dragon-Blood's ability to avoid danger becomes truly astonishing. When the Dragon-Blood is attacked and successfully evades injury through his Dodge DV, he can reflexively spend two motes to let his dodge carry him on and away from his attacker. The Dragon-Blood can instantly and reflexively execute a Dash action without suffering any DV penalty for doing so. Doing so usually takes him out of hand-to-hand combat range and allows him to evade most multiple attack Charms after the first attack. This Charm must be activated as part of a dodge, however, so if the Dragon-Blood relies on his Parry DV instead of his Dodge DV, the Charm cannot be used. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p><p>This Charm may only be activated if the incoming attack missed and the Exalt applied a dodge-based defense against it. The character reflexively moves as per a Dash action away from the opponent, causing all subsequent attacks in a flurry that can no longer reach the Exalt to automatically miss.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

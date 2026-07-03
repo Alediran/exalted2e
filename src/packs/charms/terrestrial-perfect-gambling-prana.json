@@ -17,7 +17,7 @@
     "ability": "larceny",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm, the use of which is highly illegal in both the Realm and Lookshy, permits a devious character to control a single event during the course of any game of chance, from a single throw of the dice to the draw of a single card. The Dragon-Blood using this Charm must be the one throwing the dice or drawing the card in order to get any benefit. Each new roll or draw demands a different use of this Charm, and frequent uses can exhaust the character's Essence pool rapidly.</p>",
+    "description": "<p>This Charm, the use of which is highly illegal in both the Realm and Lookshy, permits a devious character to control a single event during the course of any game of chance, from a single throw of the dice to the draw of a single card. The Dragon-Blood using this Charm must be the one throwing the dice or drawing the card in order to get any benefit. Each new roll or draw demands a different use of this Charm, and frequent uses can exhaust the character's Essence pool rapidly.</p><p>This Charm enhances a non-magical effort to cheat in ways that are possible (if highly improbable), ensuring the desired result. It does not alter probability or otherwise interact with fate.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

@@ -1,0 +1,71 @@
+{
+  "_id": "ca1b2c3d4e5f0009",
+  "_key": "!items!ca1b2c3d4e5f0009",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tactics Mean Everything",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Stackable",
+      "War"
+    ],
+    "cost": {
+      "formula": "1+m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Wise strategy is the cornerstone of victory, supporting the totality of other competencies. If this rock holds, so too will the forces a Terrestrial commands. All activations of this Charm stack, but the Exalt cannot commit more motes among all activations than his (War + 3). While the Charm is active and the Terrestrial commands a complementary unit with Magnitude 3+, he can use his War Excellency to enhance all attack and defense actions he orders that unit to take, regardless of the Ability used. He cannot add more dice to a roll this way than the number of motes committed to all activations of Tactics Mean Everything or (War + appropriate specialty), whichever is less.</p><p>Solar and Abyssal Exalted have Charms that are Mirror to one another named Shining General Puissance and Dread Warlord Stratagem (respectively) which have the same trait minimums and prerequisites as Tactics Mean Everything. These Charms are permanent, allowing use of War Excellencies to enhance attack and defense actions as though they were Excellencies for the appropriate Ability while commanding a Magnitude 3+ unit.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "Any War Excellency",
+            "abilityKey": "war",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0009"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

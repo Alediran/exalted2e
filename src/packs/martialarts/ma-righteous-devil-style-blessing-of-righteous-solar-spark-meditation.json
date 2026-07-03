@@ -38,7 +38,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Righteous Devil Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "8a468707f5373d12"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5d2d1c2bb606552d",
+            "charmName": "Blossom of Inevitable Demise Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "8a468707f5373d12",
+    "grantsMastery": false
   },
   "folder": "c9f7d573ff8d32af",
   "sort": 0,

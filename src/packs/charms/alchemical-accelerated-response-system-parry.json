@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A parry-optimized configuration of the Accelerated Response System fits the Alchemical with intercept-trajectory processors and reactive limb positioning servos. When an attack is declared, the system instantly computes optimal blocking angles and drives the Alchemical's arms to the correct position with mechanical precision, adding the Exalted's Essence to her Parry DV for the remainder of the tick and granting two bonus dice to any active parry roll made this action.</p><p>The parry-configuration activates with a hydraulic hiss as servos engage, and successfully blocked blows ring with a resonant clang as the Alchemical's reinforced limbs meet the incoming strike. This variant is the prerequisite for the Impenetrable Repulsor Field, which builds upon the parry-configuration's interception architecture to generate an active energy barrier.</p>",
+    "description": "<p>The Alchemical possesses literally wired reflexes. Starmetal nerve clusters and tiny orichalcum acceleration nodes are fitted into either the Alchemical's arms and torso, or her legs and hips. These options constitute two separate Charms, which must be purchased and installed independently. Both versions of the Charm eliminate penalty values against the character's DV equal to the character's (Dexterity). The upper body option permits this enhancement to apply to the character's Parry DV, while the lower body enhances Dodge DV. Installing both variants at once allows them to trigger simultaneously for two motes, without the need of an Array. The Alchemical need not commit a mote for the second installation.</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

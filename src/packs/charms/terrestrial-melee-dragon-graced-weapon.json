@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood has achieved a unity with his weapon that allows him to impart some of his elemental nature to it. On a suc-</p><p>cessful melee attack, the Dragon-Blood may also inflict an elemental effect appropriate to his aspect on the target. Air buffets the target, subtracting two dice from her next action. Earth triggers a tremor beneath the target's feet, forcing her player to roll (Dexterity + Athletics), difficulty 4, to keep the character from falling. Fire sets the target ablaze for a single action, giving a +4L bonus to the Dragon-Blood's damage dice pool. Water fills the target's lungs with seawater, adding three ticks before her next action due to violent coughing. Wood poisons the target's blood, causing her to suffer a -1 penalty on all actions for the scene if her player fails a reflexive (Stamina + Resistance) roll. Regardless of the specific elemental version learned, this Charm is always considered to be a Fire-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies, and Dragon-Blooded can learn only the version associated with their aspects.</p>",
+    "description": "<p>The Dragon-Blood has achieved a unity with his weapon that allows him to impart some of his elemental nature to it. On a successful melee attack, the Dragon-Blood may also inflict an elemental effect appropriate to his aspect on the target. Air buffets the target, subtracting two dice from her next action. Earth triggers a tremor beneath the target's feet, forcing her player to roll (Dexterity + Athletics), difficulty 4, to keep the character from falling. Fire sets the target ablaze for a single action, giving a +4L bonus to the Dragon-Blood's damage dice pool. Water fills the target's lungs with seawater, adding three ticks before her next action due to violent coughing. Wood poisons the target's blood, causing her to suffer a -1 penalty on all actions for the scene if her player fails a reflexive (Stamina + Resistance) roll. Regardless of the specific elemental version learned, this Charm is always considered to be a Fire-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies, and Dragon-Blooded can learn only the version associated with their aspects.</p><p>Each additional purchase of this Charm after the first adds an additional element beyond the character's aspect. Every activation incorporates the Exalt's base element, but can also incorporate any number of additional elements unlocked with extra Charm purchases. The total cost to activate the Charm is half the number of elements unleashed, all of which provide their usual power.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

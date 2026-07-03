@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This twisted Charm helps Abyssals reinforce Immaculate propaganda and undermine Solar heroism by fooling onlookers into believing deathknights are actually Lawgivers. An Abyssal who used this Charm along with Face-Drinking Bite could pose as a particular Solar. Renegades sometimes use this Charm more nobly or pathetically, draping themselves in the trappings of light as if repeating the lie might somehow make it true. This Charm makes the character appear to belong to the corollary Caste (Day to Night, etc.), altering her anima banner and caste mark accordingly. It also reverses any blatantly inhuman changes to appearance wrought by the Black Exaltation, so a withered, disease-ravaged or rotted deathknight can again look like a living human. Most importantly, deceived onlookers rationalize all Abyssal Charms the character uses as if they were actually Solar Charms, perceiving them as Mirror Charms where such exist.</p><p>Solar Impersonation Style's Illusion automatically fools all mundane senses, but Essence-based perceptions see through the fraud. The Exalt's Lunar mate and anyone with higher Essence rating than the Abyssal can also see through the trickery for a day if their players make a reflexive (Wits + Awareness) roll against a difficulty equal to the Abyssal's Larceny rating. Otherwise, the illusion is absolute and continues to alter perception even if the observer conclusively knows the truth. New Solar Charm: Vile Anathema Shroud (Prerequisites: Flawlessly Impenetrable Disguise; Exalted, p. 227). The Solar Mirror to this Charm has only become possible in the Time of Tumult. It helps Lawgivers infiltrate the courts of the Deathlords--and offers ruthless Exalted a scapegoat visage for morally questionable actions.</p>",
+    "description": "<p>This twisted Charm helps Abyssals reinforce Immaculate propaganda and undermine Solar heroism by fooling onlookers into believing deathknights are actually Lawgivers. An Abyssal who used this Charm along with Face-Drinking Bite could pose as a particular Solar. Renegades sometimes use this Charm more nobly or pathetically, draping themselves in the trappings of light as if repeating the lie might somehow make it true.</p><p>This Charm makes the character appear to belong to the corollary Caste (Day to Night, etc.), altering her anima banner and caste mark accordingly. It also reverses any blatantly inhuman changes to appearance wrought by the Black Exaltation, so a withered, disease-ravaged or rotted deathknight can again look like a living human. Most importantly, deceived onlookers rationalize all Abyssal Charms the character uses as if they were actually Solar Charms, perceiving them as Mirror Charms where such exist.</p><p>Solar Impersonation Style's Illusion automatically fools all mundane senses, but Essence-based perceptions see through the fraud. The Exalt's Lunar mate and anyone with higher Essence rating than the Abyssal can also see through the trickery for a day if their players make a reflexive (Wits + Awareness) roll against a difficulty equal to the Abyssal's Larceny rating. Otherwise, the illusion is absolute and continues to alter perception even if the observer conclusively knows the truth.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,8 +52,8 @@
             "charmUid": "6147e7686d786516",
             "charmName": "Face-Drinking Bite",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

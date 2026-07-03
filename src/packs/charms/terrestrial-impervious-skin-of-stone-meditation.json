@@ -15,10 +15,10 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "resistance",
-    "essence": 1,
+    "essence": 2,
     "minAbility": 2,
-    "charmType": "reflexive",
-    "duration": "instant",
+    "charmType": "simple",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood briefly transmutes her skin to the hardness of stone, enduring blows that would shatter lesser beings. This Charm is activated reflexively in Step 7 of the attack sequence. The character adds (Stamina) dice to her soak roll. Earth Aspects may additionally add their Essence to their Hardness for the purpose of this single attack. This bonus does not stack with other Charms that directly add to soak dice.</p>",
+    "description": "<p>This Charm permits a Dragon-Blood to give her skin the toughness of unyielding stone itself while losing none of her normal flexibility. Each mote spent increases the Dragon-Blood's bashing and lethal soak by two. The bonus to soak cannot exceed the Exalt's Essence. Also, this Charm is weak against Essence, and the soak bonus granted does not apply to damage inflicted by sorcery or by attacks enhanced with Charms. This Charm is compatible with armor.</p><p>Soak from this Charm is natural, and applies normally against damage from magical sources.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,18 +40,13 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "285219e97903baa8",
-    "soakBonus": {
-      "enabled": true,
-      "bashingFormula": "@sta",
-      "lethalFormula": "@sta"
-    }
+    "charmUid": "285219e97903baa8"
   },
   "folder": "b0b1b2b3b4b5f02b",
   "sort": 0,

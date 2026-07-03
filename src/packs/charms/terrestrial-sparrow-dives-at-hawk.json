@@ -17,13 +17,11 @@
     "ability": "archery",
     "essence": 3,
     "minAbility": 4,
-    "charmType": "reflexive",
+    "charmType": "permanent",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      5
-    ],
+    "steps": [],
     "keywords": [
       "Combo-OK",
       "Counterattack"
@@ -33,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Charm Dragonfly Finds Mate permits the Dragon-Blood to knock the projectiles of his enemies from the sky with well-placed arrows. This Charm goes one better, as the Dragon-Blood's arrow goes on to strike the foolish one who dared to strike at a Prince of the Earth. As with Dragonfly Finds Mate, the Exalt's player must roll (Dexterity + Archery). If the successes rolled by the player equal or exceed those of the attacker, the ranged attack is deflected. Furthermore, any successes in excess of those rolled for the attacker represent a reflexive archery attack made against that enemy. Also, the enemy's DV is not subtracted from this reflexive attack, unless the enemy has access to reflexive Charms that can be used to raise DV from zero or the enemy is already subject to a Charm with a persistent defense. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be used on any tick. It is, however, an exception to the normal rules for Dragon-Blooded reflexive Charms. Specifically, on any tick upon which the Dragon-Blood uses Sparrow Dives at Hawk, he cannot use any other Charms, including reflexive Charms, except for additional uses of Sparrow Dives at Hawk. Naturally, this limitation does not apply if the Charm is part of a Combo.</p>",
+    "description": "<p>This Charm upgrades Dragonfly Finds Mate. If that Charm successfully parries an attack, the Exalt can pay an extra 4m, 1wp during Step 9 to launch an unblockable, undodgeable counterattack that applies a number of successes to hit equal to the (parry successes rolled – original attack successes) in place of an attack roll. The attack otherwise uses the statistics of the Terrestrial's weapon. Using Dragonfly Finds Mate this way follows standard Dragon-Blooded Reflexive Charm rules.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -55,8 +53,8 @@
             "charmUid": "73f88c0610f118d7",
             "charmName": "Seven-Year Swarm Volley",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

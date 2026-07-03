@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's hearing and touch are sharpened by Oblivion's hunger, attuned to the faint vibrations of life preparing to cease. She hears the rhythms of heartbeats and the whisper of breath at great distances, and feels the subtle tremors of movement through ground and air. This heightened perception adds the Abyssal's Essence in bonus dice to all Awareness rolls involving hearing or touch.</p>",
+    "description": "<p>Abyssals do not perceive their surroundings more clearly out of any excellence or effort, but rather because it is their ordained place to know the beauty of the world before they grind it underfoot.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "",
             "charmName": "",
             "abilityKey": "awareness",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

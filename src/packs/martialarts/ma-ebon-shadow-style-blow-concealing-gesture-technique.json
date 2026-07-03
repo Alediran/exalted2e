@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Blow-concealing Gesture Technique",
+  "name": "Blow-Concealing Gesture Technique",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The character makes an arcane silent-communication gesture once used by teams of Night Caste scouts on long-range patrols in the First Age and infuses the gesture with Essence. In so doing, she renders her opponent unable to notice or react to an attack she makes. The opponent cannot apply either of his DVs against the character's blow without the use of reflexive Charms that enhance DV. The target's player may attempt a reflexive (Wits + Awareness) when the target is attacked--the difficulty equals the attacker's Essence. If the roll succeeds, the opponent may use any reflexive Charms or abilities he possesses to counter the attack. If the roll fails, the opponent may use only Charms that specifically state they work on attacks of which the character is unaware. BlowConcealing Gesture Technique is particularly effective in a Combo with other attack Charms, since the victim doesn't notice the attacker's flaring anima (though people nearby probably will).</p>",
+    "description": "<p>The character makes an arcane silent-communication gesture once used by teams of Night Caste scouts on long-range patrols in the First Age and infuses the gesture with Essence. In so doing, she renders her opponent unable to notice or react to an attack she makes. The opponent cannot apply either of his DVs against the character's blow without the use of reflexive Charms that enhance DV. The target's player may attempt a reflexive (Wits + Awareness) when the target is attacked--the difficulty equals the attacker's Essence. If the roll succeeds, the opponent may use any reflexive Charms or abilities he possesses to counter the attack. If the roll fails, the opponent may use only Charms that specifically state they work on attacks of which the character is unaware. Blow-Concealing Gesture Technique is particularly effective in a Combo with other attack Charms, since the victim doesn't notice the attacker's flaring anima (though people nearby probably will).</p>",
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Ebon Shadow Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2df0ed8e26528e3d",
+            "charmName": "Elusive Flicker Evasion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "55406957b16c0fe4"
   },
   "folder": "8ba2fc566f928c7a",

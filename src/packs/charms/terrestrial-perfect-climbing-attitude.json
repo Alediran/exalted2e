@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The bond between the Earth Dragon and its children is so great that it will not permit them to fall from great heights. With this Charm, a Dragon-Blood becomes a flawless mountaineer and rock-climber. The Dragon-Blood's fingers pass easily into any rock face, leaving behind indentations that he and others can use as handholds. The Dragon-Blood himself can hang from any stone or earthen surface without a roll unless it is worse than sheer (such as an overhang or a cavern roof). Even then, he or anyone following him gains two automatic successes on an Athletics roll to crawl along such surfaces. The Dragon-Blood can move across such surfaces at a rate of 10 feet per action or twice that if the surface is already suitably rough enough for mountain climbing (or if someone has already used this Charm to make it so). FLAW-FINDING EXAMINATION Cost: 1m for touch or 3m for sight, plus 1wp to repair; Mins: Craft 3, Essence 1; Type: Simple Keywords: Combo-OK Duration: One minute</p><p>Prerequisite Charms: None The Dragon-Blood may attempt to find the weak spot in some object. If the Dragon-Blood wishes to eliminate the flaws in an object, his player must roll (Intelligence + Craft) and spend one Willpower point. With a single success, damaged items are repaired instantly, although some things might be so damaged that this Charm must be used multiple times. If the Dragon-Blood wishes to strike at the item's weak point, any damage inflicted on his next successful physical attack against the object is doubled. If used against armor or a weapon, treat this as a disarming attempt, with a success destroying the item. Using this Charm requires the Dragon-Blood to spend at least one minute examining the item to be affected. It costs one mote if he can physically touch or handle the item or three motes if he must study it from a distance. This Charm is explicitly allowed to be made a part of a Combo with other Abilities.</p>",
+    "description": "<p>The bond between the Earth Dragon and its children is so great that it will not permit them to fall from great heights. With this Charm, a Dragon-Blood becomes a flawless mountaineer and rock-climber. The Dragon-Blood's fingers pass easily into any rock face, leaving behind indentations that he and others can use as handholds. The Dragon-Blood himself can hang from any stone or earthen surface without a roll unless it is worse than sheer (such as an overhang or a cavern roof). Even then, he or anyone following him gains two automatic successes on an Athletics roll to crawl along such surfaces. The Dragon-Blood can move across such surfaces at a rate of 10 feet per action or twice that if the surface is already suitably rough enough for mountain climbing (or if someone has already used this Charm to make it so).</p><p>Characters climbing with aid of this Charm do so at twice their normal walking speed. With Essence 3+, the Charm helps scale any surface and can do so without digging into it (the Exalt can't choose to dig into anything magical, such as a manse's walls).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

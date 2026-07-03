@@ -1,0 +1,69 @@
+{
+  "_id": "beef00000000001b",
+  "_key": "!items!beef00000000001b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tidings of a Bitter Season",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "-- (3m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>To comprehend the principle of hierarchy takes a greater understanding than is available to most. Those who taste the secret fruit may find it foul, while those who fail to comprehend a sacred truth may wind up broken. Whenever another character successfully reads the warlock's motive or intent, or discerns her Motivation or any of her Intimacies, they must make a reflexive (Intelligence + Occult) roll at a difficulty of (Infernal's Essence / 2) to comprehend the Infernal's desires and agenda. Success permits the Infernal to be safely understood, while failure renders the information incomprehensible, alien and disturbing. Moreover, failure inflicts a -1 internal penalty for the rest of the scene as the character's mind is wounded by contemplation of the unnatural universe glimpsed in the Infernal's psyche. A botch twists the information as with a failure, and also inflicts (Infernal's Essence) levels of unsoakable bashing damage as the character's mind is assaulted with impossible logic constructs other minds were not designed to comprehend. This Charm has no effect when the Infernal offers information about herself freely, only when it is gleaned against her will.</p><p>Additionally, by paying three motes and one Willpower, the Infernal may occlude her motives, Motivation and Intimacies for one action. Characters who attempt to discern information about the warlock see nothing where these essential traits and characteristics should be. This does not cause their attempts at discernment to fail precisely, but rather gives back a sense that the Infernal does not exist or is not human, and that she possesses no Motivations or Intimacies whatsoever. Otherwise, this use of Tidings of a Bitter Season inflicts no harm.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "810d786a34dac322",
+            "charmName": "Counterpoint Inquisition Defense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000001b"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

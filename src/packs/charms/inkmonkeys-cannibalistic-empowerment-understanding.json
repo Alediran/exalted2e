@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "survival",
     "essence": 2,
     "minAbility": 2,
@@ -22,19 +22,18 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Though some of their brethren might find such practices distasteful, practical Abyssals may learn to renew themselves from even the crudest aspects of death. This Charm permanently alters the Abyssal's feeding capabilities (see The Manual of Exalted Power--The Abyssals, p. 95), permitting the deathknight to gain Essence by devouring inanimate human corpses. Devouring a single mote's worth of flesh requires a Speed 5, DV -2 miscellaneous action; only one such action may be placed in a flurry. Once the character has gained her (Stamina + Essence) motes in this manner she must wait a full day to digest before this limit resets and she may feed again. A relatively intact, adult cadaver is worth three motes of Essence, and usually runs dry of Essence long before the deathknight has consumed all of its flesh; as a result, most cadavers are still suitable for reanimation even after serving as fodder through this Charm.</p><p>Pomegranates Full and Fine</p>",
+    "description": "<p>Though some of their brethren might find such practices distasteful, practical Abyssals may learn to renew themselves from even the crudest aspects of death. This Charm permanently alters the Abyssal's feeding capabilities (see The Manual of Exalted Power--The Abyssals, p. 95), permitting the deathknight to gain Essence by devouring inanimate human corpses. Devouring a single mote's worth of flesh requires a Speed 5, DV -2 miscellaneous action; only one such action may be placed in a flurry. Once the character has gained her (Stamina + Essence) motes in this manner she must wait a full day to digest before this limit resets and she may feed again. A relatively intact, adult cadaver is worth three motes of Essence, and usually runs dry of Essence long before the deathknight has consumed all of its flesh; as a result, most cadavers are still suitable for reanimation even after serving as fodder through this Charm.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -45,7 +44,7 @@
     "prereqGroups": [],
     "charmUid": "42be5d90c98d5f70"
   },
-  "folder": "82dbbb60bb2b2c18",
+  "folder": "b0b1b2b3b4b5f049",
   "sort": 0,
   "ownership": {
     "default": 0

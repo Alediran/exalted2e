@@ -22,7 +22,7 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
       "motes": 0,
       "willpower": 0,
@@ -35,13 +35,12 @@
       "limitTrigger": 0,
       "formula": "--"
     },
-    "description": "<p>The Solar's might is such as to knock a star from the sky or place one into orbit. This Charm permanently enhances its prerequisite, adding an additional (Essence x 5) yards to the distance a target can be launched on a successful hit, as well as allowing the character to use Heaven Thunder Hammer to launch a foe straight up. The rules for targets impacting with solid objects as a result of this Charm remain otherwise unchanged, though it is worth noting that what goes up must come down; it is entirely possible an opponent might be smashed into a high ceiling and then have to contend with falling damage. Lightning Strikes Twice</p>",
+    "description": "<p>The Solar's might is such as to knock a star from the sky or place one into orbit. This Charm permanently enhances its prerequisite, adding an additional (Essence x 5) yards to the distance a target can be launched on a successful hit, as well as allowing the character to use Heaven Thunder Hammer to launch a foe straight up. The rules for targets impacting with solid objects as a result of this Charm remain otherwise unchanged, though it is worth noting that what goes up must come down; it is entirely possible an opponent might be smashed into a high ceiling and then have to contend with falling damage.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Solar Hero Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

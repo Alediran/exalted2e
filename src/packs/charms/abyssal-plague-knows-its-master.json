@@ -51,18 +51,18 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "resistance",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
-      "status": "Sickness",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applySickness"
+      "enabled": false,
+      "status": "",
+      "resistPool": "",
+      "onFail": ""
     },
     "charmUid": "2121ff66aec34b81",
     "mirrorId": "866e91963172ada5"

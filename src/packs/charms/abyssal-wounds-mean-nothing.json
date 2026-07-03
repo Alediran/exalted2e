@@ -51,12 +51,12 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
+            "type": "charm",
+            "charmUid": "7ea22a2f3531b51d",
+            "charmName": "Walking Cadaver Grotesquerie",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -67,20 +67,8 @@
             "charmUid": "0cd7b0b9ca72290d",
             "charmName": "Injury-Absorbing Discipline",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "88a14734d2e7af52",
-            "charmName": "Spirit-Hardened Frame",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

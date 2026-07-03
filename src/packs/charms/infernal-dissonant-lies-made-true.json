@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "reflexive",
@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Noise alone drives Adorjan to monstrous killing rage. Lies bring out her righteousness, which is infinitely worse. This Charm is a counterattack against any form of mental</p><p>influence based on deception. It does not lessen the effectiveness of the opposing mental influence, instead forcing the attacker to believe his lies. Roll the Infernal's (Charisma + Presence + Essence) against the attacker's Dodge MDV. Success convinces the target of whatever delusion he sought to impose on the Infernal. Resisting this unnatural Illusion to recognize the truth for a scene costs two Willpower. When retaliating against magical Illusions that have different resistance guidelines, these guidelines apply to the Exalt, while the attacker resists according to the rules for Dissonant Lies Made True. Victims may only resist reflected lies when confronted with some external evidence of the deception. Those trapped within their own mind or bound by an inescapable or perfect lie may apply deeper introspection to the same result. Once a victim of this Charm has spent a cumulative total of 10 Willpower over five separate scenes or the fixed duration of the attacker's original lie passes (whichever comes first), he permanently slips free of that Illusion.</p>",
+    "description": "<p>Noise alone drives Adorjan to monstrous killing rage. Lies bring out her righteousness, which is infinitely worse. This Charm is a counterattack against any form of mental influence based on deception. It does not lessen the effectiveness of the opposing mental influence, instead forcing the attacker to believe his lies. Roll the Infernal's (Charisma + Presence + Essence) against the attacker's Dodge MDV. Success convinces the target of whatever delusion he sought to impose on the Infernal. Resisting this unnatural Illusion to recognize the truth for a scene costs two Willpower. When retaliating against magical Illusions that have different resistance guidelines, these guidelines apply to the Exalt, while the attacker resists according to the rules for Dissonant Lies Made True. Victims may only resist reflected lies when confronted with some external evidence of the deception. Those trapped within their own mind or bound by an inescapable or perfect lie may apply deeper introspection to the same result. Once a victim of this Charm has spent a cumulative total of 10 Willpower over five separate scenes or the fixed duration of the attacker's original lie passes (whichever comes first), he permanently slips free of that Illusion.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "adorjan",
     "martialArtsTier": "",
@@ -56,14 +56,14 @@
             "charmUid": "40beb21fe62bcecd",
             "charmName": "Hateful Wretched Noise",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "willpowerRecovery": {
-      "enabled": true,
+      "enabled": false,
       "event": "onDamageDealt",
       "formula": "1"
     },

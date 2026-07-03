@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -37,15 +37,27 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dreaming Pearl Courtesan Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e660acd2cd230dec",
+            "charmName": "Flurry of August Leaves Concentration",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "e3e79d172a019b4e"
   },
   "folder": "7769b16bd9ec72b1",

@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Everyone carries traces from the people they care about, and the Lunars can detect them. Blood-Kin Sense allows the character to detect the most important social tie the target has to another person. This is from the target's perspective, which may change with time, or even with mood. The Lunar's player rolls (Perception + Investigation) with a difficulty of the target's (higher of Manipulation or Socialize). Success on this roll reveals the information. Blood-Kin Sense costs one mote if the social tie is to a blood relative or spouse, two motes for a longtime friend or lover and four motes for a recent friend or a business associate, priest, commanding officer or other important person</p><p>in the target's life. People almost certainly have Intimacies toward the individuals they consider their most important social connections. If the object of this connection is present, the Lunar knows who it is in addition to the connection's meaning to the target. Otherwise, the character only learns about the connection and not to whom it points--this Charm does not reveal names or appearances. By spending four motes instead, the Lunar may simply declare an individual (whom the character must have met). Then, the Charm serves to determine the target's relationship with the named individual and the importance thereof to the target. Tasting the target's blood, at most a day before using this Charm, adds one success to the roll. Lunars can use this Charm with an automatic success on any form they can take with their natural shapeshifting powers.</p>",
+    "description": "<p>Everyone carries traces from the people they care about, and the Lunars can detect them. Blood-Kin Sense allows the character to detect the most important social tie the target has to another person. This is from the target's perspective, which may change with time, or even with mood. The Lunar's player rolls (Perception + Investigation) with a difficulty of the target's (higher of Manipulation or Socialize). Success on this roll reveals the information. Blood-Kin Sense costs one mote if the social tie is to a blood relative or spouse, two motes for a longtime friend or lover and four motes for a recent friend or a business associate, priest, commanding officer or other important person in the target's life. People almost certainly have Intimacies toward the individuals they consider their most important social connections. If the object of this connection is present, the Lunar knows who it is in addition to the connection's meaning to the target. Otherwise, the character only learns about the connection and not to whom it points--this Charm does not reveal names or appearances. By spending four motes instead, the Lunar may simply declare an individual (whom the character must have met). Then, the Charm serves to determine the target's relationship with the named individual and the importance thereof to the target. Tasting the target's blood, at most a day before using this Charm, adds one success to the roll. Lunars can use this Charm with an automatic success on any form they can take with their natural shapeshifting powers.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "perception",
             "virtueKey": "valor",
             "virtueMin": 1
           }

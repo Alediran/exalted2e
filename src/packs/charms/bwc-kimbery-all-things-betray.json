@@ -1,0 +1,69 @@
+{
+  "_id": "c1a2b3d4e5f6a70d",
+  "_key": "!items!c1a2b3d4e5f6a70d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "All Things Betray",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [1, 2],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m or 3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Kimbery's kindness never goes unpunished. Such is the cruelty of a mad and broken universe. This Charm may be used in one of two ways:</p><p>• It can serve as a step 2 defense against any unexpected physical or social attack for one mote, causing the attack to become expected unless the attacker is a beloved character. With Essence 4+, this use has a duration of one action, defending against all valid surprise attacks during that time.</p><p>• It can enhance a Join Battle roll for a cost of three motes, adding a number of bonus successes equal to the Infernal's Essence rating. With Essence 3+ and 4+ (respectively), the Charm can similarly aid Join War and Join Debate actions.</p><p>With Essence 3+, Infernals may use All Things Betray as an innate power rather than Charm activation by paying a one Willpower surcharge. However, this versatility comes at a price; the warlock becomes so accustomed to the certainty of betrayal that she must pay one Willpower for a scene of voluntary effort to count toward building a positive Intimacy toward another being (other sorts of Intimacies aren't affected).</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a70b",
+            "charmName": "Intolerable Burning Truths",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "c1a2b3d4e5f6a70d"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

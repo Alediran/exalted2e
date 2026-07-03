@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -38,16 +38,41 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Orgiastic Fugitive Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "(Essence) actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "1789fe3b468f9e23"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d34e0567f4ee812d",
+            "charmName": "Two-fisted Merrymaker",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "821214198db2ade4",
+            "charmName": "Drunken Monk Finds His Sandal",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "1789fe3b468f9e23",
+    "grantsMastery": true
   },
   "folder": "f2585f18db971283",
   "sort": 0,

@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "reflexive",
-    "duration": "oneDay",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Whenever a Sidereal who possesses this Charm comes under unnatural mental influence, instead of spending Willpower to resist the influence she may abandon her identity to become someone else--someone who would find the influence an unacceptable order (see Exalted, p. 180). The character keeps her memories and Abilities, but she has a different personality for the next 24 hours, with a different Motivation. Since the new personality might need to be extreme, eccentric or outright psychotic to</p><p>resist some commands--comparable to a Solar in Limit Break--the Death-of-Self Meditation has its disadvantages. The player may select the character's temporary Motivation, but the Storyteller defines the sort of personality that would have it.</p>",
+    "description": "<p>Some influences seek traction through the Sidereal's own heart—reaching for an Intimacy that makes the command acceptable or compels compliance. With this Charm, the Sidereal may refuse by ceasing to be someone for whom that Intimacy matters. When subjected to unnatural mental influence, she may shed any one of her Intimacies that the influence leverages—one that would render the order acceptable or that the attacker exploits to make compliance unavoidable. Shedding the Intimacy constitutes a perfect defense against that influence; no Willpower or further resistance is required. The lost Intimacy cannot be regained for the remainder of the story.</p><p><em>Scroll of Errata:</em> This replaces the Core text's 24-hour personality change. The Charm now functions as a perfect defense that consumes an Intimacy rather than temporarily replacing the Sidereal's identity.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

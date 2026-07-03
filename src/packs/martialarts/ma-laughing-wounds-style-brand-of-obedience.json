@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -38,16 +38,29 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Laughing Wounds Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "fa7c43f1d24514c1"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "81709ca42703eaf4",
+            "charmName": "Instructive Punishment Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "fa7c43f1d24514c1",
+    "grantsMastery": false
   },
   "folder": "33b132b15f3f6d2e",
   "sort": 0,

@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Abyssals bloat themselves with stolen motes to sustain them on extended forays into Creation, feeding on the terror</p><p>and death they cause. The secondary pool of Peripheral Essence can be filled using the Abyssal's innate bite attack or by terrorizing and harming a town, army, organization or other social or military unit. Every hour actively spent ravaging the populace--from murders in the night to burning the crops or shaking down peasants for taxes they cannot pay--enables the Abyssal to recover motes equal to the unit's Magnitude.</p>",
+    "description": "<p>Abyssals bloat themselves with stolen motes to sustain them on extended forays into Creation, feeding on the terror and death they cause. The secondary pool of Peripheral Essence can be filled using the Abyssal's innate bite attack or by terrorizing and harming a town, army, organization or other social or military unit. Every hour actively spent ravaging the populace--from murders in the night to burning the crops or shaking down peasants for taxes they cannot pay--enables the Abyssal to recover motes equal to the unit's Magnitude.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -45,20 +45,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "5747abb90340dd5a",
     "mirrorId": "84931bf90a7a307d"
   },

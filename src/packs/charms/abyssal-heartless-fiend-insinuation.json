@@ -53,19 +53,20 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "presence",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
-      "status": "Poisoned",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyPoison"
+      "enabled": false,
+      "status": "",
+      "resistPool": "",
+      "onFail": ""
     },
+    "halveMDV": true,
     "charmUid": "91225f5c4e048a0b"
   },
   "folder": "b0b1b2b3b4b5f043",

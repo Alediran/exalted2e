@@ -31,14 +31,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Although entropy is inevitable, it is also sometimes inconvenient. An Abyssal with this Charm infuses an inanimate object or necromantic creation with the unnatural stasis of the Underworld. Targets of this Charm become immune to non-magical sources of corrosion, rust, rot, weathering and any other manifestation of entropy (as decided by the Storyteller). The target also gains a Hardness</p><p>equal to its soak against magical sources of entropy, such as pyre flame or the destructive energies unleashed by various Abyssal Charms. This enchantment is permanent for inanimate objects. For walking dead and necromantically animated war machines, the effects last five maintenance cycles. (See the discussion of necrotech maintenance on pp. 205-207.) If the necrotech creation stays inactive, it multiplies the time between maintenance by 10. The Charm cannot affect the living.</p>",
+    "description": "<p>Although entropy is inevitable, it is also sometimes inconvenient. An Abyssal with this Charm infuses an inanimate object or necromantic creation with the unnatural stasis of the Underworld. Targets of this Charm become immune to non-magical sources of corrosion, rust, rot, weathering and any other manifestation of entropy (as decided by the Storyteller). The target also gains a Hardness equal to its soak against magical sources of entropy, such as pyre flame or the destructive energies unleashed by various Abyssal Charms. This enchantment is permanent for inanimate objects. For walking dead and necromantically animated war machines, the effects last five maintenance cycles. (See the discussion of necrotech maintenance on pp. 205-207.) If the necrotech creation stays inactive, it multiplies the time between maintenance by 10. The Charm cannot affect the living.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Permanent for inanimate objects; five maintenance cycles for animated dead",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -53,8 +53,8 @@
             "charmUid": "541776aee0f95fcb",
             "charmName": "Fault-Finding Scrutiny",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

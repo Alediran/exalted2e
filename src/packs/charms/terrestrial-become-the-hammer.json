@@ -14,14 +14,16 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "terrestrial",
-    "ability": "martialarts",
+    "ability": "martialArts",
     "essence": 2,
     "minAbility": 3,
-    "charmType": "supplemental",
+    "charmType": "reflexive",
     "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      1
+    ],
     "keywords": [
       "Combo-OK",
       "Leader",
@@ -39,9 +41,9 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One tick",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

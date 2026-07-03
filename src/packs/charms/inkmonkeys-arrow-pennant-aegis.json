@@ -22,19 +22,18 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Lawgiver's skill with a shield may even guard her against a bolt from the blue. When the character uses a shield to respond to ranged attacks from outside her engagement range she gains the following benefits: � Her Melee-derived Parry DV is increased by one; this bonus does not count as dice added by a Charm and ignores maximum DV limitations. � Melee Charms used to block such attacks cost one mote less, to a minimum of 0 motes.</p><p>Final Sunset Stance</p>",
+    "description": "<p>The Lawgiver's skill with a shield may even guard her against a bolt from the blue. When the character uses a shield to respond to ranged attacks from outside her engagement range she gains the following benefits: • Her Melee-derived Parry DV is increased by one; this bonus does not count as dice added by a Charm and ignores maximum DV limitations. • Melee Charms used to block such attacks cost one mote less, to a minimum of 0 motes.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

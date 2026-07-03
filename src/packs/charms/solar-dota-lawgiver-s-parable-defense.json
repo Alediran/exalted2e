@@ -23,7 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK Native"
+      "Combo-OK",
+      "Native"
     ],
     "cost": {
       "formula": "3m",
@@ -36,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c3c822581a07ee9d",
+            "charmName": "Oracular Magistrate Understanding",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "c2dfaa51ba5ae9f0"
   },
   "folder": "404dccadf2c8e04a",

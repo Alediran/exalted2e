@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Terrible Ascent-driven Beast Form",
+  "name": "Terrible Ascent-Driven Beast Form",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -19,7 +19,7 @@
     "minAbility": 3,
     "charmType": "simple",
     "duration": "oneScene",
-    "speed": 6,
+    "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -34,9 +34,8 @@
     "source": "Scroll of the Monk: The Imperfect Lotus",
     "yoziPatron": "",
     "martialArtsTier": "terrestrial",
-    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "martialArtsStyleName": "Terrible Ascent-Driven Beast Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "26062b97a261727d"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a5c17c6980bd9517",
+            "charmName": "Stand-Without-Strength Intensity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "265b5ab9ab263ed2",
+            "charmName": "Muscle-Without-Bone Relaxation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "26062b97a261727d",
+    "grantsMastery": false
   },
   "folder": "5ce01017f4c92c09",
   "sort": 0,

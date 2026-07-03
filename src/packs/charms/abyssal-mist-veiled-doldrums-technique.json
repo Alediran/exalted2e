@@ -31,13 +31,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Tendrils of dense fog swirl around the Abyssal's ship, rapidly thickening and spreading into a windless cloud with a radius in miles equal to the Abyssal's Sail rating. The deathknight can center the cloud anywhere as long as her ship stays somewhere inside. Clouds created by this Charm last for one scene before they disperse. Their maker cannot prematurely dismiss the clouds since they are not sustained by committed Essence. Although multiple clouds can join together to blanket a larger area, their effects do not stack with overlap; only the greatest penalties apply. No one could mistake the magical fog for natural weather. The fog imposes a variety of effects on all within it, including its creator: � Visibility drops to five yards for clear vision and 15 yards for murky vision, providing plenty of concealment to hide naval units. � Navigation rolls within the cloud suffer a -3 external penalty on top of penalties for poor visibility. Failure always leads the navigator deeper into the cloud rather than out of it. � The fog magically filters sunlight to protect creatures and effects harmed by this illumination.</p><p>� No wind naturally blows in the cloud, leaving windpowered vessels dead in the water unless they can break out oars. Magical wind trumps this aspect of the Charm but does not dissolve the cloud unless the source has a higher Essence rating than the Abyssal.</p>",
+    "description": "<p>Tendrils of dense fog swirl around the Abyssal's ship, rapidly thickening and spreading into a windless cloud with a radius in miles equal to the Abyssal's Sail rating. The deathknight can center the cloud anywhere as long as her ship stays somewhere inside. Clouds created by this Charm last for one scene before they disperse. Their maker cannot prematurely dismiss the clouds since they are not sustained by committed Essence. Although multiple clouds can join together to blanket a larger area, their effects do not stack with overlap; only the greatest penalties apply.</p><p>No one could mistake the magical fog for natural weather. The fog imposes a variety of effects on all within it, including its creator:</p><p>• Visibility drops to five yards for clear vision and 15 yards for murky vision, providing plenty of concealment to hide naval units.</p><p>• Navigation rolls within the cloud suffer a -3 external penalty on top of penalties for poor visibility. Failure always leads the navigator deeper into the cloud rather than out of it.</p><p>• The fog magically filters sunlight to protect creatures and effects harmed by this illumination.</p><p>• No wind naturally blows in the cloud, leaving wind-powered vessels dead in the water unless they can break out oars. Magical wind trumps this aspect of the Charm but does not dissolve the cloud unless the source has a higher Essence rating than the Abyssal.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -53,8 +52,8 @@
             "charmUid": "c330cd333015de72",
             "charmName": "Sea-Scanning Glare",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

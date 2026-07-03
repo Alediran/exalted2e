@@ -33,13 +33,13 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The heroes of the First Age used Ghost-Eating Technique to slay the Neverborn and the demon hordes. Spirits normally dissipate rather than dying when they lose all of their health levels to damage. The Solar invokes this Charm after making a successful attack that damages or dissipates a spirit. In addition to the normal damage from this attack, this Charm transfers a number of motes from the spirit to the Solar equal to (the Solar's permanent Essence x 2). If the spirit loses its last health level to this attack and dissipates, this Charm consumes the spirit utterly. Its Essence dissolves, and it will never be remade.</p><p>CHARM CONCEPT: MEDICAL CONDITIONS Resistance Charms help the Solar Exalted resist physical and spiritual maladies. Medicine Charms help them cure them. Unhappy medical conditions should almost always fall into one of the categories that the existing Medicine and Resistance Charms treat--they should inflict wounds, wound penalties or Crippling, Poison or Sickness effects. Pain and general physical dysfunction are both \"wound penalties.\" Characters are most likely to receive wound penalties from actual wounds, but supernatural pain and disability effects are also wound penalties. Crippling effects reduce a character's physical capabilities. Paralyzing someone's arm cripples them, as does cutting its tendon or cutting the whole arm off. Poison effects hurt a character by putting an unnatural physical or magical substance inside them. Tree frog venom, sorcerous magma or vitriol in the veins, bad shellfish and ichneumon eggs are all Poison effects. Sickness effects weaken a character's system. Disease, infected wounds and the withering effects of life in the shadowlands are all Sickness effects. Sickness effects also include the physical malaise caused by otherwise natural conditions. The ravages of old age, poverty and pregnancy are all considered sicknesses, but the underlying conditions are not. As noted on page 350, Exalted resist non-supernatural illnesses. STRATEGY Battle Fury Focus and Bloodthirsty Sword-Dancer Spirit reduce wound penalties. You might also consider replacing the dice lost through Excellencies and stunts. Others can help you resist wound penalties with Touch of Blissful Release. Unbreakable Warrior's Mastery and Immunity to Everything Technique are good Charms for characters concerned about Crippling, Sickness and Poison effects. A high Resistance also helps, as does a physician with Ailment-Rectifying Method, Body-Purifying Admonition and Wholeness-Restoring Meditation--but the physician will also need a Charm such as Instant Treatment Methodology if you're in a tight fix.</p>",
+    "description": "<p>The heroes of the First Age used Ghost-Eating Technique to slay the Neverborn and the demon hordes. Spirits normally dissipate rather than dying when they lose all of their health levels to damage. The Solar invokes this Charm after making a successful attack that damages or dissipates a spirit. In addition to the normal damage from this attack, this Charm transfers a number of motes from the spirit to the Solar equal to (the Solar's permanent Essence x 2). If the spirit loses its last health level to this attack and dissipates, this Charm consumes the spirit utterly. Its Essence dissolves, and it will never be remade.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -61,11 +61,10 @@
         ]
       }
     ],
-    "statusApply": {
+    "essenceDrain": {
       "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
+      "formula": "@ess * 2",
+      "pool": ""
     },
     "charmUid": "b6977eae1a392e18"
   },

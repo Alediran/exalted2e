@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal poisons a speaker's words with Essence, inducing her to commit a critical faux pas or shameful lapse of expected social graces. A deathknight can use this Charm to target any social attack she witnesses, inflicting a -1 external penalty for every three motes spent. Whenever a social attack targeted by this Charm fails, the targeted attacker suffers a -1 external penalty on all subsequent social attacks for the rest of the scene against anyone who observed his failure. No combination of instant or lingering effects from this Charm can penalize a social attack by more successes than the Abyssal has dots of Socialize. Without some way of detecting this Charm at work, no observer can discern any connection between the Abyssal and the effects of this Charm, though suspicion might grow if the deathknight is always present when his political rivals just happen to slip up. Proving such suspicions is another matter altogether.</p>",
+    "description": "<p>The Abyssal poisons a speaker's words with Essence, inducing her to commit a critical faux pas or shameful lapse of expected social graces. A deathknight can use this Charm to target any social attack she witnesses, inflicting a -1 external penalty for every three motes spent. Whenever a social attack targeted by this Charm fails, the targeted attacker suffers a -1 external penalty on all subsequent social attacks for the rest of the scene against anyone who observed his failure. No combination of instant or lingering effects from this Charm can penalize a social attack by more successes than the Abyssal has dots of Socialize.</p><p>Without some way of detecting this Charm at work, no observer can discern any connection between the Abyssal and the effects of this Charm, though suspicion might grow if the deathknight is always present when his political rivals just happen to slip up. Proving such suspicions is another matter altogether.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -55,8 +55,8 @@
             "charmUid": "96fb5386fdcb2ce7",
             "charmName": "Exquisite Etiquette Style",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -66,9 +66,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "socialize",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

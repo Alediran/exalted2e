@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "solar",
     "ability": "resistance",
-    "essence": 4,
-    "minAbility": 5,
+    "essence": 3,
+    "minAbility": 4,
     "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Like the sun they emulate, the Solar Exalted draw unlimited power by their very existence. This Charm creates an interaction between all Charms possessing the keywords Overdrive and Reactor. A character who has Surging Essence Reactor as well as Overdrive and Reactor Charms gains the following benefits: whenever the character generates more than twenty motes by use of a Reactor effect, the overflow motes go instantly into the character's Overdrive mote pool; additionally, if the Solar's regular mote pools are full upon using a Reactor effect, overflow motes go into her Overdrive mote pool. Twilight Caste Investigation Virtue-Discerning Sight</p>",
+    "description": "<p>Like the sun they emulate, the Solar Exalted draw unlimited power by their very existence. Surging Essence Reactor upgrades all Overdrive Charms the Solar possesses. Whenever he would gain offensive motes from one of them, he may choose to instead convert them into attunement motes. These special motes are not added to the Solar's Essence pools, but can be committed to any unattuned artifact he has on his person, allowing him to reflexively attune to it if its cost is paid in full with attunement motes. Alternatively, he can commit attunement motes to an attuned artifact he possesses, replacing the motes he has committed to it from his own pools. At the end of the scene, all attunement motes are lost. The Solar may reflexively replace them with his own motes to sustain the attunement of artifacts empowered by them.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

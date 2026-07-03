@@ -46,7 +46,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "White Reaper Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,11 +58,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "aba8b272c8afede9",
+            "charmUid": "71f2d652cc403549",
             "charmName": "Impenetrable White Shroud",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

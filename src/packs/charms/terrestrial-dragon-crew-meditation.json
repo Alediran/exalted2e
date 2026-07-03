@@ -1,0 +1,69 @@
+{
+  "_id": "ca1b2c3d4e5f001d",
+  "_key": "!items!ca1b2c3d4e5f001d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon Crew Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "sail",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Cooperative"
+    ],
+    "cost": {
+      "formula": "5m 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragons demand service from the ships aboard which they serve. Upon activating this Charm aboard a Sail vehicle, the Dragon-Blood falls into a deep trance and his eyes glaze over. His awareness becomes diffused throughout the vessel, allowing him to notice events as though he were present at every point in the vehicle. More importantly, the Exalt can use his actions to mentally control any part of the vehicle that standard crew could operate, such as piloting, unfurling sails, manning weapons emplacements and so on. If the vehicle is owned and captained by a Celestial Exalt, she and the Terrestrial can telepathically communicate with one another, as long as they share a language and the captain does not travel more than a mile from her ship.</p><p>Up to five Terrestrials can use this Charm cooperatively, in which case they know each other's surface thoughts so that they can efficiently divide labor, may reflexively donate motes to one another at will and provide each other limited cooperation bonuses on all crew-related tasks. A single user of this Charm can control a non-magical craft or one rated Artifact 1; each additional Cooperative participant raises the Artifact rating that the group can collectively manage. Use of this Charm does not obviate the need for crew, it just allows Terrestrials to be wherever they are most needed.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "Until disembarking",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "efbdfccf845e41e2",
+            "charmName": "Fine Passage Negotiating Style",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f001d"
+  },
+  "folder": "b0b1b2b3b4b5f02d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

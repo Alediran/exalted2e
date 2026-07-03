@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>With knowledge of life comes the power to build its parody. The Abyssal touches a corpse and infuses the decaying remnants of its chakras with Essence, animating it as a non-extra zombie (see Exalted, p. 314). This monster obeys its creator to the limits</p><p>of its meager Intelligence, understanding simple commands phrased in the native language of the person it once was. The creature suffers one unsoakable level of bashing damage per day from accelerated putrefaction, though this decay may be repaired with Charnel Chirurgeon Deftness or arrested with Eternal Embalming Preparation (see pp. 151-152).</p>",
+    "description": "<p>With knowledge of life comes the power to build its parody. The Abyssal touches a corpse and infuses the decaying remnants of its chakras with Essence, animating it as a non-extra zombie (see Exalted, p. 314). This monster obeys its creator to the limits of its meager Intelligence, understanding simple commands phrased in the native language of the person it once was. The creature suffers one unsoakable level of bashing damage per day from accelerated putrefaction, though this decay may be repaired with Charnel Chirurgeon Deftness or arrested with Eternal Embalming Preparation (see pp. 151-152).</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -55,8 +55,8 @@
             "charmUid": "81c9753f18de405c",
             "charmName": "Charnel Chirurgeon Deftness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

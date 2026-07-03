@@ -1,0 +1,69 @@
+{
+  "_id": "c1a2b3d4e5f6a710",
+  "_key": "!items!c1a2b3d4e5f6a710",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sorcerous Enlightenment of Kimbery",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sea That Marched Against the Flame is inherently aquatic, and this flavors her initiation of sorcery. Spells that predominantly manipulate or associate with liquid cost 10 motes and one Willpower less than usual (minimum cost five motes and one Willpower). Examples include Impervious Sphere of Water, The Parting of the Seas, River of Blood, Unstoppable Fountain of the Depths, Water From Stone, Written Upon The Water and Torrential Cascade. The same discount also applies to spells solely useful in an aquatic environment like Calling The Wind's Kiss, Floral Ferry, Lightning Whip Smites The Water, Mast-Shattering Spell, Storm Rider Enchantment, Viridian Mantle of Underwater Journeys and Summon Spirit Boat. Finally, spells that naturally impose harm through acid or poison resonate with her initiation, such as Assassin's Fatal Touch, Plague of Bronze Snakes, Blood of Boiling Oil, Geyser of Corrosion and Rain of Doom. Kimbery's power loathes fire in all forms, so she cannot cast spells that create or manipulate fire or other burning energy as the primary effect. So deep is her antipathy that she cannot even adapt intrinsically fiery spells to her imagery.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d501f1acb9fa25f0",
+            "charmName": "First Kimbery Excellency",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "c1a2b3d4e5f6a710"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

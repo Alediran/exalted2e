@@ -72,6 +72,19 @@ export const SCOPE_TO_TYPE = {
  * @param {object}   [rollData={}]
  * @returns {{ type: string, value: number, label: string, duration: string }[]}
  */
+/**
+ * Return all enabled virtueRecovery charms that fire on the given event.
+ * @param {object[]} items
+ * @param {string}   event
+ * @returns {object[]}
+ */
+export function collectVirtueRecoveryCharms(items, event) {
+  return items.filter(c => {
+    const vr = c?.system?.virtueRecovery;
+    return vr?.enabled && vr.event === event;
+  });
+}
+
 export function getTargetPenaltyChanges(items, rollData = {}) {
   const changes = [];
   for (const c of items) {

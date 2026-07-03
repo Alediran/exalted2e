@@ -41,7 +41,7 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Abyssal's Charisma in days",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -55,9 +55,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "presence",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

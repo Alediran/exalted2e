@@ -18,7 +18,7 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -47,8 +47,7 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Sapphire Veil of Passion Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,

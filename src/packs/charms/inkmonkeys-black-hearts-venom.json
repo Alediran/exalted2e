@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "medicine",
     "essence": 3,
     "minAbility": 3,
@@ -32,13 +32,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Drawing upon his refined understanding of poisons and the destruction they may wreak upon the living body, the Abyssal transforms himself into a font of lethal venom. His heart pumps out blood in a shade closer to black than red, which is slightly sticky and tends to coat surfaces it strikes rather than dripping off--and this blood is lethally toxic. The Abyssal's blood becomes a poison with the following traits: (7L/hour, 3, --/--, -2), which must be ingested or introduced into an open wound or other vulnerable portions of the body (such as the eyes) to take effect. Due to its viscosity, the Abyssal may open a small wound upon his body (inflicting one level of lethal damage) and use his blood to coat one weapon, or up to his Stamina rating in arrows or tiny throwing weapons such as shuriken. Any living being slain with this poison in his system rises one hour later as a zombie identical to those created through LifeMocking Assembly. Alternately, the Abyssal may learn this Charm as a Taint. This makes all of his bodily fluids permanently poisonous--paramours beware.</p><p>Death's Black Teeth</p>",
+    "description": "<p>Drawing upon his refined understanding of poisons and the destruction they may wreak upon the living body, the Abyssal transforms himself into a font of lethal venom. His heart pumps out blood in a shade closer to black than red, which is slightly sticky and tends to coat surfaces it strikes rather than dripping off--and this blood is lethally toxic. The Abyssal's blood becomes a poison with the following traits: (7L/hour, 3, --/--, -2), which must be ingested or introduced into an open wound or other vulnerable portions of the body (such as the eyes) to take effect. Due to its viscosity, the Abyssal may open a small wound upon his body (inflicting one level of lethal damage) and use his blood to coat one weapon, or up to his Stamina rating in arrows or tiny throwing weapons such as shuriken. Any living being slain with this poison in his system rises one hour later as a zombie identical to those created through LifeMocking Assembly. Alternately, the Abyssal may learn this Charm as a Taint. This makes all of his bodily fluids permanently poisonous--paramours beware.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -54,8 +53,8 @@
             "charmUid": "3c32613e5f87d361",
             "charmName": "Life-Mocking Assembly",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -66,15 +65,15 @@
             "charmUid": "5741cc36784fa31f",
             "charmName": "Venom-Bleeding Agony",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "bb86b59b281c4a66"
   },
-  "folder": "05ee3760b1dfb04f",
+  "folder": "b0b1b2b3b4b5f03f",
   "sort": 0,
   "ownership": {
     "default": 0

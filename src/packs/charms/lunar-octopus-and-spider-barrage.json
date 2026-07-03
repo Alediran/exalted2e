@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Octopus And Spider Barrage",
+  "name": "Octopus and Spider Barrage",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -50,11 +49,19 @@
         "alternatives": [
           {
             "type": "charm",
+            "charmUid": "cdf7be0187f1713a",
+            "charmName": "Wasp Sting Blur",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
             "charmUid": "1314998f9ee7f379",
             "charmName": "Wasp Sting Blur",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

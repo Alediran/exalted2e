@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 5,
     "minAbility": 1,
     "charmType": "simple",
@@ -32,14 +32,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Cecelyne provides for her faithful. This Charm can only be activated within a place of desolation. The ground cracks and crumbles into itself for five yards around the Infernal, tearing slabs of rock to pebbles and then the finest sand over the course of an hour. The vortex of torn earth shreds everything on or above this radius to a height of 100 yards like a severe sandstorm (see Exalted, p. 131) that ignores the soak of non-magical objects and structures but cannot harm the Infernal. When this destruction subsides, the sands of the radius dip inward like a bowl to a depth of five yards. Normal senses cannot feel the obscene generative Essence pooling in this pit, though Essence sight sees it for what it is. Hellish locusts constantly swarm out of the pit and die in gleaming multitudes around it, enough to feed a populace</p><p>of any size with appropriate distribution. These creatures may be preserved as normal for creations of Locust Mana Plague but dissolve to dust as soon as they travel more than (their creator's Essence rating) miles from the pit that spawned them. A pit can provide for a population center of any size for 100 years before its magic dies, but it cannot feed the surrounding countryside or provide a viable export.</p>",
+    "description": "<p>Cecelyne provides for her faithful. This Charm can only be activated within a place of desolation. The ground cracks and crumbles into itself for five yards around the Infernal, tearing slabs of rock to pebbles and then the finest sand over the course of an hour. The vortex of torn earth shreds everything on or above this radius to a height of 100 yards like a severe sandstorm (see Exalted, p. 131) that ignores the soak of non-magical objects and structures but cannot harm the Infernal. When this destruction subsides, the sands of the radius dip inward like a bowl to a depth of five yards. Normal senses cannot feel the obscene generative Essence pooling in this pit, though Essence sight sees it for what it is. Hellish locusts constantly swarm out of the pit and die in gleaming multitudes around it, enough to feed a populace of any size with appropriate distribution. These creatures may be preserved as normal for creations of Locust Mana Plague but dissolve to dust as soon as they travel more than (their creator's Essence rating) miles from the pit that spawned them. A pit can provide for a population center of any size for 100 years before its magic dies, but it cannot feed the surrounding countryside or provide a viable export.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "cecelyne",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One century",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,8 +54,8 @@
             "charmUid": "a1b5963c8623fb7f",
             "charmName": "Locust Mana Plague",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

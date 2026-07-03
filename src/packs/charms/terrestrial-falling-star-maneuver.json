@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>A Dragon-Blood with this Charm can move with the grace of a flickering flame, using his speed and agility to flank his opponent and gain the advantage in combat. Each mote spent (up to the maximum of the Exalt's permanent Essence) adds two dice of damage to a successful hand-to-hand attack. This damage is added before soak is applied. Normally, this Charm can be used only in hand-to-hand combat, but with a stunt, it may be applied to a Thrown or Archery attack. One can do so only if the target has no cover and has left himself open to a flanking maneuver, though. This Charm is explicitly allowed in Combos with Charms of other Abilities. BELLOWS-PUMPING STRIDE Cost: 1m or 2m; Mins: Athletics 3, Essence 2; Type: Reflexive Keywords: Combo-OK, Obvious Duration: One scene</p><p>Prerequisite Charms: Falling Star Maneuver For a scene, the Dragon-Blood can double his movement rate on all Move and Dash actions. While the Charm is in use, the Dragon-Blood leaves a trail of fiery footprints behind him, which have the potential to start fires if he runs through dry brush. This Charm does not affect the Speed of any of the Exalt's actions, just his movement rate. If the Exalt has an Athletics rating of 4, an Essence of 3 and the Terrestrial Athletics Reinforcement Charm, he can extend the effects of this Charm to others at a cost of two motes per person. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated only on a tick when the Dragon-Blooded initiates an action, though. It cannot be use on the ticks between actions.</p>",
+    "description": "<p>A Dragon-Blood with this Charm can move with the grace of a flickering flame, using his speed and agility to flank his opponent and gain the advantage in combat. Each mote spent (up to the maximum of the Exalt's permanent Essence) adds two dice of damage to a successful hand-to-hand attack. This damage is added before soak is applied. Normally, this Charm can be used only in hand-to-hand combat, but with a stunt, it may be applied to a Thrown or Archery attack. This Charm is explicitly allowed in Combos with Charms of other Abilities.</p><p>If applying this Charm to a ranged attack with a stunt, all that is required is for the target to lack cover.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

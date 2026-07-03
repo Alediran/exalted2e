@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Neverborn gaze into Creation even in their sleep, compounding their hatred of all that was stolen from them. While this Charm is active, the Exalt's eyes glow with unholy power. He may view any location within (Essence) miles by looking directly at it, seeing that place as clearly as if he stood there, bypassing intervening objects. Only areas warded from scrying remain impenetrably darkened to his sight. Anyone upon whom the Abyssal spies using this Charm gains a vague feeling of being watched by something malevolent if her player makes a reflexive (Perception + Occult) roll at difficulty 5. Only those with appropriate forms of Essence-based perception, however, can actually recognize and understand the Charm at work.</p>",
+    "description": "<p>The Neverborn gaze into Creation even in their sleep, compounding their hatred of all that was stolen from them. While this Charm is active, the Exalt's eyes glow with unholy power. He may view any location within (Essence) miles by looking directly at it, seeing that place as clearly as if he stood there, bypassing intervening objects. Only areas warded from scrying remain impenetrably darkened to his sight.</p><p>Anyone upon whom the Abyssal spies using this Charm gains a vague feeling of being watched by something malevolent if her player makes a reflexive (Perception + Occult) roll at difficulty 5. Only those with appropriate forms of Essence-based perception, however, can actually recognize and understand the Charm at work.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -54,8 +54,8 @@
             "charmUid": "4b1ffdcecef76593",
             "charmName": "Entropic Awakening of Sight",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

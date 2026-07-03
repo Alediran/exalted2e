@@ -2,11 +2,13 @@ import { describe, it, expect } from "vitest";
 
 // ── Foundry stub ────────────────────────────────────────────────────────────
 const fields = {
-  StringField:  class { constructor(o={}) { this.options = o; } },
-  NumberField:  class { constructor(o={}) { this.options = o; } },
-  BooleanField: class { constructor(o={}) { this.options = o; } },
-  HTMLField:    class { constructor(o={}) { this.options = o; } },
-  SchemaField:  class { constructor(cfg) { this.config = cfg; } },
+  StringField:      class { constructor(o={}) { this.options = o; } },
+  NumberField:      class { constructor(o={}) { this.options = o; } },
+  BooleanField:     class { constructor(o={}) { this.options = o; } },
+  HTMLField:        class { constructor(o={}) { this.options = o; } },
+  SchemaField:      class { constructor(cfg) { this.config = cfg; } },
+  ObjectField:      class { constructor(o={}) { this.options = o; } },
+  TypedObjectField: class { constructor(el, o={}) { this.element = el; this.options = o; } },
 };
 globalThis.foundry = { data: { fields }, abstract: { TypeDataModel: class {
   static defineSchema() { return {}; }

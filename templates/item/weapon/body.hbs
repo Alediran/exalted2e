@@ -1,7 +1,7 @@
 <div class="sheet-body weapon-body">
 
   <!-- ═══════════════ MODES OF USE ═══════════════ -->
-  <div class="section-toolbar">
+  <div class="section-toolbar ex2e-row">
     <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Modes"}}</h2>
     {{#if isEditable}}
     <button class="btn-add-item" data-action="addMode" title="{{localize 'EX2E.AddMode'}}">
@@ -169,7 +169,7 @@
   {{#if system.hearthstoneSlots}}
   <div class="hearthstone-socket-rows" style="margin-top:4px">
     {{#each socketedSlots as |slot|}}
-    <div class="hearthstone-slot-row">
+    <div class="hearthstone-slot-row ex2e-row">
       {{#if slot.filled}}
       <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
       {{#if @root.isEditable}}
@@ -189,12 +189,9 @@
   {{/if}}
 
   <!-- ═══════════════ DESCRIPTION ═══════════════ -->
-  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}
-    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
-      {{{enrichedDescription}}}
-    </prose-mirror>
+    {{> "systems/exalted2e/templates/item/_partials/description-langs.hbs"}}
     {{else}}
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}

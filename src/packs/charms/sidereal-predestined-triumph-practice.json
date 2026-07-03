@@ -17,7 +17,7 @@
     "ability": "war",
     "essence": 2,
     "minAbility": 4,
-    "charmType": "simple",
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Whether a Sidereal leads from the front or coaches from the rear, he can use this Charm to help lead an army to victory. When the Sidereal commands the unit, the Charm automatically succeeds. If the character acts through the army's commander, the Charm requires a successful (Charisma + War) roll with difficulty 1 if the leader cooperates, 3 if the leader doubts the Sidereal's advice and 5 if the leader flatly refuses to take the Sidereal's advice and must be browbeaten or tricked into the proper tactics. When the effect is successful, the affected unit adds the Sidereal's Essence to the unit's Morale, while opposing forces suffer a one-die penalty to their attacks and Defense Values.</p>",
+    "description": "<p>Whether a Sidereal leads from the front or coaches from the rear, he can use this Charm to help lead an army to victory. When the Sidereal commands the unit, the Charm automatically succeeds. If the character acts through the army's commander, the Charm requires a successful (Charisma + War) roll with difficulty 1 if the leader cooperates, 3 if the leader doubts the Sidereal's advice and 5 if the leader flatly refuses to take the Sidereal's advice and must be browbeaten or tricked into the proper tactics. When the effect is successful, the affected unit adds the Sidereal's Essence to the unit's Morale, while opposing forces suffer a -1 external penalty.</p><p>This Charm does not require a roll to enact. It affects a unit that includes the Sidereal as a special character. The Virtue keyword allows the Exalt to channel Valor on rolls for the unit to resist Exhaustion (Exalted, pp. 168-169), and to succeed on their Morale rolls automatically with 0 extra successes. Enemy units suffer a -1 external penalty, not a dice penalty.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "",

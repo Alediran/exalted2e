@@ -1,5 +1,18 @@
 import { areCharmPrereqsMet, meetsMinAbility } from './charm-prereqs.mjs';
 
+// Resolves integer or @token formula strings without importing Foundry's Roll class.
+export function evalMaxPurchases(raw, actor) {
+  const n = parseInt(raw, 10);
+  if (!isNaN(n)) return Math.max(1, n);
+  const rollData = actor?.getRollData?.() ?? {};
+  const substituted = String(raw).replace(/@(\w+)/g, (_, key) => {
+    const val = rollData[key];
+    return (val !== undefined && val !== null && typeof val !== 'object') ? String(val) : '0';
+  });
+  const result = parseInt(substituted, 10);
+  return Math.max(1, isNaN(result) ? 1 : result);
+}
+
 /**
  * Returns true if charm belongs to the given exaltType + groupKey combination.
  * groupKey is an ability key (solar/db/etc), attribute key (lunar/alchemical),
@@ -47,9 +60,11 @@ export function deduplicateCharms(entries) {
  * TreeNode: { id, charm, tier, isVirtual, virtualLabel }
  * Edge:     { fromId, toId, skip: boolean }
  */
-export function buildTree(charms, groupKey = '') {
+export function buildTree(charms, groupKey = '', { externalUids = null } = {}) {
   const nodes = new Map();
   const edges = [];
+  // Tracks minPurchases per directed edge key "fromId:toId" for type:"charm" prereqs.
+  const prereqMeta = new Map();
 
   // Index charms by charmUid for prereq resolution
   // Use charmUid as the node id when available so edges carry readable uid-based ids.
@@ -88,12 +103,47 @@ export function buildTree(charms, groupKey = '') {
     }
   }
 
+  // Alchemical "Any … Augmentation" prereqs (type:"charm", charmUid:"") function exactly
+  // like anyExcellency prereqs.  The pattern covers both single-attribute ("Any Strength
+  // Augmentation") and attribute-group forms ("Any Physical Attribute Augmentation") — in
+  // either case the charm is already scoped to its attribute by matchesFilter, so we create
+  // the virtual node keyed to the charm's own ability rather than parsing the prereq text.
+  for (const charm of charms) {
+    if (charm.system?.exaltType !== 'alchemical') continue;
+    const abilityKey = charm.system?.ability || '';
+    if (!abilityKey) continue;
+    for (const group of (charm.system?.prereqGroups ?? [])) {
+      for (const alt of (group.alternatives ?? [])) {
+        if (alt.type !== 'charm' || alt.charmUid) continue;
+        if (!/\bAugmentation\b/i.test(alt.charmName ?? '')) continue;
+        const vKey = `${abilityKey}:1`;
+        if (!virtualNodes.has(vKey)) {
+          const vId = `virtual:anyExcellency:${abilityKey}`;
+          nodes.set(vId, {
+            id: vId, charm: null, tier: 0, isVirtual: true,
+            virtualLabel: `(Any ${_capitalizeKey(abilityKey)} Augmentation)`,
+            abilityKey, minCount: 1,
+          });
+          virtualNodes.set(vKey, vId);
+        }
+      }
+    }
+  }
+
+  // Name → nodeId fallback for prereqs with empty charmUid but a charmName set.
+  // Covers specific named refs (e.g. "Personal Gravity Manipulation Apparatus") and
+  // Alchemical charms that reference siblings by name rather than by UID.
+  const byName = new Map();
+  for (const [nodeId, node] of nodes) {
+    if (!node.isVirtual && node.charm?.name) byName.set(node.charm.name, nodeId);
+  }
+
   // Build adjacency: fromId → toId
   const childrenOf = new Map();
   const parentsOf  = new Map();
 
   for (const node of nodes.values()) {
-    if (node.isVirtual) continue;
+    if (node.isVirtual || node.isGhost) continue;
     const charm = node.charm;
 
     // Excellency charms feed INTO their virtual anyExcellency node
@@ -120,6 +170,33 @@ export function buildTree(charms, groupKey = '') {
           const prereq = byUid.get(alt.charmUid);
           if (prereq) {
             fromId = prereq.system?.charmUid || prereq.id;
+          } else if (alt.charmUid && externalUids?.has(alt.charmUid)) {
+            // Cross-tree prereq: create a ghost node to anchor the dependent charm
+            const ghostId = `ghost:${alt.charmUid}`;
+            if (!nodes.has(ghostId)) {
+              const ext = externalUids.get(alt.charmUid);
+              nodes.set(ghostId, {
+                id: ghostId,
+                charm: null,
+                tier: 0,
+                isVirtual: false,
+                isGhost: true,
+                virtualLabel: `↱ ${ext.name}`,
+                ghostUid: alt.charmUid,
+                ghostName: ext.name,
+                ghostAbility: ext.ability,
+              });
+            }
+            fromId = ghostId;
+          } else if (!alt.charmUid) {
+            if (charm.system?.exaltType === 'alchemical' && /\bAugmentation\b/i.test(alt.charmName ?? '')) {
+              // "Any … Augmentation" (single-attr or attr-group) → charm's own attribute virtual node
+              const vId = `virtual:anyExcellency:${charm.system?.ability || ''}`;
+              if (nodes.has(vId)) fromId = vId;
+            } else if (alt.charmName) {
+              // Name-based fallback for broken charmUid refs (e.g. specific charm names without a UID)
+              fromId = byName.get(alt.charmName) ?? null;
+            }
           }
         } else if (alt.type === 'anyExcellency') {
           // Excellency charms feed INTO the virtual node — skip the reverse edge to break cycles
@@ -135,6 +212,9 @@ export function buildTree(charms, groupKey = '') {
         childrenOf.get(fromId).push(node.id);
         if (!parentsOf.has(node.id)) parentsOf.set(node.id, []);
         parentsOf.get(node.id).push(fromId);
+        if (alt.type === 'charm' && (alt.minPurchases ?? 1) > 1) {
+          prereqMeta.set(`${fromId}:${node.id}`, alt.minPurchases);
+        }
       }
     }
   }
@@ -147,12 +227,22 @@ export function buildTree(charms, groupKey = '') {
   const hasVirtualNodes = virtualNodes.size > 0;
   const tierOf = new Map();
   for (const [id, node] of nodes) {
-    const hasPrereqs = (parentsOf.get(id) ?? []).length > 0;
-    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs)
-      ? 0
-      : hasVirtualNodes
-        ? Math.max(node.charm?.system?.essence ?? 1, 2)
-        : 0;
+    const hasPrereqs  = (parentsOf.get(id) ?? []).length > 0;
+    const hasChildren = (childrenOf.get(id) ?? []).length > 0;
+    // Standalone charms (no parents AND no children) share the Excellency row;
+    // only subtree roots (no parents but with children) stay floored below it.
+    const isStandalone = !hasPrereqs && !hasChildren;
+    // Ghost nodes sit one level below Excellencies (tier 1) when there are
+    // virtual nodes, so they don't crowd the top row.  In trees without virtual
+    // nodes they stay at tier 0 (no Excellency row to separate them from).
+    let floor;
+    if (node.isGhost) {
+      floor = hasVirtualNodes ? 1 : 0;
+    } else if (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs || isStandalone) {
+      floor = 0;
+    } else {
+      floor = hasVirtualNodes ? Math.max(node.charm?.system?.essence ?? 1, 2) : 0;
+    }
     tierOf.set(id, floor);
   }
 
@@ -171,8 +261,12 @@ export function buildTree(charms, groupKey = '') {
   while (queue.length > 0) {
     const id = queue.shift();
     const myTier = tierOf.get(id) ?? 0;
+    const currentNode = nodes.get(id);
     for (const childId of (childrenOf.get(id) ?? [])) {
-      const candidate = myTier + 1;
+      const childNode = nodes.get(childId);
+      // virtual→quasi edge: quasi-Excellencies sit in the same row as the virtual node
+      const increment = (currentNode?.isVirtual && childNode?.isQuasiExcellency) ? 0 : 1;
+      const candidate = myTier + increment;
       if (candidate > (tierOf.get(childId) ?? 0)) {
         tierOf.set(childId, candidate);
       }
@@ -203,7 +297,7 @@ export function buildTree(charms, groupKey = '') {
     for (const toId of children) {
       const toTier  = nodes.get(toId)?.tier ?? 0;
       const diff    = toTier - fromTier;
-      edges.push({ fromId, toId, skip: diff > 1, sameTier: diff === 0 });
+      edges.push({ fromId, toId, skip: diff > 1, sameTier: diff === 0, minPurchases: prereqMeta.get(`${fromId}:${toId}`) ?? 1 });
     }
   }
 
@@ -309,13 +403,14 @@ export function getCharmState(charm, actor) {
   if (!actor) return 'neutral';
 
   const uid = charm.system?.charmUid;
-  const ownedItem = uid
-    ? actor.items.filter(i => i.type === 'charm' && i.system?.charmUid === uid)[0] ?? null
-    : null;
-  const maxPurch = parseInt(charm.system?.maxPurchases ?? '1', 10) || 1;
-  const ownedLevel = ownedItem?.system?.purchaseLevel ?? 0;
+  const ownedItems = uid
+    ? actor.items.filter(i => i.type === 'charm' && i.system?.charmUid === uid)
+    : [];
+  const ownedItem = ownedItems[0] ?? null;
+  const maxPurch = evalMaxPurchases(charm.system?.maxPurchases ?? '1', actor);
+  const ownedCount = maxPurch > 1 ? ownedItems.length : (ownedItem?.system?.purchaseLevel ?? 0);
 
-  if (ownedItem && ownedLevel >= maxPurch) return 'owned';
+  if (ownedItem && ownedCount >= maxPurch) return 'owned';
 
   // Check essence
   const essenceVal = actor.system?.essence?.value ?? 0;
@@ -335,10 +430,13 @@ export function getCharmState(charm, actor) {
  * Returns { current, max } for multi-purchase charms, or null for single-purchase.
  * ownedItem may be null (charm not yet owned).
  */
-export function getPipData(charm, ownedItem) {
-  const max = parseInt(charm.system?.maxPurchases ?? '1', 10) || 1;
+export function getPipData(charm, ownedItem, actor) {
+  const max = evalMaxPurchases(charm.system?.maxPurchases ?? '1', actor);
   if (max <= 1) return null;
-  const current = ownedItem?.system?.purchaseLevel ?? 0;
+  const uid = charm.system?.charmUid;
+  const current = (actor && uid)
+    ? actor.items.filter(i => i.type === 'charm' && i.system?.charmUid === uid).length
+    : (ownedItem?.system?.purchaseLevel ?? 0);
   return { current, max };
 }
 
@@ -370,7 +468,7 @@ export function getVirtualNodeState(node, actor) {
  */
 export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
   const _special = (node) =>
-    node.isVirtual || node.isQuasiExcellency || _isTierZeroExcellency(node?.charm);
+    node.isVirtual || node.isGhost || node.isQuasiExcellency || _isTierZeroExcellency(node?.charm);
 
   // Undirected adjacency over non-special nodes only
   const adj = new Map();
@@ -465,6 +563,12 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
     //   3. Regular charm prerequisites that were split into a different component
     //      (e.g. when the only path between two charms passes through a virtual node)
     const allIds = new Set(charmIds);
+    // Seed every tier-zero Excellency in the tree — they anchor every branch.
+    // This matters for Yozi trees where ALL anyExcellency charms are quasi-excellencies,
+    // leaving no regular charm to pull the Excellency in via the backward pass.
+    for (const [id, node] of nodes) {
+      if (_isTierZeroExcellency(node?.charm)) allIds.add(id);
+    }
     let changed = true;
     while (changed) {
       changed = false;
@@ -478,11 +582,23 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
           changed = true;
         }
       }
-      // Forward: quasi-Excellency children of virtual nodes now in the branch
+      // Forward: virtual children of tier-zero Excellencies already in the branch.
+      // Required when all children of a virtual node are quasi-excellencies (the backward
+      // pass can never pull the virtual node in from a regular charm child in that case).
       for (const { fromId, toId } of edges) {
         const fromNode = nodes.get(fromId);
         const toNode   = nodes.get(toId);
-        if (allIds.has(fromId) && !allIds.has(toId) && fromNode?.isVirtual && toNode?.isQuasiExcellency) {
+        if (allIds.has(fromId) && !allIds.has(toId) && _isTierZeroExcellency(fromNode?.charm) && toNode?.isVirtual) {
+          allIds.add(toId);
+          changed = true;
+        }
+      }
+      // Forward: quasi-Excellency children of virtual or quasi-Excellency nodes now in the branch
+      // (handles chains like virtual → Instinctive Strength Unity → Impossible Strength Improvement)
+      for (const { fromId, toId } of edges) {
+        const fromNode = nodes.get(fromId);
+        const toNode   = nodes.get(toId);
+        if (allIds.has(fromId) && !allIds.has(toId) && (fromNode?.isVirtual || fromNode?.isQuasiExcellency) && toNode?.isQuasiExcellency) {
           allIds.add(toId);
           changed = true;
         }
@@ -516,14 +632,34 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
 
 function _isTierZeroExcellency(charm) {
   const exc = charm?.system?.excellency;
-  return exc === 'first' || exc === 'second' || exc === 'third';
+  if (exc === 'first' || exc === 'second' || exc === 'third') return true;
+  // Alchemical Fourth/Fifth/Sixth Augmentations have no excellency marker but belong at tier 0.
+  // Detected by name since adding excellency fields to 27 source files would be large churn.
+  return charm?.system?.exaltType === 'alchemical'
+    && /^(fourth|fifth|sixth)\s+\w+\s+augmentation\b/i.test(charm?.name ?? '');
 }
+
+// Yozi groupKeys are camelCase (e.g. "theEbonDragon") but charm names use natural language.
+// Map camelCase keys that need translation to the name fragment used in charm names.
+const _YOZI_NAME_FRAGMENTS = {
+  ebonDragon:           'The Ebon Dragon',
+  sheWhoLivesInHerName: 'She Who Lives In Her Name',
+};
 
 function _isQuasiExcellency(charm, groupKey) {
   if (!groupKey || _isTierZeroExcellency(charm)) return false;
-  // Reject matches where the ability name is hyphen-prefixed to the next word
-  // (e.g. "Integrity-Protecting Prana" must not match groupKey "integrity").
-  return new RegExp(`\\b${groupKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
+  // Require the ability/attribute/yozi word to appear in a known quasi-excellency slot:
+  // leading ("Ride Essence Flow", "Malfeas Inevitability Technique"),
+  // after "Infinite" ("Infinite Ride Mastery"),
+  // after "of" ("Supreme Perfection of Ride"), after "Instinctive" ("Instinctive Strength Unity"),
+  // after "Flawless" ("Flawless Dexterity Focus"), after "Impossible" ("Impossible Strength Improvement"),
+  // after "Effortless" ("Effortless Malfeas Dominance"), after "So Speaks" ("So Speaks Malfeas"),
+  // after "Terrestrial" ("Terrestrial Melee Reinforcement"), after "Fateful" ("Fateful Archery Excellency"),
+  // or after "Propitious" ("Propitious Archery Alignment").
+  // Mid-name occurrences like "Last Ride Glory" are excluded.
+  // Multi-word Yozi keys are translated via _YOZI_NAME_FRAGMENTS; spaces become \s+.
+  const nameKey = (_YOZI_NAME_FRAGMENTS[groupKey] ?? groupKey).replace(/\s+/g, '\\s+');
+  return new RegExp(`(^|\\bInfinite\\s+|\\bof\\s+|\\bInstinctive\\s+|\\bFlawless\\s+|\\bImpossible\\s+|\\bEffortless\\s+|\\bSo\\s+Speaks\\s+|\\bTerrestrial\\s+|\\bFateful\\s+|\\bPropitious\\s+)${nameKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
 }
 
 function _capitalizeKey(key) {

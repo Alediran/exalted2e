@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "supplemental",
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Long ago, the gods bowed without bidding to their infinite betters. It is less satisfying now that divinities must be forced to surrender but will suffice to keep Malfeas amused. This Charm enhances a (Charisma + Presence) miscellaneous action against the target's Dodge MDV in which the Infernal commands a spirit to materialize before him. If successful, the target may pay a number of Willpower points equal to the Infernal's Essence rating (maximum five) to become</p><p>immune to World Chains Geas for the rest of the scene. If it cannot or does not pay this cost, the spirit must acquiesce to the unnatural mental influence by using its next action to assume a lasting solid form. A failed roll to use this Charm also immunizes the target against further uses by that Exalt for the rest of the scene. The target is free to use further actions to reverse the materialization and is under no compulsion not to attack the Infernal. Spirits unable to achieve a materialized state ignore this Charm, as they would any impossible order.</p>",
+    "description": "<p>Long ago, the gods bowed without bidding to their infinite betters. It is less satisfying now that divinities must be forced to surrender but will suffice to keep Malfeas amused. This Charm enhances a (Charisma + Presence) miscellaneous action against the target's Dodge MDV in which the Infernal commands a spirit to materialize before him. If successful, the target may pay a number of Willpower points equal to the Infernal's Essence rating (maximum five) to become immune to World Chains Geas for the rest of the scene. If it cannot or does not pay this cost, the spirit must acquiesce to the unnatural mental influence by using its next action to assume a lasting solid form. A failed roll to use this Charm also immunizes the target against further uses by that Exalt for the rest of the scene. The target is free to use further actions to reverse the materialization and is under no compulsion not to attack the Infernal. Spirits unable to achieve a materialized state ignore this Charm, as they would any impossible order.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "malfeas",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "10d782ab684d88e7",
             "charmName": "Godscorch Invective",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -65,8 +65,8 @@
             "charmUid": "7a800fd59f277769",
             "charmName": "Immolating Terror Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

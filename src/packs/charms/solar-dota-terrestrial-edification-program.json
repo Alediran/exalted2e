@@ -18,7 +18,7 @@
     "essence": 5,
     "minAbility": 5,
     "charmType": "permanent",
-    "duration": "instant",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -31,13 +31,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>The Solar's Harmonious Academic Methodology is permanently enhanced by her greater enlightenment. The Solar may now use her instruction to enlighten mortals, granting them the enlightened essence blight (see The Compass of Celestial Directions, Vol. II—The Wyld, p. 148). She also abolishes the 4-dot training cap from Harmonious Academic Methodology and Legendary Scholar Curriculum; only the age and Essence of her students limits their potential to absorb knowledge at the Solar's feet. She may also use Harmonious Academic Methodology to impart knowledge of thaumaturgy, sorcerous initiation Charms, or spells, assuming her students are capable of using such magic.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "46da214fd85d2e5f",
+            "charmName": "Legendary Scholar Curriculum",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "c5059a27204d488a"
   },
   "folder": "5b0108cbcf2feaf4",

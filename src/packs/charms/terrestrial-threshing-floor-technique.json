@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood can permit his allies to become preternaturally well-coordinated in their attacks on a single target, even to the point of overcoming the normal limit of how many people can attack a single target simultaneously. The Exalt must pay two motes plus one per targeted ally, and each ally will be able to make an attack on the target, regardless of how defensible the target's position is, provided that the ally is within normal move distance of the target.</p>",
+    "description": "<p>The Dragon-Blood can permit his allies to become preternaturally well-coordinated in their attacks on a single target, even to the point of overcoming the normal limit of how many people can attack a single target simultaneously. The Exalt must pay two motes plus one per targeted ally, and each ally will be able to make an attack on the target, regardless of how defensible the target's position is, provided that the ally is within normal move distance of the target.</p><p>With Essence 3+, all individuals blessed by the Charm are considered the same character for the purpose of imposing an onslaught penalty on the target against their attacks. This onslaught continues to accumulate until the Exalt's DV refreshes.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

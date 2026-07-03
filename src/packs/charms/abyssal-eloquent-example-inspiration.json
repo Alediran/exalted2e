@@ -33,13 +33,13 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Nothing stimulates productivity like pervasive mortal terror. To use this Charm, the Abyssal executes a subordinate member of a Magnitude 3+ organization she leads. Her player rolls (Manipulation + Bureaucracy + Essence) at a difficulty equal to the organization's Magnitude. Killing a high-ranking or popular subordinate or performing the execution in a particularly brutal or innovative manner can provide stunt dice.</p><p>Success increases the speed of all projects the organization undertakes by a factor equal to the Abyssal's Bureaucracy rating for a number of days equal to the threshold successes rolled (minimum one day). It also counts as a scene of building an Intimacy of fear toward the deathknight for all members. Failure decreases the Magnitude of the organization by one from demoralized desertions. Repeated use of this Charm weakens the emotional impact of the execution, imposing a cumulative -1 internal penalty to subsequent activations targeting the same organization. Each month that goes by without use of this Charm removes one die of this penalty.</p>",
+    "description": "<p>Nothing stimulates productivity like pervasive mortal terror. To use this Charm, the Abyssal executes a subordinate member of a Magnitude 3+ organization she leads. Her player rolls (Manipulation + Bureaucracy + Essence) at a difficulty equal to the organization's Magnitude. Killing a high-ranking or popular subordinate or performing the execution in a particularly brutal or innovative manner can provide stunt dice.</p><p>Success increases the speed of all projects the organization undertakes by a factor equal to the Abyssal's Bureaucracy rating for a number of days equal to the threshold successes rolled (minimum one day). It also counts as a scene of building an Intimacy of fear toward the deathknight for all members. Failure decreases the Magnitude of the organization by one from demoralized desertions.</p><p>Repeated use of this Charm weakens the emotional impact of the execution, imposing a cumulative -1 internal penalty to subsequent activations targeting the same organization. Each month that goes by without use of this Charm removes one die of this penalty.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -53,9 +53,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "bureaucracy",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

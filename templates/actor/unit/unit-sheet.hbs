@@ -45,7 +45,7 @@
   {{!-- Health Track --}}
   <div class="unit-section unit-health-section">
     <div class="section-label">{{localize "EX2E.UnitHealth"}}</div>
-    <div class="unit-health-row">
+    <div class="unit-health-row ex2e-row">
       <div class="unit-health-bar-wrap">
         <div class="unit-health-bar" style="width: {{healthPct}}%"></div>
       </div>
@@ -59,23 +59,23 @@
 
   {{!-- Core Stats --}}
   <div class="unit-stats-grid">
-    <div class="stat-row">
+    <div class="stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.Drill"}}</label>
       {{dotRating name="system.drill" value=system.drill max=5 min=1}}
     </div>
-    <div class="stat-row">
+    <div class="stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.Might"}}</label>
       {{dotRating name="system.might" value=system.might max=5 min=0}}
     </div>
-    <div class="stat-row">
+    <div class="stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.Endurance"}}</label>
       {{dotRating name="system.endurance" value=system.endurance max=5 min=1}}
     </div>
-    <div class="stat-row">
+    <div class="stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.Morale"}}</label>
       {{dotRating name="system.morale" value=system.morale max=5 min=1}}
     </div>
-    <div class="stat-row">
+    <div class="stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.ArmorFatigue"}}</label>
       {{dotRating name="system.armorFatigue" value=system.armorFatigue max=4 min=0}}
     </div>
@@ -85,23 +85,23 @@
   <div class="unit-section unit-combat-ratings-section">
     <div class="section-label">{{localize "EX2E.CloseCombatRating"}} / {{localize "EX2E.RangedCombatRating"}}</div>
     <div class="unit-stats-grid">
-      <div class="stat-row">
+      <div class="stat-row ex2e-row">
         <label class="stat-label">{{localize "EX2E.CloseCombatRating"}}</label>
         {{dotRating name="system.closeCombatRating" value=system.closeCombatRating max=5 min=0}}
       </div>
-      <div class="stat-row">
+      <div class="stat-row ex2e-row">
         <label class="stat-label">{{localize "EX2E.RangedCombatRating"}}</label>
         {{dotRating name="system.rangedCombatRating" value=system.rangedCombatRating max=5 min=0}}
       </div>
-      <div class="stat-row">
+      <div class="stat-row ex2e-row">
         <label class="stat-label">{{localize "EX2E.CloseDamageRating"}}</label>
         {{dotRating name="system.closeDamageRating" value=system.closeDamageRating max=5 min=0}}
       </div>
-      <div class="stat-row">
+      <div class="stat-row ex2e-row">
         <label class="stat-label">{{localize "EX2E.RangedDamageRating"}}</label>
         {{dotRating name="system.rangedDamageRating" value=system.rangedDamageRating max=5 min=0}}
       </div>
-      <div class="stat-row">
+      <div class="stat-row ex2e-row">
         <label class="stat-label">{{localize "EX2E.Armor"}}</label>
         {{dotRating name="system.armor" value=system.armor max=5 min=0}}
       </div>
@@ -129,17 +129,17 @@
       <span class="commander-none">—</span>
       {{/if}}
     </div>
-    <div class="unit-relays-row stat-row">
+    <div class="unit-relays-row stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.Relays"}}</label>
       <input type="number" name="system.relays"
              value="{{system.relays}}" min="0" class="unit-relays-input" />
     </div>
-    <div class="unit-relays-row stat-row">
+    <div class="unit-relays-row stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.RelayCommandPool"}}</label>
       <input type="number" name="system.relayCommandPool"
              value="{{system.relayCommandPool}}" min="0" class="unit-relays-input" />
     </div>
-    <div class="unit-relays-row stat-row">
+    <div class="unit-relays-row stat-row ex2e-row">
       <label class="stat-label">{{localize "EX2E.Chokepoint"}}</label>
       <input type="checkbox" name="system.chokepoint"
              {{#if system.chokepoint}}checked{{/if}}>

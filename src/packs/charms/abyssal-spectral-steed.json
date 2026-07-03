@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal raises the corpse of a horse as a fearsome undead steed or shapes Essence into a pitch-black, red-eyed</p><p>war horse with fangs if no suitable cadaver is available. Unlike its Solar Mirror, horses created by this Charm are fearless as per the walking dead. They are creatures of darkness. On the other hand, they are not loyal beyond the degree to which their rider can control them.</p>",
+    "description": "<p>The Abyssal raises the corpse of a horse as a fearsome undead steed or shapes Essence into a pitch-black, red-eyed war horse with fangs if no suitable cadaver is available. Unlike its Solar Mirror, horses created by this Charm are fearless as per the walking dead. They are creatures of darkness. On the other hand, they are not loyal beyond the degree to which their rider can control them.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,12 +53,13 @@
             "charmUid": "bd12d89634c7f54b",
             "charmName": "Soul Reins",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
+    "linksNpcCompanion": true,
     "charmUid": "6fdb2601730bac21",
     "mirrorId": "332a2fb6dce5e12f"
   },

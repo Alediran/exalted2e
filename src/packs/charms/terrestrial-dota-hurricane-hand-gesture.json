@@ -19,7 +19,7 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "instant",
-    "speed": 6,
+    "speed": 4,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "95dff732c8e11b73",
+            "charmName": "Deadly Blades Of The Five Dragons",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "01d567e941e9aa0a"
   },
   "folder": "b0b1b2b3b4b5f031",

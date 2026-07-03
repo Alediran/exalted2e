@@ -1,0 +1,70 @@
+{
+  "_id": "beef000000000007",
+  "_key": "!items!beef000000000007",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Beauty Without Malice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Compulsion",
+      "Emotion"
+    ],
+    "cost": {
+      "formula": "-- (5m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>All of the Yozis are dancers without mortal peer, taught the art by their onetime King. Though it shames Ligier to see Malfeas cavort in his own streets, momentarily forgetful of his imprisonment and the insult inflicted upon him, the Demon City is still the greatest performer among the Yozis, and there is power to be found in his dance.</p><p>This Charm permanently enhances a warlock's ability to evoke emotions with Performance-based socials attacks via dance. These hypnotic movements become an unnatural mental influence costing +1 Willpower to resist. Additionally, for a five-mote surcharge, a dance-based Performance action may be enchanted so witnesses influenced by it must linger and watch the warlock's performance to its completion (this Compulsion may be resisted like Respect Commanding Attitude; see Exalted, p. 202).</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b8e1902dbf6e2c96",
+            "charmName": "Essence Overwhelming (First Malfeas Excellency)",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef000000000007"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

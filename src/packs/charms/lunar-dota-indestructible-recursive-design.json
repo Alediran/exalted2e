@@ -18,9 +18,9 @@
     "essence": 4,
     "minAbility": 4,
     "charmType": "simple",
-    "duration": "indefinite",
-    "speed": 6,
-    "dvPenalty": 0,
+    "duration": "formula",
+    "speed": 5,
+    "dvPenalty": -2,
     "steps": [],
     "keywords": [
       "Combo-OK"
@@ -30,21 +30,33 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>Lunars are survivors, accustomed to the hardships the world demands of its heroes. Knowing that misfortune is inevitable, hardy Stewards prepare for the worst. With a few moments' concentration, the Lunar causes his body to grow redundant physical systems—secondary organs, reinforcing musculature, additional ligaments. The character gains additional -1 health levels equal to the human true form's Stamina. These levels persist as long as the Charm remains active, and vanish as soon as damage is marked off in them; as the Lunar's additional body parts are destroyed, they sublimate back into the Essence that formed them.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "11bc64445acba674",
+            "charmName": "Hide-Toughening Essence",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "d28e2fcc480d66cd"
   },
   "folder": "956290ccde1dea72",

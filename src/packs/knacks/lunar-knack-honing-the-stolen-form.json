@@ -1,0 +1,29 @@
+{
+  "_id": "c5de1a5744c8602e",
+  "_key": "!items!c5de1a5744c8602e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Honing the Stolen Form",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 3,
+    "prerequisites": "Prey's Skin Disguise, Essence 3, Perception 4",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>The Lunar may spend experience points to increase a stolen human form's physical Attributes, improving the form's capabilities over time.</p>",
+    "charmUid": "c5de1a5744c8602e"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

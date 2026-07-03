@@ -34,7 +34,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Path of the Arbiter Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,7 +41,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1788d32e0edd24a8",
+            "charmName": "Study of Deepest Devotion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0c4f4aca5e15291e",
+            "charmName": "Secret of Bright-Burning Passion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "6f45b2e56e32999b"
   },
   "folder": "cc7930f90e2557de",

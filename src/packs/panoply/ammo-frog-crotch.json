@@ -1,0 +1,25 @@
+{
+  "_id": "ammo000000000003",
+  "_key": "!items!ammo000000000003",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Frog Crotch Arrows",
+  "type": "ammo",
+  "img": "icons/weapons/ammunition/arrow-head-war.webp",
+  "folder": "ammoFolder000001",
+  "system": {
+    "ammoType": "arrows",
+    "quantity": 20,
+    "damageBonus": 4,
+    "damageType": "lethal",
+    "soakMod": "doubled"
+  },
+  "effects": [],
+  "flags": {}
+}

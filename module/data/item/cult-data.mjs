@@ -1,10 +1,13 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class CultData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
-      backgroundId: new fields.StringField({ blank: true, initial: "" }),
-      description:  new fields.HTMLField({ blank: true, initial: "" })
+      backgroundId:  new fields.StringField({ blank: true, initial: "" }),
+      description:   new fields.HTMLField({ blank: true, initial: "" }),
+      descriptions:  descriptionsField()
     };
   }
 }

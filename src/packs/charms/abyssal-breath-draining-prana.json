@@ -50,17 +50,22 @@
             "charmUid": "84551fead8f3e442",
             "charmName": "Will-Feasting Onslaught",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "moteRecovery": {
       "enabled": true,
-      "event": "onDamageReceived",
+      "event": "onDamageDealt",
       "action": "recoverPeripheral",
-      "formula": "1"
+      "formula": "1",
+      "source": "self",
+      "perDamageLevel": true,
+      "maxRecovery": 20,
+      "sentientOnly": false,
+      "modeExclusive": false
     },
     "charmUid": "b83b83eae1f1ce59"
   },

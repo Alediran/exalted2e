@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class DestinyData extends foundry.abstract.TypeDataModel {
@@ -18,8 +20,9 @@ export class DestinyData extends foundry.abstract.TypeDataModel {
       trigger:     new fields.StringField({ initial: "", blank: true }),
       scope:       new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
       duration:    new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
-      frequency:   new fields.NumberField({ initial: 1, min: 1, max: 4,  integer: true }),
-      description: new fields.HTMLField({ initial: "" }),
+      frequency:    new fields.NumberField({ initial: 1, min: 1, max: 4,  integer: true }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField(),
       // ── Resplendent Destiny (Phase 1) ──────────────────────────────────
       identity:  new fields.StringField({ initial: "", blank: true }),
       worn:      new fields.BooleanField({ initial: false }),

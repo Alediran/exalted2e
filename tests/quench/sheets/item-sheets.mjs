@@ -102,6 +102,25 @@ export function registerItemSheets(context) {
       await combo.sheet.close();
     });
 
+    // ── Targeted: description-language UI renders + override persists ────────
+    it("[ISHEET] description tab exposes a language dropdown + per-language editors that persist", async () => {
+      const actor = await createTempCharacter({ name: "Q-IS-desclang-act" });
+      const item  = await createTempItem(actor, { name: "Q-DescLang", type: "charm" });
+
+      await item.sheet.render(true);
+      await waitFor(() => item.sheet.rendered && !!item.sheet.element);
+      try {
+        const el = item.sheet.element;
+        const select = el.querySelector(".ex2e-desc-lang-select");
+        assert.ok(select, "language dropdown present");
+        const defaultEd = el.querySelector('.ex2e-desc-editor[data-lang="__default"]');
+        assert.ok(defaultEd, "default editor present");
+        // ProseMirror UI is hard to drive headlessly — persist an override directly.
+        await item.update({ "system.descriptions.es": "<p>hola</p>" });
+        assert.equal(item.system.descriptions.es, "<p>hola</p>", "es override persists");
+      } finally { await item.sheet.close(); }
+    });
+
     // ── Targeted: generic (manse) addMansePower mutates system.powers ───────
     it("[ISHEET] manse sheet addMansePower mutates system.powers", async () => {
       const actor = await createTempCharacter({ name: "Q-IS-manse-act" });

@@ -52,19 +52,13 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "perception",
             "virtueKey": "valor",
             "virtueMin": 1
           }
         ]
       }
     ],
-    "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
-    },
     "charmUid": "be867fb3cb2a36c1"
   },
   "folder": "fa2edda343cdd2b0",

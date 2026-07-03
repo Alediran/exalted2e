@@ -26,7 +26,8 @@
     ],
     "keywords": [
       "Combo-OK",
-      "Obvious"
+      "Obvious",
+      "Native"
     ],
     "cost": {
       "motes": 3,
@@ -62,8 +63,8 @@
             "charmUid": "2895720300b257e8",
             "charmName": "Dark Messiah Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -9,15 +9,15 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Flesh-tearing Entanglement",
+  "name": "Flesh-Tearing Entanglement",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
     "ability": "strength",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
@@ -37,15 +37,27 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "19a5c37aae35e7ee",
+            "charmName": "Jaws of the River Dragon",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "4bea3819f529c624"
   },
   "folder": "aba1efe8ad0bef8a",

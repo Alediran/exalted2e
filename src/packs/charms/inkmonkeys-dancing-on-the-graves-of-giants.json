@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "occult",
     "essence": 3,
     "minAbility": 4,
@@ -22,19 +22,18 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "None",
+    "keywords": [],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As dead things locked in a perpetual stasis of eternal torment, the Neverborn cannot truly be said to enjoy anything. It does, however, almost please them when their servants emulate the greatest trick of the Solar Exalted on their behalf--slaying that which believed itself too mighty to be destroyed. Whenever the Abyssal permanently slays a living being with Essence 4+, she loses one point of Resonance (since many spirits normally reconstitute themselves after death, this generally requires execution with God-Slaying Torment). If the being possessed Essence 6+, the Abyssal loses an additional point of Resonance. If the being was a non-Abyssal Exalt, an additional point is lost. Sorcerously bound spirits grant no Resonance loss when executed. Black Pariah's Curse</p>",
+    "description": "<p>As dead things locked in a perpetual stasis of eternal torment, the Neverborn cannot truly be said to enjoy anything. It does, however, almost please them when their servants emulate the greatest trick of the Solar Exalted on their behalf--slaying that which believed itself too mighty to be destroyed. Whenever the Abyssal permanently slays a living being with Essence 4+, she loses one point of Resonance (since many spirits normally reconstitute themselves after death, this generally requires execution with God-Slaying Torment). If the being possessed Essence 6+, the Abyssal loses an additional point of Resonance. If the being was a non-Abyssal Exalt, an additional point is lost. Sorcerously bound spirits grant no Resonance loss when executed.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -50,15 +49,15 @@
             "charmUid": "2f5d2adede7e9c51",
             "charmName": "God-Slaying Torment",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "eea0ea4b6205364d"
   },
-  "folder": "9f789a9f97cf7e28",
+  "folder": "b0b1b2b3b4b5f041",
   "sort": 0,
   "ownership": {
     "default": 0

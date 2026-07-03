@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Lunar Exalted are more dangerous than one expects. Invoking this Charm, the character lashes out with two weapons instead of just one. (Both weapons must be in hand.) The player and his single target go through attack resolution twice, skipping Steps 1, 3 and 4 the second time through--use the first attack roll both times. The target's defense suffers onslaught penalty the second time. When using ranged weapons that are constantly drawn (arrows for a</p><p>bow, daggers from a bandolier, etc.), the character may fire or throw two at once as long as he has sufficient ammunition.</p>",
+    "description": "<p>The Lunar Exalted are more dangerous than one expects. Invoking this Charm, the character lashes out with two weapons instead of just one. (Both weapons must be in hand.) The player and his single target go through attack resolution twice, skipping Steps 1, 3 and 4 the second time through--use the first attack roll both times. The target's defense suffers onslaught penalty the second time. When using ranged weapons that are constantly drawn (arrows for a bow, daggers from a bandolier, etc.), the character may fire or throw two at once as long as he has sufficient ammunition.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -49,11 +48,19 @@
         "alternatives": [
           {
             "type": "charm",
+            "charmUid": "cdf7be0187f1713a",
+            "charmName": "Wasp Sting Blur",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          },
+          {
+            "type": "charm",
             "charmUid": "1314998f9ee7f379",
             "charmName": "Wasp Sting Blur",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>As champions of Oblivion, Abyssal warlords may command units composed of creatures of Death as extensions of their own malice. Valid units enhanced by this Charm understand the deathknight's will implicitly and cannot suffer communication failure, which obviates the need for relays and opens additional special character slots for heroes or sorcerers. Such units also have their Drill raised to a level equal to their commander's Essence</p><p>rating (if that would provide an increase), to a maximum of Drill 5. Unfortunately, this micromanaged control makes units entirely dependent on their commander for guidance. Should the Abyssal perish while this Charm is active, the unit makes an immediate difficulty 6 rout check. Even units with perfect morale must make this check as if they had Morale 5.</p>",
+    "description": "<p>As champions of Oblivion, Abyssal warlords may command units composed of creatures of Death as extensions of their own malice. Valid units enhanced by this Charm understand the deathknight's will implicitly and cannot suffer communication failure, which obviates the need for relays and opens additional special character slots for heroes or sorcerers. Such units also have their Drill raised to a level equal to their commander's Essence rating (if that would provide an increase), to a maximum of Drill 5. Unfortunately, this micromanaged control makes units entirely dependent on their commander for guidance. Should the Abyssal perish while this Charm is active, the unit makes an immediate difficulty 6 rout check. Even units with perfect morale must make this check as if they had Morale 5.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -54,8 +54,8 @@
             "charmUid": "aa03afc17d6c2284",
             "charmName": "Arise And Slaughter",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

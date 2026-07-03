@@ -17,13 +17,11 @@
     "ability": "thrown",
     "essence": 2,
     "minAbility": 2,
-    "charmType": "reflexive",
-    "duration": "instant",
+    "charmType": "permanent",
+    "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      2
-    ],
+    "steps": [],
     "keywords": [
       "Mirror",
       "Merged",
@@ -47,20 +45,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "642917154ac80b11",
-            "charmName": "Returning Weapon Concentration",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "7eefeb7437ae6390",
     "mergedIds": [
       "b3aae75052f980da"

@@ -18,7 +18,7 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,16 +36,53 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dreaming Pearl Courtesan Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "532264a927c9d0fb"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e3e79d172a019b4e",
+            "charmName": "Resplendent Sash Grapple Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "de29b7c8695fa9cd",
+            "charmName": "Vindictive Concubine's Pillow Book Understanding",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3fd70eeea807f46d",
+            "charmName": "Seven Storms Escape Prana",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "532264a927c9d0fb",
+    "grantsMastery": true
   },
   "folder": "7769b16bd9ec72b1",
   "sort": 0,

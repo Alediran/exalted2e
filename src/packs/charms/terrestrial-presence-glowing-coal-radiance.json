@@ -17,11 +17,13 @@
     "ability": "presence",
     "essence": 1,
     "minAbility": 3,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "oneAction",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      2
+    ],
     "keywords": [
       "Combo-OK",
       "Dynasty",
@@ -35,7 +37,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The blazing elemental fury of the Dragon-Blooded is such that lesser men are humbled by their mere presence. When this Charm is activated, the Dragon-Blood is surrounded by a nimbus of Essence with the color associated with her aspect. Anyone attempting to look at the Dragon-Blood or to make a melee attack against her must score at least one success on a reflexive Willpower check. Even if that roll is successful, any attack made on the Dragon-Blooded before his next action suffers a dice penalty equal to the DragonBlood's Presence. This effect lasts until the Dragon-Blood's next action. The Charm affects only those individuals within yards a number of yards equal to the Dragon-Blood's Essence, and it doesn't impair ranged attacks.</p>",
+    "description": "<p>The blazing elemental fury of the Dragon-Blooded is such that lesser men are humbled by their mere presence. When this Charm is activated, the Dragon-Blood is surrounded by a nimbus of Essence with the color associated with her aspect. Anyone attempting to look at the Dragon-Blood or to make a melee attack against her must score at least one success on a reflexive Willpower check. Even if that roll is successful, any attack made on the Dragon-Blooded before his next action suffers a dice penalty equal to the DragonBlood's Presence. This effect lasts until the Dragon-Blood's next action. The Charm affects only those individuals within yards a number of yards equal to the Dragon-Blood's Essence, and it doesn't impair ranged attacks.</p><p>No Willpower roll is required. Instead, the Charm exerts a fear-based internal penalty of the Exalt's (Presence rating) to all physical and social attacks aimed solely at him by anyone in range with a Dodge MDV less than his (Appearance + Presence + Breeding). Apply intimidation-based effective Appearance for an ugly Terrestrial. Characters who pay 2wp (4wp if a descendant) become immune to all use of this Charm by the Terrestrial for the scene, ignoring its unnatural mental influence. Leader use affects units engaged with the Exalt's unit.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +46,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

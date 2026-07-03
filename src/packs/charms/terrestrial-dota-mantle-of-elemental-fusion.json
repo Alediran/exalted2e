@@ -18,7 +18,7 @@
     "essence": 6,
     "minAbility": 6,
     "charmType": "simple",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -33,21 +33,34 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>By means of this Charm, a Dragon-Blood may physically meld with an elemental of the same aspect as himself in order to wear its power. To activate this Charm, the Exalt must successfully reach into the center of the elemental's body as an unarmed attack. His player then makes a (Charisma + Occult) roll with a difficulty equal to the spirit's Essence (unless the spirit cooperates, which removes the need for the roll). Bonding with an elemental whose Essence is greater than the Exalt's is impossible. Upon a successful activation, the elemental's form oozes into the Dragon-Blood's aspect markings and becomes part of his body. For as long as the Charm</p>",
+    "description": "<p>By means of this Charm, a Dragon-Blood may physically meld with an elemental of the same aspect as himself in order to wear its power. To activate this Charm, the Exalt must successfully reach into the center of the elemental's body as an unarmed attack. His player then makes a (Charisma + Occult) roll with a difficulty equal to the spirit's Essence (unless the spirit cooperates, which removes the need for the roll). Bonding with an elemental whose Essence is greater than the Exalt's is impossible. Upon a successful activation, the elemental's form oozes into the Dragon-Blood's aspect markings and becomes part of his body. For as long as the Charm lasts, the spirit cannot be physically attacked, and the Exalt knows all of its Charms. If the Exalt dies, so does the spirit. Melding also carries lingering psychological side effects for both parties, as each chooses one Intimacy per scene to give to the other. Exalted who frequently use this Charm evince all manner of unusual quirks and appetites. This Charm may be placed in a Combo with Charms of other Abilities.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fc34251d021a9fa8",
+            "charmName": "Spirit-Chaining Strike",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "a800d10b8d589425"
   },
   "folder": "b0b1b2b3b4b5f028",

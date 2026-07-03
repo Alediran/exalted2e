@@ -1,0 +1,72 @@
+{
+  "_id": "ca1b2c3d4e5f0003",
+  "_key": "!items!ca1b2c3d4e5f0003",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Roaring Dragon Officer",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Cooperative",
+      "Dynasty",
+      "War"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the Chosen of the Elemental Dragons issue orders, the soldiers under their command pay attention. Any special character in a complementary unit with Magnitude 3+ who knows this Charm may activate it to enhance the unit. For the duration of the Charm, that Exalt counts as (War rating) relays in addition to whatever other role she serves, and her unit may take a reflexive Signal Units action once per action tick to coordinate with allied forces. Unit leaders also add a number of bonus successes to all rally actions and rolls to avoid losing Endurance points equal to the number of special characters in the unit using this Charm.</p><p>Special characters who are blood relatives to all other special characters in the unit double all benefits they provide by using this Charm (and count a unit leader who is a Celestial Exalt as a blood relative for this purpose). Roaring Dragon Officer remains active as long as the unit remains together.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0001",
+            "charmName": "Leading from Below",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0003"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

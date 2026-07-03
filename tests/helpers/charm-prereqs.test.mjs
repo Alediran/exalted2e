@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { evaluateCharmPrereqs, areCharmPrereqsMet, meetsMinAbility } from "../../module/helpers/charm-prereqs.mjs";
+import { evaluateCharmPrereqs, areCharmPrereqsMet, meetsMinAbility, describeGroup } from "../../module/helpers/charm-prereqs.mjs";
 
 // Helpers — build minimal charm/actor shapes for testing.
 function makeCharm({ id = "host", name = "Host Charm", ability = "melee", prereqGroups = [], charmUid = "" } = {}) {
@@ -11,12 +11,12 @@ function makeCharm({ id = "host", name = "Host Charm", ability = "melee", prereq
   };
 }
 
-function makeOwnedCharm({ id, name, ability = "", excellency = "", charmUid = "" } = {}) {
+function makeOwnedCharm({ id, name, ability = "", excellency = "", charmUid = "", exaltType = "" } = {}) {
   return {
     id,
     name,
     type: "charm",
-    system: { ability, excellency, charmUid }
+    system: { ability, excellency, charmUid, exaltType }
   };
 }
 
@@ -321,6 +321,27 @@ describe("background prerequisite", () => {
   });
 });
 
+describe("describeGroup — anyExcellency label", () => {
+  it("includes abilityKey in label when minCount=1 and abilityKey is set", () => {
+    const group = { alternatives: [{ type: "anyExcellency", abilityKey: "lore", minCount: 1 }] };
+    const label = describeGroup(group);
+    // game.i18n.format mock returns "key:{\"field\":\"value\"}"
+    expect(label).toBe('EX2E.PrereqAnyAbilityExcellency:{"ability":"lore"}');
+  });
+
+  it("returns generic key when abilityKey is empty and minCount=1", () => {
+    const group = { alternatives: [{ type: "anyExcellency", abilityKey: "", minCount: 1 }] };
+    const label = describeGroup(group);
+    expect(label).toBe("EX2E.PrereqAnyExcellency");
+  });
+
+  it("includes ability and count when minCount>1", () => {
+    const group = { alternatives: [{ type: "anyExcellency", abilityKey: "lore", minCount: 2 }] };
+    const label = describeGroup(group);
+    expect(label).toBe('EX2E.PrereqAnyNExcellencies:{"count":2,"ability":"lore"}');
+  });
+});
+
 describe("anyExcellency minCount", () => {
   function makeExcPrereq(abilityKey, minCount) {
     return { type: "anyExcellency", charmUid: "", charmName: "", abilityKey, virtueKey: "valor", virtueMin: 1, minCount };
@@ -375,5 +396,93 @@ describe("anyExcellency minCount", () => {
     const actor = makeActor([makeOwnedCharm({ id: "e1", name: "First Lore Exc", ability: "lore", excellency: "first" })]);
     const report = evaluateCharmPrereqs(charm, actor);
     expect(report[0].satisfied).toBe(true);
+  });
+});
+
+describe("Alchemical 'Any X Augmentation' sentinel prereq", () => {
+  function makeAlchemicalHost({ ability = "strength" } = {}) {
+    return makeCharm({
+      ability,
+      system: { exaltType: "alchemical" },
+      prereqGroups: [{ alternatives: [{ type: "charm", charmUid: "", charmName: "Any Strength Augmentation" }] }]
+    });
+  }
+
+  it("satisfied when actor owns First Augmentation (excellency: first) for same attribute", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "aug1", name: "Essence Optimized (First Strength Augmentation)", ability: "strength", excellency: "first", exaltType: "alchemical" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(true);
+  });
+
+  it("satisfied when actor owns Fourth Augmentation (name-pattern, no excellency field)", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "aug4", name: "Fourth Strength Augmentation--Essence Integrated", ability: "strength", excellency: "", exaltType: "alchemical" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(true);
+  });
+
+  it("not satisfied when actor owns Augmentation of a different attribute", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "aug1", name: "Essence Optimized (First Dexterity Augmentation)", ability: "dexterity", excellency: "first", exaltType: "alchemical" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(false);
+  });
+
+  it("not satisfied when actor owns no Alchemical charms at all", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(false);
+  });
+
+  it("not satisfied when owned charm is same ability but non-Alchemical", () => {
+    const host = makeAlchemicalHost({ ability: "strength" });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "x", name: "Strength Charm", ability: "strength", excellency: "first", exaltType: "solar" })
+    ]);
+    expect(evaluateCharmPrereqs(host, actor)[0].satisfied).toBe(false);
+  });
+});
+
+describe("anyCharmOfAbility prerequisite", () => {
+  it("satisfied when actor owns at least one charm of the target ability", () => {
+    const charm = makeCharm({
+      ability: "survival",
+      prereqGroups: [{ alternatives: [{ type: "anyCharmOfAbility", abilityKey: "medicine", charmUid: "", charmName: "" }] }]
+    });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "m1", name: "Wound-Mending Care", ability: "medicine" })
+    ]);
+    expect(evaluateCharmPrereqs(charm, actor)[0].satisfied).toBe(true);
+  });
+
+  it("not satisfied when actor owns no charm of the target ability", () => {
+    const charm = makeCharm({
+      ability: "survival",
+      prereqGroups: [{ alternatives: [{ type: "anyCharmOfAbility", abilityKey: "medicine", charmUid: "", charmName: "" }] }]
+    });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "s1", name: "Trackless Step", ability: "survival" })
+    ]);
+    expect(evaluateCharmPrereqs(charm, actor)[0].satisfied).toBe(false);
+  });
+
+  it("not satisfied when abilityKey is empty", () => {
+    const charm = makeCharm({
+      ability: "survival",
+      prereqGroups: [{ alternatives: [{ type: "anyCharmOfAbility", abilityKey: "", charmUid: "", charmName: "" }] }]
+    });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "m1", name: "Any", ability: "medicine" })
+    ]);
+    expect(evaluateCharmPrereqs(charm, actor)[0].satisfied).toBe(false);
+  });
+
+  it("label includes the abilityKey", () => {
+    const group = { alternatives: [{ type: "anyCharmOfAbility", abilityKey: "medicine", charmUid: "", charmName: "" }] };
+    expect(describeGroup(group)).toBe('EX2E.PrereqAnyCharmOfAbility:{"ability":"medicine"}');
   });
 });

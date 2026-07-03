@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "terrestrial",
-    "ability": "martialarts",
+    "ability": "martialArts",
     "essence": 3,
     "minAbility": 3,
     "charmType": "reflexive",
@@ -33,16 +33,15 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The martial artist practicing this Charm is aware of all that surrounds him. He respires wisdom, and nothing escapes his notice. To an observer, the martial artist appears to walk more lightly on his feet, and the winds seems to whisper in his ears. For the duration of the Charm, the martial artist is automatically aware of all beings within a number of yards equal to his Essence, unless an entity is expending Essence in an effort to conceal itself. Additionally, learning this Charm brings with it a sort of danger sense. A martial artist who knows Tiger-and-Bear Awareness can activate it reflexively when subject to a sneak attack in order to automatically notice the assault. This Charm does not grant the ability to see immaterial spirits or dematerialized elementals in the vicinity.</p>",
+    "description": "<p>The martial artist practicing this Charm is aware of all that surrounds him. He respires wisdom, and nothing escapes his notice. To an observer, the martial artist appears to walk more lightly on his feet, and the winds seems to whisper in his ears. For the duration of the Charm, the martial artist is automatically aware of all beings within a number of yards equal to his Essence, unless an entity is expending Essence in an effort to conceal itself. Additionally, learning this Charm brings with it a sort of danger sense. A martial artist who knows Tiger-and-Bear Awareness can activate it reflexively when subject to a sneak attack in order to automatically notice the assault. This Charm does not grant the ability to see immaterial spirits or dematerialized elementals in the vicinity.</p><p>This Charm fails against supernatural concealment of any kind.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

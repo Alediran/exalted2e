@@ -36,7 +36,12 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
+    "essenceDrain": {
+      "enabled": true,
+      "formula": "@ess",
+      "pool": "peripheral",
+      "targetTypeFilter": "fairfolk"
+    },
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -52,8 +57,8 @@
             "charmUid": "2f5d2adede7e9c51",
             "charmName": "God-Slaying Torment",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

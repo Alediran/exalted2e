@@ -18,7 +18,7 @@
     "essence": 1,
     "minAbility": 3,
     "charmType": "supplemental",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,8 +36,7 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "White Veil Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "(Martial Arts) actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

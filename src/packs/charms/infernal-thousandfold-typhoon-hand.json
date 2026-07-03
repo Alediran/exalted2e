@@ -14,16 +14,14 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 2,
     "minAbility": 1,
-    "charmType": "reflexive",
+    "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      1
-    ],
+    "steps": [],
     "keywords": [
       "Combo-OK",
       "Velocity"
@@ -33,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The enemies of Adorjan must concentrate if they hope to see her blindingly fast strikes in time to defend against them. This Charm may enhance any close-combat attack against a single opponent, regardless of the Ability used for the attack. The enhanced attack becomes unexpected unless the target spends one Willpower to concentrate on defense at the critical moment. Spending Willpower this way isn't considered resisting mental influence. Extras may not spend Willpower this way. This Charm may benefit only one action in a flurry.</p>",
+    "description": "<p>An attack supplemented by this Charm halves any DV applied against it, and counts extra successes on the attack roll twice for calculating its raw damage. She can only use this Charm if she dashed at least up to her full Dash speed before making the attack.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "adorjan",
     "martialArtsTier": "",
@@ -55,8 +53,8 @@
             "charmUid": "323c4fdbe94b4f30",
             "charmName": "Wind-Born Stride",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

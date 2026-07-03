@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,16 +36,29 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Mantis Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Varies",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "f1c50dd331939f19"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dbbd1bc170608a09",
+            "charmName": "Mantis Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "f1c50dd331939f19",
+    "grantsMastery": false
   },
   "folder": "026302498ba6c9dc",
   "sort": 0,

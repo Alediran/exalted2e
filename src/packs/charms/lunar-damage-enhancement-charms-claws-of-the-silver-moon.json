@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Claws Of The Silver Moon",
+  "name": "Claws of the Silver Moon",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -48,13 +48,13 @@
     "active": false,
     "attack": {
       "enabled": true,
-      "name": "Claws Of The Silver Moon",
+      "name": "Claws of the Silver Moon",
       "speed": "5",
       "accuracy": "3",
       "damage": "@str",
       "damageType": "lethal",
-      "overwhelming": "1",
-      "defense": "2",
+      "overwhelming": "",
+      "defense": "0",
       "rate": "3",
       "range": "0",
       "minStrength": "0",

@@ -23,7 +23,7 @@ describe("EquipmentData schema", () => {
 
   it("schema has all expected fields", () => {
     expect(Object.keys(schema)).toEqual([
-      "resourcesCost", "quantity", "description", "equipped", "slot",
+      "resourcesCost", "quantity", "description", "descriptions", "equipped", "slot",
       "artifact", "magicalMaterial", "attunementCost", "attuned",
       "artifactRating", "hearthstoneSlots", "hearthstones"
     ]);

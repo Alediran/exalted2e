@@ -20,7 +20,7 @@
     "charmType": "simple",
     "duration": "instant",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 2,
     "steps": [],
     "keywords": [
       "Combo-Basic",
@@ -37,7 +37,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dreaming Pearl Courtesan Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "56e646eac7686fc4",
+            "charmName": "Dreaming Pearl Courtesan Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "e660acd2cd230dec"
   },
   "folder": "7769b16bd9ec72b1",

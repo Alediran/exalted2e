@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Of all the Immaculate Dragons, none was as implacable a foe to the undead as Sextes Jylis, for it was his way as an embodiment of life itself to oppose the forces of death. When a Wood Aspect fires an arrow toward one of the undead and activates this Charm, the arrow sprouts leaves in mid-flight without affecting its trajectory. Upon striking an undead creature, it erupts into full bloom, ensnaring the foul thing in crushing vines. As a result of this magic,</p><p>the arrow inflicts aggravated damage on its undead target instead of lethal. This Charm is equally as useful against materialized ghosts, nemissaries and hungry ghosts. It has no special effect against Abyssals, Deathlords or the living, however, though a successful hit still inflicts normal damage.</p>",
+    "description": "<p>Of all the Immaculate Dragons, none was as implacable a foe to the undead as Sextes Jylis, for it was his way as an embodiment of life itself to oppose the forces of death. When a Wood Aspect fires an arrow toward one of the undead and activates this Charm, the arrow sprouts leaves in mid-flight without affecting its trajectory. Upon striking an undead creature, it erupts into full bloom, ensnaring the foul thing in crushing vines. As a result of this magic, the arrow inflicts aggravated damage on its undead target instead of lethal. This Charm is equally as useful against materialized ghosts, nemissaries and hungry ghosts. It has no special effect against Abyssals, Deathlords or the living, however, though a successful hit still inflicts normal damage.</p><p>The term \"undead\" encompasses ghosts, walking dead and necromantic war machines. Incorporeal undead are hit by the attack as though solid. With Essence 4+, all creatures of darkness with an equal or lesser Essence rating to the Terrestrial suffer as undead. A complementary unit must be chiefly comprised of undead to be a valid target.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,7 +41,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -54,12 +54,13 @@
             "charmUid": "1843d9df4685afa9",
             "charmName": "Unobstructed Hunter's Aim",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
+    "harmImmaterial": true,
     "charmUid": "6e70fa1a5dc2419a"
   },
   "folder": "b0b1b2b3b4b5f01a",

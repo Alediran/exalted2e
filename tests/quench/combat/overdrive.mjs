@@ -4,7 +4,6 @@ import { createTempCharacter }           from "../_helpers/actors.mjs";
 import { placeToken }                    from "../_helpers/scenes.mjs";
 import { startTempCombat }               from "../_helpers/combat.mjs";
 import { createTempCharm }               from "../_helpers/charms.mjs";
-import { cleanupOnAfter }                from "../_helpers/cleanup.mjs";
 
 /** Set overdrive directly via update so tests can assert drain behaviour. */
 async function setOverdrive(actor, amount) {

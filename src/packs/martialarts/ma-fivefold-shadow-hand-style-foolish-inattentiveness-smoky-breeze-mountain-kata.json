@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Foolish Inattentiveness (smoky Breeze Mountain Kata)",
+  "name": "Foolish Inattentiveness (Smoky Breeze Mountain Kata)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -26,7 +26,7 @@
       "Combo-Basic",
       "Illusion",
       "Share-Breeze",
-      "ShareSmoke"
+      "Share-Smoke"
     ],
     "cost": {
       "formula": "6m, 1wp",
@@ -39,7 +39,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Fivefold Shadow Hand Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5d36dbe9f4a23e72",
+            "charmName": "Mountain Adept Gesture",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "dd5c1794178b8f1d"
   },
   "folder": "30abfdbff9e8ecc7",

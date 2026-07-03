@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>The Solar's Evidence-Discerning Method is permanently enhanced, strengthening her understanding of those she has profiled. The Charm's Duration becomes Instant; profiles no longer require committed Essence to grant a mechanical benefit. A profile remains valid until the subject's Motivation or Virtues permanently change (temporary changes brought about by magic will not spoil a profile).</p><p>At Essence 5+, the Solar may roll (Wits + Investigation) one month before an individual he has profiled is planning to undertake any sort of premeditated larcenous enterprise (examples might include robbing a bank, staging a kidnapping, attempting an assassination, or, in the case of the Yozis, escaping from Hell). This roll has a difficulty of half the subject's (Intelligence + Larceny), rounded down. Success grants the Solar an idea of what the subject plans to do, including at least the general location and nature of the crime. The Charm introduces plots to unravel, rather than solving them for the Solar in and of itself.</p><p>At Investigation 6+, Essence 6+ the Lawgiver may also make this roll to realize from subtle context clues whenever a profiled subject comes within (Investigation x 5) miles of him. The Solar may also anticipate non-premeditated larcenous actions at this level, though he suffers a -5 external penalty on attempts to do so.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2b7c872675ff339f",
+            "charmName": "Evidence-Discerning Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "c3c822581a07ee9d"
   },
   "folder": "404dccadf2c8e04a",

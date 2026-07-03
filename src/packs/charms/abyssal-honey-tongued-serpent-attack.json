@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal's courtesies catch opponents off guard. This Charm may enhance any Manipulation-based social attack, making the attack unexpected. It is explicitly permitted to supplement actions using other Abilities. New Solar Charm: Heartfelt Honorific Opportunity (Prerequisites: Mastery of Small Manners--Exalted, p. 239). Apart from its prerequisite, this Charm functions identically to its Mirror.</p>",
+    "description": "<p>The Abyssal's courtesies catch opponents off guard. This Charm may enhance any Manipulation-based social attack, making the attack unblockable and undodgeable. It is explicitly permitted to supplement actions using other Abilities.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,8 +53,8 @@
             "charmUid": "96fb5386fdcb2ce7",
             "charmName": "Exquisite Etiquette Style",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

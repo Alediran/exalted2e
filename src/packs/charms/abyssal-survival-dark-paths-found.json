@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>There are always secret paths and shortcuts, some natural and others etched into the Tapestry by the Primordials in the dawn of the world. Unlike its Solar Mirror, this Charm does not accelerate</p><p>the travel of others. While within the realms of the dead, however, the Abyssal doubles the speed conferred by the Charm.</p>",
+    "description": "<p>There are always secret paths and shortcuts, some natural and others etched into the Tapestry by the Primordials in the dawn of the world. Unlike its Solar Mirror, this Charm does not accelerate the travel of others. While within the realms of the dead, however, the Abyssal doubles the speed conferred by the Charm.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,9 +51,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "survival",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

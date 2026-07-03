@@ -252,6 +252,44 @@ export class ExaltedItem extends Item {
       }
     }
 
+    // ── Incompatible charms gate ───────────────────────────────────────────
+    if (!turningOff && (this.system.incompatibleCharms ?? []).length > 0) {
+      const conflict = actor.items.find(i =>
+        i.type === "charm" &&
+        this.system.incompatibleCharms.some(uid => i.system?.charmUid === uid)
+      );
+      if (conflict) {
+        ui.notifications.error(
+          game.i18n.format("EX2E.IncompatibleCharmOwned", { name: conflict.name })
+        );
+        return false;
+      }
+    }
+
+    // ── Native-only MA style gate ──────────────────────────────────────────
+    if (!turningOff && this.system.nativeOnly) {
+      const allNativeStyles = game.settings.get("exalted2e", "nativeMartialArtsStyles") ?? {};
+      const nativeStyles    = allNativeStyles[actor.system?.exaltType ?? ""] ?? [];
+      const charmStyle   = this.system.martialArtsStyleName ?? "";
+      if (!charmStyle || !nativeStyles.includes(charmStyle)) {
+        ui.notifications.error(
+          game.i18n.format("EX2E.NativeCharmForbidden", { name: this.name })
+        );
+        return false;
+      }
+    }
+
+    // ── Breeding gate ──────────────────────────────────────────────────────
+    if (!turningOff && (this.system.minBreeding ?? 0) > 0) {
+      const actorBreeding = actor.system.breeding ?? 0;
+      if (actorBreeding < this.system.minBreeding) {
+        ui.notifications.warn(
+          `${this.name} requires Breeding ${this.system.minBreeding} (you have ${actorBreeding}).`
+        );
+        return false;
+      }
+    }
+
     // ── Form-type charm: one-at-a-time enforcement ────────────────────────
     // For toggle-on: enforce one-Form-at-a-time; deactivate any existing Form
     //   first, then fall through to the normal path (costs, weapon artifacts,
@@ -539,6 +577,226 @@ ${capWarning}`;
         }
       }
       ledger.cooperation = cooperation;
+
+      // M67/M68 — Mote loan / willpower gift to a Circle ally
+      if (sys.moteLoan?.enabled || sys.willpowerGift?.enabled) {
+        const circleFolder = game.folders.find(f => f.flags?.exalted2e?.theCircle === true);
+        const allies = circleFolder
+          ? game.actors.filter(a => a.folder?.id === circleFolder.id && a.id !== actor.id)
+          : [];
+        if (allies.length === 0) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NoCircleAlliesFound"));
+        } else {
+          const radioHtml = allies.map(a =>
+            `<label style="display:block"><input type="radio" name="allyId" value="${a.id}"> ${a.name}</label>`
+          ).join("");
+          const pickedId = await foundry.applications.api.DialogV2.prompt({
+            window:  { title: game.i18n.localize("EX2E.SelectAllyTitle") },
+            content: `<p>${game.i18n.localize("EX2E.SelectAllyPrompt")}</p><form>${radioHtml}</form>`,
+            ok: {
+              callback: (_event, _button, dialog) => {
+                const checked = dialog.querySelector("input[name='allyId']:checked");
+                return checked?.value ?? null;
+              }
+            }
+          });
+          if (pickedId) {
+            const targetAlly = game.actors.get(pickedId);
+            if (targetAlly) {
+              const rollData = actor.getRollData?.() ?? {};
+              if (sys.moteLoan?.enabled && sys.moteLoan?.formula) {
+                const raw = Number(evaluateCharmFormula(sys.moteLoan.formula, rollData, 0));
+                const cap = sys.moteLoan.maxReceive ?? 0;
+                const amt = cap > 0 ? Math.min(raw, cap) : raw;
+                if (amt > 0) {
+                  await targetAlly.recoverMotes(amt, "peripheral");
+                  ui.notifications.info(game.i18n.format("EX2E.MoteLoanSuccess", { amount: amt, name: targetAlly.name }));
+                }
+              }
+              if (sys.willpowerGift?.enabled && sys.willpowerGift?.formula) {
+                const raw = Number(evaluateCharmFormula(sys.willpowerGift.formula, rollData, 0));
+                const cap = sys.willpowerGift.maxTarget ?? 0;
+                const amt = cap > 0 ? Math.min(raw, cap) : raw;
+                if (amt > 0) {
+                  await targetAlly.receiveWillpower(amt);
+                  ui.notifications.info(game.i18n.format("EX2E.WillpowerGiftSuccess", { amount: amt, name: targetAlly.name }));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // M73 — Capture a spirit's Essence pattern into a malados item on this actor.
+    if (!turningOff && sys.capturesMalados) {
+      const html = `
+        <p>${game.i18n.localize("EX2E.CapturesMaladosPrompt")}</p>
+        <div class="form-group" style="margin-bottom:6px">
+          <label>${game.i18n.localize("EX2E.SpiritName")}</label>
+          <input type="text" name="spiritName" style="width:100%">
+        </div>
+        <div class="form-group">
+          <label>${game.i18n.localize("EX2E.EssenceRating")}</label>
+          <input type="number" name="essenceRating" value="1" min="1" max="10" style="width:60px">
+        </div>`;
+      const result = await foundry.applications.api.DialogV2.prompt({
+        window:  { title: game.i18n.localize("EX2E.CapturesMaladosTitle") },
+        content: html,
+        ok: {
+          callback: (_event, _button, dialog) => ({
+            spiritName:   dialog.querySelector("[name='spiritName']")?.value?.trim() ?? "",
+            essenceRating: Number(dialog.querySelector("[name='essenceRating']")?.value ?? 1),
+          })
+        }
+      });
+      if (result?.spiritName) {
+        await actor.createEmbeddedDocuments("Item", [{
+          name:   result.spiritName,
+          type:   "malados",
+          system: { spiritName: result.spiritName, essenceRating: result.essenceRating }
+        }]);
+        ui.notifications.info(game.i18n.format("EX2E.MaladosCaptured", { name: result.spiritName }));
+      }
+    }
+
+    // M73 — Transfer a held malados to a Circle ally.
+    if (!turningOff && sys.transfersMalados) {
+      const maladosItems = actor.items.filter(i => i.type === "malados");
+      if (maladosItems.length === 0) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoMaladosFound"));
+      } else {
+        const circleFolder = game.folders.find(f => f.flags?.exalted2e?.theCircle === true);
+        const allies = circleFolder
+          ? game.actors.filter(a => a.folder?.id === circleFolder.id && a.id !== actor.id)
+          : [];
+        if (allies.length === 0) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NoCircleAlliesFound"));
+        } else {
+          const maladosRadio = maladosItems.map(m =>
+            `<label style="display:block"><input type="radio" name="maladosId" value="${m.id}"> ${m.name} (Ess ${m.system.essenceRating})</label>`
+          ).join("");
+          const allyRadio = allies.map(a =>
+            `<label style="display:block"><input type="radio" name="allyId" value="${a.id}"> ${a.name}</label>`
+          ).join("");
+          const result = await foundry.applications.api.DialogV2.prompt({
+            window:  { title: game.i18n.localize("EX2E.TransfersMaladosTitle") },
+            content: `<p><b>${game.i18n.localize("EX2E.SelectMaladosPrompt")}</b></p>
+              <form>${maladosRadio}</form>
+              <hr>
+              <p><b>${game.i18n.localize("EX2E.SelectAllyPrompt")}</b></p>
+              <form>${allyRadio}</form>`,
+            ok: {
+              callback: (_event, _button, dialog) => ({
+                maladosId: dialog.querySelector("input[name='maladosId']:checked")?.value ?? null,
+                allyId:    dialog.querySelector("input[name='allyId']:checked")?.value ?? null,
+              })
+            }
+          });
+          if (result?.maladosId && result?.allyId) {
+            const malados = actor.items.get(result.maladosId);
+            const targetAlly = game.actors.get(result.allyId);
+            if (malados && targetAlly) {
+              await targetAlly.createEmbeddedDocuments("Item", [{
+                name:   malados.name,
+                type:   "malados",
+                system: foundry.utils.deepClone(malados.system),
+              }]);
+              await malados.delete();
+              ui.notifications.info(game.i18n.format("EX2E.MaladosTransferred", { name: malados.name, target: targetAlly.name }));
+            }
+          }
+        }
+      }
+    }
+
+    // M74 — Grant a temporary Background to a Circle ally (teardown via tracking AE on caster).
+    if (!turningOff && sys.grantsBackground) {
+      const circleFolder = game.folders.find(f => f.flags?.exalted2e?.theCircle === true);
+      const allies = circleFolder
+        ? game.actors.filter(a => a.folder?.id === circleFolder.id && a.id !== actor.id)
+        : [];
+      if (allies.length === 0) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoCircleAlliesFound"));
+      } else {
+        const allyRadio = allies.map(a =>
+          `<label style="display:block"><input type="radio" name="allyId" value="${a.id}"> ${a.name}</label>`
+        ).join("");
+        const result = await foundry.applications.api.DialogV2.prompt({
+          window:  { title: game.i18n.localize("EX2E.GrantBackgroundTitle") },
+          content: `<p><b>${game.i18n.localize("EX2E.SelectAllyPrompt")}</b></p>
+            <form>${allyRadio}</form>
+            <hr>
+            <div class="form-group" style="margin-top:8px">
+              <label>${game.i18n.localize("EX2E.BackgroundName")}</label>
+              <input type="text" name="bgName" style="width:100%">
+            </div>
+            <div class="form-group" style="margin-top:6px">
+              <label>${game.i18n.localize("EX2E.Rating")}</label>
+              <input type="number" name="rating" value="1" min="1" max="5" style="width:60px">
+            </div>`,
+          ok: {
+            callback: (_event, _button, dialog) => ({
+              allyId: dialog.querySelector("input[name='allyId']:checked")?.value ?? null,
+              bgName: dialog.querySelector("[name='bgName']")?.value?.trim() ?? "",
+              rating: Number(dialog.querySelector("[name='rating']")?.value ?? 1),
+            })
+          }
+        });
+        if (result?.allyId && result?.bgName) {
+          const targetAlly = game.actors.get(result.allyId);
+          if (targetAlly) {
+            const [bgItem] = await targetAlly.createEmbeddedDocuments("Item", [{
+              name:   result.bgName,
+              type:   "background",
+              system: { value: result.rating },
+              flags:  { exalted2e: { charmGranted: true, charmId: this.id, casterActorId: actor.id } }
+            }]);
+            // Tracking AE on the caster — charmSource links it to _removeCharmWeaponArtifacts
+            await actor.createEmbeddedDocuments("ActiveEffect", [{
+              name:   game.i18n.format("EX2E.GrantedBackgroundTracking", { target: targetAlly.name }),
+              disabled: true,
+              flags:  {
+                exalted2e: {
+                  charmSource: this.id,
+                  grantedBackgroundRef: { targetActorId: targetAlly.id, backgroundItemId: bgItem.id }
+                }
+              }
+            }]);
+            ui.notifications.info(game.i18n.format("EX2E.BackgroundGranted", { name: result.bgName, target: targetAlly.name }));
+          }
+        }
+      }
+    }
+
+    // M75 — Bind an NPC companion; track via charmSource AE; dismiss token on deactivation.
+    if (!turningOff && sys.linksNpcCompanion) {
+      const npcs = game.actors.filter(a => a.type === "npc");
+      if (npcs.length === 0) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoNpcsFound"));
+      } else {
+        const opts = npcs.map(a => `<option value="${a.id}">${a.name}</option>`).join("");
+        const pickedId = await foundry.applications.api.DialogV2.prompt({
+          window:  { title: game.i18n.localize("EX2E.LinkNpcTitle") },
+          content: `<p>${game.i18n.localize("EX2E.LinkNpcPrompt")}</p>
+            <select name="npcId" style="width:100%">${opts}</select>`,
+          ok: {
+            callback: (_event, _button, dialog) =>
+              dialog.querySelector("select[name='npcId']")?.value ?? null
+          }
+        });
+        if (pickedId) {
+          const companion = game.actors.get(pickedId);
+          if (companion) {
+            await actor.createEmbeddedDocuments("ActiveEffect", [{
+              name:     game.i18n.format("EX2E.LinkedNpcTracking", { name: companion.name }),
+              disabled: true,
+              flags:    { exalted2e: { charmSource: this.id, linkedNpcActorId: pickedId } }
+            }]);
+            ui.notifications.info(game.i18n.format("EX2E.NpcLinked", { name: companion.name }));
+          }
+        }
+      }
     }
 
     // Restore peripheral motes before the mastery AE is deleted by cleanup.
@@ -676,6 +934,20 @@ ${capWarning}`;
         ? (explicitTargetActor ?? game.user.targets.first()?.actor ?? actor)
         : actor;
       if (total > 0) await healTarget.healDamage(total);
+    }
+
+    // M48 — Virtue roll trigger: auto-roll a Virtue pool when this charm activates
+    if (!turningOff && sys.virtueRollTrigger?.enabled) {
+      const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+      const virtue       = sys.virtueRollTrigger.virtue ?? "valor";
+      const virtueRating = actor.system.virtues?.[virtue]?.dotRating ?? 0;
+      const difficulty   = sys.virtueRollTrigger.difficulty ?? 1;
+      const virtueLabel  = game.i18n.localize(`EX2E.Virtue${virtue.charAt(0).toUpperCase() + virtue.slice(1)}`);
+      await ExaltedRoll.rollPool(actor, {
+        pool:     Math.max(1, virtueRating),
+        flavor:   game.i18n.format("EX2E.VirtueRollFlavor", { virtue: virtueLabel, difficulty }),
+        category: "all",
+      });
     }
 
     // Step B — effect merging: build proxy charm carrying merged system
@@ -1098,9 +1370,29 @@ ${capWarning}`;
     const weaponIds = actor.items
       .filter(i => i.type === "weapon" && i.getFlag("exalted2e", "charmSource") === this.id)
       .map(i => i.id);
-    const effectIds = actor.effects
-      .filter(e => e.flags?.exalted2e?.charmSource === this.id)
-      .map(e => e.id);
+    const charmAEs = actor.effects.filter(e => e.flags?.exalted2e?.charmSource === this.id);
+    // M74 — Delete granted-background items on ally actors before removing the tracking AEs.
+    for (const ae of charmAEs) {
+      const ref = ae.flags?.exalted2e?.grantedBackgroundRef;
+      if (ref?.targetActorId && ref?.backgroundItemId) {
+        const targetActor = game.actors?.get(ref.targetActorId);
+        const bgItem = targetActor?.items?.get(ref.backgroundItemId);
+        if (bgItem) await bgItem.delete();
+      }
+    }
+    // M75 — Dismiss NPC companion tokens from the active scene.
+    for (const ae of charmAEs) {
+      const npcId = ae.flags?.exalted2e?.linkedNpcActorId;
+      if (npcId && canvas?.scene) {
+        const tokenIds = canvas.scene.tokens
+          .filter(t => t.actorId === npcId)
+          .map(t => t.id);
+        if (tokenIds.length) {
+          await canvas.scene.deleteEmbeddedDocuments("Token", tokenIds);
+        }
+      }
+    }
+    const effectIds = charmAEs.map(e => e.id);
     if (weaponIds.length) await actor.deleteEmbeddedDocuments("Item",         weaponIds);
     if (effectIds.length) await actor.deleteEmbeddedDocuments("ActiveEffect", effectIds);
   }

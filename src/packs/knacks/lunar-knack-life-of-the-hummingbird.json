@@ -1,0 +1,29 @@
+{
+  "_id": "48a176bced895b38",
+  "_key": "!items!48a176bced895b38",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Life of the Hummingbird",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 2,
+    "prerequisites": "Essence 2, Wits 3",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>By tasting a creature's blood, the Lunar may temporarily adopt its shape for one hour. With a vial of drawn blood, the duration extends to one day. No full sacred hunt is required.</p>",
+    "charmUid": "48a176bced895b38"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

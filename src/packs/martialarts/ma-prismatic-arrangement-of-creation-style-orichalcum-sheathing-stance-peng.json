@@ -18,10 +18,10 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [1, 2],
     "keywords": [
       "Obvious"
     ],
@@ -36,8 +36,7 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Five actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
@@ -45,7 +44,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "c7aa0a5b86e9753a"
+    "charmUid": "c7aa0a5b86e9753a",
+    "grantsMastery": false
   },
   "folder": "33c138eb339f4538",
   "sort": 0,

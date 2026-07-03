@@ -1,0 +1,33 @@
+{
+  "_id": "5a0000000000000c",
+  "_key": "!items!5a0000000000000c",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Surging Martial Arts Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "martialArts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Combo-OK"],
+    "cost": { "formula": "6m 0+wp", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>Like natural disasters incarnate, Dragon-Blooded explode with power and force. Upon activating the Charm, the Dragon-Blood chooses the First or Third Dragon-Blooded Excellency for the same Ability. The cost to activate the chosen Charm becomes zero motes until his DV refreshes, regardless of how much benefit he chooses to gain from it. This Charm costs six motes to activate, plus a number of Willpower points equal to the number of times the character has used any version of Surging Martial Arts Mastery previously in the scene (maximum two Willpower points).</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "", "martialArtsTier": "", "martialArtsStyleName": "", "maidenAffiliation": "",
+    "durationFormula": "", "stackCount": 0, "umiCost": 0, "cooperationBonusDice": 0,
+    "excellency": "", "perfectDefenseType": "", "active": false,
+    "prereqGroups": [{ "alternatives": [{ "type": "charm", "charmUid": "deadf4a33d07855b", "charmName": "First Martial Arts Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }, { "type": "charm", "charmUid": "6ffa3ebe832f9830", "charmName": "Third Martial Arts Excellency", "abilityKey": "", "virtueKey": "", "virtueMin": 0 }] }],
+    "charmUid": "5a0000000000000c"
+  },
+  "folder": "a1b2c3d4e5f60104",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

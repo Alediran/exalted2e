@@ -55,17 +55,17 @@
             "charmUid": "81c9753f18de405c",
             "charmName": "Charnel Chirurgeon Deftness",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
+      "enabled": false,
+      "status": "",
+      "resistPool": "",
+      "onFail": ""
     },
     "charmUid": "6b192688b3e6ecdb",
     "mirrorId": "8f5172f9b73abc63"

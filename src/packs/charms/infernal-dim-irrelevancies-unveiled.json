@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "permanent",
@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Some subordinates may accomplish acts worthy of notice from time to time. Whenever anyone uses any Essence-fueled supernatural power within (Essence x 10) yards, roll the Infernal's (Perception + Awareness) at a difficulty of (8 - the power user's Essence rating, minimum 1). Success means the Infernal senses where the power was activated relative to himself and the effect's minimum Essence. If he wishes further information, he may pay one mote to make the scrutinized effect Obvious to his senses,</p><p>though doing so causes his eyes to flash like Insignificant Embers Intuition. Insignificant Embers Intuition may be used to enhance this Charm's activation roll, providing more information about the effect's aspect and the overall power of its source. Dim Irrelevancies Unveiled only reveals the location where a power was activated and does not track the source even if the power is ongoing.</p>",
+    "description": "<p>Some subordinates may accomplish acts worthy of notice from time to time. Whenever anyone uses any Essence-fueled supernatural power within (Essence x 10) yards, roll the Infernal's (Perception + Awareness) at a difficulty of (8 - the power user's Essence rating, minimum 1). Success means the Infernal senses where the power was activated relative to himself and the effect's minimum Essence. If he wishes further information, he may pay one mote to make the scrutinized effect Obvious to his senses, though doing so causes his eyes to flash like Insignificant Embers Intuition. Insignificant Embers Intuition may be used to enhance this Charm's activation roll, providing more information about the effect's aspect and the overall power of its source. Dim Irrelevancies Unveiled only reveals the location where a power was activated and does not track the source even if the power is ongoing.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "malfeas",
     "martialArtsTier": "",
@@ -50,8 +50,8 @@
             "charmUid": "decca988e8730593",
             "charmName": "Insignificant Embers Intuition",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

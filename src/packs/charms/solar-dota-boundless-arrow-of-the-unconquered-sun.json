@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>the target is under an open sky--be he in Malfeas, the Underworld, the Wyld, Yu-Shan or anywhere else. The archer need not know where her enemy is, but she may attack a given distant target thus only once until she sees him again. This Charm acts as a permanent upgrade to Accuracy Without Distance whose benefits cost +9m, 1wp to activate. It explicitly can't be used at night or indoors, and won't hit indoor targets. It works in Yu-Shan only when the Unconquered Sun is ahead in the Games of Divinity and his image is projected across the sky. A second purchase, at Archery 9+, Essence 9+, permits the Charm to attack a target up to five times before the Solar sees him again. A third and final purchase, at Archery 10, Essence 10, permits the Lawgiver to use this Charm whenever she stands in sunlight, and to target her enemies so long as they are exposed to any degree of light; thus are the enemies of the greatest of the Chosen forced to dwell in absolute darkness forever. This final mode of attack may only be used once until the Lawgiver sees her target again.</p>",
+    "description": "<p>Though he flees to Heaven or to Hell, the target cannot escape the Lawgiver's arrows. Tilting her head back to feel sunlight on her face, the Solar squints and fires one shot toward her Celestial patron. That shot will strike the target as long as the target is under an open sky—be he in Malfeas, the Underworld, the Wyld, Yu-Shan or anywhere else. The archer need not know where her enemy is, but she may attack a given distant target thus only once until she sees him again. This Charm acts as a permanent upgrade to Accuracy Without Distance whose benefits cost +9m, 1wp to activate. It explicitly can't be used at night or indoors, and won't hit indoor targets. It works in Yu-Shan only when the Unconquered Sun is ahead in the Games of Divinity and his image is projected across the sky. A second purchase, at Archery 9+, Essence 9+, permits the Charm to attack a target up to five times before the Solar sees him again. A third and final purchase, at Archery 10, Essence 10, permits the Lawgiver to use this Charm whenever she stands in sunlight, and to target her enemies so long as they are exposed to any degree of light; thus are the enemies of the greatest of the Chosen forced to dwell in absolute darkness forever. This final mode of attack may only be used once until the Lawgiver sees her target again.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7470c9903a4e8dc3",
+            "charmName": "Accuracy Without Distance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "8e032c6c533c6ff1",
     "mirrorId": "12280e29280a2ff1"
   },

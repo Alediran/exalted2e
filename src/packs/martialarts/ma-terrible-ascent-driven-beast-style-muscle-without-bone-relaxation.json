@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Muscle-without-bone Relaxation",
+  "name": "Muscle-Without-Bone Relaxation",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -34,9 +34,8 @@
     "source": "Scroll of the Monk: The Imperfect Lotus",
     "yoziPatron": "",
     "martialArtsTier": "terrestrial",
-    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "martialArtsStyleName": "Terrible Ascent-Driven Beast Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "265b5ab9ab263ed2"
+    "charmUid": "265b5ab9ab263ed2",
+    "grantsMastery": false
   },
   "folder": "5ce01017f4c92c09",
   "sort": 0,

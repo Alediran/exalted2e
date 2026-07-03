@@ -19,8 +19,8 @@
     "minAbility": 5,
     "charmType": "simple",
     "duration": "instant",
-    "speed": 6,
-    "dvPenalty": 0,
+    "speed": 7,
+    "dvPenalty": -2,
     "steps": [],
     "keywords": [
       "Elemental",
@@ -48,7 +48,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "50d911468f4391c5",
+            "charmName": "Entombed Mind Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b4fcf9d68c63f12b",
+            "charmName": "Essence Disruption Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "aa3160518235d9b9"
   },
   "folder": "b0b1b2b3b4b5f01c",

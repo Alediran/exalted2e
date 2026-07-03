@@ -15,14 +15,14 @@
   padding: 6px 4px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
 }
 
 /* Attack panel section */
 .exalted2e .spell-attack-section {
   background: var(--ex2e-bg-panel);
   border: 1px solid var(--ex2e-gold-dark);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
 }
 
 .exalted2e .spell-attack-header {
@@ -115,7 +115,7 @@
 .exalted2e .spell-aoe-size-input {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: var(--ex2e-gap-xs);
 }
 
 .exalted2e .spell-aoe-size-input input {
@@ -159,7 +159,7 @@
   width: 24px;
   height: 24px;
   border: none;
-  border-radius: 2px;
+  border-radius: var(--ex2e-border-radius-sm);
 }
 
 /* AoE badge on chat cards */
@@ -168,7 +168,7 @@
   align-items: center;
   gap: 4px;
   font-size: var(--ex2e-font-size-sm);
-  color: var(--ex2e-gold-light, #e8c75a);
+  color: #e8c75a;
   background: rgba(201,162,39,0.08);
   border: 1px solid var(--ex2e-gold-dark);
   border-radius: 3px;
@@ -233,7 +233,7 @@
 .exalted2e.item.charm .effect-enable-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
   padding: 4px 6px;
   background: var(--color-bg-option, rgba(0,0,0,0.05));
   cursor: pointer;
@@ -320,13 +320,6 @@
 
 .exalted2e.item.charm .btn-add-row:hover {
   background: var(--color-bg-option, rgba(0,0,0,0.05));
-}
-
-.exalted2e.item.charm .field-hint {
-  font-size: 0.75em;
-  font-style: italic;
-  color: var(--color-text-dark-secondary, #4b4a44);
-  margin-left: 2px;
 }
 
 
@@ -432,11 +425,6 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
   padding:        var(--ex2e-gap-sm) 0;
 }
 
-.ex2e-combined-card .charm-activation-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 .ex2e-combined-card .charm-row-img {
   width:         22px;
@@ -502,7 +490,7 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
 .prereq-group {
   margin-top: 4px;
   padding: 4px 6px;
-  border: 1px solid var(--ex2e-border-color, rgba(92, 69, 16, 0.6));
+  border: 1px solid var(--ex2e-border-color);
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.15);
 }
@@ -510,7 +498,7 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
 .prereq-group .prereq-group-header {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
   margin-bottom: 3px;
 }
 
@@ -519,7 +507,7 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--ex2e-gold-bright, #ffe066);
+  color: var(--ex2e-gold-bright);
 }
 
 .prereq-alt {
@@ -540,7 +528,7 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
 .prereq-alt .prereq-any-exc-label {
   flex: 1;
   font-style: italic;
-  color: var(--ex2e-text-muted, #7a6a50);
+  color: var(--ex2e-text-muted);
   font-size: 11px;
 }
 
@@ -548,10 +536,10 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
   margin-top: 4px;
   padding: 2px 8px;
   font-size: 11px;
-  background: var(--ex2e-bg-medium, #0e0e0e);
-  border: 1px dashed var(--ex2e-gold-mid, #a07820);
+  background: var(--ex2e-bg-medium);
+  border: 1px dashed var(--ex2e-gold-mid);
   border-radius: 3px;
-  color: var(--ex2e-gold-bright, #ffe066);
+  color: var(--ex2e-gold-bright);
   cursor: pointer;
 }
 
@@ -561,7 +549,7 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
 
 .prereq-readonly {
   padding: 2px 4px;
-  color: var(--ex2e-text-secondary, #b8a88a);
+  color: var(--ex2e-text-secondary);
   font-size: 12px;
 }
 
@@ -570,7 +558,7 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
 .charm-drop-zone {
   min-height: 26px;
   padding: 3px 6px;
-  border: 1px dashed var(--ex2e-border-color, #7a6a50);
+  border: 1px dashed var(--ex2e-border-color);
   border-radius: 3px;
   display: flex;
   flex-wrap: wrap;
@@ -581,7 +569,7 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
 
 .charm-drop-zone.drag-over {
   background-color: rgba(255, 220, 100, 0.08);
-  border-color: var(--ex2e-gold-bright, #ffe066);
+  border-color: var(--ex2e-gold-bright);
   border-style: solid;
 }
 
@@ -590,16 +578,11 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
 }
 
 .charm-drop-zone .drop-zone-hint {
-  color: var(--ex2e-text-muted, #7a6a50);
+  color: var(--ex2e-text-muted);
   font-size: 0.85em;
   font-style: italic;
 }
 
-.charm-prereq-ok {
-  color: var(--ex2e-success, #27ae60);
-  margin-right: 4px;
-  font-size: 11px;
-}
 
 .charm-prereq-missing {
   color: var(--ex2e-dmg-lethal, #c0392b);
@@ -614,8 +597,8 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--ex2e-gold-bright, #ffe066);
-  border-bottom: 1px solid var(--ex2e-gold-mid, #a07820);
+  color: var(--ex2e-gold-bright);
+  border-bottom: 1px solid var(--ex2e-gold-mid);
 }
 
 .charm-group-header:first-child {
@@ -641,11 +624,6 @@ details.charm-group > summary.charm-group-header {
 }
 
 /* ── MA STYLE GROUP HEADER ───────────────────────────────────────────────── */
-.ma-style-group > summary.charm-group-header {
-  display:     flex;
-  align-items: center;
-  gap:         6px;
-}
 
 .ma-style-group > summary.charm-group-header .item-img {
   width:       24px;
@@ -696,7 +674,7 @@ details.charm-group > summary.charm-group-header {
 .spell-section-toolbar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ex2e-gap-md);
 }
 
 /* Wrap the section title + initiation dots so the bottom border stretches
@@ -707,7 +685,7 @@ details.charm-group > summary.charm-group-header {
   display: flex;
   flex: 1;
   align-items: center;
-  gap: 10px;
+  gap: var(--ex2e-gap-md);
   border-bottom: 1px solid var(--ex2e-gold-dark);
 }
 
@@ -718,9 +696,9 @@ details.charm-group > summary.charm-group-header {
 .spell-initiation-label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
   font-size: 11px;
-  color: var(--ex2e-text-secondary, #b8a88a);
+  color: var(--ex2e-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -750,10 +728,10 @@ details.charm-group > summary.charm-group-header {
   min-width: 18px;
   padding: 1px 5px;
   margin-right: 4px;
-  border: 1px solid var(--ex2e-gold-mid, #a07820);
-  border-radius: 8px;
-  background: var(--ex2e-bg-medium, #0e0e0e);
-  color: var(--ex2e-gold-bright, #ffe066);
+  border: 1px solid var(--ex2e-gold-mid);
+  border-radius: var(--ex2e-border-radius-lg);
+  background: var(--ex2e-bg-medium);
+  color: var(--ex2e-gold-bright);
   font-size: 10px;
   font-weight: 700;
   font-family: var(--ex2e-font-ui, "Signika", sans-serif);
@@ -788,17 +766,17 @@ details.charm-group > summary.charm-group-header {
 .exalted2e.item.martial-arts-style .weapons-editor {
   flex-direction: column;
   align-items:    stretch;
-  gap:            6px;
+  gap:            var(--ex2e-gap-sm);
   padding:        6px 8px;
-  border:         1px dashed var(--ex2e-border-color, rgba(92,69,16,0.6));
-  border-radius:  4px;
+  border:         1px dashed var(--ex2e-border-color);
+  border-radius:  var(--ex2e-border-radius);
   background:     rgba(0,0,0,0.15);
   transition:     background-color 0.15s, border-color 0.15s;
 }
 
 .exalted2e.item.martial-arts-style .weapons-editor.drag-over {
   background-color: rgba(255, 220, 100, 0.07);
-  border-color:     var(--ex2e-gold-bright, #ffe066);
+  border-color:     var(--ex2e-gold-bright);
   border-style:     solid;
 }
 
@@ -806,7 +784,7 @@ details.charm-group > summary.charm-group-header {
   font-size:      0.8em;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color:          var(--ex2e-text-secondary, #b8a88a);
+  color:          var(--ex2e-text-secondary);
   margin-bottom:  2px;
 }
 
@@ -822,7 +800,7 @@ details.charm-group > summary.charm-group-header {
 
 .exalted2e.item.martial-arts-style .weapon-tags:empty::after {
   content:    attr(data-empty-hint);
-  color:      var(--ex2e-text-muted, #7a6a50);
+  color:      var(--ex2e-text-muted);
   font-size:  0.82em;
   font-style: italic;
 }
@@ -830,14 +808,14 @@ details.charm-group > summary.charm-group-header {
 .exalted2e.item.martial-arts-style .weapon-tags li {
   display:       inline-flex;
   align-items:   center;
-  gap:           3px;
+  gap:           var(--ex2e-gap-xs);
   padding:       2px 6px 2px 8px;
   background:    rgba(201, 162, 39, 0.12);
-  border:        1px solid var(--ex2e-gold-dark, #5c4510);
+  border:        1px solid var(--ex2e-gold-dark);
   border-radius: 10px;
   height:        20.34px;
   font-size:     0.82em;
-  color:         var(--ex2e-text-primary, #e8dcc8);
+  color:         var(--ex2e-text-primary);
 }
 
 .exalted2e.item.martial-arts-style .weapon-tags li button {
@@ -845,7 +823,7 @@ details.charm-group > summary.charm-group-header {
   cursor:      pointer;
   line-height: 1;
   font-size:   1em;
-  color:       var(--ex2e-text-muted, #7a6a50);
+  color:       var(--ex2e-text-muted);
   padding:     0 1px;
   transition:  color 0.1s;
 }
@@ -865,19 +843,19 @@ details.charm-group > summary.charm-group-header {
   min-width:  0;
   font-size:  0.85em;
   padding:    2px 6px;
-  background: var(--ex2e-bg-medium, #0e0e0e);
-  border:     1px solid var(--ex2e-border-color, rgba(92,69,16,0.6));
+  background: var(--ex2e-bg-medium);
+  border:     1px solid var(--ex2e-border-color);
   border-radius: 3px;
-  color:      var(--ex2e-text-primary, #e8dcc8);
+  color:      var(--ex2e-text-primary);
 }
 
 .exalted2e.item.martial-arts-style .add-weapon-row button {
   font-size:  0.8em;
   padding:    2px 8px;
   background: none;
-  border:     1px solid var(--ex2e-gold-mid, #a07820);
+  border:     1px solid var(--ex2e-gold-mid);
   border-radius: 3px;
-  color:      var(--ex2e-gold-bright, #ffe066);
+  color:      var(--ex2e-gold-bright);
   cursor:     pointer;
   white-space: nowrap;
 }
@@ -916,11 +894,6 @@ details.charm-group > summary.charm-group-header {
   gap:            var(--ex2e-gap-xs);
 }
 
-.hearthstone-slot-row {
-  display:     flex;
-  align-items: center;
-  gap:         6px;
-}
 
 /* Countermagic section on charm sheet */
 .btn-dispel-other {
@@ -952,7 +925,8 @@ details.charm-group > summary.charm-group-header {
   margin-top:  2px;
 }
 
-.exalted2e.item.generic .manse-header-label {
+.exalted2e.item.generic .manse-header-label,
+.exalted2e.item.generic .cult-stat-label {
   font-family:    var(--ex2e-font-ui);
   font-size:      var(--ex2e-font-size-xs);
   text-transform: uppercase;
@@ -980,7 +954,7 @@ details.charm-group > summary.charm-group-header {
 .exalted2e.item.generic .manse-drop-placeholder {
   display:        flex;
   align-items:    center;
-  gap:            6px;
+  gap:            var(--ex2e-gap-sm);
   font-style:     italic;
   font-size:      var(--ex2e-font-size-sm);
   color:          var(--ex2e-text-muted);
@@ -990,7 +964,7 @@ details.charm-group > summary.charm-group-header {
 .exalted2e.item.generic .manse-drop-chip {
   display:     flex;
   align-items: center;
-  gap:         6px;
+  gap:         var(--ex2e-gap-sm);
   width:       100%;
 }
 
@@ -1039,14 +1013,6 @@ details.charm-group > summary.charm-group-header {
   display:        flex;
   flex-direction: column;
   gap:            2px;
-}
-
-.exalted2e.item.generic .cult-stat-label {
-  font-family:    var(--ex2e-font-ui);
-  font-size:      var(--ex2e-font-size-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color:          var(--ex2e-text-muted);
 }
 
 .exalted2e.item.generic .cult-stat-value {
@@ -1145,7 +1111,7 @@ details.charm-group > summary.charm-group-header {
 
 .upgrade-tier-card {
   border: 1px solid var(--ex2e-border-color);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   padding: 8px;
   margin-bottom: 8px;
   background: rgba(0,0,0,0.05);
@@ -1232,8 +1198,7 @@ details.charm-group > summary.charm-group-header {
 }
 
 /* ── Resplendent Destiny ────────────────────────────────────────────────── */
-.exalted2e .resplendent-section { display: flex; flex-direction: column; gap: 6px; }
-.exalted2e .resplendent-endurance-row { display: flex; align-items: center; gap: 6px; }
+.exalted2e .resplendent-section { display: flex; flex-direction: column; gap: var(--ex2e-gap-sm); }
 .exalted2e .resplendent-endurance-max { width: 4em; }
 .exalted2e .resplendent-status-row { display: flex; align-items: center; gap: 8px; }
 .exalted2e .resplendent-status-badge {
@@ -1250,7 +1215,6 @@ details.charm-group > summary.charm-group-header {
 
 /* ── Resplendencies ─────────────────────────────────────────────────────── */
 .exalted2e .resplendency-list { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
-.exalted2e .resplendency-row { display: flex; align-items: center; gap: 6px; }
 .exalted2e .resplendency-row .resplendency-name { flex: 1; }
 .exalted2e .resplendency-row .resplendency-cost {
   font-size: var(--ex2e-font-size-sm);
@@ -1260,12 +1224,12 @@ details.charm-group > summary.charm-group-header {
 .exalted2e .resplendency-changes .sb-change-row { display: flex; gap: 4px; align-items: center; margin-bottom: 2px; }
 
 /* ── Crafting: workshop & assistants ────────────────────────────────────── */
-.craft-modifiers-block { display: flex; flex-direction: column; gap: 6px; margin: 6px 0; }
+.craft-modifiers-block { display: flex; flex-direction: column; gap: var(--ex2e-gap-sm); margin: 6px 0; }
 .craft-modifiers-block .craft-assistants { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; border: 1px solid var(--ex2e-gold-dark); padding: 4px 8px; }
 .craft-modifiers-block .craft-assistants label { display: inline-flex; align-items: center; gap: 4px; }
 .craft-modifiers-block .craft-assistants input[type=number] { width: 3.5em; }
 .craft-modifiers-block .craft-assist-bonus { font-weight: bold; margin-left: auto; }
-.craft-waiver-badge { color: var(--ex2e-gold); font-size: var(--ex2e-font-size-sm); margin-left: 4px; }
+.craft-waiver-badge { color: var(--ex2e-gold-main); font-size: var(--ex2e-font-size-sm); margin-left: 4px; }
 .craft-workshop-cell, .craft-assist-cell { white-space: nowrap; }
 
 /* ── Manse geomancy (Phase 1) ───────────────────────────────────────────── */
@@ -1303,7 +1267,7 @@ details.charm-group > summary.charm-group-header {
 }
 .exalted2e.item.generic .manse-geomancy-fields .dot-rating {
   display: flex;
-  gap:     3px;
+  gap:     var(--ex2e-gap-xs);
 }
 .exalted2e.item.generic .manse-geomancy-fields > label.manse-dbl-label {
   flex-direction: row;
@@ -1350,7 +1314,7 @@ details.charm-group > summary.charm-group-header {
 .exalted2e.item.generic .manse-power select[multiple] { min-height: 5em; width: 100%; }
 
 /* ── Manse construction & damage (Phase 3) ──────────────────────────────── */
-.exalted2e.item.generic .mpw-status-cell { white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.exalted2e.item.generic .mpw-status-cell { white-space: nowrap; display: flex; align-items: center; gap: var(--ex2e-gap-sm); }
 .exalted2e.item.generic .mpw-status { font-family: var(--ex2e-font-ui); font-size: var(--ex2e-font-size-xs); text-transform: uppercase; letter-spacing: 0.04em; }
 .exalted2e.item.generic .mpw-status.designed { color: var(--ex2e-success, #2e8b57); }
 .exalted2e.item.generic .mpw-status.damaged  { color: var(--ex2e-dmg-lethal, #c0392b); }

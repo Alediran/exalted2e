@@ -36,7 +36,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Righteous Devil Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "0f8d3066bf19c76a"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4106a88b24a9be27",
+            "charmName": "Lightning Draw Stance",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "0f8d3066bf19c76a",
+    "grantsMastery": false
   },
   "folder": "c9f7d573ff8d32af",
   "sort": 0,

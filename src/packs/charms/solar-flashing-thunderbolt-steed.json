@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Essence imbues the Lawgiver's mount with infinite energy. It can run all-out without suffering ill effects. It receives one automatic success on any rolls to keep its footing or successfully jump an obstacle. With this Charm active, a mounted character can reliably cover (the horse's Stamina x 10) miles per hour. WIND-RACING ESSENCE INFUSION Cost: --; Mins: Ride 5, Essence 4; Type: Permanent Keywords: Obvious Prerequisite Charms: Flashing Thunderbolt Steed The steeds of the Lawgivers possess extraordinary speed. This Charm enhances the character's Flashing Thunderbolt Steed technique, allowing the mount under its influence to reliably travel ([the creature's Stamina + the character's Essence] x 10) miles per hour. SOMETIMES HORSES FLY APPROACH Cost: 5m, 1wp; Mins: Ride 5, Essence 4; Type: Simple</p><p>Keywords: Combo-OK, Touch Duration: One hour Prerequisite Charms: Flashing Thunderbolt Steed, Single Spirit Method The Solar heroes inspire their mounts to unusual feats. This Charm gives a horse the ability to fly, as well as the confidence to do so. It can run on water, clouds and even the air itself with a Move or Dash action, spending two yards of movement to ascend one yard. Reduce this Charm's cost to five motes when used upon a horse summoned with Phantom Steed or a similar Charm.</p>",
+    "description": "<p>Essence imbues the Lawgiver's mount with infinite energy. It can run all-out without suffering ill effects. It receives one automatic success on any rolls to keep its footing or successfully jump an obstacle. With this Charm active, a mounted character can reliably cover (the horse's Stamina x 10) miles per hour.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,7 +52,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "ride",
             "virtueKey": "valor",
             "virtueMin": 1
           }

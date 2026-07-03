@@ -31,13 +31,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>Stewards also inspire fear. Every person sees her worst fear when looking upon the character using Devil Body, Terror Face, be it an overseer with baying hounds for an escaped slave or the fetich soul of Isidoros for an Exalt. This is an Illusion effect. All actions taken that oppose the Lunar suffer an external penalty equal to (Lunar's Essence – subject's Valor).</p><p>Victims of this Charm may spend one Willpower to make a (Willpower + Integrity) roll at a difficulty equal to the Lunar's Appearance. Success lets the person ignore the terrifying visage for a number of actions equal to her Integrity. Spending three Willpower outright accomplishes the same effect without a roll.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a83202ff1f5e7525",
+            "charmName": "Stance-As-Thought Stride",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "b2ab1501ee639855"
   },
   "folder": "8313b495b23ed35c",

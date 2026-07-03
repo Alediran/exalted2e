@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal re-envisions a natural or undead animal mount he rides through the marred lens of Neverborn madness, temporarily warping the animal into a monster. Wretched Ridden Nightmare grants one blight, one affliction and two poxes selected by the Abyssal when he activates the Charm, as well making the steed a creature of darkness. All of these mutations must directly improve the animal's utility as a mount or increase its physical combat power. The Storyteller may veto any mutations that do not conform to the strictures and intent of this Charm. Reduce the cost of</p><p>this Charm to five motes when targeting a mount created with Spectral Steed or a similar Charm.</p>",
+    "description": "<p>The Abyssal re-envisions a natural or undead animal mount he rides through the marred lens of Neverborn madness, temporarily warping the animal into a monster. Wretched Ridden Nightmare grants one blight, one affliction and two poxes selected by the Abyssal when he activates the Charm, as well making the steed a creature of darkness. All of these mutations must directly improve the animal's utility as a mount or increase its physical combat power. The Storyteller may veto any mutations that do not conform to the strictures and intent of this Charm. Reduce the cost of this Charm to five motes when targeting a mount created with Spectral Steed or a similar Charm.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -56,8 +56,8 @@
             "charmUid": "234d46aa4a1151c5",
             "charmName": "Unholy Mount Warding",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

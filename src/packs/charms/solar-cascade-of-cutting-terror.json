@@ -24,14 +24,15 @@
     "steps": [],
     "keywords": [
       "Combo-OK",
-      "Obvious"
+      "Obvious",
+      "Undodgeable"
     ],
     "cost": {
       "formula": "5m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>the most elusive demons could escape the Solars' judgment. This Charm supplements a Thrown-based attack, filling the air with dozens or hundreds of duplicates of the Lawgiver's thrown weapon. This Charm renders the target's Dodge DV inapplicable against this attack. It also doubles the Solar's successes on the attack roll before comparing it to defense, in Step 3 of attack resolution.</p>",
+    "description": "<p>In the First Age, not even the most elusive demons could escape the Solars' judgment. This Charm supplements a Thrown-based attack, filling the air with dozens or hundreds of duplicates of the Lawgiver's thrown weapon. This Charm renders the target's Dodge DV inapplicable against this attack. It also doubles the Solar's successes on the attack roll before comparing it to defense, in Step 3 of attack resolution.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -59,7 +60,8 @@
         ]
       }
     ],
-    "charmUid": "4c8eb8c4c57043f5"
+    "charmUid": "4c8eb8c4c57043f5",
+    "attackSuccessMultiplier": 2
   },
   "folder": "a5a30fa2e730ff58",
   "sort": 0,

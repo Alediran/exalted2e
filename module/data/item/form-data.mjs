@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 /**
@@ -30,8 +32,9 @@ export class FormData extends foundry.abstract.TypeDataModel {
         }),
         description: new fields.StringField({ blank: true })
       })),
-      source:      new fields.StringField({ blank: true }),
-      description: new fields.HTMLField({ initial: "" })
+      source:       new fields.StringField({ blank: true }),
+      description:  new fields.HTMLField({ initial: "" }),
+      descriptions: descriptionsField()
     };
   }
 }

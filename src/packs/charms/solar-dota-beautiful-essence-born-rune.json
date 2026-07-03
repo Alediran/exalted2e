@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Beautiful Essence-born Rune",
+  "name": "Beautiful Essence-Born Rune",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>This versatile Charm allows Lawgivers to radically compress magical instruction while simultaneously encoding the theories or biases of the scribe into the lesson. The character meditates upon a Charm or spell she knows, and then designs a single glyph encompassing the totality of her understanding of the effect. This glyph transcends language and its meaning may be effortlessly intuited by any character capable of learning the Charm or spell the glyph is based upon. Beautiful Essence-Born Runes contain more than instructions in the use of a Charm or spell, however; when created, they are also designed to encompass additional lessons desired by their creator. In game terms, each glyph contains one Charm or spell, and one Intimacy. Thereafter, characters who study the glyph may learn the spell or Charm coded into it in a single scene, as a Training effect. However, the character also gains the Intimacy coded into the Charm, and it is fundamentally embedded into her understanding of the magic. The learned Charm or spell may not be used while the recipient does not harbor the encoded Intimacy. This restriction may be overcome, eventually, by spending an additional 2xp. Designing a rune takes only (minimum Essence of effect) hours of effort, and a character may design an unlimited number of runes. Actually scribing the rune requires an investiture of Essence, as reflected in the Charm's cost.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -46,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8ff381c6c78b9ec4",
+            "charmName": "Flawless Brush Discipline",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "35a780acb0ace1e2"
   },
   "folder": "13c99c0e197877e7",

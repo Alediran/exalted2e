@@ -17,7 +17,7 @@
     "ability": "medicine",
     "essence": 2,
     "minAbility": 4,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm elevates the Wood Aspects to the status of healers of legend, although its failure during the time of the Great Contagion was a mighty blow to the Wood Aspects' collective pride. With this Charm, a Dragon-Blood can cure any non-magical disease with a touch. She must first make an ordinary diagnosis with her Medicine Ability prior to attempting to heal the disease, as she must understand what kind of plague confronts her. If the diagnosis is successful, the Dragon-Blood need only spend the Essence and Willpower and touch her patient to purge the illness from the patient's body. This purge is quite violent, and the patient is likely to convulse and expel the sickness, in the form of a repulsive ichor from his mouth, nose and elsewhere as soon as the Charm takes effect. If this occurs during combat, the patient is automatically rendered inactive for a number of actions equal to the disease's Treated Morbidity (see Exalted, p. 350). The Dragon-Blood can cure a magical disease only if his permanent Essence equals or exceeds the Magical Treatment Difficulty for the illness, and no Dragon-Blood is capable of curing the Great Contagion with this Charm.</p>",
+    "description": "<p>This Charm elevates the Wood Aspects to the status of healers of legend, although its failure during the time of the Great Contagion was a mighty blow to the Wood Aspects' collective pride. With this Charm, a Dragon-Blood can cure any non-magical disease with a touch. She must first make an ordinary diagnosis with her Medicine Ability prior to attempting to heal the disease, as she must understand what kind of plague confronts her. If the diagnosis is successful, the Dragon-Blood need only spend the Essence and Willpower and touch her patient to purge the illness from the patient's body. This purge is quite violent, and the patient is likely to convulse and expel the sickness, in the form of a repulsive ichor from his mouth, nose and elsewhere as soon as the Charm takes effect. If this occurs during combat, the patient is automatically rendered inactive for a number of actions equal to the disease's Treated Morbidity (see Exalted, p. 350). The Dragon-Blood can cure a magical disease only if his permanent Essence equals or exceeds the Magical Treatment Difficulty for the illness, and no Dragon-Blood is capable of curing the Great Contagion with this Charm.</p><p>(Errata) Rather than making a separate ordinary diagnosis before invoking this Charm, the Dragon-Blood may use the Charm as both diagnosis and cure in a single action — the violent expulsion serves as its own confirmation. Additionally, the incapacitating agony described above is a Crippling effect that lasts only one action, not a full scene.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -53,18 +53,12 @@
             "charmUid": "9324112c88a5d4d6",
             "charmName": "Infection-Banishing Prana",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "statusApply": {
-      "enabled": true,
-      "status": "Sickness",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applySickness"
-    },
     "charmUid": "618c913fa3e87464"
   },
   "folder": "b0b1b2b3b4b5f026",

@@ -36,9 +36,8 @@
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "Silver-voiced Nightingale Style",
+    "martialArtsStyleName": "Silver-Voiced Nightingale Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "b388b60a7a4f6929"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9aad749d072e6f1f",
+            "charmName": "Aria of Tranquility",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cb3b28c1c8867118",
+            "charmName": "Resounding Songbird's Cry",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "b388b60a7a4f6929",
+    "grantsMastery": true
   },
   "folder": "f8d2ffb92c6967bb",
   "sort": 0,

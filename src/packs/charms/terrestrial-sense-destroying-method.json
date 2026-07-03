@@ -17,21 +17,21 @@
     "ability": "awareness",
     "essence": 3,
     "minAbility": 4,
-    "charmType": "supplemental",
-    "duration": "instant",
+    "charmType": "simple",
+    "duration": "formula",
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Combo-OK",
-      "Elemental"
+      "Crippling"
     ],
     "cost": {
-      "formula": "4 motes, 1wp",
+      "formula": "4m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood channels essence to overwhelm and burn out the target's senses, leaving them diminished and disoriented. When this Charm supplements an attack that deals at least one level of damage after soak, the character may choose to damage one of the target's senses rather than inflict additional health levels. The target suffers a -2 internal penalty to all actions requiring that sense (sight, hearing, smell, taste, or touch) for the rest of the scene. The character's player must declare which sense is targeted before rolling. Against creatures with supernatural senses, this Charm requires an additional success on the attack roll for each level of the sense's supernatural enhancement.</p>",
+    "description": "<p>Having mastered the capability of riding another's senses, the Earth Aspect can now close off those senses, denying his subject their use. The target must be within direct line of sight. The Dragon-Blood's player rolls (Awareness + Essence), with a difficulty equal to the target's Perception. Each net success subtracts one die from the target's Awareness rolls pertaining to a single sense, and if the net successes exceed the target's Perception, the sense affected is totally shut down for the duration of this Charm. The Charm must be applied separately for each of the five senses. The Charm lasts for one action for every dot of permanent Essence the Dragon-Blood has. While this Charm is most commonly used to disable an enemy by taking away their sight, neutralizing a target's sense of touch also allows him to ignore wound penalties (one level of wound penalties per success or all wound penalties if the successes exceed the target's Perception). Thus, Dragon-Blooded officers sometimes neutralize their subordinates' capacity to feel pain before sending them into battle. An Exalt cannot use this Charm on himself.</p><p>This Charm requires an unblockable attack roll to hit a target in line of sight using (Perception + Awareness + Essence), applying an external penalty of the target's Perception. On a hit, the number of successes remaining translate directly into the internal penalty applied to use of the targeted sense or negation of wound penalties if numbing touch, respectively.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,17 +40,26 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "69eaf37f25c41548",
-    "targetPenalty": {
-      "enabled": true,
-      "amount": -2
-    }
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9221a90409c30c59",
+            "charmName": "Sense-Riding Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "69eaf37f25c41548"
   },
   "folder": "b0b1b2b3b4b5f01c",
   "sort": 0,

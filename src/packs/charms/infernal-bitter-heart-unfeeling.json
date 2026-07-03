@@ -11,17 +11,17 @@
   },
   "name": "Bitter Heart Unfeeling",
   "type": "charm",
-  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "img": "icons/magic/water/wave-water-blue.webp",
   "system": {
     "exaltType": "infernal",
     "ability": "",
-    "essence": 1,
+    "essence": 2,
     "minAbility": 1,
-    "charmType": "supplemental",
+    "charmType": "reflexive",
     "duration": "instant",
-    "speed": 6,
+    "speed": 3,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [2],
     "keywords": [
       "Combo-OK",
       "Social"
@@ -31,13 +31,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Replace the text of the Charm with the following: Kimbery has learned that hatred is greater than trust. This Charm adds a bonus of (total number of negative Intimacies) to the warlock's Dodge MDV. This bonus may explicitly break the cap on DV bonuses from Charms.</p>",
+    "description": "<p>Kimbery has learned that hatred is greater than trust. This Charm adds a bonus of (total number of negative Intimacies) to the warlock's Dodge MDV. This bonus may explicitly break the cap on DV bonuses from Charms.</p>",
     "source": "Scroll of Errata",
     "yoziPatron": "kimbery",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "80b19b6d23635466",
+            "charmName": "Bitter Heart Unbleeding",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "5f92ba1650a84a28"
   },
   "folder": "62f1b1afdfe8fbd5",

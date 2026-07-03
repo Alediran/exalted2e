@@ -50,6 +50,10 @@
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
+    "rateBonus": {
+      "enabled": true,
+      "formula": "99"
+    },
     "active": false,
     "prereqGroups": [
       {

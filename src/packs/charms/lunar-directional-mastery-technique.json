@@ -45,12 +45,6 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
-    },
     "charmUid": "a296a300975895d5"
   },
   "folder": "956290ccde1dea72",

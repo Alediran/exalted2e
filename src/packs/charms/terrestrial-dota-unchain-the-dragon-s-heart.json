@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>By grabbing hold of a hearthstone and squeezing, an Exalt using this Charm may shatter its crystallized energies and conduct the Essence surge back into the world through</p>",
+    "description": "<p>By grabbing hold of a hearthstone and squeezing, an Exalt using this Charm may shatter its crystallized energies and conduct the Essence surge back into the world through himself. In addition to destroying the gem with a deafening thunderclap and a flash brighter than the noonday sun, the Charm restores a number of motes equal to (the stone's rating x 5) to the Terrestrial's Essence pool and causes his anima to explode to the 16+ mote level. Breaking the hearthstone thus doesn't harm the stone's manse, which grows a replacement in days equal to its rating. It is possible to attack hearthstones that are externally socketed in an enemy's artifacts, but the Exalt must first win control of a grapple and activate this Charm (which gently releases the opponent).</p><p>With Essence 7+, a Dragon-Blood may use this Charm to attack any targeted hearthstone within (Essence x 10) yards by squeezing his fist and making an unblockable attack with an accuracy pool of Wits + Craft (Air or Earth). If the attack succeeds, the stone shatters, and its energies arc to the Terrestrial's hand.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -45,7 +45,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7bfca893721a349e",
+            "charmName": "Stone-Carving Fingers Form",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "aef8e4384df3aa5f",
+            "charmName": "Charm Of Greater Unmaking",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "66438a42446af4fd"
   },
   "folder": "b0b1b2b3b4b5f01e",

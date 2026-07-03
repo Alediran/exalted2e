@@ -46,20 +46,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "44b27e5e25698b87",
-            "charmName": "Majestic Radiant Presence",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
-    ],
+    "prereqGroups": [],
     "charmUid": "390906a26657a100"
   },
   "folder": "82dbbb60bb2b2c18",

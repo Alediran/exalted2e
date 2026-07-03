@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Although this Charm is costly, it is still prized by DragonBlooded soldiers, as it is as close as mere Terrestrial Exalted can come to a perfect melee defense. After an opponent's hand-to-hand attack, the Dragon-Blood's player must roll (Dexterity + Melee). Regardless of the attacker's successes, if the Dragon-Blood achieves even one success, the attack is totally blocked. This Charm will not block either sorcerous attacks or attacks enhanced by Charms, but it is otherwise treated as a perfect parry. This is a reflexive Charm that can be used freely without</p><p>the need for a Combo. It can be activated only on a tick on which the Dragon-Blooded is the target of an attack, though.</p>",
+    "description": "<p>Although this Charm is costly, it is still prized by DragonBlooded soldiers, as it is as close as mere Terrestrial Exalted can come to a perfect melee defense. After an opponent's hand-to-hand attack, the Dragon-Blood's player must roll (Dexterity + Melee). Regardless of the attacker's successes, if the Dragon-Blood achieves even one success, the attack is totally blocked. This Charm will not block either sorcerous attacks or attacks enhanced by Charms, but it is otherwise treated as a perfect parry. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated only on a tick on which the Dragon-Blooded is the target of an attack, though.</p><p>Portentous Comet-Deflecting Mode is capable of defending against ranged attacks as well as close combat ones. The Charm can't block unblockable attacks. The limitations on this perfect defense constitute a special Flaw of Invulnerability. The Leader use cannot block designated area effects, but may block the massed attacks of complementary units.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -43,7 +43,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "parry",
@@ -55,7 +55,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "melee",
             "virtueKey": "valor",
             "virtueMin": 1
           }

@@ -286,6 +286,43 @@ export function registerCharmTreeDialogIntegration(context) {
       assert.equal(groupSelect?.value, 'archery', 'group select has value "archery"');
     });
 
+    it('[CTREE] rendered nodes are absolutely positioned and the container is sized to fit', async function () {
+      this.timeout(10000);  // dialogs + tree render can take time
+      dialog = CharmTreeDialog.open({ exaltType: 'solar', groupKey: 'melee' });
+      await waitFor(() => !!dialog.element && document.contains(dialog.element), { timeoutMs: 3000 });
+
+      const body = dialog.element?.querySelector('#charm-tree-body');
+      assert.ok(body, 'tree body element exists');
+
+      // Wait for the tree to actually render nodes. If the test world has no
+      // melee charms loaded, skip rather than fail (pack contents are dev-only).
+      const rendered = await waitFor(
+        () => body.querySelectorAll('[data-node-id]').length > 1,
+        { timeoutMs: 3000 }
+      );
+      if (!rendered) this.skip();
+
+      const cards = [...body.querySelectorAll('[data-node-id]')];
+      assert.ok(
+        cards.every(c => getComputedStyle(c).position === 'absolute'),
+        'every node is absolutely positioned'
+      );
+
+      // The tree lives in a content-sized canvas; the body stays full-width so
+      // the tree centres rather than pinning the viewport to the content width.
+      const canvas = body.querySelector('.charm-tree-canvas');
+      assert.ok(canvas, 'tree canvas exists');
+      const canvasWidth = parseFloat(canvas.style.width);
+      assert.ok(canvasWidth > 0, 'canvas is sized to its content');
+      assert.ok(
+        body.getBoundingClientRect().width >= canvasWidth - 0.5
+          || body.scrollWidth >= canvasWidth - 0.5,
+        'body fills the dialog (centres the tree) or scrolls to fit a wider tree'
+      );
+      const maxLeft = Math.max(...cards.map(c => parseFloat(c.style.left) || 0));
+      assert.ok(maxLeft + 0.5 >= 0 && maxLeft <= canvasWidth, 'no node is positioned beyond the canvas width');
+    });
+
     it('source toggle: requires world charm pack setup', async function () {
       this.skip();
     });

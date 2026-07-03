@@ -1,0 +1,71 @@
+{
+  "_id": "beef00000000001e",
+  "_key": "!items!beef00000000001e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mind Spider Curse",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 4,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Servitude",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "7m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Free will is a work of the imagination, no more valuable to the Whispering Flame than the princes of make-believe who dance in gossamer halls, and equally worthy of eradication. A warlock must be inside a manse and in possession of its material intelligence to use this Charm. The Infernal transmits a psychic pulse for (Essence x 100) yards around the manse. Roll the character's Willpower + Essence and compare it to the Dodge MDV of all mortals within the area of the pulse.</p><p>Those affected by Mind Spider Curse have their free will stripped immediately and painlessly. They stand frozen, staring vacantly out at a world they no longer recognize, their minds blanked and waiting for the Infernal's commands. Victims will not respond to anyone or anything if the Infernal does not permit it. Not even a lover's heartbroken pleas will reach the ears of one who has been broken by Mind Spider Curse. The effects of Mind Spider Curse may be resisted for one month by paying five Willpower. This price may not be paid after the victim has succumbed to the curse.</p><p>Targets aged 12 or younger are particularly susceptible to Mind Spider Curse, as their minds have not yet fully formed. Such targets are at -2 Dodge MDV to resist this Charm. She Who Lives in Her Name is aware of this fact, and is certain the intransigent Chosen will sue for peace if she takes their children away.</p><p>Those who resist Mind Spider Curse experience a moment of agony in which they feel insectile fingers rooting through their psyche. This soon passes, and may be followed by watery eyes or a nosebleed, but no penalties are incurred. Should they resist, targets intuitively know the direction from which the psychic attack originated and will associate it with the manse used to amplify the Charm.</p><p>Mind Spider Curse has no effect on Exalts, raksha or spirits; rather, it specifically targets the ants from which the Exalted emerge. The Whispering Flame knows that by cauterizing those traits which make humans special, she will prevent the emergence of future Chosen.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "beef00000000001c",
+            "charmName": "Hollow Mind Possession",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "beef00000000001e"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

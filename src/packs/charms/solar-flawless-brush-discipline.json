@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Flawless Brush Discipline heightens the beauty of a Lawgiver's script, making her every brushstroke ideal. Exalted using this Charm write with the hands of legendary sages and divine calligraphers. This Charm adds the character's permanent Essence to her Linguistics score to determine the beauty of the writing. In addition, this Charm causes the Lawgiver's words to exude a supernatural attraction. The Exalt's player rolls (Charisma + Performance) when recording her message. If the successes exceed the MDV of someone reading this work, the target is overcome with admiration or even love for the Exalt. This is an emotion caused by unnatural mental influence. The target must spend three Willpower to resist this effect or become committed (see p. 201) to the emotion that this Charm instills. If the target does not spend the three Willpower, the emotion lasts until the target breaks the commitment, and it costs one Willpower per scene to resist. Once affected, the target cannot suffer the effects of that Exalt's Flawless Brush Discipline again for one full year. LINGUISTICS EXCELLENCY Increasing the static rating of Linguistics with the Linguistics Excellencies does not increase the number of languages a character knows.</p>",
+    "description": "<p>Flawless Brush Discipline heightens the beauty of a Lawgiver's script, making her every brushstroke ideal. Exalted using this Charm write with the hands of legendary sages and divine calligraphers. This Charm adds the character's permanent Essence to her Linguistics score to determine the beauty of the writing. In addition, this Charm causes the Lawgiver's words to exude a supernatural attraction. The Exalt's player rolls (Charisma + Performance) when recording her message. If the successes exceed the MDV of someone reading this work, the target is overcome with admiration or even love for the Exalt. This is an emotion caused by unnatural mental influence. The target must spend three Willpower to resist this effect or become committed (see p. 201) to the emotion that this Charm instills. If the target does not spend the three Willpower, the emotion lasts until the target breaks the commitment, and it costs one Willpower per scene to resist. Once affected, the target cannot suffer the effects of that Exalt's Flawless Brush Discipline again for one full year.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -52,7 +52,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "linguistics",
             "virtueKey": "valor",
             "virtueMin": 1
           }

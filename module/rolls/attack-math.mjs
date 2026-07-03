@@ -119,24 +119,36 @@ export function computeAxiomaticUpgrade({ isAxiomaticAttack, targetIsVoid, baseD
  */
 export function computeAttackOutcome(attack) {
   const data = { ...attack, defenseChosen: !!attack.defense };
-  const armorComponent = attack.ignoresArmor ? (attack.targetArmorSoak ?? 0) : 0;
-  data.effectiveTargetSoak = Math.max(0,
-    (attack.targetSoak ?? 0) - armorComponent - (attack.soakPiercing ?? 0)
-  );
+  const armorSoak     = attack.targetArmorSoak ?? 0;
+  const armorComponent = attack.ignoresArmor ? armorSoak : 0;
+  let effectiveSoak = (attack.targetSoak ?? 0) - armorComponent - (attack.soakPiercing ?? 0);
+  // M71 — Ammo soak modifiers (only when armor is not already fully ignored by a charm).
+  if (!attack.ignoresArmor) {
+    if (attack.ammoSoakMod === "doubled") {
+      effectiveSoak += armorSoak;          // armor contribution counts twice (Frog Crotch)
+    } else if (attack.ammoSoakMod === "halved") {
+      effectiveSoak -= Math.ceil(armorSoak / 2); // armor halved rounded down = subtract ceil (Target)
+    }
+  }
+  data.effectiveTargetSoak = Math.max(0, effectiveSoak);
   if (!attack.defense) return data;
 
   const perfectSoak    = !!attack.perfectDefenseCharm && attack.perfectDefenseType === "soak";
   const perfectDefense = !!attack.perfectDefenseCharm && !perfectSoak;
   const threshold = Math.max(0, attack.successes - attack.defense.dv);
-  const hit       = !perfectDefense && threshold > 0;
+  const hit       = !perfectDefense && (threshold > 0 || !!attack.guaranteedHit);
   data.threshold      = threshold;
   data.hit            = hit;
   data.perfectDefense = perfectDefense;
   data.perfectSoak    = perfectSoak;
   data.targetDV       = attack.defense.dv;
+  const extraMult = attack.extraSuccessMultiplier ?? 1;
   data.rawDamagePool  = (hit && !perfectSoak)
-    ? threshold + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
+    ? Math.floor(threshold * extraMult) + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
     : 0;
+  if ((attack.rawDamageMultiplier ?? 1) > 1) {
+    data.rawDamagePool = Math.floor(data.rawDamagePool * attack.rawDamageMultiplier);
+  }
   data.hardnessStops = hit && !perfectSoak && (attack.targetHardness ?? 0) > data.rawDamagePool;
   data.defenseLabelKey = {
     dodge:  "EX2E.DodgeDV",
@@ -177,8 +189,14 @@ export function computeAttackOutcome(attack) {
   const step9Complete = !step9Applicable
     || !!attack.counterattackTriggered
     || !!attack.step9Passed;
-  data.showCounterattack = step9Applicable && !step9Complete;
-  data.showRollDamage    = (data.hit ?? false) && !data.hardnessStops && !data.perfectSoak && step9Complete;
+  data.showCounterattack  = step9Applicable && !step9Complete;
+  data.showRollDamage     = (data.hit ?? false) && !data.hardnessStops && !data.perfectSoak && step9Complete;
+  // M70 — Homing re-attack button: show on a miss when the original attack had homingAttack
+  data.showHomingReattack = data.showResolution
+    && !(data.hit ?? false)
+    && !perfectDefense
+    && !!attack.homingAttack
+    && !attack.homingReattackFired;
 
   return data;
 }

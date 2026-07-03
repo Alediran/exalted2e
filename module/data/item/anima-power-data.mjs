@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class AnimaPowerData extends foundry.abstract.TypeDataModel {
@@ -24,7 +26,8 @@ export class AnimaPowerData extends foundry.abstract.TypeDataModel {
 
       autoThreshold: new fields.StringField({ initial: "", blank: true }),
       isGreaterSign: new fields.BooleanField({ initial: false }),
-      description:   new fields.HTMLField({ initial: "" })
+      description:   new fields.HTMLField({ initial: "" }),
+      descriptions:  descriptionsField()
     };
   }
 }

@@ -95,7 +95,7 @@
   justify-content: center;
   width:         28px;
   height:        28px;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   border:        1px solid var(--ex2e-border-color);
   background:    var(--ex2e-bg-panel);
   font-family:   var(--ex2e-font-ui);
@@ -468,7 +468,7 @@
 }
 .ex2e-spell-cast-card .spell-name { font-weight: 600; }
 .ex2e-spell-cast-card .spell-meta {
-  color: var(--ex2e-text-muted, #7a6a50);
+  color: var(--ex2e-text-muted);
   font-size: 0.85em;
 }
 .ex2e-spell-cast-card .spell-description { margin: 6px 0; }

@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>To the Children of Mela, every subtle breeze carries insight into the territory it crosses. The Dragon-Blood can perceive his immediate environment by reading minute eddies and currents in the air. In this manner, he may retain total spatial awareness even in complete darkness. He cannot read or observe color, but he can move freely, and he reduces blind-fighting penalties by half.</p>",
+    "description": "<p>To the Children of Mela, every subtle breeze carries insight into the territory it crosses. The Dragon-Blood can perceive his immediate environment by reading minute eddies and currents in the air. In this manner, he may retain total spatial awareness even in complete darkness. He cannot read or observe color, but he can move freely, and he reduces blind-fighting penalties by half.</p><p>If a Dragon-Blood suffers a Crippling injury that blinds him completely, the duration of this Charm increases to Indefinite and its cost becomes 0m.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +40,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

@@ -18,7 +18,7 @@
     "essence": 1,
     "minAbility": 2,
     "charmType": "simple",
-    "duration": "indefinite",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,8 +36,7 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Path of the Arbiter Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "Indefinite",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,

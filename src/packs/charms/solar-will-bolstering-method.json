@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Solar loremasters understand the subtle and delicate patterns of Essence that give rise to free will and the self. This Charm strengthens those patterns, reinforcing the target's determination</p><p>and certainty. This Charm allows the character to give up to (her Essence) in Willpower to the target. The Solar loses exactly as much Willpower as the target gains, in addition to the Willpower spent on this Charm, but this does not count against the normal limits on Willpower expenditure. This Charm cannot increase the target's Willpower past its normal maximum.</p>",
+    "description": "<p>Solar loremasters understand the subtle and delicate patterns of Essence that give rise to free will and the self. This Charm strengthens those patterns, reinforcing the target's determination and certainty. This Charm allows the character to give up to (her Essence) in Willpower to the target. The Solar loses exactly as much Willpower as the target gains, in addition to the Willpower spent on this Charm, but this does not count against the normal limits on Willpower expenditure. This Charm cannot increase the target's Willpower past its normal maximum.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -60,11 +60,6 @@
         ]
       }
     ],
-    "willpowerRecovery": {
-      "enabled": true,
-      "event": "onDamageDealt",
-      "formula": "1"
-    },
     "charmUid": "b6556519b203161e"
   },
   "folder": "5b0108cbcf2feaf4",

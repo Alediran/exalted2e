@@ -24,6 +24,7 @@
     "steps": [],
     "keywords": [
       "Combo-OK",
+      "Unblockable",
       "Virtue (Temperance)"
     ],
     "cost": {
@@ -45,7 +46,15 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
+    "attackBonus": {
+      "enabled": true,
+      "accuracyDice": "",
+      "damageDice": "",
+      "accuracySuccesses": "",
+      "ignoreAccuracyPenalties": true
+    },
     "prereqGroups": [],
+    "homingAttack": true,
     "charmUid": "dc048aa17d0f6a18"
   },
   "folder": "b0b1b2b3b4b5f018",

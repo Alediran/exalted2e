@@ -34,7 +34,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Falling Blossom Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,8 +41,34 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "eae9dfeff7485bdb"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "392bcb0ab9ed3c75",
+            "charmName": "Purity of Purpose Attack",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1bad187f24a5b48b",
+            "charmName": "Strength of Faith Meditation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "eae9dfeff7485bdb",
+    "grantsMastery": true
   },
   "folder": "dd497199f5d1964b",
   "sort": 0,

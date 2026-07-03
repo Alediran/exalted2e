@@ -14,14 +14,16 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "terrestrial",
-    "ability": "martialarts",
+    "ability": "martialArts",
     "essence": 3,
     "minAbility": 4,
-    "charmType": "simple",
+    "charmType": "reflexive",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [],
+    "steps": [
+      1
+    ],
     "keywords": [
       "Combo-OK",
       "Leader"
@@ -31,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Even given the existence of Charms such as Blade-Deflecting Palm, an unarmed martial artist facing an armed opponent is usually in great danger. This Charm lets him equal the odds by disarming his opponent more easily by negating the normal -2 penalty for disarming an opponent (see Exalted, p. 158). The Charm does not allow the character to break or take the weapon, but he can choose in which direction the weapon will land, which will be (5 + 1 per additional success) yards away from its wielder.</p>",
+    "description": "<p>Even given the existence of Charms such as Blade-Deflecting Palm, an unarmed martial artist facing an armed opponent is usually in great danger. This Charm lets him equal the odds by disarming his opponent more easily by negating the normal -2 penalty for disarming an opponent (see Exalted, p. 158). The Charm does not allow the character to break or take the weapon, but he can choose in which direction the weapon will land, which will be (5 + 1 per additional success) yards away from its wielder.</p><p>As a Leader effect this Charm may only target special characters or solo units. This takes precedence over the version of the Charm listed on p. 41 of Scroll of the Monk.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -40,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

@@ -19,7 +19,7 @@
     "minAbility": 4,
     "charmType": "simple",
     "duration": "oneScene",
-    "speed": 6,
+    "speed": 3,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -36,7 +36,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Mantis Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "dbbd1bc170608a09"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9f865a972bd74ded",
+            "charmName": "Iron-Arm Block",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "dbbd1bc170608a09",
+    "grantsMastery": false
   },
   "folder": "026302498ba6c9dc",
   "sort": 0,

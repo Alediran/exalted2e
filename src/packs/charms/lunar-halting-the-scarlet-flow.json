@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Halting The Scarlet Flow",
+  "name": "Halting the Scarlet Flow",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -60,6 +60,13 @@
         ]
       }
     ],
+    "healingRoll": {
+      "enabled": true,
+      "pool": "1",
+      "bonus": "",
+      "damageType": "lethal",
+      "target": "self"
+    },
     "charmUid": "6cf6a720a77958d5"
   },
   "folder": "956290ccde1dea72",

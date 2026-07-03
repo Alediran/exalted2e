@@ -1,4 +1,5 @@
 import { EX2E }          from "../../config.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { evaluateCharmFormula } from "../../documents/item.mjs";
@@ -7,6 +8,7 @@ import { canEquipToSlot } from "../../helpers/equip-slots.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { spellInitiationStatus } from "../../helpers/spell-helpers.mjs";
 import { _greaterSignPrereqMet, dedupStackableCharms, animaPowerCost, buildPurchaseLogRows, buildEffectsData, buildAbilityGroups } from "../../helpers/character-sheet-helpers.mjs";
+import { evalMaxPurchases } from "../../helpers/charm-tree-builder.mjs";
 import { buildComboPreviewRows } from "../../helpers/combo-display.mjs";
 import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
@@ -126,6 +128,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   // — entries are added when the user clicks a summary to collapse it.
   _collapsedGroups = new Set();
 
+  // Tracks which multi-purchase charm groups are expanded (showing per-instance rows).
+  #expandedGroups = new Set();
+
   static DEFAULT_OPTIONS = {
     classes:  ["exalted2e", "actor", "character"],
     position: { width: 860, height: 720 },
@@ -154,6 +159,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editPurchaseEntry:    CharacterSheet.#onEditPurchaseEntry,
       deletePurchaseEntry:  CharacterSheet.#onDeletePurchaseEntry,
       toggleEquip:         CharacterSheet.#onToggleEquip,
+      sendToElsewhere:     CharacterSheet.#onSendToElsewhere,
+      recallFromElsewhere: CharacterSheet.#onRecallFromElsewhere,
       sendItemToChat:      CharacterSheet.#onSendItemToChat,
       rollPool:            CharacterSheet.#onRollPool,
       cycleAbilityFlag:    CharacterSheet.#onCycleAbilityFlag,
@@ -216,6 +223,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       dismountVehicle:        CharacterSheet.#onDismountVehicle,
       mountVehicleFromScene:  CharacterSheet.#onMountVehicleFromScene,
       openCharmTree:            CharacterSheet.#onOpenCharmTree,
+      toggleMultiPurchaseGroup: CharacterSheet.#toggleMultiPurchaseGroup,
       coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
       addCripplingInjury:       CharacterSheet.#onAddCripplingInjury,
       startTraining:    CharacterSheet.#onStartTraining,
@@ -369,6 +377,68 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // stackHidden: set of non-representative ids to suppress from all group lists.
     const { stackCounts, stackHidden } = dedupStackableCharms(charms);
 
+    // ── Multi-purchase grouped charms ───────────────────────────────────────
+    // Charms with soakBonus.options or healthGrant.options are shown as a
+    // single collapsed row per charmUid with expandable per-instance sub-rows.
+    const isGroupable = c =>
+      (c.system?.soakBonus?.enabled  && (c.system?.soakBonus?.options?.length  ?? 0) > 0) ||
+      (c.system?.healthGrant?.enabled && (c.system?.healthGrant?.options?.length ?? 0) > 0);
+
+    // Only group ability-keyed charms; yozi/patron charms (ability === "") use a
+    // different bucket key and the ability-based map cannot attach to them correctly.
+    const groupableUids = new Set(
+      charms.filter(isGroupable).filter(c => c.system?.ability).map(c => c.system?.charmUid).filter(Boolean)
+    );
+
+    // multiPurchaseGroupsByAbility: ability key → array of group objects
+    const multiPurchaseGroupsByAbility = new Map();
+    if (groupableUids.size > 0) {
+      for (const uid of groupableUids) {
+        const instances = charms.filter(c => c.system?.charmUid === uid);
+        if (!instances.length) continue;
+        const first = instances[0];
+        const ability = first.system?.ability ?? "";
+
+        // Compute per-variant label counts for summary line
+        const variantCounts = new Map();
+        const instanceData = instances.map(item => {
+          const sb = item.system?.soakBonus;
+          const hg = item.system?.healthGrant;
+          let variantLabel = "";
+          if ((sb?.options?.length ?? 0) > 0) {
+            const idx = Math.min(Math.max(0, sb.selectedOption ?? 0), sb.options.length - 1);
+            variantLabel = sb.options[idx]?.label ?? "";
+          } else if ((hg?.options?.length ?? 0) > 0) {
+            const idx = Math.min(Math.max(0, hg.selectedOption ?? 0), hg.options.length - 1);
+            variantLabel = hg.options[idx]?.label ?? "";
+          }
+          if (variantLabel) variantCounts.set(variantLabel, (variantCounts.get(variantLabel) ?? 0) + 1);
+          return { item, variantLabel };
+        });
+
+        const summary = [...variantCounts.entries()]
+          .map(([label, count]) => count > 1 ? `${label} ×${count}` : label)
+          .join(", ");
+
+        const maxN = evalMaxPurchases(first.system?.maxPurchases ?? '1', actor);
+        const pipData = maxN > 1 ? { current: instances.length, max: maxN } : null;
+
+        const group = {
+          charmUid: uid,
+          name:      first.name,
+          img:       first.img,
+          ability,
+          summary,
+          pipData,
+          isExpanded: this.#expandedGroups.has(uid),
+          instances:  instanceData,
+        };
+
+        if (!multiPurchaseGroupsByAbility.has(ability)) multiPurchaseGroupsByAbility.set(ability, []);
+        multiPurchaseGroupsByAbility.get(ability).push(group);
+      }
+    }
+
     const maStyleItems = actor.items
       .filter(i => i.type === "martialartsstyle")
       .sort((a, b) => a.name.localeCompare(b.name));
@@ -401,6 +471,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
         if (stackHidden.has(c.id)) continue;
+        if (groupableUids.has(c.system?.charmUid)) continue;
         const k = c.system?.yoziPatron ?? "";
         if (!yoziBuckets.has(k)) yoziBuckets.set(k, []);
         yoziBuckets.get(k).push(c);
@@ -418,6 +489,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
         if (stackHidden.has(c.id)) continue;
+        if (groupableUids.has(c.system?.charmUid)) continue;
         if (c.system?.ability === "martialarts"
             && c.system?.martialArtsStyleName
             && maStyleNames.has(c.system.martialArtsStyleName)) continue;
@@ -429,6 +501,19 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .map(([key, list]) => ({ key, label: labelForCharmAbility(key), charms: list }))
         .sort((a, b) => a.label.localeCompare(b.label));
     }
+
+    // Attach multi-purchase groups to their ability group for template rendering.
+    for (const group of charmGroups) {
+      group.multiPurchaseGroups = multiPurchaseGroupsByAbility.get(group.key) ?? [];
+    }
+    // Any multi-purchase groups whose ability has no regular charms (bucket was empty)
+    // need a synthetic charmGroup entry so they still appear.
+    for (const [ability, mpGroups] of multiPurchaseGroupsByAbility) {
+      if (!charmGroups.some(g => g.key === ability)) {
+        charmGroups.push({ key: ability, label: labelForCharmAbility(ability), charms: [], multiPurchaseGroups: mpGroups });
+      }
+    }
+    charmGroups.sort((a, b) => a.label.localeCompare(b.label));
 
     const submodulesByParent = {};
     for (const item of charms) {
@@ -525,9 +610,32 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       spellCastButton[s.id] = computeSpellCastButtonState(s);
     }
 
-    const knacks     = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
-    const weapons    = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
+    const knacks          = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
+    const _allWeapons     = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
+    const weapons         = _allWeapons.filter(w => !w.system.inElsewhere);
+    const elsewhereWeapons = _allWeapons.filter(w => w.system.inElsewhere);
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
+
+    // M71 — Build per-weapon ammo selector data for the inventory tab.
+    const ammoItems = actor.items.filter(i => i.type === "ammo").sort((a, b) => a.name.localeCompare(b.name));
+    const _ammosByType = {
+      arrows:   ammoItems.filter(a => a.system.ammoType === "arrows"),
+      firedust: ammoItems.filter(a => a.system.ammoType === "firedust"),
+    };
+    const weaponAmmoData = {};
+    for (const w of _allWeapons) {
+      const tags      = w.system.modes.flatMap(m => m.tags ?? []);
+      const needsBow  = tags.includes("Bow");
+      const needsFlame = tags.includes("Flame Piece");
+      const ammoType  = needsBow ? "arrows" : (needsFlame ? "firedust" : null);
+      if (ammoType) {
+        weaponAmmoData[w.id] = {
+          ammoType,
+          items:      _ammosByType[ammoType],
+          selectedId: w.system.ammo?.selectedAmmoId ?? "",
+        };
+      }
+    }
     const backgrounds= actor.items.filter(i => i.type === "background") .sort((a,b) => a.name.localeCompare(b.name));
     const intimacies = actor.items.filter(i => i.type === "intimacy")   .sort((a,b) => a.name.localeCompare(b.name));
     const conviction = actor.system?.virtues?.conviction?.value ?? 1;
@@ -909,6 +1017,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       combos: comboRows,
       isLunar: beh.isLunar,
       weapons,
+      elsewhereWeapons,
       armors,
       backgrounds,
       intimacies,
@@ -948,6 +1057,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       hearthstones,
       manses, familiars, cults,
       artifactSlotMap,
+      weaponAmmoData,
+      ammoItems,
       maStyles,
       linkedVehicles,
       mountedVehicle,
@@ -1052,6 +1163,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         const item = this.document.items.get(row.dataset.itemId);
         if (!item) return;
         event.dataTransfer.setData("text/plain", JSON.stringify({ type: "Item", uuid: item.uuid }));
+      });
+    });
+
+    // M71 — Ammo selector: route change to the weapon item update.
+    this.element.querySelectorAll(".ammo-selector").forEach(sel => {
+      sel.addEventListener("change", async event => {
+        const weaponId = event.target.dataset.weaponId;
+        const weapon   = this.document.items.get(weaponId);
+        if (!weapon) return;
+        await weapon.update({ "system.ammo.selectedAmmoId": event.target.value });
       });
     });
 
@@ -1488,6 +1609,22 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await item.update({ "system.equipped": !item.system.equipped });
   }
 
+  static async #onSendToElsewhere(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (!item) return;
+    const update = { "system.inElsewhere": true };
+    if (item.system.equipped) update["system.equipped"] = false;
+    await item.update(update);
+  }
+
+  static async #onRecallFromElsewhere(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (!item) return;
+    await item.update({ "system.inElsewhere": false });
+  }
+
   // ── Active Effects tab handlers ──────────────────────────────────────────
 
   static async #onCreateEffect(event, target) {
@@ -1758,6 +1895,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await clearIntimacyAblation(this.document);
     const { stepDownAnima }         = await import("../../combat/anima-math.mjs");
     await stepDownAnima(this.document);
+    // M56 — Fire virtue recovery charms registered for onEndScene.
+    await this.document._fireRecoveryEvent("onEndScene");
   }
 
   static async #onMorningRest(_event, _target) {
@@ -1835,7 +1974,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const item = this.actor.items.get(target.dataset.itemId);
     if (!item) return;
     const content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      item.system.description, { secrets: item.isOwner, relativeTo: item }
+      itemDescription(item), { secrets: item.isOwner, relativeTo: item }
     );
     await foundry.applications.api.DialogV2.prompt({
       window: { title: item.name },
@@ -2288,6 +2427,17 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!actorId) return;
     const actor = game.actors.get(actorId);
     actor?.sheet.render(true);
+  }
+
+  static #toggleMultiPurchaseGroup(_event, target) {
+    const uid = target.dataset.charmUid;
+    if (!uid) return;
+    if (this.#expandedGroups.has(uid)) {
+      this.#expandedGroups.delete(uid);
+    } else {
+      this.#expandedGroups.add(uid);
+    }
+    this.render({ parts: ["tabCharms"] });
   }
 
   static #onOpenCharmTree(event, target) {

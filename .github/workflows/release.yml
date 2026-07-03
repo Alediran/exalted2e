@@ -120,13 +120,17 @@ jobs:
             --exclude='/dist/' \
             --exclude='/tests/' \
             --exclude='/tools/' \
+            --exclude='/src/' \
             --exclude='/docs/' \
             --exclude='/CLAUDE.md' \
             --exclude='/TODO.md' \
+            --exclude='/TODO-classification.md' \
+            --exclude='/TODO-mandate.md' \
             --exclude='/package.json' \
             --exclude='/package-lock.json' \
             --exclude='/vitest.config.mjs' \
             --exclude='/.gitignore' \
+            --exclude='/test-arrayfield.mjs' \ 
             ./ dist/exalted2e/
 
       - name: Create zip archive

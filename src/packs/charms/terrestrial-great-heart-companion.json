@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Typically, when a Dragon-Blood rides out to battle, she has quite enough to worry about without fearing that her steed will get spooked by whatever horror demands the Exalt's attention and throw the rider at an inopportune moment. This Charm can prevent such an ignoble possibility by bolstering the creature's natural bravery with Essence so that the mount truly becomes one with its rider. For the duration of the scene, the mount will not bolt or flee no matter what danger manifests, unless it is told to do so by its rider. Also, the mount will always act as if it is perfectly trained, regardless of the situation, and the Dragon-Blood will never suffer any penalty for trying to perform some action while maintaining control of the mount. Finally, while the Charm remains in effect, nothing can force the rider from her saddle short of the steed itself being killed out from under her. While a failed or botched Ride check might result in the rider losing an action or some other penalty, she will never be thrown, knocked or pulled from her saddle. The effect lasts for one scene or until the rider voluntarily dismounts. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be used on any tick.</p>",
+    "description": "<p>Typically, when a Dragon-Blood rides out to battle, she has quite enough to worry about without fearing that her steed will get spooked by whatever horror demands the Exalt's attention and throw the rider at an inopportune moment. This Charm can prevent such an ignoble possibility by bolstering the creature's natural bravery with Essence so that the mount truly becomes one with its rider. For the duration of the scene, the mount will not bolt or flee no matter what danger manifests, unless it is told to do so by its rider. Also, the mount will always act as if it is perfectly trained, regardless of the situation, and the Dragon-Blood will never suffer any penalty for trying to perform some action while maintaining control of the mount. Finally, while the Charm remains in effect, nothing can force the rider from her saddle short of the steed itself being killed out from under her. While a failed or botched Ride check might result in the rider losing an action or some other penalty, she will never be thrown, knocked or pulled from her saddle. The effect lasts for one scene or until the rider voluntarily dismounts.</p><p>(Errata) A mount emboldened by this Charm is control rating 0, Valor 5 and automatically succeeds on all Valor rolls. Getting onto an unfriendly animal to tame it with this Charm requires a successful grapple, though it isn't necessary to win control of the clinch. When used on a Ride vehicle, the Charm keeps the character in her seat and lets her perform piloting actions reflexively, allowing her to devote full attention to other tasks.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -39,7 +39,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -51,9 +51,9 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "abilityKey": "ride",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

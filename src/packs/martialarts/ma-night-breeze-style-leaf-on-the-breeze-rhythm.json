@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 4,
     "charmType": "reflexive",
-    "duration": "instant",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -36,15 +36,39 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Night Breeze Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "(Martial Arts) actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "70fecaba761e53cd",
+            "charmName": "Crosswind Offense",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5cb9c9edead3a829",
+            "charmName": "Shepherd the Leaf",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "f283b0302812971f"
   },
   "folder": "bbff7d7551f5694f",

@@ -1,0 +1,22 @@
+<div class="ex2e-desc-langs">
+  <div class="section-header-row">
+    <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+    <select class="ex2e-desc-lang-select" title="{{localize "EX2E.DescriptionEditor.Language"}}">
+      <option value="__default">{{localize "EX2E.DescriptionEditor.Default"}}</option>
+      {{#each (descLanguageList)}}
+      <option value="{{this.lang}}">{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="ex2e-desc-editor" data-lang="__default">
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">{{{enrichedDescription}}}</prose-mirror>
+  </div>
+  {{#each (descLanguageList)}}
+  <div class="ex2e-desc-editor" data-lang="{{this.lang}}" hidden>
+    <prose-mirror name="system.descriptions.{{this.lang}}" data-document-uuid="{{@root.item.uuid}}"
+                  value="{{lookup @root.system.descriptions this.lang}}" collaborate="true" toggled="true">{{{lookup @root.system.descriptions this.lang}}}</prose-mirror>
+  </div>
+  {{/each}}
+</div>

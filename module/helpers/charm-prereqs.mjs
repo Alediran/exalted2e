@@ -64,6 +64,19 @@ function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
         (c.system?.mergedIds ?? []).includes(wantUid)
       );
     }
+    // Alchemical "Any X Augmentation" sentinel: no charmUid, charmName contains "Augmentation".
+    // Satisfied by owning any Alchemical Augmentation charm for the same attribute.
+    if (!wantUid && /\bAugmentation\b/i.test(alt.charmName ?? "")) {
+      const hostAbility = _norm(hostCharm.system?.ability);
+      if (!hostAbility) return false;
+      return ownedCharms.some(c => {
+        if (c.system?.exaltType !== "alchemical") return false;
+        if (_norm(c.system?.ability) !== hostAbility) return false;
+        const exc = c.system?.excellency ?? "";
+        if (EXCELLENCY_TIERS.has(exc)) return true;
+        return /^(fourth|fifth|sixth)\s+\w+\s+augmentation\b/i.test(c.name ?? "");
+      });
+    }
     const want = _norm(alt.charmName);
     if (!want) return false;
     return ownedCharms.some(c => _norm(c.name) === want);
@@ -77,6 +90,11 @@ function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
       && _norm(c.system?.ability) === hostAbility
     ).length;
     return count >= (alt.minCount ?? 1);
+  }
+  if (alt.type === "anyCharmOfAbility") {
+    const key = _norm(alt.abilityKey ?? "");
+    if (!key) return false;
+    return ownedCharms.some(c => _norm(c.system?.ability ?? "") === key);
   }
   if (alt.type === "virtue") {
     const key = String(alt.virtueKey ?? "").trim().toLowerCase();
@@ -189,7 +207,7 @@ export function areCharmPrereqsMet(charm, actor) {
  */
 export function describeGroup(group, actor = null) {
   const alts = group?.alternatives ?? [];
-  const parts = alts.map(a => _altLabel(a, actor)).filter(Boolean);
+  const parts = [...new Set(alts.map(a => _altLabel(a, actor)).filter(Boolean))];
   if (parts.length === 0) return "";
   if (parts.length === 1) return parts[0];
   return parts.join(` ${game.i18n.localize("EX2E.PrereqOr")} `);
@@ -203,22 +221,28 @@ export function describeAllPrereqs(charm, actor = null) {
   const groups = charm.system?.prereqGroups ?? [];
   const labels = [];
   for (const g of groups) {
-    for (const a of (g.alternatives ?? [])) {
-      const label = _altLabel(a, actor ?? charm.actor ?? null);
-      if (label) labels.push(label);
-    }
+    const label = describeGroup(g, actor ?? charm.actor ?? null);
+    if (label) labels.push(label);
   }
   return labels.join(", ");
 }
 
 function _altLabel(alt, actor = null) {
   if (alt?.type === "anyExcellency") {
-    const n = alt.minCount ?? 1;
+    const n       = alt.minCount ?? 1;
+    const ability = String(alt.abilityKey ?? "").trim();
     if (n > 1) {
-      const ability = String(alt.abilityKey ?? "").trim();
       return game.i18n.format("EX2E.PrereqAnyNExcellencies", { count: n, ability });
     }
+    if (ability) {
+      return game.i18n.format("EX2E.PrereqAnyAbilityExcellency", { ability });
+    }
     return game.i18n.localize("EX2E.PrereqAnyExcellency");
+  }
+  if (alt?.type === "anyCharmOfAbility") {
+    const key = String(alt.abilityKey ?? "").trim();
+    if (!key) return "";
+    return game.i18n.format("EX2E.PrereqAnyCharmOfAbility", { ability: key });
   }
   if (alt?.type === "virtue") {
     const key = String(alt.virtueKey ?? "").trim();

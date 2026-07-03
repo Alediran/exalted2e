@@ -25,14 +25,14 @@
       1
     ],
     "keywords": [
-      "ComboOK"
+      "Combo-OK"
     ],
     "cost": {
       "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Lawgivers are the guardians of truth. This Charm allows the character to recognize as lies all deliberate lies presented to her. The character can also recognize the deliberate use of half-truths, though doing so does not tell her which part of the statement is true. If another Charm contests these effects (see p. 179), add the character's Essence in automatic successes to the (Perception + Investigation) roll to oppose the other Charm. IRRESISTIBLE QUESTIONING TECHNIQUE Cost: 4m; Mins: Investigation 3, Essence 2; Type: Simple (Speed 6 in long ticks) Keywords: Combo-OK, Compulsion, Obvious, Social Duration: One scene</p><p>Evidence-Discerning Method</p><p>Crafty Observation Method</p><p>Irresistible Questioning Technique</p><p>(ANY INVESTIGATION EXCELLENCY)</p><p>Consumer-Evaluating Glance</p><p>Judge's Ear Technique</p><p>Know the Soul's Price</p><p>COURTIER'S EYE TECHNIQUE</p><p>Prerequisite Charms: Judge's Ear Technique This Charm forces the truth from those who would lie to the heroes of the dawn. It involves an interrogation, and the Solar's player rolls (the appropriate Social Attribute + Investigation) when the Exalt invokes Irresistible Questioning Technique. This Charm exerts unnatural mental influence on the target. The target can resist with MDV. If the roll succeeds, the target is compelled to answer the Exalt's questions honestly. Resisting costs one Willpower per five minutes, to a maximum of three Willpower, and the compulsion lasts for one scene. This Charm loses effectiveness with repeated use. Increase the target's MDV by three if an Exalt has used Irresistible Questioning Technique or a similar Charm on the target this story.</p>",
+    "description": "<p>The Lawgivers are the guardians of truth. This Charm allows the character to recognize as lies all deliberate lies presented to her. The character can also recognize the deliberate use of half-truths, though doing so does not tell her which part of the statement is true. If another Charm contests these effects (see p. 179), add the character's Essence in automatic successes to the (Perception + Investigation) roll to oppose the other Charm.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -53,7 +53,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "investigation",
             "virtueKey": "valor",
             "virtueMin": 1
           }

@@ -44,7 +44,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Dark Messiah Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,8 +59,8 @@
             "charmUid": "f416f220681b0baf",
             "charmName": "Grievous Agony Attack",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

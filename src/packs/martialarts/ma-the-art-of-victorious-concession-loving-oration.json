@@ -38,7 +38,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "The Art of Victorious Concession",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,8 +45,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "bc05704c7d8c8190"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "06da662978108edd",
+            "charmName": "Lesson of the Rod",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "bc05704c7d8c8190",
+    "grantsMastery": true
   },
   "folder": "fd11958743cc8ca7",
   "sort": 0,

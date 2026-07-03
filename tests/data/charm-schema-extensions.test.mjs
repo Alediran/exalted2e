@@ -129,3 +129,81 @@ describe("attack schema — area attack fields", () => {
     expect(areaResistEffectInitial).toBe("avoid");
   });
 });
+
+describe("CharmData schema — bypassAmmoConsumption (M71)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.bypassAmmoConsumption).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.bypassAmmoConsumption.getInitialValue?.() ?? schema.bypassAmmoConsumption.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("CharmData schema — sendsWeaponToElsewhere (M72)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.sendsWeaponToElsewhere).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.sendsWeaponToElsewhere.getInitialValue?.() ?? schema.sendsWeaponToElsewhere.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("CharmData schema — capturesMalados (M73)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.capturesMalados).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.capturesMalados.getInitialValue?.() ?? schema.capturesMalados.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("CharmData schema — transfersMalados (M73)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.transfersMalados).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.transfersMalados.getInitialValue?.() ?? schema.transfersMalados.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("CharmData schema — grantsBackground (M74)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.grantsBackground).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.grantsBackground.getInitialValue?.() ?? schema.grantsBackground.options?.initial;
+    expect(initial).toBe(false);
+  });
+});
+
+describe("CharmData schema — linksNpcCompanion (M75)", () => {
+  it("field exists on schema", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.linksNpcCompanion).toBeDefined();
+  });
+
+  it("defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const initial = schema.linksNpcCompanion.getInitialValue?.() ?? schema.linksNpcCompanion.options?.initial;
+    expect(initial).toBe(false);
+  });
+});

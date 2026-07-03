@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "God-king Benevolence",
+  "name": "God-King Benevolence",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Craft Keen Understanding of the</p>",
+    "description": "<p>The unbound anima of the Solar Exalted subverts the wrath of nature, cowing the elements in order to ensure the safety of the followers of the sun. When faced with the unmitigated purity of the sun's light, all lesser forces must bow. By voluntarily flaring her anima into an enormous pillar of light, the Solar banishes the wrathful elements. Lava flows part or harden to admit the passage of the Solar's followers. Flesh-scouring sandstorms whirl about and leave them untouched. The Solar may extend the effects of Hardship-Surviving Mendicant Spirit to a unit he leads with a Magnitude of up to his Essence, so long as that Charm is active. They are also immunized against toxic atmospheres such as the miasma of Malfeas.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3e36e1ad4429b411",
+            "charmName": "City-Moving Secrets",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c5f65dd6ccbcf4bf",
+            "charmName": "Element-Resisting Prana",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "66d217af3fc4a8e7"
   },
   "folder": "82dbbb60bb2b2c18",

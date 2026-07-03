@@ -28,7 +28,7 @@
       "Combo-OK"
     ],
     "cost": {
-      "motes": 1,
+      "motes": 4,
       "willpower": 0,
       "bashingHealth": 0,
       "lethalHealth": 0,
@@ -39,7 +39,7 @@
       "limitTrigger": 0,
       "formula": "4m"
     },
-    "description": "<p>The Exalt greedily siphons Essence expended by his enemies for his own sinister purposes. These stolen motes glitter in trails winding into his opened mouth. When the character uses the Charm, he selects a target within (Essence x 5) yards who uses a Charm. The martial artist must have already used Blood-Scenting Hunger to assess the target's Essence pool. The character gains a number of motes equal to half the total number the target spent activating all Charms during that tick (rounded down), up to a maximum award of (Martial Arts x 2) motes.</p>",
+    "description": "<p>The Hungry Ghost stylist is nourished by the agony of his enemies, sustaining his fighting spirit with their suffering. The martial artist can use Power-Reaping Prana whenever he deals lethal or aggravated damage to an Essence user with an unarmed attack. He must have already used Blood-Scenting Hunger to assess that target's Essence pool earlier in the scene. Doing so allows him to regain a single point of Willpower or a channel of Valor. He cannot use it more than once per action.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -61,8 +61,8 @@
             "charmUid": "9b8f60f94d38e33b",
             "charmName": "Hungry Ghost Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

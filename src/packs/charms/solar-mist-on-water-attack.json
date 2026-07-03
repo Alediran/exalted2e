@@ -32,7 +32,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This is a Charm of silent death that imbues the Solar's weapon with Essence. It supplements a Thrown-based attack</p><p>and supernaturally cripples its target. Targets affected by this Charm cannot speak or cry out. This Charm silences their every action. The bells they ring make no noise, and if they fall off of a wall, they will land silently. In short, their actions are not valid targets for hearing-based Awareness rolls. Should the attack kill the target, no one will notice the target's death until the Charm expires. The corpse usually remains standing, and a combination of circumstances, dramatic necessity and perfect timing and execution on the Solar's part keeps the target's companions from noticing the death. This Charm can impose silence for a number of the Solar's actions equal to her Essence score. The Chosen must pay three motes for each action of silence she wishes to buy. The initial attack counts as an action. The Charm expires at the end of the appropriate action.</p><p>The Solar imbues his weapon with Essence, so that it flies true. This Charm enhances a Thrown-based attack. The Exalt spends three motes and triples the Range of the weapon. If the Solar has Essence 4 or higher, this Charm also negates external penalties from environmental conditions.</p>",
+    "description": "<p>This is a Charm of silent death that imbues the Solar's weapon with Essence. It supplements a Thrown-based attack and supernaturally cripples its target. Targets affected by this Charm cannot speak or cry out. This Charm silences their every action. The bells they ring make no noise, and if they fall off of a wall, they will land silently. In short, their actions are not valid targets for hearing-based Awareness rolls. Should the attack kill the target, no one will notice the target's death until the Charm expires. The corpse usually remains standing, and a combination of circumstances, dramatic necessity and perfect timing and execution on the Solar's part keeps the target's companions from noticing the death. This Charm can impose silence for a number of the Solar's actions equal to her Essence score. The Chosen must pay one mote for each action. The initial attack counts as an action. The Charm expires at the end of the appropriate action.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -62,9 +62,7 @@
     ],
     "statusApply": {
       "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
+      "status": "Silenced"
     },
     "charmUid": "93134c6d148302e4"
   },

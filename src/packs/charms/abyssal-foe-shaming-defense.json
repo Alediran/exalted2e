@@ -35,7 +35,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Abyssal toys with an enemy by sidestepping her attack at the last moment, forcing her to embarrassingly overreach. This Charm offers a special unblockable \"counterattack\" to Melee or Martial Arts-based attacks using a pool of the deathknight's (Dexterity + Dodge + Essence). If this \"attack\" hits, the opponent takes no damage but is automatically stunned or prone (Abyssal's choice) without a roll. (See Exalted, p. 153 for the effects of being stunned or prone.) Foe-Shaming Defense is even more effective in response to attacks within a flurry, as a successful counterattack makes all subsequent attacks in the flurry automatically fail to hit the Abyssal.</p>",
+    "description": "<p>The Abyssal toys with an enemy by sidestepping her attack at the last moment, forcing her to embarrassingly overreach. This Charm offers a special unblockable \"counterattack\" to Melee or Martial Arts-based attacks using a pool of the deathknight's (Dexterity + Dodge + Essence). If this \"attack\" hits, the opponent takes no damage but is automatically stunned or prone (Abyssal's choice) without a roll. (See Exalted, p. 153 for the effects of being stunned or prone.)</p><p>Foe-Shaming Defense is even more effective in response to attacks within a flurry, as a successful counterattack makes all subsequent attacks in the flurry automatically fail to hit the Abyssal.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -56,8 +56,8 @@
             "charmUid": "e5cff20ae70cfd1c",
             "charmName": "Flitting Shadow Form",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -46,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e5557411caaf78fe",
+            "charmName": "Terrifying (Element) Dragon Roar",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "1e5d4abf51bd1f52"
   },
   "folder": "b0b1b2b3b4b5f02a",

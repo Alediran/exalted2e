@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "reflexive",
@@ -54,8 +54,8 @@
             "charmUid": "fb4a1cca499399aa",
             "charmName": "Crowned With Fury",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -66,8 +66,8 @@
             "charmUid": "4f3f182b82a3efd4",
             "charmName": "Magnanimous Warning Glyph",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

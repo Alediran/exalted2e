@@ -107,17 +107,23 @@ export function registerCoverStarmetal(context) {
 
     // 5. Equipped + attuned starmetal artifact armor imposes externalPenalty=1 on attacker
     it("[247] starmetal armor: externalPenalty = 1 when defender wears equipped attuned starmetal", async function () {
-      const { attacker, defender, weapon } = await setupAttackFixture();
-      await createStarmetalArmor(defender, { equipped: true, attuned: true });
-      await stubAttackDialog([defaultDialogResult()]);
-      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
-      const message = await ExaltedRoll.rollAttack(attacker, weapon.id, {
-        modeIndex: 0, explicitTargetActor: defender
-      });
-      assert.ok(message, "rollAttack returned a ChatMessage");
-      const attack = message.flags?.exalted2e?.attack;
-      assert.equal(attack.externalPenalty, 1,
-        "externalPenalty = 1 from defender's attuned starmetal armor");
+      const wasErrata = game.settings.get("exalted2e", "useErrataMaterials");
+      await game.settings.set("exalted2e", "useErrataMaterials", false);
+      try {
+        const { attacker, defender, weapon } = await setupAttackFixture();
+        await createStarmetalArmor(defender, { equipped: true, attuned: true });
+        await stubAttackDialog([defaultDialogResult()]);
+        const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+        const message = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+          modeIndex: 0, explicitTargetActor: defender
+        });
+        assert.ok(message, "rollAttack returned a ChatMessage");
+        const attack = message.flags?.exalted2e?.attack;
+        assert.equal(attack.externalPenalty, 1,
+          "externalPenalty = 1 from defender's attuned starmetal armor");
+      } finally {
+        await game.settings.set("exalted2e", "useErrataMaterials", wasErrata);
+      }
     });
 
     // 7. Crippled AE imposes internalPenalty on physical actions

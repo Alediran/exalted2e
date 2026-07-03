@@ -18,7 +18,7 @@
     "essence": 2,
     "minAbility": 2,
     "charmType": "reflexive",
-    "duration": "oneAction",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
@@ -48,7 +48,7 @@
     "martialArtsStyleName": "Arms of the Unconquered Sun Style",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "One action",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,

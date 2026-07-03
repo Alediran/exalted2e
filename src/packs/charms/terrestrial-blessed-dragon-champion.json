@@ -1,0 +1,70 @@
+{
+  "_id": "ca1b2c3d4e5f0007",
+  "_key": "!items!ca1b2c3d4e5f0007",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blessed Dragon Champion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Dynasty"
+    ],
+    "cost": {
+      "formula": "8m 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those who step forward as righteous champions of their armies never truly stand alone. This Charm may be activated by any Terrestrial acting as a champion in a mid-battle duel. For the duration of the duel, he accepts the limit of his War rating to use his other Abilities as though he were leading a complementary unit. In exchange, however, his actions gain the usual modifiers his unit receives from its traits whenever he is attacking or defending against the enemy champion. The unit's Might does not add to his Essence to resist effects, but the unit's Might is considered one dot higher if the Exalt is a blood relative of every member of his unit. Magnitude modifiers are based on the relative Magnitude of his unit and the unit whose champion he is dueling.</p><p>This Charm may also be activated by a special character in a complementary unit during a duel to enhance a Celestial Exalted champion from the Terrestrial's unit. If multiple effects allow an individual to enjoy the benefits of a unit while acting as an individual, these do not stack.</p><p>A second purchase of this Charm requires Essence 5+, but allows an Exalt using it to activate the non-permanent Dragon-Blooded Charms or Terrestrial Martial Arts Charms known by special characters in his unit as though he knew them, provided he meets their trait minimums. Borrowed Charms terminate along with Blessed Dragon Champion when the duel ends. This power is not conferred if the Charm enhances a Celestial champion.</p>",
+    "source": "TCA: Thousand Correct Actions",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "One Duel",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1b2c3d4e5f0006",
+            "charmName": "Excellence of the Dutiful Hero",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1b2c3d4e5f0007"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

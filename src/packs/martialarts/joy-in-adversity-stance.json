@@ -15,14 +15,14 @@
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 1,
-    "minAbility": 2,
+    "essence": 2,
+    "minAbility": 3,
     "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [
-      5
+      2
     ],
     "keywords": [
       "Combo-OK"
@@ -39,7 +39,7 @@
       "limitTrigger": 0,
       "formula": "5m"
     },
-    "description": "<p>Not only does the Sidereal laugh in her opponents' faces when they fail to do her harm, Creation itself rewards her for her combat skills. While the Charm is active, the player rolls the character's permanent Essence whenever an opponent's attack fails to overcome the character's Defense Value. Each success on the roll replenishes two motes of spent Essence. The character must face true adversity in order to enjoy this Charm's benefits. If an attack isn't truly intended to harm the Sidereal--such as in a friendly sparring match--or if the enemy is too weak to do the Sidereal any harm, the Sidereal receives no Essence.</p>",
+    "description": "<p>Each moment's survival is a small happiness to one who walks constantly with peril and misfortune. While Joy in Adversity Stance is active, the martial artist gains one bonus die on her next unarmed Martial Arts attack every time she successfully dodges an attack. Attacks with the Overwhelming tag instead confer two dice when dodged. These bonus dice count as dice added by a Charm, and are discharged when the martial artist next attacks.</p>",
     "source": "MoEP: Sidereals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
@@ -48,7 +48,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

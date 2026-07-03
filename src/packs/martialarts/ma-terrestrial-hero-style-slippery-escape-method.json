@@ -24,6 +24,7 @@
     "steps": [],
     "keywords": [
       "Combo-OK",
+      "Native",
       "Obvious"
     ],
     "cost": {
@@ -37,7 +38,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Terrestrial Hero Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "430a3213baef8e65",
+            "charmName": "Drowning Embrace",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "995240eac627e1ab"
   },
   "folder": "0317adc9f10289d9",

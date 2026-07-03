@@ -1,6 +1,6 @@
 {
-  "_id": "a1b2c3d4e5f60011",
-  "_key": "!items!a1b2c3d4e5f60011",
+  "_id": "11bfdfd69b124f34",
+  "_key": "!items!11bfdfd69b124f34",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -30,8 +30,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar effortlessly comprehends the deepest layers of text and speech, cutting through codes, ciphers, obfuscation and deliberate ambiguity. For the rest of the scene, the Lawgiver automatically understands the deeper meaning and intent behind any written or spoken communication she encounters. Ciphers, secret languages, metaphorical codes and deliberate misdirection all become transparent to her. She can read any written language and understand any spoken tongue as if she had a perfect command of it, regardless of her actual Linguistics rating. The Solar's insight extends to body language and subtext, making it nearly impossible to deceive her through linguistic or rhetorical tricks.</p>",
-    "source": "MoEP: Abyssals",
+    "description": "<p>The Solar heroes see through petty mysteries. This Charm lets the character understand encoded, obscured and hidden communication as if it were clear. For example, the Exalt can read weather-damaged stone tablets, recognize the signals in a coded exchange, browse ciphered manuscripts as if they were in their original language and make out the words of someone whose tongue has been cut in half. This Charm can oppose the concealing effects of Letter-Within-a-Letter Technique and similar Charms. The character is never surprised by social attacks while this Charm is in force.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -49,18 +49,17 @@
       {
         "alternatives": [
           {
-            "type": "charm",
-            "charmUid": "23f31acd8f158a53",
-            "charmName": "Sagacious Reading Of Intent",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "linguistics",
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "charmUid": "a1b2c3d4e5f60011",
-    "mergedIds": []
+    "charmUid": "11bfdfd69b124f34"
   },
   "folder": "13c99c0e197877e7",
   "sort": 0,

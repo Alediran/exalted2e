@@ -18,7 +18,7 @@
     "essence": 3,
     "minAbility": 5,
     "charmType": "permanent",
-    "duration": "formula",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm enhances its prerequisite, expanding the scope and effectiveness of the disguise. Each feature added to Face-Drinking Bite raises the Charm's cost by an additional Willpower point. Essence: The illusion can now fool Essence-based perception, though only with a usual opposed roll for the Charms. Magical senses fooled thus register the Abyssal as having whatever properties and traits the victim had at the time of feeding, such as Essence rating, type of being and so on. Intuition: While hiding in another's face, the Abyssal knows whenever she is in the presence of an Intimacy that belonged to that victim at the time of feeding. She also knows the emotional context of that Intimacy in order to guide her expected response. She knows Intimacies only upon encountering them, not up front as part of activating the disguise. Kiss: The Abyssal does not actually need to inflict damage to take a face; it is enough to kiss her prey as a harmless bite.</p><p>A deathknight can emulate another Abyssal by touching her lips to his Monstrance of Celestial Portion. Recall: The Abyssal may pay one experience point to memorize a particular disguise so that it is not lost when she deactivates Face-Drinking Bite. She may thereafter don that illusion as if she had the victim on hand to feed from, but the illusion is dated to the point when it was memorized and does not reflect any changes the victim might have undergone since then.</p>",
+    "description": "<p>This Charm enhances its prerequisite, expanding the scope and effectiveness of the disguise. Each feature added to Face-Drinking Bite raises the Charm's cost by an additional Willpower point.</p><p>Essence: The illusion can now fool Essence-based perception, though only with a usual opposed roll for the Charms. Magical senses fooled thus register the Abyssal as having whatever properties and traits the victim had at the time of feeding, such as Essence rating, type of being and so on.</p><p>Intuition: While hiding in another's face, the Abyssal knows whenever she is in the presence of an Intimacy that belonged to that victim at the time of feeding. She also knows the emotional context of that Intimacy in order to guide her expected response. She knows Intimacies only upon encountering them, not up front as part of activating the disguise.</p><p>Kiss: The Abyssal does not actually need to inflict damage to take a face; it is enough to kiss her prey as a harmless bite. A deathknight can emulate another Abyssal by touching her lips to his Monstrance of Celestial Portion.</p><p>Recall: The Abyssal may pay one experience point to memorize a particular disguise so that it is not lost when she deactivates Face-Drinking Bite. She may thereafter don that illusion as if she had the victim on hand to feed from, but the illusion is dated to the point when it was memorized and does not reflect any changes the victim might have undergone since then.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -50,8 +50,8 @@
             "charmUid": "6147e7686d786516",
             "charmName": "Face-Drinking Bite",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

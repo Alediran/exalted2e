@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Healing Charms Purging the Tarnished Silver",
+  "name": "Purging the Tarnished Silver",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -23,7 +23,7 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-Ok",
+      "Combo-OK",
       "Obvious"
     ],
     "cost": {
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,7 +44,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d973067db5a447c5",
+            "charmName": "Instinctive Stamina Unity",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6cf6a720a77958d5",
+            "charmName": "Halting The Scarlet Flow",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "053e17e147f5fe1a"
   },
   "folder": "956290ccde1dea72",

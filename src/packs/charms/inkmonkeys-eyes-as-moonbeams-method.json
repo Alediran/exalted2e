@@ -31,13 +31,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Condensing her anima into her eyes, the Lunar reveals all hidden things with her gaze. The character's eyes become two burning silver lamps, throwing out foot-wide beams of illumination that stretch for (Essence x 100) yards. These lunar lamps have a number of effects, all of which are as visible to onlookers as they are to the Exalt using this Charm. Any dematerialized being caught in their light becomes visible so long as the Lunar continues to gaze upon them (imposing a -2 internal penalty to the Lunar if they are engaged in combat with any other characters); invisible characters are likewise revealed if this Charm wins roll-off against whatever magic hides them. Magical objects and structures sparkle and scintillate with a nacreous sheen when touched by the light of this Charm, while works of raksha glamour become wan and ephemeral, almost transparent. Objects originating in the underworld radiate a dark miasma, while those tainted with infernal Essence are enmeshed in a greenish, sickly haze. Finally, the Lunar may bend these moonbeams at sharp angles if she desires, allowing her to see around corners or off down narrow and twisting tunnels.</p><p>Intelligence Argent Muse Approach</p>",
+    "description": "<p>Condensing her anima into her eyes, the Lunar reveals all hidden things with her gaze. The character's eyes become two burning silver lamps, throwing out foot-wide beams of illumination that stretch for (Essence x 100) yards. These lunar lamps have a number of effects, all of which are as visible to onlookers as they are to the Exalt using this Charm. Any dematerialized being caught in their light becomes visible so long as the Lunar continues to gaze upon them (imposing a -2 internal penalty to the Lunar if they are engaged in combat with any other characters); invisible characters are likewise revealed if this Charm wins roll-off against whatever magic hides them. Magical objects and structures sparkle and scintillate with a nacreous sheen when touched by the light of this Charm, while works of raksha glamour become wan and ephemeral, almost transparent. Objects originating in the underworld radiate a dark miasma, while those tainted with infernal Essence are enmeshed in a greenish, sickly haze. Finally, the Lunar may bend these moonbeams at sharp angles if she desires, allowing her to see around corners or off down narrow and twisting tunnels.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -50,11 +49,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "6fdb8f35c1204bbd",
-            "charmName": "Eyes of the Cat",
+            "charmUid": "57bc85bc99e07f74",
+            "charmName": "Eye Of The Cat",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -62,11 +61,11 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "8ad7840da0d4ecd8",
+            "charmUid": "1f10bab47d46ffe3",
             "charmName": "Keen Sight Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

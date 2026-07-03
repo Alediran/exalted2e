@@ -38,13 +38,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Most enemies may be splattered in one hit. Fewer must be thrown back like juvenile fish to mature into worthy prey. Only the rarest of adversaries must be torn limb from limb, but Infernal Monsters dream of such opportunities and wake salivating. This Charm may only be activated as a particularly brutal means of releasing an opponent seized with World-Breaker Grip. The Infernal adjusts his grip to twist off the enemy's limbs the way</p><p>a young boy might pull the wings off a fly. Mocking laughter is not required but is customary to the maneuver. The victim suffers a single level of unsoakable lethal damage and one crippling amputation injury of the Infernal's choice, examples of which may be found on page 152 of Exalted. If these options aren't brutal enough, the Infernal might rend an enemy's genitals, taking away his or her ability to enjoy sex or procreate and messily terminating any existing pregnancy in the process. Regardless, the severed organ remains in the Infernal's grip. In case it comes up, a dismembered human-sized limb may be used with the same statistics as a club as an in-style improvised weapon.</p>",
+    "description": "<p>Most enemies may be splattered in one hit. Fewer must be thrown back like juvenile fish to mature into worthy prey. Only the rarest of adversaries must be torn limb from limb, but Infernal Monsters dream of such opportunities and wake salivating. This Charm may only be activated as a particularly brutal means of releasing an opponent seized with World-Breaker Grip. The Infernal adjusts his grip to twist off the enemy's limbs the way a young boy might pull the wings off a fly. Mocking laughter is not required but is customary to the maneuver. The victim suffers a single level of unsoakable lethal damage and one crippling amputation injury of the Infernal's choice, examples of which may be found on page 152 of Exalted. If these options aren't brutal enough, the Infernal might rend an enemy's genitals, taking away his or her ability to enjoy sex or procreate and messily terminating any existing pregnancy in the process. Regardless, the severed organ remains in the Infernal's grip. In case it comes up, a dismembered human-sized limb may be used with the same statistics as a club as an in-style improvised weapon.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "ebonDragon",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,8 +59,8 @@
             "charmUid": "bb24e669e83a4705",
             "charmName": "World-Breaker Grip",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
@@ -73,7 +72,8 @@
       "onFail": "applyCrippling"
     },
     "charmUid": "8abfb509c26697ce",
-    "grantsMastery": false
+    "grantsMastery": true,
+    "nativeOnly": true
   },
   "folder": "ae5a8ed470f7303b",
   "sort": 0,

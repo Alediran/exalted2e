@@ -223,11 +223,6 @@
   border-bottom:         1px solid var(--ex2e-border-color);
 }
 
-.sheet.unit .stat-row {
-  display:     flex;
-  align-items: center;
-  gap:         var(--ex2e-gap-sm);
-}
 
 .sheet.unit .stat-label {
   min-width:      72px;
@@ -484,24 +479,18 @@ body.ex2e-light-mode .mass-combat-result {
 }
 
 /* Health track */
-.sheet.unit .unit-health-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .sheet.unit .unit-health-bar-wrap {
   flex: 1;
   height: 8px;
   background: var(--color-border-light-2);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   overflow: hidden;
 }
 
 .sheet.unit .unit-health-bar {
   height: 100%;
   background: var(--color-level-ok, #3a7a3a);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   transition: width 0.2s ease;
 }
 
@@ -571,7 +560,7 @@ body.ex2e-light-mode .mass-combat-result {
 .mass-combat-action-dialog .mc-hesitating-banner {
   background: rgba(192, 64, 64, 0.15);
   border: 1px solid rgba(192, 64, 64, 0.4);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   padding: 6px 10px;
   margin-bottom: 8px;
   font-size: 0.85em;
@@ -580,7 +569,7 @@ body.ex2e-light-mode .mass-combat-result {
 .mass-combat-action-dialog .mc-action-list {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: var(--ex2e-gap-xs);
   margin-bottom: 10px;
 }
 
@@ -591,7 +580,7 @@ body.ex2e-light-mode .mass-combat-result {
   padding: 5px 10px;
   background: var(--color-bg-option, rgba(255,255,255,0.04));
   border: 1px solid var(--color-border-light-2);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   cursor: pointer;
   text-align: left;
   width: 100%;
@@ -706,7 +695,8 @@ body.ex2e-light-mode .mass-combat-result {
   border-color: var(--ex2e-unit-accent);
 }
 
-.join-war-dialog .dialog-buttons {
+.join-war-dialog .dialog-buttons,
+.hero-mass-combat-dialog .dialog-buttons {
   display:         flex;
   gap:             var(--ex2e-gap-sm);
   justify-content: flex-end;
@@ -794,7 +784,7 @@ body.ex2e-light-mode .mass-combat-result {
 .hero-mass-combat-dialog .hmc-action-list {
   display:        flex;
   flex-direction: column;
-  gap:            3px;
+  gap:            var(--ex2e-gap-xs);
   margin-bottom:  10px;
 }
 
@@ -805,13 +795,14 @@ body.ex2e-light-mode .mass-combat-result {
   padding:         5px 10px;
   background:      var(--color-bg-option, rgba(255,255,255,0.04));
   border:          1px solid var(--color-border-light-2);
-  border-radius:   4px;
+  border-radius:   var(--ex2e-border-radius);
   cursor:          pointer;
   text-align:      left;
   width:           100%;
 }
 
-.hero-mass-combat-dialog .hmc-action-row.selected {
+.hero-mass-combat-dialog .hmc-action-row.selected,
+.hero-mass-combat-dialog .hmc-weapon-row.selected {
   border-color: rgba(180, 140, 40, 0.7);
   background:   rgba(180, 140, 40, 0.10);
 }
@@ -827,18 +818,14 @@ body.ex2e-light-mode .mass-combat-result {
   padding:         4px 10px;
   background:      var(--color-bg-option, rgba(255,255,255,0.04));
   border:          1px solid var(--color-border-light-2);
-  border-radius:   4px;
+  border-radius:   var(--ex2e-border-radius);
   cursor:          pointer;
   width:           100%;
   margin-bottom:   2px;
 }
 
-.hero-mass-combat-dialog .hmc-weapon-row.selected {
-  border-color: rgba(180, 140, 40, 0.7);
-  background:   rgba(180, 140, 40, 0.10);
-}
-
-.hero-mass-combat-dialog .hmc-weapon-name {
+.hero-mass-combat-dialog .hmc-weapon-name,
+.hero-mass-combat-dialog .hmc-action-name {
   font-family: var(--ex2e-font-body);
   font-size:   var(--ex2e-font-size-sm);
   color:       var(--ex2e-text-primary);
@@ -849,20 +836,6 @@ body.ex2e-light-mode .mass-combat-result {
   font-size:      var(--ex2e-font-size-xs);
   color:          var(--ex2e-text-muted);
   letter-spacing: 0.04em;
-}
-
-.hero-mass-combat-dialog .hmc-action-name {
-  font-family: var(--ex2e-font-body);
-  font-size:   var(--ex2e-font-size-sm);
-  color:       var(--ex2e-text-primary);
-}
-
-.hero-mass-combat-dialog .dialog-buttons {
-  display:         flex;
-  gap:             var(--ex2e-gap-sm);
-  justify-content: flex-end;
-  padding-top:     var(--ex2e-gap-sm);
-  border-top:      1px solid var(--ex2e-border-color);
 }
 
 .hero-mass-combat-dialog .dialog-buttons button {
@@ -940,7 +913,7 @@ body.ex2e-light-mode .mass-combat-result {
 
 .mass-combat-result.unit-action .mc-result-box {
   padding: 0.4rem 0.6rem;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   background: #f5f0e8;
   border: 1px solid #c8b89a;
   margin-top: 0.25rem;
@@ -1002,7 +975,7 @@ body.ex2e-light-mode .mass-combat-result {
 .mc-merge-info {
   background: #f5f0e8;
   border: 1px solid #c8b89a;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   padding: 0.3rem 0.5rem;
 }
 
@@ -1048,7 +1021,7 @@ body.ex2e-light-mode .mass-combat-result {
 .mc-rally-option {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
   cursor: pointer;
 }
 
@@ -1068,21 +1041,21 @@ body.ex2e-light-mode .mass-combat-result {
   border: 1px solid #2d7a2d;
   background: #f0fff0;
   padding: 6px 10px;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
 }
 
 .mc-result-box.rally-fail {
   border: 1px solid #a03030;
   background: #fff5f5;
   padding: 6px 10px;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
 }
 
 .mc-result-box.disband-result {
   border: 2px solid #8b0000;
   background: #fdf0f0;
   padding: 6px 10px;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
 }
 
 .mc-result-box.disband-result strong {

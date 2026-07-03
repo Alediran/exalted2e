@@ -45,6 +45,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
+    "socialSuccessMultiplier": 2,
     "prereqGroups": [
       {
         "alternatives": [
@@ -52,7 +53,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "presence",
             "virtueKey": "valor",
             "virtueMin": 1
           }

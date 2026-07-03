@@ -28,7 +28,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Any Dragon-Blood who knows this Charm can blend effortlessly into the woods, instinctively hiding all evidence of her passage. While this Charm is active, persons attempting to track the Dragon-Blood without supernatural aid are completely unable to do so. If the tracker is using supernatural aid such as Quarry Revelation Technique, the two effects cancel each other out, and normal tracking rules apply. It is rumored that Lunar Exalted are not fooled by this Charm at all when they wear their animal forms.</p>",
+    "description": "<p>Any Dragon-Blood who knows this Charm can blend effortlessly into the woods, instinctively hiding all evidence of her passage. While this Charm is active, persons attempting to track the Dragon-Blood without supernatural aid are completely unable to do so. If the tracker is using supernatural aid such as Quarry Revelation Technique, the two effects cancel each other out, and normal tracking rules apply. It is rumored that Lunar Exalted are not fooled by this Charm at all when they wear their animal forms. If contested by another Charm, standard roll-off rules determine which wins.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -37,7 +37,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -50,8 +50,8 @@
             "charmUid": "a0791c8427f05ea0",
             "charmName": "Quarry Revelation Technique",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

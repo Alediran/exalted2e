@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Acuity of the Far-flung Hand",
+  "name": "Acuity of the Far-Flung Hand",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>make a normal Larceny roll, or hurl her daiklave at an opponent to make a standard Melee attack. Acuity of the Far-Flung Hand does not help the character retrieve tossed items. Penalties that would apply to a Thrown roll (such as as those due to wind or poor visibility) apply to the roll for the action taken.</p>",
+    "description": "<p>This Charm costs three motes every time its benefits are activated. It allows the character to hurl implements in order to take a normal action out to a range of (Essence x 10) yards; for example, the character could throw her lockpicks at a lock to make a Larceny roll, toss a pen at a desk to write a letter from across the room, or hurl her daiklave at an opponent on the other side of a moat to make a standard Melee attack. Acuity of the Far-Flung Hand does not help the character retrieve tossed items. Penalties that would apply to a Thrown roll (such as those due to wind or poor visibility) apply to the roll for the action taken.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7eefeb7437ae6390",
+            "charmName": "Call The Blade",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "743dd672572f0bc8"
   },
   "folder": "a5a30fa2e730ff58",

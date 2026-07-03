@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 export class ManseData extends foundry.abstract.TypeDataModel {
@@ -21,7 +23,8 @@ export class ManseData extends foundry.abstract.TypeDataModel {
           status:     new fields.StringField({ choices: ["pending", "designed", "damaged"], initial: "pending", blank: false })
         })
       ),
-      description:   new fields.HTMLField({ blank: true, initial: "" })
+      description:   new fields.HTMLField({ blank: true, initial: "" }),
+      descriptions:  descriptionsField()
     };
   }
 }

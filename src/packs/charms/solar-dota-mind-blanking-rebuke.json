@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Mind-blanking Rebuke",
+  "name": "Mind-Blanking Rebuke",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -17,10 +17,10 @@
     "ability": "presence",
     "essence": 4,
     "minAbility": 5,
-    "charmType": "supplemental",
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
-    "dvPenalty": 0,
+    "dvPenalty": 1,
     "steps": [],
     "keywords": [
       "Mirror",
@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
+    "description": "<p>The Lawgiver issues a powerful admonition against a target, forbidding him from taking a certain action. The Solar's player makes a (Charisma + Presence) social attack against the target's Dodge MDV; if successful, he may forbid the target from performing an act of his choice for the duration of the scene. This ban may be no wider than the scope of a single Ability or Charm, at the Storyteller's discretion. Examples of forbidden actions include \"dodging my attacks,\" \"attacking me with your daiklave,\" \"picking any locks,\" or \"using Seven Shadow Evasion.\" The Lawgiver cannot prevent the target from resisting Mind-Blanking Rebuke, or forbid any necessary life function (\"do not breathe\" is not a valid ban). This unnatural mental influence may be resisted for one action by spending a point of Willpower, and the target becomes immune to the Charm's effects for the rest of the scene once he has spent 3 Willpower resisting it.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -47,7 +47,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "44b27e5e25698b87",
+            "charmName": "Majestic Radiant Presence",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "ec3f100a29e9ed51",
     "mirrorId": "4b4d7f23c9b4e507"
   },

@@ -26,11 +26,11 @@
       "Mirror"
     ],
     "cost": {
-      "formula": "--(+3m or +3m, 1wp)",
+      "formula": "-- (+3m or +3m, 1wp)",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Chapter Ten � Dreams of the First Age</p>",
+    "description": "<p>When a shadow falls between two elements of a scene--a pocket picked in a passing crowd, a blow deflected amid a dozen others, a secret swiftly unspoken--there is an instant of perfect concealment. This Charm permits the Solar to maintain Seven Shadow Evasion as an indefinitely sustainable Charm by paying three motes to maintain it from action to action. Activating Refinement of Flowing Shadows costs one Willpower in addition to the surcharge, and permits the character to enjoy Seven Shadow Evasion's benefits indefinitely. The character may release this commitment at any time; doing so also ends the benefits of Seven Shadow Evasion.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -43,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "850e948dc390c37c",
+            "charmName": "Seven Shadow Evasion",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "2b81d3a60fb44e30",
     "mirrorId": "4b4d7f23c9b4e509"
   },

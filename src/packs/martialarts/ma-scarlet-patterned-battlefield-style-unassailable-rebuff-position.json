@@ -18,8 +18,8 @@
     "essence": 4,
     "minAbility": 5,
     "charmType": "simple",
-    "duration": "instant",
-    "speed": 6,
+    "duration": "formula",
+    "speed": 4,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -38,8 +38,7 @@
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
     "maidenAffiliation": "",
-    
-    "durationFormula": "",
+    "durationFormula": "(Martial Arts x 2) actions",
     "stackCount": 0,
     "umiCost": 0,
     "cooperationBonusDice": 0,
@@ -47,7 +46,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "9b3881e6835bd8e3"
+    "charmUid": "9b3881e6835bd8e3",
+    "grantsMastery": false
   },
   "folder": "8d69b74ca0e132d3",
   "sort": 0,

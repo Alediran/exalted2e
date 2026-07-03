@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>It stands to reason that, if one wishes to dodge, one must have room to do so. The Dragon-Blooded defy this obvious logic. For the duration of a single tick, a Dragon-Blood using this Charm can ignore all environmental penalties to his Dodge DV, even in places where dodging would seemingly be impossible, such as on tree limbs or up to his knees in quicksand. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p>",
+    "description": "<p>It stands to reason that, if one wishes to dodge, one must have room to do so. The Dragon-Blooded defy this obvious logic. For the duration of a single tick, a Dragon-Blood using this Charm can ignore all environmental penalties to his Dodge DV, even in places where dodging would seemingly be impossible, such as on tree limbs or up to his knees in quicksand. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p><p>In addition to canceling all environmental penalties to Dodge DV, this Charm also negates a single point of other penalties. Multiple activations of this Charm can be stacked to cancel up to a maximum of (Dexterity) points of penalty.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

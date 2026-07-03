@@ -77,3 +77,54 @@ describe("countSuccesses", () => {
     expect(r.ones).toBe(1);
   });
 });
+
+describe("countSuccesses — custom targetNumber", () => {
+  it("targetNumber=6: face 6 scores 1 success (was miss at default 7)", () => {
+    const r = countSuccesses([6], 6);
+    expect(r.rawSuccesses).toBe(1);
+    expect(r.details[0].cls).toBe("success");
+  });
+
+  it("targetNumber=6: face 5 remains a miss", () => {
+    const r = countSuccesses([5], 6);
+    expect(r.rawSuccesses).toBe(0);
+    expect(r.details[0].cls).toBe("miss");
+  });
+
+  it("targetNumber=6: face 10 still gives 2 successes (double-success)", () => {
+    const r = countSuccesses([10], 6);
+    expect(r.rawSuccesses).toBe(2);
+    expect(r.details[0].cls).toBe("double-success");
+  });
+
+  it("targetNumber=6: faces 7-9 still give 1 success each", () => {
+    const r = countSuccesses([7, 8, 9], 6);
+    expect(r.rawSuccesses).toBe(3);
+    expect(r.details.every(d => d.cls === "success")).toBe(true);
+  });
+
+  it("targetNumber=5 (minimum): faces 5-9 give 1 success each, 10 gives 2", () => {
+    const r = countSuccesses([5, 6, 7, 8, 9, 10], 5);
+    // 5×1 + 1×2 = 7
+    expect(r.rawSuccesses).toBe(7);
+  });
+
+  it("default (no second arg) still uses targetNumber=7", () => {
+    const r = countSuccesses([6, 7]);
+    expect(r.rawSuccesses).toBe(1); // 6 is miss, 7 is success
+  });
+
+  it("targetNumber=6: face 1 still counts as one, not a success", () => {
+    const r = countSuccesses([1], 6);
+    expect(r.ones).toBe(1);
+    expect(r.rawSuccesses).toBe(0);
+    expect(r.details[0].cls).toBe("one");
+  });
+
+  it("targetNumber=6: mixed pool tallies correctly", () => {
+    // [6, 10, 1, 4] → 6 is success(1), 10 is double(2), 1 is one, 4 is miss
+    const r = countSuccesses([6, 10, 1, 4], 6);
+    expect(r.rawSuccesses).toBe(3);
+    expect(r.ones).toBe(1);
+  });
+});

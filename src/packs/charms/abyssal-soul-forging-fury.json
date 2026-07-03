@@ -32,14 +32,14 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Of all the myriad horrors an Abyssal can impose on a ghost, dooming it to an eternity of impotent agony within soulsteel is easily the worst. The deathknight touches a ghostly victim and commits three motes to poison its corpus with the Essence of the Neverborn until the smelting into soulsteel is complete. Next, the Abyssal or a designated subordinate spends a dramatic action brutally beating the ghost into malleable hopelessness, taking a number of minutes equal to the ghost's (Willpower + Essence). The Charm ends and must be reactivated if interrupted for any reason, so the victim must be restrained to prevent it from initiating combat or escaping. Once the ghost breaks down, the Abyssal strikes a final clanging blow heard for a mile, hammering the victim's corpus into a whimpering mass of raw soulsteel. Obviously, ghosts must be material with respect to the Abyssal throughout their forging, effectively limiting this Charm's use to the Underworld or a shadowland at night. Note that soulsteel artifacts need one soul for every 10 accumulated successes required for their design (rounded up). Abyssals with Essence 5+ may use this Charm within the Underworld to forge captive gods with Essence 3 or less into starmetal, but they cannot use subordinates, and the initial torture takes a number of hours equal to the god's (Willpower + Essence). The wasteful inefficiency of this process means that the same number of gods must be forged to make a starmetal artifact as the ghosts needed for soulsteel devices. Deathlords primarily use this starmetal as bribes for the Five-Score Fellowship (not accepted as often as they'd like), though they keep some for their own depraved use.</p>",
+    "description": "<p>Of all the myriad horrors an Abyssal can impose on a ghost, dooming it to an eternity of impotent agony within soulsteel is easily the worst. The deathknight touches a ghostly victim and commits three motes to poison its corpus with the Essence of the Neverborn until the smelting into soulsteel is complete. Next, the Abyssal or a designated subordinate spends a dramatic action brutally beating the ghost into malleable hopelessness, taking a number of minutes equal to the ghost's (Willpower + Essence). The Charm ends and must be reactivated if interrupted for any reason, so the victim must be restrained to prevent it from initiating combat or escaping. Once the ghost breaks down, the Abyssal strikes a final clanging blow heard for a mile, hammering the victim's corpus into a whimpering mass of raw soulsteel. Obviously, ghosts must be material with respect to the Abyssal throughout their forging, effectively limiting this Charm's use to the Underworld or a shadowland at night. Note that soulsteel artifacts need one soul for every 10 accumulated successes required for their design (rounded up).</p><p>Abyssals with Essence 5+ may use this Charm within the Underworld to forge captive gods with Essence 3 or less into starmetal, but they cannot use subordinates, and the initial torture takes a number of hours equal to the god's (Willpower + Essence). The wasteful inefficiency of this process means that the same number of gods must be forged to make a starmetal artifact as the ghosts needed for soulsteel devices. Deathlords primarily use this starmetal as bribes for the Five-Score Fellowship (not accepted as often as they'd like), though they keep some for their own depraved use.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until the ghost is forged into soulsteel or the Charm is interrupted",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -54,8 +54,8 @@
             "charmUid": "2d77570036c32dee",
             "charmName": "Frenzied Forge Within",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

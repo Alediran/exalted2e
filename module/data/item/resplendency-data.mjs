@@ -1,3 +1,5 @@
+import { descriptionsField } from "./_shared/descriptions-field.mjs";
+
 const fields = foundry.data.fields;
 
 /**
@@ -20,6 +22,7 @@ export class ResplendencyData extends foundry.abstract.TypeDataModel {
         value: new fields.StringField({ initial: "", blank: true }),
       })),
       description:   new fields.HTMLField({ initial: "" }),
+      descriptions:  descriptionsField(),
     };
   }
 }

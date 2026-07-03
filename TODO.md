@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 261 / 268 complete** (6 partial / out-of-scope, 2 active still pending — last updated 2026-06-05 — added headless Quench runner in CI (Group B done), multi-actor mass Guard (GM HUD button), Limit Break scripted scene effects (data-driven Virtue-Flaw break AE), Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
+**Progress: 281 / 291 complete** (6 partial / out-of-scope, 0 plan tasks pending — last updated 2026-06-26 — added M49–M63 charm mechanic fields: onslaught DV injection, DV-penalty ignore, MDV bonus, shaping immunity, auto-knockdown, dematerialized detection, limit-break immunity, virtue recovery, social-success formula, attacker movement, unexpected-attack flags, join-battle bonus, max-perfect-uses, intimacy protection)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -43,6 +43,31 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Aim bonus banking (one die per banked tick, consumed on aimed attack)
 - [x] Aborted-Aim divert penalty — `onCommitOther` returns `applyAbortPenalty:true`; `advanceCurrentByTicks` applies `applyInternalPenalty(2, dvRefreshable)` when diverted
 - [x] Minimum-damage errata swap — `Math.max(damagePool − soak, overwhelming)` where `overwhelming` defaults to 1; hardnessStops correctly blocks entirely (no minimum applies)
+- [x] DV halving from supplemental charms (`dvHalving: true` halves both Dodge+Parry DV floor before Step 4; `halvesParryDV: true` halves Parry DV only; wired in `rollAttack` after terrain bonus and before base snapshot — see Blazing Solar Bolt, Ferocious Biting Tooth)
+- [x] Incoming attack dice penalty from defender's passively-active charms (`incomingAttackDicePenalty: NumberField`; aggregated via `aggregateIncomingAttackDicePenaltyFromCharms`; subtracted from attacker pool in `ExaltedRoll` constructor — see Crouching Tiger Stance)
+- [x] Charm-level hardness bypass (`ignoresHardness: true` on supplemental charm zeros `targetHardness` before soak; distinct from aggravated-always-ignores-hardness path — see Shell-Crushing Atemi)
+- [x] Target-number reduction (`targetNumberReduction: NumberField`) — reduces the success threshold below 7 for this attack's dice roll; `ExaltedRoll` accepts `targetNumber` option, wired from supplemental charms in `rollAttack`; `countSuccesses` in `dice-math.mjs` parameterized accordingly
+- [x] Onslaught multiplier (`onslaughtMultiplier: NumberField`) — additional onslaught stacks = `max(multiplier,1)−1` extra `addOnslaught()` calls after the base stack in `rollAttack`
+- [x] Onslaught-to-DV-penalty charm flag (`onslaughtToDVPenalty: BooleanField`) — when any passively-active charm has this flag, each `addOnslaught()` call also stamps an `onslaught-dv` AE on the target
+- [x] DV penalty ignore from charms (`ignoreDVPenalties: { dodge, parry }`) — passively-active charms zero the applicable DV penalty total in `currentDodgeDV`/`currentParryDV` getters
+- [x] Auto-knockdown supplemental charm (`automaticKnockdown: BooleanField`) — on any damage dealt forces Prone on NPC targets; queues a pending-confirm card for player-owned targets; wired in `knockback.mjs`
+- [x] Makes-attack-unexpected supplemental charm (`makesAttackUnexpected: BooleanField`) — zeros both target DVs for the attack; wired in `rollAttack` after the Unblockable/Undodgeable step
+- [x] Attacker movement on hit (`attackerMovement: { enabled, formula }`) — supplemental charm triggers a UI prompt for the attacker to declare movement distance after damage is applied
+- [x] Join Battle success bonus (`joinBattleSuccessBonus: NumberField`) — flat bonus successes from passively-active charms added to `rollInitiative` success count
+- [x] First-attack-unexpected passive charm (`firstAttackUnexpected: BooleanField`) — actor's first attack each combat zeroes target DVs; tracks via `combatant.flags.exalted2e.hasAttacked`; cleared on new combat
+- [x] Max perfect uses per scene (`maxPerfectUses: NumberField`) — caps perfect-defense activations via `targetCombatant.flags.exalted2e.perfectUses[charmId]` counter; toast warns on exhaustion (0 = unlimited)
+- [x] Counterattack becomes Unblockable via charm flag (`counterattackUnblockableVariant: BooleanField`) — injects `Unblockable` keyword when the counterattack is fired; `rollAttack` merges `options.extraKeywords` into `activatedKeywords` after the supplemental-charm loop
+- [x] Range multiplier (`rangeMultiplier: NumberField`) — passively-active charms multiply effective weapon range; `getRangeMultiplierFromCharms` (max across active charms) applied to `rangeVal` in `checkAttackRange`
+- [x] Melee range extension (`meleeRangeExtension: BooleanField`) — melee weapons treated as 30-unit thrown range in `checkAttackRange` when any passively-active charm has this flag
+- [x] Mote loan to target (`moteLoan: SchemaField { enabled, formula, maxReceive }`) — Circle-folder ally picker (DialogV2 radio buttons) in `activateCharm` after cost spend; calls `targetAlly.recoverMotes(amt, "peripheral")`
+- [x] Willpower gift to target (`willpowerGift: SchemaField { enabled, formula, maxTarget }`) — same ally picker as moteLoan; calls `targetAlly.receiveWillpower(amt)`; new `receiveWillpower` actor method added
+- [x] Ally-targeting support — Circle-folder picker (game.folders flag `theCircle`) embedded in activateCharm for moteLoan/willpowerGift
+- [x] Soak reduction on hit (`soakReductionOnHit: SchemaField { bashingReduction, lethalReduction, duration }`) — temporarily lowers target's soak after a hit (e.g. Throat-Baring Hold, duration "untilNextAction"); stamp a time-limited AE on the target reducing soak aggregation
+- [x] Damage-driven penalty on target (`damageDrivenPenalty: SchemaField { enabled, perHL, scope }`) — for each HL of damage dealt, apply `perHL` dice penalty to the target's attribute group (`scope`: "physicalAttributes" / "mentalAttributes" / "all"); stamp a named AE on target after damage roll — see Joint-Wounding Attack
+- [x] Temporary health levels (`temporaryHealthLevels: SchemaField { enabled, level, formula }`) — add transient AE granting extra HL at the specified level (e.g. Anointment of Miraculous Health adds HL at −0); AE carries `charmDuration` for auto-sweep
+- [x] Homing attack — `homingAttack` BooleanField on CharmData; stored in attack snapshot; `computeAttackOutcome` sets `showHomingReattack` on miss; `btn-homing-reattack` button in attack-result.hbs; click handler in chat-cards.mjs re-fires `rollAttack` with `isHomingReattack: true`; infinite-loop prevention via `homingReattackFired` flag
+- [x] Ammo tracking + `bypassAmmoConsumption` — `ammo: SchemaField { enabled, current, max }` on WeaponData; decrement in `rollAttack` post-dialog (after `activatedCharmItems`, before dematerialized gate); `bypassAmmoConsumption: BooleanField` on CharmData skips decrement; aborts attack with toast when current ≤ 0; skipped on `isHomingReattack`
+- [x] Elsewhere system — `inElsewhere: BooleanField` on WeaponData; weapons split into `weapons` (active) and `elsewhereWeapons` in context; Elsewhere section in inventory tab with Recall button; Send to Elsewhere button on active weapon rows; `sendsWeaponToElsewhere: BooleanField` on CharmData for charm data annotation; Send clears `equipped`
 
 ## Combat — Defense & Soak
 - [x] Dodge DV / Parry DV formulas, weapon-mode parry selection
@@ -96,6 +121,14 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Charm deactivation resolver (scene-end / combat-end) — `clearSceneCharms` sweeps oneScene + action-count AEs at scene/combat end; `decrementActionCharmsFor` counts down per combatant act; indefinite/permanent untouched
 - [x] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; gate conditions, passive/active tiers, per-tier effect sections, activation pipeline integration) — [charms-gap A2](docs/charms-gap.md)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
+- [x] **Charm-level per-purchase variant selection** — `soakBonus.options[]` + `selectedOption`; `createItem` hook fires variant picker dialog; grouped display in `CharacterSheet` with `#expandedGroups`; Armor Plating JSON updated
+- [x] **`maxPurchases` formula support** — `evalMaxPurchases()` in `charm-tree-builder.mjs`; resolves `@ess` and other rollData tokens; `getCharmState`/`getPipData` updated to use item-count model for multi-purchase charms
+- [x] **Upgrade tier system** — `upgradeTiers[]` ArrayField; `charm-tier-math.mjs`; `TierSelectionDialog`; activation pipeline integrated in `activateCharm()`; `tiersApplied` in ledger
+- [x] Fix consumer wiring — Unbreakable Warrior's Mastery: already has `negatesCripplingEffect: true` and no `statusApply` in source JSON — no fix needed; confirmed correct
+- [x] Fix consumer wiring — Serpentine Evasion: disabled incorrect `dvBonus` (AE pipeline doesn't fire for instant charms; errata Step-2 retroactive penalty not automatable with current architecture)
+- [x] Fix consumer wiring — Shockwave Technique: added `Unblockable` keyword (description says "Parry DV inapplicable")
+- [x] Detect dematerialized via charm (`detectDematerialized: BooleanField`) — passively-active charm exposes `actor.canDetectDematerialized` getter; upstream gates (targeting, vision) consult this flag
+- [ ] **Social attack pipeline for charms** — Presence/Performance opposed rolls with MDV; currently social bonus fields add dice/successes but the full opposed-roll pipeline (attacker pool vs MDV threshold, onslaught MDV, social-perfect defenses) is not wired to charm effects; blocks 30+ Social-keyword charms from full automation
 
 ## Social Combat
 - [x] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction; currently stub Item type only)
@@ -111,6 +144,12 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Social Combos (no Obvious display unless charm is Obvious)
 - [x] Social charm bonus payload (`socialBonus` schema — charm-driven pool dice/auto-successes/penalty-ignore for social attacks; MDV debuff gap noted in spec) — [charms-gap A9](docs/charms-gap.md)
   - [x] Social attack chat card: surface `charmPoolDice` / `charmPoolSuccesses` in pool breakdown line (currently stored in ledger but not rendered)
+- [x] Mental DV bonus from charms (`mentalDVBonus: NumberField`) — passively-active charms add a flat bonus to both `currentDodgeMDV` and `currentParryMDV`
+- [x] Shaping immunity from charms (`shapingImmunity: BooleanField`) — social attacks flagged `isShaping` against the defender inject "Perfect Mental Defense" in Step-2
+- [x] Limit Break influence immunity (`limitBreakInfluenceImmunity: BooleanField`) — at Limit 10, all influence against the defender auto-fails via "Perfect Mental Defense" in Step-2
+- [x] Social success bonus formula (`socialSuccessBonusFormula: StringField`) — supplemental charm formula evaluated and added to `rollSuccesses` in `rollSocialAttack`
+- [x] Intimacy protection from charms (`intimacyProtection: ArrayField { description, type }`) — social attacks targeting a named protected intimacy auto-fail via "Perfect Mental Defense" in Step-2; matched by intimacy item name (case-insensitive substring + type check)
+- [x] **Formal social attack pipeline — MDV-halving** (`halveMDV: BooleanField`) — attacker charm flag; detected from `actuallyActivated` post-charm-activation in `rollAttributeAbility`; stored in social attack ledger; `preStep2EffectiveMDV` display value halved at roll time; `resolveStep2` in `social-attack-math.mjs` applies `Math.floor(rawBase / 2)` to base subtotal before Excellency dice; WP-to-resist path already handled by existing `umiCost` + `unnaturalInfluence` fields
 
 ## Sorcery & Necromancy
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)
@@ -158,6 +197,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Chimera Knacks gated by Casteless + Limit ≥ 5
 - [x] Gift keyword auto-activation on Deadly Beastman Transformation entry — [charms-gap A6](docs/charms-gap.md)
 - [x] Fury-OK charm filter during Relentless Lunar Fury (block non-Fury-OK from supplemental picker) — [charms-gap A7](docs/charms-gap.md)
+- [x] **Dematerialized targeting gate** — `dematerialized` custom status added to `CONFIG.statusEffects`; gate in `rollAttack` (post-`activatedCharmItems`) blocks attacks unless `getHarmImmaterialFromCharms` or an activated `harmImmaterial` supplemental charm is active; `TargetIsDematerialized` warning toast
+- [x] **Maladic capture + transfer** — Lunar charm mechanic to capture a spirit's Essence pattern (a malados) and transfer it to another being; requires a `malados` item type or AE wrapper and a transfer dialog
+- [x] **Background grant via charm** — Lunar charms that temporarily grant a Background to an ally (e.g. Sharing the Gifts of Luna); requires a transient Background item stamped on the ally actor with a cleanup AE
+- [x] **Linked NPC template** — charm that creates or binds a specific NPC actor as a companion (spirit ally, familiar); token linked to the charm's active state; teardown on deactivation
 
 ### Dragon-Blooded
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
@@ -241,6 +284,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Willpower recovery hooks (rest, stunt reward)
 - [x] Limit accumulation automation (Virtue suppression → Limit gain on primary virtue; UMI → +1 Limit already implemented)
 - [x] Limit Break scripting at 10 (per-Virtue-Flaw scene template) — see Solar/Virtues section; data-driven break AE stamped on resolve, scene-swept
+- [x] **Formal virtue roll pipeline** — `virtueRollTrigger: SchemaField { enabled, virtue, difficulty }` on `CharmData`; consumer in `activateCharm` (item.mjs) rolls the Virtue pool and posts to chat; UI controls on Effects tab with virtue select + difficulty number; i18n in en.json/es.json
+- [x] Virtue recovery via charm event (`virtueRecovery: { enabled, virtue, event }`) — passively-active charm restores the spent channel on a named virtue when the specified event fires (`onEndScene`/`onDamageReceived`); wired in `_fireRecoveryEvent` and `#onEndScene`
 
 ## Experience / Purchase Tracking
 - [x] Purchase Mode toggle + enforcement (block reductions, log XP on increases)
@@ -298,6 +343,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [~] Background mechanical hooks — Familiar (actor link, species, bond rating, linked actor creation into The Circle/Familiars), Cult (mote regen / WP recovery from dot rating), Command (war dice) and Followers (magnitude) done via dedicated item types + `_prepareXxxData` rating tables; 53-type registry with optgroup display. Backing / Contacts / Resources are intentionally **narrative-only** (ST-adjudicated) — no automation planned for now (decision 2026-06-04). Item parked pending the user identifying specific automations worth building.
 - [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)
 - [x] Scene-end reset (anima step-down done; Peripheral-spend counter, per-scene WP drain counters)
+- [x] Overdrive pool display on character sheet — `system.motes.peripheral.overdrive` already rendered in `header.hbs` (lines 93–94) as a conditional `+N` badge with `OverdriveTooltip` i18n; already complete
 
 ## Crafting
 - [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.) — multiple named Craft variants with independent dot ratings, XP costs (inherits Caste/Favored), and roll integration with per-variant charm gating

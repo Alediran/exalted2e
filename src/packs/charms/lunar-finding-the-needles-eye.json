@@ -25,7 +25,8 @@
       2
     ],
     "keywords": [
-      "Combo-OK"
+      "Combo-OK",
+      "Counterattack"
     ],
     "cost": {
       "formula": "2m or 3m",
@@ -53,7 +54,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "dexterity",
             "virtueKey": "valor",
             "virtueMin": 1
           }

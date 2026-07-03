@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Flow-breaking Strike",
+  "name": "Flow-Breaking Strike",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -25,6 +25,7 @@
     "keywords": [
       "Combo-OK",
       "Crippling",
+      "Native",
       "Stackable"
     ],
     "cost": {
@@ -35,8 +36,8 @@
     "description": "<p>Feeling along a tenor of fate, a Sidereal may strike at her opponent's relevance, separating the momentous from the also-ran. This Charm supplements an unarmed martial arts attack; should the attack strike its target, that all of that target's actions raise their Speed by one for (Sidereal's Essence / 2, round up) actions. Subsequent strikes reset this timer and cumulatively increase the Speed of the target's actions. This Charm may not raise a target's Speed higher than 7.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -45,8 +46,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "eda1534a480f7aad"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "404b047d85d7dc15",
+            "charmName": "Finger-Stealing Handshake",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "eda1534a480f7aad",
+    "grantsMastery": false
   },
   "folder": "0489c660869ce271",
   "sort": 0,

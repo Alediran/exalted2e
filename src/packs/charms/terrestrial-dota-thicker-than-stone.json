@@ -46,7 +46,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "53c119419f7b7724",
+            "charmName": "Unflagging Vengeance Meditation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "728327040fe86b70",
+            "charmName": "Inviolate Dragon Spirit",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "5f29c1035ceeba7f"
   },
   "folder": "b0b1b2b3b4b5f020",

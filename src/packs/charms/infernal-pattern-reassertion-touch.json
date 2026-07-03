@@ -14,7 +14,7 @@
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "infernal",
-    "ability": "melee",
+    "ability": "",
     "essence": 3,
     "minAbility": 1,
     "charmType": "simple",
@@ -40,7 +40,7 @@
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     
-    "durationFormula": "",
+    "durationFormula": "Until complete",
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
@@ -55,8 +55,8 @@
             "charmUid": "e9195262d245e10e",
             "charmName": "Ego-Infused Pattern Primacy",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

@@ -15,11 +15,11 @@
   "system": {
     "exaltType": "terrestrial",
     "ability": "linguistics",
-    "essence": 2,
+    "essence": 3,
     "minAbility": 3,
-    "charmType": "supplemental",
-    "duration": "instant",
-    "speed": 5,
+    "charmType": "simple",
+    "duration": "concentration",
+    "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
@@ -28,11 +28,11 @@
       "War"
     ],
     "cost": {
-      "formula": "2m, 1wp, Mins: Linguistics 3, Essence 3",
+      "formula": "2m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Dragon-Blood weaves essence into her words, lacing them with subtle poison that undermines the listener's resolve. When the character makes a social attack supplemented by this Charm, the attack carries additional venom beyond mere argument. If the attack succeeds, the target not only suffers the normal social effect but also loses one point of temporary Willpower as the corrosive words eat away at their certainty. This effect does not apply to targets who resist the attack with a successful Dodge MDV roll—the poison requires a chink in the listener's defenses to take hold.</p>",
+    "description": "<p>To the Children of Mela, words can be weapons just as deadly as a blade or an arrow. With this Charm, a Dragon-Blood can manipulate a conversation she overhears, causing other listeners to hear what she desires instead of what was actually said. The Exalt must be able to hear the conversation in order to manipulate it with this Charm, and while eavesdropping through Charms or other magical means is acceptable, the Dragon-Blood must be within (the Exalt's permanent Essence × 100) feet from all participants. The Dragon-Blood's player must roll (Manipulation + Linguistics), with the successes determining the level of control. One success allows the Dragon-Blood to alter minor details, enough to confuse, offend or even arouse one of the parties. Three or more successes allows the Exalt to alter significant details, perhaps enough to completely color one participant's impressions of another. With five or more successes, the Exalt can control any aspect of the conversation.</p><p>Participants in the conversation may notice the effect with a reflexive (Wits + Perception) roll against a difficulty equal to the Dragon-Blood's Essence. On a successful roll, the participant knows that the conversation is being manipulated and can attempt to communicate this through nonverbal means. On a failure, none of the participants recognize that their own words are being changed or that the other parties do not hear what the speaker intends to say. In the Realm, abuse of this Charm is a serious breach of etiquette. In some situations, it is even considered a crime.</p><p>The listed duration means the character must constantly reactivate the Charm to maintain its effects, but the cost to do so is 0m so long as the Exalt keeps targeting the same overall conversation. If using this Charm to alter the resolution of a target's social attacks, the Terrestrial replaces the target's dice pool with his own (Manipulation + [Presence or Performance as appropriate]) and may use the hijacked action to do anything normally possible with a social attack using that dice pool. Social attacks enhanced by magic are beyond the power of this Charm to twist. Used in mass combat to target an enemy unit in range, each success reduces the total number of relays it is considered to have. If the unit leader realizes this is going on and successfully rallies for organization, relays are restored and the unit is immune to further use of the Charm for the rest of the scene.</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -41,12 +41,25 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "linguistics",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "717bd34e429768db"
   },
   "folder": "b0b1b2b3b4b5f023",

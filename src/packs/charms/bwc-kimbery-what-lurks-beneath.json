@@ -1,0 +1,75 @@
+{
+  "_id": "c1a2b3d4e5f6a708",
+  "_key": "!items!c1a2b3d4e5f6a708",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "What Lurks Beneath",
+  "type": "charm",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneMonth",
+    "speed": 5,
+    "dvPenalty": 4,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Servitude",
+      "Sorcerous",
+      "Sea",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "20m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Gaia conceived the element of water, but Kimbery hoarded it in one place to fill the yawning abyss of the West with glorious depths. Accordingly, all things that live in the sea should rightly call her Great Mother.</p><p>To use this Charm, the Infernal touches a sea in Creation or the Wyld and entreats the depths in Old Realm, necessitating she know the language and make a successful prayer roll (target number -1 if submerged). Her words spread as an invisible ripple through the cosmos, entreating a monster to rise and serve the will of Kimbery through her. The summoned beast finds and enters a secret current between seas, arriving (10 – Essence) minutes later. While the Charm remains active, the monster is enchanted as follows:</p><p>• It must obey the Infernal like a bound demon without regard for its own safety. This Servitude can't be broken by spending Willpower.</p><p>• It understands all commands the Infernal speaks to it in Old Realm and can execute those commands as though it had minimum Intelligence 2.</p><p>• The Infernal can command it at a distance via successful prayers as though the beast knew First Kimbery Excellency.</p><p>Any natural animal that lives in the sea of the Wyld or Creation is a valid target of this Charm; separate activations can bind multiple creatures. With Essence 3+, the Infernal may also summon natural animals warped by Desecration-based mutations. The player selects desired mutations that can't encompass more positive mutation points than (the Infernal's [Willpower + Essence]) + (the creature's total number of negative mutation points). The creature is not changed by summoning; rather, it is a victim of the pollution Kimbery and the ruin of the Lintha Empire left in Creation after the Primordial War.</p><p>With repurchase at Essence 3+, the warlock can entreat the seas of Creation or the Wyld at night (or the seas of the Demon Realm at any time), summoning an unbound member of any predominantly aquatic First Circle demon race (but not a specific demon) from a sea in any realm of existence. The Charm enslaves these demons normally, but is preempted by spells that summon or bind enchanted demons.</p><p>A third purchase at Essence 5+ allows the summoning of any specific aquatic Primordial behemoth smaller than a geographic entity (i.e. no Lintha Ng Oroo). This follows the timing and location restrictions for First Circle demon summoning. The Charm only brings the behemoth to the warlock and doesn't grant control unless the warlock's Essence is greater than its. If other creatures smaller than the behemoth are in physical contact with it when it answers the summons, they are carried along. Behemoths are unique and powerful; most are massive, nigh-immortal entities capable of challenging Celestial Exalted.</p>",
+    "source": "Broken Winged Crane",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c1a2b3d4e5f6a706",
+            "charmName": "Tidal Renewal Discipline",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "maxPurchases": "3",
+    "linksNpcCompanion": true,
+    "charmUid": "c1a2b3d4e5f6a708"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -38,13 +38,12 @@
       "limitTrigger": 0,
       "formula": "5m"
     },
-    "description": "<p>The martial artist executes an ongoing kata as he fights, viciously lashing his whips into jagged zigzag patterns that crackle with discharged electricity. While this Charm is active, the martial artist may reflexively pay one mote in Step One when attacking with a whip to send bright arcs</p><p>of eye-searing electricity racing down its length. Doing so adds one automatic level of bashing damage to an attack's post-soak damage. If raw damage is reduced to zero, this benefit is wasted.</p>",
+    "description": "<p>The martial artist executes an ongoing kata as he fights, viciously lashing his whips into jagged zigzag patterns that crackle with discharged electricity. While this Charm is active, the martial artist may reflexively pay one mote in Step One when attacking with a whip to send bright arcs of eye-searing electricity racing down its length. Doing so adds one automatic level of bashing damage to an attack's post-soak damage. If raw damage is reduced to zero, this benefit is wasted.</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Live Wire Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,8 +59,8 @@
             "charmUid": "452da639101bb73b",
             "charmName": "Lightning Supremacy Reversal",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       },
@@ -72,8 +71,8 @@
             "charmUid": "53708c4be9f2f5cd",
             "charmName": "Tangled Weaver's Trap",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }

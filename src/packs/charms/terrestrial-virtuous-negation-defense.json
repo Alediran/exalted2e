@@ -33,7 +33,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>If an ally within normal leaping distance (about five yards) is subject to an attack, the Dragon-Blood using this Charm can attempt to move her out of the way. The Exalt's player must first roll (Dexterity + Dodge + Essence). If the player gets no successes, the attack proceeds normally. If the player gets any successes, the character can make himself the target of the attack instead of the ally. If his successes exceed the successes on the attack roll, both the Dragon-Blooded and the ally automatically dodge without a roll. Otherwise, the attacker's remaining successes are applied as damage against the Dragon-Blood (with soak applied normally). This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p>",
+    "description": "<p>If an ally within normal leaping distance (about five yards) is subject to an attack, the Dragon-Blood using this Charm can attempt to move her out of the way. The Exalt's player must first roll (Dexterity + Dodge + Essence). If the player gets no successes, the attack proceeds normally. If the player gets any successes, the character can make himself the target of the attack instead of the ally. If his successes exceed the successes on the attack roll, both the Dragon-Blooded and the ally automatically dodge without a roll. Otherwise, the attacker's remaining successes are applied as damage against the Dragon-Blood (with soak applied normally). This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p><p>This Charm cannot protect against undodgeable attacks or attacks targeting characters more than (Dodge + Essence) yards away. If the attack is redirected, the target perfectly dodges it and the attack resolves normally against the Exalt. If the activation roll isn't sufficient to perfectly dodge the attack, the Terrestrial may apply his Dodge DV or Parry DV as normal. The possibility for failure in this Charm constitutes its Flaw of Invulnerability. When used in mass combat, this Charm ignores usual range limits to allow a special character to protect any fellow officer in his unit (champions can only be protected from attacks by non-champions).</p>",
     "source": "MoEP: Dragon-Blooded",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -42,7 +42,7 @@
     
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",

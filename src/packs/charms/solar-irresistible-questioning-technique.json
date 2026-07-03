@@ -15,9 +15,9 @@
   "system": {
     "exaltType": "solar",
     "ability": "investigation",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
@@ -34,12 +34,11 @@
       "limitTrigger": 0
     },
     "description": "<p>A Speed 6 long ticks interrogation. The Solar's player rolls (appropriate Social Attribute + Investigation). This Charm exerts unnatural mental influence; the target can resist with MDV. If the roll succeeds, the target is compelled to answer questions honestly. Resisting costs one Willpower per five minutes, to a maximum of three Willpower, and the compulsion lasts for one scene. Loses effectiveness with repeated use: increase the target's MDV by three if an Exalt has used this Charm or a similar one on the target this story.</p>",
-    "source": "Core Rules",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8220985154d41148",
+            "charmName": "Judge's Ear Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "0914884d8d183373"
   },
   "folder": "404dccadf2c8e04a",

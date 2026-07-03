@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Erudite Beast-mind Expansion",
+  "name": "Erudite Beast-Mind Expansion",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -30,13 +30,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm permanently enhances Nature-Reinforcing Allocation. It increases the Lunar's training capabilities. The maximum number of dots the Lunar can add to any trait that he is able to train becomes equal</p>",
+    "description": "<p>This Charm permanently enhances Nature-Reinforcing Allocation. It increases the Lunar's training capabilities. The maximum number of dots the Lunar can add to any trait that he is able to train becomes equal to half his Essence. He can increase his familiar's Intelligence by one greater.</p>",
     "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,7 +43,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6ecfdfad8baea7c9",
+            "charmName": "Nature-Reinforcing Allocation",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "3473aa2f6c9d0d39"
   },
   "folder": "4e63ba1bd67a09e3",

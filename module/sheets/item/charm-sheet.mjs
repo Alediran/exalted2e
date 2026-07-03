@@ -4,6 +4,7 @@ import { editImageAction } from "../_edit-image.mjs";
 import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
 import { evaluateCharmFormula } from "../../documents/item.mjs";
 import { buildCharmCostPreview, buildCharmOptions, buildTraitOptions, buildStatBoostPaths } from "../../helpers/charm-sheet-helpers.mjs";
+import { itemDescription } from "../../helpers/localize-description.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -60,6 +61,14 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removeTierHealthGrantOption:   CharmSheet.#onRemoveTierHealthGrantOption,
       addTierDVIgnorePenaltyType:    CharmSheet.#onAddTierDVIgnorePenaltyType,
       removeTierDVIgnorePenaltyType: CharmSheet.#onRemoveTierDVIgnorePenaltyType,
+      addAbilityDiceBonus:              CharmSheet.#onAddAbilityDiceBonus,
+      removeAbilityDiceBonus:           CharmSheet.#onRemoveAbilityDiceBonus,
+      addSupplementalKeyword:           CharmSheet.#onAddSupplementalKeyword,
+      removeSupplementalKeyword:        CharmSheet.#onRemoveSupplementalKeyword,
+      addStatusImmunity:                CharmSheet.#onAddStatusImmunity,
+      removeStatusImmunity:             CharmSheet.#onRemoveStatusImmunity,
+      addIntimacyProtection:            CharmSheet.#onAddIntimacyProtection,
+      removeIntimacyProtection:         CharmSheet.#onRemoveIntimacyProtection,
     }
   };
 
@@ -126,6 +135,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       // `abilities` is the charm-key dropdown — its contents swap between
       // ability and attribute lists based on `usesAttribute`.
       abilities:    usesAttribute ? attributeOptions : abilityOptions,
+      // `allAbilities` always contains ability keys regardless of exalt type;
+      // used by abilityDiceBonus which matches against ability keys only.
+      allAbilities: abilityOptions,
       abilityFieldLabel:    game.i18n.localize(usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability"),
       minAbilityFieldLabel: game.i18n.localize(usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility"),
       excellencies: [
@@ -146,6 +158,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       prereqAltTypes: [
         { value: "charm",         label: game.i18n.localize("EX2E.PrereqTypeCharm") },
         { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") },
+        { value: "anyCharmOfAbility", label: game.i18n.localize("EX2E.PrereqTypeAnyCharmOfAbility") },
         { value: "virtue",        label: game.i18n.localize("EX2E.PrereqTypeVirtue") }
       ],
       mirrorCharmDisplayName: charmByUid.get(sys.mirrorId ?? "") ?? "",
@@ -175,7 +188,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         value: k, label: game.i18n.localize(v)
       })),
       resolvedMaxPurchases: Math.max(1, evaluateCharmFormula(sys.maxPurchases ?? "1", item.actor?.getRollData?.() ?? {}, 1)),
-      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(itemDescription(this.document), {
         secrets: this.document.isOwner, relativeTo: this.document
       }),
       perfectDefenseOptions: [
@@ -241,9 +254,10 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "applyPoison",    label: game.i18n.localize("EX2E.SAOnFailPoison")    }
       ],
       willpowerRecoveryEventChoices: [
-        { value: "onDamageReceived", label: game.i18n.localize("EX2E.WillpowerEventOnDamage") },
-        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.WillpowerEventOnHit")    },
-        { value: "onKill",           label: game.i18n.localize("EX2E.WillpowerEventOnKill")   }
+        { value: "onDamageReceived", label: game.i18n.localize("EX2E.WillpowerEventOnDamage")  },
+        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.WillpowerEventOnHit")     },
+        { value: "onKill",           label: game.i18n.localize("EX2E.WillpowerEventOnKill")    },
+        { value: "onDefend",         label: game.i18n.localize("EX2E.WillpowerEventOnDefend")  }
       ],
       statBoostPaths: buildStatBoostPaths(EX2E, k => game.i18n.localize(k))
     };
@@ -552,6 +566,63 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     if (!tier) return;
     tier.dvBonus.ignorePenaltyTypes.splice(idx, 1);
     await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onAddAbilityDiceBonus(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.abilityDiceBonus ?? []);
+    current.push({ ability: "", formula: "" });
+    await this.document.update({ "system.abilityDiceBonus": current });
+  }
+
+  static async #onRemoveAbilityDiceBonus(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.abilityDiceBonus ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.abilityDiceBonus": current });
+  }
+
+  static async #onAddSupplementalKeyword(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.supplementalKeywordInjection ?? []);
+    const first = game.exalted2e?.EX2E?.charmKeywords?.[0] ?? "Unblockable";
+    current.push(first);
+    await this.document.update({ "system.supplementalKeywordInjection": current });
+  }
+
+  static async #onRemoveSupplementalKeyword(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.supplementalKeywordInjection ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.supplementalKeywordInjection": current });
+  }
+
+  static async #onAddStatusImmunity(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.statusImmunity ?? []);
+    current.push("");
+    await this.document.update({ "system.statusImmunity": current });
+  }
+
+  static async #onRemoveStatusImmunity(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.statusImmunity ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.statusImmunity": current });
+  }
+
+  static async #onAddIntimacyProtection(event, target) {
+    const current = foundry.utils.deepClone(this.document.system.intimacyProtection ?? []);
+    current.push({ description: "", type: "major" });
+    await this.document.update({ "system.intimacyProtection": current });
+  }
+
+  static async #onRemoveIntimacyProtection(event, target) {
+    const index = parseInt(target.dataset.index);
+    if (!Number.isFinite(index)) return;
+    const current = foundry.utils.deepClone(this.document.system.intimacyProtection ?? []);
+    current.splice(index, 1);
+    await this.document.update({ "system.intimacyProtection": current });
   }
 
   static async #onIncrementPurchaseLevel(event, _target) {

@@ -30,7 +30,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Exalt becomes a blur of motion. This Charm increases the distance she can cover with a Move or Dash action by her Athletics score in yards. She can increase this further with Athletics Excellencies, spending motes to increase the static rating of her (Dexterity + Athletics). RACING HARE METHOD Cost: 5m, 1wp; Mins: Athletics 5, Essence 2; Type: Simple (Dramatic Action, DV -6)</p><p>Keywords: Combo-OK, Obvious Duration: Instant Prerequisite Charms: Lightning Speed To the Lawgiver, the great distances between Creation's territories are not so much an obstacle as a place to keep their dominions. This Charm allows the character to travel ([her Stamina + Essence] x 10) miles per hour, for up to one hour. This is a single dramatic action. If the character invokes this Charm again as her next action, she may ignore the Willpower cost.</p>",
+    "description": "<p>The Exalt becomes a blur of motion. This Charm increases the distance she can cover with a Move or Dash action by her Athletics score in yards. She can increase this further with Athletics Excellencies, spending motes to increase the static rating of her (Dexterity + Athletics).</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,7 +51,7 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "athletics",
             "virtueKey": "valor",
             "virtueMin": 1
           }

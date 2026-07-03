@@ -1,0 +1,29 @@
+{
+  "_id": "fc4f4cec4079c3f5",
+  "_key": "!items!fc4f4cec4079c3f5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Monkey Arm Style",
+  "type": "knack",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "essence": 4,
+    "prerequisites": "Hybrid Body Rearrangement, Essence 4, Dexterity 4",
+    "enablesDBT": false,
+    "isChimera": false,
+    "keywords": [],
+    "description": "<p>The Lunar may elongate her limbs by spending motes (distance per mote × Essence maximum). Extended limbs suffer −2 accuracy and raw damage.</p>",
+    "charmUid": "fc4f4cec4079c3f5"
+  },
+  "folder": "d99c54516388f101",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

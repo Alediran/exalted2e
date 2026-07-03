@@ -1,4 +1,5 @@
 import { planSorceryCommit } from "./sorcery-math.mjs";
+import { itemDescription } from "../helpers/localize-description.mjs";
 
 /**
  * Sorcery's multi-tick action handler. Registered into
@@ -135,7 +136,7 @@ export async function postCastChatCard(actor, spell, ledger) {
       spellName:      spell.name,
       traditionLabel: game.i18n.localize(traditionKey),
       circleLabel:    game.i18n.localize(circleKey),
-      description:    spell.system?.description ?? "",
+      description:    itemDescription(spell),
       motesSpent,
       motePoolLabel,
       wpSpent:        ledger.wpCommitted ?? 0

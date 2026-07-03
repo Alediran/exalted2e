@@ -1,6 +1,6 @@
 {
-  "_id": "164ca924bdea4623",
-  "_key": "!items!164ca924bdea4623",
+  "_id": "3539fd37de2bace5",
+  "_key": "!items!3539fd37de2bace5",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -15,8 +15,8 @@
   "system": {
     "exaltType": "sidereal",
     "ability": "college",
-    "essence": 5,
-    "minAbility": 4,
+    "essence": 1,
+    "minAbility": 1,
     "charmType": "simple",
     "duration": "oneScene",
     "speed": 6,
@@ -33,21 +33,20 @@
       "limitTrigger": 0
     },
     "description": "<p>A good soldier and a good Sidereal both understand that their own actions are only the smallest of the many forces that guide the course of their destiny. Trusting to fate and his own legend, the Sidereal snarls the thread of his own destiny around himself, then waits to see if it will form a shield or a noose. Upon invoking this Charm, the Sidereal picks out an opponent. The players of the Vizier and his selected opponent make contested Essence rolls. If the Sidereal's player wins or draws, the Vizier automatically dodges all attacks his selected opponent makes against him for the rest of the scene, even unexpected or undodgeable ones. If the opponent wins, all of the Vizier's instant-duration Charms have their cost raised by three motes for the rest of the scene.</p>",
-    "source": "Glories of the Most High: Maidens of Destiny",
+    "source": "Glories of the Most High: The Maidens of Destiny",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 1,
+    "umiCost": 0,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "164ca924bdea4623"
+    "charmUid": "3539fd37de2bace5"
   },
   "folder": "84b20a7805198847",
   "sort": 0,
