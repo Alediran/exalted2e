@@ -113,7 +113,7 @@ export const _patternBitePending = new Set();
 async function _triggerPatternBite(actor) {
   let table = game.tables.getName("Pattern Bite");
   if (!table) {
-    const pack = game.packs.get("exalted2e.paradox-bites");
+    const pack = game.packs.get("exalted2e-compendium.paradox-bites");
     if (pack) {
       const index = await pack.getIndex();
       const entry = index.find(e => e.name === "Pattern Bite");

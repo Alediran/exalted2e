@@ -103,7 +103,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     if (et === 'martialarts') {
       // Collect style name → tier; first entry wins (all charms in a style share the same tier)
       const styleTier = new Map();
-      const maPack = game.packs.get('exalted2e.martialarts');
+      const maPack = game.packs.get('exalted2e-compendium.martialarts');
       if (maPack) {
         const index = await maPack.getIndex({
           fields: ['system.martialArtsStyleName', 'system.martialArtsTier', 'type'],
@@ -333,7 +333,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     // System pack — MA charms are in a separate pack from regular charms
     if (this.#sources.systemPack) {
-      const packId = et === 'martialarts' ? 'exalted2e.martialarts' : 'exalted2e.charms';
+      const packId = et === 'martialarts' ? 'exalted2e-compendium.martialarts' : 'exalted2e-compendium.charms';
       const pack = game.packs.get(packId);
       if (pack) {
         const docs = await pack.getDocuments({ type: 'charm' });
@@ -381,7 +381,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const externalUids = new Map();
 
     if (this.#sources.systemPack) {
-      const pack = game.packs.get('exalted2e.charms');
+      const pack = game.packs.get('exalted2e-compendium.charms');
       if (pack) {
         const index = await pack.getIndex({
           fields: ['type', 'system.charmUid', 'system.ability', 'system.exaltType'],

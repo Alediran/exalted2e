@@ -29,7 +29,7 @@ export class MansePowerPickerDialog extends HandlebarsApplicationMixin(Applicati
   }
 
   async _prepareContext(_options) {
-    const pack     = game.packs.get("exalted2e.manse-powers");
+    const pack     = game.packs.get("exalted2e-compendium.manse-powers");
     const packDocs = pack ? await pack.getDocuments() : [];
     const world    = game.items?.filter(i => i.type === "manse-power") ?? [];
     const byName   = new Map();

@@ -470,7 +470,7 @@ async function _ensureAnimaPowerFolders(pack) {
 }
 
 export async function _seedAnimaPowersCompendium() {
-  const pack = game.packs.get("exalted2e.animapowers");
+  const pack = game.packs.get("exalted2e-compendium.animapowers");
   if (!pack) return;
 
   const wasLocked = pack.locked;
@@ -501,7 +501,7 @@ export async function _seedAnimaPowersCompendium() {
           isGreaterSign:   seed.isGreaterSign ?? false,
           description:     seed.description
         }
-      }, { pack: "exalted2e.animapowers" });
+      }, { pack: "exalted2e-compendium.animapowers" });
     }
     if (todo.length > 0) {
       console.log(`Exalted 2e | Seeded ${todo.length} anima power(s) into the animapowers compendium.`);

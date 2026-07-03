@@ -140,7 +140,7 @@ const _EFFECT_WRAPPER_SEEDS = [
 ];
 
 export async function _seedEffectsCompendium() {
-  const pack = game.packs.get("exalted2e.effects");
+  const pack = game.packs.get("exalted2e-compendium.effects");
   if (!pack) return;
   const existing = await pack.getIndex();
   // Skip the seed pass if every expected entry already exists (indexed by name).
@@ -179,7 +179,7 @@ export async function _seedEffectsCompendium() {
           transfer: true,
           disabled: false
         }]
-      }, { pack: "exalted2e.effects" });
+      }, { pack: "exalted2e-compendium.effects" });
     }
     console.log(`Exalted 2e | Seeded ${todo.length} effect wrapper(s) into the effects compendium.`);
   } finally {

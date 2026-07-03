@@ -339,7 +339,7 @@ export class ExaltedActor extends Actor {
       return;
     }
 
-    const pack = game.packs.get("exalted2e.animapowers");
+    const pack = game.packs.get("exalted2e-compendium.animapowers");
     if (!pack) {
       console.warn("Exalted 2e | animapowers compendium not found");
       return;
