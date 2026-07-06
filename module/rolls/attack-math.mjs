@@ -149,6 +149,16 @@ export function computeAttackOutcome(attack) {
   if ((attack.rawDamageMultiplier ?? 1) > 1) {
     data.rawDamagePool = Math.floor(data.rawDamagePool * attack.rawDamageMultiplier);
   }
+  if (!hit && perfectDefense && (attack.mundaneWeaponBreakage ?? false)) {
+    const basePool = Math.floor(threshold * extraMult) + attack.weaponDamage
+      + (attack.addStrength ? attack.strengthValue : 0) + (attack.rawDamageBonus ?? 0);
+    const wouldBePool = (attack.rawDamageMultiplier ?? 1) > 1
+      ? Math.floor(basePool * attack.rawDamageMultiplier)
+      : basePool;
+    data.mundaneWeaponBreaks = wouldBePool > 25;
+  } else {
+    data.mundaneWeaponBreaks = false;
+  }
   data.hardnessStops = hit && !perfectSoak && (attack.targetHardness ?? 0) > data.rawDamagePool;
   data.defenseLabelKey = {
     dodge:  "EX2E.DodgeDV",

@@ -863,8 +863,9 @@ export function registerChatCardHooks() {
         // Track if the defender activated a Perfect Dodge / Perfect Parry /
         // Perfect Soak. Parry/Dodge trump everything downstream; Soak still
         // allows the attack to land but zeroes out the damage pool.
-        let perfectDefenseCharm = null;
-        let perfectDefenseType  = null;
+        let perfectDefenseCharm    = null;
+        let perfectDefenseType     = null;
+        let mundaneWeaponBreakage  = false;
         const step2Activations = result.charmActivations?.length
           ? result.charmActivations
           : (result.charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
@@ -892,12 +893,14 @@ export function registerChatCardHooks() {
                     uses[charm.id] = usedSoFar + 1;
                     await targetCombatant.setFlag("exalted2e", "perfectUses", uses);
                   }
-                  perfectDefenseCharm = charm.name;
-                  perfectDefenseType  = pdt;
+                  perfectDefenseCharm   = charm.name;
+                  perfectDefenseType    = pdt;
+                  mundaneWeaponBreakage = charm.system.mundaneWeaponBreakage ?? false;
                 }
               } else {
-                perfectDefenseCharm = charm.name;
-                perfectDefenseType  = pdt;
+                perfectDefenseCharm   = charm.name;
+                perfectDefenseType    = pdt;
+                mundaneWeaponBreakage = charm.system.mundaneWeaponBreakage ?? false;
               }
             }
           }
@@ -956,7 +959,8 @@ export function registerChatCardHooks() {
           defenderSecondExcSucc:    secondExcSucc,
           defenderHasCounterattack,
           perfectDefenseCharm,
-          perfectDefenseType
+          perfectDefenseType,
+          mundaneWeaponBreakage
         };
 
         _tryFireAttackSuccess(newAttack);

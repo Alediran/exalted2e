@@ -155,6 +155,14 @@
           {{localize "EX2E.PerfectDefense"}} — {{perfectDefenseCharm}}
         </span>
       </div>
+      {{#if mundaneWeaponBreaks}}
+      <div class="roll-result failure">
+        <span class="result-label failure-label">
+          <i class="fa-solid fa-hammer"></i>
+          {{localize "EX2E.MundaneWeaponBreaks"}}
+        </span>
+      </div>
+      {{/if}}
     {{else if perfectSoak}}
       <div class="roll-result success perfect-defense">
         <span class="result-label success-label">

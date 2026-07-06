@@ -685,6 +685,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       postSoakDamageReduction: new fields.NumberField({ required: false, nullable: false, integer: true, min: 0, initial: 0 }),
 
       negatesCripplingEffect: new fields.BooleanField({ required: false, initial: false }),
+      mundaneWeaponBreakage: new fields.BooleanField({ required: false, initial: false }),
       guaranteedHit: new fields.BooleanField({ required: false, initial: false }),
       statusImmunity: new fields.ArrayField(new fields.StringField(), { required: false, initial: [] }),
       minBreeding: new fields.NumberField({ required: false, initial: 0, min: 0 }),
