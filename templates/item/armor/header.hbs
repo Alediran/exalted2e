@@ -11,5 +11,8 @@
     {{#if system.artifact}}
     <span class="keyword-tag">Artifact{{#if system.magicalMaterial}} · {{localize (lookup config.magicalMaterials system.magicalMaterial)}}{{/if}}</span>
     {{/if}}
+    {{#if system.isBroken}}
+    <span class="keyword-tag" style="color:#c0392b">{{localize "EX2E.Broken"}}</span>
+    {{/if}}
   </div>
 </div>

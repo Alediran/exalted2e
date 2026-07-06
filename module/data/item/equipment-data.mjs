@@ -10,6 +10,7 @@ export class EquipmentData extends foundry.abstract.TypeDataModel {
       description:      new fields.HTMLField({ initial: "" }),
       descriptions:     descriptionsField(),
       equipped:         new fields.BooleanField({ initial: false }),
+      isBroken:         new fields.BooleanField({ initial: false }),
       slot:             new fields.StringField({ initial: "none", blank: false, choices: ["hands","feet","armor","head","none"] }),
       artifact:         new fields.BooleanField({ initial: false }),
       magicalMaterial:  new fields.StringField({ initial: "", blank: true }),

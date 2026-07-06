@@ -156,6 +156,14 @@
              {{#unless isEditable}}disabled{{/unless}}>
     </label>
   </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.IsBroken"}}</label>
+    <label class="checkbox-inline" style="margin-left:8px">
+      <input type="checkbox" name="system.isBroken"
+             {{#if system.isBroken}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </label>
+  </div>
   <div class="field-group checkbox-field" style="margin-top:8px">
     <label><input type="checkbox" name="system.artifact" {{#if system.artifact}}checked{{/if}}
                   {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.ArtifactItem"}}</label>

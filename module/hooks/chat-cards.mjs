@@ -963,6 +963,13 @@ export function registerChatCardHooks() {
           mundaneWeaponBreakage
         };
 
+        if (computeAttackOutcome(newAttack).mundaneWeaponBreaks) {
+          const parryingWeapon = targetActor.items.find(i =>
+            i.type === "weapon" && i.system.equipped && !i.system.isBroken
+          );
+          if (parryingWeapon) await parryingWeapon.setBroken(true);
+        }
+
         _tryFireAttackSuccess(newAttack);
         await _applyOnHitSoakReduction(newAttack, targetActor);
         const { renderAttackCardContent } = await import("../rolls/exalted-roll.mjs");

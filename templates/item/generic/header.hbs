@@ -5,6 +5,9 @@
     <input class="item-name-input" type="text" name="name" value="{{item.name}}"
            {{#unless isEditable}}readonly{{/unless}}>
     <span class="keyword-tag">{{item.type}}</span>
+    {{#if system.isBroken}}
+    <span class="keyword-tag" style="color:#c0392b">{{localize "EX2E.Broken"}}</span>
+    {{/if}}
     {{#if (eq item.type "manse")}}
     <div class="manse-header-stats">
       <span class="manse-header-label">{{localize "EX2E.ManseRating"}}</span>

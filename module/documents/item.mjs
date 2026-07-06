@@ -136,6 +136,15 @@ export class ExaltedItem extends Item {
   }
 
   /**
+   * Mark this weapon, armor, or equipment as broken or repaired.
+   * @param {boolean} [broken=true]
+   */
+  async setBroken(broken = true) {
+    if (!["weapon", "armor", "equipment"].includes(this.type)) return;
+    return this.update({ "system.isBroken": broken });
+  }
+
+  /**
    * Block deletion of the system-managed Unarmed Attacks weapon, and return
    * committed motes to the pool if an attuned artifact is deleted.
    */
