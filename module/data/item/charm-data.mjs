@@ -14,6 +14,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // charmUids of the other versions of this charm in alternate ability trees.
       // Purchasing any one version grants all others automatically.
       mergedIds:    new fields.ArrayField(new fields.StringField({ blank: true }), { initial: [] }),
+      // charmUid of the paired Echo variant (Dreaming ↔ Waking). Purchasing either
+      // variant automatically grants the other; blank for non-Echo or combined-file charms.
+      echoId:       new fields.StringField({ initial: "", blank: true }),
       exaltType:    new fields.StringField({ initial: "solar", blank: true }),
       ability:         new fields.StringField({ initial: "melee", blank: true }),
       yoziPatron:      new fields.StringField({ initial: "", blank: true }),

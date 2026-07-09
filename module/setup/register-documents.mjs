@@ -176,6 +176,8 @@ export function registerDocuments() {
     crippled:        { id: "crippled",        name: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } },
     // Dematerialized: spirit is in the spirit world; only harmImmaterial attacks can hit.
     dematerialized:  { id: "dematerialized",  name: "EX2E.StatusDematerialized",  img: "icons/svg/eye.svg",     flags: { exalted2e: { dematerialized: true } } },
+    // Shaped: raksha is wearing their natural form; required to activate ShapedOnly charms.
+    shaped:          { id: "shaped",          name: "EX2E.StatusShaped",          img: "icons/magic/symbols/runes-star-magenta.webp", flags: { exalted2e: { shaped: true } } },
   });
   // Unit mass-combat states — pushed as plain array entries so toggleStatusEffect / .find() can locate them by id.
   CONFIG.statusEffects.push(

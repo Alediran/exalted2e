@@ -257,8 +257,28 @@ export function registerItemLifecycleHooks() {
         parentActor.system?.purchaseLocked &&
         ["charm", "spell", "knack", "background"].includes(item.type) &&
         !options.exalted2e?.mergedGrant &&
+        !options.exalted2e?.echoGrant &&
         !(item.system?.mergedIds?.length)) {
       item.updateSource({ "flags.exalted2e.pendingPurchaseConfirm": true });
+    }
+
+    // ── Stackable duplicate guard ─────────────────────────────────────────────
+    // When a Stackable charm the actor already owns is dragged from the compendium
+    // again, increment the existing copy's stackCount instead of creating a duplicate.
+    const stackableActor = item.parent;
+    if (stackableActor instanceof Actor &&
+        item.type === "charm" &&
+        (item.system?.keywords ?? []).includes("Stackable") &&
+        !options.exalted2e?.mergedGrant &&
+        !options.exalted2e?.echoGrant) {
+      const uid      = item.system?.charmUid;
+      const existing = uid && stackableActor.items.find(
+        i => i.type === "charm" && i.system?.charmUid === uid
+      );
+      if (existing) {
+        existing.update({ "system.stackCount": (existing.system.stackCount ?? 0) + 1 });
+        return false;
+      }
     }
 
     // ── Combo UID remap ───────────────────────────────────────────────────────
@@ -404,6 +424,34 @@ export function registerItemLifecycleHooks() {
         exalted2e: { mergedGrant: true }
       });
     }
+  });
+
+  // Auto-grant the paired Echo variant (Dreaming ↔ Waking) when either member of
+  // the pair is added to an actor. Works identically to the Merged handler above.
+  Hooks.on("createItem", async (item, options, userId) => {
+    if (userId !== game.user.id) return;
+    if (item.type !== "charm") return;
+    if (options.exalted2e?.echoGrant) return;
+    const actor = item.parent;
+    if (!actor || actor.documentName !== "Actor") return;
+
+    const echoId = item.system?.echoId ?? "";
+    if (!echoId) return;
+
+    const existingUids = new Set(
+      actor.items.filter(i => i.type === "charm").map(i => i.system.charmUid).filter(Boolean)
+    );
+    if (existingUids.has(echoId)) return;
+
+    let sourceDoc = null;
+    for (const pack of game.packs.filter(p => p.documentName === "Item")) {
+      try { sourceDoc = await pack.getDocument(echoId); } catch { /* not in this pack */ }
+      if (sourceDoc) break;
+    }
+    if (!sourceDoc) return;
+    await actor.createEmbeddedDocuments("Item", [sourceDoc.toObject()], {
+      exalted2e: { echoGrant: true }
+    });
   });
 
   const _maStyleCreationInFlight = new Set();

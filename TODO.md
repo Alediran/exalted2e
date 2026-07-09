@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 281 / 291 complete** (6 partial / out-of-scope, 0 plan tasks pending — last updated 2026-06-26 — added M49–M63 charm mechanic fields: onslaught DV injection, DV-penalty ignore, MDV bonus, shaping immunity, auto-knockdown, dematerialized detection, limit-break immunity, virtue recovery, social-success formula, attacker movement, unexpected-attack flags, join-battle bonus, max-perfect-uses, intimacy protection)
+**Progress: 291 / 291 complete** (6 partial / out-of-scope, 0 plan tasks pending — last updated 2026-07-06 — social attack pipeline complete; 87 Social supplemental/reflexive charms audited; 10 charm pack data fixes; 8 charms with empty descriptions deferred pending PDF text)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -128,7 +128,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Fix consumer wiring — Serpentine Evasion: disabled incorrect `dvBonus` (AE pipeline doesn't fire for instant charms; errata Step-2 retroactive penalty not automatable with current architecture)
 - [x] Fix consumer wiring — Shockwave Technique: added `Unblockable` keyword (description says "Parry DV inapplicable")
 - [x] Detect dematerialized via charm (`detectDematerialized: BooleanField`) — passively-active charm exposes `actor.canDetectDematerialized` getter; upstream gates (targeting, vision) consult this flag
-- [ ] **Social attack pipeline for charms** — Presence/Performance opposed rolls with MDV; currently social bonus fields add dice/successes but the full opposed-roll pipeline (attacker pool vs MDV threshold, onslaught MDV, social-perfect defenses) is not wired to charm effects; blocks 30+ Social-keyword charms from full automation
+- [x] **Social attack pipeline for charms** — Pipeline complete: `socialBonus` (poolDice/poolSuccesses/ignorePenalties), `halveMDV`, `perfectDefenseType:"mental"`, Unblockable/Undodgeable keywords all wired. Audited all 87 Social supplemental/reflexive charms (2026-07-06): 10 data fixes applied (9× perfectDefenseType + Honey-Tongued Serpent Attack keywords); ~69 are NARRATIVE (conditional on untrackable criteria); 8 have empty descriptions needing PDF text (abyssal-deck-striding-phantom, abyssal-dread-lords-demeanor, abyssal-scathing-cynic-attitude, abyssal-socialize-exquisite-etiquette-style, abyssal-soul-flaying-gaze, lunar-face-of-the-moon-concealment, fairfolk-emotion-weaving-style, fairfolk-essence-disrobing-passion)
 
 ## Social Combat
 - [x] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction; currently stub Item type only)

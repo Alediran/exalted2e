@@ -232,6 +232,18 @@ export class ExaltedItem extends Item {
       }
     }
 
+    // ── ShapedOnly gate ────────────────────────────────────────────────────
+    // ShapedOnly charms require the raksha to be currently Shaped — wearing
+    // their natural raksha form rather than a mortal Assumption.
+    if (!turningOff && this.system.keywords?.includes("ShapedOnly")) {
+      if (!actor.statuses?.has("shaped")) {
+        ui.notifications.warn(
+          game.i18n.format("EX2E.ShapedOnlyCharmForbidden", { name: this.name })
+        );
+        return false;
+      }
+    }
+
     // ── Axiomatic gate ─────────────────────────────────────────────────────
     // Axiomatic charms cannot be used by creatures of the Void.
     if (!turningOff && (this.system.keywords ?? []).includes("Axiomatic")) {
