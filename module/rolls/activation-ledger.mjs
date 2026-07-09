@@ -2,6 +2,7 @@
 
 const ZERO_COST = () => ({
   motes: 0, committed: false, moteVar: null,
+  gossamer: 0, gossamerVar: null,
   willpower: 0, lethalHealth: 0, bashingHealth: 0, aggravatedHealth: 0,
   xp: 0, permanentEssence: 0, permanentWillpower: 0, promise: 0, surcharge: null
 });
@@ -149,6 +150,14 @@ function _parseItem(item, result, rollData) {
 
   const promM = /^(\d+)p$/i.exec(s);
   if (promM) { result.promise += parseInt(promM[1], 10); return true; }
+
+  // Variable gossamer must be tested before fixed gossamer so "Xg" doesn't
+  // resolve to zero via _resolveQuantity("X", rollData).
+  if (/^Xg$/i.test(s)) { result.gossamerVar = { type: "openEnded" }; return true; }
+
+  // Fixed gossamer: "1g", "3g", "@cup g"
+  const fgM = /^(@?\w+)\s*g$/i.exec(s);
+  if (fgM) { result.gossamer += _resolveQuantity(fgM[1], rollData); return true; }
 
   const permM = /^perm\s+(ess|essence|wp|willpower)$/i.exec(s);
   if (permM) {
@@ -325,6 +334,7 @@ export function normalizeCost(cost, { motesOverride } = {}) {
       lethalCost:     parsed.lethalHealth ?? 0,
       aggravatedCost: parsed.aggravatedHealth ?? 0,
       xpCost:         parsed.xp ?? 0,
+      gossamerCost:   parsed.gossamer ?? 0,
     };
   }
 
@@ -336,6 +346,7 @@ export function normalizeCost(cost, { motesOverride } = {}) {
     lethalCost:     n(cost?.lethalHealth),
     aggravatedCost: n(cost?.aggravatedHealth),
     xpCost:         n(cost?.xp),
+    gossamerCost:   0,
   };
 }
 
@@ -373,6 +384,13 @@ export function planLedgerRefund(ledger, actorSystem) {
     const secondary = sys.motes?.[mb.secondaryPool] ?? { value: 0, max: 0 };
     updates[`system.motes.${mb.primaryPool}.value`]   = Math.min(primary.max   ?? 0, (primary.value   ?? 0) + (Number(mb.fromPrimary)   || 0));
     updates[`system.motes.${mb.secondaryPool}.value`] = Math.min(secondary.max ?? 0, (secondary.value ?? 0) + (Number(mb.fromSecondary) || 0));
+  }
+
+  // ── Gossamer (capped at max) ──────────────────────────────────────
+  const gRefund = Number(l.gossamer) || 0;
+  if (gRefund > 0) {
+    const g = sys.gossamer ?? { value: 0, max: 0 };
+    updates["system.gossamer.value"] = Math.min(g.max ?? 0, (g.value ?? 0) + gRefund);
   }
 
   // ── Willpower (capped at max) ──────────────────────────────────────

@@ -494,6 +494,14 @@ ${capWarning}`;
         motesOverride = (costParsed?.motes ?? 0) + surcharge;
       }
 
+      // Resolve variable gossamer cost (Xg).
+      let gossamerOverride;
+      if (costParsed?.gossamerVar) {
+        const resolved = await this._resolveVariableGossamerCost(costParsed);
+        if (resolved === null) return false;
+        gossamerOverride = resolved;
+      }
+
       // ── Touch gate ─────────────────────────────────────────────────────
       // Touch charms on a non-consenting target require a Dex+MA attack to
       // establish physical contact before the costs are spent. No target =
@@ -523,7 +531,7 @@ ${capWarning}`;
       const isOffensive = this._isCharmOffensive();
       ledger = await this._spendActivationCosts(
         { ...cost, formula: _effectiveCostFormula },
-        { motePool, skipXpConfirm, motesOverride, allowOverdrive: isOffensive }
+        { motePool, skipXpConfirm, motesOverride, gossamerOverride, allowOverdrive: isOffensive }
       );
       if (!ledger) return false;
 
@@ -1103,13 +1111,15 @@ ${capWarning}`;
     return false;
   }
 
-  async _spendActivationCosts(cost, { motePool = "peripheral", skipXpConfirm = false, motesOverride, allowOverdrive = true } = {}) {
+  async _spendActivationCosts(cost, { motePool = "peripheral", skipXpConfirm = false, motesOverride, gossamerOverride, allowOverdrive = true } = {}) {
     const actor = this.actor;
     if (!actor) return null;
 
     const {
-      moteCost, willpowerCost, bashingCost, lethalCost, aggravatedCost, xpCost
+      moteCost, willpowerCost, bashingCost, lethalCost, aggravatedCost, xpCost, gossamerCost: _gossamerBase
     } = normalizeCost(cost, { motesOverride });
+
+    const gossamerCost = gossamerOverride !== undefined ? gossamerOverride : _gossamerBase;
 
     const ledger = {
       moteBreakdown: null,
@@ -1117,7 +1127,8 @@ ${capWarning}`;
       bashing:       0,
       lethal:        0,
       aggravated:    0,
-      xp:            0
+      xp:            0,
+      gossamer:      0
     };
 
     // XP is irrecoverable in-world — confirm before touching anything.
@@ -1188,6 +1199,15 @@ ${capWarning}`;
       ledger.willpower = willpowerCost;
     }
 
+    // Gossamer (Fair Folk).
+    if (gossamerCost > 0) {
+      const currentG = Number(actor.system.gossamer?.value) || 0;
+      await actor.update({
+        "system.gossamer.value": Math.max(0, currentG - gossamerCost)
+      });
+      ledger.gossamer = gossamerCost;
+    }
+
     // Health costs — sequential so wound-cap / incapacitation runs per bucket.
     if (bashingCost    > 0) { await actor.applyDamage(bashingCost,    "bashing");    ledger.bashing    = bashingCost; }
     if (lethalCost     > 0) { await actor.applyDamage(lethalCost,     "lethal");     ledger.lethal     = lethalCost; }
@@ -1203,6 +1223,42 @@ ${capWarning}`;
     }
 
     return ledger;
+  }
+
+  /**
+   * Prompt the player to choose how much Gossamer to spend for an Xg cost.
+   * Returns the total gossamer to spend (fixed base + chosen variable amount),
+   * or null if cancelled.
+   *
+   * @param {ParsedCost} parsed  Pre-parsed result of parseCostFormula(cost.formula).
+   * @returns {Promise<number|null>}
+   */
+  async _resolveVariableGossamerCost(parsed) {
+    if (!parsed?.gossamerVar) return parsed?.gossamer ?? 0;
+    const actor   = this.actor;
+    const current = actor?.system?.gossamer?.value ?? 0;
+    const result  = await foundry.applications.api.DialogV2.wait({
+      window:  { title: game.i18n.format("EX2E.VariableGossamerPromptTitle", { name: this.name }) },
+      content: `<div style="padding:8px">
+        <p>${game.i18n.localize("EX2E.SelectGossamerPrompt")}</p>
+        <div class="form-group">
+          <label>${game.i18n.localize("EX2E.Gossamer")}</label>
+          <input type="number" name="gossamer" value="1" min="0" max="${current}" style="width:60px">
+        </div>
+      </div>`,
+      buttons: [
+        { action: "confirm", label: game.i18n.localize("EX2E.Confirm"), default: true,
+          callback: (_ev, _btn, dialog) => {
+            const v = parseInt(dialog.element.querySelector("input[name=gossamer]")?.value ?? "0", 10);
+            return Math.max(0, isNaN(v) ? 0 : v);
+          }
+        },
+        { action: "cancel", label: game.i18n.localize("EX2E.Cancel") }
+      ],
+      rejectClose: false
+    });
+    if (result == null || result === "cancel") return null;
+    return (parsed.gossamer ?? 0) + result;
   }
 
   /**

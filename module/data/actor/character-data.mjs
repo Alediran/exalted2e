@@ -121,6 +121,12 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         })
       }),
 
+      // ── Gossamer (Fair Folk only; ignored for other exalt types) ──────────
+      gossamer: new fields.SchemaField({
+        value: new fields.NumberField({ initial: 0, min: 0, max: 200, integer: true }),
+        max:   new fields.NumberField({ initial: 0, min: 0, max: 200, integer: true })
+      }),
+
       // ── Limit (for Solars / applicable Exalts) ─────────────────────────────
       limit: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
 
