@@ -1,4 +1,5 @@
 import { EX2E } from "../config.mjs";
+import { GRACE_CASTE_ABILITIES } from "../data/actor/fairfolk-data.mjs";
 import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
@@ -143,6 +144,27 @@ export class ExaltedActor extends Actor {
 
   async _preUpdate(changed, options, user) {
     await super._preUpdate(changed, options, user);
+
+    // ── Fair Folk: caste & shadowedCaste ability auto-assignment ─────────
+    if (this.type === "fairfolk") {
+      const casteChanging = changed.system != null &&
+        ("caste" in changed.system || "shadowedCaste" in changed.system);
+      if (casteChanging) {
+        const newCaste    = changed.system.caste        ?? this.system.caste;
+        const newShadowed = changed.system.shadowedCaste ?? this.system.shadowedCaste;
+        const casteAbilSet = new Set([
+          ...(GRACE_CASTE_ABILITIES[newCaste]    ?? []),
+          ...(GRACE_CASTE_ABILITIES[newShadowed] ?? [])
+        ]);
+        const abilUpdates = {};
+        for (const key of Object.values(GRACE_CASTE_ABILITIES).flat()) {
+          abilUpdates[`system.abilities.${key}.caste`] = casteAbilSet.has(key);
+        }
+        foundry.utils.mergeObject(changed, foundry.utils.expandObject(abilUpdates));
+      }
+      return;
+    }
+
     if (this.type !== "character") return;
 
     // ── Caste auto-assignment (existing behaviour, unchanged) ─────────

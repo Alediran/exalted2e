@@ -64,6 +64,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       [game.i18n.localize('EX2E.ExaltInfernal'),    'infernal'],
       [game.i18n.localize('EX2E.ExaltAlchemical'),  'alchemical'],
       [game.i18n.localize('EX2E.ExaltMartialArts'), 'martialarts'],
+      [game.i18n.localize('EX2E.ExaltFairfolk'),    'fairfolk'],
     ];
 
     // Group options: [{ label: string|null, options: [[label,key],…] }]
@@ -139,6 +140,11 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       }
       if (other.length) groups.push({ label: 'Other', options: other.sort().map(n => [n, n]) });
       return groups;
+    }
+    if (et === 'fairfolk') {
+      const graceKeys = ['cup', 'ring', 'staff', 'sword', 'heart'];
+      const opts = graceKeys.map(k => [game.i18n.localize(`EX2E.Grace${k.charAt(0).toUpperCase()}${k.slice(1)}`), k]);
+      return [{ label: null, options: opts }];
     }
     // Solar, DB, Sidereal, Abyssal → abilities
     const opts = (EX2E.abilities ?? [])

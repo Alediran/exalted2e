@@ -1,9 +1,12 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { ex2eCan } from "../../helpers/permissions.mjs";
 import { GRACE_CASTE_ABILITIES, GRACE_VIRTUE_MAP } from "../../data/actor/fairfolk-data.mjs";
-import { buildPurchaseLogRows } from "../../helpers/character-sheet-helpers.mjs";
+import { dedupStackableCharms, buildPurchaseLogRows } from "../../helpers/character-sheet-helpers.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { resolveXpCosts } from "../../helpers/xp-cost-defaults.mjs";
+import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
+import { evalMaxPurchases } from "../../helpers/charm-tree-builder.mjs";
+import { buildComboPreviewRows } from "../../helpers/combo-display.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -42,24 +45,31 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       removeSpecialty:    FairFolkSheet.#onDeleteSpecialty,
       cycleAbilityFlag:   FairFolkSheet.#onCycleAbilityFlag,
       togglePurchaseMode: FairFolkSheet.#onTogglePurchaseMode,
-      editPurchaseEntry:  FairFolkSheet.#onEditPurchaseEntry,
-      deletePurchaseEntry:FairFolkSheet.#onDeletePurchaseEntry,
-      completeTraining:   FairFolkSheet.#onCompleteTraining
+      editPurchaseEntry:    FairFolkSheet.#onEditPurchaseEntry,
+      deletePurchaseEntry:  FairFolkSheet.#onDeletePurchaseEntry,
+      completeTraining:     FairFolkSheet.#onCompleteTraining,
+      openCharmTree:            FairFolkSheet.#onOpenCharmTree,
+      sendItemToChat:           FairFolkSheet.#onSendItemToChat,
+      toggleMultiPurchaseGroup: FairFolkSheet.#onToggleMultiPurchaseGroup,
+      activateCombo:        FairFolkSheet.#onActivateCombo,
+      startTraining:        FairFolkSheet.#onStartTraining
     }
   };
 
   tabGroups = { sheet: "tabMain" };
+
+  #expandedGroups = new Set();
 
   get title() { return this.actor.name; }
 
   static PARTS = {
     header:     { template: "systems/exalted2e/templates/actor/fairfolk/header.hbs" },
     tabs:       { classes: ["tabs-right"], template: "systems/exalted2e/templates/actor/fairfolk/tabs.hbs" },
-    tabMain:    { template: "systems/exalted2e/templates/actor/fairfolk/tab-main.hbs",   scrollable: [".sheet-body"] },
-    tabCombat:      { template: "systems/exalted2e/templates/actor/fairfolk/tab-combat.hbs",     scrollable: [".sheet-body"] },
-    tabCharms:      { template: "systems/exalted2e/templates/actor/fairfolk/tab-charms.hbs",     scrollable: [".sheet-body"] },
-    tabExperience:  { template: "systems/exalted2e/templates/actor/character/tab-experience.hbs", scrollable: [".sheet-body"] },
-    tabNotes:       { template: "systems/exalted2e/templates/actor/fairfolk/tab-notes.hbs",      scrollable: [".sheet-body"] }
+    tabMain:    { template: "systems/exalted2e/templates/actor/fairfolk/tab-main.hbs",   scrollable: [""] },
+    tabCombat:      { template: "systems/exalted2e/templates/actor/fairfolk/tab-combat.hbs",     scrollable: [""] },
+    tabCharms:      { template: "systems/exalted2e/templates/actor/fairfolk/tab-charms.hbs",     scrollable: [""] },
+    tabExperience:  { template: "systems/exalted2e/templates/actor/character/tab-experience.hbs", scrollable: [""] },
+    tabNotes:       { template: "systems/exalted2e/templates/actor/fairfolk/tab-notes.hbs",      scrollable: [""] }
   };
 
   async _preparePartContext(partId, context, options) {
@@ -143,11 +153,112 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       })
       .sort((a, b) => a.label.localeCompare(b.label));
 
-    // Charm list grouped by grace
-    const allCharms = actor.items.filter(i => i.type === "charm").sort((a, b) => a.name.localeCompare(b.name));
-    const charmsByGrace = {};
-    for (const g of GRACE_ORDER) charmsByGrace[g] = allCharms.filter(c => c.system.ability === g);
-    const charmsOther = allCharms.filter(c => !GRACE_ORDER.includes(c.system.ability));
+    // Charm context — grouped by grace with full prereq/stack/training metadata
+    const charms = actor.items.filter(i => i.type === "charm").sort((a, b) => a.name.localeCompare(b.name));
+
+    const charmPrereqs = {};
+    for (const c of charms) {
+      const report  = evaluateCharmPrereqs(c, actor);
+      const missing = report.filter(r => !r.satisfied);
+      charmPrereqs[c.id] = { has: report.length > 0, met: missing.length === 0, missing: missing.map(m => m.label).filter(Boolean).join("; ") };
+    }
+
+    const { stackCounts, stackHidden } = dedupStackableCharms(charms);
+
+    const isGroupable = c =>
+      (c.system?.soakBonus?.enabled  && (c.system?.soakBonus?.options?.length  ?? 0) > 0) ||
+      (c.system?.healthGrant?.enabled && (c.system?.healthGrant?.options?.length ?? 0) > 0);
+
+    const groupableUids = new Set(
+      charms.filter(isGroupable).filter(c => c.system?.ability).map(c => c.system?.charmUid).filter(Boolean)
+    );
+
+    const multiPurchaseGroupsByAbility = new Map();
+    for (const uid of groupableUids) {
+      const instances = charms.filter(c => c.system?.charmUid === uid);
+      if (!instances.length) continue;
+      const first   = instances[0];
+      const ability = first.system?.ability ?? "";
+
+      const variantCounts = new Map();
+      const instanceData  = instances.map(item => {
+        const sb = item.system?.soakBonus;
+        const hg = item.system?.healthGrant;
+        let variantLabel = "";
+        if ((sb?.options?.length ?? 0) > 0) {
+          const vi = Math.min(Math.max(0, sb.selectedOption ?? 0), sb.options.length - 1);
+          variantLabel = sb.options[vi]?.label ?? "";
+        } else if ((hg?.options?.length ?? 0) > 0) {
+          const vi = Math.min(Math.max(0, hg.selectedOption ?? 0), hg.options.length - 1);
+          variantLabel = hg.options[vi]?.label ?? "";
+        }
+        if (variantLabel) variantCounts.set(variantLabel, (variantCounts.get(variantLabel) ?? 0) + 1);
+        return { item, variantLabel };
+      });
+
+      const summary  = [...variantCounts.entries()].map(([label, count]) => count > 1 ? `${label} ×${count}` : label).join(", ");
+      const maxN     = evalMaxPurchases(first.system?.maxPurchases ?? '1', actor);
+      const pipData  = maxN > 1 ? { current: instances.length, max: maxN } : null;
+      const group    = { charmUid: uid, name: first.name, img: first.img, ability, summary, pipData,
+        isExpanded: this.#expandedGroups.has(uid), instances: instanceData };
+
+      if (!multiPurchaseGroupsByAbility.has(ability)) multiPurchaseGroupsByAbility.set(ability, []);
+      multiPurchaseGroupsByAbility.get(ability).push(group);
+    }
+
+    const graceLabels = {
+      cup:   game.i18n.localize("EX2E.GraceCup"),
+      ring:  game.i18n.localize("EX2E.GraceRing"),
+      staff: game.i18n.localize("EX2E.GraceStaff"),
+      sword: game.i18n.localize("EX2E.GraceSword"),
+      heart: game.i18n.localize("EX2E.GraceHeart")
+    };
+    const labelForGrace = (key) => graceLabels[key] ?? (key || game.i18n.localize("EX2E.Uncategorized"));
+
+    const buckets = new Map();
+    for (const c of charms) {
+      if (c.system?.isSubmodule) continue;
+      if (stackHidden.has(c.id)) continue;
+      if (groupableUids.has(c.system?.charmUid)) continue;
+      const k = c.system?.ability ?? "";
+      if (!buckets.has(k)) buckets.set(k, []);
+      buckets.get(k).push(c);
+    }
+    const charmGroups = [...buckets.entries()]
+      .map(([key, list]) => ({ key, label: labelForGrace(key), charms: list, multiPurchaseGroups: multiPurchaseGroupsByAbility.get(key) ?? [] }));
+    for (const [ability, mpGroups] of multiPurchaseGroupsByAbility) {
+      if (!charmGroups.some(g => g.key === ability)) {
+        charmGroups.push({ key: ability, label: labelForGrace(ability), charms: [], multiPurchaseGroups: mpGroups });
+      }
+    }
+    charmGroups.sort((a, b) => {
+      const ai = GRACE_ORDER.indexOf(a.key), bi = GRACE_ORDER.indexOf(b.key);
+      if (ai >= 0 && bi >= 0) return ai - bi;
+      if (ai >= 0) return -1;
+      if (bi >= 0) return 1;
+      return a.label.localeCompare(b.label);
+    });
+
+    const submodulesByParent = {};
+    for (const item of charms) {
+      if (!item.system.isSubmodule) continue;
+      const pid = item.system.parentCharmId || "__orphan__";
+      (submodulesByParent[pid] ??= []).push(item);
+    }
+
+    const trainingCharmIds = Object.fromEntries(
+      (sys.trainingLedger ?? []).map(e => [e.charmId, true])
+    );
+    const trainableCharmIds = Object.fromEntries(
+      actor.items
+        .filter(i => i.type === "charm" && (i.system.keywords ?? []).includes("Training") && !trainingCharmIds[i.id])
+        .map(i => [i.id, true])
+    );
+
+    const combosRaw = actor.items.filter(i => i.type === "combo").sort((a, b) => a.name.localeCompare(b.name));
+    const byUid = new Map();
+    for (const c of charms) { const uid = c.system?.charmUid; if (uid) byUid.set(uid, c); }
+    const combos = buildComboPreviewRows(combosRaw, byUid);
 
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     const TextEditor = foundry.applications.ux.TextEditor.implementation;
@@ -173,7 +284,14 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       gracesVirtues,
       specialtiesSection,
       graceOrder: GRACE_ORDER,
-      charmsByGrace, charmsOther,
+      charms,
+      charmGroups,
+      charmPrereqs,
+      stackCounts,
+      submodulesByParent,
+      trainingCharmIds,
+      trainableCharmIds,
+      combos,
       fairFolkRankChoices,
       fairFolkCasteChoices,
       isNoble,
@@ -351,6 +469,66 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await actor.update({ "system.trainingLedger": ledger });
     await ChatMessage.create({
       content: `<p>${game.i18n.format("EX2E.TrainingCompleted", { actor: actor.name, charm: entry.charmName })}</p>`,
+      speaker: ChatMessage.getSpeaker({ actor })
+    });
+  }
+
+  static #onOpenCharmTree(event, target) {
+    const groupKey = target.dataset.groupKey;
+    const { CharmTreeDialog } = game.exalted2e;
+    CharmTreeDialog.open({ actor: this.actor, exaltType: 'fairfolk', groupKey });
+  }
+
+  static async #onSendItemToChat(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (item) await item.sendToChat();
+  }
+
+  static #onToggleMultiPurchaseGroup(_event, target) {
+    const uid = target.dataset.charmUid;
+    if (!uid) return;
+    if (this.#expandedGroups.has(uid)) this.#expandedGroups.delete(uid);
+    else this.#expandedGroups.add(uid);
+    this.render({ force: true });
+  }
+
+  static async #onActivateCombo(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (item?.type === "combo") await item.activateCombo();
+  }
+
+  static async #onStartTraining(_event, target) {
+    const actor  = this.document;
+    const itemId = target.dataset.itemId;
+    const charm  = actor.items.get(itemId);
+    if (!charm) return;
+
+    const alreadyTraining = (actor.system.trainingLedger ?? []).some(e => e.charmId === charm.id);
+    if (alreadyTraining) return;
+
+    const { computeXpCost } = await import("../../helpers/xp-costs.mjs");
+    const xp = computeXpCost(actor, { kind: "item", item: charm }).xp ?? 0;
+
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window:  { title: game.i18n.localize("EX2E.TrainingStartTitle") },
+      content: `<p>${game.i18n.format("EX2E.TrainingStartBody", { name: charm.name, xp })}</p>`,
+      yes: { label: game.i18n.localize("EX2E.TrainingConfirm") },
+      no:  { label: game.i18n.localize("EX2E.Cancel") },
+    });
+    if (!confirmed) return;
+
+    const currentXp = Number(actor.system.experience?.value) || 0;
+    await actor.update({ "system.experience.value": currentXp - xp });
+
+    const ledger = foundry.utils.deepClone(actor.system.trainingLedger ?? []);
+    ledger.push({ charmId: charm.id, charmName: charm.name, img: charm.img, xpCost: xp, startDate: Date.now() });
+    await actor.update({ "system.trainingLedger": null });
+    await actor.update({ "system.trainingLedger": ledger });
+
+    await ChatMessage.create({
+      content: `<p>${game.i18n.format("EX2E.TrainingStarted", { actor: actor.name, charm: charm.name })}</p>`,
       speaker: ChatMessage.getSpeaker({ actor })
     });
   }
