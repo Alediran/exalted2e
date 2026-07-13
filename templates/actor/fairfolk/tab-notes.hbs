@@ -1,0 +1,27 @@
+<div class="tab {{cssClass}}" data-tab="tabNotes" data-group="sheet">
+<div class="sheet-body">
+
+  <h2 class="section-header">{{localize "EX2E.Biography"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.biography" data-document-uuid="{{actor.uuid}}" value="{{system.biography}}" collaborate="true" toggled="true">
+      {{{enrichedBiography}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedBiography}}}</div>
+    {{/if}}
+  </div>
+
+  <h2 class="section-header">{{localize "EX2E.Notes"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.notes" data-document-uuid="{{actor.uuid}}" value="{{system.notes}}" collaborate="true" toggled="true">
+      {{{enrichedNotes}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedNotes}}}</div>
+    {{/if}}
+  </div>
+
+</div><!-- sheet-body -->
+</div><!-- tab -->

@@ -1,7 +1,8 @@
 import { CharacterSheet }           from "../sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "../sheets/actor/npc-sheet.mjs";
 import { UnitSheet }   from "../sheets/actor/unit-sheet.mjs";
-import { VehicleSheet } from "../sheets/actor/vehicle-sheet.mjs";
+import { VehicleSheet }   from "../sheets/actor/vehicle-sheet.mjs";
+import { FairFolkSheet }  from "../sheets/actor/fairfolk-sheet.mjs";
 import { CharmSheet }       from "../sheets/item/charm-sheet.mjs";
 import { SpellSheet }       from "../sheets/item/spell-sheet.mjs";
 import { WeaponSheet }      from "../sheets/item/weapon-sheet.mjs";
@@ -41,6 +42,11 @@ export function registerSheets() {
     types:       ["vehicle"],
     makeDefault: true,
     label:       "EX2E.SheetVehicle",
+  });
+  foundry.documents.collections.Actors.registerSheet("exalted2e", FairFolkSheet, {
+    types:       ["fairfolk"],
+    makeDefault: true,
+    label:       "EX2E.SheetFairFolk",
   });
 
   foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);

@@ -1,0 +1,205 @@
+<div class="tab {{cssClass}}" data-tab="tabMain" data-group="sheet">
+<div class="sheet-body">
+
+  <!-- Attributes -->
+  <h2 class="section-header">{{localize "EX2E.Attributes"}}</h2>
+  <div class="attributes-section">
+    <div class="attribute-group">
+      <div class="group-label">{{localize "EX2E.AttrGroupPhysical"}}</div>
+      {{#each (array "strength" "dexterity" "stamina") as |attrKey|}}
+      <div class="attribute-row">
+        <span class="attribute-label">{{localizeAttribute attrKey}}</span>
+        {{dotRating name=(concat "system.attributes." attrKey ".value")
+                    value=(lookup (lookup @root.system.attributes attrKey) "value")
+                    max=5 min=1}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="attribute-group">
+      <div class="group-label">{{localize "EX2E.AttrGroupSocial"}}</div>
+      {{#each (array "charisma" "manipulation" "appearance") as |attrKey|}}
+      <div class="attribute-row">
+        <span class="attribute-label">{{localizeAttribute attrKey}}</span>
+        {{dotRating name=(concat "system.attributes." attrKey ".value")
+                    value=(lookup (lookup @root.system.attributes attrKey) "value")
+                    max=5 min=1}}
+      </div>
+      {{/each}}
+    </div>
+    <div class="attribute-group">
+      <div class="group-label">{{localize "EX2E.AttrGroupMental"}}</div>
+      {{#each (array "perception" "intelligence" "wits") as |attrKey|}}
+      <div class="attribute-row">
+        <span class="attribute-label">{{localizeAttribute attrKey}}</span>
+        {{dotRating name=(concat "system.attributes." attrKey ".value")
+                    value=(lookup (lookup @root.system.attributes attrKey) "value")
+                    max=5 min=1}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <!-- Abilities by Grace Caste (5 columns + Specialties = 6, wrap at 3 per row) -->
+  <h2 class="section-header">{{localize "EX2E.Abilities"}}</h2>
+  <div class="ability-columns">
+    {{#each graceCasteRows as |caste|}}
+    <div class="ability-column">
+      <div class="ability-column-header">
+        {{caste.label}}
+        <span class="fairfolk-grace-sub">({{localize caste.graceKey}})</span>
+      </div>
+      {{#each caste.abilities as |ab|}}
+      <div class="ability-row {{#if ab.caste}}caste-ability{{/if}}">
+        <button class="ability-flag ability-flag--{{#if ab.caste}}caste{{else}}none{{/if}}"
+                data-action="cycleAbilityFlag" data-ability="{{ab.key}}"
+                title="{{#if ab.caste}}{{localize 'EX2E.AbilityCaste'}}{{else}}—{{/if}}"
+                {{#unless @root.isEditable}}disabled{{/unless}}>
+        </button>
+        <div class="ability-info">
+          <div class="ability-top">
+            <span class="ability-name">{{ab.label}}</span>
+          </div>
+          {{dotRating name=(concat ab.fieldBase ".value") value=ab.value max=5 min=0}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+
+    <!-- Specialties column (6th slot in the 3-per-row grid) -->
+    <div class="ability-column specialty-column">
+      <div class="ability-column-header">
+        {{localize "EX2E.Specialties"}}
+        {{#if isEditable}}
+        <button class="btn-add-specialty" data-action="addSpecialty"
+                title="{{localize 'EX2E.AddSpecialty'}}">+</button>
+        {{/if}}
+      </div>
+      <div class="specialty-ability-groups">
+        {{#each specialtiesSection as |ab|}}
+        <div class="specialty-ability-group">
+          {{#each ab.specialties as |spec|}}
+          <div class="specialty-row">
+            <div class="specialty-ability-label">{{ab.label}} ({{spec.name}})</div>
+            {{dotRating name=(concat ab.fieldBase ".specialties." @index ".value") value=spec.value max=3 min=1}}
+            {{#if @root.isEditable}}
+            <button class="btn-remove-specialty" data-action="removeSpecialty"
+                    data-ability="{{ab.key}}" data-index="{{@index}}" title="Remove">✕</button>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Virtues & Graces | Health | Soak -->
+  <div class="main-tab-triple-row"
+       style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--ex2e-gap-lg); align-items:start; margin-top:var(--ex2e-gap-lg);">
+
+    <!-- Column 1: Virtues & Graces -->
+    <section class="virtues-column">
+      <div class="section-toolbar ex2e-row">
+        <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Virtues"}} &amp; {{localize "EX2E.Graces"}}</h2>
+      </div>
+      <div class="virtues-section">
+        {{#each gracesVirtues as |vg|}}
+        <div class="virtue-row">
+          <div class="virtue-label-group ex2e-row">
+            <span class="virtue-label">{{vg.virtueLabel}}</span>
+          </div>
+          <div class="virtue-tracks">
+            {{dotRating name=(concat "system.virtues." vg.virtueKey ".value") value=vg.virtue.value max=5 min=1}}
+            {{boxRating name=(concat "system.virtues." vg.virtueKey ".current") value=vg.virtue.current max=vg.virtue.value total=5 min=0}}
+          </div>
+          <label class="virtue-channel-label" title="{{localize 'EX2E.VirtueChanneled'}}">
+            <input type="checkbox" name="{{concat 'system.virtues.' vg.virtueKey '.channeled'}}"
+                   {{#if vg.virtue.channeled}}checked{{/if}}
+                   {{#unless isEditable}}disabled{{/unless}}>
+          </label>
+        </div>
+        <div class="virtue-row fairfolk-grace-row">
+          <span class="virtue-label fairfolk-grace-label">{{vg.graceLabel}}</span>
+          {{dotRating name=(concat "system.graces." vg.graceKey ".value") value=vg.grace.value max=5 min=0}}
+          <span class="fairfolk-soak-sep">{{localize "EX2E.Soak"}}:</span>
+          {{#if isEditable}}
+          <input type="number" name="{{concat 'system.graces.' vg.graceKey '.soak'}}"
+                 value="{{vg.grace.soak}}" min="0" max="5" style="width:34px">
+          {{else}}
+          <span>{{vg.grace.soak}}</span>
+          {{/if}}
+        </div>
+        {{/each}}
+        <!-- Heart Grace — no linked virtue -->
+        <div class="virtue-row fairfolk-grace-row">
+          <span class="virtue-label fairfolk-grace-label">{{localize "EX2E.GraceHeart"}}</span>
+          {{dotRating name="system.graces.heart.value" value=system.graces.heart.value max=5 min=0}}
+        </div>
+      </div>
+    </section>
+
+    <!-- Column 2: Health -->
+    <section class="health-column">
+      <div class="section-toolbar ex2e-row">
+        <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.HealthLevels"}}</h2>
+      </div>
+      {{healthTrack health=system.health}}
+      <div class="health-info">
+        <span class="wound-penalty-label">{{localize "EX2E.WoundPenalty"}}:
+          <strong>{{#if system.health.incapacitated}}Incapacitated{{else}}{{system.health.woundPenalty}}{{/if}}</strong>
+        </span>
+        <span class="damage-tally">
+          <span class="dmg-bashing">{{system.health.bashing}}B</span> /
+          <span class="dmg-lethal">{{system.health.lethal}}L</span> /
+          <span class="dmg-aggravated">{{system.health.aggravated}}A</span>
+        </span>
+      </div>
+      <div class="trait-row" style="margin-top:4px;font-size:0.85em;display:flex;align-items:center;gap:6px;">
+        <label>Total Boxes:</label>
+        {{#if isEditable}}
+        <input type="number" name="system.health.totalBoxes" value="{{system.health.totalBoxes}}" min="1" max="500" style="width:50px">
+        {{else}}<span>{{system.health.totalBoxes}}</span>{{/if}}
+      </div>
+      {{#if isEditable}}
+      <div class="damage-controls">
+        <button class="damage-btn bashing"    data-action="applyDamage" data-damage-type="bashing"    data-amount="1">+1 Bashing</button>
+        <button class="damage-btn lethal"     data-action="applyDamage" data-damage-type="lethal"     data-amount="1">+1 Lethal</button>
+        <button class="damage-btn aggravated" data-action="applyDamage" data-damage-type="aggravated" data-amount="1">+1 Aggravated</button>
+        <button class="damage-btn heal"       data-action="healDamage"  data-amount="1">{{localize "EX2E.Heal"}} 1</button>
+      </div>
+      {{/if}}
+    </section>
+
+    <!-- Column 3: Soak -->
+    <section>
+      <div class="section-toolbar ex2e-row">
+        <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Soak"}}</h2>
+      </div>
+      <div class="combat-stat-grid">
+        <div class="stat-item">
+          <span class="stat-label">{{localize "EX2E.DamageBashing"}}</span>
+          {{#if isEditable}}
+          <input type="number" name="system.soak.bashing" value="{{system.soak.bashing}}" min="0" max="80" style="width:44px">
+          {{else}}<span class="stat-value">{{system.soak.bashing}}</span>{{/if}}
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{localize "EX2E.DamageLethal"}}</span>
+          {{#if isEditable}}
+          <input type="number" name="system.soak.lethal" value="{{system.soak.lethal}}" min="0" max="60" style="width:44px">
+          {{else}}<span class="stat-value">{{system.soak.lethal}}</span>{{/if}}
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{localize "EX2E.DamageAggravated"}}</span>
+          {{#if isEditable}}
+          <input type="number" name="system.soak.aggravated" value="{{system.soak.aggravated}}" min="0" max="40" style="width:44px">
+          {{else}}<span class="stat-value">{{system.soak.aggravated}}</span>{{/if}}
+        </div>
+      </div>
+    </section>
+
+  </div><!-- main-tab-triple-row -->
+
+
+</div><!-- sheet-body -->
+</div><!-- tab -->

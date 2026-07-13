@@ -13,6 +13,7 @@ import { CharacterData }    from "../data/actor/character-data.mjs";
 import { NpcData }          from "../data/actor/npc-data.mjs";
 import { UnitData }         from "../data/actor/unit-data.mjs";
 import { VehicleData }      from "../data/actor/vehicle-data.mjs";
+import { FairFolkData }    from "../data/actor/fairfolk-data.mjs";
 import { CharmData }        from "../data/item/charm-data.mjs";
 import { SpellData }        from "../data/item/spell-data.mjs";
 import { WeaponData }       from "../data/item/weapon-data.mjs";
@@ -85,6 +86,7 @@ export function registerDocuments() {
     npc:       NpcData,
     unit:      UnitData,
     vehicle:   VehicleData,
+    fairfolk:  FairFolkData,
   };
   CONFIG.Item.dataModels = {
     charm:      CharmData,

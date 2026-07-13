@@ -112,6 +112,17 @@ export const XP_COST_DEFAULTS = Object.freeze({
     spellFlat:          9,                           // sorcery — flat for Infernals
     maFavored:          8, maOther: 10,
     foreignCharm:      16                            // Fiend buying non-Infernal charms
+  },
+
+  fairfolk: {
+    abilityFavoredMult:  2, abilityFavoredSub: 0,   // caste/favored: new × 2
+    abilityOtherMult:    3,                           // other: new × 3
+    majorGraceMult:      3,                           // major grace (Cup/Ring/Staff/Sword): new × 3
+    minorGraceMult:      6,                           // minor grace: new × 6
+    heartGraceTo4:      20,                           // heart grace to 4 (flat, 200+ XP)
+    charm:               6,                           // per charm: flat
+    specialtyCommoner:   2,                           // commoner specialty: flat
+    specialtyNoble:      5                            // noble specialty: flat
   }
 });
 
@@ -146,5 +157,5 @@ export function resolveXpCosts(overrides) {
  */
 export const XP_COST_EXALT_ORDER = Object.freeze([
   "solar", "abyssal", "lunar", "sidereal",
-  "terrestrial", "alchemical", "infernal"
+  "terrestrial", "alchemical", "infernal", "fairfolk"
 ]);

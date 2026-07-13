@@ -30,6 +30,7 @@
     "styles/_hud.css",
     "styles/_actor.css",
     "styles/_actor-unit.css",
+    "styles/_actor-fairfolk.css",
     "styles/_charm-tree.css"
   ],
   "languages": [
@@ -49,7 +50,8 @@
       "character": {},
       "npc":       {},
       "unit":      {},
-      "vehicle":   {}
+      "vehicle":   {},
+      "fairfolk":  {}
     },
     "Item": {
       "charm":      {},

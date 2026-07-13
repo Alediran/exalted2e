@@ -1,0 +1,141 @@
+/* ── Fair Folk Sheet Styles ──────────────────────────────────────────────── */
+
+.exalted2e.actor.fairfolk .character-header {
+  background: linear-gradient(135deg, #0a0e14 0%, #121a22 100%);
+  border-color: rgba(80, 150, 200, 0.5);
+}
+
+.exalted2e.actor.fairfolk .actor-name { color: #a8d4f0; }
+
+.exalted2e.actor.fairfolk .section-header {
+  color: #88c4e8;
+  border-bottom-color: rgba(80, 150, 200, 0.4);
+}
+
+/* Grace sub-label inside ability column header */
+.exalted2e.actor.fairfolk .fairfolk-grace-sub {
+  font-size: 0.72em;
+  opacity: 0.65;
+  margin-left: 3px;
+}
+
+/* Grace sub-rows inside the virtues column */
+.exalted2e.actor.fairfolk .fairfolk-grace-row {
+  padding-left: 12px;
+  margin-bottom: 6px;
+}
+.exalted2e.actor.fairfolk .fairfolk-grace-label {
+  opacity: 0.7;
+  font-size: 0.88em;
+}
+.exalted2e.actor.fairfolk .fairfolk-soak-sep {
+  margin-left: 4px;
+  opacity: 0.6;
+  font-size: 0.85em;
+}
+
+/* Use CSS Grid so all columns in the same row share equal height */
+.exalted2e.actor.fairfolk .ability-columns {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items:           stretch;
+}
+
+/* Reset flex sizing that only makes sense in the flexbox parent */
+.exalted2e.actor.fairfolk .ability-columns .ability-column {
+  flex: unset;
+}
+
+/* Specialty column: column-flex so the groups div fills remaining height */
+.exalted2e.actor.fairfolk .specialty-column {
+  display:        flex;
+  flex-direction: column;
+}
+
+/* Specialty groups: grow to fill, scroll if needed, no fixed height */
+.exalted2e.actor.fairfolk .specialty-ability-groups {
+  flex:       1;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+}
+
+/* Virtue-Grace grid */
+.exalted2e.actor.fairfolk .fairfolk-virtue-grace-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px 8px;
+  margin-bottom: 8px;
+}
+
+.exalted2e.actor.fairfolk .virtue-grace-block {
+  border: 1px solid rgba(80,150,200,0.2);
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
+.exalted2e.actor.fairfolk .virtue-header {
+  text-align: center;
+  border-bottom: 1px solid rgba(80,150,200,0.3);
+  margin-bottom: 4px;
+  padding-bottom: 2px;
+}
+
+.exalted2e.actor.fairfolk .virtue-label {
+  font-size: 0.78em;
+  font-weight: bold;
+  color: #88c4e8;
+}
+
+.exalted2e.actor.fairfolk .virtue-track-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+  font-size: 0.75em;
+}
+
+.exalted2e.actor.fairfolk .track-label {
+  width: 10px;
+  text-align: center;
+  color: var(--ex2e-text-muted);
+}
+
+.exalted2e.actor.fairfolk .grace-sub-block {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.exalted2e.actor.fairfolk .grace-sub-label {
+  font-size: 0.7em;
+  color: var(--ex2e-text-muted);
+  min-width: 55px;
+}
+
+.exalted2e.actor.fairfolk .heart-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Fair Folk Light Mode Overrides ─────────────────────────────────────── */
+
+body.ex2e-light-mode .exalted2e.actor.fairfolk .character-header {
+  background: linear-gradient(135deg, #dce8f5 0%, #c8ddf0 100%) !important;
+  border-color: rgba(40, 100, 160, 0.4) !important;
+}
+
+body.ex2e-light-mode .exalted2e.actor.fairfolk .actor-name { color: #1a4a7a !important; }
+
+body.ex2e-light-mode .exalted2e.actor.fairfolk .section-header {
+  color: #2a5a8a !important;
+  border-bottom-color: rgba(40, 100, 160, 0.4) !important;
+}
+
+body.ex2e-light-mode .exalted2e.actor.fairfolk .grace-label,
+body.ex2e-light-mode .exalted2e.actor.fairfolk .virtue-label {
+  color: #2a5a8a !important;
+}

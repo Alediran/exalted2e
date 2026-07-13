@@ -1,0 +1,92 @@
+<div class="tab {{cssClass}}" data-tab="tabCombat" data-group="sheet">
+  <div class="sheet-body">
+
+    <!-- ═══════════════ DERIVED COMBAT STATS ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.CombatStats"}}</h2>
+    <div class="combat-stat-grid">
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.DodgeDV"}}</span>
+        <span class="stat-value">{{system.dodgeDV}}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.DodgeMDV"}}</span>
+        <span class="stat-value">{{system.dodgeMDV}}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.ParryMDV"}}</span>
+        <span class="stat-value">{{system.parryMDV.best}}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.JoinBattle"}}</span>
+        <span class="stat-value">
+          <button class="roll-btn" data-action="rollPool"
+                  data-pool="{{system.joinBattle}}"
+                  data-flavor="{{localize 'EX2E.JoinBattle'}}">{{system.joinBattle}}⚄</button>
+        </span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.Movement"}}</span>
+        <span class="stat-value">{{system.movement}}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.Dash"}}</span>
+        <span class="stat-value">{{system.dash}}</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════ SOCIAL ATTACK ═══════════════ -->
+    <div class="action-button-row">
+      <button type="button" data-action="rollSocialAttack">
+        <i class="fa-solid fa-comments"></i> {{localize "EX2E.SocialAttack"}}
+      </button>
+    </div>
+
+    <!-- ═══════════════ EQUIPPED WEAPONS ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.Weapons"}}</h2>
+    {{#if system.equippedWeapons.length}}
+    <table class="weapon-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Spd</th><th>Acc</th><th>Dmg</th><th>Def</th><th>Rate</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each system.equippedWeapons as |w|}}
+        <tr data-weapon-id="{{w.id}}" data-mode-index="{{w.modeIndex}}">
+          <td>{{w.name}}</td>
+          <td>{{w.speed}}</td>
+          <td>{{w.accuracy}}</td>
+          <td>{{w.damage}}</td>
+          <td>{{w.defense}}</td>
+          <td>{{w.rate}}</td>
+          <td>
+            <button class="roll-btn" data-action="rollAttack"
+                    title="{{localize 'EX2E.AttackRoll'}}">⚔</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="empty-msg"><em>No weapons equipped.</em></p>
+    {{/if}}
+
+    {{#if clinchRole}}
+    <!-- ═══════════════ CLINCH ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.ClinchSection"}}</h2>
+    {{#if (eq clinchRole "controller")}}
+    <div class="action-button-row">
+      <button type="button" data-action="clinchHold">{{localize "EX2E.ClinchHold"}}</button>
+      <button type="button" data-action="clinchCrush">{{localize "EX2E.ClinchCrush"}}</button>
+      <button type="button" data-action="clinchThrow">{{localize "EX2E.ClinchThrow"}}</button>
+      <button type="button" data-action="clinchRelease">{{localize "EX2E.ClinchRelease"}}</button>
+    </div>
+    {{else}}
+    <div class="soak-row">
+      <span class="soak-label">{{localize "EX2E.ClinchHeldBy"}}: <strong>{{clinchPartnerName}}</strong></span>
+    </div>
+    {{/if}}
+    {{/if}}
+
+  </div><!-- .sheet-body -->
+</div><!-- .tab -->

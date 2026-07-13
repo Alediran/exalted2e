@@ -1,0 +1,76 @@
+<div class="tab {{cssClass}}" data-tab="tabCharms" data-group="sheet">
+<div class="sheet-body">
+
+  {{#if isEditable}}
+  <button type="button" class="btn-add-item" data-action="createItem" data-type="charm">
+    <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddCharm"}}
+  </button>
+  {{/if}}
+
+  {{#each graceOrder as |grace|}}
+  {{#with (lookup @root.charmsByGrace grace) as |graceCharms|}}
+  {{#if graceCharms.length}}
+  <h2 class="section-header">{{localize (concat "EX2E.Grace" (capitalize grace))}}</h2>
+  <div class="charms-list">
+    {{#each graceCharms as |c|}}
+    <div class="charm-row item-row" data-item-id="{{c.id}}">
+      <img class="item-img" src="{{c.img}}" alt="{{c.name}}">
+      <span class="item-name charm-name">
+        {{c.name}}
+        {{#if c.system.cost.formula}}
+        <span class="charm-meta">{{c.system.cost.formula}}</span>
+        {{/if}}
+      </span>
+      <div class="item-controls">
+        <button type="button" data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">
+          <i class="fa-solid fa-bolt"></i>
+        </button>
+        {{#if @root.isEditable}}
+        <button type="button" data-action="editItem"   title="{{localize 'EX2E.Edit'}}">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button type="button" data-action="deleteItem" title="{{localize 'EX2E.Delete'}}">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+  {{/with}}
+  {{/each}}
+
+  {{#if charmsOther.length}}
+  <h2 class="section-header">{{localize "EX2E.Other"}}</h2>
+  <div class="charms-list">
+    {{#each charmsOther as |c|}}
+    <div class="charm-row item-row" data-item-id="{{c.id}}">
+      <img class="item-img" src="{{c.img}}" alt="{{c.name}}">
+      <span class="item-name charm-name">
+        {{c.name}}
+        {{#if c.system.cost.formula}}
+        <span class="charm-meta">{{c.system.cost.formula}}</span>
+        {{/if}}
+      </span>
+      <div class="item-controls">
+        <button type="button" data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">
+          <i class="fa-solid fa-bolt"></i>
+        </button>
+        {{#if @root.isEditable}}
+        <button type="button" data-action="editItem"   title="{{localize 'EX2E.Edit'}}">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button type="button" data-action="deleteItem" title="{{localize 'EX2E.Delete'}}">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+
+</div><!-- sheet-body -->
+</div><!-- tab -->

@@ -1,0 +1,123 @@
+<div class="character-header fairfolk-header">
+  <div class="portrait-frame">
+    <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" title="{{actor.name}}"
+         data-action="onEditImage" {{#unless isEditable}}disabled{{/unless}}>
+  </div>
+  <div class="header-fields">
+    <input class="actor-name" type="text" name="name" value="{{actor.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+
+    <!-- Row 1: Concept / Motivation / Court -->
+    <div class="identity-row">
+      <div class="field-group" style="flex:3">
+        <label>{{localize "EX2E.Concept"}}</label>
+        <input type="text" name="system.concept" value="{{system.concept}}"
+               placeholder="{{localize 'EX2E.ConceptPlaceholder'}}" {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group" style="flex:3">
+        <label>{{localize "EX2E.Motivation"}}</label>
+        <input type="text" name="system.motivation" value="{{system.motivation}}"
+               placeholder="{{localize 'EX2E.Motivation'}}" {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.Court"}}</label>
+        <input type="text" name="system.court" value="{{system.court}}"
+               placeholder="{{localize 'EX2E.Court'}}" {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+
+    <!-- Row 2: Rank / Caste (label changes for nobles) / Shadowed Caste if noble -->
+    <div class="identity-row">
+      <div class="field-group">
+        <label>{{localize "EX2E.FairFolkRank"}}</label>
+        {{#if isEditable}}
+        <select name="system.rank">
+          {{#each fairFolkRankChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.rank)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+        {{else}}
+        <span>{{activeRankLabel}}</span>
+        {{/if}}
+      </div>
+      <div class="field-group">
+        <label>{{#if isNoble}}{{localize "EX2E.AscendantCaste"}}{{else}}{{localize "EX2E.Caste"}}{{/if}}</label>
+        {{#if isEditable}}
+        <select name="system.caste">
+          {{#each fairFolkCasteChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.caste)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+        {{else}}
+        <span>{{activeCasteLabel}}</span>
+        {{/if}}
+      </div>
+      {{#if isNoble}}
+      <div class="field-group">
+        <label>{{localize "EX2E.ShadowedCaste"}}</label>
+        {{#if isEditable}}
+        <select name="system.shadowedCaste">
+          {{#each fairFolkCasteChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.shadowedCaste)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+        {{else}}
+        <span>{{shadowedCasteLabel}}</span>
+        {{/if}}
+      </div>
+      {{/if}}
+    </div>
+
+    <!-- Row 3: Essence / Willpower / Personal Motes / Gossamer -->
+    <div class="essence-row">
+      <!-- Essence -->
+      <div class="field-group essence-group">
+        <label>{{localize "EX2E.EssencePermanent"}}</label>
+        <div class="essence-display">
+          {{dotRating name="system.essence.value" value=system.essence.value max=5 min=1}}
+        </div>
+      </div>
+
+      <!-- Willpower: permanent dots + temporal boxes -->
+      <div class="field-group willpower-group">
+        <label>{{localize "EX2E.Willpower"}}</label>
+        {{dotRating name="system.willpower.max" value=system.willpower.max max=10 min=1}}
+        {{boxRating name="system.willpower.value" value=system.willpower.value max=system.willpower.max total=10 min=0}}
+      </div>
+
+      <!-- Personal Motes -->
+      <div class="field-group mote-pools">
+        <div class="mote-pool-block"
+             title="{{localize 'EX2E.MotesPersonal'}} {{system.motes.personal.value}} / {{system.motes.personal.max}}">
+          <span class="pool-label">{{localize "EX2E.MotesPersonal"}}</span>
+          <input class="mote-value-input" type="number" name="system.motes.personal.value"
+                 value="{{system.motes.personal.value}}" min="0" max="{{system.motes.personal.max}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          <span class="pool-sep">/</span>
+          <span class="pool-max">{{system.motes.personal.max}}</span>
+        </div>
+        <div class="mote-pool-block mote-pool-committed"
+             title="{{localize 'EX2E.Committed'}}: {{system.motes.personal.committed}}">
+          <span class="pool-label">{{localize "EX2E.Committed"}}</span>
+          {{#if isEditable}}
+          <input type="number" name="system.motes.personal.committed"
+                 value="{{system.motes.personal.committed}}" min="0" max="{{system.motes.personal.max}}"
+                 style="width:38px">
+          {{else}}
+          <span class="pool-sep">{{system.motes.personal.committed}}</span>
+          {{/if}}
+        </div>
+      </div>
+
+      <!-- Gossamer (uncapped) -->
+      <div class="field-group mote-pools">
+        <div class="mote-pool-block" title="{{localize 'EX2E.Gossamer'}}: {{system.gossamer.value}}">
+          <span class="pool-label">{{localize "EX2E.Gossamer"}}</span>
+          <input class="mote-value-input" type="number" name="system.gossamer.value"
+                 value="{{system.gossamer.value}}" min="0"
+                 {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

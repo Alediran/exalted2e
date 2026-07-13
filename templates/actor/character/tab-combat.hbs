@@ -36,40 +36,6 @@
       {{#if system.hasWaterWalking}}<div class="trait-tag">{{localize "EX2E.MBWaterWalking"}}</div>{{/if}}
     </div>
 
-    <!-- ═══════════════ SOAK ═══════════════ -->
-    <h2 class="section-header">{{localize "EX2E.Soak"}}</h2>
-    <div class="soak-grid">
-      <div class="soak-row">
-        <span class="soak-label">Bashing Soak:</span>
-        <strong>{{system.totalSoak.bashing}}</strong>
-        <span class="soak-natural">({{system.naturalSoak.bashing}} natural)</span>
-      </div>
-      <div class="soak-row">
-        <span class="soak-label">Lethal Soak:</span>
-        <strong>{{system.totalSoak.lethal}}</strong>
-        <span class="soak-natural">({{system.naturalSoak.lethal}} natural)</span>
-      </div>
-      <div class="soak-row">
-        <span class="soak-label">Aggravated Soak:</span>
-        <strong>{{system.totalSoak.aggravated}}</strong>
-      </div>
-      {{#if system.hardness}}
-      <div class="soak-row">
-        <span class="soak-label">Hardness:</span>
-        <strong>{{system.hardness}}</strong>
-      </div>
-      {{/if}}
-      {{#if system.armorName}}
-      <div class="soak-row">
-        <span class="soak-label">Armor:</span>
-        <em>{{system.armorName}}</em>
-        {{#if system.mobilityPenalty}}
-        <span class="penalty">Mobility {{system.mobilityPenalty}}</span>
-        {{/if}}
-      </div>
-      {{/if}}
-    </div>
-
     <!-- ═══════════════ SOCIAL ATTACK ═══════════════ -->
     <div class="action-button-row">
       <button type="button" data-action="rollSocialAttack">

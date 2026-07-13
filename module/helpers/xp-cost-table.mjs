@@ -66,6 +66,22 @@ export function buildXpCostRows(exaltType, costs) {
   const general = costs?.general ?? {};
   const et      = costs?.[exaltType] ?? {};
 
+  // ── Fair Folk: entirely different XP structure ──────────────────────────
+  if (exaltType === "fairfolk") {
+    rows.push(_row("Attribute",         _fCurrent(_n(general.attributeMult, 4))));
+    rows.push(_row("FolkAbilityFav",    _fCurrent(_n(et.abilityFavoredMult, 2))));
+    rows.push(_row("FolkAbilityOther",  _fCurrent(_n(et.abilityOtherMult, 3))));
+    rows.push(_row("Willpower",         _fCurrent(_n(general.willpowerMult, 2))));
+    rows.push(_row("Virtue",            _fCurrent(_n(general.virtueMult, 3))));
+    rows.push(_row("GraceMajor",        _fCurrent(_n(et.majorGraceMult, 3))));
+    rows.push(_row("GraceMinor",        _fCurrent(_n(et.minorGraceMult, 6))));
+    rows.push(_row("GraceHeartTo4",     _fFlat(_n(et.heartGraceTo4, 20))));
+    rows.push(_row("FolkCharm",         _fFlat(_n(et.charm, 6))));
+    rows.push(_row("SpecialtyCommoner", _fFlat(_n(et.specialtyCommoner, 2))));
+    rows.push(_row("SpecialtyNoble",    _fFlat(_n(et.specialtyNoble, 5))));
+    return rows;
+  }
+
   // Universal rows (every exalt + mortal)
   rows.push(_row("Attribute", _fCurrent(_n(general.attributeMult, 4))));
 

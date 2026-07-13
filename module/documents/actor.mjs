@@ -89,8 +89,12 @@ export class ExaltedActor extends Actor {
     // coercion silently. Use distinct aliases instead; formulas can also
     // always reference the nested path directly (`@essence.value`).
     data.ess          = s.essence?.value    ?? 0;
-    data.wp           = s.willpower?.value  ?? 0;
+    data.wp           = s.willpower?.boxRating ?? s.willpower?.value ?? 0;
     data.woundPenalty = s.health?.woundPenalty ?? 0;
+    // Grace tokens for Fair Folk actors (@cup, @ring, @staff, @sword, @heart)
+    for (const [key, grace] of Object.entries(s.graces ?? {})) {
+      data[key] = grace?.value ?? 0;
+    }
     // Splat scalars are exposed only under the matching exaltType, so a
     // Solar never resolves @paradox to 0 silently. Array-shaped splat
     // data (forms, destinies, slots) is handled through the actor's

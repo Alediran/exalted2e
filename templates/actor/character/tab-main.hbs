@@ -315,9 +315,43 @@
         </div>
       </section>
 
-      {{!-- Column 2: Health --}}
+      {{!-- Column 2: Soak + Health --}}
       <section class="health-column">
+        <!-- ═══════════════ SOAK ═══════════════ -->
         <div class="section-toolbar ex2e-row">
+          <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Soak"}}</h2>
+        </div>
+        <div class="combat-stat-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="stat-item">
+            <span class="stat-label">{{localize "EX2E.DamageBashing"}}</span>
+            <span class="stat-value">{{system.totalSoak.bashing}}</span>
+            <span class="soak-natural">({{system.naturalSoak.bashing}} natural)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{{localize "EX2E.DamageLethal"}}</span>
+            <span class="stat-value">{{system.totalSoak.lethal}}</span>
+            <span class="soak-natural">({{system.naturalSoak.lethal}} natural)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">{{localize "EX2E.DamageAggravated"}}</span>
+            <span class="stat-value">{{system.totalSoak.aggravated}}</span>
+          </div>
+          {{#if system.hardness}}
+          <div class="stat-item">
+            <span class="stat-label">{{localize "EX2E.Hardness"}}</span>
+            <span class="stat-value">{{system.hardness}}</span>
+          </div>
+          {{/if}}
+          {{#if system.armorName}}
+          <div class="stat-item">
+            <span class="stat-label">{{localize "EX2E.Armor"}}</span>
+            <span class="stat-value"><em>{{system.armorName}}</em>{{#if system.mobilityPenalty}} <span class="penalty">Mobility {{system.mobilityPenalty}}</span>{{/if}}</span>
+          </div>
+          {{/if}}
+        </div>
+
+        <!-- ═══════════════ HEALTH ═══════════════ -->
+        <div class="section-toolbar ex2e-row" style="margin-top:var(--ex2e-gap-md)">
           <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.HealthLevels"}}</h2>
         </div>
         {{healthTrack health=system.health exaltType=system.exaltType}}
