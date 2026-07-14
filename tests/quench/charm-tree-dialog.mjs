@@ -328,3 +328,76 @@ export function registerCharmTreeDialogIntegration(context) {
     });
   });
 }
+
+// ─── Batch 3: Fair Folk dialog support ───────────────────────────────────────
+
+export function registerCharmTreeDialogFairfolk(context) {
+  const { describe, it, before, afterEach, assert } = context;
+
+  let dialog = null;
+
+  async function closeDialog() {
+    if (dialog) {
+      try { await dialog.close(); } catch (_) {}
+      dialog = null;
+    }
+  }
+
+  describe('CharmTreeDialog — Fair Folk support', function () {
+    before(assertTestWorld);
+    afterEach(async function () {
+      await closeDialog();
+      await sweep();
+    });
+
+    it('exalt type select contains a "fairfolk" option', async function () {
+      dialog = CharmTreeDialog.open();
+      await waitFor(() => !!dialog.element && document.contains(dialog.element), { timeoutMs: 3000 });
+
+      const exaltSelect = dialog.element.querySelector('select[name="exaltType"]');
+      assert.ok(exaltSelect, 'exaltType select exists');
+      const ffOption = [...exaltSelect.options].find(o => o.value === 'fairfolk');
+      assert.ok(ffOption, '"fairfolk" value is present in the exalt type select');
+    });
+
+    it('opening with exaltType=fairfolk and groupKey=cup pre-selects both selects', async function () {
+      dialog = CharmTreeDialog.open({ exaltType: 'fairfolk', groupKey: 'cup' });
+      const rendered = await waitFor(
+        () => {
+          if (!dialog.element || !document.contains(dialog.element)) return false;
+          const sel = dialog.element.querySelector('select[name="exaltType"]');
+          return sel && sel.value === 'fairfolk';
+        },
+        { timeoutMs: 3000 }
+      );
+      assert.ok(rendered, 'dialog rendered with exaltType=fairfolk pre-selected');
+
+      const exaltSelect = dialog.element.querySelector('select[name="exaltType"]');
+      const groupSelect = dialog.element.querySelector('select[name="groupKey"]');
+
+      assert.equal(exaltSelect?.value, 'fairfolk', 'exalt select shows "fairfolk"');
+      assert.equal(groupSelect?.value, 'cup',      'group select shows "cup"');
+    });
+
+    it('group select has exactly the 5 grace keys for fairfolk', async function () {
+      dialog = CharmTreeDialog.open({ exaltType: 'fairfolk', groupKey: 'cup' });
+      await waitFor(
+        () => {
+          if (!dialog.element || !document.contains(dialog.element)) return false;
+          const sel = dialog.element.querySelector('select[name="exaltType"]');
+          return sel && sel.value === 'fairfolk';
+        },
+        { timeoutMs: 3000 }
+      );
+
+      const groupSelect = dialog.element.querySelector('select[name="groupKey"]');
+      assert.ok(groupSelect, 'group select exists');
+
+      const optionValues = [...groupSelect.options].map(o => o.value);
+      assert.equal(optionValues.length, 5, 'group select has exactly 5 options');
+      for (const key of ['cup', 'ring', 'staff', 'sword', 'heart']) {
+        assert.ok(optionValues.includes(key), `"${key}" grace option is present`);
+      }
+    });
+  });
+}

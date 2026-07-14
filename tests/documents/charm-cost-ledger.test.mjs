@@ -35,7 +35,7 @@ describe("ExaltedItem._spendActivationCosts", () => {
     expect(item.actor.applyDamage).not.toHaveBeenCalled();
     expect(result).toEqual({
       moteBreakdown: { fromPrimary: 4, fromSecondary: 0, primaryPool: "peripheral", secondaryPool: "personal" },
-      willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0
+      willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0, gossamer: 0
     });
   });
 

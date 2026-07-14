@@ -98,8 +98,7 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       { value: "cup",   label: game.i18n.localize("EX2E.GraceCasteDiplomat") },
       { value: "ring",  label: game.i18n.localize("EX2E.GraceCasteEntertainer") },
       { value: "sword", label: game.i18n.localize("EX2E.GraceCasteWarrior") },
-      { value: "staff", label: game.i18n.localize("EX2E.GraceCasteWorker") },
-      { value: "heart", label: game.i18n.localize("EX2E.GraceCasteCasteless") }
+      { value: "staff", label: game.i18n.localize("EX2E.GraceCasteWorker") }
     ];
 
     const rankKeyToLabel     = Object.fromEntries(fairFolkRankChoices.map(r => [r.value, r.label]));

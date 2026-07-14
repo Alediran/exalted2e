@@ -25,9 +25,9 @@ describe("XP_COST_DEFAULTS", () => {
 });
 
 describe("XP_COST_EXALT_ORDER", () => {
-  it("is frozen and has seven entries", () => {
+  it("is frozen and has eight entries", () => {
     expect(Object.isFrozen(XP_COST_EXALT_ORDER)).toBe(true);
-    expect(XP_COST_EXALT_ORDER.length).toBe(7);
+    expect(XP_COST_EXALT_ORDER.length).toBe(8);
   });
 
   it("contains all expected exalt types", () => {

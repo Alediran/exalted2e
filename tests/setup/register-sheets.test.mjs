@@ -4,6 +4,7 @@ import { CharacterSheet }       from "../../module/sheets/actor/character-sheet.
 import { NpcSheet }             from "../../module/sheets/actor/npc-sheet.mjs";
 import { UnitSheet }            from "../../module/sheets/actor/unit-sheet.mjs";
 import { VehicleSheet }         from "../../module/sheets/actor/vehicle-sheet.mjs";
+import { FairFolkSheet }        from "../../module/sheets/actor/fairfolk-sheet.mjs";
 import { CharmSheet }           from "../../module/sheets/item/charm-sheet.mjs";
 import { SpellSheet }           from "../../module/sheets/item/spell-sheet.mjs";
 import { WeaponSheet }          from "../../module/sheets/item/weapon-sheet.mjs";
@@ -70,14 +71,15 @@ describe("registerSheets", () => {
     }));
   });
 
-  it("registers all four actor sheet types exactly once each", () => {
+  it("registers all five actor sheet types exactly once each", () => {
     registerSheets();
     const actorCalls = Actors.registerSheet.mock.calls.map(([_ns, cls]) => cls);
     expect(actorCalls).toContain(CharacterSheet);
     expect(actorCalls).toContain(NpcSheet);
     expect(actorCalls).toContain(UnitSheet);
     expect(actorCalls).toContain(VehicleSheet);
-    expect(actorCalls).toHaveLength(4);
+    expect(actorCalls).toContain(FairFolkSheet);
+    expect(actorCalls).toHaveLength(5);
   });
 
   // ── Item sheet unregistration ─────────────────────────────────────────────

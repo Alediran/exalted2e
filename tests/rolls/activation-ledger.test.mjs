@@ -3,17 +3,17 @@ import { normalizeCost, planLedgerRefund } from "../../module/rolls/activation-l
 
 // ── normalizeCost ────────────────────────────────────────────────────
 describe("normalizeCost", () => {
-  it("returns all six fields with zero defaults for an empty cost", () => {
+  it("returns all seven fields with zero defaults for an empty cost", () => {
     expect(normalizeCost({})).toEqual({
       moteCost: 0, willpowerCost: 0, bashingCost: 0,
-      lethalCost: 0, aggravatedCost: 0, xpCost: 0
+      lethalCost: 0, aggravatedCost: 0, xpCost: 0, gossamerCost: 0
     });
   });
 
   it("handles undefined cost argument gracefully", () => {
     expect(normalizeCost(undefined)).toEqual({
       moteCost: 0, willpowerCost: 0, bashingCost: 0,
-      lethalCost: 0, aggravatedCost: 0, xpCost: 0
+      lethalCost: 0, aggravatedCost: 0, xpCost: 0, gossamerCost: 0
     });
   });
 
@@ -69,7 +69,7 @@ describe("normalizeCost", () => {
   it("other cost fields are still read from formula when motesOverride is set", () => {
     expect(
       normalizeCost({ formula: "5m, 2wp, 1xp" }, { motesOverride: 8 })
-    ).toEqual({ moteCost: 8, willpowerCost: 2, bashingCost: 0, lethalCost: 0, aggravatedCost: 0, xpCost: 1 });
+    ).toEqual({ moteCost: 8, willpowerCost: 2, bashingCost: 0, lethalCost: 0, aggravatedCost: 0, xpCost: 1, gossamerCost: 0 });
   });
 
   it("legacy field-based cost (no formula key) still works", () => {
@@ -82,7 +82,7 @@ describe("normalizeCost", () => {
       aggravatedHealth: null, xp: -5
     })).toEqual({
       moteCost: 3, willpowerCost: 0, bashingCost: 0,
-      lethalCost: 2, aggravatedCost: 0, xpCost: 0
+      lethalCost: 2, aggravatedCost: 0, xpCost: 0, gossamerCost: 0
     });
   });
 });

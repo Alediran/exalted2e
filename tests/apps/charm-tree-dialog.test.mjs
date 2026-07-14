@@ -27,10 +27,10 @@ describe("CharmTreeDialog constructor", () => {
 // ── _prepareContext ───────────────────────────────────────────────────────────
 
 describe("CharmTreeDialog._prepareContext", () => {
-  it("returns exactly 8 exaltType entries", async () => {
+  it("returns exactly 9 exaltType entries", async () => {
     const dlg = new CharmTreeDialog({}, { exaltType: "solar", groupKey: "archery" });
     const ctx = await dlg._prepareContext({});
-    expect(ctx.exaltTypes).toHaveLength(8);
+    expect(ctx.exaltTypes).toHaveLength(9);
   });
 
   it("defaults exaltType to 'solar' when not provided", async () => {
