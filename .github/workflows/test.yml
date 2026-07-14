@@ -45,9 +45,6 @@ jobs:
           node-version: "20"
       - run: npm ci
 
-      # Build system compendiums (packs/ is gitignored).
-      - run: npm run pack
-
       # Pin the Foundry data dir used by both felddy and the runner.
       - name: Prepare Foundry data dir
         run: |
