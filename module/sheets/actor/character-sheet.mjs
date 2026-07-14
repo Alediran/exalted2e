@@ -2432,12 +2432,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static #toggleMultiPurchaseGroup(_event, target) {
     const uid = target.dataset.charmUid;
     if (!uid) return;
-    if (this.#expandedGroups.has(uid)) {
-      this.#expandedGroups.delete(uid);
+    /** @type {CharacterSheet} */ const self = (this);
+    if (self.#expandedGroups.has(uid)) {
+      self.#expandedGroups.delete(uid);
     } else {
-      this.#expandedGroups.add(uid);
+      self.#expandedGroups.add(uid);
     }
-    this.render({ parts: ["tabCharms"] });
+    self.render({ parts: ["tabCharms"] });
   }
 
   static #onOpenCharmTree(event, target) {

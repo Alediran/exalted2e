@@ -522,9 +522,10 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static #onToggleMultiPurchaseGroup(_event, target) {
     const uid = target.dataset.charmUid;
     if (!uid) return;
-    if (this.#expandedGroups.has(uid)) this.#expandedGroups.delete(uid);
-    else this.#expandedGroups.add(uid);
-    this.render({ force: true });
+    /** @type {FairFolkSheet} */ const self = (this);
+    if (self.#expandedGroups.has(uid)) self.#expandedGroups.delete(uid);
+    else self.#expandedGroups.add(uid);
+    self.render({ force: true });
   }
 
   static async #onActivateCombo(event, target) {
