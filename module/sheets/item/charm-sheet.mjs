@@ -96,11 +96,19 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       tabEffects: { id: "tabEffects", group: "sheet", icon: "fa-solid fa-sparkles",    label: game.i18n.localize("EX2E.TabEffects"), cssClass: this.tabGroups.sheet === "tabEffects" ? "active" : "" }
     };
 
-    // Lunars and Alchemicals key their charms to Attributes; every other
-    // exalt type keys to Abilities. Both use the same `system.ability`
-    // field — only the dropdown contents and the field label change.
+    // Lunars and Alchemicals key their charms to Attributes; Fair Folk key
+    // to Graces; every other exalt type keys to Abilities. All use the same
+    // `system.ability` field — only the dropdown contents and label change.
+    const isFairFolk    = sys.exaltType === "fairfolk";
     const usesAttribute = ["lunar", "alchemical"].includes(sys.exaltType);
     const { attributeOptions, abilityOptions } = buildTraitOptions(EX2E, k => game.i18n.localize(k));
+    const graceOptions = [
+      { value: "cup",   label: game.i18n.localize("EX2E.GraceCup")   },
+      { value: "ring",  label: game.i18n.localize("EX2E.GraceRing")  },
+      { value: "staff", label: game.i18n.localize("EX2E.GraceStaff") },
+      { value: "sword", label: game.i18n.localize("EX2E.GraceSword") },
+      { value: "heart", label: game.i18n.localize("EX2E.GraceHeart") },
+    ];
 
     // Deduplicated charm list spanning actor items, world items, and all
     // compendium pack indices — so datalist autocomplete and display names
@@ -134,12 +142,12 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       hgHasChoice: (sys.healthGrant?.options?.length ?? 0) > 1,
       // `abilities` is the charm-key dropdown — its contents swap between
       // ability and attribute lists based on `usesAttribute`.
-      abilities:    usesAttribute ? attributeOptions : abilityOptions,
+      abilities:    isFairFolk ? graceOptions : (usesAttribute ? attributeOptions : abilityOptions),
       // `allAbilities` always contains ability keys regardless of exalt type;
       // used by abilityDiceBonus which matches against ability keys only.
       allAbilities: abilityOptions,
-      abilityFieldLabel:    game.i18n.localize(usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability"),
-      minAbilityFieldLabel: game.i18n.localize(usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility"),
+      abilityFieldLabel:    game.i18n.localize(isFairFolk ? "EX2E.Grace"    : (usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability")),
+      minAbilityFieldLabel: game.i18n.localize(isFairFolk ? "EX2E.MinGrace" : (usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility")),
       excellencies: [
         { value: "",                label: game.i18n.localize("EX2E.ExcellencyNone") },
         { value: "first",           label: game.i18n.localize("EX2E.FirstExcellency") },

@@ -83,6 +83,7 @@ EX2E.splatTypes = {
   abyssal:      "EX2E.ExaltAbyssal",
   infernal:     "EX2E.ExaltInfernal",
   alchemical:   "EX2E.ExaltAlchemical",
+  fairfolk:     "EX2E.ExaltFairfolk",
   mortal:       "EX2E.ExaltMortal",
   spirit:       "EX2E.ExaltSpirit",
   martialarts:  "EX2E.ExaltMartialArts",
