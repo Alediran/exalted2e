@@ -440,6 +440,9 @@ export class ExaltedActor extends Actor {
       this._applyWeaponStats(systemData);
       this._applyArtifactCommitment(systemData);
     }
+    if (this.type === "fairfolk") {
+      this._applyWeaponStats(systemData);
+    }
 
     // ── Aggregate DV penalties carried by ActiveEffects ───────────────────
     this._aggregateDVPenalties(systemData);

@@ -1,0 +1,75 @@
+<div class="tab {{cssClass}}" data-tab="tabBiography" data-group="sheet">
+<div class="sheet-body">
+
+  <h2 class="section-header">{{localize "EX2E.Biography"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.biography" data-document-uuid="{{actor.uuid}}" value="{{system.biography}}" collaborate="true" toggled="true">
+      {{{enrichedBiography}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedBiography}}}</div>
+    {{/if}}
+  </div>
+
+  <h2 class="section-header">{{localize "EX2E.Notes"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.notes" data-document-uuid="{{actor.uuid}}" value="{{system.notes}}" collaborate="true" toggled="true">
+      {{{enrichedNotes}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedNotes}}}</div>
+    {{/if}}
+  </div>
+
+  <h2 class="section-header" style="margin-top:16px">
+    {{localize "EX2E.Intimacies"}}
+    {{#if isEditable}}
+    <button type="button" class="btn-add-item" data-action="createItem" data-type="intimacy"
+            style="margin-left:8px">
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddIntimacy"}}
+    </button>
+    {{/if}}
+  </h2>
+
+  <div class="intimacies-list">
+    {{#each intimacies as |int|}}
+    <div class="item-row intimacy-item-row" data-item-id="{{int.id}}">
+      <div class="intimacy-row-main" style="display:flex;align-items:center;gap:6px">
+        <span class="intimacy-direction" style="width:16px;text-align:center;flex-shrink:0">
+          {{#if int.system.positive}}<i class="fa-solid fa-heart" title="{{localize 'EX2E.IntimacyPositive'}}"></i>{{else}}<i class="fa-solid fa-skull" title="{{localize 'EX2E.IntimacyNegative'}}"></i>{{/if}}
+        </span>
+        <span class="item-name">{{int.name}}</span>
+        {{#if int.system.subject}}
+        <span class="intimacy-subject" style="opacity:0.75;margin-left:4px">— {{int.system.subject}}</span>
+        {{/if}}
+        {{#if @root.useIntimacyIntensity}}
+        <span class="keyword-tag" style="margin-left:auto">{{localize (concat "EX2E.Intensity" (capitalize int.system.intensity))}}</span>
+        {{else}}
+        <span class="keyword-tag" style="margin-left:auto">{{int.system.strength}} / {{@root.system.intimacies.maxStrength}}</span>
+        {{/if}}
+        <span class="keyword-tag">{{localize (concat "EX2E.Intimacy" (capitalize int.system.intimacyType))}}</span>
+        <div class="item-controls">
+          {{#if @root.isEditable}}
+          <button data-action="editItem">✏️</button>
+          <button data-action="deleteItem">🗑️</button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="intimacy-ablation-row" style="display:flex;align-items:center;gap:4px;padding:2px 0 2px 22px">
+        <span style="font-size:0.7em;color:#888;margin-right:4px;white-space:nowrap">{{localize "EX2E.SocialDmg"}}</span>
+        {{#each int.ablationDots as |dot|}}
+        <span class="ablation-dot {{#if dot.filled}}filled{{/if}}"
+              data-action="toggleAblationDot"
+              data-item-id="{{../int.id}}"
+              data-dot-index="{{dot.index}}"
+              style="width:11px;height:11px;border-radius:50%;border:1px solid #666;cursor:pointer;display:inline-block;{{#if dot.filled}}background:#c55;border-color:#a33;{{/if}}"></span>
+        {{/each}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+</div><!-- sheet-body -->
+</div><!-- tab -->

@@ -1,7 +1,8 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { ex2eCan } from "../../helpers/permissions.mjs";
+import { canEquipToSlot } from "../../helpers/equip-slots.mjs";
 import { GRACE_CASTE_ABILITIES, GRACE_VIRTUE_MAP } from "../../data/actor/fairfolk-data.mjs";
-import { dedupStackableCharms, buildPurchaseLogRows } from "../../helpers/character-sheet-helpers.mjs";
+import { dedupStackableCharms, buildPurchaseLogRows, buildEffectsData } from "../../helpers/character-sheet-helpers.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { resolveXpCosts } from "../../helpers/xp-cost-defaults.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
@@ -52,7 +53,14 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       sendItemToChat:           FairFolkSheet.#onSendItemToChat,
       toggleMultiPurchaseGroup: FairFolkSheet.#onToggleMultiPurchaseGroup,
       activateCombo:        FairFolkSheet.#onActivateCombo,
-      startTraining:        FairFolkSheet.#onStartTraining
+      startTraining:        FairFolkSheet.#onStartTraining,
+      toggleEquip:          FairFolkSheet.#onToggleEquip,
+      toggleAblationDot:    FairFolkSheet.#onToggleAblationDot,
+      createEffect:         FairFolkSheet.#onCreateEffect,
+      editEffect:           FairFolkSheet.#onEditEffect,
+      deleteEffect:         FairFolkSheet.#onDeleteEffect,
+      toggleEffect:         FairFolkSheet.#onToggleEffect,
+      dispelSpellEffect:    FairFolkSheet.#onDispelSpellEffect
     }
   };
 
@@ -65,11 +73,13 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static PARTS = {
     header:     { template: "systems/exalted2e/templates/actor/fairfolk/header.hbs" },
     tabs:       { classes: ["tabs-right"], template: "systems/exalted2e/templates/actor/fairfolk/tabs.hbs" },
-    tabMain:    { template: "systems/exalted2e/templates/actor/fairfolk/tab-main.hbs",   scrollable: [""] },
+    tabMain:        { template: "systems/exalted2e/templates/actor/fairfolk/tab-main.hbs",       scrollable: [""] },
     tabCombat:      { template: "systems/exalted2e/templates/actor/fairfolk/tab-combat.hbs",     scrollable: [""] },
     tabCharms:      { template: "systems/exalted2e/templates/actor/fairfolk/tab-charms.hbs",     scrollable: [""] },
+    tabInventory:   { template: "systems/exalted2e/templates/actor/fairfolk/tab-inventory.hbs",   scrollable: [""] },
+    tabEffects:     { template: "systems/exalted2e/templates/actor/character/tab-effects.hbs",    scrollable: [""] },
     tabExperience:  { template: "systems/exalted2e/templates/actor/character/tab-experience.hbs", scrollable: [""] },
-    tabNotes:       { template: "systems/exalted2e/templates/actor/fairfolk/tab-notes.hbs",      scrollable: [""] }
+    tabBiography:   { template: "systems/exalted2e/templates/actor/fairfolk/tab-biography.hbs",   scrollable: [""] }
   };
 
   async _preparePartContext(partId, context, options) {
@@ -109,11 +119,13 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const shadowedCasteLabel = casteKeyToLabel[sys.shadowedCaste] ?? "—";
 
     const tabs = {
-      tabMain:   { id: "tabMain",   group: "sheet", icon: "fa-solid fa-user",          label: game.i18n.localize("EX2E.TabMain"),   cssClass: this.tabGroups.sheet === "tabMain"   ? "active" : "" },
-      tabCombat:     { id: "tabCombat",     group: "sheet", icon: "fa-solid fa-shield-halved",    label: game.i18n.localize("EX2E.TabCombat"),      cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
-      tabCharms:     { id: "tabCharms",     group: "sheet", icon: "fa-solid fa-star",             label: game.i18n.localize("EX2E.TabCharms"),      cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
-      tabExperience: { id: "tabExperience", group: "sheet", icon: "fa-solid fa-graduation-cap",   label: game.i18n.localize("EX2E.TabExperience"),  cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
-      tabNotes:      { id: "tabNotes",      group: "sheet", icon: "fa-solid fa-book",             label: game.i18n.localize("EX2E.TabNotes"),       cssClass: this.tabGroups.sheet === "tabNotes"      ? "active" : "" }
+      tabMain:       { id: "tabMain",       group: "sheet", icon: "fa-solid fa-user",             label: game.i18n.localize("EX2E.TabMain"),       cssClass: this.tabGroups.sheet === "tabMain"       ? "active" : "" },
+      tabCombat:     { id: "tabCombat",     group: "sheet", icon: "fa-solid fa-shield-halved",    label: game.i18n.localize("EX2E.TabCombat"),     cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
+      tabCharms:     { id: "tabCharms",     group: "sheet", icon: "fa-solid fa-star",             label: game.i18n.localize("EX2E.TabCharms"),     cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
+      tabInventory:  { id: "tabInventory",  group: "sheet", icon: "fa-solid fa-suitcase",         label: game.i18n.localize("EX2E.TabInventory"),  cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
+      tabBiography:  { id: "tabBiography",  group: "sheet", icon: "fa-solid fa-book",             label: game.i18n.localize("EX2E.TabBiography"),  cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
+      tabExperience: { id: "tabExperience", group: "sheet", icon: "fa-solid fa-graduation-cap",   label: game.i18n.localize("EX2E.TabExperience"), cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
+      tabEffects:    { id: "tabEffects",    group: "sheet", icon: "fa-solid fa-wand-sparkles",    label: game.i18n.localize("EX2E.TabEffects"),    cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" }
     };
 
     // Build abilities rows per grace caste (for tab-main)
@@ -254,6 +266,25 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .map(i => [i.id, true])
     );
 
+    // ── Biography tab context ────────────────────────────────────────────────
+    const intimacies  = actor.items.filter(i => i.type === "intimacy")   .sort((a, b) => a.name.localeCompare(b.name));
+    const conviction  = sys.virtues?.conviction?.value ?? 1;
+    for (const int of intimacies) {
+      const dmg = int.system?.ablationDamage ?? 0;
+      int.ablationDots = Array.from({ length: conviction }, (_, i) => ({
+        index: i, filled: i < dmg
+      }));
+    }
+
+    // ── Inventory tab context ────────────────────────────────────────────────
+    const weapons     = actor.items.filter(i => i.type === "weapon")     .sort((a, b) => a.name.localeCompare(b.name));
+    const armors      = actor.items.filter(i => i.type === "armor")      .sort((a, b) => a.name.localeCompare(b.name));
+    const backgrounds = actor.items.filter(i => i.type === "background") .sort((a, b) => a.name.localeCompare(b.name));
+    const meritflaws  = actor.items.filter(i => i.type === "meritflaw")  .sort((a, b) => a.name.localeCompare(b.name));
+    const equipments  = actor.items.filter(i => i.type === "equipment")  .sort((a, b) => a.name.localeCompare(b.name));
+    const hearthstones = actor.items.filter(i => i.type === "hearthstone").sort((a, b) => a.name.localeCompare(b.name));
+    const manses      = actor.items.filter(i => i.type === "manse")      .sort((a, b) => a.name.localeCompare(b.name));
+
     const combosRaw = actor.items.filter(i => i.type === "combo").sort((a, b) => a.name.localeCompare(b.name));
     const byUid = new Map();
     for (const c of charms) { const uid = c.system?.charmUid; if (uid) byUid.set(uid, c); }
@@ -302,6 +333,10 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       purchaseLogRows,
       xpCostRows,
       trainingEntries,
+      effects: buildEffectsData(actor.effects, game.exalted2e.EX2E.durations, k => game.i18n.localize(k)),
+      intimacies,
+      useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity"),
+      weapons, armors, backgrounds, meritflaws, equipments, hearthstones, manses,
       enrichedBiography: await TextEditor.enrichHTML(sys.biography ?? "", enrichOpts),
       enrichedNotes:     await TextEditor.enrichHTML(sys.notes     ?? "", enrichOpts)
     };
@@ -496,6 +531,72 @@ export class FairFolkSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
     if (item?.type === "combo") await item.activateCombo();
+  }
+
+  static async #onCreateEffect(_event, _target) {
+    const created = await this.document.createEmbeddedDocuments("ActiveEffect", [{
+      name:     game.i18n.localize("EX2E.NewEffect"),
+      img:      "icons/svg/aura.svg",
+      disabled: true
+    }]);
+    created[0]?.sheet?.render({ force: true });
+  }
+
+  static async #onEditEffect(_event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    this.document.effects.get(effectId)?.sheet?.render({ force: true });
+  }
+
+  static async #onDeleteEffect(_event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const effect   = this.document.effects.get(effectId);
+    if (!effect) return;
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window: { title: game.i18n.localize("EX2E.DeleteEffectConfirm").replace("{name}", effect.name) },
+      yes: { label: game.i18n.localize("Yes"), icon: "fa-solid fa-trash" },
+      no:  { label: game.i18n.localize("No"),  icon: "fa-solid fa-times" }
+    });
+    if (confirmed) await effect.delete();
+  }
+
+  static async #onToggleEffect(_event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const effect   = this.document.effects.get(effectId);
+    if (!effect) return;
+    await effect.update({ disabled: !effect.disabled });
+  }
+
+  static async #onDispelSpellEffect(_event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const ae = this.actor.effects.get(effectId);
+    if (!ae) return;
+    const { CountermagicDialog } = await import("../../dialogs/countermagic-dialog.mjs");
+    await CountermagicDialog.open({ type: "effect-self", ae }, this.actor);
+  }
+
+  static async #onToggleAblationDot(_event, target) {
+    const itemId   = target.dataset.itemId;
+    const dotIndex = parseInt(target.dataset.dotIndex, 10);
+    const item     = this.document.items.get(itemId);
+    if (!item) return;
+    const current  = item.system?.ablationDamage ?? 0;
+    const newValue = dotIndex < current ? dotIndex : dotIndex + 1;
+    await item.update({ "system.ablationDamage": newValue });
+  }
+
+  static async #onToggleEquip(_event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (!item) return;
+    if (!item.system.equipped) {
+      if (!canEquipToSlot(this.document, item, itemId)) {
+        const slot      = item.system.slot;
+        const slotLabel = game.i18n.localize(`EX2E.Slot${slot.charAt(0).toUpperCase()}${slot.slice(1)}`);
+        ui.notifications.warn(game.i18n.format("EX2E.SlotFull", { slot: slotLabel }));
+        return;
+      }
+    }
+    await item.update({ "system.equipped": !item.system.equipped });
   }
 
   static async #onStartTraining(_event, target) {

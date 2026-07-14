@@ -1,0 +1,173 @@
+<div class="tab {{cssClass}}" data-tab="tabInventory" data-group="sheet">
+  <div class="sheet-body">
+
+    <!-- ═══════ WEAPONS ═══════ -->
+    <div class="section-toolbar ex2e-row">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Weapons"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="weapon">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each weapons as |w|}}
+    <div class="item-row" data-item-id="{{w.id}}">
+      <img class="item-img" src="{{w.img}}" alt="{{w.name}}">
+      <span class="item-name">{{w.name}}</span>
+      <span class="item-stat">{{w.system.modes.length}} {{#if (eq w.system.modes.length 1)}}{{localize "EX2E.Mode"}}{{else}}{{localize "EX2E.Modes"}}{{/if}}</span>
+      <div class="item-controls">
+        <button data-action="toggleEquip" title="{{#if w.system.equipped}}Unequip{{else}}Equip{{/if}}">
+          {{#if w.system.equipped}}🗡{{else}}○{{/if}}
+        </button>
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ ARMOR ═══════ -->
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Armor"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="armor">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each armors as |a|}}
+    <div class="item-row" data-item-id="{{a.id}}">
+      <img class="item-img" src="{{a.img}}" alt="{{a.name}}">
+      <span class="item-name">{{a.name}}</span>
+      <span class="item-stat">B{{a.system.effectiveSoak.bashing}}/L{{a.system.effectiveSoak.lethal}}/A{{a.system.effectiveSoak.aggravated}}</span>
+      <span class="item-stat">Hard {{a.system.effectiveHardness}}</span>
+      <span class="item-stat">Mob {{a.system.effectiveMobilityPenalty}}</span>
+      <div class="item-controls">
+        <button data-action="toggleEquip">{{#if a.system.equipped}}🛡{{else}}○{{/if}}</button>
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ BACKGROUNDS ═══════ -->
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Backgrounds"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="background">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each backgrounds as |bg|}}
+    <div class="item-row" data-item-id="{{bg.id}}">
+      <img class="item-img" src="{{bg.img}}" alt="{{bg.name}}">
+      <span class="item-name">{{bg.name}}</span>
+      {{dotRating name="system.value" value=bg.system.value max=5 min=0}}
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ MERITS / FLAWS ═══════ -->
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.MeritsAndFlaws"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="meritflaw">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each meritflaws as |mf|}}
+    <div class="item-row" data-item-id="{{mf.id}}">
+      <img class="item-img" src="{{mf.img}}" alt="{{mf.name}}">
+      <span class="item-name {{#if (eq mf.system.meritFlawType 'flaw')}}flaw-name{{/if}}">{{mf.name}}</span>
+      <span class="keyword-tag">{{mf.system.meritFlawType}}</span>
+      {{dotRating name="system.value" value=mf.system.value max=5 min=1}}
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ HEARTHSTONES ═══════ -->
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Hearthstones"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="hearthstone">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each hearthstones as |hs|}}
+    <div class="item-row" data-item-id="{{hs.id}}">
+      <img class="item-img" src="{{hs.img}}" alt="{{hs.name}}">
+      <span class="item-name">{{hs.name}}</span>
+      <span class="item-stat">★{{hs.system.rating}} · {{mul hs.system.rating 2}}m/h</span>
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ MANSES ═══════ -->
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Manses"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="manse">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each manses as |m|}}
+    <div class="item-row" data-item-id="{{m.id}}">
+      <img class="item-img" src="{{m.img}}" alt="{{m.name}}">
+      <span class="item-name">{{m.name}}</span>
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ EQUIPMENT ═══════ -->
+    <div class="section-toolbar ex2e-row" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Equipment"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="equipment">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each equipments as |eq|}}
+    <div class="item-row" data-item-id="{{eq.id}}">
+      <img class="item-img" src="{{eq.img}}" alt="{{eq.name}}">
+      <span class="item-name">{{eq.name}}</span>
+      {{#if eq.system.artifact}}<span class="keyword-tag">{{localize "EX2E.ArtifactItem"}}</span>{{/if}}
+      <div class="item-controls">
+        <button data-action="toggleEquip">{{#if eq.system.equipped}}✓{{else}}○{{/if}}</button>
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+</div>

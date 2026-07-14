@@ -212,5 +212,72 @@ export class FairFolkData extends foundry.abstract.TypeDataModel {
     h.incapacitated = h.totalDamage >= h.totalBoxes;
     const remaining = h.totalBoxes - totalDamage;
     h.woundPenalty  = h.incapacitated ? -4 : remaining <= 1 ? -2 : remaining <= 3 ? -1 : 0;
+
+    this.intimacies = { maxStrength: this.virtues?.conviction?.value ?? 0 };
+
+    this._prepareCombatStats();
+  }
+
+  _prepareCombatStats() {
+    const a   = this.attributes;
+    const ab  = this.abilities;
+    const ess = this.essence.value;
+    const halve     = (n) => Math.floor(n / 2);
+    const halveDown = (n) => Math.floor(n / 2);
+
+    // Dodge DV = (Dex + Dodge + Essence) / 2, floored
+    this.dodgeDV = halve(a.dexterity.value + ab.dodge.value + ess);
+
+    // Parry DV — unarmed baseline uses Martial Arts
+    const maVal    = ab.martialArts?.value ?? 0;
+    const meleeVal = ab.melee?.value       ?? 0;
+    this.parryDVBase = halve(a.dexterity.value + maVal);
+
+    // Best weapon parry across equipped melee modes
+    let bestWeaponParry = 0;
+    for (const item of this.parent?.items ?? []) {
+      if (item.type !== "weapon" || !item.system.equipped) continue;
+      for (const mode of item.system.modes ?? []) {
+        if ((mode.effectiveRange ?? mode.range ?? 0) !== 0) continue;
+        const hasNatural = mode.tags?.includes("Natural");
+        const hasMA      = mode.tags?.includes("Martial Arts");
+        const abilVal    = hasNatural ? maVal
+                         : (hasMA && maVal > meleeVal) ? maVal
+                         : meleeVal;
+        const parry = halve(a.dexterity.value + abilVal + (mode.effectiveDefense ?? 0));
+        if (parry > bestWeaponParry) bestWeaponParry = parry;
+      }
+    }
+    this.parryDV = Math.max(this.parryDVBase, bestWeaponParry);
+
+    // Join Battle, Movement, Dash
+    this.joinBattle = a.wits.value + ab.awareness.value;
+    this.movement   = a.dexterity.value;
+    this.dash       = a.dexterity.value + 3;
+
+    // Natural soak
+    this.naturalSoak = {
+      bashing:    a.stamina.value,
+      lethal:     Math.floor(a.stamina.value / 2),
+      aggravated: 0
+    };
+
+    // Dodge MDV = (Willpower.max + Integrity + Essence) / 2, floored
+    this.dodgeMDV = halveDown(this.willpower.max + ab.integrity.value + ess);
+
+    // Parry MDV — best social attribute + best social ability, floored
+    const bestSocialAttr = Math.max(a.charisma.value, a.manipulation.value);
+    this.parryMDV = {
+      byPresence:      halveDown(bestSocialAttr + (ab.presence?.value      ?? 0)),
+      byPerformance:   halveDown(bestSocialAttr + (ab.performance?.value   ?? 0)),
+      byInvestigation: halveDown(bestSocialAttr + (ab.investigation?.value ?? 0)),
+      byBureaucracy:   halveDown(bestSocialAttr + (ab.bureaucracy?.value   ?? 0))
+    };
+    this.parryMDV.best = Math.max(
+      this.parryMDV.byPresence,
+      this.parryMDV.byPerformance,
+      this.parryMDV.byInvestigation,
+      this.parryMDV.byBureaucracy
+    );
   }
 }
