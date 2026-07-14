@@ -93,8 +93,10 @@ export function registerFairfolkSheet(context) {
       const el = actor.sheet.element;
       assert.ok(el, 'sheet element exists in the DOM');
 
-      // Tab nav (always rendered regardless of active tab)
-      const charmsTab = el.querySelector('[data-tab="charms"]');
+      // Tab nav (always rendered regardless of active tab).
+      // The fairfolk sheet's charms part is named "tabCharms", so the nav link
+      // carries data-tab="tabCharms" (not "charms" like the character sheet).
+      const charmsTab = el.querySelector('[data-tab="tabCharms"]');
       assert.ok(charmsTab, 'charms tab nav link is present');
 
       // openCharmTree button lives in the charms PARTS section; all PARTS

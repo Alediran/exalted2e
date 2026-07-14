@@ -48,7 +48,12 @@ export function registerEffectWrapper(context) {
   const { describe, it, assert, before, afterEach } = context;
 
   describe("effect wrapper — compendium and extraction", () => {
-    before(() => assertTestWorld());
+    before(function () {
+      assertTestWorld();
+      // The effects pack is built from src/packs and is dev-only; skip gracefully
+      // when it is not present in the current Foundry installation.
+      if (!game.packs.get("exalted2e.effects")) this.skip();
+    });
     afterEach(async () => { await sweep(); });
 
     // Test 1: Pack contains the seeded entries
