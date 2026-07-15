@@ -2,6 +2,7 @@
 
 /* Generic layout primitive: horizontal row, centered, small gap. */
 .ex2e-row { display: flex; align-items: center; gap: var(--ex2e-gap-sm); }
+.ex2e-header-row { display: flex; gap: var(--ex2e-gap-sm); }
 
 /* ── DOT RATING ──────────────────────────────────────────────────────────── */
 .dot-rating {

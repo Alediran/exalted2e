@@ -204,10 +204,16 @@
   {{/each}}
 
   <!-- Charms -->
-  <h2 class="section-header">{{localize "EX2E.CharmsPowers"}}</h2>
-  {{#if isEditable}}
-  <button class="btn-add-item" data-action="createItem" data-type="charm">+ {{localize "EX2E.AddCharm"}}</button>
-  {{/if}}
+  <div class="section-toolbar ex2e-row">
+    <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.CharmsPowers"}}</h2>
+    <button type="button" class="btn-add-item" data-action="openCharmTree"
+            title="{{localize 'EX2E.CharmTree.OpenTree'}}">
+      <i class="fa-solid fa-sitemap"></i> {{localize "EX2E.CharmTree.Title"}}
+    </button>
+    {{#if isEditable}}
+    <button class="btn-add-item" data-action="createItem" data-type="charm">+ {{localize "EX2E.AddCharm"}}</button>
+    {{/if}}
+  </div>
   {{#each charms as |c|}}
   <div class="item-row" data-item-id="{{c.id}}">
     <img class="item-img" src="{{c.img}}" alt="{{c.name}}">

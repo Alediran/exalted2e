@@ -19,11 +19,6 @@
         <input type="text" name="system.concept" value="{{system.concept}}"
                placeholder="{{localize 'EX2E.ConceptPlaceholder'}}" {{#unless isEditable}}readonly{{/unless}}>
       </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.Essence"}}</label>
-        <input type="number" name="system.essence.value" value="{{system.essence.value}}"
-               min="1" max="10" style="width:50px" {{#unless isEditable}}readonly{{/unless}}>
-      </div>
       <div class="field-group" style="align-items:center">
         <label style="display:flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap">
           {{#if isEditable}}
@@ -34,9 +29,13 @@
         </label>
       </div>
     </div>
-    <!-- Willpower + Motes row -->
-    <div class="ex2e-row" style="gap:12px;align-items:flex-end">
-      <div class="field-group willpower-group" style="flex:1">
+    <!-- Essence + Willpower + Motes row -->
+    <div class="ex2e-header-row">
+      <div class="field-group" style="flex:0 0 auto">
+        <label>{{localize "EX2E.Essence"}}</label>
+        {{dotRating name="system.essence.value" value=system.essence.value max=10 min=1}}
+      </div>
+      <div class="field-group willpower-group">
         <label>{{localize "EX2E.Willpower"}}</label>
         {{dotRating name="system.willpower.max" value=system.willpower.max max=10 min=1}}
         {{boxRating name="system.willpower.value" value=system.willpower.value max=system.willpower.max total=10 min=0}}

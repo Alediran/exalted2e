@@ -33,7 +33,8 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       activateCharm:      NpcSheet.#onActivateCharm,
       addAttack:          NpcSheet.#onAddAttack,
       deleteAttack:       NpcSheet.#onDeleteAttack,
-      rollNpcAttack:      NpcSheet.#onRollNpcAttack
+      rollNpcAttack:      NpcSheet.#onRollNpcAttack,
+      openCharmTree:      NpcSheet.#onOpenCharmTree
     }
   };
 
@@ -262,6 +263,11 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const idx = parseInt(target.closest("[data-attack-index]")?.dataset.attackIndex);
     if (isNaN(idx)) return;
     await ExaltedRoll.rollNpcAttack(this.document, idx);
+  }
+
+  static #onOpenCharmTree(event, target) {
+    const { CharmTreeDialog } = game.exalted2e;
+    CharmTreeDialog.open({ actor: this.actor });
   }
 
   static async #onRollSocialAttack(event, target) {
