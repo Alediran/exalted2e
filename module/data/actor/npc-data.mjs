@@ -1,5 +1,17 @@
 const fields = foundry.data.fields;
 
+function attrField() {
+  return new fields.SchemaField({
+    value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true })
+  });
+}
+
+function abilField() {
+  return new fields.SchemaField({
+    value: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
+  });
+}
+
 /**
  * Data model for the "npc" actor type – simplified stats for antagonists,
  * spirits, demons, and supporting characters.
@@ -11,14 +23,57 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       // ── Identity ────────────────────────────────────────────────────────
       npcType:    new fields.StringField({ initial: "mortal", blank: false }),
       concept:    new fields.StringField({ initial: "",       blank: true  }),
+      isExtra:    new fields.BooleanField({ initial: false }),
+
+      // ── Attributes ─────────────────────────────────────────────────────────
+      attributes: new fields.SchemaField({
+        strength:     attrField(),
+        dexterity:    attrField(),
+        stamina:      attrField(),
+        charisma:     attrField(),
+        manipulation: attrField(),
+        appearance:   attrField(),
+        perception:   attrField(),
+        intelligence: attrField(),
+        wits:         attrField()
+      }),
+
+      // ── Abilities ───────────────────────────────────────────────────────────
+      abilities: new fields.SchemaField({
+        archery:       abilField(),
+        athletics:     abilField(),
+        awareness:     abilField(),
+        bureaucracy:   abilField(),
+        craft:         abilField(),
+        dodge:         abilField(),
+        integrity:     abilField(),
+        investigation: abilField(),
+        larceny:       abilField(),
+        linguistics:   abilField(),
+        lore:          abilField(),
+        martialArts:   abilField(),
+        medicine:      abilField(),
+        melee:         abilField(),
+        occult:        abilField(),
+        performance:   abilField(),
+        presence:      abilField(),
+        resistance:    abilField(),
+        ride:          abilField(),
+        sail:          abilField(),
+        socialize:     abilField(),
+        stealth:       abilField(),
+        survival:      abilField(),
+        thrown:        abilField(),
+        war:           abilField()
+      }),
 
       // ── Core Stats ──────────────────────────────────────────────────────
       essence: new fields.SchemaField({
         value: new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true })
       }),
       willpower: new fields.SchemaField({
-        value: new fields.NumberField({ initial: 3, min: 0, max: 10, integer: true }),
-        max:   new fields.NumberField({ initial: 3, min: 1, max: 10, integer: true })
+        value: new fields.NumberField({ initial: 5, min: 0, max: 10, integer: true }),
+        max:   new fields.NumberField({ initial: 5, min: 1, max: 10, integer: true })
       }),
       motes: new fields.SchemaField({
         value: new fields.NumberField({ initial: 0, min: 0, max: 2000, integer: true }),
@@ -78,8 +133,17 @@ export class NpcData extends foundry.abstract.TypeDataModel {
   prepareDerivedData() {
     const h = this.health;
     const totalDamage = h.aggravated + h.lethal + h.bashing;
-    h.totalDamage   = Math.min(totalDamage, h.totalBoxes);
-    h.incapacitated = h.totalDamage >= h.totalBoxes;
-    h.woundPenalty  = this.combat?.woundPenalty ?? 0;
+
+    if (this.isExtra) {
+      // Extras have 3 health levels: −0, −1, −3 / Inc
+      h.totalBoxes    = 3;
+      h.totalDamage   = Math.min(totalDamage, 3);
+      h.incapacitated = totalDamage >= 3;
+      h.woundPenalty  = totalDamage >= 3 ? 3 : totalDamage >= 2 ? 1 : 0;
+    } else {
+      h.totalDamage   = Math.min(totalDamage, h.totalBoxes);
+      h.incapacitated = h.totalDamage >= h.totalBoxes;
+      h.woundPenalty  = this.combat?.woundPenalty ?? 0;
+    }
   }
 }

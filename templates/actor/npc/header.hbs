@@ -7,10 +7,11 @@
     <input class="actor-name" type="text" name="name" value="{{actor.name}}"
            {{#unless isEditable}}readonly{{/unless}}>
     <div class="identity-row">
-      <div class="field-group">
+      <div class="field-group" style="flex:0 0 auto">
         <label>{{localize "EX2E.NpcType"}}</label>
         <input type="text" name="system.npcType" value="{{system.npcType}}"
                placeholder="{{localize 'EX2E.NpcTypePlaceholder'}}"
+               style="width:80px"
                {{#unless isEditable}}readonly{{/unless}}>
       </div>
       <div class="field-group">
@@ -23,23 +24,38 @@
         <input type="number" name="system.essence.value" value="{{system.essence.value}}"
                min="1" max="10" style="width:50px" {{#unless isEditable}}readonly{{/unless}}>
       </div>
+      <div class="field-group" style="align-items:center">
+        <label style="display:flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap">
+          {{#if isEditable}}
+          <input type="checkbox" name="system.isExtra" {{#if system.isExtra}}checked{{/if}}>
+          {{/if}}
+          {{#unless isEditable}}{{#if system.isExtra}}<i class="fa-solid fa-user-minus"></i>{{/if}}{{/unless}}
+          {{localize "EX2E.Extra"}}
+        </label>
+      </div>
     </div>
-    <!-- Willpower -->
-    <div class="wp-row ex2e-row">
-      <span class="pool-label">{{localize "EX2E.Willpower"}} {{system.willpower.value}}/{{system.willpower.max}}</span>
-      {{willpowerTrack value=system.willpower.value max=system.willpower.max name="system.willpower.value"}}
-    </div>
-    <!-- Motes -->
-    <div class="mote-pools">
-      <div class="field-group">
-        <label>{{localize "EX2E.Motes"}}</label>
-        <input type="number" name="system.motes.value" value="{{system.motes.value}}"
-               min="0" max="{{system.motes.max}}" style="width:60px"
-               {{#unless isEditable}}readonly{{/unless}}>
-        <span>/</span>
-        <input type="number" name="system.motes.max" value="{{system.motes.max}}"
-               min="0" max="300" style="width:60px"
-               {{#unless isEditable}}readonly{{/unless}}>
+    <!-- Willpower + Motes row -->
+    <div class="ex2e-row" style="gap:12px;align-items:flex-end">
+      <div class="field-group willpower-group" style="flex:1">
+        <label>{{localize "EX2E.Willpower"}}</label>
+        {{dotRating name="system.willpower.max" value=system.willpower.max max=10 min=1}}
+        {{boxRating name="system.willpower.value" value=system.willpower.value max=system.willpower.max total=10 min=0}}
+      </div>
+      <div class="field-group mote-pools" style="flex:0 0 auto">
+        <div class="mote-pool-block"
+             title="{{localize 'EX2E.Motes'}} {{system.motes.value}} / {{system.motes.max}}">
+          <span class="pool-label">{{localize "EX2E.Motes"}}</span>
+          <input type="number" name="system.motes.value" value="{{system.motes.value}}"
+                 min="0" max="{{system.motes.max}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          <span class="pool-sep">/</span>
+          {{#if isEditable}}
+          <input type="number" name="system.motes.max" value="{{system.motes.max}}"
+                 min="0" max="2000" style="width:44px">
+          {{else}}
+          <span class="pool-max">{{system.motes.max}}</span>
+          {{/if}}
+        </div>
       </div>
     </div>
   </div>

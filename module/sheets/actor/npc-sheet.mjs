@@ -3,6 +3,7 @@ import { itemDescription } from "../../helpers/localize-description.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { ex2eCan } from "../../helpers/permissions.mjs";
 import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
+import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -82,9 +83,55 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       };
     });
 
+    let extraHealthLevels = null;
+    if (sys.isExtra) {
+      const agg  = Math.min(sys.health.aggravated ?? 0, 3);
+      const let_ = Math.min(sys.health.lethal     ?? 0, 3 - agg);
+      const bash = Math.min(sys.health.bashing    ?? 0, 3 - agg - let_);
+      const total = agg + let_ + bash;
+      const cls  = i => i < agg ? "aggravated" : i < agg + let_ ? "lethal" : i < total ? "bashing" : "empty";
+      const mark = c => c === "aggravated" ? "X" : c === "lethal" ? "/" : c === "bashing" ? "\\" : "";
+      const box  = i => { const c = cls(i); return { dmgClass: c, mark: mark(c) }; };
+      const incCls = total >= 3 ? cls(2) : "empty";
+      extraHealthLevels = [
+        { label: "-0",  ...box(0) },
+        { label: "-1",  ...box(1) },
+        { label: "-3",  ...box(2) },
+        { label: "Inc", dmgClass: incCls, mark: mark(incCls) }
+      ];
+    }
+
+    const cap = k => k.charAt(0).toUpperCase() + k.slice(1);
+    const attributeGroups = [
+      { labelKey: "EX2E.AttrGroupPhysical", keys: ["strength", "dexterity", "stamina"] },
+      { labelKey: "EX2E.AttrGroupSocial",   keys: ["charisma", "manipulation", "appearance"] },
+      { labelKey: "EX2E.AttrGroupMental",   keys: ["perception", "intelligence", "wits"] }
+    ].map(g => ({
+      labelKey: g.labelKey,
+      attrs: g.keys.map(k => ({
+        key: k,
+        name: `system.attributes.${k}.value`,
+        labelKey: `EX2E.Attr${cap(k)}`,
+        value: sys.attributes?.[k]?.value ?? 1
+      }))
+    }));
+
+    const abilityColumns = [
+      ["archery", "athletics", "awareness", "bureaucracy", "craft", "dodge", "integrity", "investigation", "larceny"],
+      ["linguistics", "lore", "martialArts", "medicine", "melee", "occult", "performance", "presence"],
+      ["resistance", "ride", "sail", "socialize", "stealth", "survival", "thrown", "war"]
+    ].map(keys => keys.map(k => ({
+      key: k,
+      name: `system.abilities.${k}.value`,
+      labelKey: `EX2E.Ability${cap(k)}`,
+      value: sys.abilities?.[k]?.value ?? 0
+    })));
+
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     return {
       ...context, actor, system: sys, charms, combos: comboRows, isEditable: this.isEditable,
+      isExtra: sys.isExtra,
+      attributeGroups, abilityColumns, extraHealthLevels,
       enrichedPowers:    await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.powers,    enrichOpts),
       enrichedNotes:     await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.notes,     enrichOpts),
       enrichedBiography: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.biography, enrichOpts)
@@ -118,6 +165,19 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         const name  = track?.dataset.name;
         const val   = parseInt(ev.currentTarget.dataset.value);
         if (name) this.document.update({ [name]: val });
+      });
+    });
+
+    // Box clicks (willpower temporal track)
+    this.element.querySelectorAll(".box-rating .box").forEach(box => {
+      box.addEventListener("click", (ev) => {
+        if (!this.isEditable) return;
+        const track   = ev.currentTarget.closest(".box-rating");
+        const name    = track?.dataset.name;
+        const newVal  = parseInt(ev.currentTarget.dataset.value);
+        const min     = parseInt(track?.dataset.min  ?? 0);
+        const current = parseInt(track?.dataset.current ?? 0);
+        if (name) this.document.update({ [name]: resolveNewDotValue(newVal, current, min) });
       });
     });
   }

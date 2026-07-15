@@ -1,5 +1,36 @@
 <div class="sheet-body npc-body">
 
+  <!-- Attributes -->
+  <h2 class="section-header">{{localize "EX2E.Attributes"}}</h2>
+  <div class="npc-attr-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px 16px;margin-bottom:8px">
+    {{#each attributeGroups as |group|}}
+    <div class="attr-group">
+      <h4 style="margin:0 0 4px;font-size:0.75em;text-transform:uppercase;opacity:0.6">{{localize group.labelKey}}</h4>
+      {{#each group.attrs as |attr|}}
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:4px;margin-bottom:2px">
+        <span style="font-size:0.82em">{{localize attr.labelKey}}</span>
+        {{dotRating name=attr.name value=attr.value max=5 min=1}}
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  </div>
+
+  <!-- Abilities -->
+  <h2 class="section-header">{{localize "EX2E.Abilities"}}</h2>
+  <div class="npc-abil-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0 16px;margin-bottom:8px">
+    {{#each abilityColumns as |col|}}
+    <div>
+      {{#each col as |abil|}}
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:4px;margin-bottom:2px">
+        <span style="font-size:0.82em">{{localize abil.labelKey}}</span>
+        {{dotRating name=abil.name value=abil.value max=5 min=0}}
+      </div>
+      {{/each}}
+    </div>
+    {{/each}}
+  </div>
+
   <!-- Combat Stats -->
   <h2 class="section-header">{{localize "EX2E.Combat"}}</h2>
   <div class="combat-stat-grid">
@@ -40,9 +71,20 @@
   </div>
 
   <!-- Soak -->
-  <div class="soak-row">
-    <strong>{{localize "EX2E.Soak"}}:</strong>
-    B{{system.combat.soak.bashing}} / L{{system.combat.soak.lethal}} / A{{system.combat.soak.aggravated}}
+  <h2 class="section-header">{{localize "EX2E.Soak"}}</h2>
+  <div class="combat-stat-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.DamageBashing"}}</span>
+      <span class="stat-value">{{system.combat.soak.bashing}}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.DamageLethal"}}</span>
+      <span class="stat-value">{{system.combat.soak.lethal}}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.DamageAggravated"}}</span>
+      <span class="stat-value">{{system.combat.soak.aggravated}}</span>
+    </div>
   </div>
 
   <!-- Pools -->
@@ -100,25 +142,30 @@
         <input type="number" name="system.pools.social"   value="{{system.pools.social}}"  min="0"></div>
       <div class="field-group"><label>{{localize "EX2E.PhysicalPool"}}</label>
         <input type="number" name="system.pools.physical" value="{{system.pools.physical}}" min="0"></div>
+      {{#unless system.isExtra}}
+      <div class="field-group"><label>Total Boxes</label>
+        <input type="number" name="system.health.totalBoxes" value="{{system.health.totalBoxes}}" min="1" max="500" style="width:60px"></div>
+      {{/unless}}
     </div>
   </details>
   {{/if}}
 
   <!-- Health Track -->
   <h2 class="section-header">{{localize "EX2E.Health"}}</h2>
-  {{healthTrack health=system.health}}
-  <div class="health-info">
-    <span>Total Boxes:
-      {{#if isEditable}}
-      <input type="number" name="system.health.totalBoxes" value="{{system.health.totalBoxes}}" min="1" max="500" style="width:50px">
-      {{else}}{{system.health.totalBoxes}}{{/if}}
-    </span>
-    <span>{{localize "EX2E.WoundPenalty"}}:
-      {{#if isEditable}}
-      <input type="number" name="system.combat.woundPenalty" value="{{system.combat.woundPenalty}}" min="0" max="4" style="width:40px">
-      {{else}}-{{system.combat.woundPenalty}}{{/if}}
-    </span>
+  {{#if system.isExtra}}
+  <div class="health-track-rows">
+    {{#each extraHealthLevels as |lvl|}}
+    <div class="health-row">
+      <div class="health-row-label">{{lvl.label}}</div>
+      <div class="health-row-boxes"><div class="health-row-line">
+        <div class="health-box {{lvl.dmgClass}}" title="{{lvl.label}}"><span class="box-mark">{{lvl.mark}}</span></div>
+      </div></div>
+    </div>
+    {{/each}}
   </div>
+  {{else}}
+  {{healthTrack health=system.health}}
+  {{/if}}
   {{#if isEditable}}
   <div class="damage-controls">
     <button class="damage-btn bashing"    data-action="applyDamage" data-damage-type="bashing"    data-amount="1">+1B</button>
