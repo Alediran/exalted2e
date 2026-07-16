@@ -174,6 +174,22 @@ EX2E.moteTypes = {
   peripheral: "EX2E.MotesPeripheral"
 };
 
+EX2E.mutationTypes = {
+  positive: "EX2E.MutationPositive",
+  negative: "EX2E.MutationNegative",
+  neutral:  "EX2E.MutationNeutral"
+};
+
+EX2E.mutationRanks = {
+  pox:         "EX2E.MutationRankPox",
+  deficiency:  "EX2E.MutationRankDeficiency",
+  affliction:  "EX2E.MutationRankAffliction",
+  debility:    "EX2E.MutationRankDebility",
+  blight:      "EX2E.MutationRankBlight",
+  deformity:   "EX2E.MutationRankDeformity",
+  abomination: "EX2E.MutationRankAbomination"
+};
+
 EX2E.stuntBonuses = {
   0: "EX2E.NoStunt",
   1: "EX2E.Stunt1",
