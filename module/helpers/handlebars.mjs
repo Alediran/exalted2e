@@ -80,16 +80,18 @@ export function registerHandlebarsHelpers() {
     // `levelCounts` is written by _prepareHealthData and includes charm bonuses
     // (Ox-Body etc.). Fall back to manual calculation for contexts that don't
     // run prepareDerivedData (NPC sheet, isolated template tests).
-    let zeroCount, oneCount, twoCount;
+    let zeroCount, oneCount, twoCount, fourCount;
     if (health.levelCounts) {
-      ({ zero: zeroCount, one: oneCount, two: twoCount } = health.levelCounts);
+      ({ zero: zeroCount, one: oneCount, two: twoCount, four: fourCount } = health.levelCounts);
+      fourCount = fourCount ?? 1;
     } else {
       const bonus = health.bonus ?? { zero: 0, one: 0, two: 0 };
       zeroCount = 1 + (bonus.zero ?? 0);
       oneCount  = 2 + (bonus.one  ?? 0);
       twoCount  = 2 + (bonus.two  ?? 0);
+      fourCount = 1;
     }
-    const totalBoxes = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Inc */;
+    const totalBoxes = zeroCount + oneCount + twoCount + fourCount + 1 /* Inc */;
 
     const agg    = Math.min(health.aggravated ?? 0, totalBoxes);
     const lethal = Math.min(health.lethal     ?? 0, totalBoxes - agg);
@@ -99,7 +101,7 @@ export function registerHandlebarsHelpers() {
       { label: "-0",  count: zeroCount },
       { label: "-1",  count: oneCount  },
       { label: "-2",  count: twoCount  },
-      { label: "-4",  count: 1         },
+      { label: "-4",  count: fourCount },
       { label: "Inc", count: 1         }
     ];
 

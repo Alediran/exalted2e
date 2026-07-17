@@ -435,6 +435,15 @@
         </div>
         {{/if}}
 
+        <div class="anima-banner-row">
+          <label class="anima-banner-label">{{localize "EX2E.AnimaBannerDescription"}}</label>
+          <input type="text"
+                 name="system.animaBanner"
+                 value="{{system.animaBanner}}"
+                 placeholder="{{localize "EX2E.AnimaBannerPlaceholder"}}"
+                 {{#unless isEditable}}disabled{{/unless}}>
+        </div>
+
         {{#if animaPower}}
         <div class="anima-power-row">
           <span class="anima-power-summary">{{animaPower.system.summary}}</span>

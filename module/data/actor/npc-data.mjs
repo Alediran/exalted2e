@@ -108,7 +108,12 @@ export class NpcData extends foundry.abstract.TypeDataModel {
         bashing:    new fields.NumberField({ initial: 0, min: 0, max: 500, integer: true }),
         lethal:     new fields.NumberField({ initial: 0, min: 0, max: 500, integer: true }),
         aggravated: new fields.NumberField({ initial: 0, min: 0, max: 500, integer: true }),
-        totalBoxes: new fields.NumberField({ initial: 7, min: 1, max: 500, integer: true })
+        levels: new fields.SchemaField({
+          zero: new fields.NumberField({ initial: 1, min: 0, max: 100, integer: true }),
+          one:  new fields.NumberField({ initial: 2, min: 0, max: 100, integer: true }),
+          two:  new fields.NumberField({ initial: 2, min: 0, max: 100, integer: true }),
+          four: new fields.NumberField({ initial: 1, min: 0, max: 100, integer: true })
+        })
       }),
 
       // ── Powers / Notes ──────────────────────────────────────────────────
@@ -141,9 +146,28 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       h.incapacitated = totalDamage >= 3;
       h.woundPenalty  = totalDamage >= 3 ? 3 : totalDamage >= 2 ? 1 : 0;
     } else {
-      h.totalDamage   = Math.min(totalDamage, h.totalBoxes);
+      const lvl     = h.levels;
+      h.levelCounts = { zero: lvl.zero, one: lvl.one, two: lvl.two, four: lvl.four };
+      h.totalBoxes  = lvl.zero + lvl.one + lvl.two + lvl.four + 1; // +1 for Inc
+      h.totalDamage = Math.min(totalDamage, h.totalBoxes);
       h.incapacitated = h.totalDamage >= h.totalBoxes;
-      h.woundPenalty  = this.combat?.woundPenalty ?? 0;
+      h.woundPenalty  = _npcWoundPenalty(h.totalDamage, lvl);
     }
   }
+}
+
+function _npcWoundPenalty(damage, levels) {
+  const { zero = 1, one = 2, two = 2, four = 1 } = levels;
+  const tiers = [
+    { boxes: zero, penalty: 0 },
+    { boxes: one,  penalty: 1 },
+    { boxes: two,  penalty: 2 },
+    { boxes: four, penalty: 4 },
+  ];
+  let filled = 0;
+  for (const { boxes, penalty } of tiers) {
+    filled += boxes;
+    if (damage <= filled) return penalty;
+  }
+  return 0;
 }

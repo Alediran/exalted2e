@@ -264,9 +264,10 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       }),
 
       // ── Biography / Notes ──────────────────────────────────────────────────
-      biography:  new fields.HTMLField({ initial: "" }),
-      notes:      new fields.HTMLField({ initial: "" }),
-      motivation: new fields.StringField({ initial: "", blank: true }),
+      biography:    new fields.HTMLField({ initial: "" }),
+      notes:        new fields.HTMLField({ initial: "" }),
+      animaBanner:  new fields.StringField({ initial: "", blank: true }),
+      motivation:   new fields.StringField({ initial: "", blank: true }),
 
       // ── Limit / Primary Virtue ────────────────────────────────────────────
       primaryVirtue: new fields.StringField({

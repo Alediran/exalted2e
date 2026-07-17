@@ -143,8 +143,15 @@
       <div class="field-group"><label>{{localize "EX2E.PhysicalPool"}}</label>
         <input type="number" name="system.pools.physical" value="{{system.pools.physical}}" min="0"></div>
       {{#unless system.isExtra}}
-      <div class="field-group"><label>Total Boxes</label>
-        <input type="number" name="system.health.totalBoxes" value="{{system.health.totalBoxes}}" min="1" max="500" style="width:60px"></div>
+      <div class="field-group health-levels-group">
+        <label>{{localize "EX2E.HealthLevels"}}</label>
+        <div class="health-levels-inputs">
+          <span class="hl-label">−0</span><input type="number" name="system.health.levels.zero" value="{{system.health.levels.zero}}" min="0" max="100" class="hl-input">
+          <span class="hl-label">−1</span><input type="number" name="system.health.levels.one"  value="{{system.health.levels.one}}"  min="0" max="100" class="hl-input">
+          <span class="hl-label">−2</span><input type="number" name="system.health.levels.two"  value="{{system.health.levels.two}}"  min="0" max="100" class="hl-input">
+          <span class="hl-label">−4</span><input type="number" name="system.health.levels.four" value="{{system.health.levels.four}}" min="0" max="100" class="hl-input">
+        </div>
+      </div>
       {{/unless}}
     </div>
   </details>

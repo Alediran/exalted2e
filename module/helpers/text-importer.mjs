@@ -388,12 +388,24 @@ export function parseNpcBlock(text) {
   const hardM    = /Hardness\s+(\d+)/i.exec(full);
   const atkM     = /Attack(?:\s*Pool)?\s*[:\s]+(?:[A-Za-z ']+[:\s]+)?(\d+)\s*[dD]/i.exec(full);
 
-  // Health levels: count from "−0, −1, −1, −2, −2, −4, I" patterns or totalBoxes
+  // Health levels: parse token counts from "−0, −1, −1, −2, −2, −4, Inc" patterns
   const hlM = /Health\s*(?:Levels?)?\s*[:\-]\s*([^\n]+)/i.exec(full);
-  let totalBoxes = 7;
+  const healthLevels = { zero: 1, one: 2, two: 2, four: 1 };
   if (hlM) {
-    const parts = hlM[1].split(/[,;|×]/).length;
-    if (parts > 2) totalBoxes = parts;
+    const tokens = hlM[1].split(/[,;\s]+/).map(t => t.trim()).filter(Boolean);
+    let z = 0, o = 0, tw = 0, f = 0;
+    for (const tok of tokens) {
+      if (/^[−\-]0$/.test(tok))       z++;
+      else if (/^[−\-]1$/.test(tok))  o++;
+      else if (/^[−\-]2$/.test(tok))  tw++;
+      else if (/^[−\-]4$/.test(tok))  f++;
+    }
+    if (z + o + tw + f > 0) {
+      healthLevels.zero = z  || 0;
+      healthLevels.one  = o  || 0;
+      healthLevels.two  = tw || 0;
+      healthLevels.four = f  || 0;
+    }
   }
 
   // Powers: everything from the first long non-stat line onward
@@ -427,7 +439,7 @@ export function parseNpcBlock(text) {
       },
       hardness: hardM ? parseInt(hardM[1]) : 0,
     },
-    health: { totalBoxes, bashing: 0, lethal: 0, aggravated: 0 },
+    health: { levels: healthLevels, bashing: 0, lethal: 0, aggravated: 0 },
     powers: textToHtml(powerLines.join("\n\n")),
     notes:  "",
   };

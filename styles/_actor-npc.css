@@ -26,3 +26,32 @@ body.ex2e-light-mode .exalted2e.actor.npc .section-header {
   color: #5a3282 !important;
   border-bottom-color: rgba(90, 50, 130, 0.4) !important;
 }
+
+/* ── Health Levels Inputs ─────────────────────────────────────────────────── */
+
+.exalted2e.actor.npc .health-levels-group {
+  flex-direction: column;
+}
+
+.exalted2e.actor.npc .health-levels-inputs {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  flex-wrap:   nowrap;
+}
+
+.exalted2e.actor.npc .health-levels-inputs .hl-label {
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+  white-space: nowrap;
+}
+
+.exalted2e.actor.npc .health-levels-inputs .hl-input {
+  width:            36px;
+  text-align:       center;
+  padding:          2px 4px;
+  background:       transparent;
+  border:           1px solid var(--ex2e-border-color);
+  border-radius:    3px;
+  color:            inherit;
+}

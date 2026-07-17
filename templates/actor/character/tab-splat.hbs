@@ -39,6 +39,13 @@
     {{#if (eq system.exaltType "lunar")}}
     <h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
     <div class="splat-section">
+      <div class="trait-row">
+        <label>{{localize "EX2E.SplatTell"}}</label>
+        <input type="text" name="system.splat.lunar.tell"
+               value="{{system.splat.lunar.tell}}"
+               placeholder="{{localize 'EX2E.SplatTellPlaceholder'}}"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
       {{> "systems/exalted2e/templates/actor/character/_lunar-heartsblood.hbs"}}
     </div>
     {{/if}}

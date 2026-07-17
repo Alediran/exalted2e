@@ -668,6 +668,29 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   letter-spacing: 0.05em;
 }
 
+/* ── Anima banner description ────────────────────────────────────────────── */
+.anima-column .anima-banner-row {
+  margin-top:     8px;
+  display:        flex;
+  flex-direction: column;
+  gap:            3px;
+}
+.anima-column .anima-banner-label {
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.anima-column .anima-banner-row input[type="text"] {
+  width:          100%;
+  font-size:      var(--ex2e-font-size-sm);
+  background:     transparent;
+  border:         1px solid var(--ex2e-border-color);
+  border-radius:  3px;
+  padding:        3px 5px;
+  color:          var(--ex2e-text-primary);
+}
+
 /* ── Anima power widget ──────────────────────────────────────────────────── */
 .anima-column .anima-power-row {
   margin-top:     10px;
