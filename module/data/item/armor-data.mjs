@@ -25,7 +25,7 @@ export class ArmorData extends foundry.abstract.TypeDataModel {
       attuned:              new fields.BooleanField({ initial: false }),
       attunementMotesCover: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
       attunedViaAttunement: new fields.BooleanField({ initial: false }),
-      artifactRating:       new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+      artifactRating:       new fields.NumberField({ initial: 0, min: 0, max: 6, integer: true }),
       hearthstoneSlots: new fields.NumberField({ initial: 0, min: 0, max: 3, integer: true }),
       hearthstones:     new fields.ArrayField(new fields.StringField({ blank: true })),
 
