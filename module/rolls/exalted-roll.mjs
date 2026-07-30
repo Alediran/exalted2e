@@ -727,6 +727,13 @@ export class ExaltedRoll {
         targetArmorSoak = 0;
         targetHardness  = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
       }
+      // Attacker-side soak reduction (e.g. Soulsteel hearthstone bracers).
+      // Applied after the snapshot so the attacker's bonuses reduce the stored value.
+      if (mode.damageType === "bashing") {
+        targetSoak = Math.max(0, targetSoak - (sys.bonuses?.attackerSoakReductionBashing ?? 0));
+      } else if (mode.damageType !== "aggravated") {
+        targetSoak = Math.max(0, targetSoak - (sys.bonuses?.attackerSoakReductionLethal ?? 0));
+      }
       if (!isAreaAttack) {
         // Onslaught: RAW, a defender accrues +1 DV penalty every time they
         // are attacked (hit, miss, perfect-defended — it all triggers).
@@ -757,7 +764,7 @@ export class ExaltedRoll {
       accuracy:       mode.effectiveAccuracy,
       isInstantCharm: isInstantCharmAttack,
       woundPenalty, flurryPenalty, internalPenalty: internalPenalty + emotionMajorPenalty, aimBonus, rangePenalty
-    }) + (options.extraDice ?? 0);
+    }) + (options.extraDice ?? 0) + (sys.bonuses?.accuracyBonus ?? 0);
 
     // Non-Excellency attack charms: every Supplemental keyed to the rolled
     // ability, plus Reflexive charms flagged as triggering in Step 1
@@ -1255,7 +1262,7 @@ export class ExaltedRoll {
       secondExcSuccesses,
       attackerHasThirdExc,
       attackerExcKey:      excKey,
-      weaponDamage:        (resolvedAmmoItem ? (resolvedAmmoItem.system.damageBonus ?? mode.effectiveDamage) : mode.effectiveDamage) + charmAttackBonus.extraDamageDice,
+      weaponDamage:        (resolvedAmmoItem ? (resolvedAmmoItem.system.damageBonus ?? mode.effectiveDamage) : mode.effectiveDamage) + charmAttackBonus.extraDamageDice + (sys.bonuses?.damageBonus ?? 0),
       postSoakDamageDice:  (charmAttackBonus.extraPostSoakDamageDice || 0) +
         activatedCharmItems
           .filter(c => c.system?.postSoakDamageBonus?.enabled)

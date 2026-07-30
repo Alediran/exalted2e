@@ -390,7 +390,13 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         healthGrantOne:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
         healthGrantTwo:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
         soakReductionBashing:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        soakReductionLethal:   new fields.NumberField({ initial: 0, min: 0, integer: true })
+        soakReductionLethal:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        // Equipment-passive bonus receivers (hearthstone bracers etc.)
+        accuracyBonus:                new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        damageBonus:                  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        speedReduction:               new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        attackerSoakReductionBashing: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        attackerSoakReductionLethal:  new fields.NumberField({ initial: 0, min: 0, integer: true })
       })
     };
   }

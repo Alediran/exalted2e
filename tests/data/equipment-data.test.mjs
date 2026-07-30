@@ -25,7 +25,10 @@ describe("EquipmentData schema", () => {
     expect(Object.keys(schema)).toEqual([
       "resourcesCost", "quantity", "description", "descriptions", "equipped", "isBroken", "slot",
       "artifact", "magicalMaterial", "attunementCost", "attuned",
-      "artifactRating", "hearthstoneSlots", "hearthstones"
+      "artifactRating", "hearthstoneSlots", "hearthstones",
+      "bonusDodgeDice", "bonusSoakBashing", "bonusSoakLethal",
+      "bonusAccuracy", "bonusParry", "bonusDamageDice", "bonusSpeedReduction",
+      "bonusAttackerSoakReducBashing", "bonusAttackerSoakReducLethal"
     ]);
   });
 });

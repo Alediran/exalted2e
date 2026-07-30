@@ -434,6 +434,7 @@ export class ExaltedActor extends Actor {
 
     // ── Aggregate armor soak from equipped armor ──────────────────────────
     if (this.type === "character") {
+      this._applyEquipmentBonuses(systemData);
       this._applyArmorSoak(systemData);
       this._applyCharmSoak(systemData);
       this._applyCharmMoveBonus(systemData);
@@ -903,6 +904,25 @@ export class ExaltedActor extends Actor {
    * Add soak from the first equipped armor to the character's natural soak.
    * Also store the armor soak separately in systemData.armorSoak for later use.
    */
+  _applyEquipmentBonuses(systemData) {
+    const b = systemData.bonuses;
+    if (!b) return;
+    for (const item of this.items) {
+      if (item.type !== "equipment") continue;
+      const s = item.system;
+      if (!s.equipped || !s.attuned) continue;
+      b.dodgeBonus  += s.bonusDodgeDice  ?? 0;
+      b.soakBashing += s.bonusSoakBashing ?? 0;
+      b.soakLethal  += s.bonusSoakLethal  ?? 0;
+      b.parryBonus  += s.bonusParry       ?? 0;
+      b.accuracyBonus                += s.bonusAccuracy                 ?? 0;
+      b.damageBonus                  += s.bonusDamageDice               ?? 0;
+      b.speedReduction               += s.bonusSpeedReduction           ?? 0;
+      b.attackerSoakReductionBashing += s.bonusAttackerSoakReducBashing ?? 0;
+      b.attackerSoakReductionLethal  += s.bonusAttackerSoakReducLethal  ?? 0;
+    }
+  }
+
   _applyArmorSoak(systemData) {
     const equippedArmor = this.items.find(i => i.type === "armor" && i.system.equipped);
     if (equippedArmor) {

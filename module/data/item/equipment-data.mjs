@@ -18,7 +18,19 @@ export class EquipmentData extends foundry.abstract.TypeDataModel {
       attuned:          new fields.BooleanField({ initial: false }),
       artifactRating:   new fields.NumberField({ initial: 0, min: 0, max: 6,  integer: true }),
       hearthstoneSlots: new fields.NumberField({ initial: 0, min: 0, max: 3,  integer: true }),
-      hearthstones:     new fields.ArrayField(new fields.StringField({ blank: true }))
+      hearthstones:     new fields.ArrayField(new fields.StringField({ blank: true })),
+
+      // Passive bonuses applied when equipped AND attuned.
+      // Aggregated into system.bonuses.* in ExaltedActor._applyEquipmentBonuses.
+      bonusDodgeDice:                new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusSoakBashing:              new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusSoakLethal:               new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusAccuracy:                 new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusParry:                    new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusDamageDice:               new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusSpeedReduction:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusAttackerSoakReducBashing: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusAttackerSoakReducLethal:  new fields.NumberField({ initial: 0, min: 0, integer: true })
     };
   }
 }

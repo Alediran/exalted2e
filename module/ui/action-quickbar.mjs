@@ -1181,7 +1181,7 @@ export class ActionQuickbar {
       await current.setFlag("exalted2e", "pendingAction", {
         actionKey: "attack",
         label:     mode.label,
-        speed:     mode.speed,
+        speed:     Math.max(1, mode.speed - (actor.system.bonuses?.speedReduction ?? 0)),
         dvPenalty: mode.dvMod,
         abortable: false,
         weaponId:  mode.weaponId,
