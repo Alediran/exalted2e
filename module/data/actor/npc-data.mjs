@@ -146,12 +146,12 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       h.incapacitated = totalDamage >= 3;
       h.woundPenalty  = totalDamage >= 3 ? 3 : totalDamage >= 2 ? 1 : 0;
     } else {
-      const lvl     = h.levels;
+      const lvl     = h.levels ?? { zero: 1, one: 2, two: 2, four: 1 };
       h.levelCounts = { zero: lvl.zero, one: lvl.one, two: lvl.two, four: lvl.four };
       h.totalBoxes  = lvl.zero + lvl.one + lvl.two + lvl.four + 1; // +1 for Inc
       h.totalDamage = Math.min(totalDamage, h.totalBoxes);
       h.incapacitated = h.totalDamage >= h.totalBoxes;
-      h.woundPenalty  = _npcWoundPenalty(h.totalDamage, lvl);
+      h.woundPenalty  = this.combat?.woundPenalty || _npcWoundPenalty(h.totalDamage, lvl);
     }
   }
 }

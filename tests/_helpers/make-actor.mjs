@@ -88,7 +88,7 @@ export function makeNpcSystem(overrides = {}) {
       hardness: 0,
       woundPenalty: 0
     },
-    health:  { bashing: 0, lethal: 0, aggravated: 0, totalBoxes: 7 },
+    health:  { bashing: 0, lethal: 0, aggravated: 0, levels: { zero: 1, one: 2, two: 2, four: 1 } },
     attacks: [],
     ...overrides
   };

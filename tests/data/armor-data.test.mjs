@@ -16,8 +16,8 @@ describe("ArmorData schema — artifact fields", () => {
   let schema;
   beforeAll(() => { schema = ArmorData.defineSchema(); });
 
-  it("artifactRating: min 0, max 5, integer, initial 0", () => {
-    expect(schema.artifactRating.options).toMatchObject({ min: 0, max: 5, integer: true, initial: 0 });
+  it("artifactRating: min 0, max 6, integer, initial 0", () => {
+    expect(schema.artifactRating.options).toMatchObject({ min: 0, max: 6, integer: true, initial: 0 });
   });
 
   it("hearthstoneSlots: min 0, max 3, integer, initial 0", () => {

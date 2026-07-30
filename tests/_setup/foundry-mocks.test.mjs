@@ -24,6 +24,7 @@ describe("Foundry mock fixture", () => {
     const sys = makeNpcSystem();
     expect(sys.npcType).toBe("mortal");
     expect(sys.combat.dodgeMDV).toBe(2);
-    expect(sys.health.totalBoxes).toBe(7);
+    expect(sys.health.levels).toBeDefined();
+    expect(sys.health.levels.zero + sys.health.levels.one + sys.health.levels.two + sys.health.levels.four + 1).toBe(7);
   });
 });

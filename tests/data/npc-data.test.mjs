@@ -57,9 +57,11 @@ describe("NpcData schema caps", () => {
     const schema = NpcData.defineSchema();
     expect(schema.pools.fields.combat.options.max).toBe(50);
   });
-  it("allows health.totalBoxes up to 500", () => {
+  it("allows health damage values up to 500", () => {
     const schema = NpcData.defineSchema();
-    expect(schema.health.fields.totalBoxes.options.max).toBe(500);
+    expect(schema.health.fields.bashing.options.max).toBe(500);
+    expect(schema.health.fields.lethal.options.max).toBe(500);
+    expect(schema.health.fields.aggravated.options.max).toBe(500);
   });
   it("has woundPenalty in combat schema with initial 0 and max 4", () => {
     const schema = NpcData.defineSchema();
