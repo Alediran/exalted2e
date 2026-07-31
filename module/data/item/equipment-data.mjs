@@ -31,7 +31,8 @@ export class EquipmentData extends foundry.abstract.TypeDataModel {
       bonusSpeedReduction:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
       bonusAttackerSoakReducBashing: new fields.NumberField({ initial: 0, min: 0, integer: true }),
       bonusAttackerSoakReducLethal:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
-      bonusPerceptionDice:           new fields.NumberField({ initial: 0, min: 0, integer: true })
+      bonusPerceptionDice:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      bonusPeripheralMotes:          new fields.NumberField({ initial: 0, min: 0, integer: true })
     };
   }
 }

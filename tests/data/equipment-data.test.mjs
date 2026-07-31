@@ -28,7 +28,7 @@ describe("EquipmentData schema", () => {
       "artifactRating", "hearthstoneSlots", "hearthstones",
       "bonusDodgeDice", "bonusSoakBashing", "bonusSoakLethal",
       "bonusAccuracy", "bonusParry", "bonusDamageDice", "bonusSpeedReduction",
-      "bonusAttackerSoakReducBashing", "bonusAttackerSoakReducLethal", "bonusPerceptionDice"
+      "bonusAttackerSoakReducBashing", "bonusAttackerSoakReducLethal", "bonusPerceptionDice", "bonusPeripheralMotes"
     ]);
   });
 });
