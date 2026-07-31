@@ -396,7 +396,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         damageBonus:                  new fields.NumberField({ initial: 0, min: 0, integer: true }),
         speedReduction:               new fields.NumberField({ initial: 0, min: 0, integer: true }),
         attackerSoakReductionBashing: new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        attackerSoakReductionLethal:  new fields.NumberField({ initial: 0, min: 0, integer: true })
+        attackerSoakReductionLethal:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        perceptionBonus:              new fields.NumberField({ initial: 0, min: 0, integer: true })
       })
     };
   }

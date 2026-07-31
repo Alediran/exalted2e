@@ -920,6 +920,7 @@ export class ExaltedActor extends Actor {
       b.speedReduction               += s.bonusSpeedReduction           ?? 0;
       b.attackerSoakReductionBashing += s.bonusAttackerSoakReducBashing ?? 0;
       b.attackerSoakReductionLethal  += s.bonusAttackerSoakReducLethal  ?? 0;
+      b.perceptionBonus              += s.bonusPerceptionDice           ?? 0;
     }
   }
 

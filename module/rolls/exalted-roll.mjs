@@ -219,7 +219,8 @@ export class ExaltedRoll {
     const attrVal     = sys.attributes[defaultAttr]?.value ?? 0;
     const essenceVal  = sys.essence ?? 0;
     // Base pool — raw attribute + ability, before any penalties.
-    const rawPool = attrVal + abilVal;
+    const rawPool = attrVal + abilVal
+      + (defaultAttr === "perception" ? (sys.bonuses?.perceptionBonus ?? 0) : 0);
 
     // Penalties from active effects split by category:
     //   • Internal (aborted-Aim -2, etc.) reduces the DICE POOL — fed to
