@@ -182,6 +182,9 @@ export function meetsMinAbility(charm, actor) {
   if (sys.abilities?.[ability] !== undefined) {
     return (sys.abilities[ability]?.value ?? 0) >= min;
   }
+  if (sys.virtues?.[ability] !== undefined) {
+    return (sys.virtues[ability]?.value ?? 0) >= min;
+  }
   return true;
 }
 

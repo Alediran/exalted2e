@@ -149,11 +149,24 @@ describe("meetsMinAbility", () => {
   function attrCharm({ minAbility = 0, ability = "dexterity" } = {}) {
     return { system: { ability, minAbility, prereqGroups: [] } };
   }
+  function ghostCharm({ minAbility = 0, ability = "conviction" } = {}) {
+    return { system: { exaltType: "ghost", ability, minAbility, prereqGroups: [] } };
+  }
   function abilityActor({ exaltType = "solar", martialArts = 0 } = {}) {
     return { system: { exaltType, abilities: { martialArts: { value: martialArts } }, attributes: {} } };
   }
   function lunarActor({ dexterity = 0 } = {}) {
     return { system: { exaltType: "lunar", abilities: { martialArts: { value: 0 } }, attributes: { dexterity: { value: dexterity } } } };
+  }
+  function ghostActor({ conviction = 1, compassion = 1, temperance = 1, valor = 1 } = {}) {
+    return {
+      system: {
+        exaltType: "ghost",
+        virtues:    { conviction: { value: conviction }, compassion: { value: compassion }, temperance: { value: temperance }, valor: { value: valor } },
+        abilities:  {},
+        attributes: {}
+      }
+    };
   }
 
   it("returns true when minAbility is 0 regardless of actor stats", () => {
@@ -204,8 +217,34 @@ describe("meetsMinAbility", () => {
     expect(meetsMinAbility(charm, actor)).toBe(false);
   });
 
-  it("regular ability key (melee) — always returns true (no minAbility enforcement)", () => {
+  it("key not found in any stat bucket — returns true (fallback for unknown keys)", () => {
     const charm = { system: { ability: "melee", minAbility: 5, prereqGroups: [] } };
+    const actor = { system: { abilities: {}, attributes: {} } };
+    expect(meetsMinAbility(charm, actor)).toBe(true);
+  });
+
+  it("virtue-keyed ghost charm — passes when virtue meets minimum", () => {
+    expect(meetsMinAbility(ghostCharm({ ability: "conviction", minAbility: 3 }), ghostActor({ conviction: 3 }))).toBe(true);
+  });
+
+  it("virtue-keyed ghost charm — passes when virtue exceeds minimum", () => {
+    expect(meetsMinAbility(ghostCharm({ ability: "conviction", minAbility: 2 }), ghostActor({ conviction: 4 }))).toBe(true);
+  });
+
+  it("virtue-keyed ghost charm — fails when virtue is below minimum", () => {
+    expect(meetsMinAbility(ghostCharm({ ability: "conviction", minAbility: 3 }), ghostActor({ conviction: 2 }))).toBe(false);
+  });
+
+  it("virtue-keyed ghost charm — each virtue checked independently (temperance passes)", () => {
+    expect(meetsMinAbility(ghostCharm({ ability: "temperance", minAbility: 2 }), ghostActor({ temperance: 2 }))).toBe(true);
+  });
+
+  it("virtue-keyed ghost charm — each virtue checked independently (valor fails)", () => {
+    expect(meetsMinAbility(ghostCharm({ ability: "valor", minAbility: 4 }), ghostActor({ valor: 3 }))).toBe(false);
+  });
+
+  it("virtue-keyed ghost charm on actor without virtues — returns true (NPC fallback)", () => {
+    const charm = ghostCharm({ ability: "conviction", minAbility: 3 });
     const actor = { system: { abilities: {}, attributes: {} } };
     expect(meetsMinAbility(charm, actor)).toBe(true);
   });
@@ -231,6 +270,44 @@ describe("areCharmPrereqsMet — meetsMinAbility gate", () => {
     };
     const actor = {
       system: { exaltType: "solar", abilities: { martialArts: { value: 3 } }, attributes: {}, caste: "", limit: { value: 0 } },
+      items: { filter: () => [] }
+    };
+    expect(areCharmPrereqsMet(charm, actor)).toBe(true);
+  });
+
+  it("blocks a ghost charm when the actor's virtue is below minAbility", () => {
+    const charm = {
+      type: "charm",
+      system: { exaltType: "ghost", ability: "conviction", minAbility: 3, prereqGroups: [] }
+    };
+    const actor = {
+      system: {
+        exaltType: "ghost",
+        virtues:    { conviction: { value: 2 }, compassion: { value: 1 }, temperance: { value: 1 }, valor: { value: 1 } },
+        abilities:  {},
+        attributes: {},
+        caste: "",
+        limit: { value: 0 }
+      },
+      items: { filter: () => [] }
+    };
+    expect(areCharmPrereqsMet(charm, actor)).toBe(false);
+  });
+
+  it("passes a ghost charm when the actor's virtue meets minAbility", () => {
+    const charm = {
+      type: "charm",
+      system: { exaltType: "ghost", ability: "conviction", minAbility: 3, prereqGroups: [] }
+    };
+    const actor = {
+      system: {
+        exaltType: "ghost",
+        virtues:    { conviction: { value: 3 }, compassion: { value: 1 }, temperance: { value: 1 }, valor: { value: 1 } },
+        abilities:  {},
+        attributes: {},
+        caste: "",
+        limit: { value: 0 }
+      },
       items: { filter: () => [] }
     };
     expect(areCharmPrereqsMet(charm, actor)).toBe(true);

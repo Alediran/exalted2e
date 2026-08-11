@@ -97,10 +97,12 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     };
 
     // Lunars and Alchemicals key their charms to Attributes; Fair Folk key
-    // to Graces; every other exalt type keys to Abilities. All use the same
-    // `system.ability` field — only the dropdown contents and label change.
+    // to Graces; Ghosts key to Virtues; every other exalt type keys to
+    // Abilities. All use the same `system.ability` field — only the dropdown
+    // contents and label change.
     const isFairFolk    = sys.exaltType === "fairfolk";
     const usesAttribute = ["lunar", "alchemical"].includes(sys.exaltType);
+    const usesVirtue    = sys.exaltType === "ghost";
     const { attributeOptions, abilityOptions } = buildTraitOptions(EX2E, k => game.i18n.localize(k));
     const graceOptions = [
       { value: "cup",   label: game.i18n.localize("EX2E.GraceCup")   },
@@ -109,6 +111,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       { value: "sword", label: game.i18n.localize("EX2E.GraceSword") },
       { value: "heart", label: game.i18n.localize("EX2E.GraceHeart") },
     ];
+    const virtueOptions = Object.entries(EX2E.virtues).map(([k, v]) => ({
+      value: k, label: game.i18n.localize(v)
+    }));
 
     // Deduplicated charm list spanning actor items, world items, and all
     // compendium pack indices — so datalist autocomplete and display names
@@ -139,15 +144,16 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       durations:    Object.entries(EX2E.durations).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       splatTypes:   Object.entries(EX2E.splatTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       usesAttribute,
+      usesVirtue,
       hgHasChoice: (sys.healthGrant?.options?.length ?? 0) > 1,
       // `abilities` is the charm-key dropdown — its contents swap between
-      // ability and attribute lists based on `usesAttribute`.
-      abilities:    isFairFolk ? graceOptions : (usesAttribute ? attributeOptions : abilityOptions),
+      // ability, attribute, virtue, or grace lists based on exalt type.
+      abilities:    isFairFolk ? graceOptions : usesVirtue ? virtueOptions : (usesAttribute ? attributeOptions : abilityOptions),
       // `allAbilities` always contains ability keys regardless of exalt type;
       // used by abilityDiceBonus which matches against ability keys only.
       allAbilities: abilityOptions,
-      abilityFieldLabel:    game.i18n.localize(isFairFolk ? "EX2E.Grace"    : (usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability")),
-      minAbilityFieldLabel: game.i18n.localize(isFairFolk ? "EX2E.MinGrace" : (usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility")),
+      abilityFieldLabel:    game.i18n.localize(isFairFolk ? "EX2E.Grace"    : usesVirtue ? "EX2E.Virtue"    : (usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability")),
+      minAbilityFieldLabel: game.i18n.localize(isFairFolk ? "EX2E.MinGrace" : usesVirtue ? "EX2E.MinVirtue" : (usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility")),
       excellencies: [
         { value: "",                label: game.i18n.localize("EX2E.ExcellencyNone") },
         { value: "first",           label: game.i18n.localize("EX2E.FirstExcellency") },
