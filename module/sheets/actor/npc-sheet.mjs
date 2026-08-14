@@ -125,7 +125,8 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       key: k,
       name: `system.abilities.${k}.value`,
       labelKey: `EX2E.Ability${cap(k)}`,
-      value: sys.abilities?.[k]?.value ?? 0
+      value: sys.abilities?.[k]?.value ?? 0,
+      specialties: sys.abilities?.[k]?.specialties ?? []
     })));
 
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
@@ -135,7 +136,8 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       attributeGroups, abilityColumns, extraHealthLevels,
       enrichedPowers:    await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.powers,    enrichOpts),
       enrichedNotes:     await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.notes,     enrichOpts),
-      enrichedBiography: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.biography, enrichOpts)
+      enrichedBiography: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.biography, enrichOpts),
+      enrichedSanctum:   await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.sanctum ?? "",   enrichOpts)
     };
   }
 

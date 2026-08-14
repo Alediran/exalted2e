@@ -8,7 +8,11 @@ function attrField() {
 
 function abilField() {
   return new fields.SchemaField({
-    value: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
+    value: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+    specialties: new fields.ArrayField(new fields.SchemaField({
+      name:  new fields.StringField({ initial: '', blank: true }),
+      value: new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
+    }), { initial: [] })
   });
 }
 
@@ -36,6 +40,14 @@ export class NpcData extends foundry.abstract.TypeDataModel {
         perception:   attrField(),
         intelligence: attrField(),
         wits:         attrField()
+      }),
+
+      // ── Virtues ─────────────────────────────────────────────────────────────
+      virtues: new fields.SchemaField({
+        compassion: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+        conviction:  new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+        temperance:  new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+        valor:       new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true })
       }),
 
       // ── Abilities ───────────────────────────────────────────────────────────
@@ -120,14 +132,19 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       powers:   new fields.HTMLField({ initial: "" }),
       notes:    new fields.HTMLField({ initial: "" }),
       biography: new fields.HTMLField({ initial: "" }),
+      sanctum:   new fields.HTMLField({ initial: "" }),
+      languages: new fields.ArrayField(new fields.StringField({ initial: "", blank: true }), { initial: [] }),
 
       // ── Attacks (structured for roll pipeline) ───────────────────────────
       attacks: new fields.ArrayField(new fields.SchemaField({
-        name:   new fields.StringField({ initial: "Attack", blank: false }),
-        pool:   new fields.NumberField({ initial: 5,   min: 0, max: 50, integer: true }),
-        damage: new fields.StringField({ initial: "5L", blank: false }),
-        speed:  new fields.NumberField({ initial: 5,   min: 1, max: 10, integer: true }),
-        rate:   new fields.NumberField({ initial: 1,   min: 1, max: 10, integer: true })
+        name:    new fields.StringField({ initial: "Attack", blank: false }),
+        label:   new fields.StringField({ initial: "",       blank: true  }),
+        pool:    new fields.NumberField({ initial: 5,   min: 0,  max: 50,  integer: true }),
+        damage:  new fields.StringField({ initial: "5L", blank: false }),
+        speed:   new fields.NumberField({ initial: 5,   min: 1,  max: 10,  integer: true }),
+        rate:    new fields.NumberField({ initial: 1,   min: 1,  max: 10,  integer: true }),
+        parryDV: new fields.NumberField({ initial: -1,  min: -1, max: 15,  integer: true }),
+        range:   new fields.NumberField({ initial: 0,   min: 0,  max: 200, integer: true })
       })),
 
       // ── XP / Purchase Mode ──────────────────────────────────────────────

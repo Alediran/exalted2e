@@ -16,15 +16,45 @@
     {{/each}}
   </div>
 
+  <!-- Virtues -->
+  {{#if system.virtues}}
+  <h2 class="section-header">{{localize "EX2E.Virtues"}}</h2>
+  <div class="npc-attr-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px 16px;margin-bottom:8px">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+      <span style="font-size:0.82em">{{localize "EX2E.VirtueCompassion"}}</span>
+      {{dotRating name="system.virtues.compassion" value=system.virtues.compassion max=5 min=1}}
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+      <span style="font-size:0.82em">{{localize "EX2E.VirtueConviction"}}</span>
+      {{dotRating name="system.virtues.conviction" value=system.virtues.conviction max=5 min=1}}
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+      <span style="font-size:0.82em">{{localize "EX2E.VirtueTemperance"}}</span>
+      {{dotRating name="system.virtues.temperance" value=system.virtues.temperance max=5 min=1}}
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+      <span style="font-size:0.82em">{{localize "EX2E.VirtueValor"}}</span>
+      {{dotRating name="system.virtues.valor" value=system.virtues.valor max=5 min=1}}
+    </div>
+  </div>
+  {{/if}}
+
   <!-- Abilities -->
   <h2 class="section-header">{{localize "EX2E.Abilities"}}</h2>
   <div class="npc-abil-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0 16px;margin-bottom:8px">
     {{#each abilityColumns as |col|}}
     <div>
       {{#each col as |abil|}}
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:4px;margin-bottom:2px">
-        <span style="font-size:0.82em">{{localize abil.labelKey}}</span>
-        {{dotRating name=abil.name value=abil.value max=5 min=0}}
+      <div style="margin-bottom:4px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+          <span style="font-size:0.82em">{{localize abil.labelKey}}</span>
+          {{dotRating name=abil.name value=abil.value max=5 min=0}}
+        </div>
+        {{#each abil.specialties as |spec|}}
+        <div style="font-size:0.75em;color:var(--color-text-light-6);padding-left:8px">
+          {{spec.name}} +{{spec.value}}
+        </div>
+        {{/each}}
       </div>
       {{/each}}
     </div>
@@ -61,7 +91,24 @@
       <span class="stat-label">{{localize "EX2E.Hardness"}}</span>
       <span class="stat-value">{{system.combat.hardness}}</span>
     </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.Motes"}}</span>
+      <span class="stat-value">
+        {{#if isEditable}}
+        <input type="number" name="system.motes.value" value="{{system.motes.value}}" min="0" style="width:42px">
+        {{else}}
+        {{system.motes.value}}
+        {{/if}}
+        / {{system.motes.max}}
+      </span>
+    </div>
   </div>
+  {{#if isEditable}}
+  <div style="margin-bottom:4px">
+    <input type="number" name="system.motes.max" value="{{system.motes.max}}" min="0" style="width:60px" title="{{localize 'EX2E.MotesMax'}}">
+    <span style="font-size:0.8em;opacity:0.7"> {{localize "EX2E.MotesMax"}}</span>
+  </div>
+  {{/if}}
 
   <!-- Action Buttons -->
   <div class="action-button-row">
@@ -190,16 +237,28 @@
   {{#each system.attacks as |atk idx|}}
   <div class="item-row attack-row" data-attack-index="{{idx}}">
     {{#if @root.isEditable}}
-    <input type="text"   name="system.attacks.{{idx}}.name"   value="{{atk.name}}"   style="width:110px" title="Name">
-    <input type="number" name="system.attacks.{{idx}}.pool"   value="{{atk.pool}}"   min="0" max="50" style="width:42px" title="Pool">
-    <input type="text"   name="system.attacks.{{idx}}.damage" value="{{atk.damage}}" style="width:42px" title="Damage (e.g. 8L)">
+    <input type="text"   name="system.attacks.{{idx}}.label"   value="{{atk.label}}"   style="width:80px"  title="Form/Label (e.g. Dolphin Form)">
+    <input type="text"   name="system.attacks.{{idx}}.name"    value="{{atk.name}}"    style="width:100px" title="Name">
+    <input type="number" name="system.attacks.{{idx}}.pool"    value="{{atk.pool}}"    min="0" max="50" style="width:38px" title="Accuracy (pool)">
+    <input type="text"   name="system.attacks.{{idx}}.damage"  value="{{atk.damage}}"  style="width:42px" title="Damage (e.g. 8L)">
     <span class="stat-label" style="font-size:0.75em">Spd</span>
-    <input type="number" name="system.attacks.{{idx}}.speed"  value="{{atk.speed}}"  min="1" max="10" style="width:36px" title="Speed">
+    <input type="number" name="system.attacks.{{idx}}.speed"   value="{{atk.speed}}"   min="1" max="10" style="width:32px" title="Speed">
     <span class="stat-label" style="font-size:0.75em">Rate</span>
-    <input type="number" name="system.attacks.{{idx}}.rate"   value="{{atk.rate}}"   min="1" max="10" style="width:36px" title="Rate">
+    <input type="number" name="system.attacks.{{idx}}.rate"    value="{{atk.rate}}"    min="1" max="10" style="width:32px" title="Rate">
+    <span class="stat-label" style="font-size:0.75em">PDV</span>
+    <input type="number" name="system.attacks.{{idx}}.parryDV" value="{{atk.parryDV}}" min="-1" max="15" style="width:32px" title="Parry DV (−1 = no parry)">
+    <span class="stat-label" style="font-size:0.75em">Rng</span>
+    <input type="number" name="system.attacks.{{idx}}.range"   value="{{atk.range}}"   min="0" max="200" style="width:36px" title="Range (0 = melee)">
     {{else}}
-    <span class="item-name">{{atk.name}}</span>
-    <span class="stat-value" style="font-size:0.85em">{{atk.pool}}⚄ {{atk.damage}} Spd{{atk.speed}} Rate{{atk.rate}}</span>
+    <span class="item-name">
+      {{#if atk.label}}<span style="opacity:0.6;font-size:0.8em">{{atk.label}} · </span>{{/if}}{{atk.name}}
+    </span>
+    <span class="stat-value" style="font-size:0.82em">
+      {{atk.pool}}⚄ {{atk.damage}}
+      Spd{{atk.speed}} Rate{{atk.rate}}
+      {{#if (gte atk.parryDV 0)}} PDV{{atk.parryDV}}{{else}} PDV–{{/if}}
+      {{#if atk.range}} Rng{{atk.range}}{{/if}}
+    </span>
     {{/if}}
     <div class="item-controls">
       <button data-action="rollNpcAttack" title="{{localize 'EX2E.RollAttack'}}">⚔</button>
@@ -321,6 +380,22 @@
       </prose-mirror>
       {{else}}
       <div class="editor-content">{{{enrichedBiography}}}</div>
+      {{/if}}
+    </div>
+  </details>
+  {{/if}}
+
+  <!-- Sanctum -->
+  {{#if enrichedSanctum}}
+  <details class="biography-block" style="margin-top:8px">
+    <summary style="cursor:pointer"><h2 class="section-header" style="display:inline;margin:0">{{localize "EX2E.Sanctum"}}</h2></summary>
+    <div class="editor-container" style="margin-top:4px">
+      {{#if isEditable}}
+      <prose-mirror name="system.sanctum" data-document-uuid="{{actor.uuid}}" value="{{system.sanctum}}" collaborate="true" toggled="true">
+        {{{enrichedSanctum}}}
+      </prose-mirror>
+      {{else}}
+      <div class="editor-content">{{{enrichedSanctum}}}</div>
       {{/if}}
     </div>
   </details>
