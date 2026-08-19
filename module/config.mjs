@@ -907,3 +907,10 @@ EX2E.splatLightColor = {
   infernal:    '#d8f0c0',
   alchemical:  '#d0dff0',
 };
+
+EX2E.npcTypes = {
+  god:      "EX2E.NpcTypeGod",
+  elemental: "EX2E.NpcTypeElemental",
+  demon:    "EX2E.NpcTypeDemon",
+  undead:   "EX2E.NpcTypeUndead",
+};

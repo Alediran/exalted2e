@@ -1,4 +1,5 @@
 import { ExaltedRoll } from "../../rolls/exalted-roll.mjs";
+import { EX2E } from "../../config.mjs";
 import { itemDescription } from "../../helpers/localize-description.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { ex2eCan } from "../../helpers/permissions.mjs";
@@ -137,7 +138,9 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       enrichedPowers:    await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.powers,    enrichOpts),
       enrichedNotes:     await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.notes,     enrichOpts),
       enrichedBiography: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.biography, enrichOpts),
-      enrichedSanctum:   await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.sanctum ?? "",   enrichOpts)
+      enrichedSanctum:   await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.sanctum ?? "",   enrichOpts),
+      enrichedSummoning: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.summoning ?? "", enrichOpts),
+      npcTypes: EX2E.npcTypes,
     };
   }
 

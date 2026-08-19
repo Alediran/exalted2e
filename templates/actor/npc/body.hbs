@@ -401,4 +401,20 @@
   </details>
   {{/if}}
 
+  <!-- Summoning -->
+  {{#if enrichedSummoning}}
+  <details class="biography-block" style="margin-top:8px">
+    <summary style="cursor:pointer"><h2 class="section-header" style="display:inline;margin:0">{{localize "EX2E.Summoning"}}</h2></summary>
+    <div class="editor-container" style="margin-top:4px">
+      {{#if isEditable}}
+      <prose-mirror name="system.summoning" data-document-uuid="{{actor.uuid}}" value="{{system.summoning}}" collaborate="true" toggled="true">
+        {{{enrichedSummoning}}}
+      </prose-mirror>
+      {{else}}
+      <div class="editor-content">{{{enrichedSummoning}}}</div>
+      {{/if}}
+    </div>
+  </details>
+  {{/if}}
+
 </div>

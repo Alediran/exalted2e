@@ -66,9 +66,9 @@ describe("Terrestrial Gods — actor JSON files", () => {
         expect(actor.folder).toBe(TERRESTRIAL_GODS_FOLDER);
       });
 
-      it("is type npc / npcType spirit", () => {
+      it("is type npc / npcType god", () => {
         expect(actor.type).toBe("npc");
-        expect(actor.system.npcType).toBe("spirit");
+        expect(actor.system.npcType).toBe("god");
       });
 
       it(`has Essence ${expected.essence}`, () => {

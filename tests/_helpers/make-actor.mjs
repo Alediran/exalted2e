@@ -74,7 +74,7 @@ export function makeCharacterSystem(overrides = {}) {
 /** Synthetic NpcData system object. */
 export function makeNpcSystem(overrides = {}) {
   return {
-    npcType: "mortal",
+    npcType: "god",
     concept: "",
     essence:   { value: 1 },
     willpower: { value: 3, max: 3 },

@@ -87,6 +87,29 @@ describe("NpcData.prepareDerivedData wound penalty", () => {
   });
 });
 
+describe("NpcData schema — identity fields", () => {
+  it("npcType defaults to 'god'", () => {
+    const schema = NpcData.defineSchema();
+    expect(schema.npcType.options.initial).toBe("god");
+  });
+
+  it("npcType is a non-blank StringField", () => {
+    const schema = NpcData.defineSchema();
+    expect(schema.npcType.options.blank).toBe(false);
+  });
+
+  it("summoning field exists with initial ''", () => {
+    const schema = NpcData.defineSchema();
+    expect(schema.summoning).toBeDefined();
+    expect(schema.summoning.options.initial).toBe("");
+  });
+
+  it("summoning is independent of sanctum", () => {
+    const schema = NpcData.defineSchema();
+    expect(schema.summoning).not.toBe(schema.sanctum);
+  });
+});
+
 describe("NpcData attacks schema", () => {
   it("has attacks ArrayField", () => {
     const schema = NpcData.defineSchema();

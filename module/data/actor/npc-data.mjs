@@ -25,7 +25,7 @@ export class NpcData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
       // ── Identity ────────────────────────────────────────────────────────
-      npcType:    new fields.StringField({ initial: "mortal", blank: false }),
+      npcType:    new fields.StringField({ initial: "god", blank: false }),
       concept:    new fields.StringField({ initial: "",       blank: true  }),
       isExtra:    new fields.BooleanField({ initial: false }),
 
@@ -133,6 +133,7 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       notes:    new fields.HTMLField({ initial: "" }),
       biography: new fields.HTMLField({ initial: "" }),
       sanctum:   new fields.HTMLField({ initial: "" }),
+      summoning: new fields.HTMLField({ initial: "" }),
       languages: new fields.ArrayField(new fields.StringField({ initial: "", blank: true }), { initial: [] }),
 
       // ── Attacks (structured for roll pipeline) ───────────────────────────

@@ -9,10 +9,11 @@
     <div class="identity-row">
       <div class="field-group" style="flex:0 0 auto">
         <label>{{localize "EX2E.NpcType"}}</label>
-        <input type="text" name="system.npcType" value="{{system.npcType}}"
-               placeholder="{{localize 'EX2E.NpcTypePlaceholder'}}"
-               style="width:80px"
-               {{#unless isEditable}}readonly{{/unless}}>
+        <select name="system.npcType" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each npcTypes}}
+          <option value="{{@key}}"{{#if (eq ../system.npcType @key)}} selected{{/if}}>{{localize this}}</option>
+          {{/each}}
+        </select>
       </div>
       <div class="field-group">
         <label>{{localize "EX2E.Concept"}}</label>
