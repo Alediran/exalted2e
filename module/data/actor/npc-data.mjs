@@ -26,7 +26,8 @@ export class NpcData extends foundry.abstract.TypeDataModel {
     return {
       // ── Identity ────────────────────────────────────────────────────────
       npcType:    new fields.StringField({ initial: "god", blank: false }),
-      concept:    new fields.StringField({ initial: "",       blank: true  }),
+      concept:    new fields.StringField({ initial: "",    blank: true }),
+      motivation: new fields.StringField({ initial: "",    blank: true }),
       isExtra:    new fields.BooleanField({ initial: false }),
 
       // ── Attributes ─────────────────────────────────────────────────────────

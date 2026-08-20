@@ -30,6 +30,12 @@
         </label>
       </div>
     </div>
+    <div class="motivation-row" style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+      <label style="white-space:nowrap;font-size:0.85em;flex:0 0 auto">{{localize "EX2E.Motivation"}}</label>
+      <input type="text" name="system.motivation" value="{{system.motivation}}"
+             placeholder="{{localize 'EX2E.MotivationPlaceholder'}}" style="flex:1"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
     <!-- Essence + Willpower + Motes row -->
     <div class="ex2e-header-row">
       <div class="field-group" style="flex:0 0 auto">
