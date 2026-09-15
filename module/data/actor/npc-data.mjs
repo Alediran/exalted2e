@@ -135,6 +135,7 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       biography: new fields.HTMLField({ initial: "" }),
       sanctum:   new fields.HTMLField({ initial: "" }),
       summoning: new fields.HTMLField({ initial: "" }),
+      summoningResistance: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
       languages: new fields.ArrayField(new fields.StringField({ initial: "", blank: true }), { initial: [] }),
 
       // ── Attacks (structured for roll pipeline) ───────────────────────────
