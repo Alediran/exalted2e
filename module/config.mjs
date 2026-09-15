@@ -913,4 +913,6 @@ EX2E.npcTypes = {
   elemental: "EX2E.NpcTypeElemental",
   demon:    "EX2E.NpcTypeDemon",
   undead:   "EX2E.NpcTypeUndead",
+  mortal:   "EX2E.NpcTypeMortal",
+  beast:    "EX2E.NpcTypeBeast",
 };

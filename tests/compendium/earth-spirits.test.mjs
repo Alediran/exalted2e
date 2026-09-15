@@ -16,6 +16,7 @@ const ACTOR_EXPECTATIONS = {
   "quicksilver-queen": { itemCount: 22, essence: 7, willpowerMax: 11, motesMax: 145 },
   "the-kukla":         { itemCount:  3, essence: 10, willpowerMax: 10, motesMax: 2000 },
   "kuklas-guardian":   { itemCount: 26, essence:  8, willpowerMax:  9, motesMax:  160 },
+  "gemlord":           { itemCount: 23, essence:  6, willpowerMax:  9, motesMax:  105 },
 };
 
 const ACTOR_NAMES = Object.keys(ACTOR_EXPECTATIONS);

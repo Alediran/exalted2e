@@ -93,22 +93,9 @@
     </div>
     <div class="stat-item">
       <span class="stat-label">{{localize "EX2E.Motes"}}</span>
-      <span class="stat-value">
-        {{#if isEditable}}
-        <input type="number" name="system.motes.value" value="{{system.motes.value}}" min="0" style="width:42px">
-        {{else}}
-        {{system.motes.value}}
-        {{/if}}
-        / {{system.motes.max}}
-      </span>
+      <span class="stat-value">{{system.motes.value}} / {{system.motes.max}}</span>
     </div>
   </div>
-  {{#if isEditable}}
-  <div style="margin-bottom:4px">
-    <input type="number" name="system.motes.max" value="{{system.motes.max}}" min="0" style="width:60px" title="{{localize 'EX2E.MotesMax'}}">
-    <span style="font-size:0.8em;opacity:0.7"> {{localize "EX2E.MotesMax"}}</span>
-  </div>
-  {{/if}}
 
   <!-- Action Buttons -->
   <div class="action-button-row">
