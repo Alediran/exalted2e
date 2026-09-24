@@ -1,10 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ACTORS_DIR = join(__dirname, "../../../../modules/exalted2e-compendium/src/packs/actors");
+const COMPENDIUM_AVAILABLE = existsSync(ACTORS_DIR);
 
 const AIR_SPIRITS_FOLDER = "e1e1000000000001";
 
@@ -28,7 +29,7 @@ const ACTOR_EXPECTATIONS = {
 const ACTOR_NAMES = Object.keys(ACTOR_EXPECTATIONS);
 const actors = Object.fromEntries(ACTOR_NAMES.map(n => [n, loadJSON(n)]));
 
-describe("Air Spirits — actor JSON files", () => {
+describe.skipIf(!COMPENDIUM_AVAILABLE)("Air Spirits — actor JSON files", () => {
   for (const name of ACTOR_NAMES) {
     const actor    = actors[name];
     const expected = ACTOR_EXPECTATIONS[name];
