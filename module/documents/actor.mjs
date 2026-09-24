@@ -169,7 +169,7 @@ export class ExaltedActor extends Actor {
 
     // ── Attribute / ability cap: max(5, permanent essence) ───────────────
     if (changed.system) {
-      const cap = Math.max(5, changed.system.essence?.value ?? this.system.essence.value);
+      const cap = Math.max(5, changed.system.essence?.value ?? this.system?.essence?.value ?? 1);
       if (changed.system.attributes) {
         for (const attr of Object.values(changed.system.attributes)) {
           if (typeof attr?.value === "number") attr.value = Math.min(attr.value, cap);
