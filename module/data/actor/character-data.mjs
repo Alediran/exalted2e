@@ -404,7 +404,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   }
 
   /** Helper: schema for a single attribute (mirrors #abilityField shape, minus specialties / defaultAttribute). */
-  static #attributeField(min = 1, max = 5) {
+  static #attributeField(min = 1, max = 20) {
     return new fields.SchemaField({
       value:   new fields.NumberField({ initial: 1, min, max, integer: true }),
       caste:   new fields.BooleanField({ initial: false }),
@@ -413,7 +413,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   }
 
   /** Helper: schema for a single ability */
-  static #abilityField(defaultAttribute = "", min = 0, max = 5) {
+  static #abilityField(defaultAttribute = "", min = 0, max = 10) {
     return new fields.SchemaField({
       value:            new fields.NumberField({ initial: 0, min: min, max: max, integer: true }),
       defaultAttribute: new fields.StringField({ initial: defaultAttribute, blank: true }),
@@ -429,7 +429,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   /** Craft ability — same as #abilityField("intelligence") plus name + variants. */
   static #craftAbilityField() {
     return new fields.SchemaField({
-      value:            new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+      value:            new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
       defaultAttribute: new fields.StringField({ initial: "intelligence", blank: true }),
       caste:            new fields.BooleanField({ initial: false }),
       favored:          new fields.BooleanField({ initial: false }),
@@ -456,6 +456,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   // ── Derived Data ──────────────────────────────────────────────────────────
 
   prepareDerivedData() {
+    this.attributeCap = Math.max(5, this.essence.value);
+    this.abilityCap   = Math.max(5, this.essence.value);
     this._applyActiveFormSubstitution(this);
     this._prepareWillpowerMinimum();
     this._prepareHealthData();

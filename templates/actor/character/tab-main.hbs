@@ -21,7 +21,7 @@
           <span class="attribute-label">{{localizeAttribute attrKey}}</span>
           {{dotRating name=(concat "system.attributes." attrKey ".value")
                       value=attr.value
-                      max=5 min=1}}
+                      max=@root.system.attributeCap min=1}}
         </div>
         {{/with}}
         {{/each}}
@@ -43,7 +43,7 @@
           <span class="attribute-label">{{localizeAttribute attrKey}}</span>
           {{dotRating name=(concat "system.attributes." attrKey ".value")
                       value=attr.value
-                      max=5 min=1}}
+                      max=@root.system.attributeCap min=1}}
         </div>
         {{/with}}
         {{/each}}
@@ -65,7 +65,7 @@
           <span class="attribute-label">{{localizeAttribute attrKey}}</span>
           {{dotRating name=(concat "system.attributes." attrKey ".value")
                       value=attr.value
-                      max=5 min=1}}
+                      max=@root.system.attributeCap min=1}}
         </div>
         {{/with}}
         {{/each}}

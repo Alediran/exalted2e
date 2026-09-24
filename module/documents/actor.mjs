@@ -167,6 +167,21 @@ export class ExaltedActor extends Actor {
 
     if (this.type !== "character") return;
 
+    // ── Attribute / ability cap: max(5, permanent essence) ───────────────
+    if (changed.system) {
+      const cap = Math.max(5, changed.system.essence?.value ?? this.system.essence.value);
+      if (changed.system.attributes) {
+        for (const attr of Object.values(changed.system.attributes)) {
+          if (typeof attr?.value === "number") attr.value = Math.min(attr.value, cap);
+        }
+      }
+      if (changed.system.abilities) {
+        for (const ab of Object.values(changed.system.abilities)) {
+          if (typeof ab?.value === "number") ab.value = Math.min(ab.value, cap);
+        }
+      }
+    }
+
     // ── Caste auto-assignment (existing behaviour, unchanged) ─────────
     const newCaste = changed.system?.caste;
     if (newCaste !== undefined) {

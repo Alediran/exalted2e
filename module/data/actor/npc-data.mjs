@@ -2,13 +2,13 @@ const fields = foundry.data.fields;
 
 function attrField() {
   return new fields.SchemaField({
-    value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true })
+    value: new fields.NumberField({ initial: 1, min: 1, max: 20, integer: true })
   });
 }
 
 function abilField() {
   return new fields.SchemaField({
-    value: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+    value: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
     specialties: new fields.ArrayField(new fields.SchemaField({
       name:  new fields.StringField({ initial: '', blank: true }),
       value: new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
@@ -85,8 +85,8 @@ export class NpcData extends foundry.abstract.TypeDataModel {
         value: new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true })
       }),
       willpower: new fields.SchemaField({
-        value: new fields.NumberField({ initial: 5, min: 0, max: 10, integer: true }),
-        max:   new fields.NumberField({ initial: 5, min: 1, max: 10, integer: true })
+        value: new fields.NumberField({ initial: 5, min: 0, max: 20, integer: true }),
+        max:   new fields.NumberField({ initial: 5, min: 1, max: 20, integer: true })
       }),
       motes: new fields.SchemaField({
         value: new fields.NumberField({ initial: 0, min: 0, max: 2000, integer: true }),
@@ -112,7 +112,7 @@ export class NpcData extends foundry.abstract.TypeDataModel {
           lethal:     new fields.NumberField({ initial: 1, min: 0, max: 60, integer: true }),
           aggravated: new fields.NumberField({ initial: 0, min: 0, max: 40, integer: true })
         }),
-        hardness:     new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
+        hardness:     new fields.NumberField({ initial: 0, min: 0, max: 40, integer: true }),
         woundPenalty: new fields.NumberField({ initial: 0, min: 0, max: 4,  integer: true })
       }),
 
@@ -146,7 +146,7 @@ export class NpcData extends foundry.abstract.TypeDataModel {
         damage:  new fields.StringField({ initial: "5L", blank: false }),
         speed:   new fields.NumberField({ initial: 5,   min: 1,  max: 10,  integer: true }),
         rate:    new fields.NumberField({ initial: 1,   min: 1,  max: 10,  integer: true }),
-        parryDV: new fields.NumberField({ initial: -1,  min: -1, max: 15,  integer: true }),
+        parryDV: new fields.NumberField({ initial: -1,  min: -1, max: 25,  integer: true }),
         range:   new fields.NumberField({ initial: 0,   min: 0,  max: 200, integer: true })
       })),
 

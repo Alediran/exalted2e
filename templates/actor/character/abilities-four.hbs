@@ -21,7 +21,7 @@
               <button class="ability-name" data-action="rollAbility" data-ability="{{ab.key}}"
                       title="Roll {{ab.label}}">{{ab.label}}</button>
             </div>
-            {{dotRating name=(concat ab.fieldBase ".value") value=ab.value max=5 min=0}}
+            {{dotRating name=(concat ab.fieldBase ".value") value=ab.value max=@root.system.abilityCap min=0}}
           </div>
 
         </div>
