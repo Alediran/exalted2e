@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ACTORS_DIR  = join(__dirname, "../../../../modules/exalted2e-compendium/src/packs/actors");
 const CHARMS_DIR  = join(__dirname, "../../../../modules/exalted2e-compendium/src/packs/charms");
+const COMPENDIUM_AVAILABLE = existsSync(ACTORS_DIR);
 
 const TERRESTRIAL_GODS_FOLDER = "c1d2e3f400000001";
 const EIDOLA_FOLDER           = "a1b2c3d4e5f60017";
@@ -27,13 +28,13 @@ const NEW_CHARM_NAMES = [
   "spirit-benediction",
 ];
 
-function loadJSON(dir, basename) {
-  return JSON.parse(readFileSync(join(dir, `${basename}.json`), "utf-8"));
+function loadJSON(dir, basename, available) {
+  return available ? JSON.parse(readFileSync(join(dir, `${basename}.json`), "utf-8")) : null;
 }
 
 // Load synchronously at module level — no Foundry APIs used.
-const actors = Object.fromEntries(ACTOR_NAMES.map(n => [n, loadJSON(ACTORS_DIR, n)]));
-const charms = Object.fromEntries(NEW_CHARM_NAMES.map(n => [n, loadJSON(CHARMS_DIR, n)]));
+const actors = Object.fromEntries(ACTOR_NAMES.map(n => [n, loadJSON(ACTORS_DIR, n, COMPENDIUM_AVAILABLE)]));
+const charms = Object.fromEntries(NEW_CHARM_NAMES.map(n => [n, loadJSON(CHARMS_DIR, n, COMPENDIUM_AVAILABLE)]));
 
 // ---------------------------------------------------------------------------
 // Per-actor expectations used in the parametric loop
@@ -52,7 +53,7 @@ const ACTOR_EXPECTATIONS = {
 // ---------------------------------------------------------------------------
 // Actor tests
 // ---------------------------------------------------------------------------
-describe("Terrestrial Gods — actor JSON files", () => {
+describe.skipIf(!COMPENDIUM_AVAILABLE)("Terrestrial Gods — actor JSON files", () => {
   for (const name of ACTOR_NAMES) {
     const actor = actors[name];
     const expected = ACTOR_EXPECTATIONS[name];

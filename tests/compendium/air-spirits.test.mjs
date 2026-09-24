@@ -9,8 +9,8 @@ const COMPENDIUM_AVAILABLE = existsSync(ACTORS_DIR);
 
 const AIR_SPIRITS_FOLDER = "e1e1000000000001";
 
-function loadJSON(basename) {
-  return JSON.parse(readFileSync(join(ACTORS_DIR, `${basename}.json`), "utf-8"));
+function loadJSON(basename, available) {
+  return available ? JSON.parse(readFileSync(join(ACTORS_DIR, `${basename}.json`), "utf-8")) : null;
 }
 
 const ACTOR_EXPECTATIONS = {
@@ -27,7 +27,7 @@ const ACTOR_EXPECTATIONS = {
 };
 
 const ACTOR_NAMES = Object.keys(ACTOR_EXPECTATIONS);
-const actors = Object.fromEntries(ACTOR_NAMES.map(n => [n, loadJSON(n)]));
+const actors = Object.fromEntries(ACTOR_NAMES.map(n => [n, loadJSON(n, COMPENDIUM_AVAILABLE)]));
 
 describe.skipIf(!COMPENDIUM_AVAILABLE)("Air Spirits — actor JSON files", () => {
   for (const name of ACTOR_NAMES) {
