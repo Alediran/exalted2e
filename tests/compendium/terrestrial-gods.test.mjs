@@ -137,7 +137,7 @@ describe.skipIf(!COMPENDIUM_AVAILABLE)("Terrestrial Gods — actor JSON files", 
     });
   }
 
-  describe("cross-actor uniqueness", () => {
+  describe.skipIf(!COMPENDIUM_AVAILABLE)("cross-actor uniqueness", () => {
     it("all actor _ids are unique", () => {
       const ids = ACTOR_NAMES.map(n => actors[n]._id);
       expect(new Set(ids).size).toBe(ids.length);
@@ -153,7 +153,7 @@ describe.skipIf(!COMPENDIUM_AVAILABLE)("Terrestrial Gods — actor JSON files", 
 // ---------------------------------------------------------------------------
 // New spirit charm files
 // ---------------------------------------------------------------------------
-describe("New spirit charm files", () => {
+describe.skipIf(!COMPENDIUM_AVAILABLE)("New spirit charm files", () => {
   for (const name of NEW_CHARM_NAMES) {
     const charm = charms[name];
 
